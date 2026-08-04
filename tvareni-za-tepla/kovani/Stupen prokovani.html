@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stupeň prokování | STT</title>
+<meta name="description" content="Kalkulačka stupně prokování a graf přetvárného odporu oceli v závislosti na teplotě.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: #7be0a0; text-decoration: none; }
+    a:hover { color: #9defb8; }
+    input[type=number]::-webkit-inner-spin-button { opacity: 0.4; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '264px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a'); var SELF = 'tvareni-za-tepla/';
+        s.nav.forEach(function(item, i){ var href = item.href.indexOf(SELF)===0 ? '../'+item.href.slice(SELF.length) : '../../'+item.href; var el=links[i]; if(el){el.textContent=item.title; el.setAttribute('href',href);} });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.2);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8ea2b6;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8ea2b6;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8ea2b6;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa">Domů</a>
+    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa">Vnitřní stavba kovů a TZ</a>
+    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa">Koroze</a>
+    <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa">Tváření</a>
+    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa">O projektu</a>
+  </div>
+</div>
+
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Kování</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 40px 90px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:960px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Kování · nástroje</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 16px">Stupeň prokování &amp; přetvárný odpor</h1>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;max-width:680px;margin:0 0 44px">Stupeň prokování říká, kolikrát se změnil průřez (nebo výška) při kování. Dostatečně velký stupeň prokování <strong>rozbije hrubou licí strukturu</strong> ingotu a usměrní zrno do vlákna. Níže si ho spočítáš a v grafu uvidíš, jak s teplotou klesá přetvárný odpor různých ocelí.</p>
+
+    <!-- ── KALKULAČKA ── -->
+    <section style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:20px;padding:30px 30px 34px;margin-bottom:40px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:21px;color:#eaf2fa;margin-bottom:4px">Kalkulačka stupně prokování</div>
+      <div style="font-size:14.5px;color:#8ea2b6;margin-bottom:24px">Zadej rozměry před a po tváření. K = stupeň prokování.</div>
+
+      <div style="display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:start">
+        <!-- vstupy -->
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#8ea2b6;margin-bottom:10px">Operace</div>
+            <div style="display:flex;gap:10px">
+              <sc-for list="{{ opModes }}" as="m" hint-placeholder-count="2">
+                <button onClick="{{ m.pick }}" style="{{ m.style }}">{{ m.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font-size:13.5px;color:#aebfcf">{{ inLabel0 }}</span>
+              <input type="number" value="{{ v0 }}" onInput="{{ set0 }}" min="0" step="any" style="background:#0e131b;border:1px solid rgba(150,180,210,0.2);border-radius:10px;padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:17px;color:#eaf2fa;width:100%;box-sizing:border-box" />
+            </label>
+            <label style="display:flex;flex-direction:column;gap:7px">
+              <span style="font-size:13.5px;color:#aebfcf">{{ inLabel1 }}</span>
+              <input type="number" value="{{ v1 }}" onInput="{{ set1 }}" min="0" step="any" style="background:#0e131b;border:1px solid rgba(150,180,210,0.2);border-radius:10px;padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:17px;color:#eaf2fa;width:100%;box-sizing:border-box" />
+            </label>
+          </div>
+
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#8ea2b6;margin-bottom:10px">Výchozí materiál</div>
+            <div style="display:flex;gap:10px">
+              <sc-for list="{{ matModes }}" as="m" hint-placeholder-count="2">
+                <button onClick="{{ m.pick }}" style="{{ m.style }}">{{ m.label }}</button>
+              </sc-for>
+            </div>
+            <div style="font-size:12.5px;color:#71808f;margin-top:8px">{{ matHint }}</div>
+          </div>
+        </div>
+
+        <!-- výstup -->
+        <div style="background:#0b1017;border:1px solid rgba(150,180,210,0.14);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px">
+          <div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#8ea2b6;margin-bottom:6px">Stupeň prokování</div>
+            <div style="display:flex;align-items:baseline;gap:8px">
+              <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:52px;line-height:1;color:{{ kColor }}">{{ kText }}</span>
+              <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:22px;color:#8ea2b6">: 1</span>
+            </div>
+          </div>
+          <div style="height:1px;background:rgba(150,180,210,0.14)"></div>
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:{{ verdictBg }};border:1px solid {{ verdictBorder }}">
+              <span style="width:9px;height:9px;border-radius:999px;background:{{ kColor }}"></span>
+              <span style="font-size:13.5px;font-weight:600;color:{{ kColor }}">{{ verdictLabel }}</span>
+            </div>
+            <div style="font-size:14px;line-height:1.55;color:#aebfcf;margin-top:12px">{{ verdictText }}</div>
+          </div>
+          <!-- mini-vizualizace: dendrit → vlákno -->
+          <svg viewBox="0 0 292 74" style="width:100%;height:auto;margin-top:4px">
+            <rect x="0" y="0" width="292" height="74" rx="10" fill="#10151c" />
+            <g transform="translate(0 0)" opacity="{{ vizCastOp }}">
+              <path d="M40 37 L40 12 M40 37 L40 62 M40 37 L18 20 M40 37 L62 20 M40 37 L18 54 M40 37 L62 54 M40 25 L28 16 M40 25 L52 16 M40 49 L28 58 M40 49 L52 58" stroke="#ff9b7a" stroke-width="2" stroke-linecap="round" fill="none" />
+            </g>
+            <text x="40" y="72" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#71808f" display="{{ vizLabelCast }}">licí dendrit</text>
+            <path d="M96 37 L120 30 M124 44 L150 36" stroke="#5c6773" stroke-width="1.6" marker-end="url(#ar)" fill="none" opacity="{{ vizArrowOp }}" />
+            <g transform="translate(178 0)" opacity="{{ vizFibreOp }}">
+              <path d="M8 22 Q40 16 72 22 M6 33 Q40 28 74 33 M8 44 Q40 39 72 44 M10 55 Q40 50 70 55" stroke="{{ kColor }}" stroke-width="2" stroke-linecap="round" fill="none" />
+            </g>
+            <text x="218" y="72" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#71808f" display="{{ vizLabelFibre }}">usměrněné vlákno</text>
+            <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#5c6773" /></marker></defs>
+          </svg>
+        </div>
+      </div>
+
+      <div style="font-size:12px;color:#5f6d7b;margin-top:22px;line-height:1.5">Prahové hodnoty jsou orientační (učebnicové) — pro rozbití licí struktury z ingotu se běžně požaduje stupeň prokování aspoň 3 : 1. Nad ~6:1 už pevnost neroste a sílí anizotropie (rozdíl vlastností podél a napříč vlákna).</div>
+    </section>
+
+    <!-- ── GRAF ── -->
+    <section style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:20px;padding:30px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:21px;color:#eaf2fa;margin-bottom:4px">Přetvárný odpor vs. teplota</div>
+      <div style="font-size:14.5px;color:#8ea2b6;margin-bottom:22px">S rostoucí teplotou klesá přetvárný odpor — kov je snadněji tvárný. Klikni na ocel v legendě pro zvýraznění, najetím do grafu odečteš hodnoty.</div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px">
+        <sc-for list="{{ steels }}" as="s" hint-placeholder-count="4">
+          <button onClick="{{ s.toggle }}" style="{{ s.chipStyle }}">
+            <span style="width:22px;height:3px;border-radius:2px;background:{{ s.color }};display:inline-block"></span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-weight:500">{{ s.en }}</span>
+            <span style="color:#71808f;font-size:12px">{{ s.csn }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="width:100%">{{ chartSvg }}</div>
+      <div style="font-size:12px;color:#5f6d7b;margin-top:16px;line-height:1.5">Hodnoty jsou ilustrativní (typové) — tvary a vzájemné pořadí křivek odpovídají realitě, nejde o certifikovaná měřicí data. Austenitická korozivzdorná ocel má nejvyšší odpor a nejužší teplotní interval tváření; nízkouhlíková ocel se kove nejsnáze.</div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STEELS = [
+  { key: 'c15',  en: 'C15E',          csn: '12 020', color: '#7be0a0', base: 150, decay: 0.30,  forge: [850, 1250] },
+  { key: 'c45',  en: 'C45E',          csn: '12 050', color: '#5fc0ef', base: 185, decay: 0.28,  forge: [850, 1200] },
+  { key: 'crmo', en: '42CrMo4',       csn: '15 142', color: '#e6a94a', base: 235, decay: 0.26,  forge: [850, 1180] },
+  { key: 'ss',   en: 'X5CrNi18-10',   csn: '17 240', color: '#ff7ab0', base: 320, decay: 0.235, forge: [950, 1180] },
+];
+const T0 = 700, T1 = 1300, YMAX = 320;
+const PL = 70, PR = 860, PT = 40, PB = 380;
+// teplotní interval tváření (orientačně 900–1250 °C)
+const BAND_A = 900, BAND_B = 1250;
+
+class Component extends DCLogic {
+  state = {
+    op: 'upset',            // 'upset' pěchování | 'draw' protahování
+    mat: 'cast',            // 'cast' litý | 'wrought' protvářený
+    up0: 120, up1: 40,      // pěchování: H0, H1
+    dr0: 2000, dr1: 500,    // protahování: S0, S1
+    hidden: {},             // skryté oceli v grafu
+    hoverT: null,           // teplota pod kurzorem v grafu
+  };
+
+  onMove = (e) => {
+    const svg = e.currentTarget;
+    const r = svg.getBoundingClientRect();
+    const cx = (e.clientX - r.left) / r.width * 900;
+    let T = T0 + (cx - PL) / (PR - PL) * (T1 - T0);
+    T = Math.max(T0, Math.min(T1, Math.round(T / 10) * 10));
+    if (T !== this.state.hoverT) this.setState({ hoverT: T });
+  };
+  onLeave = () => this.setState({ hoverT: null });
+
+  chart(steels, hv) {
+    const h = React.createElement;
+    const MONO = 'IBM Plex Mono, monospace', SANS = 'IBM Plex Sans, sans-serif';
+    const els = [];
+    // teplotní interval tváření
+    const bx = this.x(BAND_A), bw = this.x(BAND_B) - this.x(BAND_A);
+    els.push(h('rect', { key: 'band', x: bx, y: 40, width: bw, height: 340, fill: 'rgba(230,169,74,0.08)' }));
+    els.push(h('text', { key: 'bandl', x: (this.x(BAND_A) + this.x(BAND_B)) / 2, y: 58, textAnchor: 'middle', fontFamily: MONO, fontSize: 12, fill: 'oklch(0.72 0.15 60)' }, 'teplotní interval tváření'));
+    // osy
+    els.push(h('line', { key: 'ax', x1: 70, y1: 380, x2: 860, y2: 380, stroke: 'rgba(150,180,210,0.3)', strokeWidth: 1.5 }));
+    els.push(h('line', { key: 'ay', x1: 70, y1: 40, x2: 70, y2: 380, stroke: 'rgba(150,180,210,0.3)', strokeWidth: 1.5 }));
+    // X grid + ticks
+    for (let T = T0; T <= T1; T += 100) {
+      const X = this.x(T);
+      els.push(h('line', { key: 'xg' + T, x1: X, y1: 40, x2: X, y2: 380, stroke: 'rgba(150,180,210,0.08)', strokeWidth: 1 }));
+      els.push(h('text', { key: 'xt' + T, x: X, y: 402, textAnchor: 'middle', fontFamily: MONO, fontSize: 12, fill: '#8ea2b6' }, String(T)));
+    }
+    // Y grid + ticks
+    for (let S = 0; S <= YMAX; S += 80) {
+      const Y = this.y(S);
+      els.push(h('line', { key: 'yg' + S, x1: 70, y1: Y, x2: 860, y2: Y, stroke: 'rgba(150,180,210,0.08)', strokeWidth: 1 }));
+      els.push(h('text', { key: 'yt' + S, x: 60, y: Y, textAnchor: 'end', dominantBaseline: 'middle', fontFamily: MONO, fontSize: 12, fill: '#8ea2b6' }, String(S)));
+    }
+    els.push(h('text', { key: 'axl', x: 465, y: 432, textAnchor: 'middle', fontFamily: SANS, fontSize: 14, fill: '#aebfcf' }, 'Teplota [°C]'));
+    els.push(h('text', { key: 'ayl', x: 20, y: 210, textAnchor: 'middle', fontFamily: SANS, fontSize: 14, fill: '#aebfcf', transform: 'rotate(-90 20 210)' }, 'Přetvárný odpor [MPa]'));
+    // křivky + koncové popisky
+    STEELS.forEach((st, i) => {
+      const active = !this.state.hidden[st.key];
+      const seg = (lo, hi, step) => {
+        const p = [];
+        for (let T = lo; T <= hi; T += step) p.push(this.x(T).toFixed(1) + ',' + this.y(this.sigma(st, T)).toFixed(1));
+        return 'M' + p.join(' L');
+      };
+      // celá křivka: tence, čárkovaně
+      els.push(h('path', { key: 'c' + i, d: seg(T0, T1, 25), fill: 'none', stroke: st.color, strokeWidth: 1.4, strokeDasharray: '5 6', strokeLinecap: 'round', opacity: active ? 0.85 : 0.14 }));
+      // rozsah kovacích teplot: silně, nepřerušovaně
+      if (active) els.push(h('path', { key: 'cs' + i, d: seg(st.forge[0], st.forge[1], 12), fill: 'none', stroke: st.color, strokeWidth: 3.4, strokeLinecap: 'round' }));
+    });
+    // odečet hodnot
+    if (hv.hovering) {
+      els.push(h('line', { key: 'hl', x1: hv.hx, y1: 40, x2: hv.hx, y2: 380, stroke: 'rgba(234,242,250,0.4)', strokeWidth: 1.4, strokeDasharray: '4 4' }));
+      hv.hoverPoints.forEach((p, i) => {
+        if (p.op < 1) return;
+        els.push(h('circle', { key: 'hc' + i, cx: hv.hx, cy: parseFloat(p.y), r: 5, fill: p.color, stroke: '#080b12', strokeWidth: 1.5 }));
+        els.push(h('rect', { key: 'hb' + i, x: parseFloat(p.boxX), y: parseFloat(p.boxY), width: parseFloat(p.boxW), height: 22, rx: 6, fill: '#0b1017', stroke: p.color, strokeWidth: 1.2 }));
+        els.push(h('text', { key: 'hpt' + i, x: parseFloat(p.textX), y: parseFloat(p.textY), textAnchor: p.anchor, fontFamily: MONO, fontSize: 12, fontWeight: 500, fill: p.color }, p.label));
+      });
+    }
+    return h('svg', { viewBox: '0 0 900 460', style: { width: '100%', height: 'auto', touchAction: 'none' }, onMouseMove: this.onMove, onMouseLeave: this.onLeave }, els);
+  }
+
+  x(T) { return PL + (T - T0) / (T1 - T0) * (PR - PL); }
+  y(S) { return PB - Math.min(S, YMAX) / YMAX * (PB - PT); }
+  sigma(st, T) { return st.base * Math.exp(-st.decay * (T - T0) / 100); }
+
+  renderVals() {
+    const s = this.state;
+    const isUp = s.op === 'upset';
+    const v0 = isUp ? s.up0 : s.dr0;
+    const v1 = isUp ? s.up1 : s.dr1;
+    const K = (v1 > 0 && v0 > 0) ? v0 / v1 : 0;
+
+    // prahy podle výchozího materiálu
+    const cast = s.mat === 'cast';
+    let kColor, verdictLabel, verdictText, verdictBg, verdictBorder;
+    const good = '#7be0a0', warn = '#e6a94a', bad = '#ff9b7a', neutral = '#5fc0ef';
+    if (!(K > 0)) {
+      kColor = '#8ea2b6'; verdictLabel = 'Zadej rozměry'; verdictText = 'Konečný rozměr musí být menší než výchozí.';
+    } else if (K < 1.01) {
+      kColor = bad; verdictLabel = 'Bez přetvoření'; verdictText = 'Stupeň prokování ≈ 1 — materiál se prakticky netváří, licí struktura zůstává.';
+    } else if (cast ? K < 3 : K < 1.5) {
+      kColor = bad; verdictLabel = 'Nedostatečné';
+      verdictText = cast ? 'Málo pro ingot — licí dendrity a bubliny se nerozbijí. Cílem je aspoň 3 : 1.' : 'U již protvářeného polotovaru drobná změna tvaru, struktura zůstává podobná.';
+    } else if (cast ? K < 4 : K < 2.5) {
+      kColor = warn; verdictLabel = 'Hraniční';
+      verdictText = 'Na spodní hranici pro rozbití licí struktury. Pro spolehlivý výsledek volit vyšší stupeň prokování.';
+    } else if (K <= 6) {
+      kColor = good; verdictLabel = 'Dobré prokování';
+      verdictText = 'Licí struktura rozbita, zrno usměrněné do vlákna — dobrá pevnost výkovku.';
+    } else {
+      kColor = neutral; verdictLabel = 'Nad optimem';
+      verdictText = 'Pevnost už dále neroste. Vysoký stupeň prokování zvyšuje anizotropii (rozdíl vlastností podél a napříč vlákna).';
+    }
+    const kText = K > 0 ? K.toFixed(K < 10 ? 1 : 0) : '—';
+    verdictBg = kColor === '#8ea2b6' ? 'rgba(142,162,182,0.1)' : (kColor + '22');
+    verdictBorder = kColor === '#8ea2b6' ? 'rgba(142,162,182,0.3)' : (kColor + '55');
+
+    // vizualizace: čím vyšší K, tím výraznější vlákno
+    const vizFibreOp = Math.min(1, Math.max(0, (K - 1) / 2.5));
+    const vizCastOp = 0.35 + (1 - vizFibreOp) * 0.65;
+
+    // režimy operace / materiálu (tlačítka)
+    const btn = (activeOn) => 'flex:1;padding:11px 8px;border-radius:10px;cursor:pointer;font-family:\'IBM Plex Sans\',sans-serif;font-size:13.5px;font-weight:600;transition:all .15s;' +
+      (activeOn ? 'background:rgba(95,192,239,0.16);border:1px solid rgba(95,192,239,0.5);color:#eaf2fa;'
+                : 'background:rgba(255,255,255,0.05);border:1px solid rgba(150,180,210,0.18);color:#8ea2b6;');
+    const opModes = [
+      { label: 'Pěchování', key: 'upset', style: btn(isUp), pick: () => this.setState({ op: 'upset' }) },
+      { label: 'Protahování', key: 'draw', style: btn(!isUp), pick: () => this.setState({ op: 'draw' }) },
+    ];
+    const matModes = [
+      { label: 'Ingot / litý', key: 'cast', style: btn(cast), pick: () => this.setState({ mat: 'cast' }) },
+      { label: 'Protvářený', key: 'wrought', style: btn(!cast), pick: () => this.setState({ mat: 'wrought' }) },
+    ];
+    const matHint = cast
+      ? 'Litá struktura z ingotu — nutné rozbít dendrity, vyšší požadovaný stupeň prokování.'
+      : 'Polotovar už jednou protvářený — struktura je jemnější, stačí menší stupeň prokování.';
+
+    const setNum = (key) => (e) => { const n = parseFloat(e.target.value); this.setState({ [key]: isNaN(n) ? 0 : n }); };
+    const numKey0 = isUp ? 'up0' : 'dr0', numKey1 = isUp ? 'up1' : 'dr1';
+
+    // ── graf (legenda) ──
+    const steels = STEELS.map(st => {
+      const active = !s.hidden[st.key];
+      return {
+        ...st, active, color: st.color,
+        chipStyle: 'display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;cursor:pointer;font-size:13.5px;transition:all .15s;' +
+          (active ? 'background:rgba(255,255,255,0.07);border:1px solid rgba(150,180,210,0.28);color:#eaf2fa;'
+                  : 'background:transparent;border:1px solid rgba(150,180,210,0.14);color:#5f6d7b;opacity:0.6;'),
+        toggle: () => this.setState(p => ({ hidden: { ...p.hidden, [st.key]: !p.hidden[st.key] } })),
+      };
+    });
+
+    // ── odečet hodnot pod kurzorem ── (vždy 4 uzly, přítomné od mountu)
+    const hovering = s.hoverT != null;
+    const hx = hovering ? this.x(s.hoverT) : 0;
+    const rightSide = hx > (PL + PR) / 2;
+    // pořadí kreslení dle svislé polohy, aby odsazení sedělo
+    const ranked = STEELS.map(st => ({ st, y: hovering ? this.y(this.sigma(st, s.hoverT)) : 0, val: hovering ? this.sigma(st, s.hoverT) : 0, on: hovering && !s.hidden[st.key] }))
+      .sort((a, b) => a.y - b.y);
+    let lastY = -100;
+    const posByKey = {};
+    ranked.forEach(({ st, y, val, on }) => {
+      let by = on ? Math.max(y - 11, lastY + 24) : -100;
+      if (on) lastY = by;
+      const label = Math.round(val) + ' MPa';
+      const boxW = 12 + label.length * 6.8;
+      posByKey[st.key] = {
+        op: on ? 1 : 0, y: y.toFixed(1),
+        boxX: (rightSide ? hx - 12 - boxW : hx + 12).toFixed(1),
+        boxY: by.toFixed(1), boxW: boxW.toFixed(1),
+        textX: (rightSide ? hx - 18 : hx + 18).toFixed(1),
+        textY: (by + 15).toFixed(1),
+        anchor: rightSide ? 'end' : 'start', label,
+      };
+    });
+    const hoverPoints = STEELS.map(st => ({ color: st.color, ...posByKey[st.key] }));
+
+    return {
+      chartSvg: this.chart(steels, { hovering, hx, hoverPoints, hoverT: s.hoverT }),
+      opModes, matModes, matHint,
+      inLabel0: isUp ? 'Výška H₀ [mm]' : 'Průřez S₀ [mm²]',
+      inLabel1: isUp ? 'Výška H₁ [mm]' : 'Průřez S₁ [mm²]',
+      v0, v1, set0: setNum(numKey0), set1: setNum(numKey1),
+      kText, kColor, verdictLabel, verdictText, verdictBg, verdictBorder,
+      vizFibreOp, vizCastOp,
+      vizArrowOp: vizFibreOp > 0.15 ? 1 : 0.3,
+      vizLabelCast: 'block', vizLabelFibre: vizFibreOp > 0.15 ? 'block' : 'none',
+      steels,
+    };
+  }
+}
+</script>
+</body>
+</html>

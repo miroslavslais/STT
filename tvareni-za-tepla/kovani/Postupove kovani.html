@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Postupové kování | STT</title>
+<meta name="description" content="Animace postupového kování: předkovací, kovací a dokončovací dutina spodní zápustky.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '264px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'tvareni-za-tepla/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Domů</a>
+    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
+    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Koroze</a>
+    <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Tváření</a>
+    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">O projektu</a>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Kování</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Kování</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Postupové kování — předkovací → kovací → dokončovací dutina</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Složitější výkovky se nedají vytvarovat jedním úderem. Rovný polotovar má po délce stejný průřez, ale hotový díl (zde <strong>klíč</strong>) má hmotnou hlavu a tenkou rukojeť. Proto má zápustka <strong>několik dutin vedle sebe</strong> a polotovar jimi <strong>postupuje</strong> — v každé se tvar přiblíží finálnímu.</p>
+
+    <div style="position:relative;height:560px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin-bottom:24px">
+      <x-import component-from-global-scope="PostupoveKovani" from="../../animations.jsx ./postupove-kovani.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">V <strong>předkovací dutině</strong> se objem jen přerozdělí — kov se nabere do hlavy a ztenčí v rukojeti (bez detailů). <strong>Kovací dutina</strong> vytvoří základní tvar s velkými rádiusy. Teprve <strong>dokončovací dutina</strong> dá přesný tvar a po obvodu vytlačí <strong>výronek</strong> v dělicí rovině, který se pak ostřihne.</p>
+
+    <div style="background:rgba(230,169,74,0.08);border:1px solid rgba(230,169,74,0.25);border-radius:14px;padding:18px 22px;margin-bottom:20px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.75 0.14 60);margin-bottom:6px">Proč je dokončovací dutina uprostřed</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Dokončovací operace potřebuje <strong>největší tvářecí sílu</strong>. Musí proto ležet v <strong>ose beranu</strong> — kdyby byla na kraji, výslednice síly mimo osu by způsobila <strong>klopení beranu</strong> a nerovnoměrné dosednutí zápustek (a tím vady a rychlé opotřebení).</div>
+    </div>
+
+    <div style="background:rgba(214,110,80,0.08);border:1px solid rgba(214,110,80,0.25);border-radius:14px;padding:18px 22px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:6px">Shrnutí</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Postupné dutiny <strong>rozdělí přetvoření do několika kroků</strong>. Každý krok je menší a snazší, dutiny se méně opotřebovávají a finální výkovek se spolehlivě zaplní bez vad.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Výchozí licí struktura | STT</title>
+<meta name="description" content="Interaktivní schéma struktury odlitku: hrubá zrna, dendrity a licí vady před tvářením.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '264px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'tvareni-za-tepla/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Domů</a>
+    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
+    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Koroze</a>
+    <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Tváření</a>
+    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">O projektu</a>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Změny struktury</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:760px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:8px">Změny struktury</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Výchozí licí struktura</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Materiál, který vstupuje do tváření za tepla, pochází zpravidla z odlitku nebo ingotu — jeho struktura vzniká tuhnutím taveniny a je od té „ideální“ tvářené struktury dost vzdálená.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px;margin-bottom:24px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:16px">Klikni a zvýrazni prvek struktury odlitku</div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+        <button type="button" onClick="{{ setGrains }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ grainsBtnBorder }};background:{{ grainsBtnBg }};color:{{ grainsBtnText }};font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Nerovnoměrná zrna</button>
+        <button type="button" onClick="{{ setDendrites }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ dendritesBtnBorder }};background:{{ dendritesBtnBg }};color:{{ dendritesBtnText }};font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Dendrity</button>
+        <button type="button" onClick="{{ setDefects }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ defectsBtnBorder }};background:{{ defectsBtnBg }};color:{{ defectsBtnText }};font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Licí vady</button>
+      </div>
+
+      <div style="display:flex;justify-content:center;margin-bottom:14px">
+        <svg width="280" height="280" viewBox="0 0 300 300">
+          <defs>
+            <clipPath id="ingotClip"><rect x="20" y="20" width="260" height="260" rx="26"/></clipPath>
+          </defs>
+          <rect x="20" y="20" width="260" height="260" rx="26" fill="rgba(150,180,210,0.05)" stroke="rgba(150,180,210,0.3)" stroke-width="1.5"/>
+          <g clip-path="url(#ingotClip)">
+            <g style="opacity:{{ grainsOpacity }};transition:opacity .25s" stroke="oklch(0.7 0.15 230)" stroke-width="{{ grainsStrokeWidth }}" fill="none" stroke-linecap="round">
+              <path d="M60,20 Q70,90 50,150 Q42,210 60,280"/>
+              <path d="M95,20 Q87,90 103,150 Q112,210 95,280"/>
+              <path d="M150,20 Q162,90 140,150 Q128,210 150,280"/>
+              <path d="M230,20 Q220,90 238,150 Q246,210 230,280"/>
+              <path d="M255,20 Q263,90 249,150 Q243,210 255,280"/>
+              <path d="M20,70 Q90,80 150,60 Q210,82 280,70"/>
+              <path d="M20,130 Q90,120 150,140 Q210,118 280,130"/>
+              <path d="M20,150 Q90,158 150,150 Q210,160 280,150"/>
+              <path d="M20,210 Q90,202 150,210 Q210,198 280,210"/>
+            </g>
+            <g style="opacity:{{ dendritesOpacity }};transition:opacity .25s" stroke="oklch(0.72 0.16 20)" stroke-width="{{ dendritesStrokeWidth }}" fill="none" stroke-linecap="round">
+              <g transform="translate(45,55) scale(1.6)"><path d="M0,-8 v18 M0,-8 l-6,6 M0,-2 l6,-6 M0,4 l-5,5 M0,4 l5,5"/></g>
+              <g transform="translate(235,50) scale(1.3) rotate(20)"><path d="M0,-8 v18 M0,-8 l-6,6 M0,-2 l6,-6 M0,4 l-5,5 M0,4 l5,5"/></g>
+              <g transform="translate(65,235) scale(1.4) rotate(-15)"><path d="M0,-8 v18 M0,-8 l-6,6 M0,-2 l6,-6 M0,4 l-5,5 M0,4 l5,5"/></g>
+              <g transform="translate(225,240) scale(1.5) rotate(8)"><path d="M0,-8 v18 M0,-8 l-6,6 M0,-2 l6,-6 M0,4 l-5,5 M0,4 l5,5"/></g>
+              <g transform="translate(150,145) scale(1.7) rotate(-6)"><path d="M0,-8 v18 M0,-8 l-6,6 M0,-2 l6,-6 M0,4 l-5,5 M0,4 l5,5"/></g>
+            </g>
+            <g style="opacity:{{ defectsOpacity }};transition:opacity .25s">
+              <path d="M150,150 q18,-14 32,4 q9,19 -7,30 q-20,13 -32,-5 q-9,-17 7,-29 z" fill="oklch(0.6 0.18 25)"/>
+              <circle cx="95" cy="100" r="5" fill="oklch(0.6 0.18 25)"/>
+              <circle cx="205" cy="95" r="4" fill="oklch(0.6 0.18 25)"/>
+              <circle cx="80" cy="195" r="4.5" fill="oklch(0.6 0.18 25)"/>
+              <circle cx="215" cy="200" r="6" fill="oklch(0.6 0.18 25)"/>
+              <circle cx="150" cy="235" r="3.5" fill="oklch(0.6 0.18 25)"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div style="text-align:center;font-size:13.5px;line-height:1.5;color:{{ captionColor }};min-height:20px">{{ captionText }}</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:24px">
+      <div style="display:flex;gap:16px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:rgba(214,110,80,0.14);display:flex;align-items:center;justify-content:center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="4" stroke="oklch(0.72 0.16 20)" stroke-width="1.6"/><circle cx="17" cy="8" r="5.5" stroke="oklch(0.72 0.16 20)" stroke-width="1.6"/><circle cx="9" cy="17" r="6" stroke="oklch(0.72 0.16 20)" stroke-width="1.6"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">Hrubá, nerovnoměrná zrna</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#8296a8">Při pomalém tuhnutí velkého objemu kovu narůstají zrna do výrazně větších rozměrů, než jaké je žádoucí pro dobré mechanické vlastnosti.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:rgba(214,110,80,0.14);display:flex;align-items:center;justify-content:center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M12 3l-5 5M12 8l5-5M12 13l-4 4M12 13l4 4" stroke="oklch(0.72 0.16 20)" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">Dendritická struktura</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#8296a8">Tuhnutí probíhá stromečkovitě (dendriticky) od stěn formy dovnitř — mezi rameny dendritů zůstávají nerovnoměrně rozmístěné příměsi (segregace).</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:rgba(214,110,80,0.14);display:flex;align-items:center;justify-content:center">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="oklch(0.72 0.16 20)" stroke-width="1.6"/><circle cx="9" cy="10" r="1.6" fill="oklch(0.72 0.16 20)"/><circle cx="15" cy="14" r="2.2" fill="oklch(0.72 0.16 20)"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">Licí vady</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#8296a8">Staženiny (dutiny po smrštění při tuhnutí), plynové bubliny a segregace prvků jsou v odlitku běžné a bez dalšího zpracování zůstávají.</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Tváření za tepla je jedním z hlavních způsobů, jak tuto strukturu přetvořit: dutiny se tlakem zavaří, hrubá zrna se rozpadnou a nahradí novými (viz kapitola <a href="Rekrystalizace.html" style="color:oklch(0.72 0.16 20);text-decoration:underline" style-hover="color:oklch(0.78 0.16 20)">Rekrystalizace</a>) a materiál získá výrazně lepší mechanické vlastnosti.</p>
+
+    <div style="background:rgba(214,110,80,0.08);border:1px solid rgba(214,110,80,0.25);border-radius:14px;padding:18px 22px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:6px">Shrnutí</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Odlitek/ingot = hrubá, dendritická, s vadami. Tváření za tepla tuto strukturu zlepšuje.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const CAPTIONS = {
+  grains: 'Nerovnoměrná zrna — při pomalém tuhnutí narostou zrna do velkých, různě velkých rozměrů.',
+  dendrites: 'Dendrity — stromečkovité tuhnutí od stěn formy dovnitř, se segregací mezi rameny.',
+  defects: 'Licí vady — staženiny a plynové bubliny vzniklé při tuhnutí taveniny.',
+  none: 'Klikněte na vlastnost a zvýrazněte ji ve struktuře odlitku.',
+};
+const COLORS = {
+  grains: 'oklch(0.78 0.15 230)',
+  dendrites: 'oklch(0.78 0.16 20)',
+  defects: 'oklch(0.7 0.18 25)',
+};
+class Component extends DCLogic {
+  state = { active: null };
+  toggle(key) {
+    this.setState(s => ({ active: s.active === key ? null : key }));
+  }
+  renderVals() {
+    const active = this.state.active;
+    const opacityFor = (key) => (active === null ? '0.9' : active === key ? '1' : '0.12');
+    const strokeFor = (key) => (active === key ? '2.4' : '1.4');
+    const btn = (key) => ({
+      bg: active === key ? 'rgba(224,166,84,0.14)' : 'transparent',
+      border: active === key ? COLORS[key] : 'rgba(150,180,210,0.25)',
+      text: active === key ? COLORS[key] : '#8296a8',
+    });
+    const g = btn('grains'), d = btn('dendrites'), f = btn('defects');
+    return {
+      setGrains: () => this.toggle('grains'),
+      setDendrites: () => this.toggle('dendrites'),
+      setDefects: () => this.toggle('defects'),
+      grainsOpacity: opacityFor('grains'),
+      dendritesOpacity: opacityFor('dendrites'),
+      defectsOpacity: opacityFor('defects'),
+      grainsStrokeWidth: strokeFor('grains'),
+      dendritesStrokeWidth: strokeFor('dendrites'),
+      grainsBtnBg: g.bg, grainsBtnBorder: g.border, grainsBtnText: g.text,
+      dendritesBtnBg: d.bg, dendritesBtnBorder: d.border, dendritesBtnText: d.text,
+      defectsBtnBg: f.bg, defectsBtnBorder: f.border, defectsBtnText: f.text,
+      captionText: CAPTIONS[active || 'none'],
+      captionColor: active ? COLORS[active] : '#8296a8',
+    };
+  }
+}
+</script>
+</body>
+</html>

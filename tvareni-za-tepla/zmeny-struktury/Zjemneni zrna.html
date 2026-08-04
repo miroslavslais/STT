@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zjemnění zrna a vliv na vlastnosti | STT</title>
+<meta name="description" content="Jemnější zrno zvyšuje pevnost i houževnatost současně — vliv tváření na velikost zrna.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '264px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'tvareni-za-tepla/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Domů</a>
+    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
+    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Koroze</a>
+    <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Tváření</a>
+    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">O projektu</a>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Změny struktury</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:760px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:8px">Změny struktury</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Zjemnění zrna a vliv na vlastnosti</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Opakovaná deformace a rekrystalizace během <strong style="font-weight:700;color:oklch(0.82 0.15 85)">tváření za tepla</strong> postupně nahrazuje hrubá licí zrna zrny mnohem menšími. Čím víc tvářecích kroků materiál projde, tím jemnější a rovnoměrnější zrno má.</p>
+
+    <svg viewBox="0 0 640 120" width="100%" style="display:block;margin-bottom:24px">
+      <text x="110" y="20" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="13" fill="#eaf2fa">licí struktura</text>
+      <circle cx="70" cy="65" r="28" fill="none" stroke="oklch(0.72 0.16 20)" stroke-width="1.8"/>
+      <circle cx="140" cy="70" r="24" fill="none" stroke="oklch(0.72 0.16 20)" stroke-width="1.8"/>
+      <path d="M250 65h60" stroke="rgba(174,191,207,0.35)" stroke-width="2" marker-end="url(#arrow2)"/>
+      <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="rgba(174,191,207,0.35)"/></marker></defs>
+      <text x="500" y="20" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="13" fill="#eaf2fa">po tváření za tepla</text>
+      <g stroke="oklch(0.72 0.16 20)" stroke-width="1.6" fill="none">
+        <circle cx="420" cy="60" r="10"/><circle cx="445" cy="75" r="9"/><circle cx="470" cy="55" r="8"/>
+        <circle cx="495" cy="70" r="10"/><circle cx="520" cy="50" r="9"/><circle cx="545" cy="65" r="8"/>
+        <circle cx="435" cy="90" r="9"/><circle cx="465" cy="85" r="8"/><circle cx="510" cy="88" r="9"/>
+      </g>
+    </svg>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Jemnější zrno znamená víc hranic zrn na jednotku objemu — a hranice zrn brzdí pohyb dislokací, tedy nositelů plastické deformace. Výsledkem je materiál, který je zároveň:</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:18px;padding:22px 24px 20px;margin-bottom:24px">
+      <div style="display:flex;gap:8px;margin-bottom:8px">
+        <button type="button" onClick="{{ setTepla }}" style="{{ teplaBtnStyle }}">Zjemnění zrna (za tepla)</button>
+        <button type="button" onClick="{{ setStudena }}" style="{{ studenaBtnStyle }}">Tváření za studena</button>
+      </div>
+
+      <div style="display:flex;gap:20px;margin:14px 2px 6px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:#aebfcf">
+        <span style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:3px;border-radius:2px;background:oklch(0.7 0.17 250)"></span>Pevnost</span>
+        <span style="display:flex;align-items:center;gap:7px"><span style="width:14px;height:3px;border-radius:2px;background:oklch(0.74 0.16 150)"></span>Houževnatost</span>
+      </div>
+
+      <svg viewBox="0 0 640 330" width="100%" style="display:block">
+        <g stroke="rgba(150,180,210,0.12)" stroke-width="1">
+          <line x1="80" y1="40" x2="80" y2="300"></line>
+          <line x1="80" y1="300" x2="600" y2="300"></line>
+          <line x1="80" y1="235" x2="600" y2="235"></line>
+          <line x1="80" y1="170" x2="600" y2="170"></line>
+          <line x1="80" y1="105" x2="600" y2="105"></line>
+          <line x1="80" y1="40" x2="600" y2="40"></line>
+        </g>
+        <sc-if value="{{ showGrains }}" hint-placeholder-val="{{ false }}">
+          <g>
+            <text x="106" y="50" font-family="IBM Plex Sans, sans-serif" font-size="10.5" fill="#8296a8">struktura zrna</text>
+            <rect x="106" y="56" width="150" height="90" rx="8" fill="rgba(8,11,18,0.92)" stroke="rgba(150,180,210,0.2)" stroke-width="1"></rect>
+            <sc-for list="{{ meshLines }}" as="ln" hint-placeholder-count="6">
+              <path d="{{ ln.d }}" fill="none" stroke="oklch(0.72 0.16 20)" stroke-width="1.2" stroke-linejoin="round"></path>
+            </sc-for>
+          </g>
+        </sc-if>
+        <text x="72" y="45" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#8296a8">vysoká</text>
+        <text x="72" y="304" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#8296a8">nízká</text>
+        <text x="22" y="170" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12" fill="#aebfcf" transform="rotate(-90 22 170)">Úroveň vlastnosti</text>
+
+        <line x1="{{ markerX }}" y1="40" x2="{{ markerX }}" y2="300" stroke="rgba(150,180,210,0.35)" stroke-width="1.4" stroke-dasharray="3 3"></line>
+        <path d="{{ strengthPath }}" fill="none" stroke="oklch(0.7 0.17 250)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="{{ toughPath }}" fill="none" stroke="oklch(0.74 0.16 150)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        <circle cx="{{ markerX }}" cy="{{ sMy }}" r="6" fill="oklch(0.7 0.17 250)" stroke="#080b12" stroke-width="2"></circle>
+        <circle cx="{{ markerX }}" cy="{{ tMy }}" r="6" fill="oklch(0.74 0.16 150)" stroke="#080b12" stroke-width="2"></circle>
+
+        <text x="80" y="322" text-anchor="start" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#8296a8">{{ leftLabel }}</text>
+        <text x="600" y="322" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#8296a8">{{ rightLabel }}</text>
+      </svg>
+
+      <input type="range" min="0" max="100" value="{{ sliderVal }}" onInput="{{ onSlide }}" style="width:100%;margin:8px 0 4px;accent-color:oklch(0.7 0.17 250);cursor:pointer">
+      <div style="text-align:center;font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:#8296a8;margin-bottom:16px">{{ xAxisLabel }}</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+        <div style="background:rgba(90,120,200,0.08);border:1px solid rgba(120,150,210,0.25);border-radius:12px;padding:14px 16px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:#8296a8;margin-bottom:3px">Pevnost</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:oklch(0.78 0.15 250)">{{ sReadout }}</div>
+        </div>
+        <div style="background:rgba(60,150,110,0.08);border:1px solid rgba(90,180,140,0.25);border-radius:12px;padding:14px 16px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:#8296a8;margin-bottom:3px">Houževnatost</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:oklch(0.78 0.15 150)">{{ tReadout }}</div>
+        </div>
+      </div>
+
+      <div style="{{ noteStyle }}">{{ note }}</div>
+    </div>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">To je unikátní kombinace — u většiny způsobů zpevnění (např. tváření za studena) roste pevnost na úkor houževnatosti. Zjemnění zrna je tak jedna z mála cest, jak zlepšit obě vlastnosti zároveň.</p>
+
+    <div style="background:rgba(214,110,80,0.08);border:1px solid rgba(214,110,80,0.25);border-radius:14px;padding:18px 22px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:6px">Shrnutí</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Tváření za tepla zjemňuje zrno vůči licí struktuře — jemné zrno zvyšuje pevnost i houževnatost současně.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { t: 62, mode: 'tepla' };
+  renderVals() {
+    const tepla = this.state.mode === 'tepla';
+    const fnS = (x) => 0.18 + 0.75 * Math.pow(x, 0.85);
+    const fnT = (x) => tepla ? 0.28 + 0.62 * Math.pow(x, 0.8) : 0.82 - 0.56 * Math.pow(x, 1.1);
+    const px = (x) => 80 + x * 520;
+    const py = (v) => 300 - v * 260;
+    const path = (fn) => {
+      let d = '';
+      for (let i = 0; i <= 40; i++) { const x = i / 40; d += (i ? 'L' : 'M') + px(x).toFixed(1) + ' ' + py(fn(x)).toFixed(1); }
+      return d;
+    };
+    const t = this.state.t / 100;
+    let meshLines = [];
+    if (tepla) {
+      const bx = 106, by = 56, bw = 150, bh = 90;
+      const g = Math.round(2 + t * 7);
+      const cw = bw / g, ch = bh / g;
+      const vx = (c, r) => {
+        let x = bx + c * cw, y = by + r * ch;
+        if (c > 0 && c < g && r > 0 && r < g) {
+          const h = c * 928371 + r * 123457;
+          x += (((h % 100) / 100) - 0.5) * cw * 0.5;
+          y += ((((Math.floor(h / 8)) % 100) / 100) - 0.5) * ch * 0.5;
+        }
+        return x.toFixed(1) + ' ' + y.toFixed(1);
+      };
+      for (let r = 0; r <= g; r++) { let d = 'M' + vx(0, r); for (let c = 1; c <= g; c++) d += ' L' + vx(c, r); meshLines.push({ d }); }
+      for (let c = 0; c <= g; c++) { let d = 'M' + vx(c, 0); for (let r = 1; r <= g; r++) d += ' L' + vx(c, r); meshLines.push({ d }); }
+    }
+    const base = "flex:1;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;padding:9px 12px;border-radius:10px;cursor:pointer;transition:all .15s;";
+    const on = "background:rgba(120,150,180,0.16);border:1px solid rgba(150,180,210,0.5);color:#eaf2fa";
+    const off = "background:transparent;border:1px solid rgba(150,180,210,0.18);color:#8296a8";
+    return {
+      teplaBtnStyle: base + (tepla ? on : off),
+      studenaBtnStyle: base + (!tepla ? on : off),
+      setTepla: () => this.setState({ mode: 'tepla' }),
+      setStudena: () => this.setState({ mode: 'studena' }),
+      onSlide: (e) => this.setState({ t: Number(e.target.value) }),
+      sliderVal: this.state.t,
+      showGrains: tepla,
+      meshLines,
+      strengthPath: path(fnS),
+      toughPath: path(fnT),
+      markerX: px(t).toFixed(1),
+      sMy: py(fnS(t)).toFixed(1),
+      tMy: py(fnT(t)).toFixed(1),
+      sReadout: Math.round(fnS(t) * 100),
+      tReadout: Math.round(fnT(t) * 100),
+      xAxisLabel: tepla ? 'Jemnost zrna  →' : 'Stupeň deformace za studena  →',
+      leftLabel: tepla ? 'hrubé licí zrno' : 'bez deformace',
+      rightLabel: tepla ? 'jemné tvářené zrno' : 'silně deformováno',
+      note: tepla
+        ? 'Obě křivky stoupají — zjemnění zrna zvyšuje pevnost i houževnatost zároveň. To je unikátní.'
+        : 'Pevnost roste, ale houževnatost klesá — materiál zpevňuje a zároveň křehne.',
+      noteStyle: 'font-size:14px;line-height:1.55;border-radius:12px;padding:14px 18px;' + (tepla
+        ? 'background:rgba(60,150,110,0.1);border:1px solid rgba(90,180,140,0.3);color:#c9e6d6'
+        : 'background:rgba(214,110,80,0.1);border:1px solid rgba(214,110,80,0.3);color:#f0cabb'),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stt-vyuka.cz/sitemap.xml
+Sitemap: https://miroslavslais.github.io/STT/sitemap.xml

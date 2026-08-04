@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tváření za tepla | STT</title>
+<meta name="description" content="Tváření za tepla: princip, změny struktury, hlavní technologie a vady.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #fbf8f3; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '224px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+
+<div style="min-height:100vh;background:#fbf8f3;font-family:'IBM Plex Sans',sans-serif;padding:56px 48px 80px;box-sizing:border-box">
+
+  <div style="max-width:1080px;margin:0 auto 56px">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.55 0.16 60);margin-bottom:10px">Interaktivní výuka STT</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:44px;line-height:1.15;color:#231d16;margin:0 0 14px">Rozdělení tváření</h1>
+    <p style="font-size:18px;line-height:1.6;color:#6b6255;max-width:640px;margin:0">Od principu ohřevu nad teplotu rekrystalizace přes hlavní technologie až po vady, které při tváření vznikají.</p>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:28px">
+
+    <sc-for list="{{ cards }}" as="c" hint-placeholder-count="4">
+      <sc-if value="{{ c.ready }}">
+        <a href="{{ c.href }}" style="{{ c.cardStyle }}" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+          <div style="{{ c.iconBoxStyle }}" dangerouslySetInnerHTML="{{ c.icon }}"></div>
+          <div>
+            <div style="{{ c.titleStyle }}">{{ c.title }}</div>
+            <div style="font-size:15.5px;line-height:1.55;color:#8a8072">{{ c.desc }}</div>
+          </div>
+          <div style="{{ c.badgeStyle }}">
+            {{ c.badge }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+      </sc-if>
+      <sc-if value="{{ c.notReady }}">
+        <div style="{{ c.cardStyle }}">
+          <div style="position:absolute;top:16px;right:16px;padding:5px 10px;border-radius:999px;background:#eee5d8;font-size:11px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;color:#a39a8b;letter-spacing:0.04em;text-transform:uppercase">Připravujeme</div>
+          <div style="{{ c.iconBoxStyle }}" dangerouslySetInnerHTML="{{ c.icon }}"></div>
+          <div>
+            <div style="{{ c.titleStyle }}">{{ c.title }}</div>
+            <div style="font-size:15.5px;line-height:1.55;color:#a39a8b">{{ c.desc }}</div>
+          </div>
+        </div>
+      </sc-if>
+    </sc-for>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ICON_META = {
+  'co-je': { bg: 'oklch(0.9 0.05 60)', hue: 60, svg: '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M9 3v11a4 4 0 1 0 6 0V3" stroke="oklch(0.55 0.16 60)" stroke-width="2" stroke-linecap="round"/><path d="M9 7h6" stroke="oklch(0.55 0.16 60)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="2.8" fill="oklch(0.55 0.16 60)"/></svg>' },
+  'zmeny-struktury': { bg: 'oklch(0.9 0.06 20)', hue: 20, svg: '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="8" r="3" stroke="oklch(0.5 0.16 20)" stroke-width="1.8"/><circle cx="16" cy="7" r="3" stroke="oklch(0.5 0.16 20)" stroke-width="1.8"/><circle cx="12" cy="16" r="3" stroke="oklch(0.5 0.16 20)" stroke-width="1.8"/></svg>' },
+  'hlavni-technologie': { bg: 'oklch(0.9 0.06 40)', hue: 40, svg: '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M6 4v6M18 4v6" stroke="oklch(0.52 0.16 40)" stroke-width="2" stroke-linecap="round"/><path d="M4 10h16l-2 4H6l-2-4z" stroke="oklch(0.52 0.16 40)" stroke-width="2" stroke-linejoin="round"/><path d="M8 18h8" stroke="oklch(0.52 0.16 40)" stroke-width="2" stroke-linecap="round"/></svg>' },
+  'vady': { bg: 'oklch(0.9 0.06 350)', hue: 350, svg: '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M12 3v6M12 15v6M4.2 7l5.2 3M14.6 14l5.2 3M4.2 17l5.2-3M14.6 10l5.2-3" stroke="oklch(0.5 0.17 350)" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="2.4" fill="oklch(0.5 0.17 350)"/></svg>' },
+};
+const FALLBACK_NAV = [
+  { title: 'Domů', href: '../index.html' },
+  { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+  { title: 'Koroze', href: '../koroze/index.html' },
+  { title: 'Tváření', href: 'index.html' },
+  { title: 'O projektu', href: '../o-projektu.html' },
+];
+class Component extends DCLogic {
+  state = { structure: null };
+  componentDidMount() {
+    fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
+  }
+  renderVals() {
+    const s = this.state.structure;
+    const SELF = 'tvareni-za-tepla/';
+    const navItems = s ? s.nav.map(n => ({ title: n.title, href: n.href.startsWith(SELF) ? n.href.slice(SELF.length) : '../' + n.href })) : FALLBACK_NAV;
+    const cards = (s ? s.tvareniZaTepla.cards : []).map(c => {
+      const ready = c.status === 'ready';
+      const meta = ICON_META[c.id] || { bg: '#eee5d8', svg: '' };
+      return {
+        title: c.title,
+        desc: c.desc,
+        href: c.href,
+        badge: c.badge,
+        icon: { __html: meta.svg },
+        ready,
+        notReady: !ready,
+        cardStyle: (ready
+          ? 'display:flex;flex-direction:column;gap:20px;background:#fff;border-radius:24px;padding:40px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s'
+          : 'position:relative;display:flex;flex-direction:column;gap:20px;background:#faf7f1;border-radius:24px;padding:40px;border:1px solid #ece4d6;cursor:not-allowed'),
+        iconBoxStyle: `width:72px;height:72px;border-radius:18px;background:${ready ? meta.bg : '#eee5d8'};display:flex;align-items:center;justify-content:center`,
+        titleStyle: `font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:${ready ? '#231d16' : '#a39a8b'};margin-bottom:8px`,
+        badgeStyle: `margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:oklch(0.5 0.14 ${meta.hue || 60});display:flex;align-items:center;gap:6px`,
+      };
+    });
+    return { navItems, cards };
+  }
+}
+</script>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#fbf8f3"/><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="200" fill="#b0561f">Tv</text></svg></template>
+</body>
+</html>

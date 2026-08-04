@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faktory ovlivňující korozi | STT</title>
+<meta name="description" content="Interaktivní graf: jak agresivita prostředí a teplota mění rychlost úbytku materiálu v čase.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '268px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'koroze/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Domů</a>
+    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
+    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Koroze</a>
+    <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Tváření</a>
+    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">O projektu</a>
+  </div>
+</div>
+<a href="../index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na přehled</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:860px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:oklch(0.72 0.16 35);text-transform:uppercase;margin-bottom:10px">Koroze kovů</div>
+    <h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:32px;line-height:1.2;margin:0 0 10px;letter-spacing:-0.01em">Faktory ovlivňující korozi</h1>
+    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Rychlost koroze roste s agresivitou prostředí a s teplotou. Zapni jedno nebo více prostředí a sleduj, jak strmě přibývá úbytek materiálu v čase; posuvníkem vpravo změň teplotu.</p>
+
+    <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:28px">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px">
+        <sc-for list="{{ envOptions }}" as="opt" hint-placeholder-count="5">
+          <button type="button" onClick="{{ opt.select }}" style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid {{ opt.border }};background:{{ opt.bg }};color:{{ opt.color }};font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer">
+            <span style="width:10px;height:10px;border-radius:50%;background:{{ opt.dot }};box-shadow:0 0 0 2px {{ opt.dotRing }}"></span>{{ opt.label }}
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 150px;gap:22px;align-items:stretch">
+        <div style="position:relative;background:oklch(0.13 0.012 255);border:1px solid rgba(150,180,210,0.14);border-radius:14px;padding:12px 12px 6px" dangerouslySetInnerHTML="{{ chartSVG }}"></div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;background:oklch(0.13 0.012 255);border:1px solid rgba(150,180,210,0.14);border-radius:14px;padding:18px 12px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8296a8;margin-bottom:2px">Teplota</div>
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:700;font-size:26px;color:oklch(0.78 0.16 35);margin-bottom:16px">{{ factTemp }}<span style="font-size:14px;color:#8296a8;font-weight:600"> °C</span></div>
+          <div style="flex:1;display:flex;align-items:center;justify-content:center">
+            <input type="range" min="0" max="100" value="{{ factTemp }}" onInput="{{ onFactTemp }}" style="writing-mode:vertical-lr;direction:rtl;width:28px;height:190px;accent-color:oklch(0.72 0.16 35);cursor:pointer">
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8296a8">
+            <span>0 – 100 °C</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;font-size:13.5px;line-height:1.6;color:#8296a8"><div style="visibility:{{ tempNoteVis }}">Vyšší teplota urychluje elektrochemické reakce i difuzi — všechny křivky stoupají strměji.</div><div>Agresivnější prostředí (chloridy, kyseliny) narušují ochranné vrstvy.</div></div>
+    </div>
+
+    <a href="../koroze-pod-napetim/Koroze%20pod%20napetim.html" style="margin-top:18px;display:flex;gap:14px;align-items:flex-start;background:rgba(239,140,92,0.08);border:1px solid rgba(239,140,92,0.25);border-radius:14px;padding:18px 20px;text-decoration:none;transition:border-color .2s,background .2s" style-hover="border-color:rgba(239,140,92,0.55);background:rgba(239,140,92,0.13)">
+      <div style="flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:oklch(0.72 0.16 35);margin-top:6px"></div>
+      <div style="flex:1">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa;margin-bottom:4px">Koroze pod napětím (Stress Corrosion Cracking)</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Kombinace tahového napětí (i zbytkového) a specifického korozního prostředí dokáže i jinak odolnou slitinu prasknout mezikrystalově nebo transkrystalově — bez viditelného úbytku materiálu předem.</div>
+        <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.06em;color:oklch(0.78 0.16 35);display:flex;align-items:center;gap:6px">Přehrát animaci
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="oklch(0.78 0.16 35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#080b12"></rect><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="200" fill="oklch(0.72 0.16 35)">Fa</text></svg></template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ENVS = [
+  { k: 'sladka', label: 'Sladká voda', rate: 3, color: 'oklch(0.76 0.13 195)' },
+  { k: 'slana', label: 'Slaná/mořská voda', rate: 5, color: 'oklch(0.74 0.16 40)' },
+  { k: 'kyselina', label: 'Kyselina', rate: 6.5, color: 'oklch(0.63 0.2 25)' },
+  { k: 'suchy', label: 'Suchý vzduch', rate: 1, color: 'oklch(0.74 0.11 150)' },
+  { k: 'vlhky', label: 'Vlhký vzduch', rate: 2, color: 'oklch(0.72 0.12 220)' },
+];
+const YMAX = 17;
+
+function chartSVG(selected, temp) {
+  const W = 460, H = 300, x0 = 46, x1 = 444, y0 = 18, y1 = 258;
+  const pw = x1 - x0, ph = y1 - y0;
+  const tf = 1 + (temp / 100) * 1.5;
+  let grid = '';
+  for (let i = 0; i <= 4; i++) {
+    const gy = y1 - ph * i / 4;
+    grid += `<line x1="${x0}" y1="${gy.toFixed(1)}" x2="${x1}" y2="${gy.toFixed(1)}" stroke="rgba(150,180,210,0.1)" stroke-width="1"/>`;
+  }
+  const axes = `<line x1="${x0}" y1="${y0}" x2="${x0}" y2="${y1}" stroke="rgba(174,191,207,0.45)" stroke-width="1.5"/><line x1="${x0}" y1="${y1}" x2="${x1}" y2="${y1}" stroke="rgba(174,191,207,0.45)" stroke-width="1.5"/>`;
+  let curves = '';
+  ENVS.forEach(e => {
+    if (!selected.includes(e.k)) return;
+    const r = e.rate * tf;
+    const pts = [];
+    for (let s = 0; s <= 40; s++) {
+      const t = s / 40;
+      const v = r * Math.pow(t, 1.12);
+      const px = x0 + t * pw;
+      const py = y1 - Math.min(v / YMAX, 1) * ph;
+      pts.push(`${px.toFixed(1)},${py.toFixed(1)}`);
+    }
+    curves += `<polyline points="${pts.join(' ')}" fill="none" stroke="${e.color}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>`;
+    const ey = y1 - Math.min((r) / YMAX, 1) * ph;
+    curves += `<circle cx="${x1}" cy="${ey.toFixed(1)}" r="3.6" fill="${e.color}"/>`;
+  });
+  const empty = selected.length === 0
+    ? `<text x="${((x0 + x1) / 2).toFixed(0)}" y="${((y0 + y1) / 2).toFixed(0)}" text-anchor="middle" font-family="'IBM Plex Sans',sans-serif" font-size="14" fill="#5f7183">Vyber alespoň jedno prostředí</text>`
+    : '';
+  const labels = `<text x="${((x0 + x1) / 2).toFixed(0)}" y="${H - 6}" text-anchor="middle" font-family="'IBM Plex Sans',sans-serif" font-size="12" fill="#aebfcf">čas →</text>
+    <text x="15" y="${((y0 + y1) / 2).toFixed(0)}" transform="rotate(-90 15 ${((y0 + y1) / 2).toFixed(0)})" text-anchor="middle" font-family="'IBM Plex Sans',sans-serif" font-size="12" fill="#aebfcf">úbytek materiálu →</text>`;
+  return `<svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">${grid}${axes}${curves}${empty}${labels}</svg>`;
+}
+
+class Component extends DCLogic {
+  state = { factEnvs: [], factTemp: 20 };
+
+  toggleEnv(k) {
+    this.setState(s => ({
+      factEnvs: s.factEnvs.includes(k) ? s.factEnvs.filter(x => x !== k) : [...s.factEnvs, k],
+    }));
+  }
+
+  renderVals() {
+    const sel = this.state.factEnvs;
+    return {
+      envOptions: ENVS.map(e => {
+        const on = sel.includes(e.k);
+        return {
+          select: () => this.toggleEnv(e.k),
+          label: e.label,
+          dot: e.color,
+          dotRing: on ? 'rgba(11,14,21,0.25)' : 'transparent',
+          bg: on ? 'oklch(0.24 0.03 255)' : 'rgba(120,150,180,0.08)',
+          color: on ? '#eaf2fa' : '#8296a8',
+          border: on ? e.color : 'rgba(150,180,210,0.25)',
+        };
+      }),
+      chartSVG: { __html: chartSVG(sel, this.state.factTemp) },
+      tempNoteVis: this.state.factTemp > 50 ? 'visible' : 'hidden',
+      factTemp: this.state.factTemp,
+      onFactTemp: (e) => this.setState({ factTemp: Number(e.target.value) }),
+    };
+  }
+}
+</script>
+</body>
+</html>

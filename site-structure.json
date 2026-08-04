@@ -1,0 +1,492 @@
+{
+  "nav": [
+    {
+      "title": "Domů",
+      "href": "index.html"
+    },
+    {
+      "title": "Vnitřní stavba kovů a TZ",
+      "href": "vnitrni-stavba-kovu-a-tz/index.html?view=home"
+    },
+    {
+      "title": "Koroze",
+      "href": "koroze/index.html"
+    },
+    {
+      "title": "Tváření",
+      "href": "tvareni-za-tepla/index.html"
+    },
+    {
+      "title": "O projektu",
+      "href": "o-projektu.html"
+    }
+  ],
+  "home": {
+    "cards": [
+      {
+        "id": "vnitrni-stavba",
+        "title": "Vnitřní stavba kovů a tepelné zpracování",
+        "href": "vnitrni-stavba-kovu-a-tz/index.html",
+        "status": "ready"
+      },
+      {
+        "id": "obrabeni",
+        "title": "Obrábění",
+        "status": "coming-soon"
+      },
+      {
+        "id": "tvareni",
+        "title": "Tváření",
+        "href": "tvareni-za-tepla/index.html",
+        "status": "ready"
+      },
+      {
+        "id": "svarovani",
+        "title": "Svařování",
+        "status": "coming-soon"
+      },
+      {
+        "id": "koroze",
+        "title": "Koroze",
+        "href": "koroze/index.html",
+        "status": "ready"
+      }
+    ]
+  },
+  "tvareniZaTepla": {
+    "h1": "Rozdělení tváření",
+    "cards": [
+      {
+        "id": "co-je",
+        "title": "Teplota rekrystalizace",
+        "desc": "Vliv teploty rekrystalizace",
+        "href": "teplota-rekrystalizace/index.html",
+        "badge": "4 kapitoly",
+        "status": "ready"
+      },
+      {
+        "id": "zmeny-struktury",
+        "title": "Změny struktury",
+        "desc": "Zrna, textura a plastická deformace během tváření a po něm.",
+        "href": "zmeny-struktury/index.html",
+        "badge": "5 kapitol",
+        "status": "ready"
+      },
+      {
+        "id": "hlavni-technologie",
+        "title": "Kování a válcování",
+        "desc": "Zápustkové a postupové kování, buchar × lis, válcování profilů a PKV, porovnání technologií výroby.",
+        "href": "kovani/index.html",
+        "badge": "7 kapitol · 5 animací",
+        "status": "ready"
+      },
+      {
+        "id": "vady",
+        "title": "Vady při tváření",
+        "desc": "Vady za tepla i za studena — příčina, projev a prevence u každé z nich.",
+        "href": "vady/index.html",
+        "badge": "10 kapitol · 4 interaktivní",
+        "status": "ready"
+      }
+    ]
+  },
+  "kovani": {
+    "cards": [
+      {
+        "title": "Zápustkové kování",
+        "desc": "Plnění dutiny a vznik výronku v dělicí rovině.",
+        "href": "Zapustkove kovani.html",
+        "status": "ready"
+      },
+      {
+        "title": "Postupové kování",
+        "desc": "Předkovací → kovací → dokončovací dutina.",
+        "href": "Postupove kovani.html",
+        "status": "ready"
+      },
+      {
+        "title": "Buchar × lis",
+        "desc": "Rázové vs. klidné přetváření a hloubka prokování.",
+        "href": "Buchar a lis.html",
+        "status": "ready"
+      },
+      {
+        "title": "Stupeň prokování",
+        "desc": "Kalkulačka stupně prokování + graf přetvárného odporu oceli.",
+        "href": "Stupen prokovani.html",
+        "status": "ready"
+      },
+      {
+        "title": "Porovnání technologií — ozubené kolo",
+        "desc": "Kováno × svařováno × sléváno: osový řez, hmotnosti polotovarů a vhodné oceli.",
+        "href": "Porovnani technologii - ozubene kolo.html",
+        "status": "ready"
+      },
+      {
+        "title": "Příčné klínové válcování",
+        "desc": "Z válce stupňovitý předkovek ojnice — animace tváření klíny.",
+        "href": "Pricne klinove valcovani.html",
+        "status": "ready"
+      },
+      {
+        "title": "Kalibrované válcování profilů",
+        "desc": "Čtverec → ovál → kruh → ovál → kruh: postupná redukce průřezu soustavou kalibrů.",
+        "href": "Kalibrovane valcovani profilu.html",
+        "status": "ready"
+      }
+    ]
+  },
+  "coJeTvareniZaTepla": {
+    "cards": [
+      {
+        "title": "Definice",
+        "desc": "Tváření za tepla vs. za studena — základní rozdíly.",
+        "href": "Definice a zarazeni.html"
+      },
+      {
+        "title": "Rekrystalizační teplota T<sub>R</sub>",
+        "desc": "Hranice mezi tvářením za studena a za tepla, výpočet a příklady.",
+        "href": "Rekrystalizacni teplota.html"
+      },
+      {
+        "title": "Proč se tváří nad T<sub>R</sub>",
+        "desc": "Nižší přetvárný odpor, vyšší tvárnost, žádné zpevnění.",
+        "href": "Proc se tvari nad TR.html"
+      },
+      {
+        "title": "Teplotní interval tváření",
+        "desc": "Horní mez (přehřátí, spálení) a dolní mez (konec tváření).",
+        "href": "Teplotni interval tvareni.html"
+      }
+    ]
+  },
+  "zmenyStruktury": {
+    "cards": [
+      {
+        "title": "Výchozí licí struktura",
+        "desc": "Hrubá zrna, dendrity a licí vady před tvářením.",
+        "href": "Vychozi lici struktura.html"
+      },
+      {
+        "title": "Zjemnění zrna a vliv na vlastnosti",
+        "desc": "Jemnější zrno = vyšší pevnost i houževnatost zároveň.",
+        "href": "Zjemneni zrna.html"
+      },
+      {
+        "title": "Vláknitá struktura",
+        "desc": "Směrovost vlastností podél a napříč vláken.",
+        "href": "Vlaknita struktura a textura.html"
+      },
+      {
+        "title": "Srovnání výsledné struktury",
+        "desc": "Litá × tvářená za tepla × tvářená za studena.",
+        "href": "Srovnani struktur.html"
+      },
+      {
+        "title": "Rekrystalizace",
+        "desc": "Vznik nových, nezpevněných zrn během tváření nad TR.",
+        "href": "Rekrystalizace.html"
+      }
+    ]
+  },
+  "koroze": {
+    "h1": "Koroze kovů",
+    "cards": [
+      {
+        "id": "druhy",
+        "title": "Druhy koroze",
+        "desc": "Rovnoměrná, bodová, mezikrystalová, štěrbinová a galvanická koroze.",
+        "href": "druhy-koroze/Druhy koroze.html",
+        "badge": "Přehled"
+      },
+      {
+        "id": "faktory",
+        "title": "Faktory ovlivňující korozi",
+        "desc": "Prostředí, teplota a koroze pod napětím (SCC).",
+        "href": "faktory-koroze/Faktory ovlivnujici korozi.html",
+        "badge": "Interaktivní diagram"
+      },
+      {
+        "id": "elektrochemie",
+        "title": "Elektrochemická koroze",
+        "desc": "Galvanický článek, anoda a katoda, oxidační a redukční reakce.",
+        "href": "elektrochemicka-koroze/Elektrochemicka koroze.html",
+        "badge": "Interaktivní diagram"
+      },
+      {
+        "id": "rychlost",
+        "title": "Rychlost koroze a PB pravidlo",
+        "desc": "Pilling–Bedworthovo pravidlo — kdy vrstva oxidů chrání a kdy ne.",
+        "href": "rychlost-koroze/Rychlost koroze a PB pravidlo.html",
+        "badge": "Interaktivní diagram"
+      },
+      {
+        "id": "beketov",
+        "title": "Korozní odolnost kovů",
+        "desc": "Elektrodové potenciály kovů vs. skutečná korozní odolnost a pasivace.",
+        "href": "korozni-odolnost-kovu/Korozni odolnost kovu.html",
+        "badge": "Interaktivní diagram"
+      },
+      {
+        "id": "ochrana",
+        "title": "Protikorozní ochrana",
+        "desc": "Povlaky, inhibitory, katodová ochrana a legování.",
+        "href": "ochrana/Protikorozni ochrana.html",
+        "badge": "Přehled"
+      }
+    ],
+    "related": [
+      {
+        "title": "Koroze bludnými proudy",
+        "desc": "Trakční proud tramvaje uniká do půdy a přes potrubí se vrací do měnírny.",
+        "href": "bludne-proudy/Koroze bludnymi proudy.html",
+        "parent": "druhy"
+      },
+      {
+        "title": "Koroze pod napětím (SCC)",
+        "desc": "Tahové napětí a korozní prostředí společně vedou k trhlinám a náhlému křehkému lomu.",
+        "href": "koroze-pod-napetim/Koroze pod napetim.html",
+        "parent": "faktory"
+      }
+    ]
+  },
+  "protikorozniOchrana": {
+    "h1": "Protikorozní ochrana",
+    "cards": [
+      {
+        "title": "Žárové zinkování",
+        "desc": "Ponořením do roztaveného zinku vznikne korozivzdorná vrstva odolná i proti mechanickému poškození.",
+        "href": "zarove-pozinkovani/index.html"
+      },
+      {
+        "title": "Poplastování",
+        "desc": "Plastový povlak (např. fluidní poplastování) jako bariéra proti vlhkosti a chemikáliím.",
+        "href": "fluidni-poplastovani/index.html"
+      },
+      {
+        "title": "Katodová ochrana",
+        "desc": "Obětovaná anoda (Zn, Mg) nebo vnucený proud udrží chráněný kov trvale jako katodu.",
+        "href": "katodova-ochrana/Katodova ochrana.html"
+      },
+      {
+        "title": "Legování",
+        "desc": "Přidání Cr, Ni, Mo (korozivzdorná ocel) vytváří stabilní vlastní pasivní vrstvu odolnou i v agresivním prostředí.",
+        "href": "legovani/Legovani.html"
+      },
+      {
+        "title": "Inhibitory koroze",
+        "desc": "Chemické látky přidané do prostředí, které zpomalí anodickou nebo katodickou reakci.",
+        "href": "inhibitory/Inhibitory koroze.html"
+      },
+      {
+        "title": "Galvanické pokovení",
+        "desc": "Elektrolytické nanesení tenkých kovových vrstev (Cu–Ni–Cr) — lesk, tvrdost a odolnost povrchu.",
+        "href": "galvanicke-pokovani/Galvanicke pokovani.html"
+      }
+    ]
+  },
+  "vnitrniStavbaKovuATz": {
+    "h1": "Vnitřní stavba kovů a tepelné zpracování",
+    "sections": [
+      {
+        "id": "krystal",
+        "title": "Krystalové mřížky",
+        "desc": "Uspořádání atomů v krystalové struktuře kovů, poruchy mřížky a dislokace.",
+        "badge": "5 animací"
+      },
+      {
+        "id": "rovnovazne",
+        "title": "Rovnovážné diagramy",
+        "desc": "Binární diagramy slitin – úplná rozpustnost, eutektická a eutektoidní přeměna.",
+        "badge": "3 diagramy a 1 animace"
+      },
+      {
+        "id": "tepelne",
+        "title": "Tepelné zpracování",
+        "desc": "Austenitizace, kalení, popouštění, žíhání a chemicko-tepelné zpracování.",
+        "badge": "4 diagramy a 3 animace"
+      }
+    ]
+  },
+  "krystaloveMrizky": {
+    "cards": [
+      {
+        "id": "bcc",
+        "title": "Krychlová BCC mřížka",
+        "desc": "Prostorově středěná krychlová mřížka (např. α-železo).",
+        "href": "krystalove-mrizky/Krychlova BCC mrizka.html"
+      },
+      {
+        "id": "fcc",
+        "title": "Krychlová FCC mřížka",
+        "desc": "Plošně středěná krychlová mřížka (např. γ-železo).",
+        "href": "krystalove-mrizky/Krychlova FCC mrizka.html"
+      },
+      {
+        "id": "hcp",
+        "title": "Šesterečná mřížka",
+        "desc": "Hexagonální těsně uspořádaná mřížka (HCP).",
+        "href": "krystalove-mrizky/Sesterecna mrizka.html"
+      },
+      {
+        "id": "defects",
+        "title": "Bodové poruchy mřížky",
+        "desc": "Vakance, intersticie a substituce v krystalové mřížce.",
+        "href": "krystalove-mrizky/Bodove poruchy mrizky.html"
+      },
+      {
+        "id": "linedisloc",
+        "title": "Hranová dislokace",
+        "desc": "Vznik a skluz čárové dislokace v krystalové mřížce.",
+        "href": "krystalove-mrizky/Hranova dislokace.html"
+      }
+    ]
+  },
+  "rovnovazneDiagramy": {
+    "cards": [
+      {
+        "id": "fefe3c",
+        "title": "Diagram Fe–Fe₃C",
+        "desc": "Metastabilní soustava železo–cementit: táhlo složení, vrstvy výkladu a kvíz.",
+        "href": "rovnovazne-diagramy/Diagram Fe-Fe3C.html"
+      },
+      {
+        "id": "uplna-rozpustnost",
+        "title": "Diagram s úplnou rozpustností",
+        "desc": "Dvě složky neomezeně rozpustné v tuhém i tekutém stavu.",
+        "href": "rovnovazne-diagramy/Rovnovazny diagram - uplna rozpustnost.html"
+      },
+      {
+        "id": "eutekticka",
+        "title": "Diagram s eutektickou přeměnou",
+        "desc": "Tuhnutí eutektické směsi ze taveniny při konstantní teplotě.",
+        "href": "rovnovazne-diagramy/Rovnovazny diagram - eutekticka premena.html"
+      },
+      {
+        "id": "eutektoidni",
+        "title": "Diagram s eutektoidní přeměnou",
+        "desc": "Rozpad tuhého roztoku na dvě fáze při ochlazování (např. Fe–Fe₃C).",
+        "href": "rovnovazne-diagramy/Rovnovazny diagram - eutektoidni premena.html"
+      },
+      {
+        "id": "mikrostruktura",
+        "title": "Eutektická x eutektoidní přeměna",
+        "desc": "Co se děje uvnitř kovu — nukleace a růst lamel při obou přeměnách.",
+        "href": "rovnovazne-diagramy/Eutekticka a eutektoidni premena - mikrostruktura.html"
+      }
+    ]
+  },
+  "tepelneZpracovani": {
+    "cards": [
+      {
+        "id": "austenitizace",
+        "title": "Austenitizace",
+        "desc": "Ohřev oceli nad teplotu Ac3 a vznik austenitu.",
+        "href": "tepelne-zpracovani/Austenitizace.html"
+      },
+      {
+        "id": "zihani",
+        "title": "Žíhání",
+        "desc": "Homogenizační, normalizační, na měkko, rekrystalizační a ke snížení pnutí – co se děje se strukturou.",
+        "href": "tepelne-zpracovani/Zihani.html"
+      },
+      {
+        "id": "ira",
+        "title": "IRA diagram kalení",
+        "desc": "Izotermický rozpad austenitu – transformace při konstantní teplotě.",
+        "href": "tepelne-zpracovani/IRA diagram kaleni.html"
+      },
+      {
+        "id": "ara",
+        "title": "ARA diagram kalení",
+        "desc": "Anizotermický rozpad austenitu při plynulém ochlazování.",
+        "href": "tepelne-zpracovani/ARA diagram kaleni.html"
+      },
+      {
+        "id": "popousteci",
+        "title": "Popouštěcí diagram",
+        "desc": "Popouštění po kalení – martenzit, popuštěný martenzit a sorbit.",
+        "href": "tepelne-zpracovani/Popousteci diagram.html"
+      },
+      {
+        "id": "cementace",
+        "title": "Cementace – řez vrstvou",
+        "desc": "Sycení povrchu uhlíkem, kalení, popouštění a výsledná tvrdost po hloubce.",
+        "href": "tepelne-zpracovani/Cementace rez vrstvou.html"
+      },
+      {
+        "id": "porovnani",
+        "title": "Porovnání povrchových úprav",
+        "desc": "Cementace, nitridace a povrchové kalení vedle sebe – tvrdost a hloubka vrstvy.",
+        "href": "tepelne-zpracovani/Porovnani povrchovych uprav.html"
+      }
+    ]
+  },
+  "vadyPriTvareni": {
+    "h1": "Vady při tváření",
+    "hot": [
+      {
+        "tag": "Animace",
+        "title": "Přeložka",
+        "desc": "Materiál přeteče přes sebe a zaválcuje se do povrchu — vada, kterou nelze zavařit.",
+        "href": "Prelozka.html"
+      },
+      {
+        "tag": "Schéma",
+        "title": "Přehřátí a spálení",
+        "desc": "Hrubé zrno nad horní mezí a natavené hranice zrn — jedno lze zachránit, druhé ne.",
+        "href": "Prehrati a spaleni.html"
+      },
+      {
+        "tag": "Schéma",
+        "title": "Trhliny za tepla",
+        "desc": "Tváření pod dolní mezí, tahová napětí na povrchu a nízká tvárnost oceli.",
+        "href": "Trhliny za tepla.html"
+      },
+      {
+        "tag": "Schéma",
+        "title": "Vady zděděné z ingotu",
+        "desc": "Staženiny, bubliny, segregace a vměstky — co tváření zavaří a co jen protáhne.",
+        "href": "Vady z ingotu.html"
+      },
+      {
+        "tag": "Interaktivní",
+        "title": "Nerovnoměrná deformace",
+        "desc": "Pásma ztížené deformace při pěchování a nedostatečný stupeň prokování ve středu průřezu.",
+        "href": "Nerovnomerna deformace.html"
+      }
+    ],
+    "cold": [
+      {
+        "tag": "Schéma",
+        "title": "Trhliny z vyčerpané tvárnosti",
+        "desc": "Kov se zpevňuje, po překročení mezní deformace praská — nutné mezioperační žíhání.",
+        "href": "Trhliny za studena.html"
+      },
+      {
+        "tag": "Animace",
+        "title": "Odpružení",
+        "desc": "Po odlehčení se díl částečně vrátí — nedodržený úhel ohybu.",
+        "href": "Odpruzeni.html"
+      },
+      {
+        "tag": "Interaktivní",
+        "title": "Vady hlubokého tažení",
+        "desc": "Utržení dna a zvlnění příruby — dva protichůdné důsledky síly přidržovače.",
+        "href": "Vady hlubokeho tazeni.html"
+      },
+      {
+        "tag": "Schéma",
+        "title": "Cípatost (uši)",
+        "desc": "Anizotropie plechu z válcování se projeví nerovným okrajem výtažku.",
+        "href": "Cipatost.html"
+      },
+      {
+        "tag": "Schéma",
+        "title": "Povrchové vady a pnutí",
+        "desc": "Lüdersovy pásy, pomerančová kůra a zbytková pnutí projevující se až po čase.",
+        "href": "Povrchove vady a pnuti.html"
+      }
+    ]
+  }
+}

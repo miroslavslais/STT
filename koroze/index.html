@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koroze kovů | STT</title>
+<meta name="description" content="Rozcestník kapitoly Koroze kovů: druhy koroze, elektrochemická podstata, rychlost koroze, korozní odolnost kovů a protikorozní ochrana.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #fbf8f3; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '268px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+
+<div style="min-height:100vh;background:#fbf8f3;font-family:'IBM Plex Sans',sans-serif;padding:56px 48px 80px;box-sizing:border-box">
+
+  <div style="max-width:1080px;margin:0 auto 56px">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.55 0.17 35);margin-bottom:10px">Interaktivní výuka STT</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:44px;line-height:1.15;color:#231d16;margin:0 0 14px">Koroze kovů</h1>
+    <p style="font-size:18px;line-height:1.6;color:#6b6255;max-width:640px;margin:0">Vyberte si oblast a prozkoumejte, proč kovy korodují a jak se dají chránit.</p>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <sc-for list="{{ homeCards }}" as="c" hint-placeholder-count="7">
+      <a href="{{ c.href }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:30px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+        <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.94 0.04 35);display:flex;align-items:center;justify-content:center" dangerouslySetInnerHTML="{{ c.icon }}"></div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#231d16;margin-bottom:6px">{{ c.title }}</div>
+          <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ c.desc }}</div>
+        </div>
+        <div style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:oklch(0.5 0.15 35);display:flex;align-items:center;gap:6px">
+          {{ c.badge }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="oklch(0.5 0.15 35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+
+  <div style="max-width:1080px;margin:40px auto 0">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.55 0.17 35);margin-bottom:16px">AI asistent</div>
+    <div style="max-width:520px;display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:28px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.5 0.15 35);display:flex;align-items:center;gap:8px;margin-bottom:14px">
+        <span style="width:7px;height:7px;background:oklch(0.55 0.17 35);border-radius:50%"></span>
+        AI Kvíz
+      </div>
+      <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 16px;color:#231d16">Procvič si korozi kovů nanečisto</h3>
+      <ol style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px">
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.94 0.04 35);color:oklch(0.5 0.15 35);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">1</span><span>Klikni na <strong style="color:#231d16;font-weight:600">„Zkopírovat prompt“</strong>.</span></li>
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.94 0.04 35);color:oklch(0.5 0.15 35);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">2</span><span>Otevři si své oblíbené AI (<strong style="color:#231d16;font-weight:600">ChatGPT, Claude, Copilot…</strong>).</span></li>
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.94 0.04 35);color:oklch(0.5 0.15 35);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">3</span><span>Vlož a odešli — zadání tématu je už jeho součástí.</span></li>
+      </ol>
+      <div style="background:#fbf8f3;border:1px solid #eee5d8;border-radius:12px;margin-bottom:20px">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8a8072;padding:10px 14px 0">Systémový prompt</div>
+        <pre style="height:160px;overflow-y:auto;padding:10px 14px 14px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5c5346;white-space:pre-wrap;word-break:break-word">{{ quizPromptText }}</pre>
+      </div>
+      <button type="button" onClick="{{ copyQuizPrompt }}" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#fff;background:{{ quizBtnBg }};border:none;border-radius:10px;padding:14px 20px;cursor:pointer">
+        <span>{{ quizBtnIcon }}</span>
+        <span>{{ quizBtnLabel }}</span>
+      </button>
+    </div>
+  </div>
+
+</div>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#fbf8f3"></rect><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="220" fill="#b0561f">Ko</text></svg></template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+  }
+  fallbackCopy(text);
+  return Promise.resolve();
+}
+
+const QUIZ_PROMPT = `Jste "Generátor procvičování koroze", specializovaný AI asistent na výukových stránkách strojírenské technologie. Vaším úkolem je generovat cvičné otázky a krátké kvízy z tématu koroze kovů: elektrochemická podstata koroze, Beketova řada a pasivace, druhy koroze (rovnoměrná, bodová, mezikrystalová, štěrbinová, galvanická), Pilling–Bedworthovo pravidlo, faktory ovlivňující rychlost koroze (prostředí, teplota, mechanické napětí) a protikorozní ochrana (povlaky, inhibitory, katodová ochrana, legování, žárové zinkování, galvanické pokovení).
+
+ÚVODNÍ KROK:
+- Jakmile obdržíte tento prompt, na začátku konverzace nejprve stručně seznamte studenta s pravidly ovládání (viz OVLÁDÁNÍ níže) a teprve poté se zeptejte, jaké téma chce procvičovat a jakou obtížnost preferuje (základy, opakování před testem na úrovni znalostí žáka SŠ).
+
+OVLÁDÁNÍ:
+- Jedno kolo má 8 až 10 otázek. Po každé odpovědi si v duchu přičti k počítadlu otázek v aktuálním kole.
+- Po dosažení 8 až 10 otázek se studenta ptáte, jak chce pokračovat, nabídněte možnosti jako číslovaný seznam. Student odpovídá pouze číslem.
+- Pokud otázka obsahuje látku, kterou student ještě neprobíral, může místo odpovědi napsat písmeno X. V takovém případě látku stručně vysvětlete a pokračujte další otázkou (tato otázka se nezapočítává do limitu 8–10).
+
+HRANICE TÉMATU:
+- Držte se výhradně koroze a souvisejících témat. U dotazů mimo téma studenta zdvořile nasměrujte zpět k látce.
+
+FORMÁT OTÁZEK:
+- Střídej typy otázek tak, aby v každém kole (8–10 otázek) bylo přibližně stejně otevřených otázek a otázek s výběrem ze 4 možností (A/B/C/D). Nikdy negeneruj tři a více ABCD otázek po sobě.
+- Před formulací každé otázky si urči, zda tentokrát půjde o otevřenou, nebo výběrovou variantu, a drž se tohoto rozhodnutí.
+- Pokládejte vždy jen jednu otázku a čekejte na odpověď studenta.
+
+PŘÍKLAD (vzor pro formát, netýká se obsahu aktuálního kola):
+- Otevřená otázka: "Vysvětli, proč hliník i přes svou vysokou reaktivitu v běžném prostředí koroduje jen velmi pomalu."
+- Výběrová otázka: "Který jev popisuje Pilling–Bedworthovo pravidlo? A) rychlost difuze iontů kovu B) poměr objemu oxidu k objemu kovu C) rozdíl elektrodových potenciálů D) tloušťku pasivační vrstvy v mikrometrech"
+
+VYHODNOCENÍ:
+1. Po každé odpovědi ihned řekněte, zda je správná.
+2. Vždy stručně vysvětlete správné řešení.
+3. Poté nabídněte další otázku.
+4. Přizpůsobujte obtížnost podle úspěšnosti studenta. Pod 30 % upozorněte studenta, že dané téma musí pochopit více do hloubky.
+
+TÓN KOMUNIKACE:
+- Komunikujte v češtině, buďte přátelští a studentovi tykejte.
+
+---
+Ahoj, chci si procvičit korozi kovů formou kvízu.`;
+
+const ICONS = {
+  druhy: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="9" width="18" height="8" rx="1.5" fill="none" stroke="oklch(0.55 0.16 40)" stroke-width="1.6"/><circle cx="9" cy="13" r="1.6" fill="oklch(0.55 0.17 35)"/><circle cx="16" cy="13" r="2.2" fill="oklch(0.55 0.17 35)"/></svg>',
+  faktory: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="10" y="3" width="4" height="12" rx="2" fill="none" stroke="oklch(0.55 0.17 35)" stroke-width="1.6"/><circle cx="12" cy="18" r="3" fill="oklch(0.55 0.17 35)"/></svg>',
+  rychlost: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="14" width="16" height="6" fill="oklch(0.6 0.02 60)"/><rect x="4" y="9" width="16" height="4" fill="oklch(0.6 0.15 40)"/></svg>',
+  elektrochemie: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="6" width="6" height="12" rx="1" fill="oklch(0.6 0.15 40)"/><rect x="14" y="6" width="6" height="12" rx="1" fill="oklch(0.6 0.02 60)"/><path d="M10 10h4" stroke="oklch(0.55 0.17 35)" stroke-width="1.6"/></svg>',
+  beketov: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M3 20V4" stroke="oklch(0.55 0.17 35)" stroke-width="2" stroke-linecap="round"/><rect x="6" y="12" width="3" height="8" fill="oklch(0.65 0.15 40)"/><rect x="11" y="8" width="3" height="12" fill="oklch(0.65 0.12 165)"/><rect x="16" y="14" width="3" height="6" fill="oklch(0.6 0.1 240)"/></svg>',
+  bludne: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 17h16M6 17V9a2 2 0 012-2h8a2 2 0 012 2v8M9 21v-2M15 21v-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+  ochrana: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 3l8 3v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V6l8-3z" stroke="oklch(0.55 0.17 35)" stroke-width="1.8" stroke-linejoin="round"/></svg>',
+};
+
+const FALLBACK_NAV = [
+  { title: 'Domů', href: '../index.html' },
+  { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+  { title: 'Koroze', href: 'index.html' },
+  { title: 'Tváření', href: '../tvareni-za-tepla/index.html' },
+  { title: 'O projektu', href: '../o-projektu.html' },
+];
+class Component extends DCLogic {
+  state = { copiedQuiz: false, structure: null };
+
+  componentDidMount() {
+    fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
+  }
+
+  copyQuizPrompt = () => {
+    copyToClipboard(QUIZ_PROMPT).then(() => {
+      this.setState({ copiedQuiz: true });
+      setTimeout(() => this.setState({ copiedQuiz: false }), 2000);
+    });
+  };
+
+  renderVals() {
+    const SELF = 'koroze/';
+    const navItems = this.state.structure ? this.state.structure.nav.map(n => ({ title: n.title, href: n.href.startsWith(SELF) ? n.href.slice(SELF.length) : '../' + n.href })) : FALLBACK_NAV;
+    const cardsData = this.state.structure ? this.state.structure.koroze.cards : [];
+    return {
+      navItems,
+      homeCards: cardsData.map(c => ({ ...c, href: encodeURI(c.href), icon: { __html: ICONS[c.id] || '' } })),
+      quizPromptText: QUIZ_PROMPT,
+      copyQuizPrompt: this.copyQuizPrompt,
+      quizBtnBg: this.state.copiedQuiz ? 'oklch(0.6 0.14 150)' : 'oklch(0.55 0.17 35)',
+      quizBtnIcon: this.state.copiedQuiz ? '✓' : '📋',
+      quizBtnLabel: this.state.copiedQuiz ? 'Zkopírováno!' : 'Zkopírovat prompt',
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nerovnoměrná deformace | STT</title>
+<meta name="description" content="Pásma ztížené deformace při pěchování a nedostatečný stupeň prokování ve středu průřezu.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '264px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Domů</a>
+    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Vnitřní stavba kovů a TZ</a>
+    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Koroze</a>
+    <a href="../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Tváření</a>
+    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">O projektu</a>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Vady při tváření</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:820px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#eda962;margin-bottom:8px">Vady za tepla</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Nerovnoměrná deformace</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Deformace se v objemu nikdy nerozloží rovnoměrně. Tam, kde materiál tře o nástroj, se pohybuje jen málo — vznikají takzvaná <strong>pásma ztížené deformace</strong>. Uprostřed průřezu naopak kov teče nejvíc.</p>
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:14px 0 10px">Pěchování — kde se kov skutečně přetvořil</div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Přetáhněte posuvník a sledujte, jak se s rostoucím pěchováním mění rozložení deformace i tvar polotovaru.</p>
+    <div style="position:relative;height:640px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 22px">
+      <x-import component-from-global-scope="PechovaniPasma" from="../../animations.jsx ./pechovani-pasma.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Praktické důsledky jsou dva. Za prvé <strong>soudkovitost</strong> — bok se vyklene a je namáhán tahem, což vede k podélným trhlinám. Za druhé <strong>nerovnoměrná struktura</strong>: v pásmech ztížené deformace zůstane hrubé licí zrno, protože zde nebyla dosažena kritická deformace potřebná k rekrystalizaci.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Nejhorší je oblast těsně nad kritickým stupněm deformace (přibližně 3–10 %). Tam už rekrystalizace proběhne, ale vznikne jen málo zárodků — výsledkem je zrno hrubší než původní.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 8px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#eda962;margin-bottom:8px">Příčina</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Tření mezi nástrojem a polotovarem, ochlazení povrchu o studený nástroj, nevhodný poměr výšky k průměru.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#eda962;margin-bottom:8px">Projev</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Soudkovitost a podélné trhliny na boku, hrubé zrno v pásmech ztížené deformace, kolísání mechanických vlastností v rámci jednoho dílu.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#eda962;margin-bottom:8px">Prevence</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Mazat a předehřívat nástroje, volit dostatečný stupeň prokování, přerozdělit materiál předkováním, pěchovat na vhodný poměr h : d (max. cca 2,5 : 1 kvůli vzpěru).</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

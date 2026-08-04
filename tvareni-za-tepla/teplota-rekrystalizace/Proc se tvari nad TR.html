@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proč se tváří nad TR | STT</title>
+<meta name="description" content="Nižší přetvárný odpor, vyšší tvárnost a chybějící zpevnění při tváření nad rekrystalizační teplotou.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '264px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'tvareni-za-tepla/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Domů</a>
+    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
+    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Koroze</a>
+    <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Tváření</a>
+    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">O projektu</a>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Teplota rekrystalizace</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:760px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:8px">Teplota rekrystalizace</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Proč se tváří nad T<sub>R</sub></h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Ohřev nad rekrystalizační teplotu přináší tři efekty, které dělají z tváření za tepla praktickou volbu pro velké deformace a objemnou výrobu.</p>
+
+    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:24px">
+      <div style="display:flex;gap:16px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:rgba(224,166,84,0.14);display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;color:oklch(0.72 0.16 60)">1</div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">Nižší přetvárný odpor</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#8296a8">Se stoupající teplotou prudce klesá napětí potřebné k deformaci — stroje zvládnou tvarovat mnohem větší objemy materiálu při stejné síle.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:rgba(224,166,84,0.14);display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;color:oklch(0.72 0.16 60)">2</div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">Vyšší tvárnost</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#8296a8">Za tepla snese materiál mnohem větší plastickou deformaci než za studena, kde by při stejné míře deformace praskl.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:rgba(224,166,84,0.14);display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;color:oklch(0.72 0.16 60)">3</div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">Žádné zpevnění</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#8296a8">Rekrystalizace průběžně „ruší“ efekt deformačního zpevnění — nová zrna vznikají bez vnitřního pnutí, takže lze materiál tvářet dál.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px;margin-bottom:24px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:16px">Interaktivní graf: deformační zpevnění vs. deformace</div>
+
+      <div style="display:flex;gap:8px;margin-bottom:18px">
+        <button type="button" onClick="{{ setCold }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ coldBtnBorder }};background:{{ coldBtnBg }};color:{{ coldBtnText }};font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Za studena</button>
+        <button type="button" onClick="{{ setHot }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ hotBtnBorder }};background:{{ hotBtnBg }};color:{{ hotBtnText }};font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Za tepla</button>
+      </div>
+
+      <div dangerouslySetInnerHTML="{{ chartSVG }}" style="margin-bottom:0"></div>
+
+      <input type="range" min="0" max="100" value="{{ eps }}" onInput="{{ onEps }}" style="width:100%;margin-top:-14px;accent-color:oklch(0.72 0.16 60);cursor:pointer">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8">ε = 0 %</span>
+        <span style="font-family:'IBM Plex Sans',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa">ε = {{ eps }} %</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8">ε = 100 %</span>
+      </div>
+
+      <div style="display:flex;gap:32px;justify-content:center;margin-top:24px">
+        <div style="text-align:center;opacity:{{ coldOpacity }};transition:opacity .2s">
+          <div style="width:90px;height:90px;margin:0 auto 8px;position:relative">
+            <sc-if value="{{ coldIntact }}" hint-placeholder-val="{{ true }}">
+              <div style="width:100%;height:100%;transform:{{ coldGrainTransform }};transition:transform .1s">
+                <svg width="90" height="90" viewBox="0 0 90 90">
+                  <circle cx="45" cy="45" r="40" fill="none" stroke="oklch(0.7 0.15 230)" stroke-width="1.6"/>
+                  <path d="M10 30 Q45 10 80 35" stroke="oklch(0.7 0.15 230)" fill="none" stroke-width="1.1"/>
+                  <path d="M8 55 Q45 40 82 60" stroke="oklch(0.7 0.15 230)" fill="none" stroke-width="1.1"/>
+                  <path d="M25 8 Q40 45 30 82" stroke="oklch(0.7 0.15 230)" fill="none" stroke-width="1.1"/>
+                  <path d="M60 10 Q55 45 65 80" stroke="oklch(0.7 0.15 230)" fill="none" stroke-width="1.1"/>
+                </svg>
+              </div>
+            </sc-if>
+            <sc-if value="{{ coldFractured }}" hint-placeholder-val="{{ false }}">
+              <svg width="90" height="90" viewBox="0 0 90 90" style="position:absolute;top:0;left:0">
+                <g style="transform:{{ coldPieceLeftTransform }};transform-origin:45px 45px;transition:transform .1s">
+                  <path d="M45 5 A40 40 0 0 0 45 85 L48 78 L38 68 L50 58 L36 48 L50 38 L38 28 L48 18 Z" fill="rgba(120,170,220,0.1)" stroke="oklch(0.7 0.15 230)" stroke-width="1.4"/>
+                </g>
+                <g style="transform:{{ coldPieceRightTransform }};transform-origin:45px 45px;transition:transform .1s">
+                  <path d="M45 5 A40 40 0 0 1 45 85 L42 78 L52 68 L40 58 L54 48 L40 38 L52 28 L42 18 Z" fill="rgba(120,170,220,0.1)" stroke="oklch(0.7 0.15 230)" stroke-width="1.4"/>
+                </g>
+              </svg>
+            </sc-if>
+          </div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;color:#eaf2fa">Za studena</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8296a8">{{ coldGrainCaption }}</div>
+        </div>
+        <div style="text-align:center;opacity:{{ hotOpacity }};transition:opacity .2s">
+          <div style="width:90px;height:90px;margin:0 auto 8px;transform:{{ hotGrainTransform }};transition:transform .15s">
+            <svg width="90" height="90" viewBox="0 0 90 90">
+              <circle cx="45" cy="45" r="40" fill="none" stroke="oklch(0.72 0.16 60)" stroke-width="1.6"/>
+              <path d="M10 30 Q45 10 80 35" stroke="oklch(0.72 0.16 60)" fill="none" stroke-width="1.1"/>
+              <path d="M8 55 Q45 40 82 60" stroke="oklch(0.72 0.16 60)" fill="none" stroke-width="1.1"/>
+              <path d="M25 8 Q40 45 30 82" stroke="oklch(0.72 0.16 60)" fill="none" stroke-width="1.1"/>
+              <path d="M60 10 Q55 45 65 80" stroke="oklch(0.72 0.16 60)" fill="none" stroke-width="1.1"/>
+            </svg>
+          </div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;color:#eaf2fa">Za tepla</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8296a8">zrna se průběžně rekrystalizují</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Díky tomu lze za tepla dosáhnout velkých změn tvaru (např. z ingotu na tyč) v jediném nebo několika málo krocích — něco, co by za studena vyžadovalo mezioperační žíhání mezi jednotlivými kroky.</p>
+
+    <div style="background:rgba(224,166,84,0.08);border:1px solid rgba(224,166,84,0.25);border-radius:14px;padding:18px 22px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:6px">Shrnutí</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Nad T<sub>R</sub>: nižší síly, vyšší tvárnost, bez zpevnění — umožňuje velké deformace bez mezioperačního žíhání.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const COLD_MAX_EPS = 50;
+function coldSigma(e) {
+  if (e <= 8) return (e / 8) * 250;
+  const t = Math.min((e - 8) / (COLD_MAX_EPS - 8), 1);
+  return 250 + (480 - 250) * Math.pow(t, 0.55);
+}
+function hotSigma(e) {
+  if (e <= 8) return (e / 8) * 120;
+  const t = (e - 8) / 92;
+  const dip = 15 * Math.exp(-t * 6);
+  return 120 - dip + 20 * t;
+}
+function buildChartSVG(mode, eps) {
+  const W = 640, H = 380, x0 = 55, x1 = 610, y0 = 24, y1 = 310;
+  const pw = x1 - x0, ph = y1 - y0, yMax = 550;
+  const xPix = (e) => x0 + (e / 100) * pw;
+  const yPix = (v) => y1 - (v / yMax) * ph;
+  const coldActive = mode !== 'hot';
+  const hotActive = mode !== 'cold';
+  const coldColor = coldActive ? 'oklch(0.7 0.15 230)' : 'rgba(140,170,210,0.28)';
+  const hotColor = hotActive ? 'oklch(0.72 0.16 60)' : 'rgba(224,166,84,0.28)';
+  const coldW = coldActive ? 3 : 2;
+  const hotW = hotActive ? 3 : 2;
+
+  let coldPts = '', hotPts = '';
+  for (let e = 0; e <= COLD_MAX_EPS; e += 2) {
+    coldPts += `${xPix(e).toFixed(1)},${yPix(coldSigma(e)).toFixed(1)} `;
+  }
+  for (let e = 0; e <= 100; e += 2) {
+    hotPts += `${xPix(e).toFixed(1)},${yPix(hotSigma(e)).toFixed(1)} `;
+  }
+
+  const reColdY = yPix(250), rmColdY = yPix(coldSigma(COLD_MAX_EPS));
+  const reHotY = yPix(120), rmHotY = yPix(140);
+  const epsCold = Math.min(eps, COLD_MAX_EPS);
+  const mCold = { x: xPix(epsCold), y: yPix(coldSigma(epsCold)) };
+  const mHot = { x: xPix(eps), y: yPix(hotSigma(eps)) };
+  const fractured = eps >= COLD_MAX_EPS;
+
+  const axes = `<line x1="${x0}" y1="${y0}" x2="${x0}" y2="${y1}" stroke="rgba(174,191,207,0.4)" stroke-width="1.5"/><line x1="${x0}" y1="${y1}" x2="${x1}" y2="${y1}" stroke="rgba(174,191,207,0.4)" stroke-width="1.5"/>`;
+  const axisLabels = `<text x="${x0 - 10}" y="16" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#8296a8">σ [MPa]</text>
+    <text x="${x1 + 5}" y="${y1 + 24}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#8296a8">ε [-]</text>`;
+
+  const bracket = '';
+
+  const coldAnn = coldActive ? `<text x="${xPix(35)}" y="${yPix(coldSigma(35)) - 46}" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="600" font-size="12" fill="oklch(0.78 0.15 230)">deformační zpevnění</text>
+    <text x="${xPix(35)}" y="${yPix(coldSigma(35)) - 30}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#8296a8">+ vznik textury</text>` : '';
+  const hotAnn = hotActive ? `<text x="${xPix(55)}" y="${reHotY - 14}" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="600" font-size="12" fill="oklch(0.78 0.16 60)">minimální zpevňování (rekrystalizace)</text>` : '';
+
+  const reRm = (x, yRe, yRm, xRm, color, active, label) => active ? `<circle cx="${x}" cy="${yRe}" r="4" fill="${color}"/><text x="${x - 10}" y="${yRe - 8}" font-family="Quicksand, sans-serif" font-weight="700" font-size="12" fill="${color}">Re</text>
+    <circle cx="${xRm}" cy="${yRm}" r="4" fill="${color}"/><text x="${xRm - 10}" y="${yRm - 10}" font-family="Quicksand, sans-serif" font-weight="700" font-size="12" fill="${color}">${label}</text>` : '';
+
+  return `<svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+    ${axes}${axisLabels}
+    <polyline points="${coldPts}" fill="none" stroke="${coldColor}" stroke-width="${coldW}" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="${hotPts}" fill="none" stroke="${hotColor}" stroke-width="${hotW}" stroke-linecap="round" stroke-linejoin="round"/>
+    ${bracket}
+    ${coldAnn}${hotAnn}
+    ${reRm(xPix(8), reColdY, rmColdY, xPix(COLD_MAX_EPS), 'oklch(0.7 0.15 230)', coldActive, fractured ? 'lom' : 'Rm')}
+    ${reRm(xPix(8), reHotY, rmHotY, xPix(100), 'oklch(0.72 0.16 60)', hotActive, 'Rm')}
+    <circle cx="${mCold.x}" cy="${mCold.y}" r="5.5" fill="${fractured ? 'oklch(0.6 0.2 25)' : 'oklch(0.7 0.15 230)'}" opacity="${coldActive ? 1 : 0.3}"/>
+    <circle cx="${mHot.x}" cy="${mHot.y}" r="5.5" fill="oklch(0.72 0.16 60)" opacity="${hotActive ? 1 : 0.3}"/>
+    <rect x="${x1 - 130}" y="${y0}" width="130" height="46" rx="8" fill="rgba(120,150,180,0.06)" stroke="rgba(150,180,210,0.16)"/>
+    <line x1="${x1 - 118}" y1="${y0 + 15}" x2="${x1 - 98}" y2="${y0 + 15}" stroke="oklch(0.7 0.15 230)" stroke-width="3"/>
+    <text x="${x1 - 92}" y="${y0 + 19}" font-family="IBM Plex Sans, sans-serif" font-size="12" fill="#c8d3de">za studena</text>
+    <line x1="${x1 - 118}" y1="${y0 + 34}" x2="${x1 - 98}" y2="${y0 + 34}" stroke="oklch(0.72 0.16 60)" stroke-width="3"/>
+    <text x="${x1 - 92}" y="${y0 + 38}" font-family="IBM Plex Sans, sans-serif" font-size="12" fill="#c8d3de">za tepla</text>
+  </svg>`;
+}
+
+class Component extends DCLogic {
+  state = { eps: 40, mode: 'both' };
+  renderVals() {
+    const eps = this.state.eps, mode = this.state.mode;
+    const coldActive = mode !== 'hot';
+    const hotActive = mode !== 'cold';
+    const coldFractured = eps > COLD_MAX_EPS;
+    const normCold = Math.min(eps, COLD_MAX_EPS) / COLD_MAX_EPS;
+    const coldSkew = normCold * 22;
+    const coldScaleX = 1 + normCold * 0.5;
+    const coldScaleY = 1 - normCold * 0.18;
+    const crackGap = coldFractured ? ((eps - COLD_MAX_EPS) / (100 - COLD_MAX_EPS)) * 18 : 0;
+    const crackRot = coldFractured ? ((eps - COLD_MAX_EPS) / (100 - COLD_MAX_EPS)) * 10 : 0;
+    const cyclePhase = ((eps % 25) / 25);
+    const hotSkew = cyclePhase * 12;
+    const hotScaleX = 1 + cyclePhase * 0.18;
+    const hotScaleY = 1 - cyclePhase * 0.06;
+    return {
+      eps,
+      onEps: (e) => this.setState({ eps: Number(e.target.value) }),
+      setCold: () => this.setState({ mode: this.state.mode === 'cold' ? 'both' : 'cold' }),
+      setHot: () => this.setState({ mode: this.state.mode === 'hot' ? 'both' : 'hot' }),
+      coldOpacity: coldActive ? '1' : '0.35',
+      hotOpacity: hotActive ? '1' : '0.35',
+      coldBtnBg: mode === 'cold' ? 'oklch(0.7 0.15 230 / 0.18)' : 'transparent',
+      coldBtnBorder: mode === 'cold' ? 'oklch(0.7 0.15 230)' : 'rgba(150,180,210,0.25)',
+      coldBtnText: mode === 'cold' ? 'oklch(0.78 0.15 230)' : '#8296a8',
+      hotBtnBg: mode === 'hot' ? 'rgba(224,166,84,0.16)' : 'transparent',
+      hotBtnBorder: mode === 'hot' ? 'oklch(0.72 0.16 60)' : 'rgba(150,180,210,0.25)',
+      hotBtnText: mode === 'hot' ? 'oklch(0.78 0.16 60)' : '#8296a8',
+      coldGrainTransform: `skewX(${coldSkew}deg) scale(${coldScaleX}, ${coldScaleY})`,
+      coldIntact: !coldFractured,
+      coldFractured: coldFractured,
+      coldPieceLeftTransform: `translate(${-6 - crackGap}px, ${4 + crackGap * 0.3}px) rotate(${-crackRot}deg)`,
+      coldPieceRightTransform: `translate(${6 + crackGap}px, ${4 + crackGap * 0.3}px) rotate(${crackRot}deg)`,
+      coldGrainCaption: coldFractured ? 'zrno se láme (lom)' : 'zrna se trvale protahují',
+      hotGrainTransform: `skewX(${hotSkew}deg) scale(${hotScaleX}, ${hotScaleY})`,
+      chartSVG: { __html: buildChartSVG(mode, eps) },
+    };
+  }
+}
+</script>
+</body>
+</html>

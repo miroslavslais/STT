@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalibrované válcování profilů | STT</title>
+<meta name="description" content="Animace soustavy kalibrů ovál–kruh: postupná redukce průřezu ze čtvercového sochoru.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } input[type=range] { accent-color: #e6a94a; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '264px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'tvareni-za-tepla/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Domů</a>
+    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
+    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Koroze</a>
+    <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Tváření</a>
+    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">O projektu</a>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Kování</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1120px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Válcování</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Kalibrované válcování profilů</h1>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;max-width:820px;margin:0 0 24px">Průřez se na cílový tvar nedostane jedním průchodem, ale <strong>postupně přes soustavu kalibrů</strong> — drážek vyfrézovaných ve válcích. Každý kalibr sevře vývalek jen v jednom směru, proto se mezi průchody vývalek <strong>otočí o 90°</strong>. Klasická cesta z hranatého sochoru na kruhovou tyč vede systémem <strong>ovál–kruh</strong>: čtverec → ovál → kruh → ovál → kruh.</p>
+
+    <div style="background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;padding:18px 18px 12px;display:flex;gap:16px;align-items:stretch">
+      <div style="flex:1;min-width:0">{{ frame }}</div>
+      <div style="flex:0 0 196px;display:flex;flex-direction:column;border-left:1px solid rgba(150,180,210,0.12);padding-left:16px">
+        <div style="flex:1;min-height:0">{{ devProfile }}</div>
+        <div style="font-size:11.5px;line-height:1.4;color:#8ea2b6;text-align:center;font-family:'IBM Plex Mono',monospace;margin-top:6px">posloupnost průřezů · průchody ↓</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:20px">
+      <div onClick="{{ togglePlay }}" style="{{ playStyle }}">{{ playLabel }}</div>
+      <div onClick="{{ restart }}" style="display:inline-flex;align-items:center;gap:7px;padding:11px 18px;border-radius:11px;cursor:pointer;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;background:rgba(120,150,180,0.08);border:1px solid rgba(150,180,210,0.18);color:#aebfcf">↺ Od začátku</div>
+      <input type="range" min="0" max="1000" value="{{ tThousand }}" onInput="{{ onScrub }}" style="flex:1;min-width:220px;height:6px">
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+      <sc-for list="{{ phaseBtns }}" as="b" hint-placeholder-count="5">
+        <div onClick="{{ b.go }}" style="{{ b.style }}">{{ b.label }}</div>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;gap:16px;align-items:flex-start;margin-top:24px;padding:18px 22px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);border-radius:16px">
+      <div style="flex:0 0 auto;width:40px;height:40px;border-radius:11px;background:rgba(230,169,74,0.16);display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#f2d79a">{{ phaseNum }}</div>
+      <div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin-bottom:4px">{{ phaseTitle }}</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;max-width:820px">{{ phaseDesc }}</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:20px;font-size:13.5px;color:#aebfcf">
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:linear-gradient(#f7c948,#f0932b);display:inline-block"></span>ohřátý vývalek</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#4a5461;border:1px solid #5c6773;display:inline-block"></span>válce s kalibrem</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:0;border-top:2px dashed #6b7684;display:inline-block"></span>výchozí sochor (Ø srovnání)</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:2px;background:#e6a94a;display:inline-block"></span>otočení o 90°</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1120,&quot;height&quot;:980}}">
+const CX = 540, CY = 320, XL = 150, XR = 930, TOPY = 46, BOTY = 594, OPEN = 78, DUR = 24000;
+// bar cross-section keyframes: [t, halfWidth, halfHeight, superellipse-exponent]
+const BK = [
+  [0.00, 112, 112, 3.4],
+  [0.08, 112, 112, 3.4],   // hold — čtvercový sochor
+  [0.24, 134, 60, 2.05],   // 1. kalibr → ovál (naplocho)
+  [0.30, 60, 134, 2.05],   // otočení 90° → ovál nastojato
+  [0.46, 92, 92, 2.0],     // 2. kalibr → kruh
+  [0.52, 92, 92, 2.0],     // otočení 90° (kruh — beze změny tvaru)
+  [0.68, 106, 46, 2.05],   // 3. kalibr → ovál (naplocho)
+  [0.74, 46, 106, 2.05],   // otočení 90° → ovál nastojato
+  [0.90, 66, 66, 2.0],     // finální kalibr → kruh
+  [1.00, 66, 66, 2.0],     // hotová kruhová tyč
+];
+const TRANSFERS = [[0.24, 0.30], [0.46, 0.52], [0.68, 0.74]];
+const PHASES = [
+  { t: 0.03, n: 1, title: 'Čtverec', name: 'čtverec', desc: 'Vstupní sochor — čtvercový průřez (z předchozí stolice nebo z plynulého lití). Válce s kalibrem ho vtahují mezi sebe.' },
+  { t: 0.16, n: 2, title: 'Ovál', name: 'ovál', desc: '1. kalibr (plochý ovál): válce sochor rozválcují naplocho — průřez se zmenší a materiál se roztéká do šířky.' },
+  { t: 0.38, n: 3, title: 'Kruh', name: 'kruh', desc: '2. kalibr (kruhový): vývalek se po otočení o 90° postaví nastojato a kruhový kalibr ho sevře do kruhu.' },
+  { t: 0.60, n: 4, title: 'Ovál', name: 'ovál', desc: '3. kalibr (ovál): kruh se opět rozválcuje naplocho — další redukce průřezu a prodloužení tyče.' },
+  { t: 0.82, n: 5, title: 'Kruh', name: 'kruh', desc: 'Finální kruhový kalibr: po otočení o 90° vzniká hotová kruhová tyč na cílový průměr, se zjemněnou strukturou.' },
+];
+
+class Component extends DCLogic {
+  state = { t: 0, playing: true };
+
+  componentDidMount() {
+    this._last = performance.now();
+    const tick = (now) => {
+      const dt = (now - this._last) / DUR; this._last = now;
+      if (this.state.playing) { let t = this.state.t + dt; if (t >= 1) t = 0; this.setState({ t }); }
+      this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this._raf); }
+
+  smooth(a, b, x) { let t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+  bar(t) {
+    for (let i = 1; i < BK.length; i++) {
+      if (t <= BK[i][0]) {
+        const a = BK[i - 1], b = BK[i];
+        const u = this.smooth(a[0], b[0], t);
+        return { ah: a[1] + (b[1] - a[1]) * u, av: a[2] + (b[2] - a[2]) * u, n: a[3] + (b[3] - a[3]) * u };
+      }
+    }
+    const L = BK[BK.length - 1]; return { ah: L[1], av: L[2], n: L[3] };
+  }
+  openOf(t) {
+    let o = 0;
+    for (const [s, e] of TRANSFERS) { if (t > s && t < e) o = Math.max(o, Math.sin(Math.PI * (t - s) / (e - s))); }
+    return o;
+  }
+  phaseOf(t) {
+    if (t < 0.08) return PHASES[0];
+    if (t < 0.30) return PHASES[1];
+    if (t < 0.52) return PHASES[2];
+    if (t < 0.74) return PHASES[3];
+    return PHASES[4];
+  }
+  // superellipse outline path
+  sePath(cx, cy, ah, av, n) {
+    const K = 100, p = [];
+    for (let i = 0; i <= K; i++) {
+      const th = 2 * Math.PI * i / K, c = Math.cos(th), s = Math.sin(th);
+      const x = cx + ah * Math.sign(c) * Math.pow(Math.abs(c), 2 / n);
+      const y = cy + av * Math.sign(s) * Math.pow(Math.abs(s), 2 / n);
+      p.push(x.toFixed(1) + ' ' + y.toFixed(1));
+    }
+    return 'M' + p.join(' L') + ' Z';
+  }
+  // upper half-height of the caliber at horizontal offset x
+  yUp(x, ah, av, n) { const r = Math.max(0, 1 - Math.pow(Math.abs(x / ah), n)); return av * Math.pow(r, 1 / n); }
+
+  frame(t) {
+    const h = React.createElement;
+    const b = this.bar(t), o = this.openOf(t);
+    const ah = b.ah, av = b.av, n = b.n;
+    const clr = 5, off = OPEN * o;                 // groove clearance + open offset during rotation
+    const rollOp = 1 - 0.62 * o;
+    const els = [];
+
+    els.push(h('defs', { key: 'd' }, [
+      h('linearGradient', { key: 'hot', id: 'kvHot', x1: 0, y1: 0, x2: 0, y2: 1 }, [
+        h('stop', { key: 0, offset: '0', stopColor: '#ffe08a' }), h('stop', { key: 1, offset: '0.5', stopColor: '#f7c948' }), h('stop', { key: 2, offset: '1', stopColor: '#f0932b' })]),
+      h('linearGradient', { key: 'tl', id: 'kvTool', x1: 0, y1: 0, x2: 0, y2: 1 }, [
+        h('stop', { key: 0, offset: '0', stopColor: '#525c67' }), h('stop', { key: 1, offset: '1', stopColor: '#3a424c' })]),
+      h('radialGradient', { key: 'gl', id: 'kvGlow', cx: '0.5', cy: '0.5', r: '0.6' }, [
+        h('stop', { key: 0, offset: '0', stopColor: 'rgba(58,40,22,0.34)' }), h('stop', { key: 1, offset: '1', stopColor: 'rgba(9,13,20,0)' })]),
+      h('marker', { key: 'rot', id: 'kvRot', viewBox: '0 0 10 10', refX: 6, refY: 5, markerWidth: 7, markerHeight: 7, orient: 'auto' }, h('path', { d: 'M0 0 L10 5 L0 10 z', fill: '#e6a94a' })),
+      h('marker', { key: 'spin', id: 'kvSpin', viewBox: '0 0 10 10', refX: 6, refY: 5, markerWidth: 6.5, markerHeight: 6.5, orient: 'auto' }, h('path', { d: 'M0 0 L10 5 L0 10 z', fill: '#9fb2c4' })),
+    ]));
+    els.push(h('rect', { key: 'glow', x: 0, y: 0, width: 1080, height: 640, fill: 'url(#kvGlow)' }));
+
+    // groove (roll facing) edge sampling
+    const M = 80, topPts = [], botPts = [], topOut = [], botOut = [];
+    for (let i = 0; i <= M; i++) {
+      const x = CX - ah + (2 * ah) * i / M;
+      const yu = this.yUp(x - CX, ah, av, n);
+      topPts.push([x, CY - clr - off - yu]);   // horní válec — vybrání ve stykové (spodní) hraně
+      botPts.push([x, CY + clr + off + yu]);   // spodní válec — vybrání ve stykové (horní) hraně
+      topOut.push([x, TOPY + yu]);             // horní válec — stejné vybrání ve vnější (horní) hraně
+      botOut.push([x, BOTY - yu]);             // spodní válec — stejné vybrání ve vnější (dolní) hraně
+    }
+    const colT = CY - clr - off, colB = CY + clr + off;
+    // roll bodies — plná tělesa válců se symetrickým vybráním (kalibr) nad i pod osou válce
+    const CR = 24;
+    const topD = 'M' + XL + ' ' + colT.toFixed(1)
+      + ' L' + XL + ' ' + (TOPY + CR)
+      + ' Q' + XL + ' ' + TOPY + ' ' + (XL + CR) + ' ' + TOPY
+      + ' L' + (CX - ah).toFixed(1) + ' ' + TOPY
+      + ' ' + topOut.map(p => 'L' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')
+      + ' L' + (XR - CR) + ' ' + TOPY
+      + ' Q' + XR + ' ' + TOPY + ' ' + XR + ' ' + (TOPY + CR)
+      + ' L' + XR + ' ' + colT.toFixed(1)
+      + ' L' + (CX + ah).toFixed(1) + ' ' + colT.toFixed(1)
+      + ' ' + topPts.slice().reverse().map(p => 'L' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')
+      + ' L' + XL + ' ' + colT.toFixed(1) + ' Z';
+    const botD = 'M' + XL + ' ' + colB.toFixed(1)
+      + ' L' + (CX - ah).toFixed(1) + ' ' + colB.toFixed(1)
+      + ' ' + botPts.map(p => 'L' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')
+      + ' L' + XR + ' ' + colB.toFixed(1)
+      + ' L' + XR + ' ' + (BOTY - CR)
+      + ' Q' + XR + ' ' + BOTY + ' ' + (XR - CR) + ' ' + BOTY
+      + ' L' + (CX + ah).toFixed(1) + ' ' + BOTY
+      + ' ' + botOut.slice().reverse().map(p => 'L' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')
+      + ' L' + (XL + CR) + ' ' + BOTY
+      + ' Q' + XL + ' ' + BOTY + ' ' + XL + ' ' + (BOTY - CR)
+      + ' L' + XL + ' ' + colB.toFixed(1) + ' Z';
+
+    // ghost of the initial square, for area-reduction comparison
+    if (t > 0.1) {
+      els.push(h('path', { key: 'ghost', d: this.sePath(CX, CY, 112, 112, 3.4), fill: 'none', stroke: '#6b7684', strokeWidth: 1.6, strokeDasharray: '7 7', opacity: 0.34 }));
+      els.push(h('text', { key: 'ght', x: CX + 118, y: CY - 96, fontFamily: 'IBM Plex Sans, sans-serif', fontSize: 13, fill: '#8ea2b6', opacity: 0.42 }, 'výchozí sochor'));
+    }
+
+    // hot bar
+    els.push(h('path', { key: 'bar', d: this.sePath(CX, CY, ah, av, n), fill: 'url(#kvHot)', stroke: '#ffce6a', strokeWidth: 2.5, strokeLinejoin: 'round' }));
+
+    // rolls on top so anything outside the groove is "contained"
+    els.push(h('path', { key: 'rt', d: topD, fill: 'url(#kvTool)', stroke: '#737f8c', strokeWidth: 2, strokeLinejoin: 'round', opacity: rollOp }));
+    els.push(h('path', { key: 'rb', d: botD, fill: 'url(#kvTool)', stroke: '#737f8c', strokeWidth: 2, strokeLinejoin: 'round', opacity: rollOp }));
+
+    // osa každého válce + středová značka
+    const yAxT = (TOPY + colT) / 2, yAxB = (BOTY + colB) / 2;
+    [yAxT, yAxB].forEach((y, k) => {
+      els.push(h('line', { key: 'ax' + k, x1: XL + 16, y1: y, x2: XR - 16, y2: y, stroke: '#8ea2b6', strokeWidth: 1.4, strokeDasharray: '11 7', opacity: rollOp * 0.85 }));
+      els.push(h('circle', { key: 'ac' + k, cx: CX, cy: y, r: 3.6, fill: '#c3d0dc', opacity: rollOp }));
+      els.push(h('path', { key: 'ax2' + k, d: 'M' + (CX - 9) + ' ' + y + ' h18 M' + CX + ' ' + (y - 9) + ' v18', stroke: '#c3d0dc', strokeWidth: 1.4, opacity: rollOp }));
+      els.push(h('text', { key: 'al' + k, x: XL + 20, y: y - 9, fontFamily: 'IBM Plex Mono, monospace', fontSize: 12, fill: '#8ea2b6', opacity: rollOp }, 'osa válce'));
+    });
+    // směr otáčení válců
+    if (o < 0.5) {
+      const aop = (1 - 2 * o);
+      els.push(h('path', { key: 'ra1', d: 'M' + (XR - 92) + ' ' + (TOPY + 40) + ' a 20 20 0 1 1 -5 8', fill: 'none', stroke: '#9fb2c4', strokeWidth: 2.4, markerEnd: 'url(#kvSpin)', opacity: aop }));
+      els.push(h('path', { key: 'ra2', d: 'M' + (XR - 92) + ' ' + (BOTY - 40) + ' a 20 20 0 1 1 -5 8', fill: 'none', stroke: '#9fb2c4', strokeWidth: 2.4, markerEnd: 'url(#kvSpin)', opacity: aop }));
+    }
+    els.push(h('text', { key: 'lt', x: CX, y: TOPY + 34, textAnchor: 'middle', fontFamily: 'Quicksand, sans-serif', fontWeight: 600, fontSize: 16, fill: '#9fb2c4', opacity: rollOp }, 'horní válec'));
+    els.push(h('text', { key: 'lb', x: CX, y: BOTY - 20, textAnchor: 'middle', fontFamily: 'Quicksand, sans-serif', fontWeight: 600, fontSize: 16, fill: '#9fb2c4', opacity: rollOp }, 'spodní válec'));
+
+    // caliber label (during passes/holds) vs. rotation callout (during transfer)
+    const ph = this.phaseOf(t);
+    if (o < 0.35) {
+      els.push(h('text', { key: 'cal', x: CX + ah + 30, y: CY + 5, fontFamily: 'IBM Plex Mono, monospace', fontSize: 14, fill: '#f2d79a', opacity: 1 - o * 2.8 }, 'kalibr — ' + ph.name));
+    }
+    if (o > 0.35) {
+      const R = Math.max(av, ah) + 40;
+      els.push(h('path', { key: 'spin', d: 'M' + (CX + R) + ' ' + CY + ' A' + R + ' ' + R + ' 0 1 1 ' + (CX - 4) + ' ' + (CY - R) + '', fill: 'none', stroke: '#e6a94a', strokeWidth: 3, markerEnd: 'url(#kvRot)', opacity: (o - 0.35) * 1.5 }));
+      els.push(h('text', { key: 'spt', x: CX, y: CY - R - 16, textAnchor: 'middle', fontFamily: 'Quicksand, sans-serif', fontWeight: 700, fontSize: 16, fill: '#f2d79a', opacity: (o - 0.35) * 1.5 }, 'otočení o 90°'));
+    }
+
+    return h('svg', { viewBox: '0 0 1080 640', style: { width: '100%', height: 'auto' } }, els);
+  }
+
+  devFrame(t) {
+    const h = React.createElement;
+    const VW = 200, VH = 560;
+    const stages = [
+      { ah: 42, av: 42, n: 3.4, label: 'Čtverec' },
+      { ah: 54, av: 24, n: 2.05, label: 'Ovál' },
+      { ah: 36, av: 36, n: 2.0, label: 'Kruh' },
+      { ah: 50, av: 22, n: 2.05, label: 'Ovál' },
+      { ah: 30, av: 30, n: 2.0, label: 'Kruh' },
+    ];
+    const cur = this.phaseOf(t).n - 1;
+    const cx = 88, y0 = 60, step = (VH - 96) / (stages.length - 1);
+    const els = [];
+    els.push(h('text', { key: 'ti', x: cx, y: 24, textAnchor: 'middle', fontFamily: 'Quicksand, sans-serif', fontWeight: 600, fontSize: 14, fill: '#eaf2fa' }, 'Systém ovál–kruh'));
+    stages.forEach((st, i) => {
+      const cy = y0 + i * step, active = i === cur;
+      if (i > 0) els.push(h('line', { key: 'ar' + i, x1: cx, y1: y0 + (i - 1) * step + 40, x2: cx, y2: cy - 40, stroke: 'rgba(150,180,210,0.28)', strokeWidth: 1.6, strokeDasharray: '4 5' }));
+      if (active) els.push(h('circle', { key: 'hl' + i, cx: cx, cy: cy, r: 40, fill: 'rgba(230,169,74,0.14)', stroke: 'rgba(230,169,74,0.5)', strokeWidth: 1.4 }));
+      els.push(h('path', { key: 'sh' + i, d: this.sePath(cx, cy, st.ah, st.av, st.n), fill: active ? 'url(#kvHot)' : 'rgba(120,150,180,0.16)', stroke: active ? '#ffce6a' : '#6b7684', strokeWidth: active ? 2 : 1.4 }));
+      els.push(h('text', { key: 'lb' + i, x: cx + 58, y: cy + 5, textAnchor: 'middle', fontFamily: 'IBM Plex Mono, monospace', fontSize: 11.5, fill: active ? '#f2d79a' : '#8ea2b6' }, (i + 1) + '. ' + st.label));
+    });
+    return h('svg', { viewBox: '0 0 ' + VW + ' ' + VH, preserveAspectRatio: 'xMidYMid meet', style: { width: '100%', height: '100%' } }, els);
+  }
+
+  renderVals() {
+    const t = this.state.t, ph = this.phaseOf(t);
+    const set = (nt) => this.setState({ t: nt, playing: false });
+    const btnBase = 'padding:9px 15px;border-radius:10px;cursor:pointer;font-family:\'Quicksand\',sans-serif;font-weight:600;font-size:13.5px;transition:all .15s;';
+    const phaseBtns = PHASES.map(p => {
+      const active = ph.n === p.n && Math.abs(this.phaseOf(t).n - p.n) === 0;
+      return {
+        label: p.n + ' · ' + p.title,
+        go: () => set(p.t),
+        style: btnBase + (ph.n === p.n
+          ? 'background:rgba(230,169,74,0.16);border:1px solid rgba(230,169,74,0.5);color:#f2d79a;'
+          : 'background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);color:#8ea2b6;'),
+      };
+    });
+    return {
+      frame: this.frame(t),
+      devProfile: this.devFrame(t),
+      playLabel: this.state.playing ? '❙❙ Pauza' : '▶ Přehrát',
+      playStyle: 'display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:11px;cursor:pointer;font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:14px;background:#e6a94a;border:1px solid #e6a94a;color:#12161d',
+      togglePlay: () => this.setState(s => ({ playing: !s.playing })),
+      restart: () => this.setState({ t: 0, playing: true }),
+      tThousand: Math.round(t * 1000),
+      onScrub: (e) => this.setState({ t: (+e.target.value) / 1000, playing: false }),
+      phaseBtns, phaseNum: ph.n, phaseTitle: ph.title, phaseDesc: ph.desc,
+    };
+  }
+}
+</script>
+</body>
+</html>
