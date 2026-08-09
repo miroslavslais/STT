@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #fbf8f3; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #b0561f; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <a href="./index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Domů</a>
+    <a href="./vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
+    <a href="./koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Koroze</a>
+    <a href="./tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Tváření</a>
+    <a href="./o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">O projektu</a>
+    <a href="./novinky.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Novinky</a>
+  </div>
+</div>
+
+<div style="min-height:100vh;background:#fbf8f3;font-family:'IBM Plex Sans',sans-serif;padding:64px 48px 96px;box-sizing:border-box">
+  <div style="max-width:760px;margin:0 auto">
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:44px;line-height:1.15;color:#231d16;margin:0 0 12px">Novinky</h1>
+    <p style="font-size:16.5px;line-height:1.7;color:#8a8072;margin:0 0 48px;max-width:52ch;text-wrap:pretty">Přehled změn ve výukových materiálech — nové stránky, doplněný obsah a úpravy rozložení.</p>
+
+    <div style="border-top:1px solid #e5ded2;padding-top:32px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.06em;color:#b0561f;margin-bottom:20px">9. srpna 2026</div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#eef3ea;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#5d7a52">Nové</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Tváření za studena</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Rozcestník nové sekce o tváření pod teplotou rekrystalizace.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#eef3ea;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#5d7a52">Nové</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/Strihani.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Stříhání</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Interaktivní animace vlivu střižné vůle na pásma střižné plochy, otřep a průběh střižné síly.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Rozdělení tváření</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Přibyla karta Tváření za studena.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre id="changelog-data" hidden="hidden" style="display:none">
+## 2026-08-09
+- [new] tvareni-za-tepla/tvareni-za-studena/index | Tváření za studena | Rozcestník nové sekce o tváření pod teplotou rekrystalizace.
+- [new] tvareni-za-tepla/tvareni-za-studena/strihani | Stříhání | Interaktivní animace vlivu střižné vůle na pásma střižné plochy, otřep a průběh střižné síly.
+- [edit] tvareni-za-tepla/index | Rozdělení tváření | Přibyla karta Tváření za studena.
+</pre>
+
+</x-dc>
+</body>
+</html>

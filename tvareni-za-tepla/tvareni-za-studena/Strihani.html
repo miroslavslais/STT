@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stříhání | STT</title>
+<meta name="description" content="Stříhání za studena: střižná vůle, čtyři pásma střižné plochy, průběh střižné síly a výpočet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Domů</a>
+    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Vnitřní stavba kovů a TZ</a>
+    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Koroze</a>
+    <a href="../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Tváření</a>
+    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">O projektu</a>
+    <a href="../../novinky.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Novinky</a>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Tváření za studena</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Tváření za studena</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Stříhání</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Stříhání odděluje materiál bez třísky. Střižník vnikne do plechu, materiál se nejprve pružně a plasticky deformuje, a když napětí překročí mez pevnosti ve střihu, vyjde od obou břitů trhlina. Zda se obě trhliny potkají, rozhoduje <strong>střižná vůle</strong> — mezera mezi střižníkem a střižnicí.</p>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Vůle × kvalita střižné plochy</div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Nastavte vůli a spusťte střih tlačítkem Přehrát. Vpravo se mění poměr pásem na střižné ploše, dole průběh střižné síly.</p>
+    <div style="position:relative;height:730px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 26px">
+      <x-import component-from-global-scope="Strihani" from="./strihani.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Čtyři pásma střižné plochy</div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:0 0 26px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">1 — Vtažení</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Zaoblená hrana na straně střižníku. Materiál je před střihem vtažen do mezery a ohnut. Roste s vůlí a s tvárností materiálu.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">2 — Plastické (hladké) pásmo</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Lesklý pás vzniklý smykovou deformací, kdy břit klouže po materiálu. Je to jediná část plochy s dobrou drsností a přesností — u přesných dílů se hodnotí právě jeho podíl.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">3 — Lomová plocha</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Drsná, matná část vzniklá dolomením. Je vždy mírně šikmá — s rostoucí vůlí se sklon i podíl zvětšují.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">4 — Otřep</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Ostrý zbytek materiálu na straně střižnice. Nejvíc roste s velkou vůlí a s otupeným břitem — proto se otřep používá jako kontrola opotřebení nástroje.</div>
+      </div>
+    </div>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Výpočet</div>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 18px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">F<sub>s</sub> = S · τ<sub>s</sub> · n = o · t · τ<sub>s</sub> · n</div>
+      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">S — střižná plocha [mm²], tedy obvod střihu <em>o</em> krát tloušťka <em>t</em> &nbsp;·&nbsp; τ<sub>s</sub> — pevnost ve střihu, přibližně 0,8 · R<sub>m</sub> &nbsp;·&nbsp; n — součinitel otupení nástroje, 1,1 až 1,3.</div>
+      <div style="height:1px;background:rgba(150,180,210,0.16);margin:18px 0"></div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">z = c · t &nbsp;&nbsp;(c = 0,05 až 0,08 pro ocel)</div>
+      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">Vůle na jednu stranu. Pro plech t = 3 mm vychází z = 0,15 až 0,24 mm. Měkké materiály (hliník, měď) mají koeficient nižší, tvrdé a tlusté plechy vyšší.</div>
+      <div style="height:1px;background:rgba(150,180,210,0.16);margin:18px 0"></div>
+      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de"><strong>Příklad:</strong> vystřižení kruhu ⌀ 60 mm z plechu t = 3 mm, ocel R<sub>m</sub> = 400 MPa. &nbsp; o = π · 60 = 188,5 mm &nbsp;→&nbsp; S = 188,5 · 3 = 565,5 mm² &nbsp;→&nbsp; τ<sub>s</sub> = 320 MPa &nbsp;→&nbsp; F<sub>s</sub> = 565,5 · 320 · 1,2 ≈ <strong>217 kN</strong>. Vůle z = 0,06 · 3 = 0,18 mm na stranu.</div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Střižnou sílu lze snížit zkosením břitu nebo odstupňováním střižníků v postupovém nástroji — práce zůstává stejná, ale rozloží se do delší dráhy, takže lis nemusí být tak silný.</p>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+      <a href="../vady/Cipatost.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Cípatost →</a>
+      <a href="../vady/Odpruzeni.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Odpružení →</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

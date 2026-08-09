@@ -19,6 +19,12 @@
     {
       "title": "O projektu",
       "href": "o-projektu.html"
+    },
+    {
+      "title": "Novinky",
+      "slug": "novinky",
+      "href": "novinky.html",
+      "status": "ready"
     }
   ],
   "home": {
@@ -86,6 +92,14 @@
         "desc": "Vady za tepla i za studena — příčina, projev a prevence u každé z nich.",
         "href": "vady/index.html",
         "badge": "10 kapitol · 4 interaktivní",
+        "status": "ready"
+      },
+      {
+        "id": "za-studena",
+        "title": "Tváření za studena",
+        "desc": "Stříhání, ohýbání, tažení a protlačování — technologie pod teplotou rekrystalizace.",
+        "href": "tvareni-za-studena/index.html",
+        "badge": "6 kapitol · 1 interaktivní",
         "status": "ready"
       }
     ]
@@ -486,6 +500,59 @@
         "title": "Povrchové vady a pnutí",
         "desc": "Lüdersovy pásy, pomerančová kůra a zbytková pnutí projevující se až po čase.",
         "href": "Povrchove vady a pnuti.html"
+      }
+    ]
+  },
+  "tvareniZaStudena": {
+    "h1": "Tváření za studena",
+    "cards": [
+      {
+        "id": "strihani",
+        "title": "Stříhání",
+        "desc": "Střižná vůle mění poměr pásem na střižné ploše, otřep i střižnou sílu.",
+        "href": "Strihani.html",
+        "badge": "Interaktivní animace",
+        "status": "ready"
+      },
+      {
+        "id": "ohybani",
+        "title": "Ohýbání",
+        "desc": "Neutrální osa, minimální poloměr ohybu a výpočet rozvinuté délky.",
+        "href": "Ohybani.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "id": "tazeni",
+        "title": "Hluboké tažení",
+        "desc": "Součinitel tažení, vícenásobné tažení a funkce přidržovače.",
+        "href": "Hluboke tazeni.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "id": "pechovani",
+        "title": "Pěchování a protlačování",
+        "desc": "Výroba hlavy šroubu, dopředné a zpětné protlačování, tok vláken.",
+        "href": "Pechovani a protlacovani.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "id": "zpevneni",
+        "title": "Zpevnění a křivka zpevnění",
+        "desc": "Růst meze kluzu proti klesající tažnosti a mezioperační žíhání.",
+        "href": "Zpevneni.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "id": "srovnani",
+        "title": "Za studena × za tepla",
+        "desc": "Přesnost, drsnost, síla a ekonomika obou způsobů vedle sebe.",
+        "href": "Srovnani za studena a za tepla.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
       }
     ]
   }
