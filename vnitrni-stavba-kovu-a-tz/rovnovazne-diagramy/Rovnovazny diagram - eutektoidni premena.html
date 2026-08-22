@@ -21,7 +21,7 @@
     @keyframes pulseDotEutd { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.55; } }
   </style>
   <script>
-    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '268px'; });
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
     document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
     (function __navSync(){
       fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
@@ -48,6 +48,7 @@
     <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Koroze</a>
     <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Tváření za tepla</a>
     <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">O projektu</a>
+    <a href="../../novinky.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Novinky</a>
   </div>
 </div>
 <a href="../index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.14)">← Zpět na přehled</a>

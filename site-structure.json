@@ -31,7 +31,7 @@
     "cards": [
       {
         "id": "vnitrni-stavba",
-        "title": "Vnitřní stavba kovů a tepelné zpracování",
+        "title": "Vnitřní stavba kovů a tepelné zpracování",
         "href": "vnitrni-stavba-kovu-a-tz/index.html",
         "status": "ready"
       },
@@ -55,6 +55,13 @@
         "id": "koroze",
         "title": "Koroze",
         "href": "koroze/index.html",
+        "status": "ready"
+      },
+      {
+        "id": "cnc-simulator",
+        "title": "CNC simulátor – frézování v G-kódu",
+        "href": "cnc-simulator/index.html",
+        "newWindow": true,
         "status": "ready"
       }
     ]
@@ -99,7 +106,7 @@
         "title": "Tváření za studena",
         "desc": "Stříhání, ohýbání, tažení a protlačování — technologie pod teplotou rekrystalizace.",
         "href": "tvareni-za-studena/index.html",
-        "badge": "6 kapitol · 1 interaktivní",
+        "badge": "6 kapitol · 2 interaktivní",
         "status": "ready"
       }
     ]
@@ -519,8 +526,8 @@
         "title": "Ohýbání",
         "desc": "Neutrální osa, minimální poloměr ohybu a výpočet rozvinuté délky.",
         "href": "Ohybani.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "Interaktivní animace",
+        "status": "ready"
       },
       {
         "id": "tazeni",
