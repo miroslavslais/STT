@@ -278,49 +278,21 @@ def resolve(slug: str, index: dict, report: Report) -> str | None:
 # Krok 4 — vkládání badge
 # ──────────────────────────────────────────────────────────────────────
 
-def _script_spans(html: str):
-    """Rozsahy (start, konec) uvnitř <script> a <style> — tam se nesmí zasahovat.
-
-    Stránky se samostatnou aplikací mají v bundlu řetězce jako `</body></html>`,
-    které vypadají jako konec dokumentu. Vložení čehokoliv dovnitř rozbije
-    JavaScript i parser prohlížeče.
-    """
-    spans = []
-    for m in re.finditer(r"<(script|style)\b[^>]*>", html, re.I):
-        tag = m.group(1).lower()
-        end = re.search(rf"</{tag}\s*>", html[m.end():], re.I)
-        stop = m.end() + end.start() if end else len(html)
-        spans.append((m.start(), stop))
-    return spans
-
-
-def _outside(pos: int, spans) -> bool:
-    return not any(a <= pos < b for a, b in spans)
-
-
 def inject_badge(html: str, first_seen: str) -> str:
     """Vloží data-first-seen na <body> a jednorázově přidá JS pro badge."""
     html = re.sub(r"\s*data-first-seen=\"[^\"]*\"", "", html, count=1)
-
-    spans = _script_spans(html)
-    body_open = next((m for m in re.finditer(r"<body\b", html, re.I)
-                      if _outside(m.start(), spans)), None)
-    if body_open is None:
-        return html
-    html = (html[:body_open.end()] + f' data-first-seen="{first_seen}"'
-            + html[body_open.end():])
-
-    if MARK_START in html:
-        return html
-
-    snippet = BADGE_SNIPPET.format(start=MARK_START, end=MARK_END, days=BADGE_DAYS)
-    spans = _script_spans(html)
-    closes = [m for m in re.finditer(r"</body\s*>", html, re.I)
-              if _outside(m.start(), spans)]
-    if closes:
-        at = closes[-1].start()          # poslední skutečný </body>
-        return html[:at] + snippet + "\n" + html[at:]
-    return html + "\n" + snippet
+    html = re.sub(
+        r"(<body\b)",
+        lambda m: f'{m.group(1)} data-first-seen="{first_seen}"',
+        html, count=1, flags=re.I,
+    )
+    if MARK_START not in html:
+        snippet = BADGE_SNIPPET.format(start=MARK_START, end=MARK_END, days=BADGE_DAYS)
+        if re.search(r"</body>", html, re.I):
+            html = re.sub(r"</body>", snippet + "\n</body>", html, count=1, flags=re.I)
+        else:
+            html += "\n" + snippet
+    return html
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -428,7 +400,7 @@ def sync(args) -> int:
                         new_path.write_text(src_html, encoding="utf-8")
                     continue
 
-            if h == rec["content_hash"] and target.exists() and not args.refresh:
+            if h == rec["content_hash"] and target.exists():
                 report.unchanged.append(slug)
                 continue
 
@@ -532,9 +504,6 @@ def main() -> int:
                    help="první běh: založí manifest, badge nevkládá")
     p.add_argument("--force", action="store_true",
                    help="přepíše i stránky ručně upravené v repu")
-    p.add_argument("--refresh", action="store_true",
-                   help="přepíše všechny stránky z exportu i beze změny obsahu "
-                        "(oprava po chybném zápisu); first_seen zůstává")
     return sync(p.parse_args())
 
 

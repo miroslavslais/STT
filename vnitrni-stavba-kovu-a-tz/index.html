@@ -21,7 +21,7 @@
     @keyframes pulseBadge { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(1.3); } }
   </style>
   <script>
-    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '268px'; });
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
     document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
   </script>
 </helmet>
@@ -667,6 +667,7 @@ class Component extends DCLogic {
       { title: 'Koroze', href: '../koroze/index.html' },
       { title: 'Tváření', href: '../tvareni-za-tepla/index.html' },
       { title: 'O projektu', href: '../o-projektu.html' },
+  { title: 'Novinky', href: '../novinky.html' },
     ];
     const SELF = 'vnitrni-stavba-kovu-a-tz/';
     const navItems = this.state.structure ? this.state.structure.nav.map(n => ({ title: n.title, href: n.href.startsWith(SELF) ? n.href.slice(SELF.length) : '../' + n.href })) : FALLBACK_NAV;

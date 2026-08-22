@@ -20,7 +20,7 @@
     a { color: inherit; text-decoration: none; }
   </style>
   <script>
-    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '264px'; });
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
     document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
   </script>
 </helmet>
@@ -128,6 +128,7 @@ const FALLBACK_NAV = [
   { title: 'Koroze', href: '../../koroze/index.html' },
   { title: 'Tváření', href: '../index.html' },
   { title: 'O projektu', href: '../../o-projektu.html' },
+  { title: 'Novinky', href: '../../novinky.html' },
 ];
 class Component extends DCLogic {
   state = { structure: null };

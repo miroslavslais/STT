@@ -20,7 +20,7 @@
     a { color: inherit; text-decoration: none; }
   </style>
   <script>
-    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = '268px'; });
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
     document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
   </script>
 </helmet>
@@ -61,7 +61,7 @@
 
     <sc-for list="{{ homeCards }}" as="c" hint-placeholder-count="5">
       <sc-if value="{{ c.ready }}">
-        <a href="{{ c.href }}" style="{{ c.cardStyle }}" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+        <a href="{{ c.href }}" target="{{ c.target }}" rel="{{ c.rel }}" style="{{ c.cardStyle }}" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
           <div style="{{ c.iconBoxStyle }}" dangerouslySetInnerHTML="{{ c.icon }}"></div>
           <div style="{{ c.titleStyle }}">{{ c.title }}</div>
         </a>
@@ -85,6 +85,7 @@ const ICON_META = {
   'obrabeni': { bg: '#eee5d8', svg: '<svg width="52" height="52" viewBox="0 0 24 24" fill="none"><path d="M3 21l7-7" stroke="#b3a996" stroke-width="2" stroke-linecap="round"/><path d="M13 11l6.5-6.5a2.1 2.1 0 0 1 3 3L16 14" stroke="#b3a996" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="15" r="2.4" stroke="#b3a996" stroke-width="2"/></svg>' },
   'tvareni': { bg: 'oklch(0.9 0.05 60)', svg: '<svg width="52" height="52" viewBox="0 0 24 24" fill="none"><path d="M1.5 2c1 1.3 1 2.7 0 4s-1 2.7 0 4" stroke="oklch(0.55 0.16 25)" stroke-width="1.5" stroke-linecap="round"/><path d="M22.5 2c-1 1.3-1 2.7 0 4s1 2.7 0 4" stroke="oklch(0.55 0.16 25)" stroke-width="1.5" stroke-linecap="round"/><path d="M6 4v6M18 4v6" stroke="oklch(0.55 0.16 60)" stroke-width="2" stroke-linecap="round"/><path d="M4 10h16l-2 4H6l-2-4z" stroke="oklch(0.55 0.16 60)" stroke-width="2" stroke-linejoin="round"/><path d="M8 18h8" stroke="oklch(0.55 0.16 60)" stroke-width="2" stroke-linecap="round"/></svg>' },
   'svarovani': { bg: '#eee5d8', svg: '<svg width="52" height="52" viewBox="0 0 24 24" fill="none"><path d="M4 20l7-7" stroke="#b3a996" stroke-width="2" stroke-linecap="round"/><path d="M12 12l4-4" stroke="#b3a996" stroke-width="2" stroke-linecap="round"/><path d="M17 3l1.5 2.5L21 7l-2.5 1.5L17 11l-1.5-2.5L13 7l2.5-1.5L17 3z" stroke="#b3a996" stroke-width="1.6" stroke-linejoin="round"/></svg>' },
+  'cnc-simulator': { bg: 'oklch(0.92 0.04 240)', svg: '<svg width="52" height="52" viewBox="0 0 24 24" fill="none"><rect x="8.4" y="2" width="7.2" height="3.4" rx="1.2" stroke="oklch(0.48 0.11 240)" stroke-width="1.8"/><path d="M10.3 5.4v2.1h3.4V5.4" stroke="oklch(0.48 0.11 240)" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.6 7.5h4.8v4.3L12 14.5 9.6 11.8V7.5z" stroke="oklch(0.48 0.11 240)" stroke-width="1.8" stroke-linejoin="round"/><path d="M10.1 9.4l3.8-1.1M10.1 11.4l3.8-1.1" stroke="oklch(0.48 0.11 240)" stroke-width="1.2" stroke-linecap="round"/><path d="M4.5 17.3h3.6l1.9-2.1 1.9 2.1h7.6" stroke="oklch(0.68 0.08 240)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2 1.7"/><path d="M3 20.3h18" stroke="oklch(0.48 0.11 240)" stroke-width="1.8" stroke-linecap="round"/></svg>' },
   'koroze': { bg: 'oklch(0.94 0.04 35)', svg: '<svg width="52" height="52" viewBox="0 0 24 24" fill="none"><path d="M12 3c3 4 6 6.5 6 10.5A6 6 0 1 1 6 13.5C6 9.5 9 7 12 3z" stroke="oklch(0.55 0.17 35)" stroke-width="2" stroke-linejoin="round"/></svg>' },
 };
 const FALLBACK_NAV = [
@@ -93,6 +94,7 @@ const FALLBACK_NAV = [
   { title: 'Koroze', href: 'koroze/index.html' },
   { title: 'Tváření', href: 'tvareni-za-tepla/index.html' },
   { title: 'O projektu', href: 'o-projektu.html' },
+  { title: 'Novinky', href: 'novinky.html' },
 ];
 class Component extends DCLogic {
   state = { structure: null };
@@ -101,6 +103,9 @@ class Component extends DCLogic {
   }
   renderVals() {
     const s = this.state.structure;
+    // v náhledu Claude Designu nová karta nemá preview token — tam otevíráme ve stejném okně
+    let inPreview = false;
+    try { inPreview = window.self !== window.top; } catch (e) { inPreview = true; }
     const navItems = s ? s.nav : FALLBACK_NAV;
     const homeCards = (s ? s.home.cards : []).map(c => {
       const ready = c.status === 'ready';
@@ -108,6 +113,8 @@ class Component extends DCLogic {
       return {
         title: c.title,
         href: c.href,
+        target: c.newWindow && !inPreview ? '_blank' : undefined,
+        rel: c.newWindow && !inPreview ? 'noopener' : undefined,
         icon: { __html: meta.svg },
         ready,
         notReady: !ready,
