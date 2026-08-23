@@ -112,7 +112,7 @@ function Scene({ z, stroke, m }) {
         <line x1={XP} y1={y1 + 4} x2={XP} y2={y1 + 190} strokeDasharray="3 4" stroke={WARN} strokeWidth={1} />
         <line x1={XD} y1={y1 + 122} x2={XD} y2={y1 + 190} strokeDasharray="3 4" stroke={WARN} strokeWidth={1} />
         <line x1={XP - 26} y1={y1 + 178} x2={XD + 10} y2={y1 + 178} stroke={WARN} strokeWidth={1.2} />
-        <text x={XP - 32} y={y1 + 174} textAnchor="end" fontFamily={MONO} fontSize={13} fill={WARN}>z = {z.toFixed(2)} mm</text>
+        <text x={XP - 32} y={y1 + 174} textAnchor="end" fontFamily={MONO} fontSize={13} fill={WARN}>v = {z.toFixed(2)} mm</text>
         <text x={XP - 32} y={y1 + 192} textAnchor="end" fontFamily={SANS} fontSize={11.5} fill="#8296a8">({GAPX}× zvětšeno)</text>
       </g>
       {/* kóta tloušťky */}
@@ -214,9 +214,9 @@ function ForceGraph({ m, stroke }) {
 }
 
 const VERDICT = {
-  small: { c: BAD, t: 'Vůle je malá', d: 'Trhliny od střižníku a od střižnice se míjejí — materiál mezi nimi se stříhá podruhé. Na ploše vzniká druhý pás lomu, střižná síla je nejvyšší a nástroj se rychle opotřebovává.' },
-  ok: { c: GOOD, t: 'Vůle je správná', d: 'Trhliny se potkají v jedné rovině: plocha má jedno souvislé plastické pásmo, jednu lomovou plochu a minimální otřep. Pro ocel odpovídá 5–8 % tloušťky, tedy 0,15–0,24 mm.' },
-  big: { c: WARN, t: 'Vůle je velká', d: 'Materiál se před střihem vtahuje a ohýbá — roste vtažení i otřep, lomová plocha je šikmá a rozměr výstřižku nesedí. Střižná síla sice klesá, kvalita ale s ní.' },
+  small: { c: BAD, t: 'Mezera je malá', d: 'Trhliny od střižníku a od střižnice se míjejí — materiál mezi nimi se stříhá podruhé. Na ploše vzniká druhý pás lomu, střižná síla je nejvyšší a nástroj se rychle opotřebovává.' },
+  ok: { c: GOOD, t: 'Mezera je správná', d: 'Trhliny se potkají v jedné rovině: plocha má jedno souvislé plastické pásmo, jednu lomovou plochu a minimální otřep. Pro ocel odpovídá 5–8 % tloušťky, tedy 0,15–0,24 mm.' },
+  big: { c: WARN, t: 'Mezera je velká', d: 'Materiál se před střihem vtahuje a ohýbá — roste vtažení i otřep, lomová plocha je šikmá a rozměr výstřižku nesedí. Střižná síla sice klesá, kvalita ale s ní.' },
 };
 
 function Slider({ label, value, min, max, step, onChange, left, right, color, readout, zone }) {
@@ -299,9 +299,9 @@ function Strihani() {
         <Surface m={m} z={z} />
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 26, margin: '4px 0 14px' }}>
-        <Slider label="Střižná vůle z (na stranu)" value={z} min={0.03} max={0.60} step={0.01} onChange={setZ}
+        <Slider label="Střižná mezera v (na stranu)" value={z} min={0.03} max={0.60} step={0.01} onChange={setZ}
           left="0,03 mm" right="0,60 mm" color={WARN} readout={`${z.toFixed(2)} mm = ${(z / T * 100).toFixed(1)} % t`}
-          zone={{ from: 0.15, to: 0.24, label: 'správná vůle 5–8 % t' }} />
+          zone={{ from: 0.15, to: 0.24, label: 'správná mezera 5–8 % t' }} />
         <PlayControl stroke={stroke} setStroke={setStroke} playing={playing} setPlaying={setPlaying} />
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.05fr', gap: 16, alignItems: 'center' }}>

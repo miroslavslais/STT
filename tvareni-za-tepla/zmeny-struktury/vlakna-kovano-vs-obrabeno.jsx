@@ -222,7 +222,7 @@ function Scene() {
         </defs>
 
         {/* titulek */}
-        <text x={40} y={40} fontFamily={HEAD} fontWeight="700" fontSize={26} fill="#eaf2fa">Průběh vláken: obráběno vs. kováno</text>
+        <text x={40} y={40} fontFamily={HEAD} fontWeight="700" fontSize={26} fill="#eaf2fa">Průběh vláken: obráběno × kováno</text>
 
         <Panel idx="A" yc={356} yTop={74} kind="machined" t={Math.min(t, 15)} />
         <Panel idx="B" yc={932} yTop={650} kind="forged" t={t - 15} />

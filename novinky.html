@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novinky | STT</title>
+<meta name="description" content="Přehled změn ve výukových materiálech — nové stránky, doplněný obsah a úpravy rozložení.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -28,12 +32,9 @@
     <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
   </div>
   <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
-    <a href="./index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Domů</a>
-    <a href="./vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
-    <a href="./koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Koroze</a>
-    <a href="./tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Tváření</a>
-    <a href="./o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">O projektu</a>
-    <a href="./novinky.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Novinky</a>
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
   </div>
 </div>
 
@@ -43,8 +44,151 @@
     <p style="font-size:16.5px;line-height:1.7;color:#8a8072;margin:0 0 48px;max-width:52ch;text-wrap:pretty">Přehled změn ve výukových materiálech — nové stránky, doplněný obsah a úpravy rozložení.</p>
 
     <div style="border-top:1px solid #e5ded2;padding-top:32px;margin-bottom:44px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.06em;color:#b0561f;margin-bottom:20px">23. srpna 2026</div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Rozdělení tváření</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Přibyly dva AI kvízy k procvičování — tváření za tepla a za studena.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#eef1f5;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#5b6b7d">Rozložení</span>
+          <div><div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Rozcestníky sekcí</div>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Kapitoly mají štítek typu obsahu — Výklad · Schéma · Animace · Interaktivní — a sjednocenou velikost karet: <a href="./koroze/index.html" style="color:#b0561f;font-weight:500">Koroze kovů</a>, <a href="./tvareni-za-tepla/kovani/index.html" style="color:#b0561f;font-weight:500">Kování a válcování</a>, <a href="./tvareni-za-tepla/teplota-rekrystalizace/index.html" style="color:#b0561f;font-weight:500">Teplota rekrystalizace</a>, <a href="./tvareni-za-tepla/zmeny-struktury/index.html" style="color:#b0561f;font-weight:500">Změny struktury</a>, <a href="./tvareni-za-tepla/tvareni-za-studena/index.html" style="color:#b0561f;font-weight:500">Tváření za studena</a> a <a href="./tvareni-za-tepla/vady/index.html" style="color:#b0561f;font-weight:500">Vady při tváření</a>. Na <a href="./tvareni-za-tepla/index.html" style="color:#b0561f;font-weight:500">Rozdělení tváření</a> se navíc prohodilo pořadí karet.</div></div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#eef3ea;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#5d7a52">Nové</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/Zpevneni.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Zpevnění a křivka zpevnění</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Interaktivní křivka zpevnění s odlehčením a novou mezí kluzu, tabulka růstu pevnosti proti klesající tažnosti a využití zpevnění v praxi.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Tváření za studena</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Karta Zpevnění a křivka zpevnění je nově dostupná.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./novinky.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Novinky</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Stránka má vlastní název v prohlížeči a popis.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Interaktivní výuka STT</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Hlavní menu se na všech stránkách čte z jednoho zdroje.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./o-projektu.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">O projektu</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Sjednocena typografie textu.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/vady/Cipatost.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Cípatost (uši)</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Obrázek nově ukazuje čtyři uši pod 45° ke směru válcování, text sjednocen.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/Strihani.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Stříhání</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Zavedeno rozlišení střižné mezery v na stranu a celkové vůle z = 2v.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/vady/Nerovnomerna deformace.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Nerovnoměrná deformace</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Sjednocen výklad kritické deformace, rozsah upraven na 5–15 %.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/vady/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Vady při tváření</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Nový úvodní text o roli teploty rekrystalizace.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/vady/Prelozka.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Přeložka</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Upřesněn popis přeložky jako ostré vrubové vady zabíhající pod povrch.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/vady/Vady z ingotu.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Vady zděděné z ingotu</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Stupeň prokování uveden jako rozsah 2 : 1 až 4 : 1.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #e5ded2;padding-top:32px;margin-bottom:44px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.06em;color:#b0561f;margin-bottom:20px">22. srpna 2026</div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Rozdělení tváření</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Přibyly dva AI kvízy k procvičování — tváření za tepla a za studena.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#eef3ea;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#5d7a52">Nové</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/Srovnani za studena a za tepla.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Za studena × za tepla</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Osa dosahované přesnosti IT a drsnosti Ra u jednotlivých technologií, přídavek na obrábění na řezu dílem, kdy zvolit co a tváření za polotepla.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Tváření za studena</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Karta Za studena × za tepla je nově dostupná.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#eef3ea;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#5d7a52">Nové</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/Hluboke tazeni.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Hluboké tažení</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Animace průběhu tažení, napjatost v přírubě, stěně a dně, kalkulačka součinitele tažení a sled tahů se zpevněním.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Tváření za studena</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Karta Hluboké tažení je nově dostupná.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #e5ded2;padding-top:32px;margin-bottom:44px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.06em;color:#b0561f;margin-bottom:20px">21. srpna 2026</div>
       <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Rozdělení tváření</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Přibyly dva AI kvízy k procvičování — tváření za tepla a za studena.</div>
+          </div>
+        </div>
         <div style="display:flex;gap:16px;align-items:flex-start">
           <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#eef3ea;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#5d7a52">Nové</span>
           <div>
@@ -65,6 +209,13 @@
     <div style="border-top:1px solid #e5ded2;padding-top:32px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.06em;color:#b0561f;margin-bottom:20px">9. srpna 2026</div>
       <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Rozdělení tváření</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Přibyly dva AI kvízy k procvičování — tváření za tepla a za studena.</div>
+          </div>
+        </div>
         <div style="display:flex;gap:16px;align-items:flex-start">
           <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#eef3ea;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#5d7a52">Nové</span>
           <div>
@@ -99,6 +250,34 @@
 </div>
 
 <pre id="changelog-data" hidden="hidden" style="display:none">
+## 2026-08-23
+- [edit] tvareni-za-tepla/index | Rozdělení tváření | Přibyly dva AI kvízy k procvičování — tváření za tepla a za studena.
+- [layout] koroze/index | Koroze kovů | Kapitoly mají štítek typu obsahu a sjednocenou velikost karet.
+- [layout] tvareni-za-tepla/kovani/index | Kování a válcování | Kapitoly mají štítek typu obsahu a sjednocenou velikost karet.
+- [layout] tvareni-za-tepla/teplota-rekrystalizace/index | Teplota rekrystalizace | Kapitoly mají štítek typu obsahu a sjednocenou velikost karet.
+- [layout] tvareni-za-tepla/zmeny-struktury/index | Změny struktury | Kapitoly mají štítek typu obsahu a sjednocenou velikost karet.
+- [layout] tvareni-za-tepla/tvareni-za-studena/index | Tváření za studena | Kapitoly mají štítek typu obsahu a sjednocenou velikost karet.
+- [layout] tvareni-za-tepla/vady/index | Vady při tváření | Štítek typu obsahu se přesunul do rohu karty, sjednocena velikost karet.
+- [edit] koroze/index | Koroze kovů | Štítky kapitol sjednoceny na Výklad · Schéma · Animace · Interaktivní.
+- [layout] tvareni-za-tepla/index | Rozdělení tváření | Prohozeno pořadí karet Tváření za studena a Vady při tváření, sjednocena velikost karet.
+- [new] tvareni-za-tepla/tvareni-za-studena/zpevneni | Zpevnění a křivka zpevnění | Interaktivní křivka zpevnění s odlehčením a novou mezí kluzu, tabulka růstu pevnosti proti klesající tažnosti a využití zpevnění v praxi.
+- [edit] tvareni-za-tepla/tvareni-za-studena/index | Tváření za studena | Karta Zpevnění a křivka zpevnění je nově dostupná.
+- [edit] tvareni-za-tepla/vady/cipatost | Cípatost (uši) | Obrázek nově ukazuje čtyři uši pod 45° ke směru válcování, text sjednocen.
+- [edit] tvareni-za-tepla/tvareni-za-studena/strihani | Stříhání | Zavedeno rozlišení střižné mezery v na stranu a celkové vůle z = 2v.
+- [edit] tvareni-za-tepla/vady/nerovnomerna-deformace | Nerovnoměrná deformace | Sjednocen výklad kritické deformace, rozsah upraven na 5–15 %.
+- [edit] tvareni-za-tepla/vady/index | Vady při tváření | Nový úvodní text o roli teploty rekrystalizace.
+- [edit] tvareni-za-tepla/vady/prelozka | Přeložka | Upřesněn popis přeložky jako ostré vrubové vady zabíhající pod povrch.
+- [edit] tvareni-za-tepla/vady/vady-z-ingotu | Vady zděděné z ingotu | Stupeň prokování uveden jako rozsah 2 : 1 až 4 : 1.
+- [layout] novinky | Novinky | Stránka má vlastní název v prohlížeči a popis.
+- [layout] index | Interaktivní výuka STT | Hlavní menu se na všech stránkách čte z jednoho zdroje.
+- [edit] o-projektu | O projektu | Sjednocena typografie textu.
+
+## 2026-08-22
+- [new] tvareni-za-tepla/tvareni-za-studena/srovnani-za-studena-a-za-tepla | Za studena × za tepla | Osa dosahované přesnosti IT a drsnosti Ra u jednotlivých technologií, přídavek na obrábění na řezu dílem, kdy zvolit co a tváření za polotepla.
+- [edit] tvareni-za-tepla/tvareni-za-studena/index | Tváření za studena | Karta Za studena × za tepla je nově dostupná.
+- [new] tvareni-za-tepla/tvareni-za-studena/hluboke-tazeni | Hluboké tažení | Animace průběhu tažení, napjatost v přírubě, stěně a dně, kalkulačka součinitele tažení a sled tahů se zpevněním.
+- [edit] tvareni-za-tepla/tvareni-za-studena/index | Tváření za studena | Karta Hluboké tažení je nově dostupná.
+
 ## 2026-08-21
 - [new] cnc-simulator/index | CNC simulátor – frézování v G-kódu | Simulátor frézování v ISO G-kódu s editorem programu a náhledem drah nástroje.
 - [edit] index | Interaktivní výuka STT | Přibyla karta CNC simulátor – frézování v G-kódu.
@@ -111,5 +290,27 @@
 </pre>
 
 </x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+
+(function () {
+  const P = '';
+  const FALLBACK_NAV = [{ title: 'Domů', href: 'index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: 'vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: 'koroze/index.html' }, { title: 'Tváření', href: 'tvareni-za-tepla/index.html' }, { title: 'O projektu', href: 'o-projektu.html' }, { title: 'Novinky', href: 'novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
 </body>
 </html>

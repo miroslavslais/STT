@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ohýbání | STT</title>
+<meta name="description" content="Ohýbání za studena: posun neutrální osy, minimální poloměr ohybu a výpočet rozvinuté délky.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
 <body data-first-seen="2026-08-22">
@@ -25,12 +28,9 @@
     <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
   </div>
   <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
-    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Domů</a>
-    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Vnitřní stavba kovů a TZ</a>
-    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Koroze</a>
-    <a href="../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Tváření</a>
-    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">O projektu</a>
-    <a href="../../novinky.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Novinky</a>
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
   </div>
 </div>
 <a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Tváření za studena</a>
@@ -71,7 +71,7 @@
       <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">Rozvinutá délka je součet přímých úseků <em>l</em> (měřených po vnějších rozměrech až k začátku zaoblení) a délek oblouků <em>o</em> na neutrální ose.</div>
       <div style="height:1px;background:rgba(150,180,210,0.16);margin:18px 0"></div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">o = π · (R + x · t) · α / 180</div>
-      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">R — vnitřní poloměr ohybu &nbsp;·&nbsp; t — tloušťka &nbsp;·&nbsp; x — součinitel z tabulky výše &nbsp;·&nbsp; α — úhel ohybu ve stupních. Pro ohyb 90° se zlomek α/180 zjednoduší na 1/2.</div>
+      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">R — vnitřní poloměr ohybu  ·  t — tloušťka  ·  x — součinitel z tabulky výše  ·  α — úhel ohybu ve stupních. Pro ohyb 90° se zlomek α/180 zjednoduší na 1/2.</div>
     </div>
 
     <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:18px;align-items:stretch;margin:0 0 26px">
@@ -177,6 +177,23 @@
 class Component extends DCLogic {
   renderVals() { return {}; }
 }
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
 </script>
 <!-- stt-novinka:start -->
 <style>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hluboké tažení | STT</title>
+<meta name="description" content="Hluboké tažení: tři zóny napjatosti, součinitel tažení a vady výtažku.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-08-23">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Tváření za studena</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Tváření za studena</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Hluboké tažení</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Z rovinného přístřihu vznikne duté těleso, aniž by se podstatně změnila tloušťka stěny. Tažník vtahuje plech do otvoru tažnice a materiál se přitom po obvodu smršťuje. Na rozdíl od ohýbání se deformuje celá plocha polotovaru, na rozdíl od protlačování se materiál nepřemísťuje tlakem uvnitř uzavřené dutiny, ale je do tažnice vtahován tahem přes dno výtažku.</p>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Průběh tažení</div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Posuňte táhlem zdvih tažníku nebo spusťte animaci. Vrstvy ukazují, jak se materiál deformuje a jak se mění tloušťka po profilu výtažku.</p>
+    <div style="position:relative;height:660px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 26px">
+      <x-import component-from-global-scope="TazeniPrubeh" from="./tazeni-prubeh.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Tři zóny, tři stavy napjatosti</div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Výtažek se během jediné operace deformuje ve třech místech úplně jinak. Z toho plynou obě typické vady: příruba je po obvodu stlačovaná, takže se může zvlnit, zatímco přechod dna do stěny je nejtenčí a nese celou tažnou sílu.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 26px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <svg viewBox="0 0 150 110" width="100%" style="display:block;margin-bottom:12px">
+          <rect x="45" y="30" width="60" height="50" rx="3" fill="rgba(224,101,90,0.16)" stroke="#e0655a" stroke-width="1.4"></rect>
+          <g stroke="#e0655a" stroke-width="2" stroke-linecap="round" fill="none">
+            <path d="M14 55 H38 M30 48 L38 55 L30 62"></path>
+            <path d="M136 55 H112 M120 48 L112 55 L120 62"></path>
+          </g>
+          <g stroke="#7ba3cc" stroke-width="2" stroke-linecap="round" fill="none">
+            <path d="M75 24 V6 M68 14 L75 6 L82 14"></path>
+            <path d="M75 86 V104 M68 96 L75 104 L82 96"></path>
+          </g>
+        </svg>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#e0655a;margin-bottom:8px">Příruba</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Obvod se zkracuje, materiál je proto po obvodu tlačen a zároveň tažen k otvoru tažnice. Tenká deska namáhaná tlakem ztrácí stabilitu — bez přidržovače se zvlní. Tloušťka na vnějším okraji naopak mírně roste.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <svg viewBox="0 0 150 110" width="100%" style="display:block;margin-bottom:12px">
+          <rect x="55" y="28" width="40" height="54" rx="3" fill="rgba(237,169,98,0.16)" stroke="#eda962" stroke-width="1.4"></rect>
+          <g stroke="#eda962" stroke-width="2" stroke-linecap="round" fill="none">
+            <path d="M75 22 V4 M68 12 L75 4 L82 12"></path>
+            <path d="M75 88 V106 M68 98 L75 106 L82 98"></path>
+          </g>
+          <g stroke="#8296a8" stroke-width="1.6" stroke-linecap="round" fill="none" stroke-dasharray="3 3">
+            <path d="M40 55 H52"></path>
+            <path d="M110 55 H98"></path>
+          </g>
+        </svg>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#eda962;margin-bottom:8px">Stěna</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Stěna přenáší celou tažnou sílu z tažníku do příruby. Je namáhaná jednoosým tahem v ose výtažku a v důsledku toho se ztenčuje. Právě jí je omezena velikost redukce v jedné operaci.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <svg viewBox="0 0 150 110" width="100%" style="display:block;margin-bottom:12px">
+          <rect x="45" y="35" width="60" height="40" rx="3" fill="rgba(87,185,138,0.14)" stroke="#57b98a" stroke-width="1.4"></rect>
+          <g stroke="#57b98a" stroke-width="1.8" stroke-linecap="round" fill="none">
+            <path d="M32 55 H40 M35 51 L40 55 L35 59"></path>
+            <path d="M118 55 H110 M115 51 L110 55 L115 59"></path>
+            <path d="M75 26 V20 M71 23 L75 19 L79 23"></path>
+            <path d="M75 84 V90 M71 87 L75 91 L79 87"></path>
+          </g>
+        </svg>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#57b98a;margin-bottom:8px">Dno</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Dno leží na čele tažníku a téměř se nedeformuje — je jen mírně dvouose taženo. Kritické je až jeho zaoblení do stěny, kde je průřez nejtenčí a kde se výtažek utrhne.</div>
+      </div>
+    </div>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Součinitel tažení a sled tahů</div>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 18px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">m = d / D</div>
+      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">d — průměr výtažku  ·  D — průměr přístřihu. Čím je m menší, tím větší je redukce v jedné operaci. Pod mezní hodnotou už stěna tažnou sílu nepřenese a dno se utrhne, takže se výtažek musí táhnout na několik operací. Převrácená hodnota se označuje jako tažný poměr.</div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Mezní součinitel není konstanta — závisí na relativní tloušťce plechu i na materiálu. Tenký plech se v přírubě snadněji vlní a musí být přidržován větší silou, což omezuje tok materiálu. Pokud součinitel klesne pod mezní hodnotu, vzniká výtažek sledem tahů: průměr se postupně zmenšuje a výška roste. První tah snese největší redukci, každý další už menší, protože materiál je zpevněný předchozí deformací. Zpevnění se odstraňuje mezioperačním rekrystalizačním žíháním.</p>
+    <div style="position:relative;height:1090px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 26px">
+      <x-import component-from-global-scope="TazeniKomplet" from="./tazeni-komplet.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Kde se hluboké tažení používá</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Výrobky</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Nápojové plechovky a konzervy, kuchyňské dřezy, hrnce, vany praček, kryty a nádoby, palivové nádrže, díly karoserie a náboje kol. Typicky velké série, kde se vyplatí drahý nástroj.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Materiály</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Hlubokotažné oceli DC01 až DC06 (s rostoucím číslem lepší tažnost), měkký hliník a jeho slitiny, měď, mosaz a austenitické korozivzdorné oceli. Rozhoduje vysoká tažnost, nízká mez kluzu a malá anizotropie plechu.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+      <a href="../vady/Vady hlubokeho tazeni.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Vady hlubokého tažení →</a>
+      <a href="../vady/Cipatost.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Cípatost (uši) →</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

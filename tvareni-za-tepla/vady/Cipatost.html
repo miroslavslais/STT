@@ -28,12 +28,9 @@
     <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
   </div>
   <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
-    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Domů</a>
-    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Vnitřní stavba kovů a TZ</a>
-    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Koroze</a>
-    <a href="../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Tváření</a>
-    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">O projektu</a>
-    <a href="../../novinky.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Novinky</a>
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
   </div>
 </div>
 <a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Vady při tváření</a>
@@ -47,20 +44,21 @@
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px;margin:0 0 22px"><svg viewBox="0 0 720 250" width="100%" style="display:block">
   <g transform="translate(180,125)">
     <circle r="88" fill="none" stroke="#8296a8" stroke-width="1.6" stroke-dasharray="5 5"/>
-    <path d="M0 -104 A104 104 0 0 1 74 -74 L52 -52 A74 74 0 0 0 0 -74 Z" fill="none"/>
-    <path d="M0,-104 C40,-100 62,-78 74,-74 C64,-40 82,-40 104,0 C98,40 76,62 74,74 C40,64 40,82 0,104 C-40,98 -62,76 -74,74 C-64,40 -82,40 -104,0 C-98,-40 -76,-62 -74,-74 C-40,-64 -40,-82 0,-104 Z" fill="rgba(123,163,204,0.16)" stroke="#7ba3cc" stroke-width="2"/>
+    <path d="M71.0,0.0 L71.3,3.7 L72.1,7.6 L73.3,11.6 L75.0,15.9 L76.8,20.6 L78.7,25.6 L80.5,30.9 L82.0,36.5 L83.1,42.3 L83.6,48.2 L83.3,54.1 L82.3,59.8 L80.5,65.2 L77.8,70.0 L74.2,74.2 L70.0,77.8 L65.2,80.5 L59.8,82.3 L54.1,83.3 L48.3,83.6 L42.3,83.1 L36.5,82.0 L30.9,80.5 L25.6,78.7 L20.6,76.8 L15.9,75.0 L11.6,73.3 L7.6,72.1 L3.7,71.3 L0.0,71.0 L-3.7,71.3 L-7.6,72.1 L-11.6,73.3 L-15.9,75.0 L-20.6,76.8 L-25.6,78.7 L-30.9,80.5 L-36.5,82.0 L-42.3,83.1 L-48.2,83.6 L-54.1,83.3 L-59.8,82.3 L-65.2,80.5 L-70.0,77.8 L-74.2,74.2 L-77.8,70.0 L-80.5,65.2 L-82.3,59.8 L-83.3,54.1 L-83.6,48.2 L-83.1,42.3 L-82.0,36.5 L-80.5,30.9 L-78.7,25.6 L-76.8,20.6 L-75.0,15.9 L-73.3,11.6 L-72.1,7.6 L-71.3,3.7 L-71.0,0.0 L-71.3,-3.7 L-72.1,-7.6 L-73.3,-11.6 L-75.0,-15.9 L-76.8,-20.6 L-78.7,-25.6 L-80.5,-30.9 L-82.0,-36.5 L-83.1,-42.3 L-83.6,-48.3 L-83.3,-54.1 L-82.3,-59.8 L-80.5,-65.2 L-77.8,-70.0 L-74.2,-74.2 L-70.0,-77.8 L-65.2,-80.5 L-59.8,-82.3 L-54.1,-83.3 L-48.3,-83.6 L-42.3,-83.1 L-36.5,-82.0 L-30.9,-80.5 L-25.6,-78.7 L-20.6,-76.8 L-15.9,-75.0 L-11.6,-73.3 L-7.6,-72.1 L-3.7,-71.3 L-0.0,-71.0 L3.7,-71.3 L7.6,-72.1 L11.6,-73.3 L15.9,-75.0 L20.6,-76.8 L25.6,-78.7 L30.9,-80.5 L36.5,-82.0 L42.3,-83.1 L48.3,-83.6 L54.1,-83.3 L59.8,-82.3 L65.2,-80.5 L70.0,-77.8 L74.2,-74.2 L77.8,-70.0 L80.5,-65.2 L82.3,-59.8 L83.3,-54.1 L83.6,-48.3 L83.1,-42.3 L82.0,-36.5 L80.5,-30.9 L78.7,-25.6 L76.8,-20.6 L75.0,-15.9 L73.3,-11.6 L72.1,-7.6 L71.3,-3.7 Z" fill="rgba(123,163,204,0.16)" stroke="#7ba3cc" stroke-width="2"/>
+    <line x1="-118" y1="0" x2="118" y2="0" stroke="#8296a8" stroke-width="1" stroke-dasharray="4 4"/>
   </g>
   <text x="180" y="240" text-anchor="middle" font-family="Quicksand,sans-serif" font-weight="700" font-size="15.5" fill="#7ba3cc">Cípatý okraj výtažku</text>
+  <text x="180" y="30" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="12.5" fill="#8296a8">← směr válcování →</text>
   <text x="420" y="70" font-family="IBM Plex Sans,sans-serif" font-size="15" fill="#aebfcf">Plech má z válcování směrovou</text>
   <text x="420" y="94" font-family="IBM Plex Sans,sans-serif" font-size="15" fill="#aebfcf">texturu — v některých směrech</text>
   <text x="420" y="118" font-family="IBM Plex Sans,sans-serif" font-size="15" fill="#aebfcf">se tvaruje snáz než v jiných.</text>
   <text x="420" y="156" font-family="IBM Plex Sans,sans-serif" font-size="15" fill="#aebfcf">Okraj vyjede nerovnoměrně —</text>
-  <text x="420" y="180" font-family="IBM Plex Sans,sans-serif" font-size="15" fill="#aebfcf">obvykle 4 nebo 6 „uší“, které</text>
+  <text x="420" y="180" font-family="IBM Plex Sans,sans-serif" font-size="15" fill="#aebfcf">nejčastěji vzniknou 4 „uši“, které</text>
   <text x="420" y="204" font-family="IBM Plex Sans,sans-serif" font-size="15" fill="#aebfcf">se musí odstřihnout.</text>
   <line x1="268" y1="52" x2="404" y2="60" stroke="#7ba3cc" stroke-width="1.2"/>
 </svg><div style="font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;line-height:1.55;color:#8296a8;margin-top:14px">Výtažek s cípatým okrajem. Přerušovaná kružnice je tvar, který by vznikl u zcela izotropního plechu.</div></div>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Při hlubokém tažení se proto materiál v některých směrech vtahuje snáz než v jiných a okraj výtažku vyjede nerovný. Vznikají čtyři nebo šest „uší“, orientovaných vůči směru válcování.</p>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Cípatost není trhlina ani ztráta pevnosti, ale <strong>ztráta materiálu a operace navíc</strong>: přístřih musí být vyšší, než by teoreticky stačilo, a uši se pak odstřihnou. U rotačních dílů se míra cípatosti popisuje součinitelem plastické anizotropie r.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Při hlubokém tažení se proto materiál v některých směrech vtahuje snáz než v jiných a okraj výtažku vyjede nerovný. Nejčastěji vzniknou čtyři „uši“ pootočené o 45° vůči směru válcování; u některých plechů jich je osm.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Cípatost není trhlina ani ztráta pevnosti, ale <strong>ztráta materiálu a operace navíc</strong>: přístřih musí být vyšší, než by teoreticky stačilo, a uši se pak odstřihnou.</p>
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 8px">
       <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
@@ -69,7 +67,7 @@
       </div>
       <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
         <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Projev</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Nerovný okraj výtažku se 4 nebo 6 cípy, nerovnoměrná výška stěny a proměnná tloušťka po obvodu.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Nerovný okraj výtažku se 4 cípy, u některých plechů s 8, nerovnoměrná výška stěny a proměnná tloušťka po obvodu.</div>
       </div>
       <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
         <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Prevence</div>
@@ -83,6 +81,23 @@
 class Component extends DCLogic {
   renderVals() { return {}; }
 }
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
 </script>
 </body>
 </html>

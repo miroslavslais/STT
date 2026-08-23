@@ -54,7 +54,7 @@
           <div style="{{ c.iconBoxStyle }}" dangerouslySetInnerHTML="{{ c.icon }}"></div>
           <div>
             <div style="{{ c.titleStyle }}">{{ c.title }}</div>
-            <div style="font-size:15.5px;line-height:1.55;color:#8a8072">{{ c.desc }}</div>
+            <div style="font-size:15px;line-height:1.55;color:#8a8072">{{ c.desc }}</div>
           </div>
           <div style="{{ c.badgeStyle }}">
             {{ c.badge }}
@@ -68,17 +68,151 @@
           <div style="{{ c.iconBoxStyle }}" dangerouslySetInnerHTML="{{ c.icon }}"></div>
           <div>
             <div style="{{ c.titleStyle }}">{{ c.title }}</div>
-            <div style="font-size:15.5px;line-height:1.55;color:#a39a8b">{{ c.desc }}</div>
+            <div style="font-size:15px;line-height:1.55;color:#a39a8b">{{ c.desc }}</div>
           </div>
         </div>
       </sc-if>
     </sc-for>
 
   </div>
+
+  <div style="max-width:1080px;margin:44px auto 0">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.55 0.16 60);margin-bottom:16px">AI asistenti</div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:stretch">
+
+      <div style="display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:28px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.5 0.14 60);display:flex;align-items:center;gap:8px;margin-bottom:14px">
+          <span style="width:7px;height:7px;background:oklch(0.6 0.16 60);border-radius:50%"></span>
+          AI Kvíz
+        </div>
+        <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 16px;color:#231d16">Procvič si tváření za tepla nanečisto</h3>
+        <ol style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 60);color:oklch(0.5 0.14 60);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">1</span><span>Klikni na <strong style="color:#231d16;font-weight:600">„Zkopírovat prompt“</strong>.</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 60);color:oklch(0.5 0.14 60);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">2</span><span>Otevři si své oblíbené AI (<strong style="color:#231d16;font-weight:600">ChatGPT, Claude, Copilot…</strong>).</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 60);color:oklch(0.5 0.14 60);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">3</span><span>Vlož a odešli — zadání tématu je už jeho součástí.</span></li>
+        </ol>
+        <div style="flex:1;background:#fbf8f3;border:1px solid #eee5d8;border-radius:12px;margin-bottom:20px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8a8072;padding:10px 14px 0">Systémový prompt</div>
+          <pre style="height:160px;overflow-y:auto;padding:10px 14px 14px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5c5346;white-space:pre-wrap;word-break:break-word">{{ hotPromptText }}</pre>
+        </div>
+        <button type="button" onClick="{{ copyHotPrompt }}" style="margin-top:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#fff;background:{{ hotBtnBg }};border:none;border-radius:10px;padding:14px 20px;cursor:pointer">
+          <span>{{ hotBtnIcon }}</span>
+          <span>{{ hotBtnLabel }}</span>
+        </button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:28px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.5 0.14 250);display:flex;align-items:center;gap:8px;margin-bottom:14px">
+          <span style="width:7px;height:7px;background:oklch(0.6 0.14 250);border-radius:50%"></span>
+          AI Kvíz
+        </div>
+        <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 16px;color:#231d16">Procvič si tváření za studena nanečisto</h3>
+        <ol style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 250);color:oklch(0.5 0.14 250);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">1</span><span>Klikni na <strong style="color:#231d16;font-weight:600">„Zkopírovat prompt“</strong>.</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 250);color:oklch(0.5 0.14 250);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">2</span><span>Otevři si své oblíbené AI (<strong style="color:#231d16;font-weight:600">ChatGPT, Claude, Copilot…</strong>).</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 250);color:oklch(0.5 0.14 250);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">3</span><span>Vlož a odešli — zadání tématu je už jeho součástí.</span></li>
+        </ol>
+        <div style="flex:1;background:#fbf8f3;border:1px solid #eee5d8;border-radius:12px;margin-bottom:20px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8a8072;padding:10px 14px 0">Systémový prompt</div>
+          <pre style="height:160px;overflow-y:auto;padding:10px 14px 14px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5c5346;white-space:pre-wrap;word-break:break-word">{{ coldPromptText }}</pre>
+        </div>
+        <button type="button" onClick="{{ copyColdPrompt }}" style="margin-top:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#fff;background:{{ coldBtnBg }};border:none;border-radius:10px;padding:14px 20px;cursor:pointer">
+          <span>{{ coldBtnIcon }}</span>
+          <span>{{ coldBtnLabel }}</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+  }
+  fallbackCopy(text);
+  return Promise.resolve();
+}
+
+const HOT_PROMPT = `Jste "Generátor procvičování tváření za tepla", specializovaný AI asistent na výukových stránkách strojírenské technologie. Vaším úkolem je generovat cvičné otázky a krátké kvízy z tématu tváření za tepla: teplota rekrystalizace a její výpočet, proč se tváří nad TR, teplotní interval tváření (horní a dolní mez), změny struktury (výchozí licí struktura, zjemnění zrna, vláknitá struktura a textura, rekrystalizace, srovnání litého a tvářeného stavu), kování (zápustkové, postupové, buchar × lis, stupeň prokování), válcování profilů soustavou kalibrů, příčné klínové válcování a vady vznikající za tepla (přeložka, přehřátí a spálení, trhliny za tepla, vady zděděné z ingotu, nerovnoměrná deformace).
+
+ÚVODNÍ KROK:
+- Jakmile obdržíte tento prompt, na začátku konverzace nejprve stručně seznamte studenta s pravidly ovládání (viz OVLÁDÁNÍ níže) a teprve poté se zeptejte, jaké téma chce procvičovat a jakou obtížnost preferuje (základy, opakování před testem na úrovni znalostí žáka SŠ).
+
+OVLÁDÁNÍ:
+- Jedno kolo má 8 až 10 otázek. Po každé odpovědi si v duchu přičti k počítadlu otázek v aktuálním kole.
+- Po dosažení 8 až 10 otázek se studenta ptáte, jak chce pokračovat, nabídněte možnosti jako číslovaný seznam. Student odpovídá pouze číslem.
+- Pokud otázka obsahuje látku, kterou student ještě neprobíral, může místo odpovědi napsat písmeno X. V takovém případě látku stručně vysvětlete a pokračujte další otázkou (tato otázka se nezapočítává do limitu 8–10).
+
+HRANICE TÉMATU:
+- Držte se výhradně tváření za tepla a souvisejících témat. U dotazů mimo téma studenta zdvořile nasměrujte zpět k látce.
+- Tváření za studena zmiňujte jen jako srovnání, nikoli jako předmět otázek.
+
+FORMÁT OTÁZEK:
+- Střídej typy otázek tak, aby v každém kole (8–10 otázek) bylo přibližně stejně otevřených otázek a otázek s výběrem ze 4 možností (A/B/C/D). Nikdy negeneruj tři a více ABCD otázek po sobě.
+- Před formulací každé otázky si urči, zda tentokrát půjde o otevřenou, nebo výběrovou variantu, a drž se tohoto rozhodnutí.
+- Pokládejte vždy jen jednu otázku a čekejte na odpověď studenta.
+
+PŘÍKLAD (vzor pro formát, netýká se obsahu aktuálního kola):
+- Otevřená otázka: "Vysvětli, proč se ocel tváří nad teplotou rekrystalizace, i když je ohřev energeticky nákladný."
+- Výběrová otázka: "Co vzniká, když se tváří nad horní mezí teplotního intervalu? A) jemnozrnná struktura B) přehřátí, případně spálení C) vláknitá textura D) zpevnění materiálu"
+
+VYHODNOCENÍ:
+1. Po každé odpovědi ihned řekněte, zda je správná.
+2. Vždy stručně vysvětlete správné řešení.
+3. Poté nabídněte další otázku.
+4. Přizpůsobujte obtížnost podle úspěšnosti studenta. Pod 30 % upozorněte studenta, že dané téma musí pochopit více do hloubky.
+
+TÓN KOMUNIKACE:
+- Komunikujte v češtině, buďte přátelští a studentovi tykejte.
+
+---
+Ahoj, chci si procvičit tváření za tepla formou kvízu.`;
+
+const COLD_PROMPT = `Jste "Generátor procvičování tváření za studena", specializovaný AI asistent na výukových stránkách strojírenské technologie. Vaším úkolem je generovat cvičné otázky a krátké kvízy z tématu tváření za studena: tváření pod teplotou rekrystalizace, zpevnění a křivka zpevnění (nová mez kluzu, pokles tažnosti, mezioperační žíhání), stříhání (střižná mezera a vůle, pásma střižné plochy, otřep, průběh střižné síly), ohýbání (neutrální osa, minimální poloměr ohybu, rozvinutá délka, odpružení), hluboké tažení (součinitel tažení, přidržovač, vícenásobné tažení), pěchování a protlačování, dosahovaná přesnost a drsnost povrchu proti tváření za tepla a vady vznikající za studena (trhliny z vyčerpané tvárnosti, odpružení, vady hlubokého tažení, cípatost, povrchové vady a zbytková pnutí).
+
+ÚVODNÍ KROK:
+- Jakmile obdržíte tento prompt, na začátku konverzace nejprve stručně seznamte studenta s pravidly ovládání (viz OVLÁDÁNÍ níže) a teprve poté se zeptejte, jaké téma chce procvičovat a jakou obtížnost preferuje (základy, opakování před testem na úrovni znalostí žáka SŠ).
+
+OVLÁDÁNÍ:
+- Jedno kolo má 8 až 10 otázek. Po každé odpovědi si v duchu přičti k počítadlu otázek v aktuálním kole.
+- Po dosažení 8 až 10 otázek se studenta ptáte, jak chce pokračovat, nabídněte možnosti jako číslovaný seznam. Student odpovídá pouze číslem.
+- Pokud otázka obsahuje látku, kterou student ještě neprobíral, může místo odpovědi napsat písmeno X. V takovém případě látku stručně vysvětlete a pokračujte další otázkou (tato otázka se nezapočítává do limitu 8–10).
+
+HRANICE TÉMATU:
+- Držte se výhradně tváření za studena a souvisejících témat. U dotazů mimo téma studenta zdvořile nasměrujte zpět k látce.
+- Tváření za tepla zmiňujte jen jako srovnání, nikoli jako předmět otázek.
+
+FORMÁT OTÁZEK:
+- Střídej typy otázek tak, aby v každém kole (8–10 otázek) bylo přibližně stejně otevřených otázek a otázek s výběrem ze 4 možností (A/B/C/D). Nikdy negeneruj tři a více ABCD otázek po sobě.
+- Před formulací každé otázky si urči, zda tentokrát půjde o otevřenou, nebo výběrovou variantu, a drž se tohoto rozhodnutí.
+- Pokládejte vždy jen jednu otázku a čekejte na odpověď studenta.
+
+PŘÍKLAD (vzor pro formát, netýká se obsahu aktuálního kola):
+- Otevřená otázka: "Vysvětli, proč se při tažení plechu musí u větších hloubek tahat na několik operací."
+- Výběrová otázka: "Čím je způsobeno odpružení po ohybu? A) rekrystalizací v místě ohybu B) pružnou složkou deformace, která se po odlehčení vrátí C) nerovnoměrným ohřevem plechu D) anizotropií z válcování"
+
+VYHODNOCENÍ:
+1. Po každé odpovědi ihned řekněte, zda je správná.
+2. Vždy stručně vysvětlete správné řešení.
+3. Poté nabídněte další otázku.
+4. Přizpůsobujte obtížnost podle úspěšnosti studenta. Pod 30 % upozorněte studenta, že dané téma musí pochopit více do hloubky.
+
+TÓN KOMUNIKACE:
+- Komunikujte v češtině, buďte přátelští a studentovi tykejte.
+
+---
+Ahoj, chci si procvičit tváření za studena formou kvízu.`;
+
 const ICON_META = {
   'co-je': { bg: 'oklch(0.9 0.05 60)', hue: 60, svg: '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M9 3v11a4 4 0 1 0 6 0V3" stroke="oklch(0.55 0.16 60)" stroke-width="2" stroke-linecap="round"/><path d="M9 7h6" stroke="oklch(0.55 0.16 60)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="2.8" fill="oklch(0.55 0.16 60)"/></svg>' },
   'zmeny-struktury': { bg: 'oklch(0.9 0.06 20)', hue: 20, svg: '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="8" r="3" stroke="oklch(0.5 0.16 20)" stroke-width="1.8"/><circle cx="16" cy="7" r="3" stroke="oklch(0.5 0.16 20)" stroke-width="1.8"/><circle cx="12" cy="16" r="3" stroke="oklch(0.5 0.16 20)" stroke-width="1.8"/></svg>' },
@@ -95,7 +229,22 @@ const FALLBACK_NAV = [
   { title: 'Novinky', href: '../novinky.html' },
 ];
 class Component extends DCLogic {
-  state = { structure: null };
+  state = { structure: null, copiedHot: false, copiedCold: false };
+
+  copyHotPrompt = () => {
+    copyToClipboard(HOT_PROMPT).then(() => {
+      this.setState({ copiedHot: true });
+      setTimeout(() => this.setState({ copiedHot: false }), 2000);
+    });
+  };
+
+  copyColdPrompt = () => {
+    copyToClipboard(COLD_PROMPT).then(() => {
+      this.setState({ copiedCold: true });
+      setTimeout(() => this.setState({ copiedCold: false }), 2000);
+    });
+  };
+
   componentDidMount() {
     fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
   }
@@ -115,14 +264,26 @@ class Component extends DCLogic {
         ready,
         notReady: !ready,
         cardStyle: (ready
-          ? 'display:flex;flex-direction:column;gap:20px;background:#fff;border-radius:24px;padding:40px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s'
-          : 'position:relative;display:flex;flex-direction:column;gap:20px;background:#faf7f1;border-radius:24px;padding:40px;border:1px solid #ece4d6;cursor:not-allowed'),
-        iconBoxStyle: `width:72px;height:72px;border-radius:18px;background:${ready ? meta.bg : '#eee5d8'};display:flex;align-items:center;justify-content:center`,
-        titleStyle: `font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:${ready ? '#231d16' : '#a39a8b'};margin-bottom:8px`,
-        badgeStyle: `margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:oklch(0.5 0.14 ${meta.hue || 60});display:flex;align-items:center;gap:6px`,
+          ? 'display:flex;flex-direction:column;gap:20px;background:#fff;border-radius:24px;padding:34px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s'
+          : 'position:relative;display:flex;flex-direction:column;gap:20px;background:#faf7f1;border-radius:24px;padding:34px;border:1px solid #ece4d6;cursor:not-allowed'),
+        iconBoxStyle: `width:64px;height:64px;border-radius:18px;background:${ready ? meta.bg : '#eee5d8'};display:flex;align-items:center;justify-content:center`,
+        titleStyle: `font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:${ready ? '#231d16' : '#a39a8b'};margin-bottom:6px`,
+        badgeStyle: `margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:oklch(0.5 0.14 ${meta.hue || 60});display:flex;align-items:center;gap:6px`,
       };
     });
-    return { navItems, cards };
+    return {
+      navItems, cards,
+      hotPromptText: HOT_PROMPT,
+      coldPromptText: COLD_PROMPT,
+      copyHotPrompt: this.copyHotPrompt,
+      copyColdPrompt: this.copyColdPrompt,
+      hotBtnBg: this.state.copiedHot ? 'oklch(0.6 0.14 150)' : 'oklch(0.55 0.16 60)',
+      hotBtnIcon: this.state.copiedHot ? '✓' : '📋',
+      hotBtnLabel: this.state.copiedHot ? 'Zkopírováno!' : 'Zkopírovat prompt',
+      coldBtnBg: this.state.copiedCold ? 'oklch(0.6 0.14 150)' : 'oklch(0.5 0.14 250)',
+      coldBtnIcon: this.state.copiedCold ? '✓' : '📋',
+      coldBtnLabel: this.state.copiedCold ? 'Zkopírováno!' : 'Zkopírovat prompt',
+    };
   }
 }
 </script>

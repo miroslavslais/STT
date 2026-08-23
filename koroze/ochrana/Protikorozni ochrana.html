@@ -42,15 +42,12 @@
     <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
   </div>
   <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
-    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Domů</a>
-    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
-    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Koroze</a>
-    <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Tváření</a>
-    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">O projektu</a>
-    <a href="../../novinky.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">Novinky</a>
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
   </div>
 </div>
-<a href="../index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na přehled</a>
+<a href="../index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Koroze kovů</a>
 
 <div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
   <div style="max-width:860px;margin:0 auto">
@@ -94,6 +91,23 @@ class Component extends DCLogic {
     return { protections: cards.map(x => ({ name: x.title, desc: x.desc, icon: { __html: ICONS[x.title] || '' }, animHref: encodeURI(x.href) })) };
   }
 }
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
 </script>
 </body>
 </html>

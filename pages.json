@@ -26,602 +26,638 @@
   "koroze/bludne-proudy/koroze-bludnymi-proudy": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "6bd10981687b1d619b52a834376f274db3475819deaeda8627111cbd892dc697",
+    "content_hash": "97bb07d6f6227ff8c65747118855115531c69a882176696ea7a340450005e6bf",
     "file": "koroze/bludne-proudy/Koroze bludnymi proudy.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Koroze bludnými proudy — animace | STT",
-    "written_hash": "6bd10981687b1d619b52a834376f274db3475819deaeda8627111cbd892dc697"
+    "written_hash": "97bb07d6f6227ff8c65747118855115531c69a882176696ea7a340450005e6bf"
   },
   "koroze/druhy-koroze/druhy-koroze": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "3efce50f2f8f64c7c2958c2ebb3c0ac044a3c7b9ef604a83754594173d076b5a",
+    "content_hash": "f764e212540b7c1b587aecbb6dba957c32c28cffca997ead2064bb5c7bc77a77",
     "file": "koroze/druhy-koroze/Druhy koroze.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Druhy koroze",
-    "written_hash": "3efce50f2f8f64c7c2958c2ebb3c0ac044a3c7b9ef604a83754594173d076b5a"
+    "written_hash": "f764e212540b7c1b587aecbb6dba957c32c28cffca997ead2064bb5c7bc77a77"
   },
   "koroze/elektrochemicka-koroze/elektrochemicka-koroze": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "9922a043698874e5453f760d44ce871b5e6feacf2a8e15066b1b774d7e590898",
+    "content_hash": "f990b39c497beadce84546d85f2c5ef7bcdf6bd2819dce66d8f1aeab3179679d",
     "file": "koroze/elektrochemicka-koroze/Elektrochemicka koroze.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Elektrochemická koroze",
-    "written_hash": "9922a043698874e5453f760d44ce871b5e6feacf2a8e15066b1b774d7e590898"
+    "written_hash": "f990b39c497beadce84546d85f2c5ef7bcdf6bd2819dce66d8f1aeab3179679d"
   },
   "koroze/faktory-koroze/faktory-ovlivnujici-korozi": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "f6a8f24872090aab0cc465616feee1d24180b3ce1fad48790eac65eca54cdad3",
+    "content_hash": "bc58a8d77b6f567b7d22bd73a4bde677227b4a5345e32fdbd4a1bdcc5c8b9f10",
     "file": "koroze/faktory-koroze/Faktory ovlivnujici korozi.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Faktory ovlivňující korozi",
-    "written_hash": "f6a8f24872090aab0cc465616feee1d24180b3ce1fad48790eac65eca54cdad3"
+    "written_hash": "bc58a8d77b6f567b7d22bd73a4bde677227b4a5345e32fdbd4a1bdcc5c8b9f10"
   },
   "koroze/index": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "43760131dda2409881260f8d2591958b1915d2e8dc3b847ef14c44141093b831",
+    "content_hash": "4acbe50338d0017cd4901df1fae1c5b9be8a7752cebe18caf47a71a1e23a5b0d",
     "file": "koroze/index.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Štítky kapitol sjednoceny na Výklad · Schéma · Animace · Interaktivní.",
     "title": "Koroze kovů",
-    "written_hash": "43760131dda2409881260f8d2591958b1915d2e8dc3b847ef14c44141093b831"
+    "written_hash": "4acbe50338d0017cd4901df1fae1c5b9be8a7752cebe18caf47a71a1e23a5b0d"
   },
   "koroze/koroze-pod-napetim/koroze-pod-napetim": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "6747e90e11abe47d2437d54e15e94bbf8af2d8cfe3b9d6368341dca3062a9aa9",
+    "content_hash": "58ca13ba4a05ff7970f62dc9d4b378fa9f0ed202b7e8c7e0e5d4f3e841d87175",
     "file": "koroze/koroze-pod-napetim/Koroze pod napetim.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Koroze pod napětím (SCC) — animace | STT",
-    "written_hash": "6747e90e11abe47d2437d54e15e94bbf8af2d8cfe3b9d6368341dca3062a9aa9"
+    "written_hash": "58ca13ba4a05ff7970f62dc9d4b378fa9f0ed202b7e8c7e0e5d4f3e841d87175"
   },
   "koroze/korozni-odolnost-kovu/korozni-odolnost-kovu": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "22926f78de339110cb0641310dbc7f67768cfb9a2c4c2337b29d40929007a3e7",
+    "content_hash": "88518720b2168f600537602a109b2d4a22a6a3fc8e9700177950d959deb40932",
     "file": "koroze/korozni-odolnost-kovu/Korozni odolnost kovu.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Korozní odolnost kovů",
-    "written_hash": "22926f78de339110cb0641310dbc7f67768cfb9a2c4c2337b29d40929007a3e7"
+    "written_hash": "88518720b2168f600537602a109b2d4a22a6a3fc8e9700177950d959deb40932"
   },
   "koroze/ochrana/fluidni-poplastovani/index": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "819037bbdabe35180a4d1e0bcb02f1049335d4fecec55e12c39e503033ac9198",
+    "content_hash": "bafeaa340c8c70bd80e91fcdd10972b12baf89cb6f570fc5654fa067d86efbb6",
     "file": "koroze/ochrana/fluidni-poplastovani/index.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Fluidní poplastování — animace | STT",
-    "written_hash": "819037bbdabe35180a4d1e0bcb02f1049335d4fecec55e12c39e503033ac9198"
+    "written_hash": "bafeaa340c8c70bd80e91fcdd10972b12baf89cb6f570fc5654fa067d86efbb6"
   },
   "koroze/ochrana/galvanicke-pokovani/galvanicke-pokovani": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "c087a7e22a35cae55c4aa6e424f46081c6c25ceed3b76172a15ea58dadccd058",
+    "content_hash": "edd1d2a709f5dfa60d1f48cc2cee4b872ae65b1cc678a5ac013d1752c5f7f311",
     "file": "koroze/ochrana/galvanicke-pokovani/Galvanicke pokovani.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Galvanické pokovení — animace | STT",
-    "written_hash": "c087a7e22a35cae55c4aa6e424f46081c6c25ceed3b76172a15ea58dadccd058"
+    "written_hash": "edd1d2a709f5dfa60d1f48cc2cee4b872ae65b1cc678a5ac013d1752c5f7f311"
   },
   "koroze/ochrana/inhibitory/inhibitory-koroze": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "e737d46fb3f6c291d1eeaa18f9ab56a0210f866ea5c40cca5b485ed567d2e4c0",
+    "content_hash": "196090592d5a0159c32b11f026c8f60cbfd83fe7f5efa1013251c91073f6e772",
     "file": "koroze/ochrana/inhibitory/Inhibitory koroze.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Inhibitory koroze — animace | STT",
-    "written_hash": "e737d46fb3f6c291d1eeaa18f9ab56a0210f866ea5c40cca5b485ed567d2e4c0"
+    "written_hash": "196090592d5a0159c32b11f026c8f60cbfd83fe7f5efa1013251c91073f6e772"
   },
   "koroze/ochrana/katodova-ochrana/katodova-ochrana": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "cfd82b069689de51a0c90d84a572771828da1fdb7b102d12c1f460995ca59cfc",
+    "content_hash": "31573a0d0b0ddb152c4aa3bbb984d2c7259bd8b26922f952cef45518ae13799a",
     "file": "koroze/ochrana/katodova-ochrana/Katodova ochrana.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Katodová ochrana — animace | STT",
-    "written_hash": "cfd82b069689de51a0c90d84a572771828da1fdb7b102d12c1f460995ca59cfc"
+    "written_hash": "31573a0d0b0ddb152c4aa3bbb984d2c7259bd8b26922f952cef45518ae13799a"
   },
   "koroze/ochrana/legovani/legovani": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "3839bae1949e1c9ff4bc289e5703c90d1f8c1e8efa4b64b659748b16e894aaf4",
+    "content_hash": "8fc1e07947f387fca35f859c4e6b664e46f5d223f5d22a2fea1a2f0d141a9062",
     "file": "koroze/ochrana/legovani/Legovani.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Legování — animace | STT",
-    "written_hash": "3839bae1949e1c9ff4bc289e5703c90d1f8c1e8efa4b64b659748b16e894aaf4"
+    "written_hash": "8fc1e07947f387fca35f859c4e6b664e46f5d223f5d22a2fea1a2f0d141a9062"
   },
   "koroze/ochrana/protikorozni-ochrana": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "6df290c203e38f9683863fa42b628b3eaa2d6d5dad22efa875b591e1af42f177",
+    "content_hash": "ebd5191eefccffdbcbb751a6e63c3bae1c7b33cca5ddf55963d80afd1f411550",
     "file": "koroze/ochrana/Protikorozni ochrana.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Protikorozní ochrana",
-    "written_hash": "6df290c203e38f9683863fa42b628b3eaa2d6d5dad22efa875b591e1af42f177"
+    "written_hash": "ebd5191eefccffdbcbb751a6e63c3bae1c7b33cca5ddf55963d80afd1f411550"
   },
   "koroze/ochrana/zarove-pozinkovani/index": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "b69b66efddd3291cd98b9143b3a38988474b17f30fa9c01aa7d7afea611fd142",
+    "content_hash": "e897d65200d030c163a3c433179be1f4368028de021fee2c684b7c14336a156f",
     "file": "koroze/ochrana/zarove-pozinkovani/index.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Žárové zinkování — animace | STT",
-    "written_hash": "b69b66efddd3291cd98b9143b3a38988474b17f30fa9c01aa7d7afea611fd142"
+    "written_hash": "e897d65200d030c163a3c433179be1f4368028de021fee2c684b7c14336a156f"
   },
   "koroze/rychlost-koroze/rychlost-koroze-a-pb-pravidlo": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "ec0e7fa08ef365bd165cc4f9558dc0b4ce6a100b898089c536f9cd29bbd87e55",
+    "content_hash": "eefc5cbcd7eabebe32f9558dfedd138680b175386b7f63a150b39bd08575ddaf",
     "file": "koroze/rychlost-koroze/Rychlost koroze a PB pravidlo.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Rychlost koroze a Pilling–Bedworthovo pravidlo",
-    "written_hash": "ec0e7fa08ef365bd165cc4f9558dc0b4ce6a100b898089c536f9cd29bbd87e55"
+    "written_hash": "eefc5cbcd7eabebe32f9558dfedd138680b175386b7f63a150b39bd08575ddaf"
   },
   "o-projektu": {
     "badge": false,
     "category": "",
-    "content_hash": "62f7ac059dbe636fc0621d5c79ce5929273fc8b6e72924e45e00e3fe352e21e2",
+    "content_hash": "23052857ce94b2b06d23d6d61fdf47a476762adba9a0c1740996655ccc3a7495",
     "file": "o-projektu.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Sjednocena typografie textu.",
     "title": "O projektu",
-    "written_hash": "62f7ac059dbe636fc0621d5c79ce5929273fc8b6e72924e45e00e3fe352e21e2"
+    "written_hash": "23052857ce94b2b06d23d6d61fdf47a476762adba9a0c1740996655ccc3a7495"
   },
   "tvareni-za-tepla/index": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "08f4f9d3d02e43597cafec566c9b5eed9c6dee90aaeaf309d2c1ed36de1fcf16",
+    "content_hash": "36bcfe4cd26822a02a61191db6693b7902d35b60f523685d75b41069fed404a7",
     "file": "tvareni-za-tepla/index.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "Přibyla karta Tváření za studena.",
     "title": "Rozdělení tváření",
-    "written_hash": "08f4f9d3d02e43597cafec566c9b5eed9c6dee90aaeaf309d2c1ed36de1fcf16"
+    "written_hash": "36bcfe4cd26822a02a61191db6693b7902d35b60f523685d75b41069fed404a7"
   },
   "tvareni-za-tepla/kovani/buchar-a-lis": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "2133cd85e668262a2033f1ad47a53f2a6f886eeeefd7baaadf0f961ccfed2e8a",
+    "content_hash": "0000fd4cdf764c1f8d74f064b71d1e365cafb2927f7d2640a008807f72ba0f2e",
     "file": "tvareni-za-tepla/kovani/Buchar a lis.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
-    "title": "Buchar × lis — rázové vs. klidné přetváření",
-    "written_hash": "2133cd85e668262a2033f1ad47a53f2a6f886eeeefd7baaadf0f961ccfed2e8a"
+    "title": "Buchar × lis — rázové × klidné přetváření",
+    "written_hash": "0000fd4cdf764c1f8d74f064b71d1e365cafb2927f7d2640a008807f72ba0f2e"
   },
   "tvareni-za-tepla/kovani/index": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "7b3ddd77c8f68602517ea5b607e92bf499e6ddaa41abd3f7db8841a0277ed6ed",
+    "content_hash": "490017b5f967b572aff170e224a15d778af182fa0de28aa2a6279db15f3a69d3",
     "file": "tvareni-za-tepla/kovani/index.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Kapitoly mají štítek typu obsahu a sjednocenou velikost karet.",
     "title": "Kování a válcování",
-    "written_hash": "7b3ddd77c8f68602517ea5b607e92bf499e6ddaa41abd3f7db8841a0277ed6ed"
+    "written_hash": "490017b5f967b572aff170e224a15d778af182fa0de28aa2a6279db15f3a69d3"
   },
   "tvareni-za-tepla/kovani/kalibrovane-valcovani-profilu": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "36875c8cbfb6faf76489abeaf2a4fd571ecb1a8ef73f89bef24109a8cfa399a5",
+    "content_hash": "27235893f694113a20cfbb66f4d1c80420d2cabec85b50c17d86feb9279506f3",
     "file": "tvareni-za-tepla/kovani/Kalibrovane valcovani profilu.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Kalibrované válcování profilů",
-    "written_hash": "36875c8cbfb6faf76489abeaf2a4fd571ecb1a8ef73f89bef24109a8cfa399a5"
+    "written_hash": "27235893f694113a20cfbb66f4d1c80420d2cabec85b50c17d86feb9279506f3"
   },
   "tvareni-za-tepla/kovani/porovnani-technologii-ozubene-kolo": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "e653a3770d410931ad5cea2c396c60ab363fd1992d968ce4f2acfd7cfb2d3cf3",
+    "content_hash": "21348fd78955b1a1699e65dd74a648e99e0a2b1a77c2e84ac864848e999f9770",
     "file": "tvareni-za-tepla/kovani/Porovnani technologii - ozubene kolo.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Kováno, svařováno, nebo sléváno?",
-    "written_hash": "e653a3770d410931ad5cea2c396c60ab363fd1992d968ce4f2acfd7cfb2d3cf3"
+    "written_hash": "21348fd78955b1a1699e65dd74a648e99e0a2b1a77c2e84ac864848e999f9770"
   },
   "tvareni-za-tepla/kovani/postupove-kovani": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "c4fdcfdb3395f13a1816b2058f0671c19f9dd5aff51af2eb1e89ad30ad232ed5",
+    "content_hash": "92fcd067e4df32dadf95e03dca418814788e885dd7f60121f4496d0b249cd58f",
     "file": "tvareni-za-tepla/kovani/Postupove kovani.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Postupové kování — předkovací → kovací → dokončovací dutina",
-    "written_hash": "c4fdcfdb3395f13a1816b2058f0671c19f9dd5aff51af2eb1e89ad30ad232ed5"
+    "written_hash": "92fcd067e4df32dadf95e03dca418814788e885dd7f60121f4496d0b249cd58f"
   },
   "tvareni-za-tepla/kovani/pricne-klinove-valcovani": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "d0fd91a30908b4fe3c3ced65dd81042f202fee28a0f6abc2527b654fdf3e49c7",
+    "content_hash": "8eb1f9a6ba3d3ca125d0a2a23fe52f53790cc91ce738f704b3c855b5eddddc5a",
     "file": "tvareni-za-tepla/kovani/Pricne klinove valcovani.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Příčné klínové válcování",
-    "written_hash": "d0fd91a30908b4fe3c3ced65dd81042f202fee28a0f6abc2527b654fdf3e49c7"
+    "written_hash": "8eb1f9a6ba3d3ca125d0a2a23fe52f53790cc91ce738f704b3c855b5eddddc5a"
   },
   "tvareni-za-tepla/kovani/stupen-prokovani": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "e5595f60dd73959cc31040bb4ee82d9c68f22fc7a3348f3eca3774b78be7ede1",
+    "content_hash": "d264e675dd43673868b4adee5cdb59d242108a47cdcb13c85d541af1055774d3",
     "file": "tvareni-za-tepla/kovani/Stupen prokovani.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Stupeň prokování & přetvárný odpor",
-    "written_hash": "e5595f60dd73959cc31040bb4ee82d9c68f22fc7a3348f3eca3774b78be7ede1"
+    "written_hash": "d264e675dd43673868b4adee5cdb59d242108a47cdcb13c85d541af1055774d3"
   },
   "tvareni-za-tepla/kovani/zapustkove-kovani": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "c79f805a0671198fd48e2bb9c14087f1a34508d23ad28f22d9e3e40504f81387",
+    "content_hash": "894f5c24f79c22e5800fca2dd79500c9d5b049f941fe972ca038af67a353acab",
     "file": "tvareni-za-tepla/kovani/Zapustkove kovani.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Zápustkové kování — plnění dutiny a vznik výronku",
-    "written_hash": "c79f805a0671198fd48e2bb9c14087f1a34508d23ad28f22d9e3e40504f81387"
+    "written_hash": "894f5c24f79c22e5800fca2dd79500c9d5b049f941fe972ca038af67a353acab"
   },
   "tvareni-za-tepla/teplota-rekrystalizace/definice-a-zarazeni": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "353d5e925ed1469b41ff4193691cf629b7d3efef6d6b4c39e02bb73143706ad1",
+    "content_hash": "89a974fc8ff227b4a0c6db79b873a72b2d0d1db58ec2c5355fc4e43d2b90cb50",
     "file": "tvareni-za-tepla/teplota-rekrystalizace/Definice a zarazeni.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Definice",
-    "written_hash": "353d5e925ed1469b41ff4193691cf629b7d3efef6d6b4c39e02bb73143706ad1"
+    "written_hash": "89a974fc8ff227b4a0c6db79b873a72b2d0d1db58ec2c5355fc4e43d2b90cb50"
   },
   "tvareni-za-tepla/teplota-rekrystalizace/index": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "70ef5f38dcca3b3e4c3c5636fcde820f791eb0d352f1cf96c43bc18d95047e0a",
+    "content_hash": "b4149bf7427e2f6dc8382b9cc13e5f3019cb32eb5bd936041d02145c2bf8f234",
     "file": "tvareni-za-tepla/teplota-rekrystalizace/index.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Kapitoly mají štítek typu obsahu a sjednocenou velikost karet.",
     "title": "Teplota rekrystalizace",
-    "written_hash": "70ef5f38dcca3b3e4c3c5636fcde820f791eb0d352f1cf96c43bc18d95047e0a"
+    "written_hash": "b4149bf7427e2f6dc8382b9cc13e5f3019cb32eb5bd936041d02145c2bf8f234"
   },
   "tvareni-za-tepla/teplota-rekrystalizace/proc-se-tvari-nad-tr": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "35b2e4bf99b57417d94444ebcdd5492470b4b70a133f1e1a55bb4154fc0d4c76",
+    "content_hash": "1e9a8677fd39fd749ca3125e56b7fcacc0a770605392fc2a787e753025baafec",
     "file": "tvareni-za-tepla/teplota-rekrystalizace/Proc se tvari nad TR.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Proč se tváří nad TR",
-    "written_hash": "35b2e4bf99b57417d94444ebcdd5492470b4b70a133f1e1a55bb4154fc0d4c76"
+    "written_hash": "1e9a8677fd39fd749ca3125e56b7fcacc0a770605392fc2a787e753025baafec"
   },
   "tvareni-za-tepla/teplota-rekrystalizace/rekrystalizacni-teplota": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "8ac1bd1713ed09a2ee2b35de4ff5bfa9ef4ff0b728e5feae76a4dfadd56f6c51",
+    "content_hash": "22a9b522ea0fd74785abaec35f493723d068cd7b33b6f7734b9a52d5f68c1090",
     "file": "tvareni-za-tepla/teplota-rekrystalizace/Rekrystalizacni teplota.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Rekrystalizační teplota TR",
-    "written_hash": "8ac1bd1713ed09a2ee2b35de4ff5bfa9ef4ff0b728e5feae76a4dfadd56f6c51"
+    "written_hash": "22a9b522ea0fd74785abaec35f493723d068cd7b33b6f7734b9a52d5f68c1090"
   },
   "tvareni-za-tepla/teplota-rekrystalizace/teplotni-interval-tvareni": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "615ca86937c86b9caa2b0537d00288fb3ce64c41bb24d634740472b4e35ae9b0",
+    "content_hash": "14e325a0bc35cb9cd6c69cc6b19439dfa905debc052d597be8706dec79d8c862",
     "file": "tvareni-za-tepla/teplota-rekrystalizace/Teplotni interval tvareni.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Teplotní interval tváření",
-    "written_hash": "615ca86937c86b9caa2b0537d00288fb3ce64c41bb24d634740472b4e35ae9b0"
+    "written_hash": "14e325a0bc35cb9cd6c69cc6b19439dfa905debc052d597be8706dec79d8c862"
+  },
+  "tvareni-za-tepla/tvareni-za-studena/hluboke-tazeni": {
+    "badge": true,
+    "category": "tvareni-za-tepla",
+    "content_hash": "a2f70f4566457e5a854cc182a46fc4127612dcc89311f1e8c6007d5561776cf6",
+    "file": "tvareni-za-tepla/tvareni-za-studena/Hluboke tazeni.html",
+    "first_seen": "2026-08-23",
+    "last_changed": "2026-08-23",
+    "locked": false,
+    "note": "Animace průběhu tažení, napjatost v přírubě, stěně a dně, kalkulačka součinitele tažení a sled tahů se zpevněním.",
+    "title": "Hluboké tažení",
+    "written_hash": "a2f70f4566457e5a854cc182a46fc4127612dcc89311f1e8c6007d5561776cf6"
   },
   "tvareni-za-tepla/tvareni-za-studena/index": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "291c922c282d9e57e3d47e00cbe1d0524fbf069ff27e0c5ed64957d07d871de8",
+    "content_hash": "6490e126e68ec24cf93997ac6cfdd476a2aa77ee3eaf106433dc9751cf449234",
     "file": "tvareni-za-tepla/tvareni-za-studena/index.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "Rozcestník nové sekce o tváření pod teplotou rekrystalizace.",
     "title": "Tváření za studena",
-    "written_hash": "291c922c282d9e57e3d47e00cbe1d0524fbf069ff27e0c5ed64957d07d871de8"
+    "written_hash": "6490e126e68ec24cf93997ac6cfdd476a2aa77ee3eaf106433dc9751cf449234"
   },
   "tvareni-za-tepla/tvareni-za-studena/ohybani": {
     "badge": true,
     "category": "tvareni-za-tepla",
-    "content_hash": "68f021950af683e2fc696665becc24c54f6d5262b3ea260ddc05a475f2399f84",
+    "content_hash": "65ffffc351dbdcba45ecffa3b5701c522cda313b6e3edeb14e4d3f27e069a5c9",
     "file": "tvareni-za-tepla/tvareni-za-studena/Ohybani.html",
     "first_seen": "2026-08-22",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "Interaktivní animace posunu neutrální osy, minimálního poloměru ohybu a výpočet rozvinuté délky.",
     "title": "Ohýbání",
-    "written_hash": "68f021950af683e2fc696665becc24c54f6d5262b3ea260ddc05a475f2399f84"
+    "written_hash": "65ffffc351dbdcba45ecffa3b5701c522cda313b6e3edeb14e4d3f27e069a5c9"
+  },
+  "tvareni-za-tepla/tvareni-za-studena/srovnani-za-studena-a-za-tepla": {
+    "badge": true,
+    "category": "tvareni-za-tepla",
+    "content_hash": "f147cd539b08d991c7b9f839d55e74becf207998d02800dbe3d1f6a50bf90221",
+    "file": "tvareni-za-tepla/tvareni-za-studena/Srovnani za studena a za tepla.html",
+    "first_seen": "2026-08-23",
+    "last_changed": "2026-08-23",
+    "locked": false,
+    "note": "Osa dosahované přesnosti IT a drsnosti Ra u jednotlivých technologií, přídavek na obrábění na řezu dílem, kdy zvolit co a tváření za polotepla.",
+    "title": "Za studena × za tepla",
+    "written_hash": "f147cd539b08d991c7b9f839d55e74becf207998d02800dbe3d1f6a50bf90221"
   },
   "tvareni-za-tepla/tvareni-za-studena/strihani": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "ab7693beea78f5201a2a5940a4d83541e92a3c2191ad0f41392efa6883166ac4",
+    "content_hash": "203503b3d353369853ef222867fa30a9cb71fae07cff5895944a49bec7713610",
     "file": "tvareni-za-tepla/tvareni-za-studena/Strihani.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "Interaktivní animace vlivu střižné vůle na pásma střižné plochy, otřep a průběh střižné síly.",
     "title": "Stříhání",
-    "written_hash": "ab7693beea78f5201a2a5940a4d83541e92a3c2191ad0f41392efa6883166ac4"
+    "written_hash": "203503b3d353369853ef222867fa30a9cb71fae07cff5895944a49bec7713610"
+  },
+  "tvareni-za-tepla/tvareni-za-studena/zpevneni": {
+    "badge": true,
+    "category": "tvareni-za-tepla",
+    "content_hash": "e8f15dfbc4ae5189a55e4fbdf5492eb17e8b06df4fa8108e6fe3b41831c4bebc",
+    "file": "tvareni-za-tepla/tvareni-za-studena/Zpevneni.html",
+    "first_seen": "2026-08-23",
+    "last_changed": "2026-08-23",
+    "locked": false,
+    "note": "Interaktivní křivka zpevnění s odlehčením a novou mezí kluzu, tabulka růstu pevnosti proti klesající tažnosti a využití zpevnění v praxi.",
+    "title": "Zpevnění a křivka zpevnění",
+    "written_hash": "e8f15dfbc4ae5189a55e4fbdf5492eb17e8b06df4fa8108e6fe3b41831c4bebc"
   },
   "tvareni-za-tepla/vady/cipatost": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "2c9674c9ce206f999b55de63358fd41ae3642a4a2895135b91b6e7e56614e3da",
+    "content_hash": "2372539f723ebc3c8ca98fecda0bb4cd5400f530fd84072adb36fb13b45bb18a",
     "file": "tvareni-za-tepla/vady/Cipatost.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Obrázek nově ukazuje čtyři uši pod 45° ke směru válcování, text sjednocen.",
     "title": "Cípatost (uši)",
-    "written_hash": "2c9674c9ce206f999b55de63358fd41ae3642a4a2895135b91b6e7e56614e3da"
+    "written_hash": "2372539f723ebc3c8ca98fecda0bb4cd5400f530fd84072adb36fb13b45bb18a"
   },
   "tvareni-za-tepla/vady/index": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "6a9a2d49c613bf764ffe6a4f1289b8d1fb04dfbc8b2d3065442a7cc691a3064d",
+    "content_hash": "334a4d818c0305c48e3c9d16171e4e8f112abc582baf08061e4d251bcb847557",
     "file": "tvareni-za-tepla/vady/index.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Nový úvodní text o roli teploty rekrystalizace.",
     "title": "Vady při tváření",
-    "written_hash": "6a9a2d49c613bf764ffe6a4f1289b8d1fb04dfbc8b2d3065442a7cc691a3064d"
+    "written_hash": "334a4d818c0305c48e3c9d16171e4e8f112abc582baf08061e4d251bcb847557"
   },
   "tvareni-za-tepla/vady/nerovnomerna-deformace": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "c94d35e2a4c01c9466b0d61e2149e59e061bc0f512721752ade8bb75579b7bdd",
+    "content_hash": "f13cef06f0cc86fe2506c99bb828546513a5fe7c6f970a7c64433b9cab772ad2",
     "file": "tvareni-za-tepla/vady/Nerovnomerna deformace.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Sjednocen výklad kritické deformace, rozsah upraven na 5–15 %.",
     "title": "Nerovnoměrná deformace",
-    "written_hash": "c94d35e2a4c01c9466b0d61e2149e59e061bc0f512721752ade8bb75579b7bdd"
+    "written_hash": "f13cef06f0cc86fe2506c99bb828546513a5fe7c6f970a7c64433b9cab772ad2"
   },
   "tvareni-za-tepla/vady/odpruzeni": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "9d96b1e3a96cd72f1efd7604117413d0eaa177a27095fe278109f27a7c12c2bb",
+    "content_hash": "2cf1a756430bbd11d20dbf04b9a0e178b60711e65b4b3a89f07ccd1d0c799790",
     "file": "tvareni-za-tepla/vady/Odpruzeni.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Odpružení",
-    "written_hash": "9d96b1e3a96cd72f1efd7604117413d0eaa177a27095fe278109f27a7c12c2bb"
+    "written_hash": "2cf1a756430bbd11d20dbf04b9a0e178b60711e65b4b3a89f07ccd1d0c799790"
   },
   "tvareni-za-tepla/vady/povrchove-vady-a-pnuti": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "3ba30f54ea1088548e4e537ed131c34878c0a143debdfef519d74eb98c48dee1",
+    "content_hash": "91056d524ce345382cb1b161154d5a7a86e0274ffddf38fc34e8a51d6f927b5a",
     "file": "tvareni-za-tepla/vady/Povrchove vady a pnuti.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Povrchové vady a zbytková pnutí",
-    "written_hash": "3ba30f54ea1088548e4e537ed131c34878c0a143debdfef519d74eb98c48dee1"
+    "written_hash": "91056d524ce345382cb1b161154d5a7a86e0274ffddf38fc34e8a51d6f927b5a"
   },
   "tvareni-za-tepla/vady/prehrati-a-spaleni": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "7d97242f39197f42c00052ca857a33de05ba20538a519012614a8ae635c4dad0",
+    "content_hash": "caa0c8a54b5dc8c05be2822c8bf9acaa8a5735610ad8a0d088f997be1bd3cbd0",
     "file": "tvareni-za-tepla/vady/Prehrati a spaleni.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Přehřátí a spálení",
-    "written_hash": "7d97242f39197f42c00052ca857a33de05ba20538a519012614a8ae635c4dad0"
+    "written_hash": "caa0c8a54b5dc8c05be2822c8bf9acaa8a5735610ad8a0d088f997be1bd3cbd0"
   },
   "tvareni-za-tepla/vady/prelozka": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "a10d1eb403a9dbc2e89fc2eb3b4f9dbb11cd31d45dd79162cc39da2af51243b2",
+    "content_hash": "90729651b070823927d6b254e5622ac786cd6a74e7d5e6107ad8a6f3690f89df",
     "file": "tvareni-za-tepla/vady/Prelozka.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Upřesněn popis přeložky jako ostré vrubové vady zabíhající pod povrch.",
     "title": "Přeložka",
-    "written_hash": "a10d1eb403a9dbc2e89fc2eb3b4f9dbb11cd31d45dd79162cc39da2af51243b2"
+    "written_hash": "90729651b070823927d6b254e5622ac786cd6a74e7d5e6107ad8a6f3690f89df"
   },
   "tvareni-za-tepla/vady/trhliny-za-studena": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "a8a76cda6c05599d58c9952bd66c46e754bb27547b02e8b72c89888153509d05",
+    "content_hash": "3ec3e5f8ed06f3da5b97a30a46844b7086c1f0f3f4640d2177cc25dcc8f32bd9",
     "file": "tvareni-za-tepla/vady/Trhliny za studena.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Trhliny z vyčerpané tvárnosti",
-    "written_hash": "a8a76cda6c05599d58c9952bd66c46e754bb27547b02e8b72c89888153509d05"
+    "written_hash": "3ec3e5f8ed06f3da5b97a30a46844b7086c1f0f3f4640d2177cc25dcc8f32bd9"
   },
   "tvareni-za-tepla/vady/trhliny-za-tepla": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "2d79609b8760b3bdad7586702d1df1385204fdb1662560e4628e1c59f6fecea1",
+    "content_hash": "d7f0d726d5a47b5d068a23703f2adc0fbb48c44fdf3f64ecffe7a68e8482271b",
     "file": "tvareni-za-tepla/vady/Trhliny za tepla.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Trhliny za tepla",
-    "written_hash": "2d79609b8760b3bdad7586702d1df1385204fdb1662560e4628e1c59f6fecea1"
+    "written_hash": "d7f0d726d5a47b5d068a23703f2adc0fbb48c44fdf3f64ecffe7a68e8482271b"
   },
   "tvareni-za-tepla/vady/vady-hlubokeho-tazeni": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "3bc2711c94ab5726e73e9fc3d060bbb06e8bb7e7cc2d5730e1df8bc9e8da7a41",
+    "content_hash": "adbc1bc649f2119995b8a28f4df7a1957ff230775f5c58ebb28ac22ab48986b6",
     "file": "tvareni-za-tepla/vady/Vady hlubokeho tazeni.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Vady hlubokého tažení",
-    "written_hash": "3bc2711c94ab5726e73e9fc3d060bbb06e8bb7e7cc2d5730e1df8bc9e8da7a41"
+    "written_hash": "adbc1bc649f2119995b8a28f4df7a1957ff230775f5c58ebb28ac22ab48986b6"
   },
   "tvareni-za-tepla/vady/vady-z-ingotu": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "4c862d1cb6c88f02c0d0fe730ae847fb7d982724817f52616a2960d71ce67ea5",
+    "content_hash": "5fef79a1183d4cc2de05bd1b083ecb6d60c295438cd33113cd237a735277d545",
     "file": "tvareni-za-tepla/vady/Vady z ingotu.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Stupeň prokování uveden jako rozsah 2 : 1 až 4 : 1.",
     "title": "Vady zděděné z ingotu",
-    "written_hash": "4c862d1cb6c88f02c0d0fe730ae847fb7d982724817f52616a2960d71ce67ea5"
+    "written_hash": "5fef79a1183d4cc2de05bd1b083ecb6d60c295438cd33113cd237a735277d545"
   },
   "tvareni-za-tepla/zmeny-struktury/index": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "8a00cf22367b3fe28aeac6d4ead3f346573d4360c38291606e6dd165fe13af6b",
+    "content_hash": "13fec2dfb6ea66a882f2946408490e9a6c83039adcf945748195e41360c048f4",
     "file": "tvareni-za-tepla/zmeny-struktury/index.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
-    "note": "",
+    "note": "Kapitoly mají štítek typu obsahu a sjednocenou velikost karet.",
     "title": "Změny struktury",
-    "written_hash": "8a00cf22367b3fe28aeac6d4ead3f346573d4360c38291606e6dd165fe13af6b"
+    "written_hash": "13fec2dfb6ea66a882f2946408490e9a6c83039adcf945748195e41360c048f4"
   },
   "tvareni-za-tepla/zmeny-struktury/rekrystalizace": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "85ab0d29c30bbed5e9e4c78f59558b8075b26b153ad13dd154c087f72b7cf6f0",
+    "content_hash": "cf71cd34685c3adf566a035fced483cf7972b506e214ec53316905e64741c10e",
     "file": "tvareni-za-tepla/zmeny-struktury/Rekrystalizace.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Rekrystalizace",
-    "written_hash": "85ab0d29c30bbed5e9e4c78f59558b8075b26b153ad13dd154c087f72b7cf6f0"
+    "written_hash": "cf71cd34685c3adf566a035fced483cf7972b506e214ec53316905e64741c10e"
   },
   "tvareni-za-tepla/zmeny-struktury/srovnani-struktur": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "8ec1a8237c1ba3931d3462be8f3f8a0a25291651ebf5a1d8981576f04520c135",
+    "content_hash": "5993620b349cc4cafa6b700f7f73078d6aa1f559f1ef55d956b989683b6fb286",
     "file": "tvareni-za-tepla/zmeny-struktury/Srovnani struktur.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Srovnání výsledné struktury",
-    "written_hash": "8ec1a8237c1ba3931d3462be8f3f8a0a25291651ebf5a1d8981576f04520c135"
+    "written_hash": "5993620b349cc4cafa6b700f7f73078d6aa1f559f1ef55d956b989683b6fb286"
   },
   "tvareni-za-tepla/zmeny-struktury/vlaknita-struktura-a-textura": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "8fd4ee85f94179a8142fc60bda15346234babaa3e7a24b8c55493e984ed84af8",
+    "content_hash": "5ade821ede520e23ca154f481737193a6281ea1a4f0689e7f0b04cc3adec7cc9",
     "file": "tvareni-za-tepla/zmeny-struktury/Vlaknita struktura a textura.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Vláknitá struktura",
-    "written_hash": "8fd4ee85f94179a8142fc60bda15346234babaa3e7a24b8c55493e984ed84af8"
+    "written_hash": "5ade821ede520e23ca154f481737193a6281ea1a4f0689e7f0b04cc3adec7cc9"
   },
   "tvareni-za-tepla/zmeny-struktury/vychozi-lici-struktura": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "fb1da5a296f914763ea24fdd2d4b757725c1bdfe3a76f3eac9b39fc0bc3b694b",
+    "content_hash": "5977bfcf56cefcaf100fe6cab1caa36c76c61f5db7570d35ecd937b89b30ea6a",
     "file": "tvareni-za-tepla/zmeny-struktury/Vychozi lici struktura.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Výchozí licí struktura",
-    "written_hash": "fb1da5a296f914763ea24fdd2d4b757725c1bdfe3a76f3eac9b39fc0bc3b694b"
+    "written_hash": "5977bfcf56cefcaf100fe6cab1caa36c76c61f5db7570d35ecd937b89b30ea6a"
   },
   "tvareni-za-tepla/zmeny-struktury/zjemneni-zrna": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "c80742ae1382b250d38198a896000ee0f7106fc751a848108fc27ccf99895f58",
+    "content_hash": "8058524d8a61ae6397f14572db1f96663a58d17c241695e5e18f1c687ee7c1bd",
     "file": "tvareni-za-tepla/zmeny-struktury/Zjemneni zrna.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Zjemnění zrna a vliv na vlastnosti",
-    "written_hash": "c80742ae1382b250d38198a896000ee0f7106fc751a848108fc27ccf99895f58"
+    "written_hash": "8058524d8a61ae6397f14572db1f96663a58d17c241695e5e18f1c687ee7c1bd"
   },
   "vnitrni-stavba-kovu-a-tz/index": {
     "badge": false,
@@ -638,205 +674,205 @@
   "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/bodove-poruchy-mrizky": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "371bbd2602b9904931a0298fc55050e851da4941dbab7e875cbb87e625329b0a",
+    "content_hash": "9ac4efba3b72f4934e53aa73dfc19a5cbbc0dc4031067b510c2606f04271bb53",
     "file": "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/Bodove poruchy mrizky.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Bodové poruchy mřížky | STT",
-    "written_hash": "371bbd2602b9904931a0298fc55050e851da4941dbab7e875cbb87e625329b0a"
+    "written_hash": "9ac4efba3b72f4934e53aa73dfc19a5cbbc0dc4031067b510c2606f04271bb53"
   },
   "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/hranova-dislokace": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "d6d9df0e5279aea587aaf5602a5d8113d10fb53bbc69033cdd7a2a29f0da45ae",
+    "content_hash": "a9f8010af23e8f26d0eb5b4862a329a83d0db02df33c825632c73f6222b26c23",
     "file": "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/Hranova dislokace.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Hranová dislokace | STT",
-    "written_hash": "d6d9df0e5279aea587aaf5602a5d8113d10fb53bbc69033cdd7a2a29f0da45ae"
+    "written_hash": "a9f8010af23e8f26d0eb5b4862a329a83d0db02df33c825632c73f6222b26c23"
   },
   "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/krychlova-bcc-mrizka": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "8734fb2ac0f27c37886c9c3408bba63600830c877e18e06c5b01c0643010547c",
+    "content_hash": "83a865ce191a5a10b48ebc5cea5d9b0d4a32f91569086aa8dbbaa70f0a77d45a",
     "file": "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/Krychlova BCC mrizka.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Krychlová prostorově středěná mřížka (BCC) | STT",
-    "written_hash": "8734fb2ac0f27c37886c9c3408bba63600830c877e18e06c5b01c0643010547c"
+    "written_hash": "83a865ce191a5a10b48ebc5cea5d9b0d4a32f91569086aa8dbbaa70f0a77d45a"
   },
   "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/krychlova-fcc-mrizka": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "94282e5f1e9a625026850b396102c2ba9b92dc46424a7300cb7ad014dba9fa99",
+    "content_hash": "377e4d36ea2b2c4a56cf4b10feaaf3ca20a35d4f2a9446258c458e049bafa841",
     "file": "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/Krychlova FCC mrizka.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Krychlová plošně středěná mřížka (FCC) | STT",
-    "written_hash": "94282e5f1e9a625026850b396102c2ba9b92dc46424a7300cb7ad014dba9fa99"
+    "written_hash": "377e4d36ea2b2c4a56cf4b10feaaf3ca20a35d4f2a9446258c458e049bafa841"
   },
   "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/sesterecna-mrizka": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "d085154f5f9e7ca790b74a3ba31b2f187895b37ecf8300e77b050443a51d0d90",
+    "content_hash": "3bb109c834f81da33eb7c3cf8710090f858a28484660dfffe579997ea77e2738",
     "file": "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/Sesterecna mrizka.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Šesterečná mřížka | STT",
-    "written_hash": "d085154f5f9e7ca790b74a3ba31b2f187895b37ecf8300e77b050443a51d0d90"
+    "written_hash": "3bb109c834f81da33eb7c3cf8710090f858a28484660dfffe579997ea77e2738"
   },
   "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/diagram-fe-fe3c": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "1ab52f6bea41894dd1a5056a1ada6462975e4d2a55726fc72297a554687ca614",
+    "content_hash": "4f0a8ef6b9876f10794f091ea15465e610d0c7b2a381670d6dc405a2b3cff9dc",
     "file": "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/Diagram Fe-Fe3C.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Rovnovážný diagram Fe–Fe3C | STT",
-    "written_hash": "1ab52f6bea41894dd1a5056a1ada6462975e4d2a55726fc72297a554687ca614"
+    "written_hash": "4f0a8ef6b9876f10794f091ea15465e610d0c7b2a381670d6dc405a2b3cff9dc"
   },
   "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/eutekticka-a-eutektoidni-premena-mikrostruktura": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "65b3ac28661ff83f3bf95fbd74da7c0e8d8959bb71b46ee854b6f7025f773658",
+    "content_hash": "ddb756cd0f3b5bb175d812bc0995e11d1bdd58fea235ce9a962ef1d1f9539475",
     "file": "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/Eutekticka a eutektoidni premena - mikrostruktura.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Eutektická a eutektoidní přeměna – mikrostruktura | STT",
-    "written_hash": "65b3ac28661ff83f3bf95fbd74da7c0e8d8959bb71b46ee854b6f7025f773658"
+    "written_hash": "ddb756cd0f3b5bb175d812bc0995e11d1bdd58fea235ce9a962ef1d1f9539475"
   },
   "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/rovnovazny-diagram-eutekticka-premena": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "71116c41399eb09498ad690e10bb1a5016cd25b814afde51198c9537930d67b5",
+    "content_hash": "976088942f9b4fbb936007d65ec71f8617b74589c6052cc455140119b16ef79c",
     "file": "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/Rovnovazny diagram - eutekticka premena.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Rovnovážný diagram – eutektická přeměna | STT",
-    "written_hash": "71116c41399eb09498ad690e10bb1a5016cd25b814afde51198c9537930d67b5"
+    "written_hash": "976088942f9b4fbb936007d65ec71f8617b74589c6052cc455140119b16ef79c"
   },
   "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/rovnovazny-diagram-eutektoidni-premena": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "7401289f7e77798b00ebc9207c0d108af74d06ec27d9d9a9674ac97f4d34f993",
+    "content_hash": "5912bf7233dba6de8c7dabf72c3fbdc49735cbe5e8fa513267b2b1aa1df871ef",
     "file": "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/Rovnovazny diagram - eutektoidni premena.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Rovnovážný diagram – eutektoidní přeměna | STT",
-    "written_hash": "7401289f7e77798b00ebc9207c0d108af74d06ec27d9d9a9674ac97f4d34f993"
+    "written_hash": "5912bf7233dba6de8c7dabf72c3fbdc49735cbe5e8fa513267b2b1aa1df871ef"
   },
   "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/rovnovazny-diagram-uplna-rozpustnost": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "c1fa79f76fedb9c38a7636ee445f9ba4d87fdc436781f8cea34c7b8fe7c5244f",
+    "content_hash": "9351e53c71951a0e368edcdf059f8bbeee15967b4868cd3864c28aca59fe10cc",
     "file": "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/Rovnovazny diagram - uplna rozpustnost.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Rovnovážný diagram – úplná rozpustnost | STT",
-    "written_hash": "c1fa79f76fedb9c38a7636ee445f9ba4d87fdc436781f8cea34c7b8fe7c5244f"
+    "written_hash": "9351e53c71951a0e368edcdf059f8bbeee15967b4868cd3864c28aca59fe10cc"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ara-diagram-kaleni": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "a786d95bae7259f266e0ffddc395c4834ba805b205b05ec2e4f9ef00be491bbd",
+    "content_hash": "f5cb122d594cea2cc4488e868ce9f9f45b366ee7b74171f88069fe4a96d80649",
     "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ARA diagram kaleni.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "ARA diagram kalení | STT",
-    "written_hash": "a786d95bae7259f266e0ffddc395c4834ba805b205b05ec2e4f9ef00be491bbd"
+    "written_hash": "f5cb122d594cea2cc4488e868ce9f9f45b366ee7b74171f88069fe4a96d80649"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/austenitizace": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "1ab0d02bc9b36fcdaee4319bc767e6c89bce4611deb38a4f5cac544f296aad12",
+    "content_hash": "101fc66899c9dd277ef06c9dbc92d31ff9ca04e8d299434e8d9f7593301af78f",
     "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/Austenitizace.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Austenitizace | STT",
-    "written_hash": "1ab0d02bc9b36fcdaee4319bc767e6c89bce4611deb38a4f5cac544f296aad12"
+    "written_hash": "101fc66899c9dd277ef06c9dbc92d31ff9ca04e8d299434e8d9f7593301af78f"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/cementace-rez-vrstvou": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "3851d9b1f841728e85a017531cb8bd0710867ea9c127234c18ca718d9d5725de",
+    "content_hash": "64b76f58044c505ccc88b6c9b556c4d8fbb438b19d88c70946776c5a0c74076b",
     "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/Cementace rez vrstvou.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Cementace – řez vrstvou | STT",
-    "written_hash": "3851d9b1f841728e85a017531cb8bd0710867ea9c127234c18ca718d9d5725de"
+    "written_hash": "64b76f58044c505ccc88b6c9b556c4d8fbb438b19d88c70946776c5a0c74076b"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ira-diagram-kaleni": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "74b541d70974ac79f0b833f5660278835d59d601898ff9679a3087309ff3df00",
+    "content_hash": "133184e1a0f44cbf4a5ea7c89fe50d08ab101347b21c17ccaaf2ab03110946e4",
     "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/IRA diagram kaleni.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "IRA diagram kalení | STT",
-    "written_hash": "74b541d70974ac79f0b833f5660278835d59d601898ff9679a3087309ff3df00"
+    "written_hash": "133184e1a0f44cbf4a5ea7c89fe50d08ab101347b21c17ccaaf2ab03110946e4"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/popousteci-diagram": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "bf6ed1f497193141fa1a2c257f033a494c76614e19f024a2a37cf93af7b7240d",
+    "content_hash": "4a12a5ddb71a347ccadfa21f1dce32b70f848fb01624c4c6021719ecd9ef48a7",
     "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/Popousteci diagram.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Popouštěcí diagram | STT",
-    "written_hash": "bf6ed1f497193141fa1a2c257f033a494c76614e19f024a2a37cf93af7b7240d"
+    "written_hash": "4a12a5ddb71a347ccadfa21f1dce32b70f848fb01624c4c6021719ecd9ef48a7"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/porovnani-povrchovych-uprav": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "0f14e9eaeb37c9e341527ffd22b6fb520364097a6717eacd3cb241c4b15c57ce",
+    "content_hash": "11542d1ff858f7efc8c83f36b06441c84df3a4790901ff9bd4b03aa0b13a58b6",
     "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/Porovnani povrchovych uprav.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Porovnání povrchových úprav | STT",
-    "written_hash": "0f14e9eaeb37c9e341527ffd22b6fb520364097a6717eacd3cb241c4b15c57ce"
+    "written_hash": "11542d1ff858f7efc8c83f36b06441c84df3a4790901ff9bd4b03aa0b13a58b6"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/zihani": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "31a49e10131ef168eaa329326d81f0a4fd94e13aa43c74d2e81218376899f1ea",
+    "content_hash": "7622b23cc4247a1dc577f46f8a9a560f920e7d36de8ffa0b0266485e859e7d32",
     "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/Zihani.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-22",
+    "last_changed": "2026-08-23",
     "locked": false,
     "note": "",
     "title": "Žíhání | STT",
-    "written_hash": "31a49e10131ef168eaa329326d81f0a4fd94e13aa43c74d2e81218376899f1ea"
+    "written_hash": "7622b23cc4247a1dc577f46f8a9a560f920e7d36de8ffa0b0266485e859e7d32"
   }
 }

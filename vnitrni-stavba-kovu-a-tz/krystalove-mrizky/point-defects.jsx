@@ -197,7 +197,7 @@ function Scene({ colorTheme = 'Oceán', tempo = 'Standardní', cameraStyle = 'Or
   const sans = "'IBM Plex Sans', system-ui, sans-serif";
   const mono = "'IBM Plex Mono', ui-monospace, monospace";
   const steps = [
-    { n: '01', txt: 'Ideální mřížka - bez poruch', a: 0.3, b: 1.0, c: 3.6, d: 4.0 },
+    { n: '01', txt: 'Ideální mřížka — bez poruch', a: 0.3, b: 1.0, c: 3.6, d: 4.0 },
     { n: '02', txt: 'Vakance — chybějící atom v uzlu mřížky', a: 3.8, b: 4.3, c: 9.0, d: 9.4 },
     { n: '03', txt: 'Intersticie — cizí atom v meziuzlové poloze', a: 9.2, b: 9.7, c: 15.2, d: 15.6 },
     { n: '04', txt: 'Substituce — cizí atom nahrazuje mřížkový', a: 15.4, b: 15.9, c: 20.6, d: 21.0 },

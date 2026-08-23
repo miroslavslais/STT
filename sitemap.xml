@@ -5,19 +5,17 @@
   <url><loc>https://miroslavslais.github.io/STT/koroze/druhy-koroze/Druhy%20koroze.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/elektrochemicka-koroze/Elektrochemicka%20koroze.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/faktory-koroze/Faktory%20ovlivnujici%20korozi.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://miroslavslais.github.io/STT/koroze/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/koroze-pod-napetim/Koroze%20pod%20napetim.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/korozni-odolnost-kovu/Korozni%20odolnost%20kovu.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/Protikorozni%20ochrana.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/fluidni-poplastovani/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/galvanicke-pokovani/Galvanicke%20pokovani.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/inhibitory/Inhibitory%20koroze.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/katodova-ochrana/Katodova%20ochrana.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/legovani/Legovani.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/zarove-pozinkovani/index.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/Protikorozni%20ochrana.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/rychlost-koroze/Rychlost%20koroze%20a%20PB%20pravidlo.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://miroslavslais.github.io/STT/o-projektu.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/index.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/koroze/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/kovani/Buchar%20a%20lis.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/kovani/Kalibrovane%20valcovani%20profilu.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/kovani/Porovnani%20technologii%20-%20ozubene%20kolo.html</loc><changefreq>monthly</changefreq></url>
@@ -31,6 +29,12 @@
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/teplota-rekrystalizace/Rekrystalizacni%20teplota.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/teplota-rekrystalizace/Teplotni%20interval%20tvareni.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/teplota-rekrystalizace/index.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/tvareni-za-studena/Hluboke%20tazeni.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/tvareni-za-studena/Ohybani.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/tvareni-za-studena/Srovnani%20za%20studena%20a%20za%20tepla.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/tvareni-za-studena/Strihani.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/tvareni-za-studena/Zpevneni.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/tvareni-za-studena/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/vady/Cipatost.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/vady/Nerovnomerna%20deformace.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/vady/Odpruzeni.html</loc><changefreq>monthly</changefreq></url>
@@ -48,7 +52,7 @@
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/zmeny-struktury/Vychozi%20lici%20struktura.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/zmeny-struktury/Zjemneni%20zrna.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/zmeny-struktury/index.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://miroslavslais.github.io/STT/vnitrni-stavba-kovu-a-tz/index.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/vnitrni-stavba-kovu-a-tz/krystalove-mrizky/Bodove%20poruchy%20mrizky.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/vnitrni-stavba-kovu-a-tz/krystalove-mrizky/Hranova%20dislokace.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/vnitrni-stavba-kovu-a-tz/krystalove-mrizky/Krychlova%20BCC%20mrizka.html</loc><changefreq>monthly</changefreq></url>
@@ -66,9 +70,8 @@
   <url><loc>https://miroslavslais.github.io/STT/vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/Popousteci%20diagram.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/Porovnani%20povrchovych%20uprav.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/Zihani.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/vnitrni-stavba-kovu-a-tz/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/novinky.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/tvareni-za-studena/index.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/tvareni-za-studena/Strihani.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/o-projektu.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/cnc-simulator/index.html</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://miroslavslais.github.io/STT/tvareni-za-tepla/tvareni-za-studena/Ohybani.html</loc><changefreq>monthly</changefreq></url>
 </urlset>

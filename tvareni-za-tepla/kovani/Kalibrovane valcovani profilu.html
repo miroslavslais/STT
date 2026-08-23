@@ -39,12 +39,9 @@
     <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
   </div>
   <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
-    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Domů</a>
-    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Vnitřní stavba kovů a TZ</a>
-    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Koroze</a>
-    <a href="../../tvareni-za-tepla/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Tváření</a>
-    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">O projektu</a>
-    <a href="../../novinky.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">Novinky</a>
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
   </div>
 </div>
 <a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Kování</a>
@@ -88,6 +85,7 @@
       <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#4a5461;border:1px solid #5c6773;display:inline-block"></span>válce s kalibrem</div>
       <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:0;border-top:2px dashed #6b7684;display:inline-block"></span>výchozí sochor (Ø srovnání)</div>
       <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:2px;background:#e6a94a;display:inline-block"></span>otočení o 90°</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:7px;border-radius:4px;background:#3ddc97;display:inline-block"></span>značka na povrchu (sleduje pootočení)</div>
     </div>
   </div>
 </div>
@@ -164,6 +162,27 @@ class Component extends DCLogic {
     }
     return 'M' + p.join(' L') + ' Z';
   }
+  // kumulativní pootočení vývalku (90° na každý přesun mezi kalibry)
+  rotOf(t) {
+    let a = 0;
+    for (const [s, e] of TRANSFERS) {
+      if (t >= e) a += 90;
+      else if (t > s) a += 90 * this.smooth(s, e, t);
+    }
+    return a;
+  }
+  sePoint(cx, cy, ah, av, n, deg) {
+    const th = deg * Math.PI / 180, c = Math.cos(th), s = Math.sin(th);
+    return [cx + ah * Math.sign(c) * Math.pow(Math.abs(c), 2 / n), cy + av * Math.sign(s) * Math.pow(Math.abs(s), 2 / n)];
+  }
+  seArc(cx, cy, ah, av, n, d0, d1) {
+    const K = 26, p = [];
+    for (let i = 0; i <= K; i++) {
+      const q = this.sePoint(cx, cy, ah, av, n, d0 + (d1 - d0) * i / K);
+      p.push(q[0].toFixed(1) + ' ' + q[1].toFixed(1));
+    }
+    return 'M' + p.join(' L');
+  }
   // upper half-height of the caliber at horizontal offset x
   yUp(x, ah, av, n) { const r = Math.max(0, 1 - Math.pow(Math.abs(x / ah), n)); return av * Math.pow(r, 1 / n); }
 
@@ -231,6 +250,13 @@ class Component extends DCLogic {
 
     // hot bar
     els.push(h('path', { key: 'bar', d: this.sePath(CX, CY, ah, av, n), fill: 'url(#kvHot)', stroke: '#ffce6a', strokeWidth: 2.5, strokeLinejoin: 'round' }));
+
+    // zelená značka na povrchu vývalku — ukazuje, jak se průřez pootáčí
+    const mA = -90 + this.rotOf(t);
+    els.push(h('path', { key: 'mk', d: this.seArc(CX, CY, ah, av, n, mA - 24, mA + 24), fill: 'none', stroke: '#3ddc97', strokeWidth: 7, strokeLinecap: 'round' }));
+    const mP = this.sePoint(CX, CY, ah, av, n, mA);
+    els.push(h('line', { key: 'mkl', x1: CX, y1: CY, x2: mP[0], y2: mP[1], stroke: '#3ddc97', strokeWidth: 2, strokeDasharray: '5 5', opacity: 0.75 }));
+    els.push(h('circle', { key: 'mkd', cx: mP[0], cy: mP[1], r: 6, fill: '#3ddc97', stroke: '#0a1a12', strokeWidth: 1.6 }));
 
     // rolls on top so anything outside the groove is "contained"
     els.push(h('path', { key: 'rt', d: topD, fill: 'url(#kvTool)', stroke: '#737f8c', strokeWidth: 2, strokeLinejoin: 'round', opacity: rollOp }));
@@ -318,6 +344,23 @@ class Component extends DCLogic {
     };
   }
 }
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
 </script>
 </body>
 </html>

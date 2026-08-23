@@ -28,12 +28,9 @@
     <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
   </div>
   <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
-    <a href="../../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Domů</a>
-    <a href="../../vnitrni-stavba-kovu-a-tz/index.html?view=home" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Vnitřní stavba kovů a TZ</a>
-    <a href="../../koroze/index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Koroze</a>
-    <a href="../index.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Tváření</a>
-    <a href="../../o-projektu.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">O projektu</a>
-    <a href="../../novinky.html" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">Novinky</a>
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
   </div>
 </div>
 <a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Vady při tváření</a>
@@ -50,7 +47,7 @@
     <div style="position:relative;height:470px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 12px">
       <x-import component-from-global-scope="Prelozka" from="../../animations.jsx ./prelozka.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
     </div>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Přeložka je nebezpečná hlavně tím, že je na hotovém výkovku špatně vidět. Odhalí ji až magnetická zkouška, kapilární zkouška nebo makroleptání řezu. Protože jde o vrubovou vadu kolmou k povrchu, bývá výchozím místem únavové trhliny.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Přeložka je nebezpečná hlavně tím, že je na hotovém výkovku špatně vidět. Odhalí ji až magnetická zkouška, kapilární zkouška nebo makroleptání řezu. Protože jde o ostrou vrubovou vadu zabíhající pod povrch, bývá výchozím místem únavové trhliny.</p>
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 8px">
       <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
@@ -59,7 +56,7 @@
       </div>
       <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
         <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#eda962;margin-bottom:8px">Projev</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Tenká zaválcovaná vrstva pod povrchem, často s okujemi. Působí jako ostrý vrub a iniciuje únavovou trhlinu.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Tenká zaválcovaná vrstva pod povrchem, často s okujemi. Působí jako ostrá vrubová vada zabíhající pod povrch a iniciuje únavovou trhlinu.</div>
       </div>
       <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
         <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#eda962;margin-bottom:8px">Prevence</div>
@@ -73,6 +70,23 @@
 class Component extends DCLogic {
   renderVals() { return {}; }
 }
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
 </script>
 </body>
 </html>

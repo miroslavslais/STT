@@ -39,38 +39,37 @@
   </div>
 </div>
 
-<a href="../index.html" style="position:fixed;top:20px;left:20px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#fff;border:1px solid #e5ded2;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;color:#5c5346">← Zpět na Rozdělení tváření</a>
-
-<div style="min-height:100vh;background:#fbf8f3;font-family:'IBM Plex Sans',sans-serif;padding:76px 48px 80px;box-sizing:border-box">
+<div style="min-height:100vh;background:#fbf8f3;font-family:'IBM Plex Sans',sans-serif;padding:56px 48px 80px;box-sizing:border-box">
 
   <div style="max-width:1080px;margin:0 auto 48px">
+    <a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#8a8072;margin-bottom:18px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="#8a8072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Zpět na Tváření
+    </a>
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.55 0.13 250);margin-bottom:10px">Rozdělení tváření</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:44px;line-height:1.15;color:#231d16;margin:0 0 14px">Tváření za studena</h1>
     <p style="font-size:18px;line-height:1.6;color:#6b6255;max-width:660px;margin:0;text-wrap:pretty">Tváření pod teplotou rekrystalizace. Materiál se během deformace zpevňuje — výsledkem je vyšší pevnost, přesný rozměr a hladký povrch, ale i omezená tvárnost a nutnost počítat s pružnou složkou deformace.</p>
   </div>
 
-  <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:28px">
+  <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
     <sc-for list="{{ cards }}" as="c" hint-placeholder-count="6">
       <sc-if value="{{ c.ready }}">
-        <a href="{{ c.href }}" style="{{ c.cardStyle }}" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+        <a href="{{ c.href }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+          <div style="position:absolute;top:16px;right:16px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.02 250);font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;color:oklch(0.5 0.14 250)">{{ c.badge }}</div>
           <div style="{{ c.iconBoxStyle }}" dangerouslySetInnerHTML="{{ c.icon }}"></div>
           <div>
-            <div style="{{ c.titleStyle }}">{{ c.title }}</div>
-            <div style="font-size:15.5px;line-height:1.55;color:#8a8072">{{ c.desc }}</div>
-          </div>
-          <div style="{{ c.badgeStyle }}">
-            {{ c.badge }}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#231d16;margin-bottom:6px">{{ c.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ c.desc }}</div>
           </div>
         </a>
       </sc-if>
       <sc-if value="{{ c.notReady }}">
-        <div style="{{ c.cardStyle }}">
+        <div style="position:relative;display:flex;flex-direction:column;gap:16px;background:#faf7f1;border-radius:20px;padding:26px;border:1px solid #ece4d6;cursor:not-allowed">
           <div style="position:absolute;top:16px;right:16px;padding:5px 10px;border-radius:999px;background:#eee5d8;font-size:11px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;color:#a39a8b;letter-spacing:0.04em;text-transform:uppercase">Připravujeme</div>
           <div style="{{ c.iconBoxStyle }}" dangerouslySetInnerHTML="{{ c.icon }}"></div>
           <div>
-            <div style="{{ c.titleStyle }}">{{ c.title }}</div>
-            <div style="font-size:15.5px;line-height:1.55;color:#a39a8b">{{ c.desc }}</div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#a39a8b;margin-bottom:6px">{{ c.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#a39a8b">{{ c.desc }}</div>
           </div>
         </div>
       </sc-if>
@@ -110,23 +109,20 @@ class Component extends DCLogic {
     const s = this.state.structure;
     const SELF = 'tvareni-za-tepla/';
     const navItems = s ? s.nav.map(n => ({ title: n.title, href: n.href.startsWith(SELF) ? '../' + n.href.slice(SELF.length) : '../../' + n.href })) : FALLBACK_NAV;
-    const cards = (s && s.tvareniZaStudena ? s.tvareniZaStudena.cards : []).map(c => {
+    const raw = (s && s.tvareniZaStudena ? s.tvareniZaStudena.cards : []);
+    const cards = raw.map((c, i) => {
       const ready = c.status === 'ready';
       const meta = ICON_META[c.id] || { bg: '#eee5d8', svg: '', hue: 250 };
       return {
         title: c.title,
         desc: c.desc,
         href: c.href,
-        badge: c.badge,
+        badge: c.badge || '',
         icon: { __html: meta.svg },
         ready,
         notReady: !ready,
-        cardStyle: (ready
-          ? 'display:flex;flex-direction:column;gap:20px;background:#fff;border-radius:24px;padding:36px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s'
-          : 'position:relative;display:flex;flex-direction:column;gap:20px;background:#faf7f1;border-radius:24px;padding:36px;border:1px solid #ece4d6;cursor:not-allowed'),
-        iconBoxStyle: `width:66px;height:66px;border-radius:18px;background:${ready ? meta.bg : '#eee5d8'};display:flex;align-items:center;justify-content:center`,
-        titleStyle: `font-family:'Quicksand',sans-serif;font-weight:700;font-size:24px;color:${ready ? '#231d16' : '#a39a8b'};margin-bottom:8px`,
-        badgeStyle: `margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:oklch(0.5 0.14 ${meta.hue});display:flex;align-items:center;gap:6px`,
+        rowStyle: '',
+        iconBoxStyle: `width:56px;height:56px;border-radius:14px;background:${ready ? meta.bg : '#eee5d8'};display:flex;align-items:center;justify-content:center`,
       };
     });
     return { navItems, cards };
