@@ -11,6 +11,18 @@
     "title": "CNC simulátor – frézování v G-kódu",
     "written_hash": "df862816197eef43df004408d2389a009f18ff57f2a50de1e57439a7178cd70b"
   },
+  "cnc-simulator/soustruzeni": {
+    "badge": true,
+    "category": "cnc-simulator",
+    "content_hash": "3436f716ffe51d242a7fbe2123ff33ff07c072ac60fa0b3d3db4205ac76dade7",
+    "file": "cnc-simulator/soustruzeni.html",
+    "first_seen": "2026-08-27",
+    "last_changed": "2026-08-27",
+    "locked": false,
+    "note": "Simulátor soustružení v ISO G-kódu s editorem programu, náhledem drah nástroje a příručkou.",
+    "title": "CNC simulátor – soustružení v G-kódu",
+    "written_hash": "3436f716ffe51d242a7fbe2123ff33ff07c072ac60fa0b3d3db4205ac76dade7"
+  },
   "index": {
     "badge": false,
     "category": "",
@@ -98,14 +110,14 @@
   "koroze/korozni-odolnost-kovu/korozni-odolnost-kovu": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "88518720b2168f600537602a109b2d4a22a6a3fc8e9700177950d959deb40932",
+    "content_hash": "89c17945213857824a1aa91dcd1f60e3c2b5f8fe283cb79590d1862f017cf3b4",
     "file": "koroze/korozni-odolnost-kovu/Korozni odolnost kovu.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-23",
+    "last_changed": "2026-08-27",
     "locked": false,
     "note": "",
     "title": "Korozní odolnost kovů",
-    "written_hash": "88518720b2168f600537602a109b2d4a22a6a3fc8e9700177950d959deb40932"
+    "written_hash": "89c17945213857824a1aa91dcd1f60e3c2b5f8fe283cb79590d1862f017cf3b4"
   },
   "koroze/ochrana/fluidni-poplastovani/index": {
     "badge": false,
@@ -266,14 +278,14 @@
   "tvareni-za-tepla/kovani/porovnani-technologii-ozubene-kolo": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "21348fd78955b1a1699e65dd74a648e99e0a2b1a77c2e84ac864848e999f9770",
+    "content_hash": "f1636d71cd06a6d062d1687f374f43378267cb864a0147cfe05f7bd4b842cc42",
     "file": "tvareni-za-tepla/kovani/Porovnani technologii - ozubene kolo.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-23",
+    "last_changed": "2026-08-27",
     "locked": false,
-    "note": "",
-    "title": "Kováno, svařováno, nebo sléváno?",
-    "written_hash": "21348fd78955b1a1699e65dd74a648e99e0a2b1a77c2e84ac864848e999f9770"
+    "note": "Využití materiálu se u všech tří technologií počítá z nakoupeného materiálu, takže se čísla dají srovnávat.",
+    "title": "Porovnání technologií — ozubené kolo",
+    "written_hash": "f1636d71cd06a6d062d1687f374f43378267cb864a0147cfe05f7bd4b842cc42"
   },
   "tvareni-za-tepla/kovani/postupove-kovani": {
     "badge": false,
@@ -422,38 +434,38 @@
   "tvareni-za-tepla/tvareni-za-studena/srovnani-za-studena-a-za-tepla": {
     "badge": true,
     "category": "tvareni-za-tepla",
-    "content_hash": "f147cd539b08d991c7b9f839d55e74becf207998d02800dbe3d1f6a50bf90221",
+    "content_hash": "e4f406f8239a224511be360a051daf3ce36a144bac4e23dc268358c69ad060c4",
     "file": "tvareni-za-tepla/tvareni-za-studena/Srovnani za studena a za tepla.html",
     "first_seen": "2026-08-23",
-    "last_changed": "2026-08-23",
+    "last_changed": "2026-08-27",
     "locked": false,
     "note": "Osa dosahované přesnosti IT a drsnosti Ra u jednotlivých technologií, přídavek na obrábění na řezu dílem, kdy zvolit co a tváření za polotepla.",
     "title": "Za studena × za tepla",
-    "written_hash": "f147cd539b08d991c7b9f839d55e74becf207998d02800dbe3d1f6a50bf90221"
+    "written_hash": "e4f406f8239a224511be360a051daf3ce36a144bac4e23dc268358c69ad060c4"
   },
   "tvareni-za-tepla/tvareni-za-studena/strihani": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "203503b3d353369853ef222867fa30a9cb71fae07cff5895944a49bec7713610",
+    "content_hash": "0313a468e7e22694298994ff4b621c820cf4ca476be3516f19c5c96d57306ebc",
     "file": "tvareni-za-tepla/tvareni-za-studena/Strihani.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-23",
+    "last_changed": "2026-08-27",
     "locked": false,
     "note": "Interaktivní animace vlivu střižné vůle na pásma střižné plochy, otřep a průběh střižné síly.",
     "title": "Stříhání",
-    "written_hash": "203503b3d353369853ef222867fa30a9cb71fae07cff5895944a49bec7713610"
+    "written_hash": "0313a468e7e22694298994ff4b621c820cf4ca476be3516f19c5c96d57306ebc"
   },
   "tvareni-za-tepla/tvareni-za-studena/zpevneni": {
     "badge": true,
     "category": "tvareni-za-tepla",
-    "content_hash": "e8f15dfbc4ae5189a55e4fbdf5492eb17e8b06df4fa8108e6fe3b41831c4bebc",
+    "content_hash": "dc2913b72f1358ce905076cd9c869ae79f2af76967df6a5db8554e9bfe7357cd",
     "file": "tvareni-za-tepla/tvareni-za-studena/Zpevneni.html",
     "first_seen": "2026-08-23",
-    "last_changed": "2026-08-23",
+    "last_changed": "2026-08-27",
     "locked": false,
     "note": "Interaktivní křivka zpevnění s odlehčením a novou mezí kluzu, tabulka růstu pevnosti proti klesající tažnosti a využití zpevnění v praxi.",
     "title": "Zpevnění a křivka zpevnění",
-    "written_hash": "e8f15dfbc4ae5189a55e4fbdf5492eb17e8b06df4fa8108e6fe3b41831c4bebc"
+    "written_hash": "dc2913b72f1358ce905076cd9c869ae79f2af76967df6a5db8554e9bfe7357cd"
   },
   "tvareni-za-tepla/vady/cipatost": {
     "badge": false,
@@ -722,14 +734,14 @@
   "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/sesterecna-mrizka": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "3bb109c834f81da33eb7c3cf8710090f858a28484660dfffe579997ea77e2738",
+    "content_hash": "1630889f24893659b03c45b02a797509f980e6e7db32482b3c2d29f01b5e27c2",
     "file": "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/Sesterecna mrizka.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-23",
+    "last_changed": "2026-08-27",
     "locked": false,
-    "note": "",
-    "title": "Šesterečná mřížka | STT",
-    "written_hash": "3bb109c834f81da33eb7c3cf8710090f858a28484660dfffe579997ea77e2738"
+    "note": "Nadpis i titulek uvádějí těsné uspořádání.",
+    "title": "Šesterečná těsně uspořádaná – HCP",
+    "written_hash": "1630889f24893659b03c45b02a797509f980e6e7db32482b3c2d29f01b5e27c2"
   },
   "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/diagram-fe-fe3c": {
     "badge": false,
@@ -791,17 +803,17 @@
     "title": "Rovnovážný diagram – úplná rozpustnost | STT",
     "written_hash": "9351e53c71951a0e368edcdf059f8bbeee15967b4868cd3864c28aca59fe10cc"
   },
-  "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ara-diagram-kaleni": {
+  "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ara-diagram-anizotermicky-rozpad-austenitu": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "f5cb122d594cea2cc4488e868ce9f9f45b366ee7b74171f88069fe4a96d80649",
-    "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ARA diagram kaleni.html",
+    "content_hash": "b6526669c78c85a7362dbc182dcd76acaed47f0f9ad8d9cb78d395cb011ebea9",
+    "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ARA diagram - anizotermicky rozpad austenitu.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-23",
+    "last_changed": "2026-08-27",
     "locked": false,
-    "note": "",
-    "title": "ARA diagram kalení | STT",
-    "written_hash": "f5cb122d594cea2cc4488e868ce9f9f45b366ee7b74171f88069fe4a96d80649"
+    "note": "Křivky rozpadu austenitu jsou posunuté proti IRA diagramu, přibyla kritická rychlost ochlazování v_k a kalicí prostředí.",
+    "title": "ARA diagram — anizotermický rozpad austenitu",
+    "written_hash": "b6526669c78c85a7362dbc182dcd76acaed47f0f9ad8d9cb78d395cb011ebea9"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/austenitizace": {
     "badge": false,
@@ -830,14 +842,14 @@
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ira-diagram-kaleni": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "133184e1a0f44cbf4a5ea7c89fe50d08ab101347b21c17ccaaf2ab03110946e4",
+    "content_hash": "fe45c614442adf0d183cc8432bab7a9de7cd9f87e962a39c2be6e1cd60514099",
     "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/IRA diagram kaleni.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-23",
+    "last_changed": "2026-08-27",
     "locked": false,
-    "note": "",
-    "title": "IRA diagram kalení | STT",
-    "written_hash": "133184e1a0f44cbf4a5ea7c89fe50d08ab101347b21c17ccaaf2ab03110946e4"
+    "note": "Nový název stránky a kritické teploty shodné s diagramem Fe–Fe₃C.",
+    "title": "IRA diagram – izotermický rozpad austenitu",
+    "written_hash": "fe45c614442adf0d183cc8432bab7a9de7cd9f87e962a39c2be6e1cd60514099"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/popousteci-diagram": {
     "badge": false,
@@ -854,14 +866,14 @@
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/porovnani-povrchovych-uprav": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "11542d1ff858f7efc8c83f36b06441c84df3a4790901ff9bd4b03aa0b13a58b6",
+    "content_hash": "c7cf122ea2bf209860b235391cfd1652f51ad8917d471bd32262672d65fa9f72",
     "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/Porovnani povrchovych uprav.html",
     "first_seen": "2026-08-09",
-    "last_changed": "2026-08-23",
+    "last_changed": "2026-08-27",
     "locked": false,
-    "note": "",
-    "title": "Porovnání povrchových úprav | STT",
-    "written_hash": "11542d1ff858f7efc8c83f36b06441c84df3a4790901ff9bd4b03aa0b13a58b6"
+    "note": "Nový název stránky a parametry cementované vrstvy shodné se stránkou Cementace.",
+    "title": "Porovnání povrchového zpracování",
+    "written_hash": "c7cf122ea2bf209860b235391cfd1652f51ad8917d471bd32262672d65fa9f72"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/zihani": {
     "badge": false,

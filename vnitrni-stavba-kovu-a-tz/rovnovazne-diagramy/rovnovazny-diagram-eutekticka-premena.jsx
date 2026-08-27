@@ -91,7 +91,7 @@ function RovnovaznyDiagramEutektickaPremena() {
 
   // ── křivka tuhnutí (teplota/čas) ───────────────────────────────────────────
   const RATE_END = 130;      // °C/jednotka, strmé úseky (kapalina nahoře / tuhý roztok dole)
-  const RATE_MUSH = 42;      // °C/jednotka, proeutektoidní růst α nebo β (mezi T_liq a T_E)
+  const RATE_MUSH = 42;      // °C/jednotka, proeutektický růst α nebo β (mezi T_liq a T_E)
   const DUR_END = 1.3;
   const PLATEAU_MAX = 2.8;   // max. délka eutektické prodlevy (při C = C_E)
 

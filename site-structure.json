@@ -52,6 +52,16 @@
         "status": "coming-soon"
       },
       {
+        "id": "odlevani",
+        "title": "Odlévání",
+        "status": "coming-soon"
+      },
+      {
+        "id": "plasty",
+        "title": "Zpracování plastů",
+        "status": "coming-soon"
+      },
+      {
         "id": "koroze",
         "title": "Koroze",
         "href": "koroze/index.html",
@@ -61,6 +71,13 @@
         "id": "cnc-simulator",
         "title": "CNC simulátor – frézování v G-kódu",
         "href": "cnc-simulator/index.html",
+        "newWindow": true,
+        "status": "ready"
+      },
+      {
+        "id": "cnc-simulator-soustruzeni",
+        "title": "CNC simulátor – soustružení v G-kódu",
+        "href": "cnc-simulator/soustruzeni.html",
         "newWindow": true,
         "status": "ready"
       }
@@ -429,15 +446,15 @@
       },
       {
         "id": "ira",
-        "title": "IRA diagram kalení",
+        "title": "IRA diagram – izotermický rozpad austenitu",
         "desc": "Izotermický rozpad austenitu — transformace při konstantní teplotě.",
         "href": "tepelne-zpracovani/IRA diagram kaleni.html"
       },
       {
         "id": "ara",
-        "title": "ARA diagram kalení",
-        "desc": "Anizotermický rozpad austenitu při plynulém ochlazování.",
-        "href": "tepelne-zpracovani/ARA diagram kaleni.html"
+        "title": "ARA diagram — anizotermický rozpad austenitu",
+        "desc": "Anizotermický rozpad austenitu při plynulém ochlazování a kritická rychlost ochlazování.",
+        "href": "tepelne-zpracovani/ARA diagram - anizotermicky rozpad austenitu.html"
       },
       {
         "id": "popousteci",
@@ -453,7 +470,7 @@
       },
       {
         "id": "porovnani",
-        "title": "Porovnání povrchových úprav",
+        "title": "Porovnání povrchového zpracování",
         "desc": "Cementace, nitridace a povrchové kalení vedle sebe — tvrdost a hloubka vrstvy.",
         "href": "tepelne-zpracovani/Porovnani povrchovych uprav.html"
       }

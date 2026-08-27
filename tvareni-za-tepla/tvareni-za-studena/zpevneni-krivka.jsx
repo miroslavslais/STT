@@ -7,7 +7,7 @@ const MONO = "'IBM Plex Mono', ui-monospace, monospace";
 const ACC = '#7ba3cc', GOOD = '#57b98a', BAD = '#e0655a', WARN = '#eda962';
 
 const K = 530, N = 0.22, E = 210000, RE0 = 180, RM0 = 320, A0 = 40;
-const FIMAX = 0.8;
+const FIMAX = 1.0;
 
 function flow(fi) { return fi <= 0 ? RE0 : Math.max(RE0, K * Math.pow(fi, N)); }
 function model(fi) {
@@ -50,7 +50,7 @@ function Chart({ fi, m }) {
       <line x1={L} y1={H - B} x2={W - R} y2={H - B} stroke="#8296a8" strokeWidth="1.2" markerEnd="url(#zar)" />
       <line x1={L} y1={H - B} x2={L} y2={T - 6} stroke="#8296a8" strokeWidth="1.2" markerEnd="url(#zar)" />
       <text x={W - R} y={H - B + 32} textAnchor="end" fontFamily={SANS} fontSize="12.5" fill="#8296a8">trvalá deformace ε [–]</text>
-      {[0, 0.2, 0.4, 0.6, 0.8].map(f => (
+      {[0, 0.2, 0.4, 0.6, 0.8, 1.0].map(f => (
         <text key={f} x={px(f)} y={H - B + 17} textAnchor="middle" fontFamily={MONO} fontSize="11.5" fill="#66788a">{f.toFixed(1).replace('.', ',')}</text>
       ))}
 
@@ -107,7 +107,7 @@ function Zpevneni() {
             <span style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 14.5, color: '#c4d2de' }}>Míra deformace za studena</span>
             <span style={{ fontFamily: MONO, fontSize: 14.5, color: ACC }}>ε = {fi.toFixed(2).replace('.', ',')} · úběr {Math.round(m.red)} %</span>
           </div>
-          <input type="range" min={0} max={80} step={1} value={Math.round(fi * 100)}
+          <input type="range" min={0} max={100} step={1} value={Math.round(fi * 100)}
             onChange={e => setFi(parseInt(e.target.value, 10) / 100)}
             style={{ width: '100%', accentColor: ACC, cursor: 'pointer' }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12.5, color: '#8296a8' }}>

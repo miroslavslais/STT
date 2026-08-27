@@ -65,8 +65,10 @@ const lerpC = (a, b, t) => [
 ];
 
 // ── Fe–C constants ──────────────────────────────────────────────────────────
-const T_MIN = -80, T_MAX = 1050, A1 = 727;
-const C_EUT = 0.76, C_FMAX = 0.022, C_CEM = 6.67;
+const FEC = window.FEC;   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js
+const T_MIN = -80, T_MAX = 1050, A1 = FEC.T_A1;
+const C_EUT = FEC.C_S, C_FMAX = FEC.C_P, C_CEM = FEC.C_CEM;
+const EUT_LO = C_EUT - FEC.EUT_TOL, EUT_HI = C_EUT + FEC.EUT_TOL;
 const C_MIN = 0.05, C_MAX = 1.40;
 const sans = "'IBM Plex Sans', system-ui, sans-serif";
 const mono = "'IBM Plex Mono', ui-monospace, monospace";
@@ -141,13 +143,13 @@ function AustenitizaceInteraktivni() {
 
   // ── composition-derived ───────────────────────────────────────────────────
   const hyper = C > C_EUT;
-  const regime = C < 0.73 ? 'podeutektoidní' : C <= 0.79 ? 'eutektoidní' : 'nadeutektoidní';
+  const regime = C < EUT_LO ? 'podeutektoidní' : C <= EUT_HI ? 'eutektoidní' : 'nadeutektoidní';
   const Wp_hypo = clamp((C - C_FMAX) / (C_EUT - C_FMAX), 0, 1);
   const Wcem = hyper ? clamp((C - C_EUT) / (C_CEM - C_EUT), 0, 1) : 0;
-  const A3 = 910 - (910 - A1) * clamp(C / C_EUT, 0, 1);
+  const A3 = FEC.T_G - (FEC.T_G - A1) * clamp(C / C_EUT, 0, 1);
   const Acm = A1 + (C - C_EUT) * 312;
   const UC = hyper ? Acm : A3;
-  const ucLabel = hyper ? 'A_cm' : 'A₃';
+  const ucLabel = hyper ? <span>A<sub>cm</sub></span> : 'A₃';
   const netFrac = hyper ? clamp((C - C_EUT) / (C_MAX - C_EUT), 0, 1) : 0;
   const coverage = clamp(netFrac * 1.7, 0, 1);
   const cemRemain = hyper ? clamp(1 - (T - A1) / Math.max(1, Acm - A1), 0, 1) : 0;
@@ -160,9 +162,9 @@ function AustenitizaceInteraktivni() {
     : coolKind === 'pomala' ? { key: 'perlit', name: 'Perlit', fill: PEARLITE, start: 700, finish: 560, tex: 'lam',
         note: 'Pomalé ochlazování · difuzní přeměna', startLabel: 'Ps', finishLabel: 'Pf' }
     : coolKind === 'IRA' ? { key: 'bainit', name: 'Bainit', fill: BAINITE, start: 555, finish: 260, tex: 'acic',
-        note: 'IRA kalení · izotermická přeměna v bainitické oblasti', startLabel: 'Bs', finishLabel: 'Bf' }
+        note: 'Izotermické kalení · izotermická přeměna v bainitické oblasti', startLabel: 'Bs', finishLabel: 'Bf' }
     : { key: 'martenzit', name: 'Martenzit', fill: MART, start: Ms, finish: Mf, tex: 'needle',
-        note: 'ARA kalení · bezdifuzní přeměna', startLabel: 'Ms', finishLabel: 'Mf' };
+        note: 'Kalení na martenzit · bezdifuzní přeměna', startLabel: 'Ms', finishLabel: 'Mf' };
 
   // ── per-cell transformation ───────────────────────────────────────────────
   const cellState = CELLS.map((c) => {
@@ -185,8 +187,8 @@ function AustenitizaceInteraktivni() {
   const startName = hyper ? 'Perlit + sekundární cementit' : regime === 'eutektoidní' ? 'Perlit' : 'Ferit + perlit';
   const heatPhase = austPct < 1 ? startName : austPct > 99 ? 'Austenit (γ)' : 'Přeměna → austenit';
   const heatNote = T < A1 ? `Pod A₁ — ${regime} struktura`
-    : T < UC ? `Mezi A₁ a ${ucLabel} — probíhá přeměna`
-    : `Nad ${ucLabel} — plně austenitická`;
+    : T < UC ? <React.Fragment>Mezi A₁ a {ucLabel} — probíhá přeměna</React.Fragment>
+    : <React.Fragment>Nad {ucLabel} — plně austenitická</React.Fragment>;
 
   // ── cool-mode aggregates ──────────────────────────────────────────────────
   const transformedPct = Math.round(meanP * 100);
@@ -237,7 +239,7 @@ function AustenitizaceInteraktivni() {
       bandHi = coolKind === 'pomala' ? 700 : coolKind === 'IRA' ? 555 : MsL;
       bandLo = coolKind === 'pomala' ? 560 : coolKind === 'IRA' ? 260 : MfL;
     } else {
-      const A3L = 910 - (910 - A1) * clamp(C / C_EUT, 0, 1);
+      const A3L = FEC.T_G - (FEC.T_G - A1) * clamp(C / C_EUT, 0, 1);
       const AcmL = A1 + (C - C_EUT) * 312;
       // cell Tx values run up to ~748 °C (728 + up to 20) and each cell's own front then
       // ramps over another 17 °C, so the eutectoid/near-eutectoid band needs a floor width
@@ -342,11 +344,11 @@ function AustenitizaceInteraktivni() {
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
               <span style={{ width: 14, height: 14, borderRadius: 3, background: 'repeating-linear-gradient(45deg,#28685f,#28685f 2px,#96dece 2px,#96dece 4px)' }} />
-              bainit <span style={{ color: '#8296a8' }}>· IRA</span>
+              bainit <span style={{ color: '#8296a8' }}>· izotermické kalení</span>
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
               <span style={{ width: 14, height: 14, borderRadius: 3, background: 'repeating-linear-gradient(45deg,#7a78b8,#7a78b8 2px,#c6caf2 2px,#c6caf2 4px)' }} />
-              martenzit <span style={{ color: '#8296a8' }}>· ARA</span>
+              martenzit <span style={{ color: '#8296a8' }}>· kalení na martenzit</span>
             </span>
           </React.Fragment>
         )}
@@ -509,14 +511,14 @@ function AustenitizaceInteraktivni() {
           <div style={{ flex: '1 1 auto', position: 'relative', height: 16, display: 'flex', alignItems: 'center' }}>
             <div style={{ position: 'absolute', left: 0, right: 0, height: 6, borderRadius: 3, background: 'rgba(120,180,230,0.18)' }} />
             <div style={{ position: 'absolute', left: 0, height: 6, borderRadius: 3, width: `${((C - C_MIN) / (C_MAX - C_MIN)) * 100}%`, background: '#5fc0ef' }} />
-            <div style={{ position: 'absolute', left: `${((0.76 - C_MIN) / (C_MAX - C_MIN)) * 100}%`, top: '50%',
+            <div style={{ position: 'absolute', left: `${((C_EUT - C_MIN) / (C_MAX - C_MIN)) * 100}%`, top: '50%',
               width: 3, height: 14, borderRadius: 2, background: '#5fc0ef', boxShadow: '0 0 0 3px rgba(95,192,239,0.25)',
               transform: 'translate(-50%, -50%)', pointerEvents: 'none', animation: 'pulseHandle 1.7s ease-in-out infinite' }} />
             <div style={{ position: 'absolute', left: `${((C - C_MIN) / (C_MAX - C_MIN)) * 100}%`, top: '50%', width: 16, height: 16, borderRadius: '50%',
               background: '#5fc0ef', border: '2px solid #0b0e15', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
               animation: 'pulseThumb 1.7s ease-in-out infinite' }} />
             <input type="range" min={C_MIN} max={C_MAX} value={C} step={0.01}
-                   onChange={(e) => { const v = Number(e.target.value); setC(Math.abs(v - 0.76) < 0.015 ? 0.76 : v); }}
+                   onChange={(e) => { const v = Number(e.target.value); setC(Math.abs(v - C_EUT) < 0.015 ? C_EUT : v); }}
                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', margin: 0, opacity: 0, cursor: 'pointer' }} />
           </div>
           <div style={{ flex: mobile ? '0 0 auto' : '0 0 178px', textAlign: mobile ? 'left' : 'right', fontFamily: mono, fontSize: 13.5,
@@ -527,7 +529,7 @@ function AustenitizaceInteraktivni() {
           <div style={{ display: 'flex', flexDirection: mobile ? 'column' : 'row', alignItems: mobile ? 'stretch' : 'center', gap: mobile ? 6 : 18 }}>
             <div style={{ flex: mobile ? '0 0 auto' : '0 0 150px', fontFamily: mono, fontSize: 14, color: '#aebfcf' }}>Způsob chlazení</div>
             <div style={{ flex: '1 1 auto', display: 'flex', gap: 8 }}>
-              {[['pomala', 'Pomalé', '#4f7fb0'], ['IRA', 'IRA kalení', '#3fbfa8'], ['ARA', 'ARA kalení', '#b9bdf0']].map(([k, lab, col]) => (
+              {[['pomala', 'Pomalé', '#4f7fb0'], ['IRA', 'izotermické kalení', '#3fbfa8'], ['ARA', 'kalení na martenzit', '#b9bdf0']].map(([k, lab, col]) => (
                 <button key={k} onClick={() => setCoolKind(k)} style={{
                   flex: '1 1 0', padding: '11px 10px', borderRadius: 10, cursor: 'pointer',
                   fontFamily: mono, fontSize: 14, letterSpacing: '0.03em',

@@ -179,7 +179,7 @@ function Scene() {
 
       <div style={{ position: 'absolute', left: 84, top: 74, opacity: fade(tc, 0.2, 0.9, 20, 21) }}>
         <div style={{ fontFamily: mono, fontSize: 18, letterSpacing: '0.28em', color: '#5fc0ef', textTransform: 'uppercase' }}>Krystalová struktura</div>
-        <div style={{ fontFamily: sans, fontSize: 40, fontWeight: 600, color: '#eaf2fa', marginTop: 10, letterSpacing: '-0.01em' }}>Krychlová plošně středěná</div>
+        <div style={{ fontFamily: sans, fontSize: 40, fontWeight: 600, color: '#eaf2fa', marginTop: 10, letterSpacing: '-0.01em' }}>Krychlová plošně středěná – FCC</div>
       </div>
 
       <div style={{ position: 'absolute', left: 84, bottom: 76, display: 'flex', gap: 26,

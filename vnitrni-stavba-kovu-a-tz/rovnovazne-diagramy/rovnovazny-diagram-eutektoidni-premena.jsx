@@ -7,8 +7,9 @@
 function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
 
 // ── konstanty soustavy (ilustrační, obecný binární systém A–B) ─────────────
-const T_A = 880, T_B = 900;              // teploty tání čistých složek
-const T_PEAK_LIQ = 960, T_PEAK_SOL = 915; // vrchol likvidu / spodní hranice tání uprostřed složení
+const T_A = 800, T_B = 900;              // teploty tání čistých složek
+const T_MID = (T_A + T_B) / 2;            // střed přímé spojnice bodů tání
+const T_PEAK_LIQ = 880, T_PEAK_SOL = 838; // likvidus / solidus v polovině složení — obě mezi T_A a T_B
 const T_ALLO_A = 680, T_ALLO_B = 700;     // alotropická přeměna γ→α (resp. γ→β) u čistých složek
 const T_EUT = 480;                        // eutektoidní teplota
 const C_E = 50;                           // eutektoidní složení, % složky B
@@ -17,14 +18,12 @@ const C_BETA_E = 82;                      // bod D — min. % B pro β při T_EU
 const T_DOM_MIN = 260, T_DOM_MAX = 1060;
 const C_ALPHA_ROOM = 3, C_BETA_ROOM = 96;
 
-function liquidus(x) {
-  if (x <= C_E) { const f = clamp(x / C_E, 0, 1); return T_A + (T_PEAK_LIQ - T_A) * Math.sin(f * Math.PI / 2); }
-  const f = clamp((100 - x) / (100 - C_E), 0, 1); return T_B + (T_PEAK_LIQ - T_B) * Math.sin(f * Math.PI / 2);
-}
-function solidusG(x) {
-  if (x <= C_E) { const f = clamp(x / C_E, 0, 1); return T_A + (T_PEAK_SOL - T_A) * Math.sin(f * Math.PI / 2); }
-  const f = clamp((100 - x) / (100 - C_E), 0, 1); return T_B + (T_PEAK_SOL - T_B) * Math.sin(f * Math.PI / 2);
-}
+// obyčejná čočka: obě čáry monotónně přecházejí mezi body tání čistých složek,
+// likvidus je vždy nad solidem a v čistých složkách se oba dotýkají (Gibbs–Konovalov)
+function lensBase(x) { const f = clamp(x / 100, 0, 1); return T_A + (T_B - T_A) * f; }
+function lensOpen(x) { const f = clamp(x / 100, 0, 1); return Math.sin(f * Math.PI); }
+function liquidus(x) { return lensBase(x) + (T_PEAK_LIQ - T_MID) * lensOpen(x); }
+function solidusG(x) { return lensBase(x) + (T_PEAK_SOL - T_MID) * lensOpen(x); }
 function gammaLowerAlpha(x) { const f = clamp(x / C_E, 0, 1); return T_ALLO_A - (T_ALLO_A - T_EUT) * Math.pow(f, 0.65); }
 function gammaLowerBeta(x) { const f = clamp((100 - x) / (100 - C_E), 0, 1); return T_ALLO_B - (T_ALLO_B - T_EUT) * Math.pow(f, 0.65); }
 function alphaUpper(x) { const f = clamp(x / C_ALPHA_E, 0, 1); return T_ALLO_A - (T_ALLO_A - T_EUT) * Math.pow(f, 0.8); }
@@ -141,7 +140,7 @@ function RovnovaznyDiagramEutektoidniPremena() {
       <div style={{ position: 'relative', flex: '0 0 auto' }}>
         <div style={{ fontFamily: mono, fontSize: mobile ? 13 : 16, letterSpacing: '0.24em', color: '#d67bff', textTransform: 'uppercase' }}>Rovnovážné diagramy</div>
         <div style={{ fontSize: mobile ? 24 : 32, fontWeight: 600, marginTop: 6, letterSpacing: '-0.01em' }}>Diagram s eutektoidní přeměnou</div>
-        <div style={{ fontSize: mobile ? 13 : 14, marginTop: 4, color: '#9fb0c2', maxWidth: 680 }}>Tuhý roztok γ se v eutektoidálním bodě E rozpadá v tuhém stavu na směs α + β, beze změny skupenství.</div>
+        <div style={{ fontSize: mobile ? 13 : 14, marginTop: 4, color: '#9fb0c2', maxWidth: 680 }}>Tuhý roztok γ se v eutektoidním bodě E rozpadá v tuhém stavu na směs α + β, beze změny skupenství.</div>
       </div>
 
       <div style={{ position: 'relative', flex: '1 1 auto', minHeight: 0, display: 'flex', flexDirection: mobile ? 'column' : 'row', gap: mobile ? 20 : 32, marginTop: 10 }}>
@@ -231,9 +230,8 @@ function RovnovaznyDiagramEutektoidniPremena() {
             <circle cx={xOf(C_E)} cy={yOf(T_EUT)} r={5.5} fill="#e5703b" stroke="#0b0e15" strokeWidth={1.4} />
             <circle cx={xOf(C_BETA_E)} cy={yOf(T_EUT)} r={4.5} fill="#f4c542" stroke="#0b0e15" strokeWidth={1.2} />
             <text x={xOf(C_ALPHA_E)} y={yOf(T_EUT) - 10} fontFamily={mono} fontSize={12} fill="#f4c542" textAnchor="middle">C</text>
-            <text x={xOf(C_E)} y={yOf(T_EUT) - 12} fontFamily={mono} fontSize={12.5} fill="#e5703b" textAnchor="middle">E</text>
+            <text x={xOf((C_E + C_BETA_E) / 2)} y={yOf(T_EUT) + 17} fontFamily={mono} fontSize={12.5} fill="#e5703b" textAnchor="middle">E · {C_E} % B, {T_EUT} °C</text>
             <text x={xOf(C_BETA_E)} y={yOf(T_EUT) - 10} fontFamily={mono} fontSize={12} fill="#f4c542" textAnchor="middle">D</text>
-            <text x={PAD_L + plotW + 6} y={yOf(T_EUT) + 4} fontFamily={mono} fontSize={12} fill="#e5703b" textAnchor="start">T_E</text>
 
             <circle cx={xOf(C)} cy={yOf(T_liq)} r={6} fill="#e5703b" stroke="#0b0e15" strokeWidth={1.6}
                     style={{ transformBox: 'fill-box', transformOrigin: 'center', animation: 'pulseDotEutd 1.7s ease-in-out infinite' }} />

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Korozní odolnost kovů | STT</title>
-<meta name="description" content="Beketova řada a standardní elektrodové potenciály proti skutečné korozní odolnosti kovů; žárové zinkování a pocínování oceli.">
+<meta name="description" content="Beketova řada a standardní elektrodové potenciály proti skutečné korozní odolnosti kovů; žárové zinkování a pocínování oceli i výjimky z pravidla anody — pasivace a obrácení polarity Zn/Fe.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
@@ -103,8 +103,26 @@
 
     <div style="display:flex;align-items:flex-start;gap:14px;background:oklch(0.62 0.16 40 / 0.1);border:1px solid oklch(0.62 0.16 40 / 0.35);border-left:3px solid oklch(0.7 0.17 40);border-radius:14px;padding:16px 20px;margin-bottom:28px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;line-height:1;color:oklch(0.75 0.16 40);flex-shrink:0">!</div>
-      <p style="margin:0;font-size:15px;line-height:1.6;color:#eaf2fa">Kov s <strong style="color:oklch(0.8 0.13 40)">nižším potenciálem</strong> je vždy <strong>anodou</strong> a koroduje — tím chrání kov s vyšším potenciálem, který se stává katodou.</p>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#eaf2fa">Kov se <strong style="color:oklch(0.8 0.13 40)">zápornějším potenciálem</strong> se v dané dvojici stává <strong>anodou</strong> a koroduje — tím chrání kov s kladnějším potenciálem, který se stává katodou. Rozhoduje ale <strong>potenciál v daném prostředí</strong>, ne tabulková hodnota <span style="font-family:'IBM Plex Mono',monospace">E°</span>: pasivní vrstva posouvá kov ke kladnějším hodnotám a pořadí se může i obrátit.</p>
     </div>
+
+    <details style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:14px;padding:16px 20px;margin-top:14px;margin-bottom:28px">
+      <summary style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14.5px;color:#eaf2fa;cursor:pointer;list-style:none">Kdy pravidlo neplatí — tři výjimky</summary>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#eaf2fa">Pasivní vrstva mění pořadí</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.6;color:#aebfcf">Titan má <span style="font-family:'IBM Plex Mono',monospace">E° = −1,63 V</span>, přesto se v mořské vodě chová jako ušlechtilý kov (<span style="font-family:'IBM Plex Mono',monospace">≈ −0,1 V</span>) — vůči oceli je katodou. Hliník anodou zůstává, ale díky souvislé vrstvě <span style="font-family:'IBM Plex Mono',monospace">Al₂O₃</span> koroduje jen velmi pomalu.</p>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#eaf2fa">Obrácení polarity Zn/Fe nad ~60 °C</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.6;color:#aebfcf">V horké vodě se na zinku tvoří kompaktní, elektricky vodivá vrstva <span style="font-family:'IBM Plex Mono',monospace">ZnO</span> a potenciál zinku se posune nad potenciál oceli. Zinek přestane chránit a ocel začne korodovat — proto se pozinkované potrubí nepoužívá na teplou užitkovou vodu.</p>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#eaf2fa">Rozhoduje i poměr ploch anody a katody</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.6;color:#aebfcf">Malá anoda a velká katoda znamenají rychlý průraz (ocelový šroub v nerezové konstrukci). Opačný poměr je nesrovnatelně mírnější. Rozdíl potenciálů říká, který kov koroduje, ne jak rychle.</p>
+        </div>
+      </div>
+    </details>
 
     <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:24px">
       <div style="display:flex;justify-content:flex-end;margin-bottom:18px">

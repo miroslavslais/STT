@@ -135,7 +135,7 @@ function KovaciTeplotyDiagram() {
 
         <div style={{ display: 'flex', gap: 16, alignItems: 'center', justifyContent: 'center', padding: '4px 0' }}>
           <div style={{ textAlign: 'center' }}>
-            <CubeLattice kind="bcc" color="oklch(0.7 0.15 230)" active={isFerritePearlite || isMixed} />
+            <CubeLattice kind="bcc" color="oklch(0.7 0.15 230)" active={isFerritePearlite || (isMixed && !hypereutectoid)} />
             <div style={{ fontSize: 12, color: '#8296a8', marginTop: 2 }}>BCC (α) — prostorově středěná</div>
           </div>
           <div style={{ textAlign: 'center' }}>

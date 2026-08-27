@@ -183,7 +183,7 @@
 
     <div style="background:rgba(214,176,120,0.07);border:1px solid rgba(214,176,120,0.28);border-radius:14px;padding:20px 24px;margin:0 0 30px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:oklch(0.78 0.11 80);margin-bottom:8px">Mezi tím — tváření za poloohřevu</div>
-      <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0 0 10px;text-wrap:pretty">Ohřev jen na zhruba 600–900 °C, tedy pod teplotu tvoření okují a pod oblast plné rekrystalizace. Přetvárný odpor klesne na zlomek hodnoty za studena, takže lze udělat větší přetvoření v jedné operaci, přitom nevznikají okuje a rozměr zůstane v IT10–IT12.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0 0 10px;text-wrap:pretty">Ohřev jen na zhruba 550–850 °C — nad rekrystalizační teplotou, ale pod pásmem intenzivní tvorby okují a pod přeměnou A1. Rekrystalizace proběhne jen částečně, takže si díl část zpevnění ponechá. Přetvárný odpor klesne na zlomek hodnoty za studena, takže lze udělat větší přetvoření v jedné operaci, přitom okuje vznikají jen minimálně a rozměr zůstane v IT10–IT12.</p>
       <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0">Používá se hlavně u ocelí, které se za studena protlačovat nedají, a u dílů, kde by kování za tepla dalo příliš velký přídavek — ozubená kola, kalíšky, čepy převodovek. Za to se platí ohřevem a kratší životností nástrojů, které pracují za horka i pod vysokým tlakem.</p>
     </div>
 
@@ -213,7 +213,7 @@ const DATA = [
   { id: 'presna-zapustka', g: 'hot', name: 'Přesné zápustkové kování', it: [9, 11], ra: [3.2, 12.5], raTxt: '3,2–12,5', pridavek: '0–0,5 mm',
     dily: 'Ozubená kola s kovaným zubem, lopatky', note: 'Kování v uzavřené zápustce bez výronku, s ohřevem v ochranné atmosféře. Funkční plochy vyjdou téměř načisto, ale nástroj i seřízení jsou výrazně dražší.' },
   { id: 'polotepla', g: 'warm', name: 'Tváření za poloohřevu', it: [10, 12], ra: [3.2, 6.3], raTxt: '3,2–6,3', pridavek: '0,3–1 mm',
-    dily: 'Ozubená kola, kalíšky, čepy převodovek', note: 'Ohřev na 600–900 °C: kov ještě neokujuje, ale klade podstatně menší odpor než za studena. Kompromis mezi přesností a potřebnou silou.' },
+    dily: 'Ozubená kola, kalíšky, čepy převodovek', note: 'Ohřev na 550–850 °C: okuje vznikají jen minimálně a kov klade podstatně menší odpor než za studena. Kompromis mezi přesností a potřebnou silou.' },
   { id: 'strihani', g: 'cold', name: 'Stříhání', it: [11, 13], ra: [3.2, 12.5], raTxt: '3,2–12,5 (střižná plocha)', pridavek: 'okraj se často obrábí',
     dily: 'Výstřižky z plechu, podložky, lamely', note: 'Rozměr obrysu drží střižník dobře, horší je střižná plocha — jen část je hladká, zbytek je utržený a doprovází ho otřep.' },
   { id: 'presne-strihani', g: 'cold', name: 'Přesné stříhání', it: [7, 9], ra: [0.4, 1.6], raTxt: '0,4–1,6', pridavek: 'bez přídavku',

@@ -136,10 +136,21 @@ function MicroPanel({ side, t, matrix, colorA, colorB, colorAName, colorBName,
           <defs>
             <clipPath id={clipId}><rect x={0} y={0} width={VW} height={VH} rx={18} /></clipPath>
             {NUCLEI.map((n, i) => (
-              <pattern key={i} id={`pat-${side}-${i}`} width={22} height={22} patternUnits="userSpaceOnUse" patternTransform={`rotate(${n.rot})`}>
-                <rect width={22} height={22} fill={colorB} />
-                <rect width={22} height={11} fill={colorA} />
-              </pattern>
+              side === 'R' ? (
+                /* perlit — lamely α : Fe₃C v poměru ≈ 7 : 1 (19 : 3 z 22 px) */
+                <pattern key={i} id={`pat-${side}-${i}`} width={22} height={22} patternUnits="userSpaceOnUse" patternTransform={`rotate(${n.rot})`}>
+                  <rect width={22} height={22} fill={colorB} />
+                  <rect width={22} height={19} fill={colorA} />
+                </pattern>
+              ) : (
+                /* ledeburit — cementitická matrice (colorB) s tyčinkami austenitu (colorA) */
+                <pattern key={i} id={`pat-${side}-${i}`} width={26} height={26} patternUnits="userSpaceOnUse" patternTransform={`rotate(${n.rot})`}>
+                  <rect width={26} height={26} fill={colorB} />
+                  <rect x={3} y={4} width={13} height={4.4} rx={2.2} fill={colorA} />
+                  <rect x={14} y={13} width={10} height={4.4} rx={2.2} fill={colorA} />
+                  <rect x={2} y={19} width={11} height={4.4} rx={2.2} fill={colorA} />
+                </pattern>
+              )
             ))}
           </defs>
           <g clipPath={`url(#${clipId})`}>
@@ -192,6 +203,12 @@ function MicroPanel({ side, t, matrix, colorA, colorB, colorAName, colorBName,
         )}
       </div>
 
+      <div style={{ position: 'absolute', left: 40, top: vy + VH + 8, width: VW, display: 'flex', justifyContent: 'flex-end',
+        gap: 20, opacity: stepLit(resultStart), fontFamily: mono, fontSize: 13, color: '#aebfcf' }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 7 }}><span style={{ width: 11, height: 11, borderRadius: 3, background: colorA }} />{colorAName}</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 7 }}><span style={{ width: 11, height: 11, borderRadius: 3, background: colorB }} />{colorBName}</span>
+      </div>
+
       <div style={{ position: 'absolute', left: 40, top: STEP_TOP, width: VW }}>
         {steps.map((s, i) => {
           const lit = stepLit(s.start);
@@ -204,12 +221,6 @@ function MicroPanel({ side, t, matrix, colorA, colorB, colorAName, colorBName,
               <div>
                 <div style={{ fontFamily: mono, fontSize: 14, letterSpacing: '0.2em', color: titleColor }}>{s.title}</div>
                 <div style={{ fontFamily: sans, fontSize: 19, fontWeight: 500, color: textColor, marginTop: 4, lineHeight: 1.3 }}>{s.text}</div>
-                {s.isResult && (
-                  <div style={{ display: 'flex', gap: 20, marginTop: 10, opacity: lit, fontFamily: mono, fontSize: 13, color: '#aebfcf' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: 7 }}><span style={{ width: 11, height: 11, borderRadius: 3, background: colorA }} />{colorAName}</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: 7 }}><span style={{ width: 11, height: 11, borderRadius: 3, background: colorB }} />{colorBName}</span>
-                  </div>
-                )}
               </div>
             </div>
           );
@@ -284,7 +295,7 @@ function EutektoidniScene() {
         nucleationStart={4.2} growthDur={9}
         sectionLabel="Souběžný (kooperativní) růst dvou fází"
         sectionSub="z γ vznikají lamely α a Fe₃C — beze změny skupenství"
-        resultLabel="Perlit — eutektoidní směs α + Fe₃C"
+        resultLabel="Perlit — eutektoidní směs α + Fe₃C (≈88,5 % feritu, ≈11,5 % cementitu)"
         showLatticeFlip={true}
         nucleationTitle="NUKLEACE"
         nucleationText="Zárodek vzniká přednostně na hranici zrn austenitu"

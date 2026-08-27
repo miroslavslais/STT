@@ -81,18 +81,20 @@ const AUST = [239, 171, 84, 0.55];
 const rgba = (c) => `rgba(${c[0]},${c[1]},${c[2]},${c[3]})`;
 
 // ── Fe–C constants ──────────────────────────────────────────────────────────
-const C_EUT = 0.76, C_FMAX = 0.022, C_CEM = 6.67, A1 = 727;
+const FEC = window.FEC;   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js
+const C_EUT = FEC.C_S, C_FMAX = FEC.C_P, C_CEM = FEC.C_CEM, A1 = FEC.T_A1;
 const T_TOP = 850, T_BOT = -60;
 const BS_HANDOFF = 550;           // schematic pearlite/bainite domain boundary
 const T_LOG_MIN = -1, T_LOG_MAX = 3; // 0.1 s .. 1e3 s
 
 function diagramConsts(C) {
   const hypo = C < C_EUT - 0.002, hyper = C > C_EUT + 0.002;
-  const A3 = 910 - (910 - A1) * clamp(C / C_EUT, 0, 1);
+  const A3 = FEC.T_G - (FEC.T_G - A1) * clamp(C / C_EUT, 0, 1);
   const Acm = A1 + (C - C_EUT) * 312;
   const UC = hyper ? Acm : hypo ? A3 : A1;
   const Ms = Math.round(539 - 423 * C);
-  const Mf = Ms - 180;
+  // Mf odpovídá Koistinen–Marburgerově rovnici (α = 0,011): při ΔT = 320 °C dosahuje ~97 % martenzitu
+  const Mf = Ms - 320;
   const maxFerrite = hypo ? clamp((C_EUT - C) / (C_EUT - C_FMAX), 0, 1) : 0;
   const maxCem = hyper ? clamp((C - C_EUT) / (C_CEM - C_EUT), 0, 1) : 0;
   // pearlite nose: fastest at eutectoid composition, slower away from it
@@ -124,7 +126,7 @@ function sample(fn, k, Tlo, Thi, n) {
 
 function resultAt(Tq, C, k) {
   const { UC, Ms, Mf, maxFerrite, maxCem, hypo, hyper } = k;
-  if (Tq > UC + 0.5) return { kind: 'austenit', label: 'Austenit', note: `Drženo nad ${hyper ? 'A_cm' : hypo ? 'A₃' : 'A₁'} — bez přeměny.`, fr: { austenite: 1 } };
+  if (Tq > UC + 0.5) return { kind: 'austenit', label: 'Austenit', note: `Drženo nad ${hyper ? 'Acm' : hypo ? 'A₃' : 'A₁'} — bez přeměny.`, fr: { austenite: 1 } };
   if (Tq >= A1 - 0.5 && UC > A1 + 0.5) {
     const f = clamp((UC - Tq) / (UC - A1), 0, 1);
     if (hypo) { const ff = maxFerrite * f; return { kind: 'ferit+austenit', label: 'Ferit + austenit', note: `Částečná proeutektoidní přeměna (${Math.round(ff * 100)} % feritu), zbytek austenit.`, fr: { ferrite: ff, austenite: 1 - ff } }; }
@@ -149,8 +151,9 @@ function IraDiagram() {
   const mobile = vw < 860;
 
   const k = diagramConsts(C);
-  const TqClamped = Math.max(Tq, k.Mf);
-  useEffect(() => { if (Tq < k.Mf) setTq(k.Mf); }, [C]);
+  const MfLim = Math.max(k.Mf, T_BOT);   // dosažitelné dno stupnice — u vyšších obsahů C leží Mf pod ní
+  const TqClamped = Math.max(Tq, MfLim);
+  useEffect(() => { if (Tq < MfLim) setTq(MfLim); }, [C]);
   const result = resultAt(TqClamped, C, k);
 
   // ── plot geometry ─────────────────────────────────────────────────────────
@@ -261,7 +264,7 @@ function IraDiagram() {
     const scale = PH / r.height;
     const yLocal = (clientY - r.top) * scale;
     const f = clamp((yLocal - PAD_T) / plotH, 0, 1);
-    setTq(Math.max(k.Mf, Math.round(T_TOP - (T_TOP - T_BOT) * f)));
+    setTq(Math.max(MfLim, Math.round(T_TOP - (T_TOP - T_BOT) * f)));
   };
   const onDown = (e) => { e.currentTarget.setPointerCapture(e.pointerId); setFromClientY(e.clientY); };
   const onMove = (e) => { if (e.currentTarget.hasPointerCapture(e.pointerId)) setFromClientY(e.clientY); };
@@ -389,12 +392,16 @@ function IraDiagram() {
             </React.Fragment>)}
             {k.hyper && (<React.Fragment>
               <line x1={PAD_L} y1={yOf(k.Acm)} x2={PAD_L + plotW} y2={yOf(k.Acm)} stroke="rgba(214,123,255,0.5)" strokeDasharray="5 5" strokeWidth={1.3} />
-              <text x={PAD_L + plotW + 4} y={yOf(k.Acm) + 4} fontFamily={mono} fontSize={12} fill="#d67bff">A_cm {Math.round(k.Acm)}</text>
+              <text x={PAD_L + plotW + 4} y={yOf(k.Acm) + 4} fontFamily={mono} fontSize={12} fill="#d67bff">A<tspan fontSize={9} dy={3}>cm</tspan><tspan dy={-3}> {Math.round(k.Acm)}</tspan></text>
             </React.Fragment>)}
             <line x1={PAD_L} y1={yOf(k.Ms)} x2={PAD_L + plotW} y2={yOf(k.Ms)} stroke="rgba(198,202,242,0.75)" strokeWidth={1.6} />
             <text x={PAD_L + plotW + 4} y={yOf(k.Ms) + 4} fontFamily={mono} fontSize={12} fill="#c6caf2">Ms {k.Ms}</text>
-            <line x1={PAD_L} y1={yOf(k.Mf)} x2={PAD_L + plotW} y2={yOf(k.Mf)} stroke="rgba(198,202,242,0.45)" strokeDasharray="2 4" strokeWidth={1.3} />
-            <text x={PAD_L + plotW + 4} y={yOf(k.Mf) + 4} fontFamily={mono} fontSize={12} fill="#a9adde">Mf {k.Mf}</text>
+            {k.Mf > T_BOT + 8 ? (<React.Fragment>
+              <line x1={PAD_L} y1={yOf(k.Mf)} x2={PAD_L + plotW} y2={yOf(k.Mf)} stroke="rgba(198,202,242,0.45)" strokeDasharray="2 4" strokeWidth={1.3} />
+              <text x={PAD_L + plotW + 4} y={yOf(k.Mf) + 4} fontFamily={mono} fontSize={12} fill="#a9adde">Mf {k.Mf}</text>
+            </React.Fragment>) : (
+              <text x={PAD_L + 8} y={yOf(T_BOT) - 24} fontFamily={mono} fontSize={12} fill="#a9adde">Mf {k.Mf} °C — pod dosažitelnou teplotou</text>
+            )}
 
             {/* transformation curves */}
             {fsPts && <path d={pathFrom(fsPts)} fill="none" stroke="#8fb9e6" strokeWidth={2} />}
@@ -481,6 +488,11 @@ function IraDiagram() {
         </div>
       </div>
 
+      {/* poznámka pod grafem */}
+      <div style={{ position: 'relative', flex: '0 0 auto', marginTop: 10, fontSize: 13.5, color: '#8296a8', lineHeight: 1.55, maxWidth: 1000 }}>
+        Z IRA diagramu nelze odečítat plynulé ochlazování — platí jen pro rychlé zchlazení na danou teplotu a&nbsp;výdrž na ní.
+      </div>
+
       {/* bottom sliders */}
       <div style={{ position: 'relative', flex: '0 0 auto', marginTop: 10, display: 'flex', flexDirection: 'column', gap: 9 }}>
         <div style={{ display: 'flex', flexDirection: mobile ? 'column' : 'row', alignItems: mobile ? 'stretch' : 'center', gap: mobile ? 6 : 18 }}>
@@ -509,12 +521,12 @@ function IraDiagram() {
           </div>
           <div style={{ flex: '1 1 auto', position: 'relative', height: 16, display: 'flex', alignItems: 'center' }}>
             <div style={{ position: 'absolute', left: 0, right: 0, height: 6, borderRadius: 3, background: 'rgba(120,180,230,0.18)' }} />
-            <div style={{ position: 'absolute', left: 0, height: 6, borderRadius: 3, width: `${((TqClamped - k.Mf) / (T_TOP - k.Mf)) * 100}%`, background: '#e5703b' }} />
-            <div style={{ position: 'absolute', left: `${((TqClamped - k.Mf) / (T_TOP - k.Mf)) * 100}%`, top: '50%', width: 16, height: 16, borderRadius: '50%',
+            <div style={{ position: 'absolute', left: 0, height: 6, borderRadius: 3, width: `${((TqClamped - MfLim) / (T_TOP - MfLim)) * 100}%`, background: '#e5703b' }} />
+            <div style={{ position: 'absolute', left: `${((TqClamped - MfLim) / (T_TOP - MfLim)) * 100}%`, top: '50%', width: 16, height: 16, borderRadius: '50%',
               background: '#e5703b', border: '2px solid #0b0e15', transform: 'translate(-50%, -50%)', pointerEvents: 'none',
               animation: 'pulseThumb 1.7s ease-in-out infinite' }} />
-            <input type="range" min={k.Mf} max={T_TOP} value={TqClamped} step={2}
-                   onChange={(e) => setTq(Math.max(k.Mf, Number(e.target.value)))}
+            <input type="range" min={MfLim} max={T_TOP} value={TqClamped} step={2}
+                   onChange={(e) => setTq(Math.max(MfLim, Number(e.target.value)))}
                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', margin: 0, opacity: 0, cursor: 'pointer' }} />
           </div>
           <div style={{ flex: mobile ? '0 0 auto' : '0 0 178px' }} />

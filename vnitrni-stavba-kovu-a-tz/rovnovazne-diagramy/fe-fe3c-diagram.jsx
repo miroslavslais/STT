@@ -1,8 +1,11 @@
 // fe-fe3c-diagram.jsx — interaktivní metastabilní diagram Fe–Fe3C.
 // Režimy: Prozkoumat (táhlo %C + klikací oblasti), Vrstvy (postupné odkrývání), Kvíz.
 function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
-const C_P = 0.018, C_S = 0.765, C_E = 2.14, C_C = 4.3, C_MAX = 6.68;
-const T_A = 1538, T_EUT = 1147, T_G = 911, T_A1 = 727, T_D = 1380;
+const FEC = window.FEC;   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js
+const C_P = FEC.C_P, C_S = FEC.C_S, C_E = FEC.C_E, C_C = FEC.C_C, C_MAX = FEC.C_CEM;
+const T_A = FEC.T_A, T_EUT = FEC.T_EUT, T_G = FEC.T_G, T_A1 = FEC.T_A1, T_D = FEC.T_D;
+const EUT_LO = C_S - FEC.EUT_TOL, EUT_HI = C_S + FEC.EUT_TOL;   // pásmo eutektoidní oceli
+const fecNum = (v) => FEC.cz(v);
 const T_MIN = 400, T_MAX = 1600;
 // stejné hladké prohnutí osy C jako na obrazovce (xWarp v komponentě) — žádný lom v datovém prostoru,
 // takže z něj odvozené křivky (likvidus, solidus, A3) nemají falešné zlomy
@@ -50,7 +53,7 @@ const REGIONS = [
   { id: 'gf', step: 3, name: 'Austenit + ferit', str: ['austenit', 'ferit'], pts: [...A3_PTS, [C_P, T_A1], ...rev(GP_PTS).slice(1)], label: [0.11, 758], lines: ['AUSTENIT', '+ FERIT'], fs: 0.55, desc: 'Pod čarou A3 se z austenitu vylučuje ferit; zbylý austenit se obohacuje uhlíkem směrem k bodu S.' },
   { id: 'f', step: 3, name: 'Ferit (α)', str: ['ferit'], pts: [[0, T_G], ...GP_PTS.slice().sort((a, b) => b[1] - a[1]).slice(1), ...rev(PQ_PTS).slice(1), [0, T_MIN]], label: null, lines: [], fs: 0.6, desc: 'Úzká oblast čistého feritu u levého okraje diagramu (do 0,018 % C).' },
   { id: 'gc2', step: 3, name: 'Austenit + sekundární cementit', str: ['austenit', 'cementit'], pts: [...ACM_PTS, [C_E, T_A1], [C_S, T_A1]], label: [1.68, 815], lines: ['AUSTENIT', '+ SEKUNDÁRNÍ', 'CEMENTIT'], fs: 0.72, desc: 'Pod čarou Acm klesá rozpustnost uhlíku v austenitu — přebytečný uhlík se vylučuje jako sekundární cementit (po hranicích zrn).' },
-  { id: 'gcl', step: 2, name: 'Austenit + ledeburit', str: ['austenit', 'ledeburit'], pts: rectPts(C_E, C_C, T_A1, T_EUT), label: [3.2, 970], lines: ['AUSTENIT', '+ LEDEBURIT'], fs: 0.92, desc: 'Podeutektické litiny: austenit ztuhlý před eutektikálou + ledeburit vzniklý při 1147 °C.' },
+  { id: 'gcl', step: 2, name: 'Austenit + ledeburit', str: ['austenit', 'ledeburit'], pts: rectPts(C_E, C_C, T_A1, T_EUT), label: [3.2, 970], lines: ['AUSTENIT', '+ LEDEBURIT'], fs: 0.92, desc: 'Podeutektické litiny: austenit ztuhlý před eutektickou přímkou + ledeburit vzniklý při 1147 °C.' },
   { id: 'cl', step: 2, name: 'Cementit + ledeburit', str: ['cementit', 'ledeburit'], pts: rectPts(C_C, C_MAX, T_A1, T_EUT), label: [5.55, 970], lines: ['CEMENTIT', '+ LEDEBURIT'], fs: 0.85, desc: 'Nadeutektické litiny: hrubé desky primárního cementitu obklopené ledeburitem.' },
   { id: 'fc3', step: 4, name: 'Ferit + terciární cementit', str: ['ferit', 'cementit'], pts: [[C_P, T_A1], [C_P, T_MIN], ...PQ_PTS.slice(1)], label: null, lines: [], fs: 0.6, desc: 'Pod 727 °C klesá rozpustnost C ve feritu — vylučuje se nepatrné množství terciárního cementitu.' },
   { id: 'fp', step: 4, name: 'Ferit + perlit', str: ['ferit', 'perlit'], pts: rectPts(C_P, C_S, T_MIN, T_A1), label: [0.33, 565], lines: ['FERIT', '+', 'PERLIT'], fs: 1.0, desc: 'Struktura podeutektoidních ocelí: světlá zrna feritu + lamelární perlit. Čím více C, tím více perlitu (vyšší pevnost).' },
@@ -81,7 +84,7 @@ const POINTS = [
   { n: 'C', x: C_C, T: T_EUT, tip: 'C — eutektický bod (4,3 % C; 1147 °C): tavenina → ledeburit' },
   { n: 'D', x: C_MAX, T: T_D, tip: 'D — teplota tání cementitu (1380 °C; 6,68 % C)' },
   { n: 'E', x: C_E, T: T_EUT, tip: 'E — max. rozpustnost C v austenitu (2,14 % při 1147 °C)' },
-  { n: 'F', x: C_MAX, T: T_EUT, tip: 'F — konec eutektikály (6,68 % C)' },
+  { n: 'F', x: C_MAX, T: T_EUT, tip: 'F — konec eutektické přímky (6,68 % C)' },
   { n: 'G', x: 0, T: T_G, tip: 'G — přeměna γ ↔ α u čistého železa (911 °C)' },
   { n: 'P', x: C_P, T: T_A1, tip: 'P — max. rozpustnost C ve feritu (0,018 % při 727 °C)' },
   { n: 'S', x: C_S, T: T_A1, tip: 'S — eutektoidní bod (0,765 % C; 727 °C): austenit → perlit' },
@@ -110,7 +113,7 @@ const BAND_POINTS = ['C', 'E', 'P', 'S'];
 const STEPS = [
   { t: 'Osy diagramu', d: 'Vodorovná osa: obsah uhlíku 0–6,68 % (6,68 % C odpovídá čistému cementitu Fe₃C). Svislá osa: teplota. Za vysokých teplot je vše roztavené — tavenina (T).' },
   { t: 'Likvidus (A–C–D)', d: 'Nad likvidem je slitina zcela tekutá. Při ochlazení pod likvidus začíná tuhnutí: vlevo od bodu C se z taveniny vylučuje austenit, vpravo primární cementit.' },
-  { t: 'Solidus a eutektikála (1147 °C)', d: 'Pod solidem (A–E) je slitina zcela tuhá. Na eutektikále (E–C–F) tuhne zbylá tavenina eutektickou přeměnou: v bodě C (4,3 % C) vzniká ledeburit — eutektická směs austenitu a cementitu.' },
+  { t: 'Solidus a eutektická přímka (1147 °C)', d: 'Pod solidem (A–E) je slitina zcela tuhá. Na eutektické přímce (E–C–F) tuhne zbylá tavenina eutektickou přeměnou: v bodě C (4,3 % C) vzniká ledeburit — eutektická směs austenitu a cementitu.' },
   { t: 'Překrystalizace: A3 a Acm', d: 'Austenit se při dalším ochlazování rozpadá: pod čarou A3 (G–S) se vylučuje ferit, pod čarou Acm (S–E) sekundární cementit. Zbylý austenit míří složením k bodu S (0,765 % C).' },
   { t: 'Eutektoidní přímka A1 (727 °C)', d: 'Na přímce P–S–K se zbylý austenit (0,765 % C) rozpadá eutektoidní přeměnou na perlit. Austenit v ledeburitu se mění také — pod A1 mluvíme o rozpadlém ledeburitu.' },
   { t: 'Oceli a litiny', d: 'Slitiny do 2,14 % C jsou oceli (tuhnou bez eutektické přeměny, dají se tvářet), nad 2,14 % C litiny. Hranicí mezi pod- a nadeutektoidními ocelemi je bod S, mezi litinami bod C. Táhněte svislou čárou a sledujte, čím slitina při ochlazování prochází.' },
@@ -118,8 +121,8 @@ const STEPS = [
 
 function classify(C) {
   if (C < C_P) return { n: 'technicky čisté železo', c: '#8fc7ff' };
-  if (C < 0.75) return { n: 'podeutektoidní ocel', c: '#6db3ff' };
-  if (C <= 0.79) return { n: 'eutektoidní ocel (perlitická)', c: '#f4c542' };
+  if (C < EUT_LO) return { n: 'podeutektoidní ocel', c: '#6db3ff' };
+  if (C <= EUT_HI) return { n: 'eutektoidní ocel (perlitická)', c: '#f4c542' };
   if (C <= C_E) return { n: 'nadeutektoidní ocel', c: '#6db3ff' };
   if (C < 4.25) return { n: 'podeutektická litina', c: '#d67bff' };
   if (C <= 4.35) return { n: 'eutektická litina', c: '#f4c542' };
@@ -133,12 +136,12 @@ function seqFor(C) {
   if (C <= C_E) {
     const sol = solAE(C);
     r.push({ r: `${f(liq)}–${f(sol)} °C`, l: 'tavenina + austenit' });
-    if (C < 0.75) {
+    if (C < EUT_LO) {
       r.push({ r: `${f(sol)}–${f(a3(C))} °C`, l: 'austenit (γ)' });
       r.push({ r: `${f(a3(C))}–727 °C`, l: 'austenit + ferit' });
       r.push({ r: '727 °C', l: 'zbylý austenit → perlit (eutektoidní přeměna)', ev: true, col: '#f4c542' });
       r.push({ r: 'pod 727 °C', l: 'ferit + perlit' });
-    } else if (C <= 0.79) {
+    } else if (C <= EUT_HI) {
       r.push({ r: `${f(sol)}–727 °C`, l: 'austenit (γ)' });
       r.push({ r: '727 °C', l: 'austenit → perlit (eutektoidní přeměna)', ev: true });
       r.push({ r: 'pod 727 °C', l: 'perlit' });
@@ -224,19 +227,19 @@ const REV_BANK = REGIONS.map(r => ({ id: r.id, type: 'region_r', name: r.name, p
 
 function shuffle(a) { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
 const QUIZ_LEN = 8;
-const COMP_VALS = ['0,018', '0,765', '2,14', '4,3', '6,68'];
-const TEMP_VALS = ['1538', '1147', '1380', '911', '727'];
+const COMP_VALS = [C_P, C_S, C_E, C_C, C_MAX].map(fecNum);
+const TEMP_VALS = [T_A, T_EUT, T_D, T_G, T_A1].map(fecNum);
 const NUM_BANK = [
-  { id: 'num_p', type: 'num', name: 'Maximální rozpustnost uhlíku ve feritu (bod P)', correct: '0,018', pool: COMP_VALS },
-  { id: 'num_s', type: 'num', name: 'Eutektoidní koncentrace uhlíku (bod S)', correct: '0,765', pool: COMP_VALS },
-  { id: 'num_e', type: 'num', name: 'Maximální rozpustnost uhlíku v austenitu (bod E)', correct: '2,14', pool: COMP_VALS },
-  { id: 'num_c', type: 'num', name: 'Eutektická koncentrace uhlíku (bod C)', correct: '4,3', pool: COMP_VALS },
-  { id: 'num_cem', type: 'num', name: 'Obsah uhlíku v cementitu (Fe₃C)', correct: '6,68', pool: COMP_VALS },
-  { id: 'num_a', type: 'num', name: 'Teplota tání čistého železa (bod A)', correct: '1538', pool: TEMP_VALS },
-  { id: 'num_eut', type: 'num', name: 'Eutektická teplota (přímka ECF)', correct: '1147', pool: TEMP_VALS },
-  { id: 'num_d', type: 'num', name: 'Teplota tání cementitu (bod D)', correct: '1380', pool: TEMP_VALS },
-  { id: 'num_g', type: 'num', name: 'Teplota přeměny γ↔α čistého železa (bod G)', correct: '911', pool: TEMP_VALS },
-  { id: 'num_eutd', type: 'num', name: 'Eutektoidní teplota (přímka PSK)', correct: '727', pool: TEMP_VALS },
+  { id: 'num_p', type: 'num', name: 'Maximální rozpustnost uhlíku ve feritu (bod P)', correct: fecNum(C_P), pool: COMP_VALS },
+  { id: 'num_s', type: 'num', name: 'Eutektoidní koncentrace uhlíku (bod S)', correct: fecNum(C_S), pool: COMP_VALS },
+  { id: 'num_e', type: 'num', name: 'Maximální rozpustnost uhlíku v austenitu (bod E)', correct: fecNum(C_E), pool: COMP_VALS },
+  { id: 'num_c', type: 'num', name: 'Eutektická koncentrace uhlíku (bod C)', correct: fecNum(C_C), pool: COMP_VALS },
+  { id: 'num_cem', type: 'num', name: 'Obsah uhlíku v cementitu (Fe₃C)', correct: fecNum(C_MAX), pool: COMP_VALS },
+  { id: 'num_a', type: 'num', name: 'Teplota tání čistého železa (bod A)', correct: fecNum(T_A), pool: TEMP_VALS },
+  { id: 'num_eut', type: 'num', name: 'Eutektická teplota (přímka ECF)', correct: fecNum(T_EUT), pool: TEMP_VALS },
+  { id: 'num_d', type: 'num', name: 'Teplota tání cementitu (bod D)', correct: fecNum(T_D), pool: TEMP_VALS },
+  { id: 'num_g', type: 'num', name: 'Teplota přeměny γ↔α čistého železa (bod G)', correct: fecNum(T_G), pool: TEMP_VALS },
+  { id: 'num_eutd', type: 'num', name: 'Eutektoidní teplota (přímka PSK)', correct: fecNum(T_A1), pool: TEMP_VALS },
 ];
 
 // ── křivka chladnutí (čas schematicky, teplota ve měřítku diagramu) ─────────
@@ -264,8 +267,8 @@ function coolCurve(C) {
     const sol = solAE(C);
     cool(start, liq, 1.7, 'tavenina');
     cool(liq, sol, 0.7, 'tav + austenit');
-    if (C >= 0.75 && C <= 0.79) { cool(sol, T_A1, 1.1, 'austenit'); halt(T_A1, 1, '#f4c542', 'austenit → perlit'); cool(T_A1, T_MIN, 1.2, 'perlit'); }
-    else if (C < 0.75) { const A = a3(C); cool(sol, A, 1.1, 'austenit'); cool(A, T_A1, 0.75, 'austenit + ferit'); halt(T_A1, (C - C_P) / (C_S - C_P), '#f4c542', 'austenit → perlit'); cool(T_A1, T_MIN, 1.2, C < C_P ? 'ferit' : 'ferit + perlit'); }
+    if (C >= EUT_LO && C <= EUT_HI) { cool(sol, T_A1, 1.1, 'austenit'); halt(T_A1, 1, '#f4c542', 'austenit → perlit'); cool(T_A1, T_MIN, 1.2, 'perlit'); }
+    else if (C < EUT_LO) { const A = a3(C); cool(sol, A, 1.1, 'austenit'); cool(A, T_A1, 0.75, 'austenit + ferit'); halt(T_A1, (C - C_P) / (C_S - C_P), '#f4c542', 'austenit → perlit'); cool(T_A1, T_MIN, 1.2, C < C_P ? 'ferit' : 'ferit + perlit'); }
     else { const A = acm(C); cool(sol, A, 1.1, 'austenit'); cool(A, T_A1, 0.75, 'austenit + Fe₃C II'); halt(T_A1, (C_MAX - C) / (C_MAX - C_S), '#f4c542', 'austenit → perlit'); cool(T_A1, T_MIN, 1.2, 'Fe₃C II + perlit'); }
   } else if (C >= 4.25 && C <= 4.35) {
     cool(start, T_EUT, 1.7, 'tavenina');
@@ -422,9 +425,9 @@ function FeFe3CDiagram() {
   );
 
   const yTicks = []; for (let T = 400; T <= 1600; T += 100) yTicks.push(T);
-  const keyTemps = [727, 911, 1147, 1380, 1538];
-  const keyTempCol = { 1538: '#8fc7ff', 1380: '#8fc7ff', 1147: '#43e0a0', 911: '#8fc7ff', 727: '#f4c542' };
-  const xKey = [[C_P, '0,018'], [C_S, '0,765'], [C_E, '2,14'], [C_C, '4,30'], [C_MAX, '6,68']];
+  const keyTemps = [T_A1, T_G, T_EUT, T_D, T_A];
+  const keyTempCol = { [T_A]: '#8fc7ff', [T_D]: '#8fc7ff', [T_EUT]: '#43e0a0', [T_G]: '#8fc7ff', [T_A1]: '#f4c542' };
+  const xKey = [C_P, C_S, C_E, C_C, C_MAX].map(x => [x, fecNum(x)]);
 
   return (
     <div style={{ width: '100%', minHeight: '100vh', height: mobile ? 'auto' : '100vh', background: '#080b12', color: '#eaf2fa', boxSizing: 'border-box', padding: mobile ? '54px 14px 20px' : '56px 44px 18px', display: 'flex', flexDirection: 'column', fontFamily: sans, position: 'relative', overflow: mobile ? 'visible' : 'hidden', userSelect: 'none', WebkitUserSelect: 'none' }}>
@@ -498,7 +501,7 @@ function FeFe3CDiagram() {
             <line x1={PAD_L} x2={PAD_L} y1={PAD_T} y2={y0} stroke="#8aa3bd" strokeWidth="1.5" />
             <line x1={PAD_L} x2={PW - PAD_R} y1={y0} y2={y0} stroke="#8aa3bd" strokeWidth="1.5" />
             <text x={PAD_L - 52} y={PAD_T + 12} fill="#8aa3bd" fontFamily={mono} fontSize={10 * FSU + 1} transform={`rotate(-90 ${PAD_L - 52} ${PAD_T + 12})`} textAnchor="end">TEPLOTA (°C)</text>
-            <text x={PW - PAD_R} y={y0 - 10} textAnchor="end" fill="#8aa3bd" fontFamily={mono} fontSize={10 * FSU + 1}>KONCENTRACE UHLÍKU (%)</text>
+            <text x={PW - PAD_R} y={y0 - 10} textAnchor="end" fill="#8aa3bd" fontFamily={mono} fontSize={10 * FSU + 1}>KONCENTRACE UHLÍKU (hm. %)</text>
 
             {showFull && (<React.Fragment>
             {/* oblasti */}
@@ -532,7 +535,7 @@ function FeFe3CDiagram() {
               <path d={dPath(SOL_AE)} fill="none" stroke="#6db3ff" strokeWidth="2.5" />
               <line x1={xOf(C_E)} x2={xOf(C_MAX)} y1={yOf(T_EUT)} y2={yOf(T_EUT)} stroke="#43e0a0" strokeWidth="2.5" />
               {mode !== 'quiz' && (<React.Fragment>
-                <text x={xOf(3.15)} y={yOf(T_EUT) - 7} textAnchor="middle" fill="#43e0a0" fontFamily={mono} fontSize={12 * FSU + 1} letterSpacing="0.12em" fontWeight="600">EUTEKTIKÁLA (1147 °C)</text>
+                <text x={xOf(3.15)} y={yOf(T_EUT) - 7} textAnchor="middle" fill="#43e0a0" fontFamily={mono} fontSize={12 * FSU + 1} letterSpacing="0.12em" fontWeight="600">EUTEKTICKÁ PŘÍMKA (1147 °C)</text>
                 <line x1={xOf(C_E)} x2={xOf(C_E)} y1={yOf(T_EUT)} y2={y0} stroke="rgba(109,179,255,0.35)" strokeWidth="1.2" strokeDasharray="4 4" />
                 <line x1={xOf(C_C)} x2={xOf(C_C)} y1={yOf(T_EUT)} y2={y0} stroke="rgba(214,123,255,0.35)" strokeWidth="1.2" strokeDasharray="4 4" />
               </React.Fragment>)}

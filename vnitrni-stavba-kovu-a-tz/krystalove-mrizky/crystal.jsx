@@ -164,7 +164,7 @@ function Scene() {
     { n: '01', txt: 'Vrstva A · základní hexagonální rovina', a: 1.2, b: 1.7, c: 3.1, d: 3.5 },
     { n: '02', txt: 'Vrstva B · atomy zapadají do prohlubní', a: 3.35, b: 3.85, c: 4.5, d: 4.9 },
     { n: '03', txt: 'Vrstva A · stohování v sekvenci ABAB', a: 4.9, b: 5.4, c: 6.2, d: 6.6 },
-    { n: '—',  txt: 'Šesterečná mřížka – HCP', a: 6.7, b: 7.2, c: 8.7, d: 9.0 },
+    { n: '—',  txt: 'Šesterečná těsně uspořádaná – HCP', a: 6.7, b: 7.2, c: 8.7, d: 9.0 },
   ];
 
   const metals = [
@@ -213,7 +213,7 @@ function Scene() {
         <div style={{ fontFamily: mono, fontSize: 18, letterSpacing: '0.28em',
           color: '#5fc0ef', textTransform: 'uppercase' }}>Krystalová struktura</div>
         <div style={{ fontFamily: sans, fontSize: 40, fontWeight: 600, color: '#eaf2fa',
-          marginTop: 10, letterSpacing: '-0.01em' }}>Šesterečná mřížka – HCP</div>
+          marginTop: 10, letterSpacing: '-0.01em' }}>Šesterečná těsně uspořádaná – HCP</div>
       </div>
 
       {/* legend: A / B layers */}
@@ -283,4 +283,3 @@ function CrystalAnimation() {
 }
 
 window.CrystalAnimation = CrystalAnimation;
-window.Scene = Scene;

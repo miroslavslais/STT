@@ -136,7 +136,10 @@ const CH = { x: 84, y: 722, w: 1752, h: 260, padL: 96, padR: 30, padT: 70, padB:
 const CMAX = 2, TMIN = 480, TMAX = 1200;
 const chX = (c) => CH.x + CH.padL + (clamp(c, 0, CMAX) / CMAX) * (CH.w - CH.padL - CH.padR);
 const chY = (temp) => CH.y + CH.padT + (1 - (clamp(temp, TMIN, TMAX) - TMIN) / (TMAX - TMIN)) * (CH.h - CH.padT - CH.padB);
-const upperCrit = (c) => (c <= 0.8 ? 912 - (912 - 727) * (c / 0.8) : 727 + (1145 - 727) * ((c - 0.8) / 1.2));
+const FEC = window.FEC;   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js
+const upperCrit = (c) => (c <= FEC.C_S
+  ? FEC.T_G - (FEC.T_G - FEC.T_A1) * (c / FEC.C_S)
+  : FEC.T_A1 + (FEC.T_EUT - FEC.T_A1) * ((c - FEC.C_S) / (FEC.C_E - FEC.C_S)));
 
 // ── struktura: ke snížení pnutí (stress lines fading, zrna beze změny) ─────
 function StressStructure({ m, p }) {
@@ -422,9 +425,9 @@ function Scene() {
         <text x={chX(0.05)} y={chY(upperCrit(0.05)) - 8} fontFamily={mono} fontSize={14.5} fill="#c9d6e2">Ac3</text>
         <text x={chX(1.7)} y={chY(upperCrit(1.7)) - 8} fontFamily={mono} fontSize={14.5} fill="#c9d6e2">Acm</text>
         <line x1={chX(0.02)} y1={chY(727)} x2={chX(2)} y2={chY(727)} stroke="#d3ad55" strokeWidth={2} strokeDasharray="7 5" />
-        <text x={CH.x + CH.w - CH.padR - 8} y={chY(727) - 8} fontFamily={mono} fontSize={14.5} fill="#d3ad55" textAnchor="end">Ac1 (727 °C)</text>
-        <circle cx={chX(0.8)} cy={chY(727)} r={4.5} fill="#eaf2fa" />
-        <text x={chX(0.8) + 8} y={chY(727) + 18} fontFamily={mono} fontSize={13.5} fill="#93a5b6">S (0,8 % C)</text>
+        <text x={CH.x + CH.w - CH.padR - 8} y={chY(727) - 8} fontFamily={mono} fontSize={14.5} fill="#d3ad55" textAnchor="end">A₁ = 727 °C</text>
+        <circle cx={chX(FEC.C_S)} cy={chY(FEC.T_A1)} r={4.5} fill="#eaf2fa" />
+        <text x={chX(FEC.C_S) + 8} y={chY(FEC.T_A1) + 18} fontFamily={mono} fontSize={13.5} fill="#93a5b6">S ({FEC.cz(FEC.C_S)} % C)</text>
 
         {/* legenda */}
         {METHODS.map((m, i) => (

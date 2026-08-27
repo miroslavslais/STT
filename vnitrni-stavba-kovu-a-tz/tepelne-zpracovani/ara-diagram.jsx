@@ -81,23 +81,33 @@ const AUST = [239, 171, 84, 0.55];
 const rgba = (c) => `rgba(${c[0]},${c[1]},${c[2]},${c[3]})`;
 
 // ── Fe–C constants (same transformation-curve family as the IRA diagram) ───
-const C_EUT = 0.76, C_FMAX = 0.022, C_CEM = 6.67, A1 = 727;
+const FEC = window.FEC;   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js
+const C_EUT = FEC.C_S, C_FMAX = FEC.C_P, C_CEM = FEC.C_CEM, A1 = FEC.T_A1;
+// ARA (anizotermický rozpad) proti IRA: při plynulém ochlazování stráví austenit v každé teplotě jen zlomek
+// času, přeměna se proto nastartuje později a níž — C-křivky jsou posunuté doprava a dolů.
+// Ms a Mf se neposouvají (bezdifuzní přeměna), stejně jako čáry A₁, A₃ a Acm.
+const ARA_TIME_SHIFT = 2;    // násobitel času (doprava)
+const ARA_TEMP_SHIFT = 30;   // °C dolů
 const T_TOP = 850, T_BOT = -60;
-const BS_HANDOFF = 550;
+const BS_HANDOFF = 550 - ARA_TEMP_SHIFT;
 const T_LOG_MIN = -1.7, T_LOG_MAX = 4.5;
 
 function diagramConsts(C) {
   const hypo = C < C_EUT - 0.002, hyper = C > C_EUT + 0.002;
-  const A3 = 910 - (910 - A1) * clamp(C / C_EUT, 0, 1);
+  const A3 = FEC.T_G - (FEC.T_G - A1) * clamp(C / C_EUT, 0, 1);
   const Acm = A1 + (C - C_EUT) * 312;
   const UC = hyper ? Acm : hypo ? A3 : A1;
   const Ms = Math.round(539 - 423 * C);
-  const Mf = Ms - 180;
+  // Mf odpovídá Koistinen–Marburgerově rovnici (α = 0,011): při ΔT = 320 °C dosahuje ~97 % martenzitu
+  const Mf = Ms - 320;
   const maxFerrite = hypo ? clamp((C_EUT - C) / (C_EUT - C_FMAX), 0, 1) : 0;
   const maxCem = hyper ? clamp((C - C_EUT) / (C_CEM - C_EUT), 0, 1) : 0;
   const dEut = Math.abs(C - C_EUT);
-  const Tnose_p = 550, tNose_p = Math.pow(10, 0.15 + 1.7 * dEut), hw_p = 120;
-  const Tnose_b = 415 - 25 * ((C - 0.4) / 0.5), tNose_b = Math.pow(10, 0.55 + 1.25 * (C - 0.4)), hw_b = 145;
+  // horní větev perlitické křivky: half-width přepočtený tak, aby se křivka u A₁ chovala jako v IRA —
+  // posun dolů posune nos, ale ne asymptotu u A₁ (nad A₁ se austenit nerozpadá)
+  const Tnose_p = 550 - ARA_TEMP_SHIFT, tNose_p = ARA_TIME_SHIFT * Math.pow(10, 0.15 + 1.7 * dEut);
+  const hw_p = 120 * ((A1 - Tnose_p) / (A1 - 550));
+  const Tnose_b = 415 - 25 * ((C - 0.4) / 0.5) - ARA_TEMP_SHIFT, tNose_b = Math.pow(10, 0.55 + 1.25 * (C - 0.4)), hw_b = 145;
   return { hypo, hyper, A3, Acm, UC, Ms, Mf, maxFerrite, maxCem, Tnose_p, tNose_p, hw_p, Tnose_b, tNose_b, hw_b };
 }
 
@@ -353,10 +363,11 @@ function AraDiagram() {
   };
 
   const coolRateLabel = coolLogEnd < -0.5 ? 'velmi rychlé (kalení)' : coolLogEnd < 1.5 ? 'rychlé' : coolLogEnd < 3 ? 'střední' : 'pomalé (žíhání)';
+  const coolMedium = coolLogEnd < -0.5 ? 'voda' : coolLogEnd < 1.5 ? 'olej' : coolLogEnd < 3 ? 'vzduch' : 'pec';
 
   return (
     <div style={{ width: '100%', height: mobile ? 'auto' : '100vh', minHeight: '100vh', background: '#080b12', color: '#eaf2fa', boxSizing: 'border-box',
-      padding: mobile ? '40px 14px 20px' : '58px 52px 20px', display: 'flex', flexDirection: 'column', fontFamily: sans, position: 'relative', overflow: mobile ? 'visible' : 'hidden' }}>
+      padding: mobile ? '40px 14px 20px' : '58px 52px 20px', display: 'flex', flexDirection: 'column', fontFamily: sans, position: 'relative', overflow: mobile ? 'visible' : 'auto' }}>
 
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none',
         background: 'radial-gradient(120% 90% at 42% 44%, rgba(30,52,80,0.45) 0%, rgba(9,13,20,0) 62%)' }} />
@@ -406,12 +417,16 @@ function AraDiagram() {
             </React.Fragment>)}
             {k.hyper && (<React.Fragment>
               <line x1={PAD_L} y1={yOf(k.Acm)} x2={PAD_L + plotW} y2={yOf(k.Acm)} stroke="rgba(214,123,255,0.5)" strokeDasharray="5 5" strokeWidth={1.3} />
-              <text x={PAD_L + plotW + 4} y={yOf(k.Acm) + 4} fontFamily={mono} fontSize={12} fill="#d67bff">A_cm {Math.round(k.Acm)}</text>
+              <text x={PAD_L + plotW + 4} y={yOf(k.Acm) + 4} fontFamily={mono} fontSize={12} fill="#d67bff">A<tspan fontSize={9} dy={3}>cm</tspan><tspan dy={-3}> {Math.round(k.Acm)}</tspan></text>
             </React.Fragment>)}
             <line x1={PAD_L} y1={yOf(k.Ms)} x2={PAD_L + plotW} y2={yOf(k.Ms)} stroke="rgba(198,202,242,0.75)" strokeWidth={1.6} />
             <text x={PAD_L + plotW + 4} y={yOf(k.Ms) + 4} fontFamily={mono} fontSize={12} fill="#c6caf2">Ms {k.Ms}</text>
-            <line x1={PAD_L} y1={yOf(k.Mf)} x2={PAD_L + plotW} y2={yOf(k.Mf)} stroke="rgba(198,202,242,0.45)" strokeDasharray="2 4" strokeWidth={1.3} />
-            <text x={PAD_L + plotW + 4} y={yOf(k.Mf) + 4} fontFamily={mono} fontSize={12} fill="#a9adde">Mf {k.Mf}</text>
+            {k.Mf > T_BOT + 8 ? (<React.Fragment>
+              <line x1={PAD_L} y1={yOf(k.Mf)} x2={PAD_L + plotW} y2={yOf(k.Mf)} stroke="rgba(198,202,242,0.45)" strokeDasharray="2 4" strokeWidth={1.3} />
+              <text x={PAD_L + plotW + 4} y={yOf(k.Mf) + 4} fontFamily={mono} fontSize={12} fill="#a9adde">Mf {k.Mf}</text>
+            </React.Fragment>) : (
+              <text x={PAD_L + 8} y={yOf(T_BOT) - 24} fontFamily={mono} fontSize={12} fill="#a9adde">Mf {k.Mf} °C — pod dosažitelnou teplotou</text>
+            )}
 
             {fsPts && <path d={pathFrom(fsPts)} fill="none" stroke="#8fb9e6" strokeWidth={2} />}
             {csPts && <path d={pathFrom(csPts)} fill="none" stroke="#d67bff" strokeWidth={2} />}
@@ -441,8 +456,8 @@ function AraDiagram() {
         </div>
 
         {/* result panel */}
-        <div style={{ flex: mobile ? '0 0 auto' : '0 0 300px', display: 'flex', flexDirection: 'column', gap: 14 }}>
-          <div style={{ borderRadius: 16, border: '1px solid rgba(120,180,230,0.14)', background: 'rgba(120,180,230,0.03)', aspectRatio: '600/500', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ flex: mobile ? '0 0 auto' : '0 0 300px', minHeight: 0, overflowY: mobile ? 'visible' : 'auto', display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <div style={{ flex: '0 1 auto', minHeight: 140, borderRadius: 16, border: '1px solid rgba(120,180,230,0.14)', background: 'rgba(120,180,230,0.03)', aspectRatio: '600/500', position: 'relative', overflow: 'hidden' }}>
             <svg viewBox="0 0 600 500" style={{ width: '100%', height: '100%', display: 'block' }}>
               {/* base: austenite everywhere, then each transforming cell grows its product from a nucleation seed */}
               {CELLS.map((c, idx) => <path key={'f' + idx} d={cellPath(c)} fill={rgba(AUST)} />)}
@@ -477,7 +492,7 @@ function AraDiagram() {
             </svg>
           </div>
 
-          <div style={{ padding: '13px 16px', borderRadius: 12, background: 'rgba(120,180,230,0.05)', border: '1px solid rgba(120,180,230,0.16)', minHeight: 128, boxSizing: 'border-box' }}>
+          <div style={{ flex: '0 0 auto', padding: '13px 16px', borderRadius: 12, background: 'rgba(120,180,230,0.05)', border: '1px solid rgba(120,180,230,0.16)', minHeight: 128, boxSizing: 'border-box' }}>
             <div style={{ fontFamily: mono, fontSize: 12, letterSpacing: '0.18em', color: '#7fb4d6', textTransform: 'uppercase' }}>Struktura v bodě</div>
             <div style={{ fontSize: 18, fontWeight: 600, marginTop: 4, lineHeight: 1.3, minHeight: 47 }}>
               {labelLines.map(([line, col], i) => <div key={i} style={{ color: col }}>{line}</div>)}
@@ -485,13 +500,18 @@ function AraDiagram() {
             <div style={{ fontSize: 13.5, color: '#aebfcf', marginTop: 4, lineHeight: 1.4, minHeight: 19 }}>{note}</div>
           </div>
 
-          <div style={{ fontFamily: mono, fontSize: 12.5, color: '#8296a8', lineHeight: 1.7 }}>
+          <div style={{ flex: '0 0 auto', fontFamily: mono, fontSize: 12.5, color: '#8296a8', lineHeight: 1.7 }}>
             <div>{regime} ocel</div>
             <div>{C.toFixed(2)} % C</div>
             <div>Ms {k.Ms} °C</div>
-            <div>{coolRateLabel}</div>
+            <div>{coolRateLabel} · {coolMedium}</div>
           </div>
         </div>
+      </div>
+
+      {/* poznámky pod grafem */}
+      <div style={{ position: 'relative', flex: '0 0 auto', marginTop: 10, fontSize: 13.5, color: '#8296a8', lineHeight: 1.55, maxWidth: 1000 }}>
+        <div>ARA diagram platí pro plynulé ochlazování, tak jak probíhá při běžném kalení.</div>
       </div>
 
       {/* bottom sliders */}
@@ -528,7 +548,10 @@ function AraDiagram() {
                    onChange={(e) => setCoolLogEnd(T_LOG_MIN + T_LOG_MAX - Number(e.target.value))}
                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', margin: 0, opacity: 0, cursor: 'pointer' }} />
           </div>
-          <div style={{ flex: mobile ? '0 0 auto' : '0 0 178px', textAlign: mobile ? 'left' : 'right', fontFamily: mono, fontSize: 13.5, fontWeight: 600, color: '#e5703b' }}>{coolRateLabel}</div>
+          <div style={{ flex: mobile ? '0 0 auto' : '0 0 178px', textAlign: mobile ? 'left' : 'right', fontFamily: mono, fontSize: 13.5, fontWeight: 600, color: '#e5703b' }}>
+            <div>{coolRateLabel}</div>
+            <div style={{ fontWeight: 400, color: '#aebfcf' }}>{coolMedium}</div>
+          </div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: mobile ? 'column' : 'row', alignItems: mobile ? 'stretch' : 'center', gap: mobile ? 6 : 18 }}>

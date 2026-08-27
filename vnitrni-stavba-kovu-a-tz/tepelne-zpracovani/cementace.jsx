@@ -103,7 +103,8 @@ function fade(t, a, b, c, d) {
 const czNum = (v, dec) => v.toFixed(dec).replace('.', ',');
 
 // ── model difuze uhlíku a tvrdosti ──────────────────────────────────────────
-const C0 = 0.17, CS = 0.85;
+const FEC = window.FEC;   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js
+const C0 = FEC.CEM.C_CORE, CS = 0.85;
 const T_CEM0 = 11, T_CEM1 = 23;                          // časové okno cementace
 function concAt(depth, t) {
   const u = clamp((t - T_CEM0) / (T_CEM1 - T_CEM0), 0, 1);
@@ -118,7 +119,9 @@ const raFrac = (depth) => clamp((concFinal(depth) - 0.68) / 0.15, 0, 1);   // sk
 function hvAt(depth, r, direct) {                        // r = pokrok popouštění, direct = přímé kalení
   const m = martFrac(depth);
   const raPen = direct ? 55 * raFrac(depth) : 0;         // zbytkový austenit snižuje tvrdost povrchu
-  return 185 + (575 * Math.pow(m, 0.9) - raPen * m) * (1 - 0.12 * r);
+  // amplituda je odvozená tak, aby povrch po popuštění (m = 1, r = 1) vyšel na FEC.CEM.HV_SURFACE
+  const amp = (FEC.CEM.HV_SURFACE - FEC.CEM.HV_CORE) / 0.88;
+  return FEC.CEM.HV_CORE + (amp * Math.pow(m, 0.9) - raPen * m) * (1 - 0.12 * r);
 }
 
 // jehlicová textura martenzitu (coarse = hrubší jehlice při přímém kalení)
@@ -306,12 +309,12 @@ function Scene() {
     ? 'Přímé kalení z cementační teploty · hrubší martenzit, na povrchu zbytkový austenit'
     : 'Kalení s přichlazením na ~845 °C · jemnější martenzit, menší pnutí a deformace';
   const captions = [
-    { txt: 'Nízkouhlíková ocel (~0,17 % C) · ferit + perlit v celém průřezu', a: 0.4, b: 1.1, c: 4.6, d: 5.2 },
+    { txt: `Nízkouhlíková ocel (~${FEC.cz(C0, 2)} % C) · ferit + perlit v celém průřezu`, a: 0.4, b: 1.1, c: 4.6, d: 5.2 },
     { txt: 'Ohřev nad A₃ · ferit i perlit se mění na austenit', a: 5.1, b: 5.7, c: 10.5, d: 11.2 },
     { txt: 'Povrch se sytí uhlíkem z nauhličující atmosféry · koncentrace klesá směrem k jádru', a: 11.1, b: 11.7, c: 22.4, d: 23.2 },
     { txt: capQuench, a: 23.1, b: 23.7, c: 27.9, d: 28.7 },
     { txt: 'Nízkoteplotní popouštění · uvolnění pnutí, jemné karbidy, tvrdost klesá jen mírně', a: 28.6, b: 29.2, c: 33.4, d: 34.2 },
-    { txt: 'Tvrdý povrch ~740 HV (≈60 HRC) a měkké jádro · táhněte čáru na struktuře a odečtěte % C a tvrdost', a: 34.1, b: 34.8, c: 46, d: 47 },
+    { txt: 'Tvrdý povrch ~690 HV (≈60 HRC) a měkké jádro · táhněte čáru na struktuře a odečtěte % C a tvrdost', a: 34.1, b: 34.8, c: 46, d: 47 },
   ];
 
   const legendItems = [
@@ -417,9 +420,9 @@ function Scene() {
         <text x={CH1.x + 32} y={CH1.y + (CH1.padT + CH1.h - CH1.padB) / 2} fontFamily={mono} fontSize={16} fill="#aebfcf" textAnchor="middle"
               transform={`rotate(-90 ${CH1.x + 32} ${CH1.y + (CH1.padT + CH1.h - CH1.padB) / 2})`}>% C</text>
         <text x={CH1.x + CH1.w / 2} y={CH1.y + CH1.h - 8} fontFamily={mono} fontSize={16} fill="#aebfcf" textAnchor="middle">hloubka pod povrchem [mm]</text>
-        <line x1={chX(CH1, 0)} y1={c1Y(0.8)} x2={chX(CH1, DEPTH_MAX)} y2={c1Y(0.8)} stroke="rgba(240,190,130,0.4)" strokeDasharray="6 6" />
-        <text x={CH1.x + CH1.w - CH1.padR - 8} y={c1Y(0.8) - 8} fontFamily={mono} fontSize={15.5} fill="#f0b46e" textAnchor="end">eutektoidní ~0,8 % C</text>
-        <text x={CH1.x + CH1.w - CH1.padR - 8} y={c1Y(C0) + 20} fontFamily={mono} fontSize={15.5} fill="#8fb9e6" textAnchor="end">jádro 0,17 % C</text>
+        <line x1={chX(CH1, 0)} y1={c1Y(FEC.C_S)} x2={chX(CH1, DEPTH_MAX)} y2={c1Y(FEC.C_S)} stroke="rgba(240,190,130,0.4)" strokeDasharray="6 6" />
+        <text x={CH1.x + CH1.w - CH1.padR - 8} y={c1Y(FEC.C_S) - 8} fontFamily={mono} fontSize={15.5} fill="#f0b46e" textAnchor="end">eutektoidní {FEC.cz(FEC.C_S)} % C</text>
+        <text x={CH1.x + CH1.w - CH1.padR - 8} y={c1Y(C0) + 20} fontFamily={mono} fontSize={15.5} fill="#8fb9e6" textAnchor="end">jádro {FEC.cz(C0, 2)} % C</text>
         <path d={cPath} fill="none" stroke="#efab54" strokeWidth={2.8} strokeLinecap="round" />
 
         {/* ══ graf 2: tvrdost × hloubka ══ */}
