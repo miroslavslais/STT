@@ -58,6 +58,11 @@ SKIP_NAMES = {".DS_Store", "Thumbs.db", "__MACOSX"}
 MARK_START = "<!-- stt-novinka:start -->"
 MARK_END = "<!-- stt-novinka:end -->"
 
+# Verze hashovacího algoritmu. Zvýší se, kdykoliv se změní způsob výpočtu
+# hashe — záznamy se starší verzí se pak jednou přepíšou, místo aby se
+# tvářily jako ručně upravené.
+HASH_VERSION = 2
+
 BADGE_SNIPPET = """{start}
 <style>
 .stt-novinka{{display:inline-block;margin-left:.5em;padding:.15em .55em;
@@ -539,8 +544,13 @@ def sync(args) -> int:
                 continue
 
             # ruční úprava v repu?
+            # Záznamy z dřívější verze skriptu mají written_hash spočítaný
+            # jiným způsobem — porovnání by u nich vždycky selhalo a stránka
+            # by se nikdy nepřepsala. Takové záznamy se jednorázově přeskočí.
+            legacy = rec.get("hash_version") != HASH_VERSION
             target = repo / rec["file"]
-            if target.exists() and rec.get("written_hash") and not args.force:
+            if (target.exists() and rec.get("written_hash")
+                    and not args.force and not legacy):
                 if normalized_hash(read_text(target)) != rec["written_hash"]:
                     report.manual.append(slug)
                     if h != rec["content_hash"] and not args.dry_run:
@@ -548,7 +558,8 @@ def sync(args) -> int:
                         new_path.write_text(src_html, encoding="utf-8")
                     continue
 
-            if h == rec["content_hash"] and target.exists() and not args.refresh:
+            if (h == rec["content_hash"] and target.exists()
+                    and not args.refresh and not legacy):
                 report.unchanged.append(slug)
                 continue
 
@@ -606,6 +617,7 @@ def sync(args) -> int:
 def write_page(repo: Path, rel: str, html: str, first_seen, rec: dict, dry: bool) -> None:
     out = html if first_seen is None else inject_badge(html, first_seen)
     rec["written_hash"] = normalized_hash(out)
+    rec["hash_version"] = HASH_VERSION
     if dry:
         return
     target = repo / rel
