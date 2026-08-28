@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vnitřní stavba kovů a&nbsp;tepelné zpracování | STT</title>
+<meta name="description" content="Přehled témat: krystalové mřížky, rovnovážné diagramy a tepelné zpracování kovů.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #fbf8f3; }
+    a { color: inherit; text-decoration: none; }
+    @keyframes pulseBadge { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(1.3); } }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<div style="min-height:100vh;background:#fbf8f3;font-family:'IBM Plex Sans',sans-serif;padding:56px 48px 80px;box-sizing:border-box">
+
+  <div style="max-width:1080px;margin:0 auto 56px">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.62 0.14 40);margin-bottom:10px">Interaktivní výuka STT</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:44px;line-height:1.15;color:#231d16;margin:0 0 14px">Vnitřní stavba kovů a&nbsp;tepelné zpracování</h1>
+    <p style="font-size:18px;line-height:1.6;color:#6b6255;max-width:640px;margin:0">Vyberte si oblast a&nbsp;poté animaci nebo interaktivní graf, abyste prozkoumali, jak se mění struktura oceli při ohřevu a&nbsp;ochlazování.</p>
+  </div>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:28px">
+
+      <a href="#" onClick="{{ openCrystal }}" style="display:flex;flex-direction:column;gap:20px;background:#fff;border-radius:24px;padding:40px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+        <div style="width:72px;height:72px;border-radius:18px;background:oklch(0.9 0.05 240);display:flex;align-items:center;justify-content:center">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" stroke="oklch(0.55 0.16 240)" stroke-width="2" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke="oklch(0.55 0.16 240)" stroke-width="2" stroke-linejoin="round"/><path d="M4 7l8 4 8-4M12 11v10" stroke="oklch(0.55 0.16 240)" stroke-width="2"/><circle cx="12" cy="12" r="1.6" fill="oklch(0.55 0.16 240)"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#231d16;margin-bottom:8px">Krystalové mřížky</div>
+          <div style="font-size:15.5px;line-height:1.55;color:#8a8072">Uspořádání atomů v&nbsp;krystalové struktuře kovů, poruchy mřížky a&nbsp;dislokace.</div>
+        </div>
+        <div style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:oklch(0.5 0.14 240);display:flex;align-items:center;gap:6px">
+          5 animací
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="oklch(0.5 0.14 240)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a href="#" onClick="{{ openEquilibrium }}" style="display:flex;flex-direction:column;gap:20px;background:#fff;border-radius:24px;padding:40px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+        <div style="width:72px;height:72px;border-radius:18px;background:oklch(0.9 0.05 300);display:flex;align-items:center;justify-content:center">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M3 20V4" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-linecap="round"/><path d="M4 16c4 0 5-8 9-8s5 4 8 4" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M4 10c3 0 6 3 9 3s6-5 8-5" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#231d16;margin-bottom:8px">{{ secText.rovnovazne.title }}</div>
+          <div style="font-size:15.5px;line-height:1.55;color:#8a8072">{{ secText.rovnovazne.desc }}</div>
+        </div>
+        <div style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:oklch(0.5 0.14 300);display:flex;align-items:center;gap:6px">
+          {{ secText.rovnovazne.badge }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="oklch(0.5 0.14 300)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a href="rovnovazne-diagramy/Diagram%20Fe-Fe3C.html" style="display:flex;flex-direction:column;gap:20px;background:#fff;border-radius:24px;padding:40px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+        <div style="width:72px;height:72px;border-radius:18px;background:oklch(0.9 0.05 300);display:flex;align-items:center;justify-content:center">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M3 20V4" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-linecap="round"/><path d="M4 5c3 1 6 5 9 8" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M13 13l8-4" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-linecap="round"/><path d="M4 13h17" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-dasharray="2 2"/><path d="M4 17h17" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-dasharray="2 2"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#231d16;margin-bottom:8px">{{ secText.feFe3c.title }}</div>
+          <div style="font-size:15.5px;line-height:1.55;color:#8a8072">{{ secText.feFe3c.desc }}</div>
+        </div>
+        <div style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:oklch(0.5 0.14 300);display:flex;align-items:center;gap:6px">
+          Interaktivní diagram
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="oklch(0.5 0.14 300)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a href="#" onClick="{{ openHeat }}" style="display:flex;flex-direction:column;gap:20px;background:#fff;border-radius:24px;padding:40px;border:1px solid #eee5d8;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+        <div style="width:72px;height:72px;border-radius:18px;background:oklch(0.9 0.05 40);display:flex;align-items:center;justify-content:center">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M9 3v11a4 4 0 1 0 6 0V3" stroke="oklch(0.55 0.16 40)" stroke-width="2" stroke-linecap="round"/><path d="M9 7h6" stroke="oklch(0.55 0.16 40)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="2.4" fill="oklch(0.55 0.16 40)"/></svg>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#231d16;margin-bottom:8px">{{ secText.tepelne.title }}</div>
+          <div style="font-size:15.5px;line-height:1.55;color:#8a8072">{{ secText.tepelne.desc }}</div>
+        </div>
+        <div style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:oklch(0.5 0.14 40);display:flex;align-items:center;gap:6px">
+          {{ secText.tepelne.badge }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="oklch(0.5 0.14 40)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+    </div>
+
+    <div style="max-width:1080px;margin:32px auto 0">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.62 0.14 40);margin-bottom:16px">AI asistenti</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:stretch">
+
+        <div style="display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:28px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.5 0.14 240);display:flex;align-items:center;gap:8px;margin-bottom:14px">
+            <span style="width:7px;height:7px;background:oklch(0.6 0.18 240);border-radius:50%"></span>
+            AI Tutor
+          </div>
+          <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 16px;color:#231d16">Aktivuj si svého osobního Tutora pro metalurgii</h3>
+
+          <ol style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 240);color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">1</span><span>Klikni na <strong style="color:#231d16;font-weight:600">„Zkopírovat prompt“</strong>.</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 240);color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">2</span><span>Otevři si své oblíbené AI (<strong style="color:#231d16;font-weight:600">ChatGPT, Claude, Copilot…</strong>).</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 240);color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">3</span><span>Vlož a&nbsp;odešli — pozdrav pro tutora je už jeho součástí.</span></li>
+          </ol>
+
+          <div style="flex:1;background:#fbf8f3;border:1px solid #eee5d8;border-radius:12px;margin-bottom:20px">
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8a8072;padding:10px 14px 0">Systémový prompt</div>
+            <pre style="height:160px;overflow-y:auto;padding:10px 14px 14px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5c5346;white-space:pre-wrap;word-break:break-word">{{ tutorPromptText }}</pre>
+          </div>
+
+          <button type="button" onClick="{{ copyTutorPrompt }}" style="margin-top:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#fff;background:{{ tutorBtnBg }};border:none;border-radius:10px;padding:14px 20px;cursor:pointer">
+            <span>{{ tutorBtnIcon }}</span>
+            <span>{{ tutorBtnLabel }}</span>
+          </button>
+        </div>
+
+        <div style="display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:28px;border:1px solid #eee5d8;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.5 0.14 40);display:flex;align-items:center;gap:8px;margin-bottom:14px">
+            <span style="width:7px;height:7px;background:oklch(0.6 0.18 40);border-radius:50%"></span>
+            AI Kvíz
+          </div>
+          <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 16px;color:#231d16">Procvič si metalografii nanečisto</h3>
+
+          <ol style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 40);color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">1</span><span>Klikni na <strong style="color:#231d16;font-weight:600">„Zkopírovat prompt“</strong>.</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 40);color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">2</span><span>Otevři si své oblíbené AI (<strong style="color:#231d16;font-weight:600">ChatGPT, Claude, Copilot…</strong>).</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.05 40);color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">3</span><span>Vlož a&nbsp;odešli — zadání tématu je už jeho součástí.</span></li>
+          </ol>
+
+          <div style="flex:1;background:#fbf8f3;border:1px solid #eee5d8;border-radius:12px;margin-bottom:20px">
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8a8072;padding:10px 14px 0">Systémový prompt</div>
+            <pre style="height:160px;overflow-y:auto;padding:10px 14px 14px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5c5346;white-space:pre-wrap;word-break:break-word">{{ quizPromptText }}</pre>
+          </div>
+
+          <button type="button" onClick="{{ copyQuizPrompt }}" style="margin-top:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#fff;background:{{ quizBtnBg }};border:none;border-radius:10px;padding:14px 20px;cursor:pointer">
+            <span>{{ quizBtnIcon }}</span>
+            <span>{{ quizBtnLabel }}</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </sc-if>
+
+  <sc-if value="{{ isCrystal }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:1080px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+        <a href="#" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#8a8072;cursor:pointer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="#8a8072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Zpět
+        </a>
+      </div>
+      <h2 style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:24px;color:#231d16;margin:0 0 6px">Krystalové mřížky</h2>
+      <p style="font-size:15px;color:#8a8072;margin:0 0 24px">Uspořádání atomů v&nbsp;krystalové struktuře kovů</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+
+        <a href="krystalove-mrizky/Krychlova%20BCC%20mrizka.html" onClick="{{ resetBcc }}" draggable="true" data-id="bcc" data-section="crystal" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.bcc.col }};grid-row:{{ positions.bcc.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 240)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 240);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif">Animace</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 240);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" stroke="oklch(0.55 0.16 240)" stroke-width="2" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke="oklch(0.55 0.16 240)" stroke-width="2" stroke-linejoin="round"/><path d="M4 7l8 4 8-4M12 11v10" stroke="oklch(0.55 0.16 240)" stroke-width="2"/><circle cx="12" cy="12" r="1.6" fill="oklch(0.55 0.16 240)"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.bcc.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.bcc.desc }}</div>
+          </div>
+        </a>
+
+        <a href="krystalove-mrizky/Krychlova%20FCC%20mrizka.html" onClick="{{ resetFcc }}" draggable="true" data-id="fcc" data-section="crystal" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.fcc.col }};grid-row:{{ positions.fcc.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 240)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 240);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif">Animace</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 240);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 7l8-4 8 4-8 4-8-4z" stroke="oklch(0.55 0.16 240)" stroke-width="2" stroke-linejoin="round"/><path d="M4 7v10l8 4 8-4V7" stroke="oklch(0.55 0.16 240)" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="7" r="1.5" fill="oklch(0.55 0.16 240)"/><circle cx="4" cy="12" r="1.5" fill="oklch(0.55 0.16 240)"/><circle cx="20" cy="12" r="1.5" fill="oklch(0.55 0.16 240)"/><circle cx="12" cy="21" r="1.5" fill="oklch(0.55 0.16 240)"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.fcc.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.fcc.desc }}</div>
+          </div>
+        </a>
+
+        <a href="krystalove-mrizky/Sesterecna%20mrizka.html" onClick="{{ resetHcp }}" draggable="true" data-id="hcp" data-section="crystal" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.hcp.col }};grid-row:{{ positions.hcp.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 240)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 240);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif">Animace</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 240);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2.5l7.5 4.3v8.4L12 19.5l-7.5-4.3V6.8L12 2.5z" stroke="oklch(0.55 0.16 240)" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="11" r="1.6" fill="oklch(0.55 0.16 240)"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.hcp.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.hcp.desc }}</div>
+          </div>
+        </a>
+
+        <a href="krystalove-mrizky/Bodove%20poruchy%20mrizky.html" onClick="{{ resetDefects }}" draggable="true" data-id="defects" data-section="crystal" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.defects.col }};grid-row:{{ positions.defects.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 240)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 240);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif">Animace</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 240);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="6" cy="6" r="2" fill="oklch(0.55 0.16 240)"/><circle cx="12" cy="6" r="2" fill="none" stroke="oklch(0.55 0.16 240)" stroke-width="1.4" stroke-dasharray="2 2"/><circle cx="18" cy="6" r="2" fill="oklch(0.55 0.16 240)"/><circle cx="6" cy="14" r="2" fill="oklch(0.55 0.16 240)"/><circle cx="12" cy="16" r="2.6" fill="oklch(0.6 0.16 300)"/><circle cx="18" cy="14" r="2" fill="oklch(0.55 0.16 240)"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.defects.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.defects.desc }}</div>
+          </div>
+        </a>
+
+        <a href="krystalove-mrizky/Hranova%20dislokace.html" onClick="{{ resetLineDisloc }}" draggable="true" data-id="linedisloc" data-section="crystal" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.linedisloc.col }};grid-row:{{ positions.linedisloc.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 240)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 240);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif">Animace</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 240);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 8h6l3-3M9 8l3 3" stroke="oklch(0.55 0.16 240)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 16h20" stroke="oklch(0.55 0.16 240)" stroke-width="2" stroke-linecap="round"/><circle cx="4" cy="8" r="1.6" fill="oklch(0.55 0.16 240)"/><circle cx="14" cy="8" r="1.6" fill="oklch(0.55 0.16 240)"/><circle cx="20" cy="8" r="1.6" fill="oklch(0.55 0.16 240)"/><circle cx="4" cy="16" r="1.6" fill="oklch(0.55 0.16 240)"/><circle cx="10" cy="16" r="1.6" fill="oklch(0.55 0.16 240)"/><circle cx="16" cy="16" r="1.6" fill="oklch(0.55 0.16 240)"/><circle cx="20" cy="16" r="1.6" fill="oklch(0.55 0.16 240)"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.linedisloc.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.linedisloc.desc }}</div>
+          </div>
+        </a>
+
+        <sc-for list="{{ crystalEmptySlots }}" as="slot" hint-placeholder-count="0">
+          <div data-row="{{ slot.rowRaw }}" data-col="{{ slot.colRaw }}" data-section="crystal" onDragOver="{{ onSlotDragOver }}" onDrop="{{ onSlotDrop }}" style="grid-column:{{ slot.col }};grid-row:{{ slot.row }}"></div>
+        </sc-for>
+
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isHeat }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:1080px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+        <a href="#" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#8a8072;cursor:pointer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="#8a8072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Zpět
+        </a>
+      </div>
+      <h2 style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:24px;color:#231d16;margin:0 0 24px">Tepelné zpracování</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+
+        <a href="tepelne-zpracovani/Austenitizace.html" draggable="true" data-id="austenitizace" data-section="heat" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #eee5d8;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.austenitizace.col }};grid-row:{{ positions.austenitizace.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 40)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 40);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif">Interaktivní diagram</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 40);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M9 3v11a4 4 0 1 0 6 0V3" stroke="oklch(0.55 0.16 40)" stroke-width="2" stroke-linecap="round"/><path d="M9 7h6" stroke="oklch(0.55 0.16 40)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="2.4" fill="oklch(0.55 0.16 40)"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.austenitizace.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.austenitizace.desc }}</div>
+          </div>
+        </a>
+
+        <a href="tepelne-zpracovani/ARA%20diagram%20-%20anizotermicky%20rozpad%20austenitu.html" draggable="true" data-id="ara" data-section="heat" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #eee5d8;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.ara.col }};grid-row:{{ positions.ara.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 40)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 40);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif">Interaktivní diagram</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 40);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 3v17h17" stroke="oklch(0.55 0.16 40)" stroke-width="1.8" stroke-linecap="round"/><path d="M5 7c4 0 5 7 8 9s6 1 8-1" stroke="oklch(0.55 0.16 40)" stroke-width="1.6" stroke-linecap="round" fill="none"/><path d="M6 5c5 0 7 9 10 11s5 0 6-2" stroke="oklch(0.55 0.16 40)" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.55"/><path d="M5 4c3 3 4 10 4 16" stroke="oklch(0.55 0.16 40)" stroke-width="1.4" stroke-dasharray="2 2" stroke-linecap="round" fill="none"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.ara.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.ara.desc }}</div>
+          </div>
+        </a>
+
+        <a href="tepelne-zpracovani/Popousteci%20diagram.html" draggable="true" data-id="popousteci" data-section="heat" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #eee5d8;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.popousteci.col }};grid-row:{{ positions.popousteci.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 40)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 40);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif">Interaktivní diagram</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 40);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M3 20V4" stroke="oklch(0.55 0.16 40)" stroke-width="2" stroke-linecap="round"/><path d="M4 6c5 0 8 2 10 6s4 6 6 7" stroke="oklch(0.55 0.16 40)" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="14" cy="12" r="2" fill="oklch(0.55 0.16 40)"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.popousteci.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.popousteci.desc }}</div>
+          </div>
+        </a>
+
+        <a href="tepelne-zpracovani/Cementace%20rez%20vrstvou.html" onClick="{{ resetCementace }}" draggable="true" data-id="cementace" data-section="heat" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #eee5d8;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.cementace.col }};grid-row:{{ positions.cementace.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 240)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 240);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif">Animace</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 40);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="oklch(0.55 0.16 40)" stroke-width="2"/><path d="M4 9h16" stroke="oklch(0.55 0.16 40)" stroke-width="2"/><circle cx="8" cy="6.5" r="1" fill="oklch(0.55 0.16 40)"/><circle cx="12" cy="6.5" r="1" fill="oklch(0.55 0.16 40)"/><circle cx="16" cy="6.5" r="1" fill="oklch(0.55 0.16 40)"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.cementace.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.cementace.desc }}</div>
+          </div>
+        </a>
+
+        <a href="tepelne-zpracovani/Porovnani%20povrchovych%20uprav.html" onClick="{{ resetPorovnani }}" draggable="true" data-id="porovnani" data-section="heat" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #eee5d8;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.porovnani.col }};grid-row:{{ positions.porovnani.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 240)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 240);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif">Animace</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 40);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="4.5" height="16" rx="1" stroke="oklch(0.55 0.16 40)" stroke-width="1.8"/><rect x="9.75" y="4" width="4.5" height="16" rx="1" stroke="oklch(0.55 0.16 40)" stroke-width="1.8"/><rect x="16.5" y="4" width="4.5" height="16" rx="1" stroke="oklch(0.55 0.16 40)" stroke-width="1.8"/><path d="M3 8h4.5M9.75 6.5h4.5M16.5 11h4.5" stroke="oklch(0.55 0.16 40)" stroke-width="1.8"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.porovnani.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.porovnani.desc }}</div>
+          </div>
+        </a>
+
+        <a href="tepelne-zpracovani/Zihani.html" onClick="{{ resetZihani }}" draggable="true" data-id="zihani" data-section="heat" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #eee5d8;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.zihani.col }};grid-row:{{ positions.zihani.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 240)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 240);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 240);font-family:'IBM Plex Sans',sans-serif">Animace</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 40);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="8" r="3" stroke="oklch(0.55 0.16 40)" stroke-width="1.8"/><circle cx="16" cy="7" r="3" stroke="oklch(0.55 0.16 40)" stroke-width="1.8"/><circle cx="12" cy="16" r="3" stroke="oklch(0.55 0.16 40)" stroke-width="1.8"/><path d="M12 2v3M12 22v-3M2 12h3M22 12h-3" stroke="oklch(0.55 0.16 40)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.zihani.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.zihani.desc }}</div>
+          </div>
+        </a>
+
+        <a href="tepelne-zpracovani/IRA%20diagram%20kaleni.html" draggable="true" data-id="ira" data-section="heat" onDragStart="{{ onDragStart }}" onDragOver="{{ onDragOver }}" onDrop="{{ onDrop }}" onDragEnd="{{ onDragEnd }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #eee5d8;box-shadow:0 1px 3px rgba(35,29,22,0.06);grid-column:{{ positions.ira.col }};grid-row:{{ positions.ira.row }};cursor:grab">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 40)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 40);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif">Interaktivní diagram</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 40);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 3v17h17" stroke="oklch(0.55 0.16 40)" stroke-width="1.8" stroke-linecap="round"/><path d="M5 7c4 0 5 7 8 9s6 1 8-1" stroke="oklch(0.55 0.16 40)" stroke-width="1.6" stroke-linecap="round" fill="none"/><path d="M6 5c5 0 7 9 10 11s5 0 6-2" stroke="oklch(0.55 0.16 40)" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.55"/><path d="M5 4v6h13" stroke="oklch(0.55 0.16 40)" stroke-width="1.4" stroke-dasharray="2 2" stroke-linecap="round" fill="none"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.ira.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.ira.desc }}</div>
+          </div>
+        </a>
+
+        <sc-for list="{{ heatEmptySlots }}" as="slot" hint-placeholder-count="0">
+          <div data-row="{{ slot.rowRaw }}" data-col="{{ slot.colRaw }}" data-section="heat" onDragOver="{{ onSlotDragOver }}" onDrop="{{ onSlotDrop }}" style="grid-column:{{ slot.col }};grid-row:{{ slot.row }}"></div>
+        </sc-for>
+
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isEquilibrium }}" hint-placeholder-val="{{ false }}">
+    <div style="max-width:1080px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+        <a href="#" onClick="{{ goHome }}" style="display:flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#8a8072;cursor:pointer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="#8a8072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Zpět
+        </a>
+      </div>
+      <h2 style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:24px;color:#231d16;margin:0 0 6px">Rovnovážné diagramy</h2>
+      <p style="font-size:15px;color:#8a8072;margin:0 0 24px">Binární diagramy slitin za rovnovážných podmínek</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+
+        <a href="rovnovazne-diagramy/Rovnovazny%20diagram%20-%20uplna%20rozpustnost.html" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 300)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 300);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 300);font-family:'IBM Plex Sans',sans-serif">Interaktivní diagram</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 300);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M3 20V4" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-linecap="round"/><path d="M5 6Q12 15 19 6" stroke="oklch(0.55 0.16 300)" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M5 6Q12 10.5 19 6" stroke="oklch(0.55 0.16 300)" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.uplnaRozpustnost.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.uplnaRozpustnost.desc }}</div>
+          </div>
+        </a>
+
+        <a href="rovnovazne-diagramy/Rovnovazny%20diagram%20-%20eutekticka%20premena.html" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 300)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 300);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 300);font-family:'IBM Plex Sans',sans-serif">Interaktivní diagram</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 300);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M3 20V4" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-linecap="round"/><path d="M5 5L12 15L19 5" stroke="oklch(0.55 0.16 300)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M4 17h16" stroke="oklch(0.55 0.16 300)" stroke-width="1.8"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.eutekticka.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.eutekticka.desc }}</div>
+          </div>
+        </a>
+
+        <a href="rovnovazne-diagramy/Rovnovazny%20diagram%20-%20eutektoidni%20premena.html" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 300)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 300);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 300);font-family:'IBM Plex Sans',sans-serif">Interaktivní diagram</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 300);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 20h18M3 20V4" stroke="oklch(0.55 0.16 300)" stroke-width="2" stroke-linecap="round"/><path d="M5 6C9 6 10 13 12 13C14 13 15 6 19 6" stroke="oklch(0.55 0.16 300)" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M4 15h16" stroke="oklch(0.55 0.16 300)" stroke-width="1.8" stroke-dasharray="2.5 2.5"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.eutektoidni.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.eutektoidni.desc }}</div>
+          </div>
+        </a>
+
+        <a href="rovnovazne-diagramy/Eutekticka%20a%20eutektoidni%20premena%20-%20mikrostruktura.html" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+          <div style="position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.03 300)">
+            <span style="width:7px;height:7px;border-radius:50%;background:oklch(0.6 0.18 300);animation:pulseBadge 1.6s ease-in-out infinite"></span>
+            <span style="font-size:11.5px;font-weight:600;color:oklch(0.5 0.14 300);font-family:'IBM Plex Sans',sans-serif">Animace</span>
+          </div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 300);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="oklch(0.55 0.16 300)" stroke-width="1.6"/><path d="M8 5v14M11.3 5v14M14.7 5v14M18 5v14" stroke="oklch(0.55 0.16 300)" stroke-width="1.3"/></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.mikrostruktura.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.mikrostruktura.desc }}</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SECTION_IDS = {
+  crystal: ['bcc', 'fcc', 'hcp', 'defects', 'linedisloc'],
+  heat: ['austenitizace', 'ara', 'popousteci', 'cementace', 'porovnani', 'zihani', 'ira'],
+};
+const COLS = 3;
+const HEAT_LAYOUT = {
+  austenitizace: { row: 0, col: 0 },
+  zihani: { row: 0, col: 1 },
+  ira: { row: 1, col: 0 },
+  ara: { row: 1, col: 1 },
+  popousteci: { row: 1, col: 2 },
+  cementace: { row: 2, col: 0 },
+  porovnani: { row: 2, col: 1 },
+};
+function defaultPositions() {
+  const positions = {};
+  Object.keys(SECTION_IDS).forEach(section => {
+    SECTION_IDS[section].forEach((id, i) => {
+      if (section === 'heat' && HEAT_LAYOUT[id]) {
+        positions[id] = { section, row: HEAT_LAYOUT[id].row, col: HEAT_LAYOUT[id].col };
+      } else {
+        positions[id] = { section, row: Math.floor(i / COLS), col: i % COLS };
+      }
+    });
+  });
+  return positions;
+}
+const TUTOR_PROMPT = `Jste "Tutor pro metalografii", specializovaný AI asistent na výukových stránkách strojírenské technologie. Vaším úkolem je pomáhat studentům pochopit krystalickou stavbu kovů, rovnovážné fázové diagramy (zejména soustavu Fe-Fe3C) a tepelné a chemicko-tepelné zpracování kovů (žíhání, kalení, popouštění, cementace, nitridace apod.).
+
+HRANICE TÉMATU:
+- Držte se výhradně těchto oblastí. U dotazů mimo téma studenta zdvořile nasměrujte zpět k látce.
+
+PEDAGOGICKÁ STRATEGIE:
+1. NIKDY neposkytujte studentovi hotové řešení příkladu hned.
+2. Veďte studenta krok za krokem pomocí návodných otázek.
+3. Pokud student odpoví chybně, poukažte na logický rozpor a zeptejte se znovu.
+4. Pokud student odpoví správně, stručně to potvrďte a posuňte se k další otázce nebo hlubší úrovni.
+5. Pokud student o přímé řešení výslovně požádá potřetí, nebo napíše, že neví, ukažte řešení, ale s krátkým vysvětlením každého kroku.
+
+FORMÁT ODPOVĚDI:
+- Odpovídejte stručně (max. 4–5 vět), jednu myšlenku po druhé.
+
+TÓN KOMUNIKACE:
+- Komunikujte v češtině, buďte přátelští a studentovi tykejte.
+
+---
+Ahoj, jsem připraven se učit.`;
+
+const QUIZ_PROMPT = `Jste "Generátor procvičování pro metalografii", specializovaný AI asistent na výukových stránkách strojírenské technologie. Vaším úkolem je generovat cvičné otázky a krátké kvízy z metalografie: krystalická stavba kovů, rovnovážné fázové diagramy (zejména soustavu Fe-Fe3C) a tepelné a chemicko-tepelné zpracování (žíhání, kalení, popouštění, cementace, nitridace apod.).
+
+ÚVODNÍ KROK:
+- Jakmile obdržíte tento prompt, na začátku konverzace nejprve stručně seznamte studenta s pravidly ovládání (viz OVLÁDÁNÍ níže) a teprve poté se zeptejte, jaké téma chce procvičovat a jakou obtížnost (základní / příprava k testu na úrovni žáka střední školy) preferuje.
+
+OVLÁDÁNÍ:
+- Jedno kolo má 8 až 10 otázek. Po každé odpovědi si v duchu přičti k počítadlu otázek v aktuálním kole.
+- Po dosažení 8 až 10 otázek se studenta ptáte, jak chce pokračovat (např. další kolo / změna tématu / změna obtížnosti / konec), nabídněte možnosti jako číslovaný seznam. Student odpovídá pouze číslem, nemusí psát celou větu.
+- Pokud otázka obsahuje látku, kterou student ještě neprobíral, může místo odpovědi napsat písmeno X. V takovém případě látku stručně vysvětlete a pokračujte další otázkou (tato otázka se nezapočítává do limitu 8–10).
+
+VYLOUČENÁ TÉMATA:
+- Nepokládejte otázky na pákové pravidlo.
+
+HRANICE TÉMATU:
+- Držte se výhradně metalografie a souvisejících témat. U dotazů mimo téma studenta zdvořile nasměrujte zpět k látce.
+
+FORMÁT OTÁZEK:
+- Střídej typy otázek tak, aby bylo přibližně stejně otevřených/výpočetních otázek a otázek s výběrem ze 4 možností (A/B/C/D). Nikdy negeneruj tři a více ABCD otázek po sobě.
+- Před formulací každé otázky si urči, zda tentokrát půjde o otevřenou (příp. výpočetní), nebo výběrovou variantu, a drž se tohoto rozhodnutí.
+- Pokládejte vždy jen jednu otázku a čekejte na odpověď studenta, nezahlcujte ho celým kvízem najednou.
+
+PŘÍKLAD (vzor pro formát, netýká se obsahu aktuálního kola):
+- Otevřená/výpočetní otázka: "Ocel s 0,4 % C se ochladí z austenitu na pokojovou teplotu. Jaké fáze/struktury v ní za rovnovážných podmínek najdeš?"
+- Výběrová otázka: "Co znamená eutektoidní bod v diagramu Fe-Fe3C? A) bod tání čistého železa B) obsah uhlíku 0,765 %, kde austenit přechází přímo na perlit C) teplotu tání cementitu D) bod, kde mizí feritická fáze"
+
+VYHODNOCENÍ:
+1. Po každé odpovědi studenta ihned řekněte, zda je správná, nebo ne.
+2. Vždy stručně vysvětlete správné řešení — i když student odpověděl správně.
+3. Poté nabídněte další otázku, případně změnu tématu nebo obtížnosti, formou číslovaného seznamu.
+4. Průběžně přizpůsobujte obtížnost podle úspěšnosti studenta.
+
+FORMÁT ODPOVĚDI:
+- Odpovídejte stručně, jednu otázku nebo jedno vysvětlení po druhé.
+
+TÓN KOMUNIKACE:
+- Komunikujte v češtině, buďte přátelští a studentovi tykejte.
+
+---
+Ahoj, chci si procvičit metalografii formou kvízu.`;
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+  }
+  fallbackCopy(text);
+  return Promise.resolve();
+}
+
+const POSITIONS_STORAGE_KEY = 'home-card-positions:v2';
+const VIEW_STORAGE_KEY = 'home-view:v1';
+function loadInitialPositions() {
+  const merged = defaultPositions();
+  try {
+    const saved = JSON.parse(localStorage.getItem(POSITIONS_STORAGE_KEY) || 'null');
+    if (saved) Object.keys(merged).forEach(id => { if (saved[id]) merged[id] = saved[id]; });
+  } catch (e) {}
+  return merged;
+}
+function loadInitialView() {
+  try {
+    if (new URLSearchParams(location.search).get('view') === 'home') return 'home';
+    const v = localStorage.getItem(VIEW_STORAGE_KEY);
+    if (v === 'crystal' || v === 'heat' || v === 'equilibrium') return v;
+  } catch (e) {}
+  return 'home';
+}
+
+class Component extends DCLogic {
+  state = { positions: loadInitialPositions(), view: loadInitialView(), copiedTutor: false, copiedQuiz: false, structure: null };
+  dragId = null;
+
+  componentDidMount() {
+    fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
+  }
+
+  copyTutorPrompt = () => {
+    copyToClipboard(TUTOR_PROMPT).then(() => {
+      this.setState({ copiedTutor: true });
+      setTimeout(() => this.setState({ copiedTutor: false }), 2000);
+    });
+  };
+
+  copyQuizPrompt = () => {
+    copyToClipboard(QUIZ_PROMPT).then(() => {
+      this.setState({ copiedQuiz: true });
+      setTimeout(() => this.setState({ copiedQuiz: false }), 2000);
+    });
+  };
+
+  setView(view) {
+    this.setState({ view });
+    try { localStorage.setItem(VIEW_STORAGE_KEY, view); } catch (e) {}
+  }
+
+  resetAnim(key) {
+    try { localStorage.removeItem(key + ':t'); } catch (e) {}
+  }
+
+  persistPositions(positions) {
+    try { localStorage.setItem(POSITIONS_STORAGE_KEY, JSON.stringify(positions)); } catch (e) {}
+  }
+
+  onDragStart = (e) => {
+    this.dragId = e.currentTarget.dataset.id;
+    e.currentTarget.style.opacity = '0.4';
+    try { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', this.dragId); } catch (err) {}
+  };
+
+  onDragOver = (e) => {
+    e.preventDefault();
+    const overId = e.currentTarget.dataset.id;
+    const section = e.currentTarget.dataset.section;
+    if (!this.dragId || overId === this.dragId) return;
+    const dragPos = this.state.positions[this.dragId];
+    if (!dragPos || dragPos.section !== section) return;
+    this.setState(s => {
+      const positions = { ...s.positions };
+      const a = positions[this.dragId];
+      const b = positions[overId];
+      if (!a || !b) return null;
+      positions[this.dragId] = { section: b.section, row: b.row, col: b.col };
+      positions[overId] = { section: a.section, row: a.row, col: a.col };
+      return { positions };
+    });
+  };
+
+  onDrop = (e) => {
+    e.preventDefault();
+    this.persistPositions(this.state.positions);
+  };
+
+  onDragEnd = (e) => {
+    e.currentTarget.style.opacity = '1';
+    this.dragId = null;
+    this.persistPositions(this.state.positions);
+  };
+
+  onSlotDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  onSlotDrop = (e) => {
+    e.preventDefault();
+    const section = e.currentTarget.dataset.section;
+    const row = Number(e.currentTarget.dataset.row);
+    const col = Number(e.currentTarget.dataset.col);
+    if (!this.dragId) return;
+    const dragPos = this.state.positions[this.dragId];
+    if (!dragPos || dragPos.section !== section) return;
+    this.setState(s => {
+      const positions = { ...s.positions, [this.dragId]: { section, row, col } };
+      this.persistPositions(positions);
+      return { positions };
+    });
+  };
+
+  renderVals() {
+    const FALLBACK_NAV = [
+      { title: 'Domů', href: '../index.html' },
+      { title: 'Vnitřní stavba kovů a TZ', href: 'index.html?view=home' },
+      { title: 'Koroze', href: '../koroze/index.html' },
+      { title: 'Tváření', href: '../tvareni-za-tepla/index.html' },
+      { title: 'O projektu', href: '../o-projektu.html' },
+  { title: 'Novinky', href: '../novinky.html' },
+    ];
+    const SELF = 'vnitrni-stavba-kovu-a-tz/';
+    const navItems = this.state.structure ? this.state.structure.nav.map(n => ({ title: n.title, href: n.href.startsWith(SELF) ? n.href.slice(SELF.length) : '../' + n.href })) : FALLBACK_NAV;
+    const positions = {};
+    Object.keys(this.state.positions).forEach(id => {
+      const p = this.state.positions[id];
+      positions[id] = { col: p.col + 1, row: p.row + 1 };
+    });
+
+    const emptySlots = (section) => {
+      const occupied = new Set();
+      let maxRow = 0;
+      SECTION_IDS[section].forEach(id => {
+        const p = this.state.positions[id];
+        occupied.add(p.row + ',' + p.col);
+        if (p.row > maxRow) maxRow = p.row;
+      });
+      const slots = [];
+      for (let r = 0; r <= maxRow + 1; r++) {
+        for (let c = 0; c < COLS; c++) {
+          if (!occupied.has(r + ',' + c)) {
+            slots.push({ rowRaw: r, colRaw: c, row: r + 1, col: c + 1 });
+          }
+        }
+      }
+      return slots;
+    };
+
+    const s = this.state.structure;
+    const sections = s && s.vnitrniStavbaKovuATz ? s.vnitrniStavbaKovuATz.sections : null;
+    const feFe3cData = s && s.rovnovazneDiagramy ? s.rovnovazneDiagramy.cards[0] : null;
+    const secDefault = { title: '', desc: '', badge: '' };
+    const bySection = (id, fallback) => {
+      const sec = sections ? sections.find(x => x.id === id) : null;
+      return sec ? { title: sec.title, desc: sec.desc, badge: sec.badge } : (fallback || secDefault);
+    };
+    const secText = {
+      krystal: bySection('krystal'),
+      rovnovazne: bySection('rovnovazne'),
+      tepelne: bySection('tepelne'),
+      feFe3c: feFe3cData ? { title: feFe3cData.title, desc: feFe3cData.desc, badge: 'Interaktivní diagram' } : secDefault,
+    };
+    const cardList = [
+      ...(s && s.krystaloveMrizky ? s.krystaloveMrizky.cards : []),
+      ...(s && s.rovnovazneDiagramy ? s.rovnovazneDiagramy.cards : []),
+      ...(s && s.tepelneZpracovani ? s.tepelneZpracovani.cards : []),
+    ];
+    const cardById = {};
+    cardList.forEach(c => { if (c.id) cardById[c.id] = c; });
+    const empty = { title: '', desc: '' };
+    const cardText = {
+      bcc: cardById.bcc || empty, fcc: cardById.fcc || empty, hcp: cardById.hcp || empty,
+      defects: cardById.defects || empty, linedisloc: cardById.linedisloc || empty,
+      austenitizace: cardById.austenitizace || empty, ara: cardById.ara || empty,
+      popousteci: cardById.popousteci || empty, cementace: cardById.cementace || empty,
+      porovnani: cardById.porovnani || empty, zihani: cardById.zihani || empty, ira: cardById.ira || empty,
+      uplnaRozpustnost: cardById['uplna-rozpustnost'] || empty, eutekticka: cardById.eutekticka || empty,
+      eutektoidni: cardById.eutektoidni || empty, mikrostruktura: cardById.mikrostruktura || empty,
+    };
+    return {
+      navItems,
+      secText,
+      cardText,
+      isHome: this.state.view === 'home',
+      isCrystal: this.state.view === 'crystal',
+      isHeat: this.state.view === 'heat',
+      isEquilibrium: this.state.view === 'equilibrium',
+      positions,
+      crystalEmptySlots: emptySlots('crystal'),
+      heatEmptySlots: emptySlots('heat'),
+      openCrystal: (e) => { e.preventDefault(); this.setView('crystal'); },
+      openHeat: (e) => { e.preventDefault(); this.setView('heat'); },
+      openEquilibrium: (e) => { e.preventDefault(); this.setView('equilibrium'); },
+      goHome: (e) => { e.preventDefault(); this.setView('home'); },
+      onDragStart: this.onDragStart,
+      onDragOver: this.onDragOver,
+      onDrop: this.onDrop,
+      onDragEnd: this.onDragEnd,
+      onSlotDragOver: this.onSlotDragOver,
+      onSlotDrop: this.onSlotDrop,
+      resetBcc: () => this.resetAnim('bcc-crystal'),
+      resetFcc: () => this.resetAnim('fcc-crystal'),
+      resetHcp: () => this.resetAnim('hcp-crystal'),
+      resetDefects: () => this.resetAnim('point-defects-crystal'),
+      resetLineDisloc: () => this.resetAnim('line-dislocation-crystal'),
+      resetCementace: () => this.resetAnim('cementace'),
+      resetPorovnani: () => this.resetAnim('porovnani-vrstev'),
+      resetZihani: () => this.resetAnim('zihani'),
+      tutorPromptText: TUTOR_PROMPT,
+      quizPromptText: QUIZ_PROMPT,
+      copyTutorPrompt: this.copyTutorPrompt,
+      copyQuizPrompt: this.copyQuizPrompt,
+      tutorBtnBg: this.state.copiedTutor ? 'oklch(0.6 0.14 150)' : 'oklch(0.55 0.16 240)',
+      tutorBtnIcon: this.state.copiedTutor ? '✓' : '📋',
+      tutorBtnLabel: this.state.copiedTutor ? 'Zkopírováno!' : 'Zkopírovat prompt',
+      quizBtnBg: this.state.copiedQuiz ? 'oklch(0.6 0.14 150)' : 'oklch(0.55 0.16 40)',
+      quizBtnIcon: this.state.copiedQuiz ? '✓' : '📋',
+      quizBtnLabel: this.state.copiedQuiz ? 'Zkopírováno!' : 'Zkopírovat prompt',
+    };
+  }
+}
+
+</script>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#fbf8f3"/><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="220" fill="#b0561f">TZ</text></svg></template>
+</body>
+</html>

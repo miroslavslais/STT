@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zpevnění a křivka zpevnění | STT</title>
+<meta name="description" content="Zpevnění při tváření za studena: křivka zpevnění, růst meze kluzu proti klesající tažnosti a využití zpevnění v praxi.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Tváření za studena</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Tváření za studena</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Zpevnění a křivka zpevnění</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Každá deformace za studena zvětší počet dislokací a ty si navzájem překážejí v pohybu. K další deformaci je proto potřeba pokaždé o něco větší napětí — materiál <strong>zpevňuje</strong>. Průběh napětí potřebného k dosažení dané deformace popisuje <strong>křivka zpevnění</strong>.</p>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Křivka zpevnění</div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Posuvníkem nastavte, jak moc byl materiál za studena přetvořen. Po odlehčení se vzorek vrátí po přímce rovnoběžné s pružnou částí diagramu a zůstane v něm trvalá deformace. Při novém zatížení pak teče až na napětí, kterého bylo dosaženo předtím — to je jeho nová mez kluzu.</p>
+    <div style="position:relative;height:472px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 18px">
+      <x-import component-from-global-scope="Zpevneni" from="./zpevneni-krivka.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 18px">Pružná část deformace je v grafu pro čitelnost zvětšená — ve skutečnosti je proti trvalé deformaci zanedbatelná a přímka odlehčení by byla téměř svislá.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;text-wrap:pretty">Křivka nejprudčeji stoupá hned na začátku — prvních pár procent deformace zpevní materiál nejvíc. Dál už přírůstek pevnosti slábne — a&nbsp;s&nbsp;ním se zpomaluje i&nbsp;úbytek tažnosti, jenže ta je mezitím z&nbsp;velké části vyčerpaná.</p>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Co roste a co klesá</div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Zpevnění je vykoupeno změnou mechanických vlastností. Mez kluzu, mez pevnosti a tvrdost rostou, ale tažnost a houževnatost klesají — a klesají rychleji, než pevnost stoupá. Materiál se stává pevnějším a zároveň křehčím.</p>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(150,180,210,0.16);border:1px solid rgba(150,180,210,0.16);border-radius:14px;overflow:hidden;margin:0 0 18px">
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#7ba3cc">Úběr za studena</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">0 % (žíháno)</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">20 %</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">40 %</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">60 %</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;color:#7ba3cc">Mez kluzu R<sub>e</sub></div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">180 MPa</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">380 MPa</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">455 MPa</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">520 MPa</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;color:#7ba3cc">Tažnost A</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">40 %</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">19 %</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">7 %</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">2 %</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Sans',sans-serif;font-size:13.5px;color:#7ba3cc">Tvrdost</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">91 HB</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">113 HB</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">136 HB</div>
+      <div style="background:#0d121a;padding:13px 12px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">155 HB</div>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 26px">Orientační hodnoty pro hlubokotažný plech DC01. Konkrétní čísla se liší podle materiálu, ale poměr zůstává: mez kluzu vzroste zhruba na trojnásobek, tažnost klesne řádově.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#57b98a;margin-bottom:8px">Roste</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Mez kluzu, mez pevnosti, tvrdost, odolnost proti opotřebení. Roste také odpružení, protože pružná část deformace je tím větší, čím vyšší je mez kluzu.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#e0655a;margin-bottom:8px">Klesá</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Tažnost, kontrakce, houževnatost a elektrická vodivost. Zásoba tvárnosti je omezená — jakmile se vyčerpá, materiál při další operaci praská.</div>
+      </div>
+    </div>
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Kdy je zpevnění výhoda</div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Zpevnění není jen vedlejší jev, kterému je třeba se vyhnout. U materiálů, které nelze zušlechtit tepelně — čistý hliník, měď, austenitické oceli — je tváření za studena jediná cesta, jak zvýšit pevnost. A protože zpevnění vzniká přesně tam, kde proběhla deformace, dá se cíleně umístit do tam, kde je v součásti potřeba.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 18px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:8px">Tažení drátu</div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Pružinový drát získává pevnost přes 2000 MPa tažením přes řadu průvlaků. Drát se před tažením patentuje (ohřev nad A3 a řízené ochlazení na jemný perlit), samotnou pevnost pak dodá zpevnění při tažení — ne zušlechtění hotového drátu.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:8px">Válcování za studena</div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Plech válcovaný za studena má vyšší pevnost, přesnější tloušťku a hladký lesklý povrch. Stupeň zpevnění se řídí velikostí úběru a závěrečným žíháním.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:8px">Válcování závitů</div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Válcovaný závit je pevnější než řezaný. Vlákna nejsou přerušená, v patě zubu je zpevněná vrstva a tlakové pnutí — obojí zvyšuje únavovou pevnost šroubu.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:8px">Kuličkování a válečkování</div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Povrch namáhaných hřídelů a pružin se ostřeluje kuličkami nebo válečkuje. Tenká zpevněná vrstva s tlakovým pnutím brání vzniku únavových trhlin.</div>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;text-wrap:pretty">Nerovnoměrné zpevnění má i užitečný účinek přímo při tváření: místo, které se ztenčilo, se zpevní, další deformace tam už nepokračuje a přesune se do dosud nedeformovaného okolí. Právě proto se u materiálů, které zpevňují prudce hned na začátku, deformace rozprostře po celém výlisku místo toho, aby se soustředila do jednoho místa.</p>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+      <a href="Srovnani za studena a za tepla.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Srovnání za studena a za tepla →</a>
+      <a href="../zmeny-struktury/Rekrystalizace.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Rekrystalizace →</a>
+      <a href="../vady/Trhliny za studena.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Trhliny za studena →</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+</body>
+</html>

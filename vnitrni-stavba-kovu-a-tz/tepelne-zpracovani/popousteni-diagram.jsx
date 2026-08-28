@@ -77,8 +77,10 @@ const lerpC = (a, b, t) => [0, 1, 2, 3].map((i) => a[i] + (b[i] - a[i]) * t);
 const rgba = (c) => `rgba(${Math.round(c[0])},${Math.round(c[1])},${Math.round(c[2])},${c[3].toFixed(3)})`;
 
 // ── model ───────────────────────────────────────────────────────────────────
-const T_MIN = 20, T_MAX = 700;
+const T_MIN = 20, T_MAX = 650;
 const T_BOUNDARY = 400; // hranice nízko/vysokoteplotního popouštění
+// pásmo nízké popouštěcí křehkosti (propad houževnatosti)
+const BRIT_MIN = 250, BRIT_MAX = 400, BRIT_PEAK = 300;
 
 function hrc0(C) { return clamp(20 + 58 * Math.sqrt(C), 20, 67); } // tvrdost martenzitu po zakalení
 function hrcMin(C) { return 17 + 10 * C; }                          // sorbit při ~700 °C
@@ -116,9 +118,12 @@ function PopousteniDiagram() {
   const areaPath = curvePath + ` L${xOf(T_MAX).toFixed(1)},${(PAD_T + plotH).toFixed(1)} L${xOf(T_MIN).toFixed(1)},${(PAD_T + plotH).toFixed(1)} Z`;
 
   // houževnatost: nízká u martenzitu, roste hlavně nad hranicí vysokoteplotního popouštění
+  // …ale v pásmu nízké popouštěcí křehkosti (~250–400 °C) do ní zasahuje hladký gaussovský propad
   const toughAt = (T) => {
-    const p = clamp((T - 160) / (700 - 160), 0, 1);
-    return (8 + 118 * Math.pow(p, 1.9)) * (1.15 - 0.4 * C);
+    const p = clamp((T - T_MIN) / (T_MAX - T_MIN), 0, 1);
+    const base = 12 + 114 * Math.pow(p, 2.2);
+    const dip = 1 - 0.5 * Math.exp(-Math.pow((clamp(T, T_MIN, T_MAX) - BRIT_PEAK) / 50, 2));
+    return base * dip * (1.15 - 0.4 * C);
   };
   const toughEnd = playing ? Tt : T_MAX; // při přehrávání se křivka vykresluje postupně
   const toughPts = [];
@@ -134,15 +139,19 @@ function PopousteniDiagram() {
 
   // ── struktura + popis ──
   let structName, structColor, note;
-  if (Tt < 150) {
+  const inBrittle = Tt >= BRIT_MIN && Tt <= BRIT_MAX;
+  const britNote = ' Pozor: v tomto pásmu klesá houževnatost — popouštěcí křehkost. Tyto teploty se v praxi vynechávají.';
+  if (Tt < 130) {
     structName = 'Martenzit (zakaleno)'; structColor = '#c6caf2';
     note = 'Popouštění zatím jen uvolňuje vnitřní pnutí — jehlicová struktura i tvrdost zůstávají.';
   } else if (Tt < T_BOUNDARY) {
     structName = 'Popuštěný martenzit'; structColor = '#c6caf2';
     note = `Nízkoteplotní popouštění (${Math.round(Tt)} °C): z martenzitu se vylučují jemné karbidy, klesá pnutí a křehkost, tvrdost zůstává vysoká.`;
+    if (inBrittle) note += britNote;
   } else {
     structName = 'Sorbit'; structColor = '#8fb9e6';
     note = `Vysokoteplotní popouštění (${Math.round(Tt)} °C): jehlice mizí, vzniká feritická matrice s globulárním cementitem — houževnatá struktura (zušlechťování).`;
+    if (inBrittle) note += britNote;
   }
 
   // ── mikrostruktura: per-cell staggered progress ──
@@ -232,8 +241,19 @@ function PopousteniDiagram() {
             <rect x={PAD_L} y={PAD_T} width={xOf(T_BOUNDARY) - PAD_L} height={plotH} fill="rgba(122,120,185,0.07)" />
             <rect x={xOf(T_BOUNDARY)} y={PAD_T} width={PAD_L + plotW - xOf(T_BOUNDARY)} height={plotH} fill="rgba(120,180,232,0.06)" />
 
+            {/* pásmo popouštěcí křehkosti */}
+            <defs>
+              <pattern id="britHatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(224,123,168,0.45)" strokeWidth="1.6" />
+              </pattern>
+            </defs>
+            <rect x={xOf(BRIT_MIN)} y={PAD_T} width={xOf(BRIT_MAX) - xOf(BRIT_MIN)} height={plotH} fill="url(#britHatch)" />
+            <line x1={xOf(BRIT_MIN)} y1={PAD_T} x2={xOf(BRIT_MIN)} y2={PAD_T + plotH} stroke="rgba(224,123,168,0.5)" strokeWidth={1.2} />
+            <text x={xOf(BRIT_PEAK) + 4} y={PAD_T + plotH - 14} fontFamily={mono} fontSize={12.5} fontWeight={700} fill="#e07ba8" textAnchor="start"
+                  transform={`rotate(-90 ${(xOf(BRIT_PEAK) + 4).toFixed(1)} ${(PAD_T + plotH - 14).toFixed(1)})`}>popouštěcí křehkost</text>
+
             {/* grid */}
-            {[100, 200, 300, 400, 500, 600, 700].map((T) => (
+            {[100, 200, 300, 400, 500, 600].map((T) => (
               <g key={'gx' + T}>
                 <line x1={xOf(T)} y1={PAD_T} x2={xOf(T)} y2={PAD_T + plotH} stroke="rgba(150,180,210,0.1)" strokeWidth={1} />
                 <text x={xOf(T)} y={PAD_T + plotH + 20} fontFamily={mono} fontSize={12} fill="#7d8ea0" textAnchor="middle">{T}</text>

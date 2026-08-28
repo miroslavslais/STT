@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rekrystalizační teplota TR | STT</title>
+<meta name="description" content="Hranice mezi tvářením za studena a za tepla: výpočet rekrystalizační teploty a příklady kovů.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'tvareni-za-tepla/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Teplota rekrystalizace</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:760px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:8px">Teplota rekrystalizace</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Rekrystalizační teplota T<sub>R</sub></h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Rekrystalizační teplota <strong>T<sub>R</sub></strong> je hranice, nad kterou v deformovaném kovu vznikají nová, nezpevněná zrna namísto zrn protažených a zpevněných deformací. Je to právě ta teplota, která odděluje tváření za studena od tváření za tepla.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px;margin-bottom:22px;text-align:center">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#eaf2fa;margin-bottom:6px">T<sub>R</sub> ≈ 0,4 × T<sub>t</sub></div>
+      <div style="font-size:13.5px;color:#8296a8">T<sub>t</sub> = teplota tání [K] — do vztahu se dosazuje v kelvinech</div>
+    </div>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Skutečná hodnota T<sub>R</sub> se pohybuje v širším pásmu (přibližně 0,3–0,5 × T<sub>t</sub>) — záleží na čistotě kovu a stupni deformace. Obsahuje-li slitina navíc legující prvky, dislokace se hůře pohybují a T<sub>R</sub> roste.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px;margin-bottom:24px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:16px">Vyzkoušej: posuň teplotu a sleduj, které kovy se právě tváří za tepla</div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px">
+        <sc-for list="{{ metals }}" as="m" hint-placeholder-count="9">
+          <div style="border-radius:12px;padding:12px 14px;text-align:center;transition:background .2s,box-shadow .2s,opacity .2s;background:{{ m.bg }};box-shadow:{{ m.glow }};opacity:{{ m.opacity }};border:1px solid {{ m.border }}">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ m.textColor }};text-decoration:{{ m.strike }}">{{ m.name }}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:{{ m.captionColor }};margin-top:4px">{{ m.caption }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <input type="range" min="0" max="1700" step="10" value="{{ temp }}" onInput="{{ onTemp }}" style="width:100%;accent-color:oklch(0.72 0.16 60);cursor:pointer">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8">0 °C</span>
+        <span style="font-family:'IBM Plex Sans',sans-serif;font-weight:700;font-size:20px;color:oklch(0.78 0.16 60)">{{ temp }} °C</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8">1700 °C</span>
+      </div>
+    </div>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Legující prvky (zejména ty, které tvoří tuhý roztok nebo brzdí pohyb hranic zrn) rekrystalizaci ztěžují a T<sub>R</sub> zvyšují — proto mají legované oceli vyšší T<sub>R</sub> než čisté železo.</p>
+
+    <div style="background:rgba(224,166,84,0.08);border:1px solid rgba(224,166,84,0.25);border-radius:14px;padding:18px 22px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:6px">Shrnutí</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">T<sub>R</sub> ≈ 0,4 × T<sub>t</sub> [K]. Nad T<sub>R</sub> = tváření za tepla, bez zpevnění. Legující prvky a čistota kovu T<sub>R</sub> ovlivňují.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const METALS = [
+  { name: 'Cín', tk: -30, tt: 232 },
+  { name: 'Olovo', tk: -20, tt: 327 },
+  { name: 'Hliník', tk: 150, tt: 660 },
+  { name: 'Dural', tk: 180, tt: 640 },
+  { name: 'Měď', tk: 200, tt: 1085 },
+  { name: 'Mosaz', tk: 250, tt: 920 },
+  { name: 'Ocel', tk: 500, tt: 1450 },
+  { name: 'Šedá litina', tk: 550, tt: 1200, neverForms: true },
+  { name: 'Titan', tk: 550, tt: 1668 },
+];
+class Component extends DCLogic {
+  state = { temp: 500 };
+  renderVals() {
+    const t = this.state.temp;
+    return {
+      temp: t,
+      onTemp: (e) => this.setState({ temp: Number(e.target.value) }),
+      metals: METALS.map(m => {
+        if (t >= m.tt) {
+          return { name: m.name, caption: 'roztaveno', bg: 'rgba(120,150,180,0.03)', border: 'rgba(150,180,210,0.1)', glow: 'none', opacity: '0.35', textColor: '#8296a8', captionColor: '#6b7a88', strike: 'line-through' };
+        }
+        if (m.neverForms) {
+          return { name: m.name, caption: `TR ${m.tk} °C`, bg: 'rgba(120,150,180,0.05)', border: 'rgba(150,180,210,0.16)', glow: 'none', opacity: '0.6', textColor: '#aebfcf', captionColor: '#8296a8', strike: 'none' };
+        }
+        if (t >= m.tk) {
+          return { name: m.name, caption: `${m.tk}–${m.tt} °C`, bg: 'rgba(224,166,84,0.16)', border: 'oklch(0.72 0.16 60)', glow: '0 0 18px rgba(224,166,84,0.45)', opacity: '1', textColor: '#eaf2fa', captionColor: 'oklch(0.78 0.16 60)', strike: 'none' };
+        }
+        return { name: m.name, caption: `TR ${m.tk} °C`, bg: 'rgba(120,150,180,0.05)', border: 'rgba(150,180,210,0.16)', glow: 'none', opacity: '0.6', textColor: '#aebfcf', captionColor: '#8296a8', strike: 'none' };
+      }),
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+</body>
+</html>

@@ -136,7 +136,12 @@ const CH = { x: 84, y: 722, w: 1752, h: 260, padL: 96, padR: 30, padT: 70, padB:
 const CMAX = 2, TMIN = 480, TMAX = 1200;
 const chX = (c) => CH.x + CH.padL + (clamp(c, 0, CMAX) / CMAX) * (CH.w - CH.padL - CH.padR);
 const chY = (temp) => CH.y + CH.padT + (1 - (clamp(temp, TMIN, TMAX) - TMIN) / (TMAX - TMIN)) * (CH.h - CH.padT - CH.padB);
-const FEC = window.FEC;   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js
+const FEC = window.FEC || {   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js (záložní kopie, kdyby se soubor nenačetl)
+  C_P: 0.018, C_S: 0.765, C_E: 2.14, C_C: 4.3, C_CEM: 6.68, EUT_TOL: 0.02,
+  T_A: 1538, T_G: 911, T_EUT: 1147, T_A1: 727, T_D: 1380,
+  CEM: { HV_SURFACE: 690, HRC_SURFACE: 60, HV_CORE: 165, C_CORE: 0.17 },
+  cz: function (v, dec) { return (dec == null ? String(v) : v.toFixed(dec)).replace('.', ','); },
+};
 const upperCrit = (c) => (c <= FEC.C_S
   ? FEC.T_G - (FEC.T_G - FEC.T_A1) * (c / FEC.C_S)
   : FEC.T_A1 + (FEC.T_EUT - FEC.T_A1) * ((c - FEC.C_S) / (FEC.C_E - FEC.C_S)));

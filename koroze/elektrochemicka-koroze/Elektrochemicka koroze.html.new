@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elektrochemická koroze | STT</title>
+<meta name="description" content="Galvanický článek na povrchu kovu: oxidace na anodě, redukce na katodě a vznik rzi — animovaně a s rovnicemi.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'koroze/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="../index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Koroze kovů</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:860px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:oklch(0.72 0.16 35);text-transform:uppercase;margin-bottom:10px">Koroze kovů</div>
+    <h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:32px;line-height:1.2;margin:0 0 10px;letter-spacing:-0.01em">Elektrochemická koroze</h1>
+    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Na povrchu kovu vzniká drobný galvanický článek: v místě <strong style="color: rgb(234, 242, 250);">anody</strong>  kov oxiduje a tím se <b style="color: rgb(234, 242, 250);">rozpouští</b>, elektrony putují kovem do místa <strong style="color: rgb(234, 242, 250);">katody</strong>, kde je spotřebuje redukce z okolního prostředí (elektrolytu).</p>
+
+    <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:24px">
+      <div style="position:relative;max-width:480px;margin:0 auto;width:100%">
+      <svg viewBox="0 0 480 200" width="100%" style="display:block">
+        <rect x="20" y="60" width="440" height="100" rx="10" fill="rgba(120,180,230,0.08)" stroke="rgba(120,180,230,0.2)" stroke-width="1.5"></rect>
+        <rect x="60" y="{{ anodeY }}" width="34" height="{{ anodeHeight }}" rx="4" fill="oklch(0.6 0.15 40)"></rect>
+        <rect x="386" y="40" width="34" height="130" rx="4" fill="oklch(0.55 0.02 60)"></rect>
+        <text x="77" y="30" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-weight="600" font-size="14" fill="#eaf2fa">Anoda (−)</text>
+        <g onClick="{{ toggleAnodeInfo }}" style="cursor:pointer">
+          <circle cx="126" cy="25" r="8" fill="{{ anodeInfoBg }}" stroke="oklch(0.72 0.16 35)" stroke-width="1.3"></circle>
+          <text x="126" y="29" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-weight="700" font-size="11" fill="oklch(0.72 0.16 35)">?</text>
+        </g>
+        <text x="403" y="30" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-weight="600" font-size="14" fill="#eaf2fa">Katoda (+)</text>
+        <path d="M94 70 C 200 40, 280 40, 386 70" fill="none" stroke="oklch(0.72 0.16 35)" stroke-width="2" stroke-dasharray="5 4"></path>
+        <polygon points="9,0 -5,-5.5 -5,5.5" fill="oklch(0.72 0.16 35)" transform="translate(340,58.5) rotate(12)"></polygon>
+        <text x="240" y="38" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="oklch(0.72 0.16 35)">tok elektronů e⁻</text>
+        <sc-for list="{{ electrons }}" as="el" hint-placeholder-count="3">
+          <circle cx="{{ el.x }}" cy="{{ el.y }}" r="4.5" fill="#5fc0ef" opacity="{{ el.opacity }}"></circle>
+        </sc-for>
+        <sc-for list="{{ feIons }}" as="ion" hint-placeholder-count="4">
+          <circle cx="{{ ion.x }}" cy="{{ ion.y }}" r="4" fill="oklch(0.6 0.15 40)" opacity="{{ ion.opacity }}"></circle>
+        </sc-for>
+        <sc-for list="{{ cathodeParticles }}" as="p" hint-placeholder-count="4">
+          <circle cx="{{ p.x }}" cy="{{ p.y }}" r="{{ p.r }}" fill="{{ p.color }}" opacity="{{ p.opacity }}"></circle>
+        </sc-for>
+        <sc-if value="{{ cathodeWaitCount }}" hint-placeholder-val="{{ false }}">
+          <text x="432" y="104" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" fill="#5fc0ef">e⁻: {{ cathodeWaitCount }}</text>
+        </sc-if>
+        <sc-if value="{{ acidBoostOpacity }}" hint-placeholder-val="{{ false }}">
+          <text x="110" y="100" text-anchor="start" font-family="IBM Plex Mono,monospace" font-weight="700" font-size="11" fill="oklch(0.72 0.16 35)" opacity="{{ acidBoostOpacity }}">⚡ rychleji</text>
+        </sc-if>
+        <text x="240" y="185" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#8296a8">elektrolyt</text>
+        <text x="240" y="14" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-weight="600" font-size="12" fill="oklch(0.72 0.16 35)">{{ sceneLabel }}</text>
+      </svg>
+      <sc-if value="{{ showAnodeInfo }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ toggleAnodeInfo }}" style="position:absolute;top:8%;left:0;max-width:300px;background:oklch(0.17 0.02 255);border:1px solid rgba(239,140,92,0.4);border-radius:12px;padding:14px 16px;box-shadow:0 8px 24px rgba(0,0,0,0.4);z-index:5;cursor:pointer">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;color:oklch(0.78 0.16 35);margin-bottom:6px">Anoda</div>
+          <div style="font-size:13.5px;line-height:1.6;color:#d6e2ee">V elektrochemii představuje anoda elektrodu, na které probíhá oxidace. V případě vložení vnějšího napětí na elektrody (při elektrolýze) je anoda kladným pólem, <strong style="color:#eaf2fa">v případě elektrického článku záporným pólem</strong>.</div>
+        </div>
+      </sc-if>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <button type="button" onClick="{{ setNeutral }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ neutralBorder }};background:{{ neutralBg }};color:{{ neutralColor }};font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Neutrální / zásadité prostředí</button>
+        <button type="button" onClick="{{ setAcidic }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ acidicBorder }};background:{{ acidicBg }};color:{{ acidicColor }};font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Kyselé prostředí</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:rgba(120,150,180,0.08);border:1px solid rgba(150,180,210,0.18);border-radius:12px;padding:16px 18px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Anoda — oxidace kovu</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#eaf2fa">Fe → Fe²⁺ + 2e⁻</div>
+        </div>
+        <div style="background:rgba(120,150,180,0.08);border:1px solid rgba(150,180,210,0.18);border-radius:12px;padding:16px 18px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Katoda — redukce</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#eaf2fa">{{ cathodeEquation }}</div>
+        </div>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:#aebfcf;margin:0">{{ cathodeNote }}</p>
+
+      <div style="background:rgba(120,150,180,0.08);border:1px solid rgba(150,180,210,0.18);border-radius:12px;padding:16px 18px">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Celková reakce — vznik rzi</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#eaf2fa;line-height:1.7">Fe²⁺ + 2OH⁻ → Fe(OH)₂<br>4Fe(OH)₂ + O₂ + 2H₂O → 4Fe(OH)₃</div>
+        <p style="font-size:14.5px;line-height:1.6;color:#aebfcf;margin:10px 0 0">Fe²⁺ z anody se hned slučuje s OH⁻ vzniklým na katodě na nerozpustný hydroxid železnatý. Ten se vzdušným kyslíkem dál oxiduje na hydroxid železitý, který dehydratací dává typickou pórovitou rez (Fe₂O₃·xH₂O).</p>
+      </div>
+    </div>
+
+    <p style="font-size:15px;line-height:1.7;color:#aebfcf;margin:24px 0 0">Termodynamický směr děje popisuje <strong style="color:#eaf2fa">Nernstova rovnice</strong> — zjednodušeně: čím zápornější je aktuální elektrodový potenciál kovu vůči prostředí, tím ochotněji se kov rozpouští jako anoda.</p>
+  </div>
+</div>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#080b12"></rect><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="220" fill="oklch(0.72 0.16 35)">e⁻</text></svg></template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+function cubicBezier(u, p0, p1, p2, p3) {
+  const mu = 1 - u;
+  const x = mu*mu*mu*p0[0] + 3*mu*mu*u*p1[0] + 3*mu*u*u*p2[0] + u*u*u*p3[0];
+  const y = mu*mu*mu*p0[1] + 3*mu*mu*u*p1[1] + 3*mu*u*u*p2[1] + u*u*u*p3[1];
+  return { x, y };
+}
+const lerp = (a, b, u) => a + (b - a) * u;
+
+class Component extends DCLogic {
+  state = { galvEnv: 'neutral', animT: 0, animRunning: true, showAnodeInfo: false };
+
+  componentDidMount() {
+    this._last = performance.now();
+    this._tick = () => {
+      const now = performance.now();
+      const dt = (now - this._last) / 1000;
+      this._last = now;
+      if (this.state.animRunning) this.setState(s => ({ animT: s.animT + dt }));
+      this._raf = requestAnimationFrame(this._tick);
+    };
+    this._raf = requestAnimationFrame(this._tick);
+  }
+
+  componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._envTimer) clearTimeout(this._envTimer);
+  }
+
+  switchEnv(env) {
+    if (this._envTimer) clearTimeout(this._envTimer);
+    this.setState({ galvEnv: env, animRunning: false, animT: 0 });
+    this._envTimer = setTimeout(() => this.setState({ animRunning: true }), 1200);
+  }
+
+  renderVals() {
+    const neutral = this.state.galvEnv === 'neutral';
+    const cathodeEquation = neutral ? 'O₂ + 2H₂O + 4e⁻ → 4OH⁻' : '2H⁺ + 2e⁻ → H₂';
+    const cathodeNote = neutral
+      ? 'V neutrálním až zásaditém prostředí spotřebovává elektrony kyslík rozpuštěný ve vlhkosti.'
+      : 'V kyselém prostředí spotřebovávají elektrony vodíkové ionty za vzniku plynného vodíku. Vodíkových iontů je v roztoku mnohem více a katodová reakce běží rychleji než redukce kyslíku — anoda proto musí dodávat elektrony (rozpouštět kov) také rychleji, koroze zrychluje.';
+
+    return {
+      cathodeEquation, cathodeNote,
+      showAnodeInfo: this.state.showAnodeInfo,
+      anodeInfoBg: this.state.showAnodeInfo ? 'oklch(0.72 0.16 35 / 0.28)' : 'oklch(0.17 0.02 255)',
+      toggleAnodeInfo: () => this.setState(s => ({ showAnodeInfo: !s.showAnodeInfo })),
+      setNeutral: () => this.switchEnv('neutral'),
+      setAcidic: () => this.switchEnv('acidic'),
+      neutralBg: neutral ? 'oklch(0.72 0.16 35)' : 'rgba(120,150,180,0.1)', neutralColor: neutral ? '#0b0e15' : '#aebfcf', neutralBorder: neutral ? 'oklch(0.72 0.16 35)' : 'rgba(150,180,210,0.3)',
+      acidicBg: !neutral ? 'oklch(0.72 0.16 35)' : 'rgba(120,150,180,0.1)', acidicColor: !neutral ? '#0b0e15' : '#aebfcf', acidicBorder: !neutral ? 'oklch(0.72 0.16 35)' : 'rgba(150,180,210,0.3)',
+      ...this.computeGalvanicScene(neutral),
+    };
+  }
+
+  computeGalvanicScene(neutral) {
+    const running = this.state.animRunning;
+    if (!running) return { electrons: [], feIons: [], cathodeParticles: [], anodeHeight: 130, anodeY: 40, sceneLabel: 'Ukazuji rovnici…', cathodeWaitCount: 0, acidBoostOpacity: 0 };
+    return neutral ? this.computeNeutralScene() : this.computeAcidicScene();
+  }
+
+  computeAcidicScene() {
+    const P0 = [94, 70], P1 = [200, 40], P2 = [280, 40], P3 = [386, 70];
+    const CATHODE = [386, 70];
+    const FE_REST = [130, 100];
+    const D_FLY = 1.3, D_POP = 0.35, D_RISE = 1.35, D_ION = 1.0, D_END = 0.5;
+    const B1 = D_FLY, B2 = B1 + D_POP, B3 = B2 + D_RISE, B4 = B3 + D_ION, TOTAL = B4 + D_END;
+    const localT = this.state.animT % TOTAL;
+    const clamp01 = (x) => Math.max(0, Math.min(1, x));
+    const easeTo = (a, b, t0, t1) => clamp01((localT - t0) / (t1 - t0)) * (b - a) + a;
+    const stackY = (i, n) => CATHODE[1] + (i - (n - 1) / 2) * 11;
+
+    let electrons = [];
+    let feAtoms = [];
+    let ohBalls = [];
+    let sceneLabel = '';
+    let acidBoostOpacity = 0;
+
+    let anodeHeight = 130;
+    if (localT >= 0) anodeHeight = easeTo(130, 112, 0, B1);
+    if (localT >= B4) anodeHeight = easeTo(112, 130, B4, TOTAL);
+
+    if (localT < B1) {
+      sceneLabel = 'Fe → Fe²⁺ + 2e⁻ (anoda dodává elektrony rychleji)';
+      acidBoostOpacity = 1;
+      const p = localT / D_FLY;
+      electrons = [0, 1].map(i => { const { x, y } = cubicBezier(clamp01(p + i * 0.06), P0, P1, P2, P3); return { x, y }; });
+      const fp = clamp01(p / 0.7);
+      feAtoms = [{ x: lerp(94, FE_REST[0], fp), y: lerp(85, FE_REST[1], fp), opacity: 1 }];
+    } else if (localT < B2) {
+      sceneLabel = 'U katody: 2H⁺ + 2e⁻ → H₂';
+      const p = (localT - B1) / D_POP;
+      electrons = [0, 1].map((_, i) => ({ x: CATHODE[0], y: stackY(i, 2), opacity: 1 - p }));
+      ohBalls = [{ x: CATHODE[0], y: CATHODE[1], r: 3 + 3 * p, opacity: p }];
+      feAtoms = [{ x: FE_REST[0], y: FE_REST[1], opacity: 1 }];
+    } else if (localT < B3) {
+      sceneLabel = 'H₂ bublina uniká k hladině';
+      const p = (localT - B2) / D_RISE;
+      const y = lerp(CATHODE[1], 14, p);
+      const opacity = p < 0.75 ? 1 : Math.max(0, 1 - (p - 0.75) / 0.25);
+      ohBalls = [{ x: CATHODE[0], y, r: 6 + p * 2, opacity }];
+      feAtoms = [{ x: FE_REST[0], y: FE_REST[1], opacity: 1 }];
+    } else {
+      sceneLabel = 'Fe²⁺ odchází do roztoku';
+      const p = (localT - B3) / D_ION;
+      feAtoms = [{ x: lerp(FE_REST[0], FE_REST[0] + 40, p), y: lerp(FE_REST[1], FE_REST[1] + 22, p), opacity: 1 - p }];
+    }
+
+    const feIons = feAtoms.map(f => ({ x: f.x, y: f.y, opacity: f.opacity }));
+    const cathodeParticles = ohBalls.map(o => ({ x: o.x, y: o.y, r: o.r, color: '#5fc0ef', opacity: o.opacity }));
+    return { electrons, feIons, cathodeParticles, anodeHeight, anodeY: 170 - anodeHeight, sceneLabel, cathodeWaitCount: 0, acidBoostOpacity };
+  }
+
+  computeNeutralScene() {
+    const P0 = [94, 70], P1 = [200, 40], P2 = [280, 40], P3 = [386, 70];
+    const CATHODE = [386, 70];
+    const FE1_REST = [150, 122], FE2_REST = [196, 134];
+    const D_FLY1 = 2.4, D_WAIT = 1.0, D_FLY2 = 2.4, D_POP = 0.6, D_TRAVEL = 2.2, D_CONSUME = 0.8, D_END = 2.0;
+    const B1 = D_FLY1, B2 = B1 + D_WAIT, B3 = B2 + D_FLY2, B4 = B3 + D_POP, B5 = B4 + D_TRAVEL, B6 = B5 + D_CONSUME, TOTAL = B6 + D_END;
+    const localT = this.state.animT % TOTAL;
+    const clamp01 = (x) => Math.max(0, Math.min(1, x));
+    const easeTo = (a, b, t0, t1) => clamp01((localT - t0) / (t1 - t0)) * (b - a) + a;
+
+    let electrons = [];
+    let feAtoms = [];
+    let ohBalls = [];
+    let sceneLabel = '';
+    let cathodeWaitCount = 0;
+    const stackY = (i, n) => CATHODE[1] + (i - (n - 1) / 2) * 11;
+
+    let anodeHeight = 130;
+    if (localT >= 0) anodeHeight = easeTo(130, 112, 0, B1 * 0.3);
+    if (localT >= B2) anodeHeight = easeTo(112, 94, B2, B2 + D_FLY2 * 0.3);
+    if (localT >= B6) anodeHeight = easeTo(94, 130, B6, TOTAL);
+
+    if (localT < B1) {
+      sceneLabel = 'Fe → Fe²⁺ + 2e⁻';
+      const p = localT / D_FLY1;
+      electrons = [0, 1].map(i => { const { x, y } = cubicBezier(clamp01(p + i * 0.06), P0, P1, P2, P3); return { x, y }; });
+      const fp = clamp01(p / 0.7);
+      feAtoms = [{ x: lerp(94, FE1_REST[0], fp), y: lerp(85, FE1_REST[1], fp), opacity: 1 }];
+    } else if (localT < B2) {
+      sceneLabel = '2 e⁻ čekají u katody';
+      electrons = [0, 1].map((_, i) => ({ x: CATHODE[0], y: stackY(i, 2) }));
+      feAtoms = [{ x: FE1_REST[0], y: FE1_REST[1], opacity: 1 }];
+      cathodeWaitCount = 2;
+    } else if (localT < B3) {
+      sceneLabel = 'Fe → Fe²⁺ + 2e⁻ (podruhé)';
+      const p = (localT - B2) / D_FLY2;
+      electrons = [0, 1].map((_, i) => ({ x: CATHODE[0], y: stackY(i, 2) }))
+        .concat([0, 1].map(i => { const { x, y } = cubicBezier(clamp01(p + i * 0.06), P0, P1, P2, P3); return { x, y }; }));
+      const fp = clamp01(p / 0.7);
+      feAtoms = [
+        { x: FE1_REST[0], y: FE1_REST[1], opacity: 1 },
+        { x: lerp(94, FE2_REST[0], fp), y: lerp(85, FE2_REST[1], fp), opacity: 1 },
+      ];
+      cathodeWaitCount = 2;
+    } else if (localT < B4) {
+      sceneLabel = 'U katody: O₂ + 2H₂O + 4e⁻ → 4OH⁻';
+      const p = (localT - B3) / D_POP;
+      electrons = [0, 1, 2, 3].map((_, i) => ({ x: CATHODE[0], y: stackY(i, 4), opacity: 1 - p }));
+      ohBalls = [0, 1, 2, 3].map((_, i) => ({ x: CATHODE[0], y: stackY(i, 4), opacity: p }));
+      feAtoms = [{ x: FE1_REST[0], y: FE1_REST[1], opacity: 1 }, { x: FE2_REST[0], y: FE2_REST[1], opacity: 1 }];
+      cathodeWaitCount = 4;
+    } else if (localT < B5) {
+      sceneLabel = 'OH⁻ míří k Fe²⁺';
+      const p = (localT - B4) / D_TRAVEL;
+      const targets = [
+        [FE1_REST[0] - 9, FE1_REST[1]], [FE1_REST[0] + 9, FE1_REST[1]],
+        [FE2_REST[0] - 9, FE2_REST[1]], [FE2_REST[0] + 9, FE2_REST[1]],
+      ];
+      ohBalls = targets.map(tg => ({ x: lerp(CATHODE[0], tg[0], p), y: lerp(CATHODE[1], tg[1], p), opacity: 1 }));
+      feAtoms = [{ x: FE1_REST[0], y: FE1_REST[1], opacity: 1 }, { x: FE2_REST[0], y: FE2_REST[1], opacity: 1 }];
+    } else if (localT < B6) {
+      sceneLabel = 'Vzniká Fe(OH)₂ — kov mizí';
+      const p = (localT - B5) / D_CONSUME;
+      const fe1Op = 1 - clamp01(p / 0.6);
+      const fe2Op = 1 - clamp01((p - 0.25) / 0.6);
+      ohBalls = [
+        { x: FE1_REST[0] - 9, y: FE1_REST[1], opacity: fe1Op }, { x: FE1_REST[0] + 9, y: FE1_REST[1], opacity: fe1Op },
+        { x: FE2_REST[0] - 9, y: FE2_REST[1], opacity: fe2Op }, { x: FE2_REST[0] + 9, y: FE2_REST[1], opacity: fe2Op },
+      ];
+      feAtoms = [{ x: FE1_REST[0], y: FE1_REST[1], opacity: fe1Op }, { x: FE2_REST[0], y: FE2_REST[1], opacity: fe2Op }];
+    } else {
+      sceneLabel = 'Reakce dokončena';
+    }
+
+    const feIons = feAtoms.map(f => ({ x: f.x, y: f.y, opacity: f.opacity }));
+    const cathodeParticles = ohBalls.map(o => ({ x: o.x, y: o.y, r: 4.5, color: '#5fc0ef', opacity: o.opacity }));
+    return { electrons, feIons, cathodeParticles, anodeHeight, anodeY: 170 - anodeHeight, sceneLabel, cathodeWaitCount, acidBoostOpacity: 0 };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+</body>
+</html>

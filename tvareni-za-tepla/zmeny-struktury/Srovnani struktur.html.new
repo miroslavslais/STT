@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Srovnání výsledné struktury | STT</title>
+<meta name="description" content="Litá, za tepla tvářená a za studena tvářená struktura vedle sebe — přepínatelné schéma.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } table { border-collapse: collapse; width: 100%; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'tvareni-za-tepla/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Změny struktury</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:820px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:8px">Změny struktury</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Srovnání výsledné struktury</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 24px">Tři výchozí/výsledné stavy struktury kovu vedle sebe — litý stav, tvářený za tepla a tvářený za studena.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px;margin-bottom:24px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:16px">Přepni stav struktury</div>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px">
+        <button type="button" onClick="{{ setCast }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ castBtnBorder }};background:{{ castBtnBg }};color:{{ castBtnText }};font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Litá struktura</button>
+        <button type="button" onClick="{{ setHot }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ hotBtnBorder }};background:{{ hotBtnBg }};color:{{ hotBtnText }};font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Tvářená za tepla</button>
+        <button type="button" onClick="{{ setCold }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ coldBtnBorder }};background:{{ coldBtnBg }};color:{{ coldBtnText }};font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Tvářená za studena</button>
+      </div>
+
+      <div style="display:flex;justify-content:center;margin-bottom:20px">
+        <div dangerouslySetInnerHTML="{{ structureSVG }}" style="width:100%;max-width:420px"></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:12px 4px;border-bottom:1px solid rgba(150,180,210,0.12)">
+          <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#8296a8">Velikost zrna</span>
+          <span style="font-size:14px;color:#eaf2fa;text-align:right">{{ stats.zrna }}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:12px 4px;border-bottom:1px solid rgba(150,180,210,0.12)">
+          <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#8296a8">Vnitřní pnutí</span>
+          <span style="font-size:14px;color:#eaf2fa;text-align:right">{{ stats.pnuti }}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:12px 4px;border-bottom:1px solid rgba(150,180,210,0.12)">
+          <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#8296a8">Vady</span>
+          <span style="font-size:14px;color:#eaf2fa;text-align:right">{{ stats.vady }}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;gap:16px;padding:12px 4px">
+          <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#8296a8">Mech. vlastnosti</span>
+          <span style="font-size:14px;color:#eaf2fa;text-align:right">{{ stats.mech }}</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Tváření za tepla tak leží mezi oběma krajnostmi: výrazně zlepšuje litou strukturu, aniž by přinášelo zpevnění a vnitřní pnutí typické pro tváření za studena.</p>
+
+    <div style="background:rgba(214,110,80,0.08);border:1px solid rgba(214,110,80,0.25);border-radius:14px;padding:18px 22px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:6px">Shrnutí</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Litá → hrubá s vadami. Za tepla → jemná, bez pnutí, ale anizotropní. Za studena → zpevněná, s vnitřním pnutím.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STATS = {
+  cast: { zrna: 'hrubé, nerovnoměrné', pnuti: 'nízké (od chladnutí)', vady: 'staženiny, bubliny, segregace', mech: 'nízké, nerovnoměrné' },
+  hot: { zrna: 'jemné, rovnoosé', pnuti: 'prakticky žádné', vady: 'vady zavařeny, vláknitá makrostruktura', mech: 'vysoké, ale anizotropní' },
+  cold: { zrna: 'protažené, zploštělé', pnuti: 'vysoké (od nerovnoměrné deformace)', vady: 'riziko trhlin při velké deformaci', mech: 'vysoká pevnost, nižší tažnost' },
+};
+const COLORS = { cast: 'rgba(150,180,210,0.7)', hot: 'oklch(0.72 0.16 20)', cold: 'oklch(0.7 0.15 230)' };
+
+function frame() {
+  return '<rect x="20" y="20" width="280" height="160" rx="20" fill="rgba(150,180,210,0.05)" stroke="rgba(150,180,210,0.3)" stroke-width="1.5"/>';
+}
+
+function castSVG() {
+  const c = COLORS.cast;
+  const grains = `<g stroke="${c}" stroke-width="1.6" fill="none" stroke-linecap="round">
+    <path d="M70,20 Q80,80 62,120 Q56,160 70,180"/>
+    <path d="M110,20 Q102,80 118,120 Q126,160 110,180"/>
+    <path d="M170,20 Q182,80 158,120 Q146,160 170,180"/>
+    <path d="M250,20 Q240,80 258,120 Q266,160 250,180"/>
+    <path d="M20,55 Q90,64 160,50 Q230,66 300,55"/>
+    <path d="M20,95 Q90,86 160,100 Q230,82 300,95"/>
+    <path d="M20,140 Q90,150 160,138 Q230,152 300,140"/>
+  </g>`;
+  const defects = `<path d="M155,95 q14,-11 25,3 q7,15 -6,24 q-16,10 -25,-4 q-7,-14 6,-23 z" fill="oklch(0.6 0.18 25)"/>
+    <circle cx="95" cy="75" r="4" fill="oklch(0.6 0.18 25)"/>
+    <circle cx="210" cy="70" r="3.5" fill="oklch(0.6 0.18 25)"/>
+    <circle cx="90" cy="140" r="4" fill="oklch(0.6 0.18 25)"/>`;
+  return `<g clip-path="url(#structClip)">${grains}${defects}</g>`;
+}
+
+function hotSVG() {
+  const c = COLORS.hot;
+  const cols = 5, rows = 4, x0 = 24, x1 = 296, y0 = 24, y1 = 176;
+  const cellW = (x1 - x0) / cols, cellH = (y1 - y0) / rows;
+  const pts = [];
+  for (let j = 0; j <= rows; j++) {
+    const row = [];
+    for (let i = 0; i <= cols; i++) {
+      const edge = i === 0 || i === cols || j === 0 || j === rows;
+      const jx = edge ? 0 : Math.sin(i * 2.1 + j * 1.3) * cellW * 0.22;
+      const jy = edge ? 0 : Math.cos(j * 2.3 + i * 1.7) * cellH * 0.22;
+      row.push({ x: x0 + i * cellW + jx, y: y0 + j * cellH + jy });
+    }
+    pts.push(row);
+  }
+  let out = '';
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
+      const a = pts[j][i], b = pts[j][i + 1], d = pts[j + 1][i + 1], e = pts[j + 1][i];
+      const shade = (i + j) % 2 === 0 ? 'rgba(224,166,84,0.08)' : 'rgba(224,166,84,0.14)';
+      out += `<polygon points="${a.x.toFixed(1)},${a.y.toFixed(1)} ${b.x.toFixed(1)},${b.y.toFixed(1)} ${d.x.toFixed(1)},${d.y.toFixed(1)} ${e.x.toFixed(1)},${e.y.toFixed(1)}" fill="${shade}" stroke="${c}" stroke-width="1.6" stroke-linejoin="round"/>`;
+    }
+  }
+  return `<g clip-path="url(#structClip)">${out}</g>`;
+}
+
+function coldSVG() {
+  const c = COLORS.cold;
+  const cols = 4, rows = 4, x0 = 24, x1 = 296, y0 = 24, y1 = 140;
+  const cellW = (x1 - x0) / cols, cellH = (y1 - y0) / rows;
+  const pts = [];
+  for (let j = 0; j <= rows; j++) {
+    const row = [];
+    for (let i = 0; i <= cols; i++) {
+      const edge = i === 0 || i === cols || j === 0 || j === rows;
+      const jx = edge ? 0 : Math.sin(i * 1.6 + j * 2.4) * cellW * 0.14;
+      const jy = edge ? 0 : Math.cos(j * 2.1 + i * 1.1) * cellH * 0.22;
+      row.push({ x: x0 + i * cellW + jx, y: y0 + j * cellH + jy });
+    }
+    pts.push(row);
+  }
+  let out = '';
+  for (let j = 0; j < rows; j++) {
+    for (let i = 0; i < cols; i++) {
+      const a = pts[j][i], b = pts[j][i + 1], d = pts[j + 1][i + 1], e = pts[j + 1][i];
+      const shade = (i + j) % 2 === 0 ? 'rgba(120,170,220,0.06)' : 'rgba(120,170,220,0.12)';
+      out += `<polygon points="${a.x.toFixed(1)},${a.y.toFixed(1)} ${b.x.toFixed(1)},${b.y.toFixed(1)} ${d.x.toFixed(1)},${d.y.toFixed(1)} ${e.x.toFixed(1)},${e.y.toFixed(1)}" fill="${shade}" stroke="${c}" stroke-width="1.6" stroke-linejoin="round"/>`;
+    }
+  }
+  const arrow = `<line x1="60" y1="160" x2="260" y2="160" stroke="${c}" stroke-width="1.6"/><path d="M252,154 L262,160 L252,166" fill="none" stroke="${c}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="160" y="178" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#8296a8">směr tváření</text>`;
+  return `<g clip-path="url(#structClip)">${out}</g>${arrow}`;
+}
+
+function buildStructureSVG(mode) {
+  const body = mode === 'hot' ? hotSVG() : mode === 'cold' ? coldSVG() : castSVG();
+  return `<svg width="100%" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+    <defs><clipPath id="structClip"><rect x="20" y="20" width="280" height="160" rx="20"/></clipPath></defs>
+    ${frame()}
+    ${body}
+  </svg>`;
+}
+
+class Component extends DCLogic {
+  state = { mode: 'cast' };
+  renderVals() {
+    const mode = this.state.mode;
+    const btn = (key) => ({
+      bg: mode === key ? (key === 'hot' ? 'rgba(224,166,84,0.14)' : 'rgba(150,180,210,0.14)') : 'transparent',
+      border: mode === key ? COLORS[key] : 'rgba(150,180,210,0.25)',
+      text: mode === key ? COLORS[key] : '#8296a8',
+    });
+    const cast = btn('cast'), hot = btn('hot'), cold = btn('cold');
+    return {
+      setCast: () => this.setState({ mode: 'cast' }),
+      setHot: () => this.setState({ mode: 'hot' }),
+      setCold: () => this.setState({ mode: 'cold' }),
+      castBtnBg: cast.bg, castBtnBorder: cast.border, castBtnText: cast.text,
+      hotBtnBg: hot.bg, hotBtnBorder: hot.border, hotBtnText: hot.text,
+      coldBtnBg: cold.bg, coldBtnBorder: cold.border, coldBtnText: cold.text,
+      structureSVG: { __html: buildStructureSVG(mode) },
+      stats: STATS[mode],
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+</body>
+</html>

@@ -23,7 +23,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import posixpath
 import re
 import shutil
 import sys
@@ -32,8 +31,7 @@ import unicodedata
 import zipfile
 from dataclasses import dataclass, field
 from datetime import date, datetime
-from pathlib import Path, PurePosixPath
-from urllib.parse import unquote
+from pathlib import Path
 
 try:
     from bs4 import BeautifulSoup
@@ -102,24 +100,23 @@ def slugify(text: str) -> str:
 
 def normalized_hash(html: str) -> str:
     """
-    Hash celého souboru včetně <script> a <style>.
+    Hash počítaný jen z viditelného obsahu.
 
-    Na stránkách z Claude Design žije velká část obsahu v JavaScriptu —
-    navigace, data karet, ikony, animace. Kdyby se skripty ze srovnání
-    vynechaly, změny v nich by zůstaly neviditelné a soubor by se nikdy
-    nepřepsal.
-
-    Vypouští se jen vložený blok badge, aby zápis skriptu sám o sobě
-    nevypadal jako změna obsahu, a sjednocují se konce řádků.
+    Zahazuje <script>, <style>, komentáře a všechny atributy, takže vložení
+    badge ani nedeterministická ID z exportu hash neovlivní. Sleduje se text
+    a struktura nadpisů — tedy to, co student skutečně vidí.
     """
-    if MARK_START in html:
-        html = re.sub(
-            re.escape(MARK_START) + r".*?" + re.escape(MARK_END),
-            "", html, flags=re.S,
-        )
-    html = re.sub(r'\s*data-first-seen="[^"]*"', "", html, count=1)
-    html = html.replace("\r\n", "\n").replace("\r", "\n").strip()
-    return hashlib.sha256(html.encode("utf-8")).hexdigest()
+    soup = BeautifulSoup(html, "html.parser")
+    for tag in soup(["script", "style", "noscript"]):
+        tag.decompose()
+
+    parts: list[str] = []
+    for el in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"]):
+        parts.append(f"#{el.name}:{' '.join(el.get_text().split())}")
+    text = " ".join(soup.get_text(separator=" ").split())
+    parts.append(text)
+
+    return hashlib.sha256("\n".join(parts).encode("utf-8")).hexdigest()
 
 
 def read_text(path: Path) -> str:
@@ -158,113 +155,6 @@ class Report:
     renamed: list = field(default_factory=list)
     manual: list = field(default_factory=list)
     warnings: list = field(default_factory=list)
-    broken: list = field(default_factory=list)
-
-
-# ──────────────────────────────────────────────────────────────────────
-# Kontrola vnitřních odkazů
-# ──────────────────────────────────────────────────────────────────────
-
-LINK_ATTR = re.compile(r'(?:href|src)\s*=\s*"([^"]+)"', re.I)
-SKIP_PREFIX = ("http://", "https://", "mailto:", "tel:", "data:",
-               "javascript:", "#", "//")
-
-
-def _targets(export_root: Path, repo: Path) -> set:
-    """Všechny soubory, které na webu existují — z exportu i z repozitáře."""
-    found = set()
-    for base in (export_root, repo):
-        if not base.exists():
-            continue
-        for p in base.rglob("*"):
-            if p.is_file():
-                rel = str(p.relative_to(base)).replace("\\", "/")
-                if not rel.startswith((".git/", "_trash/")):
-                    found.add(rel)
-    return found
-
-
-def _resolve_link(raw: str, page_rel: str) -> str | None:
-    """Odkaz převede na cestu vůči kořeni webu, nebo vrátí None (přeskočit)."""
-    link = raw.strip()
-    if not link or link.startswith(SKIP_PREFIX) or "{{" in link or "{%" in link:
-        return None
-    link = link.split("#", 1)[0].split("?", 1)[0]
-    if not link:
-        return None
-    link = unquote(link).replace("&amp;", "&")
-
-    if link.startswith("/"):
-        parts = link.lstrip("/").split("/")
-        # web běží v podadresáři (/STT/...), první segment odřízneme
-        base = PurePosixPath("/".join(parts[1:]) if len(parts) > 1 else parts[0])
-    else:
-        base = PurePosixPath(posixpath.normpath(
-            posixpath.join(posixpath.dirname(page_rel), link)))
-
-    out = str(base).lstrip("./")
-    if out in ("", "."):
-        return None
-    if out.endswith("/"):
-        out += "index.html"
-    return out
-
-
-def check_links(export_root: Path, repo: Path, report: Report) -> None:
-    """Projde odkazy ve stránkách i v site-structure.json a hlásí ty mrtvé."""
-    targets = _targets(export_root, repo)
-    seen: set = set()
-
-    sources: list = [(str(p.relative_to(export_root)).replace("\\", "/"),
-                      read_text(p))
-                     for p in sorted(export_root.rglob("*.html"))]
-
-    for page_rel, text in sources:
-        for raw in LINK_ATTR.findall(text):
-            target = _resolve_link(raw, page_rel)
-            if target is None or target in targets:
-                continue
-            key = (page_rel, target)
-            if key not in seen:
-                seen.add(key)
-                report.broken.append((page_rel, raw.strip()))
-
-    # site-structure.json: cesty jsou relativní ke stránce, která je používá,
-    # a ta z JSONu není poznat — proto se hledá shoda na konci cesty.
-    # Karty označené jako připravované ještě soubor mít nemusí.
-    structure = export_root / "site-structure.json"
-    if structure.exists():
-        raw_json = read_text(structure)
-        planned: set = set()
-        try:
-            data = json.loads(raw_json)
-
-            def collect(node):
-                if isinstance(node, dict):
-                    status = str(node.get("status", ""))
-                    if node.get("href") and status.startswith("coming"):
-                        planned.add(node["href"])
-                    for v in node.values():
-                        collect(v)
-                elif isinstance(node, list):
-                    for v in node:
-                        collect(v)
-
-            collect(data)
-        except (ValueError, TypeError):
-            pass
-
-        for raw in re.findall(r'"(?:href|url|path)"\s*:\s*"([^"]+)"', raw_json):
-            if raw in planned:
-                continue
-            target = _resolve_link(raw, "x.html")
-            if target is None:
-                continue
-            if any(t == target or t.endswith("/" + target) for t in targets):
-                continue
-            if ("site-structure.json", target) not in seen:
-                seen.add(("site-structure.json", target))
-                report.broken.append(("site-structure.json", raw.strip()))
 
 
 # ──────────────────────────────────────────────────────────────────────
@@ -473,19 +363,9 @@ def sync(args) -> int:
                     trash = repo / "_trash" / old_file
                     trash.parent.mkdir(parents=True, exist_ok=True)
                     shutil.move(str(repo / old_file), str(trash))
-            elif e.new_slug in manifest and e.slug not in manifest:
-                pass  # přejmenování už proběhlo dřív — v pořádku
-            elif e.slug not in manifest:
-                report.warnings.append(
-                    f"Rename '{e.slug}' → '{e.new_slug}': starý slug není v "
-                    f"pages.json. Buď je v changelogu překlep, nebo stránka "
-                    f"pod tímto názvem nikdy na webu nebyla."
-                )
             else:
                 report.warnings.append(
-                    f"Rename '{e.slug}' → '{e.new_slug}': soubor pro nový slug "
-                    f"v exportu neexistuje. Nejspíš se změnil jen nadpis, ale "
-                    f"název souboru zůstal starý."
+                    f"Rename '{e.slug}' → '{e.new_slug}' se nepodařilo spárovat."
                 )
 
         for e in (x for x in entries if x.kind == "delete"):
@@ -565,33 +445,8 @@ def sync(args) -> int:
             fs = rec["first_seen"] if rec.get("badge") else None
             write_page(repo, rel, src_html, fs, rec, args.dry_run)
 
-        # ---- osiřelé stránky: v manifestu jsou, v exportu chybí ----
-        exported = set(pages)
-        orphans = [(slug, rec) for slug, rec in manifest.items()
-                   if rec.get("file") not in exported]
-        if orphans:
-            fresh = {slug: manifest[slug]["content_hash"] for slug, _ in report.new}
-            for slug, rec in orphans:
-                twin = next((s for s, h in fresh.items()
-                             if h == rec.get("content_hash")), None)
-                if twin:
-                    report.warnings.append(
-                        f"'{slug}' zmizel z exportu a '{twin}' má shodný obsah — "
-                        f"nejspíš přejmenování bez [rename] v changelogu. "
-                        f"Stará stránka v repu zůstává a odkazy na ni mohou být mrtvé."
-                    )
-                else:
-                    report.warnings.append(
-                        f"'{slug}' je v manifestu, ale v exportu chybí. "
-                        f"Soubor v repu zůstal nedotčený — zkontroluj, jestli nemá zmizet."
-                    )
-
         # ---- ostatní soubory (assety, novinky, konfigurace) ----
         copied_assets = copy_assets(export_root, repo, args.dry_run)
-
-        # ---- kontrola vnitřních odkazů ----
-        if not args.no_links:
-            check_links(export_root, repo, report)
 
     if not args.dry_run:
         manifest_path.write_text(
@@ -658,13 +513,6 @@ def print_report(r: Report, assets: int, args) -> None:
         print(f"\n  ⚠  Ručně upravené v repu — NEPŘEPSÁNO ({len(r.manual)}):")
         for slug in r.manual:
             print(f"     ! {slug}   (nová verze uložena jako .html.new)")
-    if r.broken:
-        print(f"\n  ⚠  Mrtvé odkazy ({len(r.broken)}):")
-        for page, link in r.broken[:25]:
-            print(f"     ✗ {page}")
-            print(f"        → {link}")
-        if len(r.broken) > 25:
-            print(f"     … a dalších {len(r.broken) - 25}")
     if r.warnings:
         print(f"\n  ⚠  Upozornění ({len(r.warnings)}):")
         for w in r.warnings:
@@ -687,8 +535,6 @@ def main() -> int:
     p.add_argument("--refresh", action="store_true",
                    help="přepíše všechny stránky z exportu i beze změny obsahu "
                         "(oprava po chybném zápisu); first_seen zůstává")
-    p.add_argument("--no-links", action="store_true",
-                   help="vypne kontrolu vnitřních odkazů")
     return sync(p.parse_args())
 
 

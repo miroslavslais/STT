@@ -17,7 +17,12 @@ function fade(t, a, b, c, d) {
 const lerp = (a, b, u) => a + (b - a) * u;
 
 // ── metody ──────────────────────────────────────────────────────────────────
-const FEC = window.FEC;   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js
+const FEC = window.FEC || {   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js (záložní kopie, kdyby se soubor nenačetl)
+  C_P: 0.018, C_S: 0.765, C_E: 2.14, C_C: 4.3, C_CEM: 6.68, EUT_TOL: 0.02,
+  T_A: 1538, T_G: 911, T_EUT: 1147, T_A1: 727, T_D: 1380,
+  CEM: { HV_SURFACE: 690, HRC_SURFACE: 60, HV_CORE: 165, C_CORE: 0.17 },
+  cz: function (v, dec) { return (dec == null ? String(v) : v.toFixed(dec)).replace('.', ','); },
+};
 const DEPTH_MAX = 4;      // mm, společné měřítko
 const HV_MAX = 1200;
 const CEM_C_CORE = FEC.cz(FEC.CEM.C_CORE, 2);

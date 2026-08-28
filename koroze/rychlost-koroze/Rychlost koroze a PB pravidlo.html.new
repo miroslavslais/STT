@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rychlost koroze a Pilling–Bedworthovo pravidlo | STT</title>
+<meta name="description" content="Poměr objemu oxidu k objemu kovu rozhoduje, kdy vrstva oxidů chrání a kdy praská. Animace a kvíz.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'koroze/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="../index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Koroze kovů</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:860px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:oklch(0.72 0.16 35);text-transform:uppercase;margin-bottom:10px">Koroze kovů</div>
+    <h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:32px;line-height:1.2;margin:0 0 10px;letter-spacing:-0.01em">Rychlost koroze a Pilling–Bedworthovo pravidlo</h1>
+    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Poměr objemu oxidu k objemu kovu, ze kterého vznikl (PBR), rozhoduje, jestli vrstva kov chrání, nebo ne. Vyber kov a sleduj růst vrstvy, animaci lze kdykoliv přehrát znovu.</p>
+
+    <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:28px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px">
+        <sc-for list="{{ pbMaterials }}" as="mat" hint-placeholder-count="3">
+          <button type="button" onClick="{{ mat.select }}" style="padding:8px 16px;border-radius:999px;border:1px solid {{ mat.border }};background:{{ mat.bg }};color:{{ mat.color }};font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">{{ mat.label }}</button>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;gap:32px;align-items:center;flex-wrap:wrap">
+        <div style="width:160px;height:200px;position:relative;background:rgba(120,150,180,0.08);border-radius:8px;overflow:hidden;border:1px solid rgba(150,180,210,0.18)">
+          <div style="position:absolute;left:0;right:0;bottom:0;height:120px;background:oklch(0.55 0.02 60)"></div>
+          <div style="position:absolute;left:0;right:0;top:80px;height:{{ pbFrontDepth }}px;background:{{ pbLayerColor }};background-image:radial-gradient(circle,#080b12 2px,transparent 2.5px);background-size:10px 10px;opacity:0.55;transition:{{ pbTransition }}"></div>
+          <div style="position:absolute;left:0;right:0;bottom:120px;height:{{ pbLayerHeight }}px;background:{{ pbLayerColor }};{{ pbLayerPattern }};transition:{{ pbTransition }}"></div>
+          <sc-for list="{{ pbFlakes }}" as="fl" hint-placeholder-count="0">
+            <div style="position:absolute;width:14px;height:8px;background:{{ pbLayerColor }};left:{{ fl.left }}px;top:{{ fl.top }}px;transform:rotate({{ fl.rot }}deg);border-radius:2px"></div>
+          </sc-for>
+          <div style="position:absolute;left:6px;bottom:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8296a8">kov</div>
+        </div>
+
+        <div style="flex:1;min-width:240px;display:flex;flex-direction:column;gap:14px">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:#8296a8;margin-bottom:6px">
+              <span>růst vrstvy</span>
+              <button type="button" onClick="{{ onReplay }}" style="display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;border:1px solid rgba(150,180,210,0.3);background:rgba(120,150,180,0.1);color:#aebfcf;font-family:'IBM Plex Sans',sans-serif;font-size:12px;cursor:pointer">⟲ přehrát znovu</button>
+            </div>
+            <div style="height:6px;border-radius:999px;background:rgba(150,180,210,0.15);overflow:hidden"><div style="height:100%;width:{{ pbTime }}%;background:oklch(0.72 0.16 35);transition:{{ pbBarTransition }}"></div></div>
+          </div>
+          <div style="background:rgba(120,150,180,0.08);border:1px solid rgba(150,180,210,0.18);border-radius:12px;padding:14px 16px">
+            <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa;margin-bottom:4px">{{ pbCurrent.name }} — PBR ≈ {{ pbCurrent.pbr }}</div>
+            <div style="font-size:14px;line-height:1.55;color:#aebfcf">{{ pbCurrent.desc }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px">
+        <sc-for list="{{ pbRanges }}" as="rg" hint-placeholder-count="3">
+          <div style="border-radius:12px;padding:14px 16px;background:{{ rg.bg }};border:1px solid {{ rg.border }}">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:{{ rg.accent }};margin-bottom:6px">PBR {{ rg.range }}</div>
+            <div style="font-size:13px;line-height:1.5;color:#aebfcf">{{ rg.desc }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:28px;margin-top:24px">
+      <h2 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:19px;margin:0 0 6px;color:#eaf2fa">A jak to bude u těchto kovů?</h2>
+      <p style="font-size:14px;line-height:1.55;color:#aebfcf;margin:0 0 20px">U pěti běžně používaných kovů odhadni, jestli jejich oxidová vrstva chrání proti další korozi.</p>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ quizRows }}" as="q" hint-placeholder-count="5">
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);border-radius:12px;padding:12px 16px">
+            <div style="min-width:150px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14.5px;color:#eaf2fa">{{ q.name }}</div>
+            <div style="display:flex;gap:8px">
+              <button type="button" onClick="{{ q.onYes }}" style="padding:7px 14px;border-radius:999px;border:1px solid {{ q.yesBorder }};background:{{ q.yesBg }};color:{{ q.yesColor }};font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer">bude chránit</button>
+              <button type="button" onClick="{{ q.onNo }}" style="padding:7px 14px;border-radius:999px;border:1px solid {{ q.noBorder }};background:{{ q.noBg }};color:{{ q.noColor }};font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13px;cursor:pointer">nebude chránit</button>
+            </div>
+            <sc-if value="{{ q.showResult }}" hint-placeholder-val="{{ false }}">
+              <div style="flex:1;min-width:200px;font-size:13px;line-height:1.5;color:{{ q.resultColor }}"><strong>{{ q.resultText }}</strong> — PBR ≈ {{ q.pbr }}. {{ q.note }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:16px;margin-top:20px">
+        <button type="button" onClick="{{ onEvaluate }}" style="padding:10px 22px;border-radius:999px;border:none;background:oklch(0.72 0.16 35);color:#0b0e15;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14px;cursor:pointer">Vyhodnotit</button>
+        <sc-if value="{{ quizEvaluated }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:#aebfcf">Skóre: <strong style="color:#eaf2fa">{{ quizScore }}</strong></div>
+          <button type="button" onClick="{{ onQuizReset }}" style="background:none;border:none;color:#8296a8;font-size:13px;text-decoration:underline;cursor:pointer">zkusit znovu</button>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</div>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#080b12"></rect><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="200" fill="oklch(0.72 0.16 35)">PB</text></svg></template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const PB = {
+  al: { name: 'Hliník (Al₂O₃)', pbr: '1,3', desc: 'Tenká, celistvá vrstva okamžitě pokryje povrch a dál brání přístupu kyslíku — koroze se prakticky zastaví.', color: 'oklch(0.7 0.05 220)', porous: false, cracks: false, cap: 22 },
+  fe: { name: 'Železo (Fe₂O₃ — rez)', pbr: '2,1', desc: 'Vrstva rzi je objemnější než kov, ze kterého vznikla — vzniká pnutí, vrstva praská a odpadává, obnažený povrch koroduje dál.', color: 'oklch(0.6 0.15 40)', porous: false, cracks: true, cap: null },
+  mg: { name: 'Hořčík (MgO)', pbr: '0,8', desc: 'Vrstva je objemově menší než potřeba, zůstává pórovitá a nesouvislá — kyslík i vlhkost jí prochází dál k povrchu.', color: 'oklch(0.68 0.03 90)', porous: true, cracks: false, cap: 20 },
+};
+
+const RANGES = [
+  { key: 'porous', range: '< 1', desc: 'Vrstva zabírá menší objem než kov, ze kterého vznikla — je pórovitá a nesouvislá, kyslík jí prochází dál a vrstva nechrání.' },
+  { key: 'protective', range: '1 – 2', desc: 'Vrstva odpovídá objemu kovu, zůstává celistvá a přilnavá — dobře brání přístupu kyslíku a koroze se zpomaluje nebo zastaví.' },
+  { key: 'spalling', range: '> 2', desc: 'Vrstva je objemnější než kov, vzniká vnitřní pnutí — praská a odlupuje se, obnažený povrch koroduje dál.' },
+];
+const LOOP_DURATION = 3800;
+
+const QUIZ = [
+  { key: 'zn', name: 'Zinek (Zn)', pbr: '1,6', protects: true, note: 'Vrstva ZnO je souvislá a přilnavá — proto se zinek používá k žárovému zinkování oceli.' },
+  { key: 'ni', name: 'Nikl (Ni)', pbr: '1,6', protects: true, note: 'Tenká vrstva NiO dobře kryje povrch — proto se nikl používá jako ochranný povlak.' },
+  { key: 'ti', name: 'Titan (Ti)', pbr: '1,76', protects: true, note: 'Vrstva TiO₂ je celistvá a mimořádně stabilní — odtud vysoká korozní odolnost titanu.' },
+  { key: 'cr', name: 'Chrom (Cr)', pbr: '2,0', protects: true, note: 'Souvislá vrstva Cr₂O₃ pasivuje povrch — proto se chrom přidává do korozivzdorné oceli.' },
+  { key: 'w', name: 'Wolfram (W)', pbr: '3,4', protects: false, note: 'Vrstva WO₃ je mnohem objemnější než kov — praská a odlupuje se, povrch koroduje dál.' },
+];
+
+class Component extends DCLogic {
+  state = { pbMaterial: 'fe', pbTime: 0, quizAnswers: {}, quizEvaluated: false };
+
+  componentDidMount() { this.startAnimation(); }
+  componentWillUnmount() { cancelAnimationFrame(this._raf); }
+
+  startAnimation() {
+    cancelAnimationFrame(this._raf);
+    const startTs = performance.now();
+    const step = (ts) => {
+      const elapsed = ts - startTs;
+      const done = elapsed >= LOOP_DURATION;
+      const t = done ? 100 : Math.min(100, (elapsed / LOOP_DURATION) * 100);
+      this.setState({ pbTime: t });
+      if (!done) this._raf = requestAnimationFrame(step);
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+
+  selectMaterial(k) {
+    this.setState({ pbMaterial: k, pbTime: 0 });
+    this.startAnimation();
+  }
+
+  replay() {
+    this.setState({ pbTime: 0 });
+    this.startAnimation();
+  }
+
+  setQuizAnswer(key, val) {
+    this.setState(s => ({ quizAnswers: { ...s.quizAnswers, [key]: val } }));
+  }
+
+  renderVals() {
+    const cur = PB[this.state.pbMaterial];
+    const t = this.state.pbTime;
+    let layerHeight;
+    if (cur.cap) layerHeight = Math.min(t, cur.cap) / 100 * 90 + 4;
+    else layerHeight = t / 100 * 70 + 4;
+
+    const flakes = [];
+    if (cur.cracks && t > 55) {
+      const n = t > 85 ? 3 : t > 70 ? 2 : 1;
+      for (let i = 0; i < n; i++) flakes.push({ left: 20 + i * 55, top: 80 - layerHeight - 16 - i * 12, rot: -15 + i * 20 });
+    }
+    const frontDepth = cur.porous ? (t / 100) * 65 : 0;
+
+    const pbrValue = parseFloat(cur.pbr.replace(',', '.'));
+    const rangeKey = pbrValue < 1 ? 'porous' : pbrValue > 2 ? 'spalling' : 'protective';
+
+    return {
+      pbMaterials: ['al', 'fe', 'mg'].map(k => ({
+        select: () => this.selectMaterial(k),
+        label: PB[k].name.split(' ')[0],
+        bg: this.state.pbMaterial === k ? 'oklch(0.72 0.16 35)' : 'rgba(120,150,180,0.1)',
+        color: this.state.pbMaterial === k ? '#0b0e15' : '#aebfcf',
+        border: this.state.pbMaterial === k ? 'oklch(0.72 0.16 35)' : 'rgba(150,180,210,0.3)',
+      })),
+      pbTime: t,
+      onReplay: () => this.replay(),
+      pbTransition: t === 0 ? 'none' : 'height 0.15s linear',
+      pbBarTransition: t === 0 ? 'none' : 'width .12s linear',
+      pbLayerHeight: layerHeight,
+      pbFrontDepth: frontDepth,
+      pbLayerColor: cur.color,
+      pbLayerPattern: cur.porous ? 'background-image:radial-gradient(circle,#080b12 2px,transparent 2.5px);background-size:10px 10px' : '',
+      pbFlakes: flakes,
+      pbCurrent: { name: cur.name, pbr: cur.pbr, desc: cur.desc },
+      pbRanges: RANGES.map(r => ({
+        range: r.range,
+        desc: r.desc,
+        bg: r.key === rangeKey ? 'rgba(239,140,92,0.12)' : 'rgba(120,150,180,0.05)',
+        border: r.key === rangeKey ? 'oklch(0.72 0.16 35 / 0.6)' : 'rgba(150,180,210,0.16)',
+        accent: r.key === rangeKey ? 'oklch(0.72 0.16 35)' : '#8296a8',
+      })),
+      quizRows: QUIZ.map(m => {
+        const ans = this.state.quizAnswers[m.key];
+        const correct = ans != null ? (ans === 'yes') === m.protects : null;
+        const showResult = this.state.quizEvaluated && ans != null;
+        return {
+          name: m.name, pbr: m.pbr, note: m.note,
+          onYes: () => this.setQuizAnswer(m.key, 'yes'),
+          onNo: () => this.setQuizAnswer(m.key, 'no'),
+          yesBg: ans === 'yes' ? 'oklch(0.72 0.16 35)' : 'rgba(120,150,180,0.1)',
+          yesColor: ans === 'yes' ? '#0b0e15' : '#aebfcf',
+          yesBorder: ans === 'yes' ? 'oklch(0.72 0.16 35)' : 'rgba(150,180,210,0.3)',
+          noBg: ans === 'no' ? 'oklch(0.72 0.16 35)' : 'rgba(120,150,180,0.1)',
+          noColor: ans === 'no' ? '#0b0e15' : '#aebfcf',
+          noBorder: ans === 'no' ? 'oklch(0.72 0.16 35)' : 'rgba(150,180,210,0.3)',
+          showResult,
+          resultText: showResult ? (correct ? 'Správně' : 'Špatně') : '',
+          resultColor: showResult ? (correct ? 'oklch(0.7 0.14 150)' : 'oklch(0.62 0.18 25)') : '#aebfcf',
+        };
+      }),
+      quizEvaluated: this.state.quizEvaluated,
+      quizScore: `${QUIZ.filter(m => this.state.quizAnswers[m.key] != null && (this.state.quizAnswers[m.key] === 'yes') === m.protects).length}/${QUIZ.length}`,
+      onEvaluate: () => this.setState({ quizEvaluated: true }),
+      onQuizReset: () => this.setState({ quizAnswers: {}, quizEvaluated: false }),
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+</body>
+</html>

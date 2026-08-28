@@ -62,6 +62,11 @@
         "status": "coming-soon"
       },
       {
+        "id": "praskova-metalurgie",
+        "title": "Prášková metalurgie",
+        "status": "coming-soon"
+      },
+      {
         "id": "koroze",
         "title": "Koroze",
         "href": "koroze/index.html",

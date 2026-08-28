@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Korozní odolnost kovů | STT</title>
+<meta name="description" content="Beketova řada a standardní elektrodové potenciály proti skutečné korozní odolnosti kovů; žárové zinkování a pocínování oceli i výjimky z pravidla anody — pasivace a obrácení polarity Zn/Fe.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'koroze/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="../index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Koroze kovů</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:860px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:oklch(0.72 0.16 35);text-transform:uppercase;margin-bottom:10px">Koroze kovů</div>
+    <h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:32px;line-height:1.2;margin:0 0 10px;letter-spacing:-0.01em">Korozní odolnost kovů</h1>
+    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Standardní elektrodový potenciál řadí kovy podle jejich ochoty k&nbsp;oxidaci. Skutečné chování <br>na vzduchu se ale liší — některé kovy si vytvoří tenkou pasivní vrstvu oxidu, která je chrání.</p>
+
+    <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:28px 24px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ filterButtons }}" as="fb" hint-placeholder-count="5">
+            <button type="button" onClick="{{ fb.onClick }}" style="padding:6px 13px;border-radius:999px;border:1px solid {{ fb.border }};background:{{ fb.bg }};color:{{ fb.color }};font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer">{{ fb.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;border:1px solid rgba(150,180,210,0.3);border-radius:999px;overflow:hidden">
+          <button type="button" onClick="{{ onTheory }}" style="padding:6px 14px;border:none;background:{{ theoryBg }};color:{{ theoryColor }};font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer">Teorie&nbsp;</button>
+          <button type="button" onClick="{{ onReality }}" style="padding:6px 14px;border:none;background:{{ realityBg }};color:{{ realityColor }};font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12.5px;cursor:pointer">Realita</button>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#8296a8;margin-bottom:8px">{{ modeCaption }}</div>
+      <div style="position:relative;height:340px;margin:0 8px">
+        <sc-if value="{{ isTheory }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute;left:0;right:0;top:{{ zeroLineTop }}px;border-top:1.5px solid rgba(174,191,207,0.5)"></div>
+          <div style="position:absolute;left:-4px;top:{{ zeroLineTop }}px;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8296a8">0</div>
+        </sc-if>
+        <div style="position:absolute;inset:0;display:flex;align-items:flex-start;gap:4px;padding-left:22px">
+          <div style="position:absolute;left:22px;top:6px;width:{{ alkaliLabelWidth }};text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.68 0.15 40 / 0.85)">Alkalické kovy</div>
+          <sc-for list="{{ beketovMetals }}" as="m" hint-placeholder-count="0">
+            <div style="position:relative;flex:1;height:340px">
+              <div style="position:absolute;left:0;right:0;top:{{ m.top }}px;height:{{ m.height }}px;background:{{ m.color }};opacity:{{ m.opacity }};border-radius:3px;{{ m.border }};transition:top .45s ease,height .45s ease,opacity .3s ease"></div>
+              <div style="position:absolute;left:0;right:0;top:{{ m.labelTop }}px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#eaf2fa;opacity:{{ m.opacity }};transition:top .45s ease,opacity .3s ease">{{ m.symbol }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:20px;flex-wrap:wrap;padding:20px 0 12px;border-top:1px solid rgba(150,180,210,0.18);margin-top:8px">
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#aebfcf"><span style="width:12px;height:12px;border-radius:3px;background:oklch(0.65 0.15 40)"></span>Korozivní kovy (nechrání se)</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#aebfcf"><span style="width:12px;height:12px;border-radius:3px;background:oklch(0.65 0.12 165)"></span>Pasivují se (tenká ochranná vrstva)</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#aebfcf"><span style="width:12px;height:12px;border-radius:3px;background:oklch(0.78 0.02 60)"></span>Konstrukční kovy</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#aebfcf"><span style="width:12px;height:12px;border-radius:3px;background:oklch(0.6 0.1 240)"></span>Ušlechtilé (odolné z&nbsp;principu)</div>
+        
+        
+      </div>
+    </div>
+    <p style="font-size:14.5px;line-height:1.6;color:#aebfcf;margin:16px 0 0">Např. hliník má výrazně zápornější potenciál než železo, přesto koroduje pomaleji — jeho oxidová vrstva Al₂O₃ je celistvá a&nbsp;přilnavá, zatímco rez na železe je pórovitá a&nbsp;odpadává.</p>
+
+    <div style="height:1px;background:rgba(150,180,210,0.14);margin:48px 0 40px"></div>
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:oklch(0.72 0.16 35);text-transform:uppercase;margin-bottom:10px">Důsledek pro praxi</div>
+    <h2 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:26px;line-height:1.25;margin:0 0 10px;letter-spacing:-0.01em">Ochranné povlaky na oceli</h2>
+    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 24px;max-width:640px">Ocel se často pokrývá jiným kovem. Co se ale stane, když se povlak poškrábe až na základní materiál? O&nbsp;výsledku rozhoduje poloha obou kovů v&nbsp;Beketově řadě.</p>
+
+    <div style="display:flex;align-items:flex-start;gap:14px;background:oklch(0.62 0.16 40 / 0.1);border:1px solid oklch(0.62 0.16 40 / 0.35);border-left:3px solid oklch(0.7 0.17 40);border-radius:14px;padding:16px 20px;margin-bottom:28px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;line-height:1;color:oklch(0.75 0.16 40);flex-shrink:0">!</div>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:#eaf2fa">Kov se <strong style="color:oklch(0.8 0.13 40)">zápornějším potenciálem</strong> se v&nbsp;dané dvojici stává <strong>anodou</strong> a&nbsp;koroduje — tím chrání kov s&nbsp;kladnějším potenciálem, který se stává katodou. Rozhoduje ale <strong>potenciál v&nbsp;daném prostředí</strong>, ne tabulková hodnota <span style="font-family:'IBM Plex Mono',monospace">E°</span>: pasivní vrstva posouvá kov ke kladnějším hodnotám a&nbsp;pořadí se může i&nbsp;obrátit.</p>
+    </div>
+
+    <details style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:14px;padding:16px 20px;margin-top:14px;margin-bottom:28px">
+      <summary style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14.5px;color:#eaf2fa;cursor:pointer;list-style:none">Kdy pravidlo neplatí — tři výjimky</summary>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#eaf2fa">Pasivní vrstva mění pořadí</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.6;color:#aebfcf">Titan má <span style="font-family:'IBM Plex Mono',monospace">E° = −1,63&nbsp;V</span>, přesto se v&nbsp;mořské vodě chová jako ušlechtilý kov (<span style="font-family:'IBM Plex Mono',monospace">≈ −0,1&nbsp;V</span>) — vůči oceli je katodou. Hliník anodou zůstává, ale díky souvislé vrstvě <span style="font-family:'IBM Plex Mono',monospace">Al₂O₃</span> koroduje jen velmi pomalu.</p>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#eaf2fa">Obrácení polarity Zn/Fe nad ~60&nbsp;°C</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.6;color:#aebfcf">V&nbsp;horké vodě se na zinku tvoří kompaktní, elektricky vodivá vrstva <span style="font-family:'IBM Plex Mono',monospace">ZnO</span> a&nbsp;potenciál zinku se posune nad potenciál oceli. Zinek přestane chránit a&nbsp;ocel začne korodovat — proto se pozinkované potrubí nepoužívá na teplou užitkovou vodu.</p>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:14px;color:#eaf2fa">Rozhoduje i&nbsp;poměr ploch anody a&nbsp;katody</div>
+          <p style="margin:4px 0 0;font-size:13.5px;line-height:1.6;color:#aebfcf">Malá anoda a&nbsp;velká katoda znamenají rychlý průraz (ocelový šroub v&nbsp;nerezové konstrukci). Opačný poměr je nesrovnatelně mírnější. Rozdíl potenciálů říká, který kov koroduje, ne jak rychle.</p>
+        </div>
+      </div>
+    </details>
+
+    <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:24px">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:18px">
+        <button type="button" onClick="{{ onPlayConseq }}" style="display:flex;align-items:center;gap:9px;padding:9px 20px;border-radius:999px;border:none;background:oklch(0.72 0.16 35);color:#0b0e15;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:13.5px;cursor:pointer" style-hover="background:oklch(0.78 0.16 35)">
+          <span style="font-size:11px">▶</span>{{ playLabel }}
+        </button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:oklch(0.75 0.14 225)">Zn na Fe</span>
+            <span style="font-size:12.5px;color:#8296a8">žárové zinkování</span>
+          </div>
+          <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(150,180,210,0.16)" dangerouslySetInnerHTML="{{ znDiagram }}"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:999px;background:oklch(0.68 0.14 150 / 0.16);color:oklch(0.8 0.13 150);border:1px solid oklch(0.68 0.14 150 / 0.3)">Zn = anoda (E° −0,76 V)</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:999px;background:rgba(120,150,180,0.12);color:#aebfcf;border:1px solid rgba(150,180,210,0.25)">Fe = katoda (E° −0,44 V)</span>
+          </div>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:#aebfcf">Zinek má nižší potenciál, proto koroduje. Železo je chráněno <br>i&nbsp;v&nbsp;místě škrábance — povlak nemusí být celistvý.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:baseline;gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:oklch(0.82 0.05 250)">Sn na Fe</span>
+            <span style="font-size:12.5px;color:#8296a8">pocínování</span>
+          </div>
+          <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(150,180,210,0.16)" dangerouslySetInnerHTML="{{ snDiagram }}"></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:999px;background:oklch(0.62 0.16 40 / 0.16);color:oklch(0.78 0.15 40);border:1px solid oklch(0.62 0.16 40 / 0.32)">Fe = anoda (E° −0,44 V)</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 9px;border-radius:999px;background:rgba(120,150,180,0.12);color:#aebfcf;border:1px solid rgba(150,180,210,0.25)">Sn = katoda (E° −0,14 V)</span>
+          </div>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:#aebfcf">Cín má vyšší potenciál, proto koroduje <strong style="color:#eaf2fa">železo</strong>. Po poškození povlaku koroze v&nbsp;místě škrábance naopak <strong style="color:oklch(0.78 0.15 40)">zrychlí</strong>.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#080b12"></rect><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="220" fill="oklch(0.72 0.16 35)">E°</text></svg></template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const METAL_DATA = [
+  ['Li', -3.04, 'a'], ['K', -2.93, 'a'], ['Ba', -2.92, 'a'], ['Sr', -2.89, 'a'], ['Ca', -2.87, 'a'], ['Na', -2.71, 'a'], ['Mg', -2.37, 'a'],
+  ['Al', -1.66, 'b'], ['Ti', -1.63, 'b'],
+  ['Mn', -1.18, 'c'],
+  ['Zn', -0.76, 'b'], ['Cr', -0.74, 'b'],
+  ['Fe', -0.44, 'c'], ['Co', -0.28, 'c'], ['Ni', -0.25, 'c'], ['Sn', -0.14, 'c'], ['Pb', -0.13, 'c'],
+  ['Cu', 0.34, 'd'], ['Ag', 0.80, 'd'], ['Hg', 0.85, 'd'], ['Pt', 1.20, 'd'], ['Au', 1.50, 'd'],
+];
+const GROUP_COLOR = { a: 'oklch(0.65 0.15 40)', b: 'oklch(0.65 0.12 165)', c: 'oklch(0.78 0.02 60)', d: 'oklch(0.6 0.1 240)' };
+const PASSIV_HATCH = 'repeating-linear-gradient(45deg,oklch(0.7 0.16 150 / 0.7) 0 3px,transparent 3px 7px)';
+const CONSTR_HATCH = 'repeating-linear-gradient(45deg,oklch(0.78 0.02 60 / 0.9) 0 3px,transparent 3px 7px)';
+const SCALE = 66.7;
+const ZERO_TOP = 1.6 * SCALE;
+const REAL_SCORE = {
+  Li: 10, K: 10, Ba: 9.5, Sr: 9.3, Ca: 9, Na: 9.5, Mg: 8,
+  Al: 1.5, Ti: 1, Mn: 6.5, Zn: 2.5, Cr: 1,
+  Fe: 7, Co: 3, Ni: 2, Sn: 2, Pb: 2.5,
+  Cu: 1.5, Ag: 0.4, Hg: 0.5, Pt: 0.2, Au: 0.2,
+};
+const REAL_SCALE = 30, REAL_BASE = 330;
+const FILTERS = [
+  { key: null, label: 'Vše' },
+  { key: 'a', label: 'Alkalické' },
+  { key: 'b', label: 'Pasivující' },
+  { key: 'c', label: 'Konstrukční' },
+  { key: 'd', label: 'Ušlechtilé' },
+];
+
+const PANEL_BG = 'oklch(0.15 0.015 255)';
+const FE_FILL = 'oklch(0.52 0.02 255)', FE_LINE = 'oklch(0.32 0.02 255)', OUTLINE = 'oklch(0.82 0.02 255)';
+const RUST = 'oklch(0.62 0.16 40)', ZINCCORR = 'oklch(0.8 0.04 150)', PROT = 'oklch(0.72 0.14 150)';
+const CONSQ_DURATION = 4200;
+
+function substrate(id, coatColor, coatLabel) {
+  return `<rect width="300" height="170" fill="${PANEL_BG}"/>
+    <defs><pattern id="${id}" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="${FE_FILL}"/><line x1="0" y1="0" x2="0" y2="9" stroke="${FE_LINE}" stroke-width="2.5"/></pattern></defs>
+    <rect x="25" y="70" width="250" height="55" fill="url(#${id})" stroke="${OUTLINE}" stroke-width="2"/>
+    <path d="M25,50 L135,50 L150,68 L165,50 L275,50 L275,70 L25,70 Z" fill="${coatColor}" stroke="${OUTLINE}" stroke-width="1.6"/>
+    <text x="12" y="102" font-family="'IBM Plex Mono',monospace" font-size="15" font-weight="600" fill="#eaf2fa" text-anchor="middle">Fe</text>
+    <text x="252" y="42" font-family="'IBM Plex Mono',monospace" font-size="15" font-weight="600" fill="#eaf2fa">${coatLabel}</text>`;
+}
+
+function znSVG(t) {
+  const spreadW = 24 + t * 88;
+  const prot = Math.max(0, (t - 0.35) / 0.65);
+  return `<svg width="100%" viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg">${substrate('hz', 'oklch(0.68 0.06 225)', 'Zn')}
+    <rect x="${(150 - spreadW).toFixed(1)}" y="51" width="${(2 * spreadW).toFixed(1)}" height="16" fill="${ZINCCORR}" opacity="0.5"/>
+    <g opacity="${prot.toFixed(2)}"><circle cx="150" cy="94" r="11" fill="none" stroke="${PROT}" stroke-width="2.5"/><path d="M145,94 l3,4 l7,-8" fill="none" stroke="${PROT}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </svg>`;
+}
+
+function snSVG(t) {
+  const d = t * 48, halfW = 7 + t * 20;
+  const rust = t > 0.02
+    ? `<path d="M${(150 - halfW).toFixed(1)},68 L150,${(68 + d).toFixed(1)} L${(150 + halfW).toFixed(1)},68 Z" fill="${RUST}"/><ellipse cx="150" cy="68" rx="${(halfW + 3).toFixed(1)}" ry="4" fill="${RUST}" opacity="0.7"/>`
+    : '';
+  return `<svg width="100%" viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg">${substrate('hs', 'oklch(0.8 0.02 250)', 'Sn')}${rust}</svg>`;
+}
+
+class Component extends DCLogic {
+  state = { filterGroup: null, mode: 'theory', consqT: 1 };
+
+  componentWillUnmount() { cancelAnimationFrame(this._craf); }
+
+  playConseq() {
+    cancelAnimationFrame(this._craf);
+    const start = performance.now();
+    const step = (ts) => {
+      const e = ts - start;
+      const done = e >= CONSQ_DURATION;
+      this.setState({ consqT: done ? 1 : e / CONSQ_DURATION });
+      if (!done) this._craf = requestAnimationFrame(step);
+    };
+    this.setState({ consqT: 0 });
+    this._craf = requestAnimationFrame(step);
+  }
+
+  renderVals() {
+    const isTheory = this.state.mode === 'theory';
+    const beketovMetals = METAL_DATA.map(([symbol, E, group]) => {
+      let top, height;
+      if (isTheory) {
+        if (E >= 0) { height = E * SCALE; top = ZERO_TOP - height; }
+        else { top = ZERO_TOP; height = -E * SCALE; }
+      } else {
+        height = (REAL_SCORE[symbol] || 0) * REAL_SCALE;
+        top = REAL_BASE - height;
+      }
+      let color = GROUP_COLOR[group];
+      if (['Cu', 'Ni', 'Sn', 'Pb'].includes(symbol)) color = `${PASSIV_HATCH},${GROUP_COLOR[group]}`;
+      else if (['Al', 'Ti', 'Mg'].includes(symbol)) color = `${CONSTR_HATCH},${GROUP_COLOR[group]}`;
+      const fg = this.state.filterGroup;
+      const matches = !fg || fg === group
+        || (fg === 'c' && ['Al', 'Ti', 'Mg'].includes(symbol))
+        || (fg === 'b' && ['Cu', 'Ni', 'Sn', 'Pb'].includes(symbol));
+      const dimmed = !matches;
+      return {
+        symbol, top, height: Math.max(height, 2),
+        color,
+        border: '',
+        opacity: dimmed ? 0.15 : 1,
+        labelTop: isTheory ? (E >= 0 ? top - 18 : top + height + 4) : top - 18,
+      };
+    });
+    const alkaliCount = METAL_DATA.filter(([, , g]) => g === 'a').length;
+    const alkaliLabelWidth = (alkaliCount / METAL_DATA.length * 100).toFixed(2) + '%';
+
+    const filterButtons = FILTERS.map(f => ({
+      label: f.label,
+      onClick: () => this.setState(s => ({ filterGroup: s.filterGroup === f.key ? null : f.key })),
+      bg: this.state.filterGroup === f.key ? (f.key ? GROUP_COLOR[f.key] : 'oklch(0.72 0.16 35)') : 'rgba(120,150,180,0.1)',
+      color: this.state.filterGroup === f.key ? '#0b0e15' : '#aebfcf',
+      border: this.state.filterGroup === f.key ? (f.key ? GROUP_COLOR[f.key] : 'oklch(0.72 0.16 35)') : 'rgba(150,180,210,0.3)',
+    }));
+
+    return {
+      zeroLineTop: ZERO_TOP, beketovMetals, alkaliLabelWidth,
+      isTheory,
+      filterButtons,
+      onTheory: () => this.setState({ mode: 'theory' }),
+      onReality: () => this.setState({ mode: 'reality' }),
+      theoryBg: isTheory ? 'oklch(0.72 0.16 35)' : 'rgba(120,150,180,0.1)',
+      theoryColor: isTheory ? '#0b0e15' : '#aebfcf',
+      realityBg: !isTheory ? 'oklch(0.72 0.16 35)' : 'rgba(120,150,180,0.1)',
+      realityColor: !isTheory ? '#0b0e15' : '#aebfcf',
+      modeCaption: isTheory ? 'Výška sloupce = standardní elektrodový potenciál E° (V)' : 'Výška sloupce = reálná rychlost koroze na vzduchu (kvalitativně)',
+      znDiagram: { __html: znSVG(this.state.consqT) },
+      snDiagram: { __html: snSVG(this.state.consqT) },
+      onPlayConseq: () => this.playConseq(),
+      playLabel: this.state.consqT < 1 ? 'Probíhá…' : 'Přehrát',
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+</body>
+</html>

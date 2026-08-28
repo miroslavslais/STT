@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porovnání technologií — ozubené kolo | STT</title>
+<meta name="description" content="Kováno, svařováno a sléváno: osový řez, hmotnosti polotovarů, využití materiálu a vhodné oceli.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+    (function __navSync(){
+      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+        var links = document.querySelectorAll('.site-nav-toggle a');
+        var SELF = 'tvareni-za-tepla/';
+        s.nav.forEach(function(item, i){
+          var href = item.href.indexOf(SELF) === 0 ? '../' + item.href.slice(SELF.length) : '../../' + item.href;
+          var el = links[i];
+          if (el) { el.textContent = item.title; el.setAttribute('href', href); }
+        });
+      }).catch(function(){});
+    })();
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Kování</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 96px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Porovnání technologií · ozubené kolo</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;margin:0 0 20px">Kováno, svařováno, nebo sléváno?</h1>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;max-width:880px;margin:0 0 30px;text-wrap:pretty">Jedno a totéž ozubené kolo — stejný modrý obrys hotové obrobené součásti — vyrobené třemi různými technologiemi. Přepínejte a sledujte, jak se mění tvar polotovaru, množství materiálu, který skončí na třískách, a hlavně vnitřní stavba kovu.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:22px">
+      <div style="position:relative;display:flex;gap:0;padding:4px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);border-radius:14px">
+        <div style="{{ indicatorStyle }}"></div>
+        <button onClick="{{ pickKovani }}" style="position:relative;z-index:1;appearance:none;background:none;border:0;cursor:pointer;padding:10px 22px;border-radius:10px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#eaf2fa">Kováno</button>
+        <button onClick="{{ pickSvar }}" style="position:relative;z-index:1;appearance:none;background:none;border:0;cursor:pointer;padding:10px 22px;border-radius:10px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#eaf2fa">Svařováno</button>
+        <button onClick="{{ pickSlev }}" style="position:relative;z-index:1;appearance:none;background:none;border:0;cursor:pointer;padding:10px 22px;border-radius:10px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#eaf2fa">Sléváno</button>
+      </div>
+      <button onClick="{{ toggleStruct }}" style="appearance:none;cursor:pointer;padding:10px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);color:#aebfcf;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px"><span style="{{ structDot }}"></span>Struktura materiálu</button>
+      <button onClick="{{ toggleFinal }}" style="appearance:none;cursor:pointer;padding:10px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);color:#aebfcf;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px"><span style="{{ finalDot }}"></span>Hotová součást</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) 268px;gap:20px;align-items:start">
+      <div style="background:#0b1018;border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:26px 20px 20px;display:flex;flex-direction:column;align-items:center">
+        <svg viewBox="-72 -56 144 112" style="width:100%;max-width:660px;height:auto;overflow:visible">
+          <defs>
+            <clipPath id="clipForge">
+              <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z"></path>
+              <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z" transform="scale(-1,1)"></path>
+            </clipPath>
+            <clipPath id="clipCast">
+              <path d="M 18.4 -35 L 33.2 -35 L 34.6 -27.5 A 8 8 0 0 0 42.6 -19.5 L 45.5 -19.5 A 6 6 0 0 0 51.5 -13.5 L 55.4 -13.5 L 56.6 0 L 55.4 13.5 L 51.5 13.5 A 6 6 0 0 0 45.5 19.5 L 42.6 19.5 A 8 8 0 0 0 34.6 27.5 L 33.2 35 L 18.4 35 Z"></path>
+              <path d="M 18.4 -35 L 33.2 -35 L 34.6 -27.5 A 8 8 0 0 0 42.6 -19.5 L 45.5 -19.5 A 6 6 0 0 0 51.5 -13.5 L 55.4 -13.5 L 56.6 0 L 55.4 13.5 L 51.5 13.5 A 6 6 0 0 0 45.5 19.5 L 42.6 19.5 A 8 8 0 0 0 34.6 27.5 L 33.2 35 L 18.4 35 Z" transform="scale(-1,1)"></path>
+            </clipPath>
+            <clipPath id="clipWeld">
+              <rect x="21" y="-32" width="12.5" height="64"></rect>
+              <rect x="33.5" y="-17.5" width="8" height="35"></rect>
+              <rect x="41.5" y="-17.5" width="12" height="35"></rect>
+              <rect x="-33.5" y="-32" width="12.5" height="64"></rect>
+              <rect x="-41.5" y="-17.5" width="8" height="35"></rect>
+              <rect x="-53.5" y="-17.5" width="12" height="35"></rect>
+            </clipPath>
+            <pattern id="grainCoarse" width="11" height="11" patternUnits="userSpaceOnUse">
+              <path d="M0 1 L4.5 2.6 L11 0.4 M4.5 2.6 L3.2 7.4 L0 9.8 M3.2 7.4 L9.4 9.2 L11 11 M9.4 9.2 L11 4.6 M4.5 2.6 L9.8 4.4" fill="none" stroke="oklch(0.62 0.05 55)" stroke-width="0.42"></path>
+            </pattern>
+            <pattern id="grainFine" width="4.4" height="2.6" patternUnits="userSpaceOnUse">
+              <path d="M0 0.4 L2 1.2 L4.4 0.2 M2 1.2 L1.6 2.6 M2 1.2 L4.4 2.2" fill="none" stroke="oklch(0.62 0.05 220)" stroke-width="0.22"></path>
+            </pattern>
+          </defs>
+
+          <g style="transition:opacity 0.35s ease" opacity="{{ opForge }}">
+            <path d="M 55.14 -1.15 L 63.5 -1.15 L 63.5 -3.4 L 67 -3.4 L 67 3.4 L 63.5 3.4 L 63.5 1.15 L 55.14 1.15 Z" fill="oklch(0.55 0.07 60)" stroke="oklch(0.72 0.09 60)" stroke-width="0.4"></path>
+            <path d="M -55.14 -1.15 L -63.5 -1.15 L -63.5 -3.4 L -67 -3.4 L -67 3.4 L -63.5 3.4 L -63.5 1.15 L -55.14 1.15 Z" fill="oklch(0.55 0.07 60)" stroke="oklch(0.72 0.09 60)" stroke-width="0.4"></path>
+            <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z" fill="oklch(0.85 0.095 85)" stroke="oklch(0.85 0.095 85)" stroke-width="0.5" stroke-linejoin="round"></path>
+            <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z" fill="oklch(0.85 0.095 85)" stroke="oklch(0.85 0.095 85)" stroke-width="0.5" stroke-linejoin="round" transform="scale(-1,1)"></path>
+            <g clip-path="url(#clipForge)">
+              <path d="M 19.5 -33.5 L 34.5 -33.5 L 34.5 -19.5 L 43.5 -19.5 L 43.5 -14 A 1.5 1.5 0 0 0 45 -12.5 L 52.04 -12.5 L 54.5 -10.04 L 54.5 10.04 L 52.04 12.5 L 45 12.5 A 1.5 1.5 0 0 0 43.5 14 L 43.5 19.5 L 34.5 19.5 L 34.5 33.5 L 19.5 33.5 Z" fill="oklch(0.72 0.115 350)"></path>
+              <path d="M 19.5 -33.5 L 34.5 -33.5 L 34.5 -19.5 L 43.5 -19.5 L 43.5 -14 A 1.5 1.5 0 0 0 45 -12.5 L 52.04 -12.5 L 54.5 -10.04 L 54.5 10.04 L 52.04 12.5 L 45 12.5 A 1.5 1.5 0 0 0 43.5 14 L 43.5 19.5 L 34.5 19.5 L 34.5 33.5 L 19.5 33.5 Z" fill="oklch(0.72 0.115 350)" transform="scale(-1,1)"></path>
+            </g>
+            <g style="transition:opacity 0.3s ease" opacity="{{ opStruct }}" clip-path="url(#clipForge)" fill="none" stroke="oklch(0.56 0.055 60)" stroke-width="0.38">
+              <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z" transform="translate(13.6,0) scale(0.75)"></path>
+              <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z" transform="translate(19.2,0) scale(0.645)"></path>
+              <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z" transform="translate(25.4,0) scale(0.53)"></path>
+              <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z" transform="translate(-13.6,0) scale(0.75) scale(-1,1)"></path>
+              <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z" transform="translate(-19.2,0) scale(0.645) scale(-1,1)"></path>
+              <path d="M -0.3 -6.54 L 10.85 -6.54 A 6 6 0 0 0 16.82 -11.76 L 19.3 -31.8 A 2 2 0 0 1 21.24 -33.54 L 32.63 -33.54 A 2 2 0 0 1 34.58 -31.66 L 34.98 -25.23 A 6 6 0 0 0 40.94 -19.54 L 41.61 -19.54 A 2 2 0 0 1 43.63 -17.66 L 43.63 -17.26 A 5 5 0 0 0 48.65 -12.5 L 52.6 -12.5 A 2 2 0 0 1 54.61 -10.62 L 55.14 0 L 54.61 10.62 A 2 2 0 0 1 52.6 12.5 L 48.65 12.5 A 5 5 0 0 0 43.63 17.26 L 43.63 17.66 A 2 2 0 0 1 41.61 19.54 L 40.94 19.54 A 6 6 0 0 0 34.98 25.23 L 34.58 31.66 A 2 2 0 0 1 32.63 33.54 L 21.24 33.54 A 2 2 0 0 1 19.3 31.8 L 16.82 11.76 A 6 6 0 0 0 10.85 6.54 L -0.3 6.54 Z" transform="translate(-25.4,0) scale(0.53) scale(-1,1)"></path>
+            </g>
+            <line x1="-34.5" y1="-33.5" x2="34.5" y2="-33.5" stroke="oklch(0.72 0.115 350)" stroke-width="0.5"></line>
+            <line x1="-34.5" y1="33.5" x2="34.5" y2="33.5" stroke="oklch(0.72 0.115 350)" stroke-width="0.5"></line>
+            <line x1="62" y1="-6.6" x2="62" y2="-3.8" stroke="oklch(0.72 0.09 60)" stroke-width="0.3"></line>
+            <text x="62" y="-8" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="3.2" fill="oklch(0.72 0.09 60)">výronek</text>
+            <line x1="-62" y1="-6.6" x2="-62" y2="-3.8" stroke="oklch(0.72 0.09 60)" stroke-width="0.3"></line>
+            <text x="-62" y="-8" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="3.2" fill="oklch(0.72 0.09 60)">výronek</text>
+          </g>
+
+          <g style="transition:opacity 0.35s ease" opacity="{{ opWeld }}">
+            <rect x="21" y="-32" width="12.5" height="64" fill="oklch(0.72 0.115 350)"></rect>
+            <rect x="33.5" y="-17.5" width="8" height="35" fill="oklch(0.72 0.115 350)"></rect>
+            <rect x="41.5" y="-17.5" width="12" height="35" fill="oklch(0.72 0.115 350)"></rect>
+            <rect x="-33.5" y="-32" width="12.5" height="64" fill="oklch(0.72 0.115 350)"></rect>
+            <rect x="-41.5" y="-17.5" width="8" height="35" fill="oklch(0.72 0.115 350)"></rect>
+            <rect x="-53.5" y="-17.5" width="12" height="35" fill="oklch(0.72 0.115 350)"></rect>
+            <g style="transition:opacity 0.3s ease" opacity="{{ opStruct }}" clip-path="url(#clipWeld)">
+              <rect x="-60" y="-40" width="120" height="80" fill="url(#grainFine)"></rect>
+            </g>
+            <g fill="oklch(0.68 0.16 35)" stroke="oklch(0.82 0.12 45)" stroke-width="0.4">
+              <path d="M 33.5 -17.5 L 33.5 -23.5 A 7 7 0 0 1 39.5 -17.5 Z"></path>
+              <path d="M 33.5 17.5 L 33.5 23.5 A 7 7 0 0 0 39.5 17.5 Z"></path>
+              <path d="M -33.5 -17.5 L -33.5 -23.5 A 7 7 0 0 0 -39.5 -17.5 Z"></path>
+              <path d="M -33.5 17.5 L -33.5 23.5 A 7 7 0 0 1 -39.5 17.5 Z"></path>
+            </g>
+            <g style="transition:opacity 0.3s ease" opacity="{{ opStruct }}" fill="none" stroke="oklch(0.78 0.13 45)" stroke-width="0.28">
+              <path d="M 33.5 -19 L 37 -18.4 M 34 -21.5 L 36.6 -19.6 M 35.6 -22.9 L 36 -19.2"></path>
+              <path d="M 33.5 19 L 37 18.4 M 34 21.5 L 36.6 19.6 M 35.6 22.9 L 36 19.2"></path>
+            </g>
+            <line x1="-33.5" y1="-32" x2="33.5" y2="-32" stroke="oklch(0.72 0.115 350)" stroke-width="0.5"></line>
+            <line x1="-33.5" y1="32" x2="33.5" y2="32" stroke="oklch(0.72 0.115 350)" stroke-width="0.5"></line>
+            <g stroke="#7d90a3" stroke-width="0.3">
+              <line x1="27.2" y1="-36.6" x2="27.2" y2="-32.8"></line>
+              <line x1="44" y1="-42.4" x2="44" y2="-18.2"></line>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="3.4" fill="#a8bbcd">
+              <text x="27.2" y="-38" text-anchor="middle">náboj</text>
+              <text x="44" y="-44" text-anchor="middle">disk + věnec</text>
+            </g>
+          </g>
+
+          <g style="transition:opacity 0.35s ease" opacity="{{ opCast }}">
+            <g fill="none" stroke="oklch(0.62 0.07 200)" stroke-width="0.5" stroke-dasharray="2 1.4">
+              <path d="M 21 -35 L 21 -41 L 19 -50 L 31.5 -50 L 30 -41 L 30 -35"></path>
+              <path d="M -21 -35 L -21 -41 L -19 -50 L -31.5 -50 L -30 -41 L -30 -35"></path>
+              <path d="M 56.4 -2.6 L 66 -2.6 L 66 2.6 L 56.4 2.6"></path>
+              <path d="M -56.4 -2.6 L -66 -2.6 L -66 2.6 L -56.4 2.6"></path>
+            </g>
+            <path d="M 18.4 -35 L 33.2 -35 L 34.6 -27.5 A 8 8 0 0 0 42.6 -19.5 L 45.5 -19.5 A 6 6 0 0 0 51.5 -13.5 L 55.4 -13.5 L 56.6 0 L 55.4 13.5 L 51.5 13.5 A 6 6 0 0 0 45.5 19.5 L 42.6 19.5 A 8 8 0 0 0 34.6 27.5 L 33.2 35 L 18.4 35 Z" fill="oklch(0.72 0.115 350)" stroke="oklch(0.72 0.115 350)" stroke-width="0.5" stroke-linejoin="round"></path>
+            <path d="M 18.4 -35 L 33.2 -35 L 34.6 -27.5 A 8 8 0 0 0 42.6 -19.5 L 45.5 -19.5 A 6 6 0 0 0 51.5 -13.5 L 55.4 -13.5 L 56.6 0 L 55.4 13.5 L 51.5 13.5 A 6 6 0 0 0 45.5 19.5 L 42.6 19.5 A 8 8 0 0 0 34.6 27.5 L 33.2 35 L 18.4 35 Z" fill="oklch(0.72 0.115 350)" stroke="oklch(0.72 0.115 350)" stroke-width="0.5" stroke-linejoin="round" transform="scale(-1,1)"></path>
+            <line x1="-18.4" y1="-35" x2="18.4" y2="-35" stroke="oklch(0.72 0.115 350)" stroke-width="0.5"></line>
+            <line x1="-18.4" y1="35" x2="18.4" y2="35" stroke="oklch(0.72 0.115 350)" stroke-width="0.5"></line>
+            <g style="transition:opacity 0.3s ease" opacity="{{ opStruct }}" clip-path="url(#clipCast)">
+              <rect x="-60" y="-40" width="120" height="80" fill="url(#grainCoarse)"></rect>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="3.4" fill="oklch(0.68 0.06 200)">
+              <text x="25.2" y="-52" text-anchor="middle">nálitek</text>
+              <text x="66" y="-4.6" text-anchor="end">vtok</text>
+              <text x="0" y="-42" text-anchor="middle">jádro Ø37</text>
+            </g>
+          </g>
+
+          <g style="transition:opacity 0.3s ease" opacity="{{ opFinal }}">
+            <path d="M 22 -31 L 32 -31 L 32 -17 L 41 -17 L 41 -14 A 4 4 0 0 0 45 -10 L 51 -10 L 52 -9 L 52 9 L 51 10 L 45 10 A 4 4 0 0 0 41 14 L 41 17 L 32 17 L 32 31 L 22 31 Z" fill="oklch(0.71 0.105 248)" stroke="oklch(0.71 0.105 248)" stroke-width="0.5" stroke-linejoin="round"></path>
+            <path d="M 22 -31 L 32 -31 L 32 -17 L 41 -17 L 41 -14 A 4 4 0 0 0 45 -10 L 51 -10 L 52 -9 L 52 9 L 51 10 L 45 10 A 4 4 0 0 0 41 14 L 41 17 L 32 17 L 32 31 L 22 31 Z" fill="oklch(0.71 0.105 248)" stroke="oklch(0.71 0.105 248)" stroke-width="0.5" stroke-linejoin="round" transform="scale(-1,1)"></path>
+            <line x1="-22" y1="-31" x2="22" y2="-31" stroke="oklch(0.71 0.105 248)" stroke-width="0.5"></line>
+            <line x1="-22" y1="31" x2="22" y2="31" stroke="oklch(0.71 0.105 248)" stroke-width="0.5"></line>
+          </g>
+
+          <g style="transition:opacity 0.35s ease" opacity="{{ opWeld }}" fill="none" stroke="oklch(0.75 0.14 25)" stroke-width="0.4" stroke-dasharray="1.6 1.2" stroke-opacity="0.85">
+            <path d="M 31.5 -17.5 L 31.5 -26 A 8.5 8.5 0 0 1 42 -17.5"></path>
+            <path d="M 31.5 17.5 L 31.5 26 A 8.5 8.5 0 0 0 42 17.5"></path>
+            <path d="M 31.5 -17.5 L 31.5 -26 A 8.5 8.5 0 0 1 42 -17.5" transform="scale(-1,1)"></path>
+            <path d="M 31.5 17.5 L 31.5 26 A 8.5 8.5 0 0 0 42 17.5" transform="scale(-1,1)"></path>
+          </g>
+
+          <g style="transition:opacity 0.3s ease" opacity="{{ opCastDefect }}">
+            <g fill="oklch(0.3 0.035 40)" stroke="oklch(0.62 0.06 40)" stroke-width="0.35">
+              <path d="M 24.5 -3.2 L 27.8 -4.4 L 29.4 -1.4 L 27 1.8 L 24.2 0.6 Z"></path>
+              <path d="M 26.6 3.6 L 29.2 3 L 29.8 5.6 L 27 6 Z"></path>
+              <path d="M 22.6 -6.6 L 25 -7.6 L 25.4 -5.2 L 23 -4.6 Z"></path>
+            </g>
+            <line x1="28.8" y1="4.4" x2="46" y2="20.4" stroke="oklch(0.62 0.06 40)" stroke-width="0.3"></line>
+            <text x="47" y="22.6" font-family="IBM Plex Mono, monospace" font-size="3.2" fill="oklch(0.75 0.08 40)">staženina</text>
+          </g>
+
+          <line x1="0" y1="-53" x2="0" y2="53" stroke="#eaf2fa" stroke-width="0.3" stroke-dasharray="6 1.4 1 1.4" opacity="0.55"></line>
+          <g style="transition:opacity 0.3s ease" opacity="{{ opParting }}">
+            <line x1="-70" y1="0" x2="70" y2="0" stroke="oklch(0.72 0.15 60)" stroke-width="0.25" stroke-dasharray="3 2" opacity="0.35"></line>
+            <line x1="-64" y1="4.4" x2="-64" y2="42" stroke="oklch(0.72 0.15 60)" stroke-width="0.25" opacity="0.35"></line>
+            <text x="-70" y="45.5" font-family="IBM Plex Mono, monospace" font-size="3.2" fill="oklch(0.62 0.09 60)" opacity="0.85">dělicí rovina</text>
+          </g>
+        </svg>
+
+        <div style="margin-top:10px;font-size:14.5px;line-height:1.65;color:#8fa4b8;max-width:620px;text-align:center;text-wrap:pretty">{{ caption }}</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="background:#0b1018;border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:18px 20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:#6f8296;margin-bottom:6px">Hmotnost polotovaru</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1;color:oklch(0.72 0.115 350)">{{ blankMass }}</div>
+          <div style="font-size:13px;color:#8fa4b8;margin-top:7px;line-height:1.5">{{ blankNote }}</div>
+        </div>
+        <div style="background:#0b1018;border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:18px 20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:#6f8296;margin-bottom:6px">Využití nakoupeného materiálu</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1;color:oklch(0.72 0.15 60)">{{ util }}</div>
+          <div style="height:6px;border-radius:3px;background:rgba(150,180,210,0.14);margin:10px 0 7px;overflow:hidden"><div style="{{ utilBar }}"></div></div>
+          <div style="font-size:13px;color:#8fa4b8;line-height:1.5">{{ utilNote }}</div>
+        </div>
+        <div style="background:#0b1018;border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:18px 20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:#6f8296;margin-bottom:6px">Hotová součást</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1;color:oklch(0.71 0.105 248)">2,0 kg</div>
+          <div style="font-size:13px;color:#8fa4b8;margin-top:7px;line-height:1.5">Ø 104 × 62 mm, díra Ø 44. Stejná ve všech třech variantách.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;font-size:13.5px;color:#aebfcf">
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:oklch(0.71 0.105 248);display:inline-block"></span>hotová obrobená součást</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:oklch(0.72 0.115 350);display:inline-block"></span>materiál navíc — přijde na třísky</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:oklch(0.85 0.095 85);display:inline-block"></span>technologický přídavek (úkosy, blána, výronek)</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:oklch(0.68 0.16 35);display:inline-block"></span>svar a tepelně ovlivněná oblast</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;border:1px dashed oklch(0.62 0.07 200);display:inline-block"></span>vtoková soustava a nálitek</div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:24px;margin:56px 0 6px">Kdy se která technologie hodí</h2>
+    <p style="font-size:15px;color:#8fa4b8;margin:0 0 18px">Sloupec zvolené technologie je zvýrazněný — přepínač nahoře ovládá i tuto tabulku.</p>
+
+    <div style="background:#0b1018;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden">
+      <table style="width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.6">
+        
+          
+          
+          
+          
+        
+        <thead>
+          <tr>
+            <th style="width:19%;text-align:left;padding:16px 18px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:#6f8296;font-weight:500;border-bottom:1px solid rgba(150,180,210,0.16)"></th>
+            <th style="width:27%;text-align:left;padding:16px 18px;font-family:'Quicksand',sans-serif;font-size:16px;font-weight:700;color:#eaf2fa;border-bottom:1px solid rgba(150,180,210,0.16)">Zápustkové kování</th>
+            <th style="width:27%;text-align:left;padding:16px 18px;font-family:'Quicksand',sans-serif;font-size:16px;font-weight:700;color:#eaf2fa;border-bottom:1px solid rgba(150,180,210,0.16)">Svařenec ze dvou dílů</th>
+            <th style="width:27%;text-align:left;padding:16px 18px;font-family:'Quicksand',sans-serif;font-size:16px;font-weight:700;color:#eaf2fa;border-bottom:1px solid rgba(150,180,210,0.16)">Odlitek</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:14px 18px;color:#6f8296;font-weight:500;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Sériovost</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Střední a velké série, zhruba od 1 000 ks/rok — pod tím se zápustka nezaplatí.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Kusová a malá série; typicky velká kola nad Ø 400 mm, kde by výkovek byl neúnosně drahý.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Malá i střední série, zvlášť u tvarově složitých kol s žebry a odlehčením.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 18px;color:#6f8296;font-weight:500;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Vhodné oceli</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">12 050 (C45), 14 220 (16MnCr5), 15 142 (42CrMo4) — dobře tvárné při 1 150–1 250 °C.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">11 375 (S235JR), 11 523 (S355J2) — nízký uhlík, CEV pod 0,45 %.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Oceli na odlitky 42 2643 / GE240, GS-52; méně namáhaná kola i EN-GJS-600-3.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 18px;color:#6f8296;font-weight:500;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Hmotnost polotovaru</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">3,0 kg výkovek, přířez 3,3 kg</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">2,6 kg (dva díly dohromady)</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">3,0 kg odlitek, vsázka 4,6 kg</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 18px;color:#6f8296;font-weight:500;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Struktura a pevnost</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Nejlepší. Vlákna kopírují obrys a obcházejí patu zubu — nejvyšší únavová pevnost.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">V dílech dobrá (válcovaná struktura), slabinou je svar a hrubozrnná TOO vedle něj.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Nejhorší. Hrubé licí zrno, žádná usměrněná vlákna, nižší houževnatost a vyšší vrubová citlivost.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 18px;color:#6f8296;font-weight:500;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Přesnost a přídavky</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">IT12–IT14, přídavek 2,5 mm; úkosy 3–7° a rádiusy jsou povinné.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Dané přípravkem; po svaření se kolo obrábí načisto kvůli deformacím.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">IT14–IT16 u pískové formy, přídavek až 4 mm, úkosy 2–3°.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 18px;color:#6f8296;font-weight:500;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Nářadí a příprava</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Drahá zápustka a dlouhá příprava, pak ale nejkratší takt na kus.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Bez drahého nářadí — stačí polohovací přípravek; zato hodně ruční práce.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Model je levnější než zápustka, u kokily se cena blíží kování.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 18px;color:#6f8296;font-weight:500;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Typické vady</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Přeložky, nezaplněné rohy dutiny, hrubé zrno při přehřátí nad 1 250 °C.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Neprovařený kořen, trhliny v TOO, zbytkové pnutí a házivost po svaření.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Staženina v tepelné ose náboje, bubliny, zavaleniny, pórovitost.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 18px;color:#6f8296;font-weight:500;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Tepelné zpracování</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Normalizační žíhání po kování, pak cementace nebo zušlechtění zubů.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Předehřev 150–250 °C, po svaření žíhání ke snížení pnutí.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top;border-bottom:1px solid rgba(150,180,210,0.08)">Normalizační žíhání je nutné — jinak zůstane hrubé licí zrno.</td>
+          </tr>
+          <tr>
+            <td style="padding:14px 18px;color:#6f8296;font-weight:500;vertical-align:top">Kdy nevolit</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top">Kusová výroba a velmi členité tvary s vnitřními dutinami.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top">Velké série a kola s rázovým, silně dynamickým zatížením.</td>
+            <td style="padding:14px 18px;color:#c7d5e2;vertical-align:top">Tenkostěnné a dynamicky namáhané díly, kde rozhoduje houževnatost.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:24px;margin:56px 0 18px">Jaká ocel ke které technologii</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+      <div style="background:#0b1018;border:1px solid rgba(150,180,210,0.16);border-left:3px solid oklch(0.85 0.095 85);border-radius:14px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;margin-bottom:10px">Pro kování</div>
+        <p style="margin:0 0 10px;font-size:14.5px;line-height:1.65;color:#aebfcf">Rozhoduje tvárnost za tepla a šířka teplotního intervalu tváření. Kove se při 1 150–1 250 °C, dokovací teplota nesmí klesnout pod ≈ 850 °C, jinak ocel praská.</p>
+        <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.75;color:#c7d5e2">
+          <li><strong>12 050 / C45</strong> — levná, kolo se zušlechtí <br>na 800 MPa</li>
+          <li><strong>14 220 / 16MnCr5</strong> — cementační, tvrdý zub <br>a houževnaté jádro</li>
+          <li><strong>15 142 / 42CrMo4</strong> — pro nejvíc namáhaná kola <br>v převodovkách</li>
+        </ul>
+      </div>
+      <div style="background:#0b1018;border:1px solid rgba(150,180,210,0.16);border-left:3px solid oklch(0.68 0.16 35);border-radius:14px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;margin-bottom:10px">Pro svařování</div>
+        <p style="margin:0 0 10px;font-size:14.5px;line-height:1.65;color:#aebfcf">Rozhoduje svařitelnost, ne pevnost. Uhlík <br>pod 0,22 % a uhlíkový ekvivalent CEV pod 0,45 % — jinak v TOO vzniká martenzit a trhliny.</p>
+        <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.75;color:#c7d5e2">
+          <li><strong>11 375 / S235JR</strong> — náboj a disk, svařuje se <br>bez předehřevu</li>
+          <li><strong>11 523 / S355J2</strong> — vyšší mez kluzu, zaručená vrubová houževnatost</li>
+          <li><strong>Věnec z 16MnCr5</strong> jde použít, ale jen <br>s předehřevem a řízeným ochlazováním</li>
+        </ul>
+      </div>
+      <div style="background:#0b1018;border:1px solid rgba(150,180,210,0.16);border-left:3px solid oklch(0.62 0.07 200);border-radius:14px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;margin-bottom:10px">Pro odlévání</div>
+        <p style="margin:0 0 10px;font-size:14.5px;line-height:1.65;color:#aebfcf">Rozhoduje zabíhavost a sklon ke staženinám. Ocel na odlitky se lije kolem 1 550 °C a smršťuje se přes 2 % — proto ty nálitky.</p>
+        <ul style="margin:0;padding-left:18px;font-size:14px;line-height:1.75;color:#c7d5e2">
+          <li><strong>42 2643 / GE240</strong> — základní ocel na odlitky, svařitelná i obrobitelná</li>
+          <li><strong>GS-52 (42 2650)</strong> — pevnější, pro větší namáhání</li>
+          <li><strong>EN-GJS-600-3</strong> — litina s kuličkovým grafitem: skvělá zabíhavost, tlumí vibrace, ale nižší houževnatost</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultTech&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;kovani&quot;,&quot;svar&quot;,&quot;slev&quot;],&quot;default&quot;:&quot;kovani&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Výchozí stav&quot;},&quot;structureDefault&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Výchozí stav&quot;}}">
+const TECH = {
+  kovani: {
+    i: 0,
+    blankMass: '3,0 kg',
+    blankNote: 'Výkovek včetně výronku a blány. Přířez Ø 60 × 145 mm váží 3,3 kg.',
+    util: '61 %',
+    utilPct: 61,
+    utilNote: 'Výronek, blána a okuje jdou do šrotu.',
+    caption: 'Zápustkový výkovek: úkosy 3–7°, velké rádiusy, blána v místě budoucí díry a výronek vytlačený do dělicí roviny. Materiálu je nejvíc, ale vlákna kopírují tvar součásti.'
+  },
+  svar: {
+    i: 1,
+    blankMass: '2,6 kg',
+    blankNote: 'Náboj z tyče 1,1 kg + disk s věncem vypálený z plechu 1,5 kg. Nakoupeného materiálu je ale 3,6 kg — zbytek zůstane v odpadu plechu a v třískách z náboje.',
+    util: '55 %',
+    utilPct: 55,
+    utilNote: 'Odpad vzniká při dělení plechu a vrtání náboje.',
+    caption: 'Svařenec ze dvou dílů: náboj soustružený z tyče a disk s věncem vypálený z plechu. Spojen dvěma koutovými svary. U kola Ø 104 mm je to spíš ukázka principu — svařence se vyplatí u průměrů nad 400 mm.'
+  },
+  slev: {
+    i: 2,
+    blankMass: '3,0 kg',
+    blankNote: 'Samotný odlitek. Vsázka s vtokovou soustavou a nálitkem 4,6 kg — ta se ale přetaví.',
+    util: '43 %',
+    utilPct: 43,
+    utilNote: 'Počítáno na vsázku; vtoky a nálitek se ale vracejí do pece.',
+    caption: 'Odlitek s konstantní tloušťkou stěny, velkými rádiusy a úkosy. Díra je vytvořena jádrem, nad nábojem sedí nálitek, který dosazuje kov při tuhnutí. Přídavek na obrábění je největší — až 4 mm.'
+  }
+};
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tech: props.defaultTech || 'kovani',
+      struct: props.structureDefault !== undefined ? props.structureDefault : false,
+      showFinal: true
+    };
+  }
+  renderVals() {
+    const t = TECH[this.state.tech] || TECH.kovani;
+    const s = this.state.struct ? 1 : 0;
+    const dot = (on) => 'width:9px;height:9px;border-radius:50%;flex:none;transition:background 0.2s,box-shadow 0.2s;background:' +
+      (on ? 'oklch(0.72 0.15 60)' : 'rgba(150,180,210,0.28)') +
+      (on ? ';box-shadow:0 0 0 3px rgba(214,150,60,0.18)' : '');
+    const col = 'position:absolute;top:0;bottom:0;left:19%;width:27%;background:rgba(120,150,180,0.09);pointer-events:none;transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);';
+    return {
+      opForge: this.state.tech === 'kovani' ? 1 : 0,
+      opWeld: this.state.tech === 'svar' ? 1 : 0,
+      opCast: this.state.tech === 'slev' ? 1 : 0,
+      opFinal: this.state.showFinal ? 1 : 0,
+      opStruct: s,
+      opStructHalf: s ? 0.85 : 0,
+      caption: t.caption,
+      blankMass: t.blankMass,
+      blankNote: t.blankNote,
+      util: t.util,
+      utilNote: t.utilNote,
+      utilBar: 'height:100%;border-radius:3px;background:oklch(0.72 0.15 60);transition:width 0.35s ease;width:' + t.utilPct + '%',
+      indicatorStyle: 'position:absolute;top:4px;left:4px;bottom:4px;width:calc((100% - 8px) / 3);border-radius:10px;background:rgba(120,150,180,0.14);border:1px solid oklch(0.72 0.15 60);box-sizing:border-box;transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);transform:translateX(' + (t.i * 100) + '%)',
+      structDot: dot(this.state.struct),
+      finalDot: dot(this.state.showFinal),
+      colHighlight: col + 'transform:translateX(' + (t.i * 100) + '%)',
+      opCastDefect: this.state.tech === 'slev' && this.state.struct ? 1 : 0,
+      opParting: this.state.tech === 'svar' ? 0 : 1,
+      pickKovani: () => this.setState({ tech: 'kovani' }),
+      pickSvar: () => this.setState({ tech: 'svar' }),
+      pickSlev: () => this.setState({ tech: 'slev' }),
+      toggleStruct: () => this.setState(p => ({ struct: !p.struct })),
+      toggleFinal: () => this.setState(p => ({ showFinal: !p.showFinal }))
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+</body>
+</html>

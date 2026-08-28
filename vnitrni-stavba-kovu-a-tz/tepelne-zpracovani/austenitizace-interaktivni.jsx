@@ -65,7 +65,12 @@ const lerpC = (a, b, t) => [
 ];
 
 // ── Fe–C constants ──────────────────────────────────────────────────────────
-const FEC = window.FEC;   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js
+const FEC = window.FEC || {   // vnitrni-stavba-kovu-a-tz/fe-c-konstanty.js (záložní kopie, kdyby se soubor nenačetl)
+  C_P: 0.018, C_S: 0.765, C_E: 2.14, C_C: 4.3, C_CEM: 6.68, EUT_TOL: 0.02,
+  T_A: 1538, T_G: 911, T_EUT: 1147, T_A1: 727, T_D: 1380,
+  CEM: { HV_SURFACE: 690, HRC_SURFACE: 60, HV_CORE: 165, C_CORE: 0.17 },
+  cz: function (v, dec) { return (dec == null ? String(v) : v.toFixed(dec)).replace('.', ','); },
+};
 const T_MIN = -80, T_MAX = 1050, A1 = FEC.T_A1;
 const C_EUT = FEC.C_S, C_FMAX = FEC.C_P, C_CEM = FEC.C_CEM;
 const EUT_LO = C_EUT - FEC.EUT_TOL, EUT_HI = C_EUT + FEC.EUT_TOL;
