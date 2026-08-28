@@ -815,6 +815,18 @@
     "title": "ARA diagram — anizotermický rozpad austenitu",
     "written_hash": "b6526669c78c85a7362dbc182dcd76acaed47f0f9ad8d9cb78d395cb011ebea9"
   },
+  "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ara-diagram-kaleni": {
+    "badge": true,
+    "category": "vnitrni-stavba-kovu-a-tz",
+    "content_hash": "36eae18632f5ca5db9b2dc011363f9831e25a6afc41a370e1ae523d1d58a0ad1",
+    "file": "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ARA diagram kaleni.html",
+    "first_seen": "2026-08-28",
+    "last_changed": "2026-08-28",
+    "locked": false,
+    "note": "Nový název stránky a kritické teploty shodné s diagramem Fe–Fe₃C.",
+    "title": "ARA diagram – anizotermický rozpad austenitu",
+    "written_hash": "be5d9d33bedbde5fd93d4c72cc6bd9b304382d77f994819b3c6991f859866e94"
+  },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/austenitizace": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
