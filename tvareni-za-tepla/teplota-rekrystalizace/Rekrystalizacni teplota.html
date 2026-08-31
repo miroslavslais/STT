@@ -51,17 +51,17 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:8px">Teplota rekrystalizace</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Rekrystalizační teplota T<sub>R</sub></h1>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Rekrystalizační teplota <strong>T<sub>R</sub></strong> je hranice, nad kterou v deformovaném kovu vznikají nová, nezpevněná zrna namísto zrn protažených a zpevněných deformací. Je to právě ta teplota, která odděluje tváření za studena od tváření za tepla.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Rekrystalizační teplota <strong>T<sub>R</sub></strong> je hranice, nad kterou v&nbsp;deformovaném kovu vznikají nová, nezpevněná zrna namísto zrn protažených a&nbsp;zpevněných deformací. Je to právě ta teplota, která odděluje tváření za studena od tváření za tepla.</p>
 
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px;margin-bottom:22px;text-align:center">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#eaf2fa;margin-bottom:6px">T<sub>R</sub> ≈ 0,4 × T<sub>t</sub></div>
-      <div style="font-size:13.5px;color:#8296a8">T<sub>t</sub> = teplota tání [K] — do vztahu se dosazuje v kelvinech</div>
+      <div style="font-size:13.5px;color:#8296a8">T<sub>t</sub> = teplota tání [K] — do vztahu se dosazuje v&nbsp;kelvinech</div>
     </div>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Skutečná hodnota T<sub>R</sub> se pohybuje v širším pásmu (přibližně 0,3–0,5 × T<sub>t</sub>) — záleží na čistotě kovu a stupni deformace. Obsahuje-li slitina navíc legující prvky, dislokace se hůře pohybují a T<sub>R</sub> roste.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Skutečná hodnota T<sub>R</sub> se pohybuje v&nbsp;širším pásmu (přibližně 0,3–0,5 × T<sub>t</sub>) — záleží na čistotě kovu a&nbsp;stupni deformace. Obsahuje-li slitina navíc legující prvky, dislokace se hůře pohybují a&nbsp;T<sub>R</sub> roste.</p>
 
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px;margin-bottom:24px">
-      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:16px">Vyzkoušej: posuň teplotu a sleduj, které kovy se právě tváří za tepla</div>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:16px">Vyzkoušej: posuň teplotu a&nbsp;sleduj, které kovy se právě tváří za tepla</div>
 
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px">
         <sc-for list="{{ metals }}" as="m" hint-placeholder-count="9">
@@ -74,17 +74,17 @@
 
       <input type="range" min="0" max="1700" step="10" value="{{ temp }}" onInput="{{ onTemp }}" style="width:100%;accent-color:oklch(0.72 0.16 60);cursor:pointer">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8">0 °C</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8">0&nbsp;°C</span>
         <span style="font-family:'IBM Plex Sans',sans-serif;font-weight:700;font-size:20px;color:oklch(0.78 0.16 60)">{{ temp }} °C</span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8">1700 °C</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8">1700&nbsp;°C</span>
       </div>
     </div>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Legující prvky (zejména ty, které tvoří tuhý roztok nebo brzdí pohyb hranic zrn) rekrystalizaci ztěžují a T<sub>R</sub> zvyšují — proto mají legované oceli vyšší T<sub>R</sub> než čisté železo.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Legující prvky (zejména ty, které tvoří tuhý roztok nebo brzdí pohyb hranic zrn) rekrystalizaci ztěžují a&nbsp;T<sub>R</sub> zvyšují — proto mají legované oceli vyšší T<sub>R</sub> než čisté železo.</p>
 
     <div style="background:rgba(224,166,84,0.08);border:1px solid rgba(224,166,84,0.25);border-radius:14px;padding:18px 22px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:6px">Shrnutí</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">T<sub>R</sub> ≈ 0,4 × T<sub>t</sub> [K]. Nad T<sub>R</sub> = tváření za tepla, bez zpevnění. Legující prvky a čistota kovu T<sub>R</sub> ovlivňují.</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">T<sub>R</sub> ≈ 0,4 × T<sub>t</sub> [K]. Nad T<sub>R</sub> = tváření za tepla, bez zpevnění. Legující prvky a&nbsp;čistota kovu T<sub>R</sub> ovlivňují.</div>
     </div>
   </div>
 </div>
@@ -126,7 +126,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

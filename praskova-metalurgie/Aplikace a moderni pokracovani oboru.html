@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aplikace a moderní pokračování oboru | STT</title>
+<meta name="description" content="Slinuté karbidy a značení ISO 513, cermety, MIM — vstřikování kovových prášků, izostatické lisování CIP a HIP, kovový 3D tisk SLM a srovnání metod práškové metalurgie.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-08-31">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #a9c8e6; }
+    select, input { font-family: 'IBM Plex Mono', monospace; }
+    [data-paused="1"] * { animation-play-state: paused !important; }
+
+    @keyframes a1shrink { 0%, 30% { transform: scale(1) } 62%, 100% { transform: scale(0.8) } }
+    @keyframes a1g1 { 0%, 30% { transform: translate(0, 0) } 62%, 100% { transform: translate(21px, 16px) } }
+    @keyframes a1g2 { 0%, 30% { transform: translate(0, 0) } 62%, 100% { transform: translate(1px, 16px) } }
+    @keyframes a1g3 { 0%, 30% { transform: translate(0, 0) } 62%, 100% { transform: translate(-20px, 15px) } }
+    @keyframes a1g4 { 0%, 30% { transform: translate(0, 0) } 62%, 100% { transform: translate(24px, 0) } }
+    @keyframes a1g5 { 0%, 30% { transform: translate(0, 0) } 62%, 100% { transform: translate(4px, 0) } }
+    @keyframes a1g6 { 0%, 30% { transform: translate(0, 0) } 62%, 100% { transform: translate(-19px, -1px) } }
+    @keyframes a1g7 { 0%, 30% { transform: translate(0, 0) } 62%, 100% { transform: translate(23px, -16px) } }
+    @keyframes a1g8 { 0%, 30% { transform: translate(0, 0) } 62%, 100% { transform: translate(2px, -16px) } }
+    @keyframes a1g9 { 0%, 30% { transform: translate(0, 0) } 62%, 100% { transform: translate(-20px, -16px) } }
+    @keyframes a1co { 0%, 30% { fill: #5d7488 } 50%, 100% { fill: #e0a35a } }
+    @keyframes a1pore { 0%, 30% { opacity: 1 } 62%, 100% { opacity: 0 } }
+    @keyframes a1gauge { 0%, 8% { transform: scaleY(0.08) } 45%, 100% { transform: scaleY(0.92) } }
+    @keyframes a1t1 { 0%, 32.6% { opacity: 1 } 33%, 100% { opacity: 0 } }
+    @keyframes a1t2 { 0%, 32.6% { opacity: 0 } 33%, 65.6% { opacity: 1 } 66%, 100% { opacity: 0 } }
+    @keyframes a1t3 { 0%, 65.6% { opacity: 0 } 66%, 100% { opacity: 1 } }
+    @keyframes a1p1 { 0%, 32.6% { background: rgba(224,163,90,0.16); border-color: rgba(224,163,90,0.5); color: #eaf2fa } 33%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a1p2 { 0%, 32.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 33%, 65.6% { background: rgba(224,163,90,0.16); border-color: rgba(224,163,90,0.5); color: #eaf2fa } 66%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a1p3 { 0%, 65.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 66%, 100% { background: rgba(224,163,90,0.16); border-color: rgba(224,163,90,0.5); color: #eaf2fa } }
+
+    @keyframes a2s1 { 0%, 24.6% { opacity: 1 } 25%, 100% { opacity: 0 } }
+    @keyframes a2s2 { 0%, 24.6% { opacity: 0 } 25%, 49.6% { opacity: 1 } 50%, 100% { opacity: 0 } }
+    @keyframes a2s3 { 0%, 49.6% { opacity: 0 } 50%, 74.6% { opacity: 1 } 75%, 100% { opacity: 0 } }
+    @keyframes a2s4 { 0%, 74.6% { opacity: 0 } 75%, 100% { opacity: 1 } }
+    @keyframes a2fall { 0% { transform: translateY(-14px) } 100% { transform: translateY(26px) } }
+    @keyframes a2screw { 0%, 25% { transform: translateX(0) } 40%, 100% { transform: translateX(58px) } }
+    @keyframes a2puff { 0% { transform: translateY(0) scale(0.6); opacity: 0 } 40% { opacity: 0.75 } 100% { transform: translateY(-46px) scale(1.3); opacity: 0 } }
+    @keyframes a2sint { 0%, 8% { transform: scale(1) } 60%, 100% { transform: scale(0.825) } }
+    @keyframes a2p1 { 0%, 24.6% { background: rgba(123,163,204,0.18); border-color: rgba(123,163,204,0.55); color: #eaf2fa } 25%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a2p2 { 0%, 24.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 25%, 49.6% { background: rgba(123,163,204,0.18); border-color: rgba(123,163,204,0.55); color: #eaf2fa } 50%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a2p3 { 0%, 49.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 50%, 74.6% { background: rgba(123,163,204,0.18); border-color: rgba(123,163,204,0.55); color: #eaf2fa } 75%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a2p4 { 0%, 74.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 75%, 100% { background: rgba(123,163,204,0.18); border-color: rgba(123,163,204,0.55); color: #eaf2fa } }
+
+    @keyframes a3push { 0%, 100% { transform: translate(0, 0) } 50% { transform: translate(0, 10px) } }
+    @keyframes a3pull { 0%, 100% { transform: translate(0, 0) } 50% { transform: translate(0, -10px) } }
+    @keyframes a3iso { 0%, 100% { transform: scale(1) } 50% { transform: scale(0.94) } }
+
+    @keyframes a4wipe { 0% { transform: translateX(-300px) } 24% { transform: translateX(300px) } 24.1%, 100% { transform: translateX(-300px) } }
+    @keyframes a4laser { 0%, 32% { opacity: 0 } 36% { opacity: 1 } 58% { opacity: 1 } 62%, 100% { opacity: 0 } }
+    @keyframes a4laserx { 0%, 34% { transform: translateX(-88px) } 60%, 100% { transform: translateX(88px) } }
+    @keyframes a4melt { 0%, 36% { opacity: 0 } 46%, 100% { opacity: 1 } }
+    @keyframes a4drop { 0%, 66% { transform: translateY(0) } 82%, 100% { transform: translateY(10px) } }
+    @keyframes a4L1 { 0%, 12% { opacity: 0 } 16%, 100% { opacity: 1 } }
+    @keyframes a4L2 { 0%, 45% { opacity: 0 } 49%, 100% { opacity: 1 } }
+    @keyframes a4L3 { 0%, 78% { opacity: 0 } 82%, 100% { opacity: 1 } }
+    @keyframes a4stack { 0%, 33% { transform: translateY(0) } 34%, 66% { transform: translateY(10px) } 67%, 100% { transform: translateY(20px) } }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+  <script src="./anim-controls.js"></script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Prášková metalurgie</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div id="obsah" style="max-width:900px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Prášková metalurgie</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Aplikace a&nbsp;moderní pokračování oboru</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;text-wrap:pretty">Lisování v&nbsp;matrici má dvě omezení, která nelze obejít: tvar musí jít vysunout ve&nbsp;směru lisování a&nbsp;hustota nikdy nedosáhne sta procent. Metody v&nbsp;této podkapitole obcházejí buď jedno, nebo obě.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Slinuté karbidy</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Slinutý karbid je kompozit tvrdých karbidových zrn spojených kovovým pojivem. Nejrozšířenější je karbid wolframu WC s&nbsp;pojivem z&nbsp;kobaltu.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Vyrábí se výhradně práškovou metalurgií. Karbid wolframu má teplotu tání kolem 2870&nbsp;°C a&nbsp;nelze jej rozumně odlévat.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:0 0 20px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7ba3cc;margin-bottom:6px">1</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#c4d2de;text-wrap:pretty">Prášek WC se mele s&nbsp;kobaltem a&nbsp;plastifikátorem v&nbsp;kulovém mlýnu.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7ba3cc;margin-bottom:6px">2</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#c4d2de;text-wrap:pretty">Směs se lisuje nízkým tlakem 100 až 200&nbsp;MPa; výlisek má relativní hustotu jen kolem 55&nbsp;%.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7ba3cc;margin-bottom:6px">3</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#c4d2de;text-wrap:pretty">Odstraní se plastifikátor.</div>
+      </div>
+      <div style="background:rgba(224,163,90,0.09);border:1px solid rgba(224,163,90,0.35);border-radius:14px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#e0a35a;margin-bottom:6px">4</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#c4d2de;text-wrap:pretty">Slinuje se ve&nbsp;vakuu při 1350 až 1450&nbsp;°C. Kobalt se roztaví, obalí zrna karbidu a&nbsp;stáhne strukturu na více než 99&nbsp;%.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:14px 16px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7ba3cc;margin-bottom:6px">5</div>
+        <div style="font-size:13.5px;line-height:1.6;color:#c4d2de;text-wrap:pretty">Břitové destičky se brousí, protože smrštění nelze uřídit na přesný rozměr.</div>
+      </div>
+    </div>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#eaf2fa">Slinování WC-Co s&nbsp;kapalnou fází</div>
+      </div>
+      <div data-anim="1" data-paused="{{ p1 }}">
+        <svg viewBox="0 0 700 380" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <g>
+            <g style="transform-box:fill-box;transform-origin:center;animation:a1co 18s linear infinite, a1shrink 18s linear infinite">
+              <rect x="120" y="60" width="360" height="250" rx="6"></rect>
+            </g>
+            <g fill="#b9c8d6" stroke="#eaf2fa" stroke-width="1.2">
+              <g style="animation:a1g1 18s linear infinite"><polygon points="150,86 216,74 236,124 176,140"></polygon></g>
+              <g style="animation:a1g2 18s linear infinite"><polygon points="256,72 328,80 336,132 262,128"></polygon></g>
+              <g style="animation:a1g3 18s linear infinite"><polygon points="356,76 442,90 434,142 358,132"></polygon></g>
+              <g style="animation:a1g4 18s linear infinite"><polygon points="140,160 208,152 220,214 152,222"></polygon></g>
+              <g style="animation:a1g5 18s linear infinite"><polygon points="242,150 320,158 314,216 246,208"></polygon></g>
+              <g style="animation:a1g6 18s linear infinite"><polygon points="342,156 440,164 444,222 350,214"></polygon></g>
+              <g style="animation:a1g7 18s linear infinite"><polygon points="146,240 214,234 226,292 156,296"></polygon></g>
+              <g style="animation:a1g8 18s linear infinite"><polygon points="252,234 330,240 322,296 250,290"></polygon></g>
+              <g style="animation:a1g9 18s linear infinite"><polygon points="354,238 442,246 448,294 356,290"></polygon></g>
+            </g>
+            <g fill="#080b12" style="animation:a1pore 18s linear infinite">
+              <circle cx="240" cy="100" r="9"></circle>
+              <circle cx="346" cy="106" r="8"></circle>
+              <circle cx="228" cy="180" r="10"></circle>
+              <circle cx="330" cy="184" r="9"></circle>
+              <circle cx="234" cy="262" r="9"></circle>
+              <circle cx="342" cy="266" r="10"></circle>
+              <circle cx="180" cy="230" r="7"></circle>
+              <circle cx="290" cy="140" r="7"></circle>
+              <circle cx="398" cy="228" r="8"></circle>
+              <circle cx="196" cy="132" r="6"></circle>
+            </g>
+          </g>
+          <text x="300" y="342" fill="#5d7488" font-size="12" text-anchor="middle">silně zvětšený řez, hranatá zrna WC v&nbsp;kobaltu</text>
+
+          <rect x="560" y="50" width="46" height="240" rx="8" fill="rgba(120,150,180,0.08)" stroke="rgba(150,180,210,0.3)" stroke-width="1.2"></rect>
+          <g style="transform-box:fill-box;transform-origin:bottom;animation:a1gauge 18s linear infinite">
+            <rect x="564" y="54" width="38" height="232" rx="6" fill="#e0a35a" opacity="0.8"></rect>
+          </g>
+          <text x="583" y="36" fill="#8296a8" font-size="12" text-anchor="middle">teplota</text>
+          <text x="583" y="312" fill="#eaf2fa" font-size="13" text-anchor="middle" style="animation:a1t1 18s linear infinite">20&nbsp;°C</text>
+          <text x="583" y="312" fill="#e0a35a" font-size="13" text-anchor="middle" style="animation:a1t2 18s linear infinite">1400&nbsp;°C</text>
+          <text x="583" y="312" fill="#e0a35a" font-size="13" text-anchor="middle" style="animation:a1t3 18s linear infinite">1400&nbsp;°C</text>
+        </svg>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px">
+        <div data-anim="1" data-paused="{{ p1 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a1p1 18s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">1 · Výchozí stav</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Hranatá zrna WC, mezi nimi tuhý kobalt, spousta pórů. Relativní hustota 55&nbsp;%.</div>
+        </div>
+        <div data-anim="1" data-paused="{{ p1 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a1p2 18s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">2 · Ohřev</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Teplota stoupá k&nbsp;1400&nbsp;°C, kobalt se roztaví, obaluje zrna a&nbsp;vzlíná do mezer.</div>
+        </div>
+        <div data-anim="1" data-paused="{{ p1 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a1p3 18s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">3 · Stažení</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Zrna se přitáhnou, póry mizí. Relativní hustota přes 99&nbsp;%, lineární smrštění 20&nbsp;%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px">
+      <div style="background:rgba(87,185,138,0.09);border:1px solid rgba(87,185,138,0.35);border-radius:16px;padding:20px 22px">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Nižší obsah kobaltu · 3 až 6&nbsp;%</div>
+        <div style="font-size:15px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Vyšší tvrdost, vyšší křehkost. Pro dokončovací obrábění.</div>
+      </div>
+      <div style="background:rgba(224,163,90,0.09);border:1px solid rgba(224,163,90,0.35);border-radius:16px;padding:20px 22px">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Vyšší obsah kobaltu · 10 až 15&nbsp;%</div>
+        <div style="font-size:15px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Nižší tvrdost, vyšší houževnatost. Pro hrubování a&nbsp;přerušovaný řez.</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Značení podle ISO 513</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Značení podle ISO 513 rozděluje slinuté karbidy do skupin podle obráběného materiálu. Skupiny se označují písmenem a&nbsp;barvou.</p>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px;margin:0 0 26px">
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px">
+        <sc-for list="{{ isoTiles }}" as="g" hint-placeholder-count="6">
+          <div onClick="{{ g.pick }}" style="{{ g.tile }}">{{ g.letter }}</div>
+        </sc-for>
+      </div>
+      <div style="margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div style="background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.2);border-radius:14px;padding:16px 18px">
+          <div style="font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Obráběný materiál</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:{{ isoColor }}">{{ isoMat }}</div>
+        </div>
+        <div style="background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.2);border-radius:14px;padding:16px 18px">
+          <div style="font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Číslo za písmenem</div>
+          <div style="font-size:14.5px;line-height:1.65;color:#c4d2de;text-wrap:pretty">Udává poměr tvrdosti a&nbsp;houževnatosti. Nižší číslo znamená tvrdší a&nbsp;křehčí, vyšší číslo houževnatější a&nbsp;měkčí.</div>
+        </div>
+      </div>
+      <div style="margin-top:18px;border-top:1px solid rgba(150,180,210,0.14);padding-top:18px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px">
+          <div style="font-size:12.5px;font-weight:600;color:#8296a8">Obsah kobaltu</div>
+          <div style="display:flex;align-items:baseline;gap:6px"><span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa">{{ co }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8296a8">%</span></div>
+        </div>
+        <input type="range" min="3" max="15" step="1" value="{{ co }}" onChange="{{ setCo }}" onInput="{{ setCo }}" style="width:100%;accent-color:#7ba3cc">
+        <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#5d7488;margin-top:4px">
+          <span>3</span><span>15</span>
+        </div>
+        <div style="margin-top:14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ coColor }}">{{ coLabel }}</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Tvrdost řezných materiálů podle teploty břitu</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:18px 20px 12px;margin:0 0 10px">
+      <svg viewBox="0 0 880 400" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+        <g stroke="rgba(150,180,210,0.08)" stroke-width="1">
+          <line x1="100" y1="257.5" x2="820" y2="257.5"></line>
+          <line x1="100" y1="185" x2="820" y2="185"></line>
+          <line x1="100" y1="112.5" x2="820" y2="112.5"></line>
+          <line x1="100" y1="40" x2="820" y2="40"></line>
+        </g>
+
+        <polyline points="100,206.75 244,214 388,240.1 532,286.5 676,312.6 820,324.2" fill="none" stroke="#e0a35a" stroke-width="2.6"></polyline>
+        <polyline points="100,98 244,105.25 388,119.75 532,141.5 676,177.75 820,228.5" fill="none" stroke="#7ba3cc" stroke-width="2.6"></polyline>
+        <polyline points="100,83.5 244,90.75 388,103.8 532,124.1 676,156 820,206.75" fill="none" stroke="#57b98a" stroke-width="2.6"></polyline>
+        <polyline points="100,54.5 244,58.85 388,66.1 532,76.25 676,90.75 820,112.5" fill="none" stroke="#b9c8d6" stroke-width="2.6"></polyline>
+
+        <g fill="#e0a35a">
+          <circle cx="100" cy="206.75" r="4"></circle><circle cx="244" cy="214" r="4"></circle><circle cx="388" cy="240.1" r="4"></circle><circle cx="532" cy="286.5" r="4"></circle><circle cx="676" cy="312.6" r="4"></circle><circle cx="820" cy="324.2" r="4"></circle>
+        </g>
+        <g fill="#7ba3cc">
+          <circle cx="100" cy="98" r="4"></circle><circle cx="244" cy="105.25" r="4"></circle><circle cx="388" cy="119.75" r="4"></circle><circle cx="532" cy="141.5" r="4"></circle><circle cx="676" cy="177.75" r="4"></circle><circle cx="820" cy="228.5" r="4"></circle>
+        </g>
+        <g fill="#57b98a">
+          <circle cx="100" cy="83.5" r="4"></circle><circle cx="244" cy="90.75" r="4"></circle><circle cx="388" cy="103.8" r="4"></circle><circle cx="532" cy="124.1" r="4"></circle><circle cx="676" cy="156" r="4"></circle><circle cx="820" cy="206.75" r="4"></circle>
+        </g>
+        <g fill="#b9c8d6">
+          <circle cx="100" cy="54.5" r="4"></circle><circle cx="244" cy="58.85" r="4"></circle><circle cx="388" cy="66.1" r="4"></circle><circle cx="532" cy="76.25" r="4"></circle><circle cx="676" cy="90.75" r="4"></circle><circle cx="820" cy="112.5" r="4"></circle>
+        </g>
+
+        <g font-size="12.5" text-anchor="end">
+          <text x="814" y="78" fill="#b9c8d6">řezná keramika</text>
+          <text x="814" y="176" fill="#57b98a">cermet</text>
+          <text x="814" y="248" fill="#7ba3cc">slinutý karbid</text>
+          <text x="814" y="310" fill="#e0a35a">rychlořezná ocel</text>
+        </g>
+
+        <line x1="100" y1="40" x2="100" y2="330" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+        <line x1="100" y1="330" x2="820" y2="330" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+        <g fill="#8296a8" font-size="12.5" text-anchor="end">
+          <text x="92" y="334">0</text>
+          <text x="92" y="261.5">500</text>
+          <text x="92" y="189">1000</text>
+          <text x="92" y="116.5">1500</text>
+          <text x="92" y="44">2000</text>
+        </g>
+        <g fill="#8296a8" font-size="12.5" text-anchor="middle">
+          <text x="100" y="352">0</text>
+          <text x="244" y="352">200</text>
+          <text x="388" y="352">400</text>
+          <text x="532" y="352">600</text>
+          <text x="676" y="352">800</text>
+          <text x="820" y="352">1000</text>
+        </g>
+        <text x="460" y="380" fill="#aebfcf" font-size="13.5" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif">teplota břitu [°C]</text>
+        <text x="26" y="185" fill="#aebfcf" font-size="13.5" text-anchor="middle" transform="rotate(-90 26 185)" font-family="'IBM Plex Sans', sans-serif">tvrdost [HV]</text>
+      </svg>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 26px;text-wrap:pretty">Modelové hodnoty. Rychlořezná ocel ztrácí tvrdost už kolem 600&nbsp;°C, slinutý karbid si ji drží podstatně déle — proto snese vyšší řezné rychlosti.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Cermety</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Cermet je slinutý materiál, kde je tvrdou fází karbid nebo nitrid titanu místo karbidu wolframu, pojivem je nikl a&nbsp;kobalt.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;text-wrap:pretty">Proti slinutému karbidu má vyšší odolnost proti opotřebení a&nbsp;chemickou stálost, ale nižší houževnatost. Používá se pro dokončovací obrábění oceli, kde dává lepší jakost povrchu.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">MIM — vstřikování kovových prášků</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Anglicky Metal Injection Moulding. Metoda obchází tvarové omezení lisování v&nbsp;matrici — vyrobí i&nbsp;díl s&nbsp;bočními otvory a&nbsp;podkosy.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#eaf2fa">Cyklus MIM</div>
+      </div>
+      <div data-anim="2" data-paused="{{ p2 }}">
+        <svg viewBox="0 0 700 340" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <g style="animation:a2s1 24s linear infinite">
+            <polygon points="240,60 460,60 396,150 304,150" fill="none" stroke="#b9c8d6" stroke-width="1.6"></polygon>
+            <rect x="304" y="150" width="92" height="120" fill="rgba(120,150,180,0.12)" stroke="#b9c8d6" stroke-width="1.4"></rect>
+            <g fill="#8ea3b5">
+              <g style="animation:a2fall 1.6s linear infinite"><circle cx="320" cy="100" r="6"></circle></g>
+              <g style="animation:a2fall 1.6s linear infinite 0.3s"><circle cx="352" cy="86" r="7"></circle></g>
+              <g style="animation:a2fall 1.6s linear infinite 0.6s"><circle cx="384" cy="98" r="6"></circle></g>
+              <g style="animation:a2fall 1.6s linear infinite 0.9s"><circle cx="336" cy="130" r="6"></circle></g>
+              <g style="animation:a2fall 1.6s linear infinite 1.2s"><circle cx="368" cy="122" r="7"></circle></g>
+            </g>
+            <text x="350" y="300" fill="#5d7488" font-size="12.5" text-anchor="middle">granulát prášku s&nbsp;pojivem se sype do násypky</text>
+          </g>
+
+          <g style="animation:a2s2 24s linear infinite">
+            <rect x="120" y="140" width="300" height="56" rx="6" fill="rgba(120,150,180,0.12)" stroke="#b9c8d6" stroke-width="1.4"></rect>
+            <g style="animation:a2screw 24s linear infinite">
+              <rect x="126" y="148" width="120" height="40" rx="4" fill="#5d7488" stroke="#eaf2fa" stroke-width="1.2"></rect>
+              <line x1="150" y1="148" x2="150" y2="188" stroke="#eaf2fa" stroke-width="1.4"></line>
+              <line x1="180" y1="148" x2="180" y2="188" stroke="#eaf2fa" stroke-width="1.4"></line>
+              <line x1="210" y1="148" x2="210" y2="188" stroke="#eaf2fa" stroke-width="1.4"></line>
+            </g>
+            <rect x="440" y="100" width="60" height="140" fill="rgba(120,150,180,0.14)" stroke="#b9c8d6" stroke-width="1.4"></rect>
+            <rect x="500" y="100" width="60" height="140" fill="rgba(120,150,180,0.14)" stroke="#b9c8d6" stroke-width="1.4"></rect>
+            <path d="M470 140 L530 140 L530 176 L512 176 L512 200 L470 200 Z" fill="#8ea3b5" stroke="#eaf2fa" stroke-width="1.4"></path>
+            <text x="583" y="150" fill="#e0a35a" font-size="13" text-anchor="middle">180&nbsp;°C</text>
+            <text x="350" y="300" fill="#5d7488" font-size="12.5" text-anchor="middle">šnek vstříkne směs do formy, forma se otevře a&nbsp;vypadne díl</text>
+          </g>
+
+          <g style="animation:a2s3 24s linear infinite">
+            <path d="M300 120 L400 120 L400 180 L370 180 L370 220 L300 220 Z" fill="#8ea3b5" stroke="#eaf2fa" stroke-width="1.4"></path>
+            <g fill="#7ba3cc">
+              <g style="animation:a2puff 2.4s linear infinite"><circle cx="310" cy="112" r="10"></circle></g>
+              <g style="animation:a2puff 2.4s linear infinite 0.6s"><circle cx="352" cy="112" r="12"></circle></g>
+              <g style="animation:a2puff 2.4s linear infinite 1.2s"><circle cx="392" cy="112" r="9"></circle></g>
+              <g style="animation:a2puff 2.4s linear infinite 1.8s"><circle cx="332" cy="112" r="11"></circle></g>
+            </g>
+            <text x="350" y="300" fill="#5d7488" font-size="12.5" text-anchor="middle">odstranění pojiva — zbyde velmi křehké těleso, díl zůstává stejně velký</text>
+          </g>
+
+          <g style="animation:a2s4 24s linear infinite">
+            <path d="M300 110 L420 110 L420 182 L384 182 L384 230 L300 230 Z" fill="none" stroke="rgba(150,180,210,0.5)" stroke-width="1.4" stroke-dasharray="5 5"></path>
+            <text x="430" y="120" fill="#8296a8" font-size="12">před slinováním</text>
+            <g style="transform-box:fill-box;transform-origin:top left;animation:a2sint 24s linear infinite">
+              <path d="M300 110 L420 110 L420 182 L384 182 L384 230 L300 230 Z" fill="#8ea3b5" stroke="#eaf2fa" stroke-width="1.4"></path>
+            </g>
+            <text x="350" y="300" fill="#5d7488" font-size="12.5" text-anchor="middle">slinování — lineární smrštění 15 až 20&nbsp;%</text>
+          </g>
+        </svg>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px">
+        <div data-anim="2" data-paused="{{ p2 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a2p1 24s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">1 · Příprava směsi</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Prášek o&nbsp;velikosti částic pod 20&nbsp;µm se smísí s&nbsp;polymerním pojivem. Pojivo tvoří asi 40&nbsp;% objemu směsi.</div>
+        </div>
+        <div data-anim="2" data-paused="{{ p2 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a2p2 24s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">2 · Vstřikování</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Směs se vstřikuje do formy stejně jako plast, při teplotě kolem 180&nbsp;°C.</div>
+        </div>
+        <div data-anim="2" data-paused="{{ p2 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a2p3 24s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">3 · Odstranění pojiva</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Pojivo se odstraní rozpouštědlem a&nbsp;tepelně. Zbyde velmi křehké těleso.</div>
+        </div>
+        <div data-anim="2" data-paused="{{ p2 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a2p4 24s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">4 · Slinování</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Díl se slinuje na relativní hustotu přes 97&nbsp;%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px">
+      <div style="background:rgba(224,163,90,0.09);border:1px solid rgba(224,163,90,0.35);border-radius:16px;padding:20px 22px">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Lineární smrštění</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#e0a35a">15 až 20&nbsp;%</div>
+      </div>
+      <div style="background:rgba(224,163,90,0.09);border:1px solid rgba(224,163,90,0.35);border-radius:16px;padding:20px 22px">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Objemové smrštění</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#e0a35a">39 až 49&nbsp;%</div>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Protože pojivo zabíralo 40&nbsp;% objemu, je smrštění mnohem větší než u&nbsp;lisování v&nbsp;matrici.</p>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px;margin:0 0 26px;font-size:15px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Omezení: metoda se vyplatí jen u&nbsp;malých dílů do zhruba 100&nbsp;gramů a&nbsp;u&nbsp;velkých sérií. Typické použití jsou díly zámků, chirurgické nástroje, součásti mobilních telefonů a&nbsp;ortodontické zámky.</div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Izostatické lisování</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Tlak nepůsobí jen shora, ale ze všech stran současně. Tím zmizí gradient hustoty i&nbsp;tvarová omezení daná směrem lisování.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#eaf2fa">Izostatické lisování × lisování v&nbsp;matrici</div>
+      </div>
+      <div data-anim="3" data-paused="{{ p3 }}">
+        <svg viewBox="0 0 700 360" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <defs>
+            <linearGradient id="gradDens" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e0a35a"></stop>
+              <stop offset="0.5" stop-color="#5d7488"></stop>
+              <stop offset="1" stop-color="#e0a35a"></stop>
+            </linearGradient>
+            <linearGradient id="gradScale" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#5d7488"></stop>
+              <stop offset="1" stop-color="#e0a35a"></stop>
+            </linearGradient>
+          </defs>
+          <line x1="350" y1="20" x2="350" y2="300" stroke="rgba(150,180,210,0.2)" stroke-width="1"></line>
+
+          <text x="170" y="34" fill="#eaf2fa" font-size="13.5" text-anchor="middle">lisování v&nbsp;matrici</text>
+          <rect x="96" y="76" width="148" height="150" fill="none" stroke="#b9c8d6" stroke-width="1.6"></rect>
+          <rect x="102" y="82" width="136" height="138" fill="url(#gradDens)"></rect>
+          <g stroke="#7ba3cc" stroke-width="2.4" fill="none">
+            <g style="animation:a3push 2.6s ease-in-out infinite">
+              <path d="M136 44 L136 70"></path><path d="M130 62 L136 72 L142 62"></path>
+              <path d="M170 44 L170 70"></path><path d="M164 62 L170 72 L176 62"></path>
+              <path d="M204 44 L204 70"></path><path d="M198 62 L204 72 L210 62"></path>
+            </g>
+            <g style="animation:a3pull 2.6s ease-in-out infinite">
+              <path d="M136 258 L136 232"></path><path d="M130 240 L136 230 L142 240"></path>
+              <path d="M170 258 L170 232"></path><path d="M164 240 L170 230 L176 240"></path>
+              <path d="M204 258 L204 232"></path><path d="M198 240 L204 230 L210 240"></path>
+            </g>
+          </g>
+          <text x="170" y="286" fill="#8296a8" font-size="12" text-anchor="middle">gradient hustoty</text>
+
+          <text x="530" y="34" fill="#eaf2fa" font-size="13.5" text-anchor="middle">izostatické lisování</text>
+          <rect x="430" y="60" width="200" height="182" rx="10" fill="rgba(123,163,204,0.12)" stroke="rgba(123,163,204,0.4)" stroke-width="1.4"></rect>
+          <g style="transform-box:fill-box;transform-origin:center;animation:a3iso 2.6s ease-in-out infinite">
+            <rect x="474" y="104" width="112" height="94" rx="8" fill="none" stroke="#e0a35a" stroke-width="3"></rect>
+            <rect x="480" y="110" width="100" height="82" rx="6" fill="#a8895f"></rect>
+          </g>
+          <g stroke="#7ba3cc" stroke-width="2" fill="none">
+            <path d="M500 74 L500 96"></path><path d="M495 88 L500 98 L505 88"></path>
+            <path d="M530 74 L530 96"></path><path d="M525 88 L530 98 L535 88"></path>
+            <path d="M560 74 L560 96"></path><path d="M555 88 L560 98 L565 88"></path>
+            <path d="M500 228 L500 206"></path><path d="M495 214 L500 204 L505 214"></path>
+            <path d="M530 228 L530 206"></path><path d="M525 214 L530 204 L535 214"></path>
+            <path d="M560 228 L560 206"></path><path d="M555 214 L560 204 L565 214"></path>
+            <path d="M446 130 L468 130"></path><path d="M460 125 L470 130 L460 135"></path>
+            <path d="M446 172 L468 172"></path><path d="M460 167 L470 172 L460 177"></path>
+            <path d="M614 130 L592 130"></path><path d="M600 125 L590 130 L600 135"></path>
+            <path d="M614 172 L592 172"></path><path d="M600 167 L590 172 L600 177"></path>
+          </g>
+          <text x="530" y="286" fill="#8296a8" font-size="12" text-anchor="middle">rovnoměrná hustota, pružná forma v&nbsp;kapalině</text>
+
+          <text x="60" y="326" fill="#8296a8" font-size="12">stupnice hustoty:</text>
+          <rect x="176" y="316" width="180" height="12" fill="url(#gradScale)"></rect>
+          <rect x="176" y="316" width="180" height="12" fill="none" stroke="rgba(150,180,210,0.3)"></rect>
+          <g fill="#5d7488" font-size="11.5">
+            <text x="176" y="346">nižší</text>
+            <text x="330" y="346">vyšší</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px">
+      <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.35);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin-bottom:8px">Lisování za studena, CIP</div>
+        <div style="font-size:14.5px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Prášek se plní do pružné formy z&nbsp;elastomeru, ta se ponoří do kapaliny a&nbsp;ta se stlačí tlakem 200 až 400&nbsp;MPa. Výlisek má rovnoměrnou hustotu v&nbsp;celém objemu. Používá se pro dlouhé tyče, trubky a&nbsp;velké díly.</div>
+      </div>
+      <div style="background:rgba(224,163,90,0.09);border:1px solid rgba(224,163,90,0.35);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin-bottom:8px">Lisování za tepla, HIP</div>
+        <div style="font-size:14.5px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Působí současně tlak plynu 100 až 200&nbsp;MPa a&nbsp;teplota. Díl dosáhne prakticky sta procent hustoty, bez pórů. Používá se pro nejnamáhanější součásti, například lopatky turbín, a&nbsp;také k&nbsp;opravě pórovitosti odlitků.</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Kovový 3D tisk</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Metody SLM a&nbsp;DMLS jsou prášková metalurgie bez lisovacího nástroje. Stěrač rozprostře vrstvu prášku o&nbsp;tloušťce 20 až 50&nbsp;µm, laser roztaví průřez součásti v&nbsp;této vrstvě, podložka klesne o&nbsp;tloušťku vrstvy a&nbsp;cyklus se opakuje.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 14px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#eaf2fa">Kovový 3D tisk SLM</div>
+      </div>
+      <div data-anim="4" data-paused="{{ p4 }}">
+        <svg viewBox="0 0 700 330" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <rect x="120" y="46" width="440" height="222" fill="none" stroke="rgba(150,180,210,0.3)" stroke-width="1.4"></rect>
+
+          <g style="animation:a4laser 6s linear infinite">
+            <g style="animation:a4laserx 6s linear infinite">
+              <path d="M340 52 L340 186" stroke="#e0a35a" stroke-width="2.4"></path>
+              <circle cx="340" cy="52" r="5" fill="#e0a35a"></circle>
+            </g>
+          </g>
+          <text x="576" y="70" fill="#e0a35a" font-size="12.5">laser · natavení</text>
+
+          <rect x="180" y="192" width="320" height="70" fill="#5d7488"></rect>
+          <g style="animation:a4stack 18s steps(1) infinite">
+            <rect x="180" y="262" width="320" height="8" fill="#b9c8d6"></rect>
+            <g fill="#8ea3b5" stroke="#eaf2fa" stroke-width="0.8">
+              <rect x="290" y="252" width="100" height="10" style="animation:a4L1 18s linear infinite"></rect>
+              <rect x="290" y="242" width="100" height="10" style="animation:a4L2 18s linear infinite"></rect>
+              <rect x="290" y="232" width="100" height="10" style="animation:a4L3 18s linear infinite"></rect>
+            </g>
+          </g>
+          <rect x="290" y="222" width="100" height="10" fill="#e0a35a" opacity="0.85" style="animation:a4melt 6s linear infinite"></rect>
+          <rect x="180" y="186" width="320" height="6" fill="#8ea3b5" opacity="0.55"></rect>
+
+          <g style="animation:a4wipe 6s linear infinite">
+            <rect x="176" y="164" width="26" height="24" rx="3" fill="#b9c8d6" stroke="#eaf2fa" stroke-width="1.2"></rect>
+          </g>
+          <text x="576" y="180" fill="#8296a8" font-size="12.5">stěrač</text>
+
+          <text x="576" y="240" fill="#8296a8" font-size="12.5">podložka</text>
+          <text x="576" y="258" fill="#8296a8" font-size="12.5">klesá</text>
+
+          <text x="340" y="300" fill="#5d7488" font-size="12.5" text-anchor="middle">boční řez pracovní komorou · tloušťka vrstvy 20 až 50&nbsp;µm</text>
+        </svg>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px">
+        <div style="border:1px solid rgba(150,180,210,0.16);background:rgba(120,150,180,0.05);border-radius:14px;padding:12px 14px;color:#c4d2de">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;color:#eaf2fa">1 · Nová vrstva</div>
+          <div style="font-size:13px;line-height:1.6">Stěrač přejede zleva doprava a&nbsp;rozprostře novou vrstvu prášku.</div>
+        </div>
+        <div style="border:1px solid rgba(150,180,210,0.16);background:rgba(120,150,180,0.05);border-radius:14px;padding:12px 14px;color:#c4d2de">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;color:#eaf2fa">2 · Natavení</div>
+          <div style="font-size:13px;line-height:1.6">Laserový paprsek shora projede průřezem součásti, natavená dráha se rozsvítí a&nbsp;ztuhne.</div>
+        </div>
+        <div style="border:1px solid rgba(150,180,210,0.16);background:rgba(120,150,180,0.05);border-radius:14px;padding:12px 14px;color:#c4d2de">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px;color:#eaf2fa">3 · Pokles podložky</div>
+          <div style="font-size:13px;line-height:1.6">Podložka klesne o&nbsp;tloušťku vrstvy a&nbsp;cyklus se opakuje. Součást narůstá ve&nbsp;vrstvách.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:rgba(224,163,90,0.08);border:1px solid rgba(224,163,90,0.35);border-radius:16px;padding:20px 22px;margin:0 0 14px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#e0a35a;margin-bottom:8px">Zásadní rozdíl proti zbytku kapitoly</div>
+      <div style="font-size:15px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Zde se kov skutečně taví. Nejde tedy o&nbsp;slinování, ale o&nbsp;postupné natavování vrstev.</div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Používá se kulový prášek atomizovaný plynem, protože jen ten se rovnoměrně rozprostře v&nbsp;tenké vrstvě.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px">
+      <div style="background:rgba(87,185,138,0.09);border:1px solid rgba(87,185,138,0.35);border-radius:16px;padding:20px 22px">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Výhody</div>
+        <div style="font-size:15px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Prakticky neomezená tvarová volnost včetně vnitřních dutin a&nbsp;chladicích kanálů, výroba bez nástroje.</div>
+      </div>
+      <div style="background:rgba(224,163,90,0.09);border:1px solid rgba(224,163,90,0.35);border-radius:16px;padding:20px 22px">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Nevýhody</div>
+        <div style="font-size:15px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Pomalé, drahé, díl potřebuje podpory a&nbsp;následné obrábění funkčních ploch.</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Srovnání metod</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:6px 6px;margin:0 0 26px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1.3fr 1.2fr 1.1fr 1.5fr 1.2fr;gap:18px;font-size:11.5px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:#8296a8;padding:14px 16px 12px">
+        <div>Metoda</div>
+        <div>Dosažitelná relativní hustota</div>
+        <div>Lineární smrštění</div>
+        <div>Tvarová volnost</div>
+        <div>Typická velikost série</div>
+      </div>
+      <sc-for list="{{ methods }}" as="m" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:1.3fr 1.2fr 1.1fr 1.5fr 1.2fr;gap:18px;font-size:14px;line-height:1.55;color:#c4d2de;padding:14px 16px;border-top:1px solid rgba(150,180,210,0.12)">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">{{ m.name }}</div>
+          <div>{{ m.dens }}</div>
+          <div>{{ m.shrink }}</div>
+          <div>{{ m.shape }}</div>
+          <div>{{ m.series }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Výběr vhodné metody</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px;margin:0 0 26px">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px">
+        <div>
+          <div style="font-size:14.5px;color:#aebfcf;margin-bottom:10px">Jak velká je série?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+            <sc-for list="{{ qSeries }}" as="o" hint-placeholder-count="3">
+              <div onClick="{{ o.pick }}" style="{{ o.tile }}">{{ o.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:14.5px;color:#aebfcf;margin-bottom:10px">Má díl boční otvory nebo podkosy?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <sc-for list="{{ qHoles }}" as="o" hint-placeholder-count="2">
+              <div onClick="{{ o.pick }}" style="{{ o.tile }}">{{ o.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:14.5px;color:#aebfcf;margin-bottom:10px">Je potřeba hustota přes 99&nbsp;%?</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <sc-for list="{{ qDens }}" as="o" hint-placeholder-count="2">
+              <div onClick="{{ o.pick }}" style="{{ o.tile }}">{{ o.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:20px;border-top:1px solid rgba(150,180,210,0.14);padding-top:18px">
+        <sc-if value="{{ noRec }}" hint-placeholder-val="{{ true }}">
+          <div style="font-size:14.5px;line-height:1.65;color:#8296a8">Odpověz na všechny tři otázky. Doporučení vychází výhradně z&nbsp;tabulky výše.</div>
+        </sc-if>
+        <sc-if value="{{ hasRec }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div style="font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Doporučená metoda</div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:{{ recColor }};margin-bottom:10px">{{ recName }}</div>
+            <div style="font-size:14.5px;line-height:1.7;color:#c4d2de;text-wrap:pretty">{{ recNote }}</div>
+            <div onClick="{{ qReset }}" style="{{ btn1 }};display:inline-block;margin-top:14px">Zrušit odpovědi</div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Shrnutí celé kapitoly</h2>
+    <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.35);border-radius:16px;padding:24px 26px;margin:0 0 8px;font-size:16px;line-height:1.75;color:#c4d2de;text-wrap:pretty">
+      <p style="margin:0 0 12px">Prášková metalurgie je jediná technologie, která spojí materiály nespojitelné tavením a&nbsp;která umí z&nbsp;pórovitosti udělat funkci. Klasické lisování a&nbsp;slinování se vyplatí u&nbsp;velkých sérií malých dílů.</p>
+      <p style="margin:0">Kde nestačí tvarově, nastupuje MIM nebo izostatické lisování; kde nestačí hustotou, nastupuje HIP nebo infiltrace; a&nbsp;kde je potřeba kusová výroba složitých tvarů, nastupuje 3D tisk.</p>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;vychoziSkupina&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;P&quot;,&quot;M&quot;,&quot;K&quot;,&quot;N&quot;,&quot;S&quot;,&quot;H&quot;],&quot;default&quot;:&quot;P&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Interaktivní prvky&quot;},&quot;vychoziKobalt&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:15,&quot;step&quot;:1,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Interaktivní prvky&quot;},&quot;spustitAnimace&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Animace&quot;}}">
+const BTN = 'cursor:pointer;user-select:none;padding:6px 14px;border-radius:999px;font-family:\'IBM Plex Sans\',sans-serif;font-size:13px;font-weight:500;background:rgba(123,163,204,0.14);border:1px solid rgba(123,163,204,0.45);color:#eaf2fa';
+
+const ISO = [
+  { letter: 'P', color: '#7ba3cc', mat: 'ocel' },
+  { letter: 'M', color: '#d8c25a', mat: 'korozivzdorná ocel' },
+  { letter: 'K', color: '#d1685c', mat: 'litina' },
+  { letter: 'N', color: '#57b98a', mat: 'neželezné kovy' },
+  { letter: 'S', color: '#e0a35a', mat: 'žáruvzdorné slitiny a\u00a0titan' },
+  { letter: 'H', color: '#9aa8b5', mat: 'kalené materiály' },
+];
+
+const METHODS = [
+  { name: 'lisování a\u00a0slinování', dens: '90 až 93\u00a0%', shrink: '0,5 až 2\u00a0%', shape: 'omezená směrem lisování', series: 'od 10\u00a0000\u00a0ks' },
+  { name: 'slinutý karbid', dens: 'přes 99\u00a0%', shrink: '17 až 22\u00a0%', shape: 'omezená směrem lisování', series: 'od 10\u00a0000\u00a0ks' },
+  { name: 'MIM', dens: 'přes 97\u00a0%', shrink: '15 až 20\u00a0%', shape: 'vysoká', series: 'od 50\u00a0000\u00a0ks' },
+  { name: 'CIP', dens: '85 až 90\u00a0%', shrink: 'podle materiálu', shape: 'vysoká', series: 'malé série' },
+  { name: 'HIP', dens: 'prakticky 100\u00a0%', shrink: 'podle materiálu', shape: 'vysoká', series: 'kusová až malá' },
+  { name: '3D tisk SLM', dens: 'přes 99\u00a0%', shrink: 'neuplatňuje se', shape: 'prakticky neomezená', series: 'kusová' },
+];
+
+const SERIES = ['kusová', 'malá', 'velká'];
+
+function recommend(s, holes, hi) {
+  if (s === 'velká') {
+    if (holes === 'ano') {
+      if (hi === 'ano') return { m: null, note: 'Tabulka pro tuto kombinaci řešení nemá. Jediná metoda s\u00a0vysokou tvarovou volností pro velké série je MIM a\u00a0ta dosahuje přes 97\u00a0%, ne přes 99\u00a0%. Metody s\u00a0hustotou přes 99\u00a0% jsou v\u00a0tabulce buď omezené směrem lisování, nebo určené pro kusovou až malou výrobu.' };
+      return { m: 'MIM', note: 'Vysoká tvarová volnost, hustota přes 97\u00a0%, série od 50\u00a0000\u00a0ks.' };
+    }
+    if (hi === 'ano') return { m: 'slinutý karbid', note: 'Hustota přes 99\u00a0%, tvarová volnost omezená směrem lisování, série od 10\u00a0000\u00a0ks. Počítej s\u00a0lineárním smrštěním 17 až 22\u00a0%.' };
+    return { m: 'lisování a\u00a0slinování', note: 'Hustota 90 až 93\u00a0%, lineární smrštění 0,5 až 2\u00a0%, série od 10\u00a0000\u00a0ks.' };
+  }
+  if (s === 'malá') {
+    if (hi === 'ano') return { m: 'HIP', note: 'Prakticky 100\u00a0% hustoty, vysoká tvarová volnost, kusová až malá série.' };
+    return { m: 'CIP', note: 'Hustota 85 až 90\u00a0%, vysoká tvarová volnost, malé série.' };
+  }
+  if (hi === 'ano') {
+    if (holes === 'ano') return { m: '3D tisk SLM', note: 'Hustota přes 99\u00a0%, prakticky neomezená tvarová volnost, kusová výroba.' };
+    return { m: '3D tisk SLM nebo HIP', note: 'Tabulka nabízí pro kusovou výrobu s\u00a0vysokou hustotou obě metody: 3D tisk SLM přes 99\u00a0% a\u00a0HIP prakticky 100\u00a0%.' };
+  }
+  return { m: '3D tisk SLM nebo HIP', note: 'Pro kusovou výrobu má tabulka jen tyto dvě metody; CIP je uvedený pro malé série. Nižší požadavek na hustotu volbu nezúží.' };
+}
+
+class Component extends DCLogic {
+  state = { play: [null, null, null, null], iso: null, co: null, q: [null, null, null] };
+
+  toggle(i) {
+    this.setState(s => {
+      const play = s.play.slice();
+      const cur = play[i] === null ? (this.props.spustitAnimace ?? true) : play[i];
+      play[i] = !cur;
+      return { play };
+    });
+  }
+
+  renderVals() {
+    const out = {};
+    const auto = this.props.spustitAnimace ?? true;
+    [0, 1, 2, 3].forEach(i => {
+      const on = this.state.play[i] === null ? auto : this.state.play[i];
+      out['p' + (i + 1)] = on ? '0' : '1';
+      out['t' + (i + 1)] = () => this.toggle(i);
+      out['lbl' + (i + 1)] = on ? 'Stop' : 'Přehrát';
+      out['btn' + (i + 1)] = BTN;
+    });
+
+    let ii = this.state.iso;
+    if (ii === null) {
+      const want = String(this.props.vychoziSkupina || 'P');
+      const f = ISO.findIndex(g => g.letter === want);
+      ii = f < 0 ? 0 : f;
+    }
+    out.isoTiles = ISO.map((g, i) => ({
+      letter: g.letter,
+      tile: 'cursor:pointer;user-select:none;text-align:center;padding:16px 12px;border-radius:14px;font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:20px;border:1px solid ' + g.color + (i === ii ? ';background:' + g.color + ';color:#080b12' : ';background:rgba(120,150,180,0.05);color:' + g.color),
+      pick: () => this.setState({ iso: i }),
+    }));
+    out.isoMat = ISO[ii].mat;
+    out.isoColor = ISO[ii].color;
+
+    let co = this.state.co === null ? (this.props.vychoziKobalt ?? 6) : this.state.co;
+    co = Math.max(3, Math.min(15, Math.round(Number(co))));
+    out.co = co;
+    out.setCo = e => this.setState({ co: Number(e.target.value) });
+    if (co <= 6) { out.coLabel = 'tvrdší, křehčí, dokončování'; out.coColor = '#8fd3b1'; }
+    else if (co >= 10) { out.coLabel = 'houževnatější, měkčí, hrubování'; out.coColor = '#e0a35a'; }
+    else { out.coLabel = 'mezi krajními stavy — tvrdost klesá, houževnatost roste'; out.coColor = '#aebfcf'; }
+
+    out.methods = METHODS.map((m, i) => Object.assign({ key: i, alt: i % 2 === 1 }, m));
+
+    const q = this.state.q;
+    const mkRow = (idx, opts) => opts.map(o => ({
+      label: o,
+      pick: () => this.setState(s => { const n = s.q.slice(); n[idx] = o; return { q: n }; }),
+      tile: 'cursor:pointer;user-select:none;text-align:center;padding:12px 10px;border-radius:12px;font-family:\'Quicksand\',sans-serif;font-weight:600;font-size:14.5px;border:1px solid ' + (q[idx] === o ? 'rgba(123,163,204,0.55);background:rgba(123,163,204,0.18);color:#eaf2fa' : 'rgba(150,180,210,0.2);background:rgba(120,150,180,0.05);color:#8296a8'),
+    }));
+    out.qSeries = mkRow(0, SERIES);
+    out.qHoles = mkRow(1, ['ano', 'ne']);
+    out.qDens = mkRow(2, ['ano', 'ne']);
+    out.qReset = () => this.setState({ q: [null, null, null] });
+    const done = q[0] && q[1] && q[2];
+    out.hasRec = !!done;
+    out.noRec = !done;
+    if (done) {
+      const r = recommend(q[0], q[1], q[2]);
+      out.recName = r.m || 'Tabulka řešení nemá';
+      out.recNote = r.note;
+      out.recColor = r.m ? '#8fd3b1' : '#e0a35a';
+    }
+    return out;
+  }
+}
+
+(function () {
+  const P = '../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../koroze/index.html' }, { title: 'Tváření', href: '../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../o-projektu.html' }, { title: 'Novinky', href: '../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

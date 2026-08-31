@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mísení a lisování | STT</title>
+<meta name="description" content="Mísení prášku s legurami a lisovacím mazivem, lisovací cyklus, fáze zhutnění, kompresní křivka, lisovací tlak a síla, vyhazování a zpětné odpružení.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-08-31">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #a9c8e6; }
+    input[type="range"] { accent-color: #7ba3cc; }
+    [data-paused="1"] * { animation-play-state: paused !important; }
+
+    @keyframes a1shoe { 0% { transform: translateX(-320px) } 7% { transform: translateX(0) } 17% { transform: translateX(0) } 25% { transform: translateX(-320px) } 100% { transform: translateX(-320px) } }
+    @keyframes a1lbl { 0%, 3% { opacity: 0 } 8%, 22% { opacity: 1 } 27%, 100% { opacity: 0 } }
+    @keyframes a1fall { 0%, 6% { opacity: 0; transform: translateY(0) } 9% { opacity: 1 } 16% { opacity: 1; transform: translateY(74px) } 18%, 100% { opacity: 0; transform: translateY(74px) } }
+    @keyframes a1squash { 0% { transform: scaleY(0.02) } 7% { transform: scaleY(0.02) } 17% { transform: scaleY(1) } 37% { transform: scaleY(1) } 45% { transform: scaleY(0.4286) } 100% { transform: scaleY(0.4286) } }
+    @keyframes a1dense { 0%, 37% { opacity: 0 } 45%, 100% { opacity: 1 } }
+    @keyframes a1move { 0% { transform: translate(0px, 0px); opacity: 0 } 6% { transform: translate(0px, 0px); opacity: 0 } 12% { opacity: 1 } 54% { transform: translate(0px, 0px); opacity: 1 } 66% { transform: translate(0px, -110px) } 78% { transform: translate(0px, -110px); opacity: 1 } 88% { transform: translate(260px, -110px); opacity: 0 } 100% { transform: translate(260px, -110px); opacity: 0 } }
+    @keyframes a1upper { 0%, 26% { transform: translateY(0) } 45% { transform: translateY(90px) } 52% { transform: translateY(90px) } 60% { transform: translateY(0) } 100% { transform: translateY(0) } }
+    @keyframes a1lower { 0%, 54% { transform: translateY(0) } 66% { transform: translateY(-110px) } 78% { transform: translateY(-110px) } 88% { transform: translateY(0) } 100% { transform: translateY(0) } }
+    @keyframes a1p1 { 0%, 24.6% { background: rgba(123,163,204,0.16); border-color: rgba(123,163,204,0.5); color: #eaf2fa } 25%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a1p2 { 0%, 24.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 25%, 51.6% { background: rgba(123,163,204,0.16); border-color: rgba(123,163,204,0.5); color: #eaf2fa } 52%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a1p3 { 0%, 51.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 52%, 77.6% { background: rgba(123,163,204,0.16); border-color: rgba(123,163,204,0.5); color: #eaf2fa } 78%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a1p4 { 0%, 77.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 78%, 100% { background: rgba(123,163,204,0.16); border-color: rgba(123,163,204,0.5); color: #eaf2fa } }
+
+    @keyframes a2upperL { 0%, 8% { transform: translateY(0) } 46% { transform: translateY(150px) } 55% { transform: translateY(190px) } 80% { transform: translateY(190px) } 95% { transform: translateY(0) } 100% { transform: translateY(0) } }
+    @keyframes a2upperR { 0%, 8% { transform: translateY(0) } 46% { transform: translateY(150px) } 55% { transform: translateY(170px) } 80% { transform: translateY(170px) } 95% { transform: translateY(0) } 100% { transform: translateY(0) } }
+    @keyframes a2lowerR { 0%, 46% { transform: translateY(0) } 55% { transform: translateY(-20px) } 80% { transform: translateY(-20px) } 95% { transform: translateY(0) } 100% { transform: translateY(0) } }
+    @keyframes a2squashL { 0%, 46% { transform: scaleY(1) } 55% { transform: scaleY(0.4286) } 80% { transform: scaleY(0.4286) } 92% { transform: scaleY(1) } 100% { transform: scaleY(1) } }
+    @keyframes a2squashR { 0%, 46% { transform: scaleY(1) } 55% { transform: scaleY(0.4286) } 80% { transform: scaleY(0.4286) } 92% { transform: scaleY(1) } 100% { transform: scaleY(1) } }
+    @keyframes a2loose { 0%, 46% { opacity: 1 } 58% { opacity: 0 } 82% { opacity: 0 } 92% { opacity: 1 } 100% { opacity: 1 } }
+
+    @keyframes a3punch { 0%, 6% { transform: translateY(0) } 30% { transform: translateY(30px) } 38% { transform: translateY(30px) } 68% { transform: translateY(64px) } 88% { transform: translateY(70px) } 94% { transform: translateY(70px) } 99%, 100% { transform: translateY(0) } }
+    @keyframes a3settle { 0% { transform: translate(0px, 0px) scale(1, 1) } 6% { transform: translate(0px, 0px) scale(1, 1) } 30% { transform: translate(var(--dx), var(--dy)) scale(1, 1) } 38% { transform: translate(var(--dx), var(--dy)) scale(1, 1) } 68% { transform: translate(var(--dx), var(--dy2)) scale(1.14, 0.7) } 94% { transform: translate(var(--dx), var(--dy2)) scale(1.14, 0.7) } 99%, 100% { transform: translate(0px, 0px) scale(1, 1) } }
+    @keyframes a3n1 { 0%, 29.6% { background: rgba(123,163,204,0.16); border-color: rgba(123,163,204,0.5); color: #eaf2fa } 30%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a3n2 { 0%, 29.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 30%, 67.6% { background: rgba(123,163,204,0.16); border-color: rgba(123,163,204,0.5); color: #eaf2fa } 68%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes a3n3 { 0%, 67.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 68%, 100% { background: rgba(224,163,90,0.14); border-color: rgba(224,163,90,0.5); color: #eaf2fa } }
+    @keyframes a3note { 0%, 70% { opacity: 0 } 80%, 100% { opacity: 1 } }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+  <script src="./anim-controls.js"></script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Prášková metalurgie</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  
+<div style="max-width:900px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Prášková metalurgie</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Mísení a&nbsp;lisování</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;text-wrap:pretty">Lisování dává dílu tvar a&nbsp;rozhoduje o&nbsp;jeho hustotě. Prášek se nasype do dutiny matrice, stlačí se mezi razníky a&nbsp;vzniklý výlisek v&nbsp;syrovém stavu se vyhodí ven. Vše probíhá za studena a&nbsp;v&nbsp;jediném zdvihu lisu.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Mísení</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Do prášku se před lisováním přidávají dvě skupiny přísad.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 14px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin-bottom:10px">Legující prvky</div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Nejčastěji měď, nikl, molybden a&nbsp;grafit jako zdroj uhlíku. Legury se rozpustí až během slinování.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin-bottom:10px">Lisovací mazivo</div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Stearát zinečnatý nebo vosková maziva, obvykle 0,5 až 1,0&nbsp;% hmotnosti. Mazivo snižuje tření prášku o&nbsp;stěnu matrice a&nbsp;hlavně sílu potřebnou k&nbsp;vyhození výlisku. Během ohřevu v&nbsp;peci se odpaří.</div>
+      </div>
+    </div>
+    <div style="background:rgba(224,163,90,0.08);border:1px solid rgba(224,163,90,0.35);border-radius:16px;padding:20px 22px;margin:0 0 26px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#e0a35a;margin-bottom:8px">Segregace</div>
+      <div style="font-size:15px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Rizikem mísení je segregace, tedy oddělení lehkého grafitu od těžkého železného prášku při dopravě a&nbsp;manipulaci. Řeší se vázanými směsmi, kde jsou jemné částice legur přichycené k&nbsp;povrchu železných částic.</div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Lisovací cyklus</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 10px">
+      <div data-anim="1" data-paused="{{ p1 }}">
+        <svg viewBox="0 0 860 400" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <g style="animation:a1shoe 16s linear infinite">
+            <rect x="380" y="104" width="120" height="30" rx="3" fill="rgba(224,163,90,0.35)" stroke="#e0a35a" stroke-width="1.4"></rect>
+          </g>
+          <text x="372" y="126" fill="#e0a35a" font-size="13" text-anchor="end" style="animation:a1lbl 16s linear infinite">plnicí botka</text>
+          <g fill="#8ea3b5" style="animation:a1fall 16s linear infinite">
+            <circle cx="400" cy="140" r="4"></circle>
+            <circle cx="424" cy="146" r="3.4"></circle>
+            <circle cx="448" cy="138" r="4"></circle>
+            <circle cx="472" cy="148" r="3.4"></circle>
+          </g>
+
+          <g style="animation:a1upper 16s linear infinite">
+            <rect x="382" y="-30" width="116" height="130" fill="#7ba3cc" opacity="0.9"></rect>
+          </g>
+
+          <rect x="270" y="140" width="112" height="180" fill="rgba(150,180,210,0.14)" stroke="rgba(150,180,210,0.45)" stroke-width="1.6"></rect>
+          <rect x="498" y="140" width="112" height="180" fill="rgba(150,180,210,0.14)" stroke="rgba(150,180,210,0.45)" stroke-width="1.6"></rect>
+
+          <g style="animation:a1move 16s linear infinite">
+            <g style="transform-box:fill-box;transform-origin:bottom center;animation:a1squash 16s linear infinite">
+              <rect x="382" y="150" width="116" height="70" fill="#8ea3b5"></rect>
+              <rect x="382" y="150" width="116" height="70" fill="#4d6b86" style="animation:a1dense 16s linear infinite"></rect>
+            </g>
+          </g>
+
+          <g style="animation:a1lower 16s linear infinite">
+            <rect x="382" y="220" width="116" height="180" fill="#57b98a" opacity="0.9"></rect>
+          </g>
+
+          <text x="262" y="236" fill="#aebfcf" font-size="13" text-anchor="end">matrice</text>
+          <text x="618" y="40" fill="#7ba3cc" font-size="13">horní razník</text>
+          <text x="618" y="356" fill="#57b98a" font-size="13">dolní razník</text>
+          <text x="700" y="236" fill="#5d7488" font-size="12.5">svislý řez nástrojem</text>
+        </svg>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px">
+        <div data-anim="1" data-paused="{{ p1 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a1p1 16s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">1 · Plnění</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Plnicí botka najede nad dutinu a&nbsp;nasype prášek; sloupec prášku je 2,33krát vyšší než budoucí výlisek.</div>
+        </div>
+        <div data-anim="1" data-paused="{{ p1 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a1p2 16s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">2 · Stlačení</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Horní razník sjede dolů, sloupec se zkrátí na výslednou výšku, prášek v&nbsp;řezu viditelně zhoustne.</div>
+        </div>
+        <div data-anim="1" data-paused="{{ p1 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a1p3 16s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">3 · Vyhození</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Horní razník odjede, dolní razník vytlačí výlisek nad horní hranu matrice.</div>
+        </div>
+        <div data-anim="1" data-paused="{{ p1 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a1p4 16s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">4 · Odebrání</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Výlisek je odsunut stranou, dolní razník se vrátí dolů.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Jak probíhá zhutnění</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Zhutňování má tři fáze, které na sebe plynule navazují.</p>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 10px">
+      <div data-anim="3" data-paused="{{ p3 }}">
+        <svg viewBox="0 -20 560 360" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <g style="animation:a3punch 7.5s linear infinite">
+            <rect x="100" y="-20" width="360" height="100" fill="#7ba3cc" opacity="0.9"></rect>
+          </g>
+          <rect x="100" y="260" width="360" height="80" fill="#57b98a" opacity="0.9"></rect>
+          <sc-for list="{{ grains }}" as="g" hint-placeholder-count="15">
+            <g transform="{{ g.tr }}">
+              <g style="{{ g.st }}">
+                <polygon points="{{ g.pts }}" fill="#b9c8d6"></polygon>
+              </g>
+            </g>
+          </sc-for>
+        </svg>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px">
+        <div data-anim="3" data-paused="{{ p3 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a3n1 7.5s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">1 · Přeskupení částic</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Částice se posunou a&nbsp;zapadnou do mezer, téměř bez deformace.</div>
+        </div>
+        <div data-anim="3" data-paused="{{ p3 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a3n2 7.5s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">2 · Plastická deformace</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Částice se v&nbsp;místech dotyku zplošťují, plocha styku roste a&nbsp;částice se mechanicky zaklesávají.</div>
+        </div>
+        <div data-anim="3" data-paused="{{ p3 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:a3n3 7.5s linear infinite">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">3 · Zpevnění</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Materiál se deformací zpevňuje, další nárůst hustoty vyžaduje neúměrně vyšší tlak.</div>
+        </div>
+      </div>
+      <div data-anim="3" data-paused="{{ p3 }}" style="margin-top:10px;text-align:center;font-size:14px;color:#e0a35a;animation:a3note 7.5s linear infinite">další zhutnění vyžaduje neúměrně vyšší tlak</div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;text-wrap:pretty">Právě třetí fáze je důvod, proč se lisovací tlak nezvyšuje donekonečna.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Kompresní křivka železného prášku</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:18px 20px 12px;margin:0 0 10px">
+      <svg viewBox="0 0 880 424" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+        <rect x="450" y="30" width="350" height="330" fill="rgba(123,163,204,0.07)"></rect>
+        <text x="625" y="208" fill="#7ba3cc" font-size="12.5" text-anchor="middle">běžné lisovací tlaky</text>
+        <text x="625" y="226" fill="#5d7488" font-size="11.5" text-anchor="middle">400 až 800&nbsp;MPa</text>
+
+        <g stroke="rgba(150,180,210,0.08)" stroke-width="1">
+          <line x1="100" y1="318.75" x2="800" y2="318.75"></line>
+          <line x1="100" y1="277.5" x2="800" y2="277.5"></line>
+          <line x1="100" y1="236.25" x2="800" y2="236.25"></line>
+          <line x1="100" y1="195" x2="800" y2="195"></line>
+          <line x1="100" y1="153.75" x2="800" y2="153.75"></line>
+          <line x1="100" y1="112.5" x2="800" y2="112.5"></line>
+          <line x1="100" y1="71.25" x2="800" y2="71.25"></line>
+          <line x1="100" y1="30" x2="800" y2="30"></line>
+        </g>
+
+        <line x1="100" y1="35.3625" x2="800" y2="35.3625" stroke="#e0a35a" stroke-width="1.4" stroke-dasharray="6 4"></line>
+        <text x="106" y="28" fill="#e0a35a" font-size="12.5">hustota kompaktního železa 7,87&nbsp;g/cm³</text>
+
+        <polyline points="100,236.25 187.5,137.25 275,112.5 362.5,96 450,83.625 537.5,75.375 625,69.1875 712.5,65.0625 800,60.9375" fill="none" stroke="#7ba3cc" stroke-width="2.4"></polyline>
+        <g fill="#eaf2fa">
+          <circle cx="100" cy="236.25" r="4.2"></circle>
+          <circle cx="187.5" cy="137.25" r="4.2"></circle>
+          <circle cx="275" cy="112.5" r="4.2"></circle>
+          <circle cx="362.5" cy="96" r="4.2"></circle>
+          <circle cx="450" cy="83.625" r="4.2"></circle>
+          <circle cx="537.5" cy="75.375" r="4.2"></circle>
+          <circle cx="625" cy="69.1875" r="4.2"></circle>
+          <circle cx="712.5" cy="65.0625" r="4.2"></circle>
+          <circle cx="800" cy="60.9375" r="4.2"></circle>
+        </g>
+        <text x="112" y="256" fill="#c4d2de" font-size="12.5">sypná hustota prášku</text>
+        <text x="112" y="272" fill="#5d7488" font-size="11.5">3,0&nbsp;g/cm³</text>
+
+        <line x1="100" y1="30" x2="100" y2="360" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+        <line x1="800" y1="30" x2="800" y2="360" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+        <line x1="100" y1="360" x2="800" y2="360" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+
+        <g fill="#8296a8" font-size="12.5" text-anchor="end">
+          <text x="92" y="364">0</text>
+          <text x="92" y="322.75">1</text>
+          <text x="92" y="281.5">2</text>
+          <text x="92" y="240.25">3</text>
+          <text x="92" y="199">4</text>
+          <text x="92" y="157.75">5</text>
+          <text x="92" y="116.5">6</text>
+          <text x="92" y="75.25">7</text>
+          <text x="92" y="34">8</text>
+        </g>
+        <g fill="#8296a8" font-size="12.5">
+          <text x="808" y="364">0</text>
+          <text x="808" y="299.1">20</text>
+          <text x="808" y="234.2">40</text>
+          <text x="808" y="169.3">60</text>
+          <text x="808" y="104.4">80</text>
+          <text x="808" y="39.5">100</text>
+        </g>
+        <g fill="#8296a8" font-size="12.5" text-anchor="middle">
+          <text x="100" y="382">0</text>
+          <text x="187.5" y="382">100</text>
+          <text x="275" y="382">200</text>
+          <text x="362.5" y="382">300</text>
+          <text x="450" y="382">400</text>
+          <text x="537.5" y="382">500</text>
+          <text x="625" y="382">600</text>
+          <text x="712.5" y="382">700</text>
+          <text x="800" y="382">800</text>
+        </g>
+        <text x="450" y="410" fill="#aebfcf" font-size="13.5" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif">lisovací tlak [MPa]</text>
+        <text x="34" y="195" fill="#aebfcf" font-size="13.5" text-anchor="middle" transform="rotate(-90 34 195)" font-family="'IBM Plex Sans', sans-serif">hustota výlisku [g/cm³]</text>
+        <text x="856" y="195" fill="#aebfcf" font-size="13.5" text-anchor="middle" transform="rotate(90 856 195)" font-family="'IBM Plex Sans', sans-serif">relativní hustota [%]</text>
+      </svg>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 26px">Modelový průběh pro nepravidelný železný prášek atomizovaný vodou s&nbsp;0,8&nbsp;% lisovacího maziva. Relativní hustota je vztažená k&nbsp;hustotě kompaktního železa 7,87&nbsp;g/cm³.</p>
+
+    
+    
+    
+    
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Vliv lisovacího tlaku</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Posuňte tlak a&nbsp;porovnejte hustotu výlisku s&nbsp;úbytkem pórů v&nbsp;řezu.</p>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px;margin:0 0 26px;display:grid;grid-template-columns:1fr 320px;gap:26px;align-items:center">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:30px;color:#eaf2fa">{{ sp }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#8296a8">MPa</div>
+        </div>
+        <input type="range" min="0" max="800" step="100" value="{{ sp }}" onChange="{{ setP }}" style="width:100%;margin:6px 0 4px">
+        <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#5d7488;margin-bottom:20px">
+          <span>0</span><span>800</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.35);border-radius:14px;padding:14px 16px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:6px">Hustota výlisku</div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa">{{ sd }} <span style="font-size:13px;font-weight:600;color:#8296a8">g/cm³</span></div>
+          </div>
+          <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.35);border-radius:14px;padding:14px 16px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:6px">Relativní hustota</div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa">{{ sr }} <span style="font-size:13px;font-weight:600;color:#8296a8">%</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <svg viewBox="0 0 340 260" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <rect x="20" y="20" width="300" height="200" rx="4" fill="#7d90a1" stroke="rgba(150,180,210,0.45)" stroke-width="1.4"></rect>
+          <sc-for list="{{ pores }}" as="o" hint-placeholder-count="24">
+            <circle cx="{{ o.cx }}" cy="{{ o.cy }}" r="{{ o.r }}" fill="#080b12"></circle>
+          </sc-for>
+          <text x="170" y="246" fill="#5d7488" font-size="12.5" text-anchor="middle">schematický řez výliskem</text>
+        </svg>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Výpočet lisovací síly</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px;margin:0 0 10px;display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center">
+      <div style="display:grid;gap:14px">
+        <div>
+          <div style="font-size:12.5px;font-weight:600;letter-spacing:0.02em;color:#8296a8;margin-bottom:6px">Plocha průmětu dílu [mm²]</div>
+          <input type="number" value="{{ area }}" onChange="{{ setArea }}" style="width:100%;box-sizing:border-box;background:rgba(120,150,180,0.08);border:1px solid rgba(150,180,210,0.3);border-radius:10px;padding:10px 12px;color:#eaf2fa;font-family:'IBM Plex Mono',monospace;font-size:16px">
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;letter-spacing:0.02em;color:#8296a8;margin-bottom:6px">Lisovací tlak [MPa]</div>
+          <input type="number" value="{{ press }}" onChange="{{ setPress }}" style="width:100%;box-sizing:border-box;background:rgba(120,150,180,0.08);border:1px solid rgba(150,180,210,0.3);border-radius:10px;padding:10px 12px;color:#eaf2fa;font-family:'IBM Plex Mono',monospace;font-size:16px">
+        </div>
+      </div>
+      <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.35);border-radius:14px;padding:20px 22px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#7ba3cc;margin-bottom:14px">F = tlak × plocha</div>
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:8px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:30px;color:#eaf2fa">{{ fkn }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#8296a8">kN</div>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#aebfcf">{{ ft }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#8296a8">t</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 26px">Běžné lisy pro práškovou metalurgii mají sílu zhruba 100 až 10&nbsp;000&nbsp;kN a&nbsp;lisovací tlak pro železný prášek je 400 až 800&nbsp;MPa.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Vyhazování a&nbsp;zpětné odpružení</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Po odjetí horního razníku vytlačí dolní razník výlisek z&nbsp;matrice ven. V&nbsp;okamžiku, kdy výlisek opustí matrici, se pružně roztáhne o&nbsp;zhruba 0,1 až 0,3&nbsp;% rozměru. Toto zpětné odpružení se musí zahrnout do rozměrů nástroje.</p>
+    <div style="background:rgba(224,163,90,0.08);border:1px solid rgba(224,163,90,0.35);border-radius:16px;padding:20px 22px;margin:0 0 26px;font-size:15px;line-height:1.7;color:#c4d2de;text-wrap:pretty">Výlisek v&nbsp;syrovém stavu drží pohromadě jen mechanickým zaklesnutím částic. Je křehký a&nbsp;při neopatrné manipulaci nebo příliš rychlém vyhození praskne.</div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Jednostranné × oboustranné lisování</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 10px">
+      <div data-anim="2" data-paused="{{ p2 }}" style="display:flex;gap:20px;align-items:center">
+        <svg viewBox="0 -64 760 484" style="flex:1;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <defs>
+            <linearGradient id="gradOne" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#dc5f41"></stop>
+              <stop offset="0.5" stop-color="#f2d574"></stop>
+              <stop offset="1" stop-color="#fbeec6"></stop>
+            </linearGradient>
+            <linearGradient id="gradTwo" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#e2703f"></stop>
+              <stop offset="0.5" stop-color="#f0cf6e"></stop>
+              <stop offset="1" stop-color="#e2703f"></stop>
+            </linearGradient>
+          </defs>
+
+          <text x="190" y="-44" fill="#e0a35a" font-size="13.5" text-anchor="middle">JEDNOSTRANNÉ</text>
+          <text x="560" y="-44" fill="#57b98a" font-size="13.5" text-anchor="middle">OBOUSTRANNÉ</text>
+
+          <g style="animation:a2upperL 12s linear infinite">
+            <rect x="142" y="-30" width="96" height="130" fill="#7ba3cc" opacity="0.9"></rect>
+          </g>
+          <rect x="80" y="140" width="60" height="180" fill="rgba(150,180,210,0.14)" stroke="rgba(150,180,210,0.45)" stroke-width="1.6"></rect>
+          <rect x="240" y="140" width="60" height="180" fill="rgba(150,180,210,0.14)" stroke="rgba(150,180,210,0.45)" stroke-width="1.6"></rect>
+          <g style="transform-box:fill-box;transform-origin:bottom center;animation:a2squashL 12s linear infinite">
+            <rect x="142" y="250" width="96" height="70" fill="url(#gradOne)"></rect>
+            <rect x="142" y="250" width="96" height="70" fill="#d3d8de" style="animation:a2loose 12s linear infinite"></rect>
+          </g>
+          <rect x="142" y="320" width="96" height="70" fill="#57b98a" opacity="0.9"></rect>
+          <text x="190" y="412" fill="#5d7488" font-size="12.5" text-anchor="middle">dolní razník stojí</text>
+
+          <g style="animation:a2upperR 12s linear infinite">
+            <rect x="512" y="-30" width="96" height="130" fill="#7ba3cc" opacity="0.9"></rect>
+          </g>
+          <rect x="450" y="140" width="60" height="180" fill="rgba(150,180,210,0.14)" stroke="rgba(150,180,210,0.45)" stroke-width="1.6"></rect>
+          <rect x="610" y="140" width="60" height="180" fill="rgba(150,180,210,0.14)" stroke="rgba(150,180,210,0.45)" stroke-width="1.6"></rect>
+          <g style="transform-box:fill-box;transform-origin:center;animation:a2squashR 12s linear infinite">
+            <rect x="512" y="250" width="96" height="70" fill="url(#gradTwo)"></rect>
+            <rect x="512" y="250" width="96" height="70" fill="#d3d8de" style="animation:a2loose 12s linear infinite"></rect>
+          </g>
+          <g style="animation:a2lowerR 12s linear infinite">
+            <rect x="512" y="320" width="96" height="70" fill="#57b98a" opacity="0.9"></rect>
+          </g>
+          <text x="560" y="412" fill="#5d7488" font-size="12.5" text-anchor="middle">dolní razník jde nahoru</text>
+
+          <text x="72" y="236" fill="#aebfcf" font-size="13" text-anchor="end">matrice</text>
+          <text x="442" y="236" fill="#aebfcf" font-size="13" text-anchor="end">matrice</text>
+          <line x1="612" y1="-46" x2="648" y2="-46" stroke="rgba(123,163,204,0.5)" stroke-width="1.2"></line>
+          <text x="756" y="-42" fill="#7ba3cc" font-size="13" text-anchor="end">horní razník</text>
+        </svg>
+        <div style="width:130px;flex:none">
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Hustota</div>
+          <div style="display:flex;gap:10px;align-items:stretch">
+            <div style="width:20px;border-radius:4px;background:linear-gradient(to bottom,#d94f3d,#f2d574,#fdfaf2);height:180px;border:1px solid rgba(150,180,210,0.3)"></div>
+            <div style="display:flex;flex-direction:column;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#c4d2de">
+              <span>7,2&nbsp;g/cm³</span>
+              <span>6,4&nbsp;g/cm³</span>
+            </div>
+          </div>
+          <div style="font-size:12.5px;line-height:1.6;color:#8296a8;margin-top:10px">Teplejší odstín znamená vyšší hustotu.</div>
+        </div>
+      </div>
+    </div>
+    
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Rozložení hustoty po výšce výlisku</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:18px 20px 12px;margin:0 0 10px">
+      <svg viewBox="0 0 880 420" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+        <g stroke="rgba(150,180,210,0.08)" stroke-width="1">
+          <line x1="237.5" y1="40" x2="237.5" y2="360"></line>
+          <line x1="315" y1="40" x2="315" y2="360"></line>
+          <line x1="392.5" y1="40" x2="392.5" y2="360"></line>
+          <line x1="470" y1="40" x2="470" y2="360"></line>
+          <line x1="547.5" y1="40" x2="547.5" y2="360"></line>
+          <line x1="625" y1="40" x2="625" y2="360"></line>
+          <line x1="702.5" y1="40" x2="702.5" y2="360"></line>
+          <line x1="780" y1="40" x2="780" y2="360"></line>
+        </g>
+
+        <polyline points="741.25,60 625,130 508.75,200 353.75,270 237.5,340" fill="none" stroke="#e0a35a" stroke-width="2.4"></polyline>
+        <g fill="#e0a35a">
+          <circle cx="741.25" cy="60" r="4.4"></circle>
+          <circle cx="625" cy="130" r="4.4"></circle>
+          <circle cx="508.75" cy="200" r="4.4"></circle>
+          <circle cx="353.75" cy="270" r="4.4"></circle>
+          <circle cx="237.5" cy="340" r="4.4"></circle>
+        </g>
+        <text x="752" y="56" fill="#e0a35a" font-size="13">jednostranné</text>
+
+        <polyline points="702.5,60 586.25,130 508.75,200 586.25,270 702.5,340" fill="none" stroke="#57b98a" stroke-width="2.4"></polyline>
+        <g fill="#57b98a">
+          <circle cx="702.5" cy="60" r="4.4"></circle>
+          <circle cx="586.25" cy="130" r="4.4"></circle>
+          <circle cx="508.75" cy="200" r="4.4"></circle>
+          <circle cx="586.25" cy="270" r="4.4"></circle>
+          <circle cx="702.5" cy="340" r="4.4"></circle>
+        </g>
+        <text x="714" y="356" fill="#57b98a" font-size="13">oboustranné</text>
+
+        <line x1="466" y1="196" x2="500" y2="200" stroke="rgba(87,185,138,0.55)" stroke-width="1.2"></line>
+        <text x="458" y="192" fill="#8fd3b1" font-size="12.5" text-anchor="end">neutrální zóna — nejnižší hustota</text>
+
+        <line x1="160" y1="40" x2="160" y2="360" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+        <line x1="160" y1="360" x2="780" y2="360" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+
+        <g fill="#8296a8" font-size="12.5" text-anchor="end">
+          <text x="150" y="64">horní čelo</text>
+          <text x="150" y="134">1/4 výšky</text>
+          <text x="150" y="204">střed</text>
+          <text x="150" y="274">3/4 výšky</text>
+          <text x="150" y="344">dolní čelo</text>
+        </g>
+        <g fill="#8296a8" font-size="12.5" text-anchor="middle">
+          <text x="160" y="382">6,4</text>
+          <text x="237.5" y="382">6,5</text>
+          <text x="315" y="382">6,6</text>
+          <text x="392.5" y="382">6,7</text>
+          <text x="470" y="382">6,8</text>
+          <text x="547.5" y="382">6,9</text>
+          <text x="625" y="382">7,0</text>
+          <text x="702.5" y="382">7,1</text>
+          <text x="780" y="382">7,2</text>
+        </g>
+        <text x="470" y="408" fill="#aebfcf" font-size="13.5" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif">hustota [g/cm³]</text>
+        <text x="34" y="200" fill="#aebfcf" font-size="13.5" text-anchor="middle" transform="rotate(-90 34 200)" font-family="'IBM Plex Sans', sans-serif">poloha po výšce výlisku</text>
+      </svg>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 26px">Modelové hodnoty pro pouzdro o&nbsp;výšce rovné průměru. Rozdíl hustot vzniká třením prášku o&nbsp;stěnu matrice.</p>
+  </div></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;vychoziTlakSlideru&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:600,&quot;min&quot;:0,&quot;max&quot;:800,&quot;step&quot;:100,&quot;unit&quot;:&quot;MPa&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Interaktivní prvky&quot;},&quot;vychoziPlocha&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:2000,&quot;min&quot;:10,&quot;max&quot;:50000,&quot;unit&quot;:&quot;mm²&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Interaktivní prvky&quot;},&quot;vychoziTlakVypoctu&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:600,&quot;min&quot;:50,&quot;max&quot;:1200,&quot;unit&quot;:&quot;MPa&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Interaktivní prvky&quot;}}">
+const TABLE = [
+  { p: 0,   d: '3,0',  r: '38,1', por: 61.9 },
+  { p: 100, d: '5,4',  r: '68,6', por: 31.4 },
+  { p: 200, d: '6,0',  r: '76,2', por: 23.8 },
+  { p: 300, d: '6,4',  r: '81,3', por: 18.7 },
+  { p: 400, d: '6,7',  r: '85,1', por: 14.9 },
+  { p: 500, d: '6,9',  r: '87,7', por: 12.3 },
+  { p: 600, d: '7,05', r: '89,6', por: 10.4 },
+  { p: 700, d: '7,15', r: '90,9', por: 9.1 },
+  { p: 800, d: '7,25', r: '92,1', por: 7.9 },
+];
+
+const JITTER = [[-6,4],[5,-5],[-3,-6],[7,3],[-5,6],[4,-3],[6,5],[-7,-4],[3,6],[-4,-3],[5,4],[-6,-5],[2,-6],[-5,3],[6,-4],[-3,5],[4,6],[-6,-2],[5,-6],[-4,4],[3,-5],[-5,-6],[6,2],[-2,6]];
+
+const SHAPES = [
+  '0,-24 14,-16 22,4 10,22 -10,20 -22,2 -16,-16',
+  '0,-22 16,-12 20,8 4,23 -12,18 -22,-2 -12,-18',
+  '0,-26 12,-14 24,2 12,20 -8,22 -21,4 -14,-15',
+];
+
+const GRAIN_ROWS = [
+  { y: 110, xs: [130, 200, 268, 336, 406], dy: 30, dy2: 56 },
+  { y: 168, xs: [150, 220, 290, 358, 425], dy: 22, dy2: 37 },
+  { y: 222, xs: [128, 198, 266, 334, 404], dy: 4,  dy2: 10 },
+];
+
+const BTN = 'cursor:pointer;user-select:none;padding:6px 14px;border-radius:999px;font-family:\'IBM Plex Sans\',sans-serif;font-size:13px;font-weight:500;background:rgba(123,163,204,0.14);border:1px solid rgba(123,163,204,0.45);color:#eaf2fa';
+
+function fmt(n) {
+  const s = String(n);
+  return s.length > 4 ? s.replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0') : s;
+}
+
+class Component extends DCLogic {
+  state = { play: [true, true, true], pressure: null, area: null, press: null };
+
+  toggle(i) {
+    this.setState(s => {
+      const play = s.play.slice();
+      play[i] = !play[i];
+      return { play };
+    });
+  }
+
+  renderVals() {
+    const out = {};
+    [0, 1, 2].forEach(i => {
+      const on = this.state.play[i];
+      out['p' + (i + 1)] = on ? '0' : '1';
+      out['t' + (i + 1)] = () => this.toggle(i);
+      out['lbl' + (i + 1)] = on ? 'Stop' : 'Přehrát';
+      out['btn' + (i + 1)] = BTN;
+    });
+
+    let sp = this.state.pressure;
+    if (sp === null) sp = Number(this.props.vychoziTlakSlideru ?? 600);
+    let row = TABLE.find(t => t.p === sp) || TABLE[6];
+    out.sp = row.p;
+    out.sd = row.d;
+    out.sr = row.r;
+    out.setP = e => this.setState({ pressure: Number(e.target.value) });
+
+    const scale = Math.sqrt(row.por / 61.9);
+    const pores = [];
+    for (let j = 0; j < 4; j++) {
+      for (let i = 0; i < 6; i++) {
+        const k = j * 6 + i;
+        pores.push({
+          cx: 45 + 50 * i + JITTER[k][0],
+          cy: 45 + 50 * j + JITTER[k][1],
+          r: Math.round(20 * scale * 10) / 10,
+        });
+      }
+    }
+    out.pores = pores;
+
+    const grains = [];
+    GRAIN_ROWS.forEach((r, ri) => {
+      r.xs.forEach((x, xi) => {
+        const dx = (xi % 2 === 0 ? -1 : 1) * (4 + ri);
+        grains.push({
+          tr: 'translate(' + x + ',' + r.y + ')',
+          pts: SHAPES[(ri + xi) % 3],
+          st: 'transform-box:fill-box;transform-origin:center;animation:a3settle 7.5s linear infinite;--dx:' + dx + 'px;--dy:' + r.dy + 'px;--dy2:' + r.dy2 + 'px',
+        });
+      });
+    });
+    out.grains = grains;
+
+    const area = this.state.area === null ? Number(this.props.vychoziPlocha ?? 2000) : this.state.area;
+    const press = this.state.press === null ? Number(this.props.vychoziTlakVypoctu ?? 600) : this.state.press;
+    out.area = area;
+    out.press = press;
+    out.setArea = e => this.setState({ area: e.target.value });
+    out.setPress = e => this.setState({ press: e.target.value });
+    const a = parseFloat(String(area).replace(',', '.'));
+    const t = parseFloat(String(press).replace(',', '.'));
+    if (isFinite(a) && isFinite(t) && a > 0 && t > 0) {
+      const kn = t * a / 1000;
+      out.fkn = fmt(Math.round(kn));
+      out.ft = fmt(Math.round(kn / 9.81));
+    } else {
+      out.fkn = '—';
+      out.ft = '—';
+    }
+
+    return out;
+  }
+}
+
+(function () {
+  const P = '../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../koroze/index.html' }, { title: 'Tváření', href: '../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../o-projektu.html' }, { title: 'Novinky', href: '../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

@@ -40,23 +40,23 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Tváření za studena</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Ohýbání</h1>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Při ohybu se materiál nedeformuje po celé tloušťce stejně. Vnější vlákna se prodlužují, vnitřní se pěchují a mezi nimi zůstává vrstva, jejíž délka se nemění — <strong>neutrální osa</strong>. Ta se s klesajícím poloměrem ohybu posouvá od středu tloušťky k vnitřní straně, a právě její délka určuje rozvinutý rozměr polotovaru.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Při ohybu se materiál nedeformuje po celé tloušťce stejně. Vnější vlákna se prodlužují, vnitřní se pěchují a&nbsp;mezi nimi zůstává vrstva, jejíž délka se nemění — <strong>neutrální osa</strong>. Ta se s&nbsp;klesajícím poloměrem ohybu posouvá od středu tloušťky k&nbsp;vnitřní straně, a&nbsp;právě její délka určuje rozvinutý rozměr polotovaru.</p>
 
     <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Poloměr × přetvoření vnějších vláken</div>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Nastavte poměr R/t a spusťte ohyb tlačítkem Přehrát. Sledujte, jak se s ostřejším poloměrem posouvá neutrální osa dovnitř, roste tahové přetvoření na vnějším povrchu a plech se v ohybu ztenčuje.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Nastavte poměr R/t a&nbsp;spusťte ohyb tlačítkem Přehrát. Sledujte, jak se s&nbsp;ostřejším poloměrem posouvá neutrální osa dovnitř, roste tahové přetvoření na vnějším povrchu a&nbsp;plech se v&nbsp;ohybu ztenčuje.</p>
     <div style="position:relative;height:590px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 26px">
       <x-import component-from-global-scope="Ohybani" from="./ohybani.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
     </div>
 
-    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Neutrální osa a součinitel x</div>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Poloha neutrální osy se udává jako podíl tloušťky měřený od vnitřního povrchu: ρ = R + x · t. U velkých poloměrů leží prakticky ve středu (x = 0,5), u ostrých ohybů se posune až k jedné třetině tloušťky, protože stlačovaný materiál na vnitřní straně nemá kam ustoupit.</p>
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Neutrální osa a&nbsp;součinitel x</div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Poloha neutrální osy se udává jako podíl tloušťky měřený od vnitřního povrchu: ρ = R + x · t. U&nbsp;velkých poloměrů leží prakticky ve&nbsp;středu (x = 0,5), u&nbsp;ostrých ohybů se posune až k&nbsp;jedné třetině tloušťky, protože stlačovaný materiál na vnitřní straně nemá kam ustoupit.</p>
     <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(150,180,210,0.16);border:1px solid rgba(150,180,210,0.16);border-radius:14px;overflow:hidden;margin:0 0 26px">
       <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#7ba3cc">R/t</div>
       <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">0,2</div>
       <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">0,5</div>
       <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">1</div>
       <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">2</div>
-      <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">4 a víc</div>
+      <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#c4d2de">4 a&nbsp;víc</div>
       <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#7ba3cc">x</div>
       <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">0,32</div>
       <div style="background:#0d121a;padding:14px 10px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#eaf2fa">0,34</div>
@@ -68,10 +68,10 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Rozvinutá délka</div>
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 18px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">L = Σ l<sub>i</sub> + Σ o<sub>j</sub></div>
-      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">Rozvinutá délka je součet přímých úseků <em>l</em> (měřených po vnějších rozměrech až k začátku zaoblení) a délek oblouků <em>o</em> na neutrální ose.</div>
+      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">Rozvinutá délka je součet přímých úseků <em>l</em> (měřených po vnějších rozměrech až k&nbsp;začátku zaoblení) a&nbsp;délek oblouků <em>o</em> na neutrální ose.</div>
       <div style="height:1px;background:rgba(150,180,210,0.16);margin:18px 0"></div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">o = π · (R + x · t) · α / 180</div>
-      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">R — vnitřní poloměr ohybu  ·  t — tloušťka  ·  x — součinitel z tabulky výše  ·  α — úhel ohybu ve stupních. Pro ohyb 90° se zlomek α/180 zjednoduší na 1/2.</div>
+      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">R — vnitřní poloměr ohybu &nbsp;·&nbsp; t — tloušťka &nbsp;·&nbsp; x — součinitel z&nbsp;tabulky výše &nbsp;·&nbsp; α — úhel ohybu ve&nbsp;stupních. Pro ohyb 90° se zlomek α/180 zjednoduší na 1/2.</div>
     </div>
 
     <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:18px;align-items:stretch;margin:0 0 26px">
@@ -85,7 +85,7 @@
               <path d="M0 1 L10 5 L0 9 z" fill="#eda962" />
             </marker>
           </defs>
-          <text x="170" y="20" text-anchor="middle" font-family="'IBM Plex Sans',sans-serif" font-size="14" fill="#8296a8">U-profil, plech t = 2 mm, dva ohyby 90°</text>
+          <text x="170" y="20" text-anchor="middle" font-family="'IBM Plex Sans',sans-serif" font-size="14" fill="#8296a8">U-profil, plech t = 2&nbsp;mm, dva ohyby 90°</text>
 
           <path d="M76 46 L76 164.8 A13.2 13.2 0 0 0 89.2 178 L276.8 178 A13.2 13.2 0 0 0 290 164.8 L290 46 L285.6 46 L285.6 164.8 A8.8 8.8 0 0 1 276.8 173.6 L89.2 173.6 A8.8 8.8 0 0 1 80.4 164.8 L80.4 46 Z"
             fill="#c6d3de" stroke="#8fa2b3" stroke-width="1.2" stroke-linejoin="round" />
@@ -117,13 +117,13 @@
       <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 24px">
         <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#eaf2fa;margin-bottom:10px">Řešený příklad</div>
         <div style="font-size:14.5px;line-height:1.75;color:#c4d2de">
-          <div style="margin-bottom:8px">Zadáno: t = 2 mm, R = 4 mm, tedy R/t = 2 → x = 0,43.</div>
-          <div style="margin-bottom:8px">Přímé úseky (od vnějšího rozměru odečteme poloměr a tloušťku):</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa;margin-bottom:8px">l₁ = l₃ = 60 − (4 + 2) = 54 mm<br>l₂ = 100 − 2 · (4 + 2) = 88 mm</div>
+          <div style="margin-bottom:8px">Zadáno: t = 2&nbsp;mm, R = 4&nbsp;mm, tedy R/t = 2 → x = 0,43.</div>
+          <div style="margin-bottom:8px">Přímé úseky (od vnějšího rozměru odečteme poloměr a&nbsp;tloušťku):</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa;margin-bottom:8px">l₁ = l₃ = 60 − (4 + 2) = 54&nbsp;mm<br>l₂ = 100 − 2 · (4 + 2) = 88&nbsp;mm</div>
           <div style="margin-bottom:8px">Oblouk jednoho ohybu:</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa;margin-bottom:8px">o = π · (4 + 0,43 · 2) · 90/180 = 7,63 mm</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa;margin-bottom:8px">o = π · (4 + 0,43 · 2) · 90/180 = 7,63&nbsp;mm</div>
           <div style="margin-bottom:8px">Rozvinutá délka:</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#eaf2fa">L = 54 + 88 + 54 + 2 · 7,63 = <strong>211,3 mm</strong></div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#eaf2fa">L = 54 + 88 + 54 + 2 · 7,63 = <strong>211,3&nbsp;mm</strong></div>
         </div>
       </div>
     </div>
@@ -132,7 +132,7 @@
     <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Čím menší poloměr, tím větší prodloužení vnějších vláken. Jakmile překročí tažnost materiálu, plech na vnějším povrchu praskne. Nejmenší přípustný poloměr se proto udává jako násobek tloušťky:</p>
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 18px">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">R<sub>min</sub> = c · t</div>
-      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">c — součinitel podle materiálu a směru ohybu. Nižší hodnota platí pro ohyb kolmo na vlákna, vyšší pro ohyb podél vláken.</div>
+      <div style="font-size:14.5px;line-height:1.7;color:#c4d2de">c — součinitel podle materiálu a&nbsp;směru ohybu. Nižší hodnota platí pro ohyb kolmo na vlákna, vyšší pro ohyb podél vláken.</div>
       <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1px;background:rgba(150,180,210,0.16);border:1px solid rgba(150,180,210,0.16);border-radius:12px;overflow:hidden;margin-top:18px">
         <div style="background:#0d121a;padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#7ba3cc">Materiál</div>
         <div style="background:#0d121a;padding:12px 14px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#7ba3cc">Kolmo na vlákna</div>
@@ -148,27 +148,27 @@
         <div style="background:#0d121a;padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa">0,5</div>
         <div style="background:#0d121a;padding:12px 14px;font-size:14.5px;color:#c4d2de">Ocel zpevněná předchozím tvářením</div>
         <div style="background:#0d121a;padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa">2,0</div>
-        <div style="background:#0d121a;padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa">a víc</div>
+        <div style="background:#0d121a;padding:12px 14px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa">a&nbsp;víc</div>
       </div>
     </div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px">
       <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
         <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#57b98a;margin-bottom:8px">Ohyb kolmo na vlákna</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Osa ohybu je kolmá na směr válcování. Vlákna se přes ohyb kříží, materiál snese větší přetvoření a poloměr může být menší. Toto uspořádání se volí, kdykoli to rozvin dovolí.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Osa ohybu je kolmá na směr válcování. Vlákna se přes ohyb kříží, materiál snese větší přetvoření a&nbsp;poloměr může být menší. Toto uspořádání se volí, kdykoli to rozvin dovolí.</div>
       </div>
       <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
         <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#e0655a;margin-bottom:8px">Ohyb podél vláken</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Osa ohybu leží ve směru válcování. Trhlina se šíří snadno podél vláken a mezi vměstky, takže minimální poloměr je zhruba dvojnásobný. U dílů se dvěma ohyby na sebe kolmými se rozvin natáčí o 45°, aby žádný ohyb nebyl zcela nevýhodný.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Osa ohybu leží ve&nbsp;směru válcování. Trhlina se šíří snadno podél vláken a&nbsp;mezi vměstky, takže minimální poloměr je zhruba dvojnásobný. U&nbsp;dílů se dvěma ohyby na sebe kolmými se rozvin natáčí o&nbsp;45°, aby žádný ohyb nebyl zcela nevýhodný.</div>
       </div>
     </div>
 
     <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Odpružení</div>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Část deformace v ohybu zůstává pružná, takže se díl po odlehčení částečně vrátí a skutečný úhel je větší než úhel nástroje. Kompenzuje se přeohnutím, kalibrací dna nebo ohybníkem s vytlačovacím žebrem. Odpružení roste s mezí kluzu materiálu i s poměrem R/t. Podrobně je popsané ve <a href="../vady/Odpruzeni.html" style="color:#7ba3cc;text-decoration:underline;text-underline-offset:3px">Vadách při tváření</a>.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Část deformace v&nbsp;ohybu zůstává pružná, takže se díl po odlehčení částečně vrátí a&nbsp;skutečný úhel je větší než úhel nástroje. Kompenzuje se přeohnutím, kalibrací dna nebo ohybníkem s&nbsp;vytlačovacím žebrem. Odpružení roste s&nbsp;mezí kluzu materiálu i&nbsp;s&nbsp;poměrem R/t. Podrobně je popsané ve&nbsp;<a href="../vady/Odpruzeni.html" style="color:#7ba3cc;text-decoration:underline;text-underline-offset:3px">Vadách při tváření</a>.</p>
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
       <a href="../vady/Odpruzeni.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Odpružení →</a>
-      <a href="../vady/Povrchove vady a pnuti.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Povrchové vady a pnutí →</a>
+      <a href="../vady/Povrchove vady a pnuti.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Povrchové vady a&nbsp;pnutí →</a>
     </div>
   </div>
 </div>
@@ -180,7 +180,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

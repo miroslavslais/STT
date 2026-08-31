@@ -50,7 +50,7 @@
   <div style="max-width:1120px;margin:0 auto">
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Válcování</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Příčné klínové válcování</h1>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;max-width:820px;margin:0 0 24px">Válcový polotovar se mezi dvěma nástroji s klíny <strong>jen otáčí kolem své osy</strong> (neposouvá se axiálně). Klíny se postupně zaříznou a bočně rozhánějí materiál — z hladkého válce vzniká v jednom „průchodu“ stupňovitý předkovek ojnice. Nástroje jsou přitom v <strong>trvalém kontaktu</strong> po celé délce, takže jejich pracovní profil se plynule mění.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;max-width:820px;margin:0 0 24px">Válcový polotovar se mezi dvěma nástroji s&nbsp;klíny <strong>jen otáčí kolem své osy</strong> (neposouvá se axiálně). Klíny se postupně zaříznou a&nbsp;bočně rozhánějí materiál — z&nbsp;hladkého válce vzniká v&nbsp;jednom „průchodu“ stupňovitý předkovek ojnice. Nástroje jsou přitom v&nbsp;<strong>trvalém kontaktu</strong> po celé délce, takže jejich pracovní profil se plynule mění.</p>
 
     <div style="background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;padding:18px 18px 12px;display:flex;gap:16px;align-items:stretch">
       <div style="flex:1;min-width:0">{{ frame }}</div>
@@ -82,7 +82,7 @@
 
     <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:20px;font-size:13.5px;color:#aebfcf">
       <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:linear-gradient(#f7c948,#f0932b);display:inline-block"></span>ohřátý polotovar</div>
-      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#4a5461;border:1px solid #5c6773;display:inline-block"></span>nástroj s klínem</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#4a5461;border:1px solid #5c6773;display:inline-block"></span>nástroj s&nbsp;klínem</div>
       <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:0;border-top:2px dashed #6b7684;display:inline-block"></span>původní Ø válce</div>
       <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:2px;background:#e6a94a;display:inline-block"></span>tok materiálu</div>
     </div>
@@ -287,7 +287,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

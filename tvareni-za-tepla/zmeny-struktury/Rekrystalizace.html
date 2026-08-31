@@ -51,13 +51,13 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:8px">Změny struktury</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Rekrystalizace</h1>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Když se kov deformuje nad rekrystalizační teplotou T<sub>R</sub>, energie vložená do deformace se nehromadí jako vnitřní pnutí — spouští <strong>rekrystalizaci</strong>: v deformované struktuře vznikají nová zrna, bez poruch nahromaděných deformací.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Když se kov deformuje nad rekrystalizační teplotou T<sub>R</sub>, energie vložená do deformace se nehromadí jako vnitřní pnutí — spouští <strong>rekrystalizaci</strong>: v&nbsp;deformované struktuře vznikají nová zrna, bez poruch nahromaděných deformací.</p>
 
     <div style="position:relative;height:494px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin-bottom:24px">
       <x-import component-from-global-scope="RekrystalizaceValcovani" from="../../animations.jsx ./rekrystalizace-valcovani.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
     </div>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Proces probíhá průběžně, souběžně s deformací i po ní, a vede k <strong>rovnoosé, jemnozrnné struktuře bez vnitřního pnutí</strong>. Právě proto snese materiál za tepla mnohonásobně větší deformaci než za studena — zpevnění se rekrystalizací průběžně ruší.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Proces probíhá průběžně, souběžně s&nbsp;deformací i&nbsp;po ní, a&nbsp;vede k&nbsp;<strong>rovnoosé, jemnozrnné struktuře bez vnitřního pnutí</strong>. Právě proto snese materiál za tepla mnohonásobně větší deformaci než za studena — zpevnění se rekrystalizací průběžně ruší.</p>
 
     <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Bez rekrystalizace by materiál po překročení mezní deformace praskl — to je přesně to, co se děje při tváření za studena.</p>
 
@@ -75,7 +75,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

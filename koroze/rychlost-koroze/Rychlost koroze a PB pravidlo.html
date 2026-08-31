@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rychlost koroze a Pilling–Bedworthovo pravidlo | STT</title>
+<title>Rychlost koroze a&nbsp;Pilling–Bedworthovo pravidlo | STT</title>
 <meta name="description" content="Poměr objemu oxidu k objemu kovu rozhoduje, kdy vrstva oxidů chrání a kdy praská. Animace a kvíz.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script src="./support.js"></script>
@@ -52,8 +52,8 @@
 <div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
   <div style="max-width:860px;margin:0 auto">
     <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:oklch(0.72 0.16 35);text-transform:uppercase;margin-bottom:10px">Koroze kovů</div>
-    <h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:32px;line-height:1.2;margin:0 0 10px;letter-spacing:-0.01em">Rychlost koroze a Pilling–Bedworthovo pravidlo</h1>
-    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Poměr objemu oxidu k objemu kovu, ze kterého vznikl (PBR), rozhoduje, jestli vrstva kov chrání, nebo ne. Vyber kov a sleduj růst vrstvy, animaci lze kdykoliv přehrát znovu.</p>
+    <h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:32px;line-height:1.2;margin:0 0 10px;letter-spacing:-0.01em">Rychlost koroze a&nbsp;Pilling–Bedworthovo pravidlo</h1>
+    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Poměr objemu oxidu k&nbsp;objemu kovu, ze&nbsp;kterého vznikl (PBR), rozhoduje, jestli vrstva kov chrání, nebo ne. Vyber kov a&nbsp;sleduj růst vrstvy, animaci lze kdykoliv přehrát znovu.</p>
 
     <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:28px">
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px">
@@ -99,8 +99,8 @@
     </div>
 
     <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:28px;margin-top:24px">
-      <h2 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:19px;margin:0 0 6px;color:#eaf2fa">A jak to bude u těchto kovů?</h2>
-      <p style="font-size:14px;line-height:1.55;color:#aebfcf;margin:0 0 20px">U pěti běžně používaných kovů odhadni, jestli jejich oxidová vrstva chrání proti další korozi.</p>
+      <h2 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:19px;margin:0 0 6px;color:#eaf2fa">A&nbsp;jak to bude u&nbsp;těchto kovů?</h2>
+      <p style="font-size:14px;line-height:1.55;color:#aebfcf;margin:0 0 20px">U&nbsp;pěti běžně používaných kovů odhadni, jestli jejich oxidová vrstva chrání proti další korozi.</p>
 
       <div style="display:flex;flex-direction:column;gap:10px">
         <sc-for list="{{ quizRows }}" as="q" hint-placeholder-count="5">
@@ -255,7 +255,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

@@ -51,14 +51,14 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:8px">Teplota rekrystalizace</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Proč se tváří nad T<sub>R</sub></h1>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Ohřev nad rekrystalizační teplotu přináší tři efekty, které dělají z tváření za tepla praktickou volbu pro velké deformace a objemnou výrobu.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Ohřev nad rekrystalizační teplotu přináší tři efekty, které dělají z&nbsp;tváření za tepla praktickou volbu pro velké deformace a&nbsp;objemnou výrobu.</p>
 
     <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:24px">
       <div style="display:flex;gap:16px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
         <div style="flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:rgba(224,166,84,0.14);display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;color:oklch(0.72 0.16 60)">1</div>
         <div>
           <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">Nižší přetvárný odpor</div>
-          <div style="font-size:14.5px;line-height:1.6;color:#8296a8">Se stoupající teplotou prudce klesá napětí potřebné k deformaci — stroje zvládnou tvarovat mnohem větší objemy materiálu při stejné síle.</div>
+          <div style="font-size:14.5px;line-height:1.6;color:#8296a8">Se stoupající teplotou prudce klesá napětí potřebné k&nbsp;deformaci — stroje zvládnou tvarovat mnohem větší objemy materiálu při stejné síle.</div>
         </div>
       </div>
       <div style="display:flex;gap:16px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
@@ -138,7 +138,7 @@
       </div>
     </div>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Díky tomu lze za tepla dosáhnout velkých změn tvaru (např. z ingotu na tyč) v jediném nebo několika málo krocích — něco, co by za studena vyžadovalo mezioperační žíhání mezi jednotlivými kroky.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Díky tomu lze za tepla dosáhnout velkých změn tvaru (např. z&nbsp;ingotu na tyč) v&nbsp;jediném nebo několika málo krocích — něco, co by za studena vyžadovalo mezioperační žíhání mezi jednotlivými kroky.</p>
 
     <div style="background:rgba(224,166,84,0.08);border:1px solid rgba(224,166,84,0.25);border-radius:14px;padding:18px 22px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:6px">Shrnutí</div>
@@ -262,7 +262,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

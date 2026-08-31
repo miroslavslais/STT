@@ -51,7 +51,7 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:8px">Teplota rekrystalizace</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Teplotní interval tváření</h1>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 24px">Tváření za tepla neprobíhá při jedné teplotě, ale v pásmu mezi dvěma mezemi. Vyberte obsah uhlíku a teplotu a sledujte, jestli je ocel ve stavu vhodném ke kování — a jestli je zrovna austenit (FCC), nebo ferit/perlit (BCC).</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 24px">Tváření za tepla neprobíhá při jedné teplotě, ale v&nbsp;pásmu mezi dvěma mezemi. Vyberte obsah uhlíku a&nbsp;teplotu a&nbsp;sledujte, jestli je ocel ve&nbsp;stavu vhodném ke&nbsp;kování — a&nbsp;jestli je zrovna austenit (FCC), nebo ferit/perlit (BCC).</p>
   </div>
 
   <div style="max-width:960px;margin:0 auto 24px">
@@ -61,7 +61,7 @@
   <div style="max-width:760px;margin:0 auto">
     <div style="background:rgba(224,166,84,0.08);border:1px solid rgba(224,166,84,0.25);border-radius:14px;padding:18px 22px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 60);margin-bottom:6px">Shrnutí</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Teplotní interval tváření leží u podeutektoidních ocelí nad A3, u nadeutektoidních nad A1 (ne nad Acm!) a shora je omezené mezí přehřátí. Pod A1 je ocel feriticko-perlitická (BCC).</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Teplotní interval tváření leží u&nbsp;podeutektoidních ocelí nad A3, u&nbsp;nadeutektoidních nad A1 (ne nad Acm!) a&nbsp;shora je omezené mezí přehřátí. Pod A1 je ocel feriticko-perlitická (BCC).</div>
     </div>
   </div>
 </div>
@@ -73,7 +73,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

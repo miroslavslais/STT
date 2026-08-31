@@ -17,6 +17,10 @@
       "href": "tvareni-za-tepla/index.html"
     },
     {
+      "title": "Prášková metalurgie",
+      "href": "praskova-metalurgie/index.html"
+    },
+    {
       "title": "O projektu",
       "href": "o-projektu.html"
     },
@@ -30,14 +34,30 @@
   "home": {
     "cards": [
       {
-        "id": "vnitrni-stavba",
-        "title": "Vnitřní stavba kovů a tepelné zpracování",
-        "href": "vnitrni-stavba-kovu-a-tz/index.html",
+        "id": "koroze",
+        "title": "Koroze",
+        "href": "koroze/index.html",
         "status": "ready"
       },
       {
         "id": "obrabeni",
         "title": "Obrábění",
+        "status": "coming-soon"
+      },
+      {
+        "id": "odlevani",
+        "title": "Odlévání",
+        "status": "coming-soon"
+      },
+      {
+        "id": "praskova-metalurgie",
+        "title": "Prášková metalurgie",
+        "href": "praskova-metalurgie/index.html",
+        "status": "ready"
+      },
+      {
+        "id": "svarovani",
+        "title": "Svařování",
         "status": "coming-soon"
       },
       {
@@ -47,30 +67,15 @@
         "status": "ready"
       },
       {
-        "id": "svarovani",
-        "title": "Svařování",
-        "status": "coming-soon"
-      },
-      {
-        "id": "odlevani",
-        "title": "Odlévání",
-        "status": "coming-soon"
+        "id": "vnitrni-stavba",
+        "title": "Vnitřní stavba kovů a tepelné zpracování",
+        "href": "vnitrni-stavba-kovu-a-tz/index.html",
+        "status": "ready"
       },
       {
         "id": "plasty",
         "title": "Zpracování plastů",
         "status": "coming-soon"
-      },
-      {
-        "id": "praskova-metalurgie",
-        "title": "Prášková metalurgie",
-        "status": "coming-soon"
-      },
-      {
-        "id": "koroze",
-        "title": "Koroze",
-        "href": "koroze/index.html",
-        "status": "ready"
       },
       {
         "id": "cnc-simulator",
@@ -84,6 +89,65 @@
         "title": "CNC simulátor – soustružení v G-kódu",
         "href": "cnc-simulator/soustruzeni.html",
         "newWindow": true,
+        "status": "ready"
+      }
+    ]
+  },
+  "praskovaMetalurgie": {
+    "h1": "Prášková metalurgie",
+    "cards": [
+      {
+        "id": "co-je",
+        "step": "·",
+        "title": "Co je prášková metalurgie a kdy se vyplatí",
+        "desc": "Definice, postavení mezi technologiemi, výhody a nevýhody, hranice rentability a využití materiálu.",
+        "href": "Co je praskova metalurgie.html",
+        "badge": "Interaktivní",
+        "status": "ready"
+      },
+      {
+        "id": "prasek",
+        "step": "1",
+        "title": "Kovové prášky — výroba a vlastnosti",
+        "desc": "Atomizace vodou a plynem, mletí, redukce oxidů, elektrolýza; vlastnosti prášku a vliv tvaru částice.",
+        "href": "Kovove prasky - vyroba a vlastnosti.html",
+        "badge": "4 animace · Interaktivní",
+        "status": "ready"
+      },
+      {
+        "id": "miseni-a-lisovani",
+        "step": "2",
+        "title": "Mísení a lisování",
+        "desc": "Přísady do prášku, lisovací cyklus, fáze zhutnění, lisovací tlak a síla, vyhazování a zpětné odpružení.",
+        "href": "Miseni a lisovani.html",
+        "badge": "3 animace · 2 interaktivní",
+        "status": "ready"
+      },
+      {
+        "id": "slinovani",
+        "step": "3",
+        "title": "Slinování",
+        "desc": "Slinovací teplota, tvorba krčků, ochranná atmosféra, průběh cyklu v peci a smrštění.",
+        "href": "Slinovani.html",
+        "badge": "3 animace · 2 interaktivní",
+        "status": "ready"
+      },
+      {
+        "id": "dokonceni",
+        "step": "4",
+        "title": "Dokončovací operace a vlastnosti dílu",
+        "desc": "Pórovitost a její vliv na vlastnosti, kalibrace, impregnace olejem a pryskyřicí, infiltrace mědí, tepelné zpracování a obrábění.",
+        "href": "Dokoncovaci operace a vlastnosti dilu.html",
+        "badge": "2 animace · 2 interaktivní",
+        "status": "ready"
+      },
+      {
+        "id": "aplikace",
+        "step": "5",
+        "title": "Aplikace a moderní pokračování oboru",
+        "desc": "Slinuté karbidy a značení ISO 513, cermety, MIM, izostatické lisování CIP a HIP, kovový 3D tisk a srovnání metod.",
+        "href": "Aplikace a moderni pokracovani oboru.html",
+        "badge": "4 animace · 2 interaktivní",
         "status": "ready"
       }
     ]

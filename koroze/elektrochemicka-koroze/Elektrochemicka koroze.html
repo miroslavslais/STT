@@ -53,7 +53,7 @@
   <div style="max-width:860px;margin:0 auto">
     <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:oklch(0.72 0.16 35);text-transform:uppercase;margin-bottom:10px">Koroze kovů</div>
     <h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:32px;line-height:1.2;margin:0 0 10px;letter-spacing:-0.01em">Elektrochemická koroze</h1>
-    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Na povrchu kovu vzniká drobný galvanický článek: v místě <strong style="color: rgb(234, 242, 250);">anody</strong>  kov oxiduje a tím se <b style="color: rgb(234, 242, 250);">rozpouští</b>, elektrony putují kovem do místa <strong style="color: rgb(234, 242, 250);">katody</strong>, kde je spotřebuje redukce z okolního prostředí (elektrolytu).</p>
+    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Na povrchu kovu vzniká drobný galvanický článek: v&nbsp;místě <strong style="color: rgb(234, 242, 250);">anody</strong>&nbsp; kov oxiduje a&nbsp;tím se <b style="color: rgb(234, 242, 250);">rozpouští</b>, elektrony putují kovem do místa <strong style="color: rgb(234, 242, 250);">katody</strong>, kde je spotřebuje redukce z&nbsp;okolního prostředí (elektrolytu).</p>
 
     <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:24px">
       <div style="position:relative;max-width:480px;margin:0 auto;width:100%">
@@ -91,7 +91,7 @@
       <sc-if value="{{ showAnodeInfo }}" hint-placeholder-val="{{ false }}">
         <div onClick="{{ toggleAnodeInfo }}" style="position:absolute;top:8%;left:0;max-width:300px;background:oklch(0.17 0.02 255);border:1px solid rgba(239,140,92,0.4);border-radius:12px;padding:14px 16px;box-shadow:0 8px 24px rgba(0,0,0,0.4);z-index:5;cursor:pointer">
           <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;color:oklch(0.78 0.16 35);margin-bottom:6px">Anoda</div>
-          <div style="font-size:13.5px;line-height:1.6;color:#d6e2ee">V elektrochemii představuje anoda elektrodu, na které probíhá oxidace. V případě vložení vnějšího napětí na elektrody (při elektrolýze) je anoda kladným pólem, <strong style="color:#eaf2fa">v případě elektrického článku záporným pólem</strong>.</div>
+          <div style="font-size:13.5px;line-height:1.6;color:#d6e2ee">V&nbsp;elektrochemii představuje anoda elektrodu, na které probíhá oxidace. V&nbsp;případě vložení vnějšího napětí na elektrody (při elektrolýze) je anoda kladným pólem, <strong style="color:#eaf2fa">v&nbsp;případě elektrického článku záporným pólem</strong>.</div>
         </div>
       </sc-if>
       </div>
@@ -116,7 +116,7 @@
       <div style="background:rgba(120,150,180,0.08);border:1px solid rgba(150,180,210,0.18);border-radius:12px;padding:16px 18px">
         <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Celková reakce — vznik rzi</div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#eaf2fa;line-height:1.7">Fe²⁺ + 2OH⁻ → Fe(OH)₂<br>4Fe(OH)₂ + O₂ + 2H₂O → 4Fe(OH)₃</div>
-        <p style="font-size:14.5px;line-height:1.6;color:#aebfcf;margin:10px 0 0">Fe²⁺ z anody se hned slučuje s OH⁻ vzniklým na katodě na nerozpustný hydroxid železnatý. Ten se vzdušným kyslíkem dál oxiduje na hydroxid železitý, který dehydratací dává typickou pórovitou rez (Fe₂O₃·xH₂O).</p>
+        <p style="font-size:14.5px;line-height:1.6;color:#aebfcf;margin:10px 0 0">Fe²⁺ z&nbsp;anody se hned slučuje s&nbsp;OH⁻ vzniklým na katodě na nerozpustný hydroxid železnatý. Ten se vzdušným kyslíkem dál oxiduje na hydroxid železitý, který dehydratací dává typickou pórovitou rez (Fe₂O₃·xH₂O).</p>
       </div>
     </div>
 
@@ -320,7 +320,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

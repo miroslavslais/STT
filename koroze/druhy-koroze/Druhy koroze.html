@@ -68,7 +68,7 @@
       <div style="flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:oklch(0.72 0.16 35);margin-top:6px"></div>
       <div style="flex:1">
         <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa;margin-bottom:4px">Koroze bludnými proudy</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Trakční proud (DC) šaliny nebo metra může unikat z kolejnic do vlhké půdy a přes uložené potrubí se vrací do měnírny. <br>V místech, kde proud vystupuje z kovu do půdy, kov koroduje — napadeno je potrubí i kolejnice.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Trakční proud (DC) šaliny nebo metra může unikat z&nbsp;kolejnic do vlhké půdy a&nbsp;přes uložené potrubí se vrací do měnírny. <br>V&nbsp;místech, kde proud vystupuje z&nbsp;kovu do půdy, kov koroduje — napadeno je potrubí i&nbsp;kolejnice.</div>
         <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.06em;color:oklch(0.78 0.16 35);display:flex;align-items:center;gap:6px">Přehrát animaci
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="oklch(0.78 0.16 35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </div>
@@ -105,7 +105,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

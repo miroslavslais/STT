@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prášková metalurgie | STT</title>
+<meta name="description" content="Rozcestník kapitoly Prášková metalurgie: co je prášková metalurgie a kdy se vyplatí, výroba prášku, mísení, lisování, slinování a dokončení.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-08-31">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #fbf8f3; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #231d16; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+
+
+<div style="min-height:100vh;background:#fbf8f3;font-family:'IBM Plex Sans',sans-serif;padding:76px 48px 80px;box-sizing:border-box">
+
+  <div style="max-width:1080px;margin:0 auto 48px">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.5 0.13 285);margin-bottom:10px">Interaktivní výuka STT</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:44px;line-height:1.15;color:#231d16;margin:0 0 14px">Prášková metalurgie</h1>
+    <p style="font-size:18px;line-height:1.6;color:#6b6255;max-width:640px;margin:0">Výroba součástí z&nbsp;kovových prášků — od výroby prášku po slinutý díl. Materiál nikdy neprojde tekutým stavem.</p>
+  </div>
+
+  <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <sc-for list="{{ cards }}" as="c" hint-placeholder-count="6">
+      <sc-if value="{{ c.ready }}">
+        <a href="{{ c.href }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
+          <div style="position:absolute;top:16px;right:16px;padding:5px 10px;border-radius:999px;background:oklch(0.95 0.02 285);font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;color:oklch(0.48 0.13 285)">{{ c.badge }}</div>
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.94 0.03 285);display:flex;align-items:center;justify-content:center" dangerouslySetInnerHTML="{{ c.icon }}"></div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#231d16;margin-bottom:6px">{{ c.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ c.desc }}</div>
+          </div>
+        </a>
+      </sc-if>
+      <sc-if value="{{ c.notReady }}">
+        <div style="position:relative;display:flex;flex-direction:column;gap:16px;background:#faf7f1;border-radius:20px;padding:26px;border:1px solid #ece4d6;cursor:not-allowed">
+          <div style="position:absolute;top:16px;right:16px;padding:5px 10px;border-radius:999px;background:#eee5d8;font-size:11px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;color:#a39a8b;letter-spacing:0.04em;text-transform:uppercase">Připravujeme</div>
+          <div style="width:56px;height:56px;border-radius:14px;background:#eee5d8;display:flex;align-items:center;justify-content:center" dangerouslySetInnerHTML="{{ c.iconMuted }}"></div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#a39a8b;margin-bottom:6px">{{ c.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#a39a8b">{{ c.desc }}</div>
+          </div>
+        </div>
+      </sc-if>
+    </sc-for>
+  </div>
+
+</div>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#fbf8f3"></rect><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="220" fill="#b0561f">PM</text></svg></template>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const FALLBACK_CARDS = [
+  { id: 'co-je', step: '·', title: 'Co je prášková metalurgie a kdy se vyplatí', desc: 'Definice, postavení mezi technologiemi, výhody a nevýhody, hranice rentability a využití materiálu.', href: 'Co je praskova metalurgie.html', badge: 'Interaktivní', status: 'ready' },
+  { id: 'prasek', step: '1', title: 'Výroba prášku', desc: 'Atomizace, mletí, redukce oxidů, elektrolýza.', status: 'coming-soon' },
+  { id: 'miseni', step: '2', title: 'Mísení', desc: 'Přidání legur a lisovacího maziva, homogenizace.', status: 'coming-soon' },
+  { id: 'lisovani', step: '3', title: 'Lisování', desc: 'Tvarování v matrici, vznik výlisku v syrovém stavu.', status: 'coming-soon' },
+  { id: 'slinovani', step: '4', title: 'Slinování', desc: 'Difuzní spojení částic v ochranné atmosféře, smrštění.', status: 'coming-soon' },
+  { id: 'dokonceni', step: '5', title: 'Dokončení', desc: 'Kalibrace, impregnace, tepelné zpracování, obrábění.', status: 'coming-soon' },
+];
+
+const C = 'oklch(0.48 0.13 285)';
+function icons(color) {
+  return {
+    'co-je': `<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="${color}" stroke-width="1.6"/><path d="M12 11v5" stroke="${color}" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="8" r="1.2" fill="${color}"/></svg>`,
+    'prasek': `<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="8" r="2.2" fill="${color}"/><circle cx="14" cy="6" r="1.5" fill="${color}"/><circle cx="17.5" cy="11" r="2" fill="${color}"/><circle cx="10.5" cy="12.5" r="1.7" fill="${color}"/><circle cx="6" cy="16.5" r="1.5" fill="${color}"/><circle cx="13" cy="17.5" r="2.3" fill="${color}"/></svg>`,
+    'miseni-a-lisovani': `<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="4" rx="1" fill="${color}"/><path d="M12 9v4.5M9.5 12l2.5 2.5 2.5-2.5" stroke="${color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="17" width="16" height="3" rx="1" stroke="${color}" stroke-width="1.6"/></svg>`,
+    'slinovani': `<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="8.5" cy="14" r="4.5" stroke="${color}" stroke-width="1.6"/><circle cx="15.5" cy="14" r="4.5" stroke="${color}" stroke-width="1.6"/><path d="M12 3.5c1.6 1.4 1.6 2.8 0 4.2" stroke="${color}" stroke-width="1.6" stroke-linecap="round"/><path d="M7.5 4.5c1.6 1.4 1.6 2.8 0 4.2" stroke="${color}" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 4.5c1.6 1.4 1.6 2.8 0 4.2" stroke="${color}" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    'dokonceni': `<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="${color}" stroke-width="1.6"/><path d="M8.5 12.2l2.6 2.6 4.4-5" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    'aplikace': `<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="16.5" width="16" height="3.5" rx="1" fill="${color}"/><rect x="6.5" y="11.5" width="11" height="3.5" rx="1" fill="${color}" opacity="0.72"/><rect x="9" y="6.5" width="6" height="3.5" rx="1" fill="${color}" opacity="0.45"/></svg>`,
+  };
+}
+const ICONS = icons(C);
+const ICONS_MUTED = icons('#a39a8b');
+const ICON_DEFAULT = `<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="${C}" stroke-width="1.6"/></svg>`;
+
+class Component extends DCLogic {
+  state = { structure: null };
+  componentDidMount() {
+    fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
+  }
+  renderVals() {
+    const s = this.state.structure;
+    const data = s && s.praskovaMetalurgie ? s.praskovaMetalurgie.cards : FALLBACK_CARDS;
+    return {
+      cards: data.map(c => {
+        const ready = c.status === 'ready';
+        return {
+          ...c,
+          href: c.href ? encodeURI(c.href) : undefined,
+          ready,
+          notReady: !ready,
+          icon: { __html: ICONS[c.id] || ICON_DEFAULT },
+          iconMuted: { __html: ICONS_MUTED[c.id] || ICON_DEFAULT },
+        };
+      }),
+    };
+  }
+}
+
+(function () {
+  const P = '../';
+  const SELF = 'praskova-metalurgie/';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../koroze/index.html' }, { title: 'Tváření', href: '../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../o-projektu.html' }, { title: 'Novinky', href: '../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.structure && this.state.structure.nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: i.href.startsWith(SELF) ? i.href.slice(SELF.length) : P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+})();
+
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

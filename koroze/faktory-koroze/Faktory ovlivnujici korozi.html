@@ -53,7 +53,7 @@
   <div style="max-width:860px;margin:0 auto">
     <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:oklch(0.72 0.16 35);text-transform:uppercase;margin-bottom:10px">Koroze kovů</div>
     <h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:32px;line-height:1.2;margin:0 0 10px;letter-spacing:-0.01em">Faktory ovlivňující korozi</h1>
-    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Rychlost koroze roste s agresivitou prostředí a s teplotou. Zapni jedno nebo více prostředí a sleduj, jak strmě přibývá úbytek materiálu v čase; posuvníkem vpravo změň teplotu.</p>
+    <p style="font-size:15.5px;line-height:1.6;color:#aebfcf;margin:0 0 28px;max-width:640px">Rychlost koroze roste s&nbsp;agresivitou prostředí a&nbsp;s&nbsp;teplotou. Zapni jedno nebo více prostředí a&nbsp;sleduj, jak strmě přibývá úbytek materiálu v&nbsp;čase; posuvníkem vpravo změň teplotu.</p>
 
     <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:20px;padding:28px">
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px">
@@ -74,19 +74,19 @@
             <input type="range" min="0" max="100" value="{{ factTemp }}" onInput="{{ onFactTemp }}" style="writing-mode:vertical-lr;direction:rtl;width:28px;height:190px;accent-color:oklch(0.72 0.16 35);cursor:pointer">
           </div>
           <div style="display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#8296a8">
-            <span>0 – 100 °C</span>
+            <span>0 – 100&nbsp;°C</span>
           </div>
         </div>
       </div>
 
-      <div style="margin-top:18px;font-size:13.5px;line-height:1.6;color:#8296a8"><div style="visibility:{{ tempNoteVis }}">Vyšší teplota urychluje elektrochemické reakce i difuzi — všechny křivky stoupají strměji.</div><div>Agresivnější prostředí (chloridy, kyseliny) narušují ochranné vrstvy.</div></div>
+      <div style="margin-top:18px;font-size:13.5px;line-height:1.6;color:#8296a8"><div style="visibility:{{ tempNoteVis }}">Vyšší teplota urychluje elektrochemické reakce i&nbsp;difuzi — všechny křivky stoupají strměji.</div><div>Agresivnější prostředí (chloridy, kyseliny) narušují ochranné vrstvy.</div></div>
     </div>
 
     <a href="../koroze-pod-napetim/Koroze%20pod%20napetim.html" style="margin-top:18px;display:flex;gap:14px;align-items:flex-start;background:rgba(239,140,92,0.08);border:1px solid rgba(239,140,92,0.25);border-radius:14px;padding:18px 20px;text-decoration:none;transition:border-color .2s,background .2s" style-hover="border-color:rgba(239,140,92,0.55);background:rgba(239,140,92,0.13)">
       <div style="flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:oklch(0.72 0.16 35);margin-top:6px"></div>
       <div style="flex:1">
         <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa;margin-bottom:4px">Koroze pod napětím (Stress Corrosion Cracking)</div>
-        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Kombinace tahového napětí (i zbytkového) a specifického korozního prostředí dokáže i jinak odolnou slitinu prasknout mezikrystalově nebo transkrystalově — bez viditelného úbytku materiálu předem.</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Kombinace tahového napětí (i&nbsp;zbytkového) a&nbsp;specifického korozního prostředí dokáže i&nbsp;jinak odolnou slitinu prasknout mezikrystalově nebo transkrystalově — bez viditelného úbytku materiálu předem.</div>
         <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.06em;color:oklch(0.78 0.16 35);display:flex;align-items:center;gap:6px">Přehrát animaci
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="oklch(0.78 0.16 35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </div>
@@ -175,7 +175,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

@@ -51,22 +51,22 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Kování</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Postupové kování — předkovací → kovací → dokončovací dutina</h1>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Složitější výkovky se nedají vytvarovat jedním úderem. Rovný polotovar má po délce stejný průřez, ale hotový díl (zde <strong>klíč</strong>) má hmotnou hlavu a tenkou rukojeť. Proto má zápustka <strong>několik dutin vedle sebe</strong> a polotovar jimi <strong>postupuje</strong> — v každé se tvar přiblíží finálnímu.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Složitější výkovky se nedají vytvarovat jedním úderem. Rovný polotovar má po délce stejný průřez, ale hotový díl (zde <strong>klíč</strong>) má hmotnou hlavu a&nbsp;tenkou rukojeť. Proto má zápustka <strong>několik dutin vedle sebe</strong> a&nbsp;polotovar jimi <strong>postupuje</strong> — v&nbsp;každé se tvar přiblíží finálnímu.</p>
 
     <div style="position:relative;height:560px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin-bottom:24px">
       <x-import component-from-global-scope="PostupoveKovani" from="../../animations.jsx ./postupove-kovani.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
     </div>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">V <strong>předkovací dutině</strong> se objem jen přerozdělí — kov se nabere do hlavy a ztenčí v rukojeti (bez detailů). <strong>Kovací dutina</strong> vytvoří základní tvar s velkými rádiusy. Teprve <strong>dokončovací dutina</strong> dá přesný tvar a po obvodu vytlačí <strong>výronek</strong> v dělicí rovině, který se pak ostřihne.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">V <strong>předkovací dutině</strong> se objem jen přerozdělí — kov se nabere do hlavy a&nbsp;ztenčí v&nbsp;rukojeti (bez detailů). <strong>Kovací dutina</strong> vytvoří základní tvar s&nbsp;velkými rádiusy. Teprve <strong>dokončovací dutina</strong> dá přesný tvar a&nbsp;po obvodu vytlačí <strong>výronek</strong> v&nbsp;dělicí rovině, který se pak ostřihne.</p>
 
     <div style="background:rgba(230,169,74,0.08);border:1px solid rgba(230,169,74,0.25);border-radius:14px;padding:18px 22px;margin-bottom:20px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.75 0.14 60);margin-bottom:6px">Proč je dokončovací dutina uprostřed</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Dokončovací operace potřebuje <strong>největší tvářecí sílu</strong>. Musí proto ležet v <strong>ose beranu</strong> — kdyby byla na kraji, výslednice síly mimo osu by způsobila <strong>klopení beranu</strong> a nerovnoměrné dosednutí zápustek (a tím vady a rychlé opotřebení).</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Dokončovací operace potřebuje <strong>největší tvářecí sílu</strong>. Musí proto ležet v&nbsp;<strong>ose beranu</strong> — kdyby byla na kraji, výslednice síly mimo osu by způsobila <strong>klopení beranu</strong> a&nbsp;nerovnoměrné dosednutí zápustek (a&nbsp;tím vady a&nbsp;rychlé opotřebení).</div>
     </div>
 
     <div style="background:rgba(214,110,80,0.08);border:1px solid rgba(214,110,80,0.25);border-radius:14px;padding:18px 22px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:6px">Shrnutí</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Postupné dutiny <strong>rozdělí přetvoření do několika kroků</strong>. Každý krok je menší a snazší, dutiny se méně opotřebovávají a finální výkovek se spolehlivě zaplní bez vad.</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Postupné dutiny <strong>rozdělí přetvoření do několika kroků</strong>. Každý krok je menší a&nbsp;snazší, dutiny se méně opotřebovávají a&nbsp;finální výkovek se spolehlivě zaplní bez vad.</div>
     </div>
   </div>
 </div>
@@ -78,7 +78,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

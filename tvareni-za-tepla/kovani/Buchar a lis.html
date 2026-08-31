@@ -51,17 +51,17 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Kování</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Buchar × lis — rázové × klidné přetváření</h1>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Buchar tváří <strong>rázem</strong> — beran dopadá opakovanými údery a energie rázu se spotřebuje hlavně <strong>u povrchu</strong>. Lis tváří <strong>klidným tlakem</strong> — síla působí po celou dobu zdvihu, takže přetvoření pronikne <strong>celým průřezem</strong>. Sleduj v lupách pod polotovary, co se děje se strukturou: nahoře povrch, dole jádro.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Buchar tváří <strong>rázem</strong> — beran dopadá opakovanými údery a&nbsp;energie rázu se spotřebuje hlavně <strong>u&nbsp;povrchu</strong>. Lis tváří <strong>klidným tlakem</strong> — síla působí po celou dobu zdvihu, takže přetvoření pronikne <strong>celým průřezem</strong>. Sleduj v&nbsp;lupách pod polotovary, co se děje se strukturou: nahoře povrch, dole jádro.</p>
 
     <div style="position:relative;height:580px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin-bottom:24px">
       <x-import component-from-global-scope="BucharLis" from="../../animations.jsx ./buchar-lis.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
     </div>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">V lupě je vidět <strong>hloubka prokování</strong>: hrubá licí zrna se nahrazují jemnými, protvářenými. U bucharu postoupí hranice prokování jen kousek pod povrch — <strong>jádro zůstane hrubé</strong> (neprokované). U lisu hranice projde až dolů — <strong>prokován je celý průřez</strong> včetně jádra. Přepínačem si zpomal úder bucharu a sleduj, jak deformace s hloubkou ubývá.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">V&nbsp;lupě je vidět <strong>hloubka prokování</strong>: hrubá licí zrna se nahrazují jemnými, protvářenými. U&nbsp;bucharu postoupí hranice prokování jen kousek pod povrch — <strong>jádro zůstane hrubé</strong> (neprokované). U&nbsp;lisu hranice projde až dolů — <strong>prokován je celý průřez</strong> včetně jádra. Přepínačem si zpomal úder bucharu a&nbsp;sleduj, jak deformace s&nbsp;hloubkou ubývá.</p>
 
     <div style="background:rgba(230,169,74,0.08);border:1px solid rgba(230,169,74,0.25);border-radius:14px;padding:18px 22px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.75 0.14 60);margin-bottom:6px">Závěr</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf"><strong>Lis prokove celý průřez</strong> → vhodný pro velké výkovky. <strong>Buchar</strong> pro menší výkovky a složitěji tvarovaný díl.</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf"><strong>Lis prokove celý průřez</strong> → vhodný pro velké výkovky. <strong>Buchar</strong> pro menší výkovky a&nbsp;složitěji tvarovaný díl.</div>
     </div>
   </div>
 </div>
@@ -73,7 +73,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

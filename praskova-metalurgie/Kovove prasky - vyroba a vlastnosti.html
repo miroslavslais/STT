@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kovové prášky — výroba a vlastnosti | STT</title>
+<meta name="description" content="Výroba kovových prášků: atomizace vodou a plynem, mechanické mletí, redukce oxidů, elektrolýza a karbonylový proces. Vliv tvaru částice na sypnou hustotu a pevnost výlisku.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-08-31">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #a9c8e6; }
+    [data-paused="1"] * { animation-play-state: paused !important; }
+    @keyframes spin { to { transform: rotate(360deg) } }
+    @keyframes sprayPulse { 0% { opacity: .3 } 50% { opacity: .9 } 100% { opacity: .3 } }
+    @keyframes fallJag { 0% { transform: translateY(0) } 92% { opacity: 1 } 100% { transform: translateY(145px); opacity: 0 } }
+    @keyframes fadeOutMid { 0%, 22% { opacity: 1 } 52%, 100% { opacity: 0 } }
+    @keyframes fadeInMid { 0%, 22% { opacity: 0 } 52%, 100% { opacity: 1 } }
+    @keyframes bubUp { 0% { opacity: 0; transform: translateY(0) } 14% { opacity: .9 } 100% { opacity: 0; transform: translateY(-96px) } }
+    @keyframes poreIn { 0%, 26% { opacity: 0 } 62%, 100% { opacity: .95 } }
+    @keyframes glow { 0% { opacity: .25 } 100% { opacity: 1 } }
+    @keyframes anodeShrink { 0% { transform: scaleX(1) } 100% { transform: scaleX(.42) } }
+    @keyframes dendGrow { 0% { transform: scaleX(.04) } 72%, 100% { transform: scaleX(1) } }
+    @keyframes ionRight { 0% { opacity: 0; transform: translateX(0) } 10% { opacity: 1 } 88% { opacity: 1 } 100% { opacity: 0; transform: translateX(340px) } }
+    @keyframes scrapeDown { 0%, 74% { opacity: 0; transform: translateY(-14px) } 78% { opacity: 1; transform: translateY(0) } 100% { opacity: 1; transform: translateY(150px) } }
+    @keyframes powderIn { 0%, 82% { opacity: 0 } 96%, 100% { opacity: 1 } }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+  <script src="./anim-controls.js"></script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Prášková metalurgie</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Prášková metalurgie</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Kovové prášky — výroba a&nbsp;vlastnosti</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;text-wrap:pretty">Vlastnosti hotového dílu jsou dané už práškem. Způsob výroby určuje tvar částice a&nbsp;ten rozhoduje o&nbsp;tom, jak se prášek sype do dutiny formy, jaké hustoty dosáhne po slisování a&nbsp;jestli výlisek v&nbsp;syrovém stavu vydrží manipulaci do pece.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 12px">Způsoby výroby prášku</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 26px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#7ba3cc;color:#080b12">1</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa">Atomizace vodou</div>
+        </div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Proud roztaveného kovu se rozbíjí paprsky vody o&nbsp;tlaku 5 až 20&nbsp;MPa. Kapky tuhnou tak rychle (řádově 10³ až 10⁴&nbsp;K/s), že nestihnou získat kulový tvar. Vzniká nepravidelná, členitá částice s&nbsp;oxidovaným povrchem, proto následuje redukční žíhání. Nejrozšířenější způsob výroby železných prášků pro lisované díly.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#7ba3cc;color:#080b12">2</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa">Atomizace plynem</div>
+        </div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Místo vody se používá dusík, argon nebo vzduch o&nbsp;tlaku 1,5 až 8&nbsp;MPa. Chladnutí je pomalejší, povrchové napětí stihne kapku stáhnout do koule. Výsledkem je kulová částice s&nbsp;čistým povrchem. Dražší než voda. Používá se pro korozivzdorné oceli, slitiny niklu a&nbsp;prášky pro 3D tisk.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#7ba3cc;color:#080b12">3</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa">Mechanické mletí (kulový mlýn)</div>
+        </div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Vsázka se drtí ocelovými koulemi v&nbsp;otáčejícím se bubnu. Funguje jen u&nbsp;křehkých materiálů — karbid wolframu, feroslitiny, keramika. Houževnaté kovy se pod koulemi neroztříští, jen zplošťují. Částice jsou ostrohranné až destičkovité.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#7ba3cc;color:#080b12">4</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa">Redukce oxidů</div>
+        </div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Válcovenské okuje nebo mletá železná ruda se smísí s&nbsp;koksem a&nbsp;redukují při teplotě kolem 1200&nbsp;°C. Kyslík odchází jako oxid uhelnatý, zůstává porézní houbovitá částice. Nejlevnější způsob výroby železného prášku. Prášek dává výlisek s&nbsp;velmi dobrou pevností v&nbsp;syrovém stavu.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#7ba3cc;color:#080b12">5</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa">Elektrolýza</div>
+        </div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Kov se vylučuje na katodě z&nbsp;lázně a&nbsp;stírá se z&nbsp;ní. Vzniká dendritická částice o&nbsp;velmi vysoké čistotě, přes 99,5&nbsp;%. Drahé, používá se hlavně u&nbsp;měděných prášků a&nbsp;speciálních aplikací.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#7ba3cc;color:#080b12">6</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa">Karbonylový proces</div>
+        </div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Rozkladem pentakarbonylu železa nebo tetrakarbonylu niklu vznikají velmi jemné kulové částice o&nbsp;velikosti 1 až 10&nbsp;µm a&nbsp;vysoké čistotě. Používá se pro MIM a&nbsp;magneticky měkká jádra.</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Atomizace vodou × plynem</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Obě poloviny běží současně. Vlevo kapka utuhne dřív, než se stihne zakulatit; vpravo se během letu stáhne do koule.</p>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 10px">
+      <div data-anim="1" data-paused="{{ p1 }}">
+        <svg viewBox="0 0 860 400" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <line x1="430" y1="10" x2="430" y2="390" stroke="rgba(150,180,210,0.16)" stroke-width="1"></line>
+          <text x="215" y="26" fill="#7ba3cc" font-size="13.5" text-anchor="middle">ATOMIZACE VODOU · 5 až 20 MPa</text>
+          <text x="645" y="26" fill="#57b98a" font-size="13.5" text-anchor="middle">ATOMIZACE PLYNEM · 1,5 až 8 MPa</text>
+
+          <rect x="163" y="44" width="104" height="42" rx="6" fill="rgba(150,180,210,0.10)" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></rect>
+          <rect x="169" y="52" width="92" height="28" rx="4" fill="#e0a35a" opacity="0.75"></rect>
+          <text x="140" y="70" fill="#8296a8" font-size="12" text-anchor="end">tavenina</text>
+          <rect x="211" y="86" width="8" height="62" fill="#e0a35a" opacity="0.85"></rect>
+
+          <rect x="120" y="104" width="26" height="12" rx="3" fill="rgba(150,180,210,0.30)"></rect>
+          <rect x="284" y="104" width="26" height="12" rx="3" fill="rgba(150,180,210,0.30)"></rect>
+          <polygon points="146,110 215,146 150,120" fill="#7ba3cc" style="animation:sprayPulse 1s ease-in-out infinite"></polygon>
+          <polygon points="284,110 215,146 280,120" fill="#7ba3cc" style="animation:sprayPulse 1s ease-in-out infinite;animation-delay:0.3s"></polygon>
+          <text x="112" y="112" fill="#7ba3cc" font-size="12" text-anchor="end">voda</text>
+
+          <g transform="translate(200,164)">
+            <g style="animation:fallJag 1.9s linear infinite">
+              <g style="transform-box:fill-box;transform-origin:center;animation:spin 1.4s linear infinite">
+                <polygon points="0,-11 7,-7 11,3 4,11 -6,10 -11,0 -7,-8" fill="#c4d2de"></polygon>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(228,164)">
+            <g style="animation:fallJag 1.9s linear infinite;animation-delay:0.63s">
+              <g style="transform-box:fill-box;transform-origin:center;animation:spin 1.7s linear infinite">
+                <polygon points="0,-9 8,-5 9,4 2,10 -7,7 -9,-2 -5,-8" fill="#c4d2de"></polygon>
+              </g>
+            </g>
+          </g>
+          <g transform="translate(212,164)">
+            <g style="animation:fallJag 1.9s linear infinite;animation-delay:1.26s">
+              <g style="transform-box:fill-box;transform-origin:center;animation:spin 1.2s linear infinite">
+                <polygon points="0,-12 6,-6 12,2 3,10 -7,9 -10,-1 -6,-9" fill="#c4d2de"></polygon>
+              </g>
+            </g>
+          </g>
+
+          <rect x="138" y="312" width="154" height="58" rx="4" fill="none" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></rect>
+          <rect x="142" y="336" width="146" height="30" fill="rgba(196,210,222,0.20)"></rect>
+          <text x="215" y="388" fill="#8296a8" font-size="12" text-anchor="middle">sběrná nádoba</text>
+
+          <g transform="translate(340,214)">
+            <circle cx="0" cy="0" r="40" fill="rgba(123,163,204,0.08)" stroke="rgba(123,163,204,0.35)" stroke-width="1.2"></circle>
+            <polygon points="0,-30 17,-18 30,6 11,29 -16,26 -29,-2 -18,-22" fill="#c4d2de"></polygon>
+            <text x="0" y="60" fill="#c4d2de" font-size="12" text-anchor="middle">členitá částice</text>
+          </g>
+
+          <rect x="593" y="44" width="104" height="42" rx="6" fill="rgba(150,180,210,0.10)" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></rect>
+          <rect x="599" y="52" width="92" height="28" rx="4" fill="#e0a35a" opacity="0.75"></rect>
+          <text x="570" y="70" fill="#8296a8" font-size="12" text-anchor="end">tavenina</text>
+          <rect x="641" y="86" width="8" height="62" fill="#e0a35a" opacity="0.85"></rect>
+
+          <rect x="550" y="104" width="26" height="12" rx="3" fill="rgba(150,180,210,0.30)"></rect>
+          <rect x="714" y="104" width="26" height="12" rx="3" fill="rgba(150,180,210,0.30)"></rect>
+          <polygon points="576,110 645,146 580,120" fill="#57b98a" style="animation:sprayPulse 1s ease-in-out infinite"></polygon>
+          <polygon points="714,110 645,146 710,120" fill="#57b98a" style="animation:sprayPulse 1s ease-in-out infinite;animation-delay:0.3s"></polygon>
+          <text x="542" y="112" fill="#57b98a" font-size="12" text-anchor="end">plyn</text>
+
+          <g style="animation:fallJag 1.9s linear infinite">
+            <g transform="translate(630,164)">
+              <polygon points="0,-11 7,-7 11,3 4,11 -6,10 -11,0 -7,-8" fill="#c4d2de" style="animation:fadeOutMid 1.9s linear infinite"></polygon>
+              <circle cx="0" cy="0" r="10" fill="#c4d2de" style="animation:fadeInMid 1.9s linear infinite"></circle>
+            </g>
+          </g>
+          <g style="animation:fallJag 1.9s linear infinite;animation-delay:0.63s">
+            <g transform="translate(658,164)">
+              <polygon points="0,-9 8,-5 9,4 2,10 -7,7 -9,-2 -5,-8" fill="#c4d2de" style="animation:fadeOutMid 1.9s linear infinite;animation-delay:0.63s"></polygon>
+              <circle cx="0" cy="0" r="9" fill="#c4d2de" style="animation:fadeInMid 1.9s linear infinite;animation-delay:0.63s"></circle>
+            </g>
+          </g>
+          <g style="animation:fallJag 1.9s linear infinite;animation-delay:1.26s">
+            <g transform="translate(642,164)">
+              <polygon points="0,-12 6,-6 12,2 3,10 -7,9 -10,-1 -6,-9" fill="#c4d2de" style="animation:fadeOutMid 1.9s linear infinite;animation-delay:1.26s"></polygon>
+              <circle cx="0" cy="0" r="11" fill="#c4d2de" style="animation:fadeInMid 1.9s linear infinite;animation-delay:1.26s"></circle>
+            </g>
+          </g>
+
+          <rect x="568" y="312" width="154" height="58" rx="4" fill="none" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></rect>
+          <rect x="572" y="336" width="146" height="30" fill="rgba(196,210,222,0.20)"></rect>
+          <text x="645" y="388" fill="#8296a8" font-size="12" text-anchor="middle">sběrná nádoba</text>
+
+          <g transform="translate(770,214)">
+            <circle cx="0" cy="0" r="40" fill="rgba(87,185,138,0.08)" stroke="rgba(87,185,138,0.35)" stroke-width="1.2"></circle>
+            <circle cx="0" cy="0" r="29" fill="#c4d2de"></circle>
+            <text x="0" y="60" fill="#c4d2de" font-size="12" text-anchor="middle">kulová částice</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 26px">Schéma. Vlevo tuhnutí předběhne zakulacení kapky, vpravo povrchové napětí stihne kapku stáhnout do koule.</p>
+
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Redukce oxidů</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 10px">
+      <div data-anim="3" data-paused="{{ p3 }}">
+        <svg viewBox="0 0 860 330" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <text x="30" y="36" fill="#7ba3cc" font-size="13.5">ZRNO OKUJE V KOKSU</text>
+          <text x="620" y="36" fill="#57b98a" font-size="13.5">HOUBOVITÁ ČÁSTICE V ŘEZU</text>
+          <g style="animation:glow 3.2s ease-in-out infinite alternate">
+            <text x="300" y="70" fill="#e0a35a" font-size="15" text-anchor="middle">1200 °C</text>
+          </g>
+
+          <g fill="rgba(150,180,210,0.35)">
+            <circle cx="196" cy="140" r="7"></circle>
+            <circle cx="214" cy="212" r="6"></circle>
+            <circle cx="252" cy="262" r="7"></circle>
+            <circle cx="336" cy="268" r="6"></circle>
+            <circle cx="396" cy="228" r="7"></circle>
+            <circle cx="392" cy="152" r="6"></circle>
+            <circle cx="330" cy="104" r="7"></circle>
+            <circle cx="246" cy="108" r="6"></circle>
+          </g>
+          <text x="300" y="306" fill="#8296a8" font-size="12.5" text-anchor="middle">koks · kyslík odchází jako oxid uhelnatý</text>
+
+          <polygon points="300,110 356,132 372,190 336,244 268,246 230,192 244,136" fill="rgba(196,210,222,0.30)" stroke="rgba(196,210,222,0.55)" stroke-width="1.4"></polygon>
+          <g fill="#080b12">
+            <circle cx="292" cy="150" r="8" style="animation:poreIn 4s linear infinite"></circle>
+            <circle cx="330" cy="176" r="7" style="animation:poreIn 4s linear infinite;animation-delay:0.5s"></circle>
+            <circle cx="286" cy="200" r="9" style="animation:poreIn 4s linear infinite;animation-delay:1s"></circle>
+            <circle cx="322" cy="220" r="6" style="animation:poreIn 4s linear infinite;animation-delay:1.5s"></circle>
+            <circle cx="262" cy="168" r="6" style="animation:poreIn 4s linear infinite;animation-delay:2s"></circle>
+            <circle cx="256" cy="216" r="5" style="animation:poreIn 4s linear infinite;animation-delay:2.5s"></circle>
+          </g>
+          <g fill="none" stroke="#aebfcf" stroke-width="1.4">
+            <circle cx="286" cy="104" r="6" style="animation:bubUp 2.6s linear infinite"></circle>
+            <circle cx="318" cy="108" r="5" style="animation:bubUp 2.6s linear infinite;animation-delay:0.6s"></circle>
+            <circle cx="264" cy="112" r="4" style="animation:bubUp 2.6s linear infinite;animation-delay:1.2s"></circle>
+            <circle cx="340" cy="116" r="5" style="animation:bubUp 2.6s linear infinite;animation-delay:1.8s"></circle>
+          </g>
+          <text x="392" y="100" fill="#aebfcf" font-size="12">CO</text>
+
+          <line x1="470" y1="180" x2="530" y2="180" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+          <polygon points="530,180 520,175 520,185" fill="rgba(150,180,210,0.55)"></polygon>
+
+          <polygon points="660,104 720,128 738,190 700,246 630,248 592,192 606,136" fill="rgba(196,210,222,0.30)" stroke="rgba(196,210,222,0.55)" stroke-width="1.4"></polygon>
+          <g fill="#080b12">
+            <circle cx="652" cy="146" r="9"></circle>
+            <circle cx="692" cy="172" r="8"></circle>
+            <circle cx="646" cy="196" r="10"></circle>
+            <circle cx="684" cy="216" r="7"></circle>
+            <circle cx="622" cy="164" r="7"></circle>
+            <circle cx="618" cy="212" r="6"></circle>
+            <circle cx="712" cy="146" r="5"></circle>
+            <circle cx="664" cy="122" r="5"></circle>
+          </g>
+          <text x="664" y="306" fill="#8296a8" font-size="12.5" text-anchor="middle">v zrnu zůstávají póry</text>
+        </svg>
+      </div>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 26px">Schéma. Kyslík z&nbsp;okuje se váže na uhlík z&nbsp;koksu a&nbsp;odchází; objem, který zabíral, zůstane jako pór.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Elektrolýza</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:14px 20px 18px;margin:0 0 10px">
+      <div data-anim="4" data-paused="{{ p4 }}">
+        <svg viewBox="0 0 860 340" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+          <rect x="120" y="60" width="620" height="230" rx="6" fill="none" stroke="rgba(150,180,210,0.35)" stroke-width="1.8"></rect>
+          <rect x="124" y="96" width="612" height="190" fill="rgba(123,163,204,0.10)"></rect>
+          <text x="120" y="46" fill="#7ba3cc" font-size="13.5">VANA S LÁZNÍ</text>
+
+          <g style="transform-box:fill-box;transform-origin:left center;animation:anodeShrink 9s linear infinite">
+            <rect x="200" y="80" width="44" height="190" fill="#8296a8"></rect>
+          </g>
+          <text x="222" y="308" fill="#8296a8" font-size="12.5" text-anchor="middle">anoda se rozpouští</text>
+
+          <g fill="#7ba3cc">
+            <circle cx="264" cy="140" r="5" style="animation:ionRight 2.4s linear infinite"></circle>
+            <circle cx="264" cy="180" r="5" style="animation:ionRight 2.4s linear infinite;animation-delay:0.6s"></circle>
+            <circle cx="264" cy="220" r="5" style="animation:ionRight 2.4s linear infinite;animation-delay:1.2s"></circle>
+            <circle cx="264" cy="255" r="5" style="animation:ionRight 2.4s linear infinite;animation-delay:1.8s"></circle>
+          </g>
+
+          <rect x="628" y="80" width="26" height="190" fill="#c4d2de"></rect>
+          <text x="641" y="308" fill="#8296a8" font-size="12.5" text-anchor="middle">katoda</text>
+          <g style="transform-box:fill-box;transform-origin:right center;animation:dendGrow 9s linear infinite" fill="#57b98a">
+            <rect x="566" y="98" width="62" height="7"></rect>
+            <rect x="580" y="120" width="48" height="7"></rect>
+            <rect x="558" y="142" width="70" height="7"></rect>
+            <rect x="586" y="164" width="42" height="7"></rect>
+            <rect x="562" y="186" width="66" height="7"></rect>
+            <rect x="584" y="208" width="44" height="7"></rect>
+            <rect x="570" y="230" width="58" height="7"></rect>
+            <rect x="590" y="252" width="38" height="7"></rect>
+          </g>
+          <text x="540" y="88" fill="#57b98a" font-size="12" text-anchor="end">dendritický povlak</text>
+
+          <g style="animation:scrapeDown 9s linear infinite">
+            <rect x="536" y="70" width="96" height="10" rx="2" fill="#e0a35a"></rect>
+          </g>
+          <text x="700" y="76" fill="#e0a35a" font-size="12">stěrka</text>
+
+          <g fill="#c4d2de" style="animation:powderIn 9s linear infinite">
+            <circle cx="560" cy="278" r="4"></circle>
+            <circle cx="576" cy="282" r="3"></circle>
+            <circle cx="592" cy="277" r="4"></circle>
+            <circle cx="606" cy="283" r="3"></circle>
+            <circle cx="546" cy="283" r="3"></circle>
+            <circle cx="620" cy="279" r="4"></circle>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 26px">Schéma. Setřený povlak se rozpadne na dendritický prášek o&nbsp;čistotě přes 99,5&nbsp;%.</p>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:26px 0 0;text-wrap:pretty">U&nbsp;prášku se sledují tři věci. <strong>Sypnost</strong> je schopnost volně protékat — rozhoduje o&nbsp;tom, jak rychle a&nbsp;rovnoměrně se naplní dutina formy. <strong>Sypná hustota</strong> udává hmotnost volně nasypaného prášku v&nbsp;jednotce objemu. <strong>Pevnost výlisku v&nbsp;syrovém stavu</strong> rozhoduje, jestli slisovaný díl vydrží cestu do pece.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Sypná hustota podle tvaru částice</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:18px 20px 12px;margin:0 0 10px">
+      <svg viewBox="0 0 860 420" style="width:100%;height:auto;display:block" font-family="'IBM Plex Mono', monospace">
+        <line x1="90" y1="318.8" x2="800" y2="318.8" stroke="rgba(150,180,210,0.08)" stroke-width="1"></line>
+        <line x1="90" y1="277.5" x2="800" y2="277.5" stroke="rgba(150,180,210,0.08)" stroke-width="1"></line>
+        <line x1="90" y1="236.3" x2="800" y2="236.3" stroke="rgba(150,180,210,0.08)" stroke-width="1"></line>
+        <line x1="90" y1="195" x2="800" y2="195" stroke="rgba(150,180,210,0.08)" stroke-width="1"></line>
+        <line x1="90" y1="153.8" x2="800" y2="153.8" stroke="rgba(150,180,210,0.08)" stroke-width="1"></line>
+        <line x1="90" y1="112.5" x2="800" y2="112.5" stroke="rgba(150,180,210,0.08)" stroke-width="1"></line>
+        <line x1="90" y1="71.3" x2="800" y2="71.3" stroke="rgba(150,180,210,0.08)" stroke-width="1"></line>
+        <line x1="90" y1="30" x2="800" y2="30" stroke="rgba(150,180,210,0.08)" stroke-width="1"></line>
+
+        <rect x="133.8" y="265.1" width="90" height="94.9" fill="#7ba3cc" opacity="0.75" rx="3"></rect>
+        <rect x="311.3" y="256.9" width="90" height="103.1" fill="#7ba3cc" opacity="0.75" rx="3"></rect>
+        <rect x="488.8" y="236.3" width="90" height="123.8" fill="#7ba3cc" opacity="0.75" rx="3"></rect>
+        <rect x="666.3" y="186.8" width="90" height="173.3" fill="#57b98a" opacity="0.8" rx="3"></rect>
+
+        <text x="178.8" y="256" fill="#eaf2fa" font-size="13" text-anchor="middle">2,3</text>
+        <text x="356.3" y="248" fill="#eaf2fa" font-size="13" text-anchor="middle">2,5</text>
+        <text x="533.8" y="228" fill="#eaf2fa" font-size="13" text-anchor="middle">3,0</text>
+        <text x="711.3" y="178" fill="#eaf2fa" font-size="13" text-anchor="middle">4,2</text>
+
+        <line x1="90" y1="35.4" x2="800" y2="35.4" stroke="#e0a35a" stroke-width="1.4" stroke-dasharray="6 4"></line>
+        <text x="96" y="28" fill="#e0a35a" font-size="12.5">hustota kompaktního železa 7,87 g/cm³</text>
+
+        <line x1="90" y1="30" x2="90" y2="360" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+        <line x1="90" y1="360" x2="800" y2="360" stroke="rgba(150,180,210,0.35)" stroke-width="1.4"></line>
+
+        <text x="82" y="364" fill="#8296a8" font-size="12.5" text-anchor="end">0</text>
+        <text x="82" y="322.8" fill="#8296a8" font-size="12.5" text-anchor="end">1</text>
+        <text x="82" y="281.5" fill="#8296a8" font-size="12.5" text-anchor="end">2</text>
+        <text x="82" y="240.3" fill="#8296a8" font-size="12.5" text-anchor="end">3</text>
+        <text x="82" y="199" fill="#8296a8" font-size="12.5" text-anchor="end">4</text>
+        <text x="82" y="157.8" fill="#8296a8" font-size="12.5" text-anchor="end">5</text>
+        <text x="82" y="116.5" fill="#8296a8" font-size="12.5" text-anchor="end">6</text>
+        <text x="82" y="75.3" fill="#8296a8" font-size="12.5" text-anchor="end">7</text>
+        <text x="82" y="34" fill="#8296a8" font-size="12.5" text-anchor="end">8</text>
+
+        <text x="178.8" y="382" fill="#8296a8" font-size="12.5" text-anchor="middle">dendritický</text>
+        <text x="356.3" y="382" fill="#8296a8" font-size="12.5" text-anchor="middle">houbovitý</text>
+        <text x="356.3" y="398" fill="#5d7488" font-size="11.5" text-anchor="middle">(redukce oxidů)</text>
+        <text x="533.8" y="382" fill="#8296a8" font-size="12.5" text-anchor="middle">nepravidelný</text>
+        <text x="533.8" y="398" fill="#5d7488" font-size="11.5" text-anchor="middle">(atomizace vodou)</text>
+        <text x="711.3" y="382" fill="#8296a8" font-size="12.5" text-anchor="middle">kulový</text>
+        <text x="711.3" y="398" fill="#5d7488" font-size="11.5" text-anchor="middle">(atomizace plynem)</text>
+        <text x="26" y="195" fill="#aebfcf" font-size="13.5" text-anchor="middle" transform="rotate(-90 26 195)" font-family="'IBM Plex Sans', sans-serif">sypná hustota [g/cm³]</text>
+      </svg>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 26px">Typické hodnoty pro železný prášek. I&nbsp;nejlépe sypaný prášek zaplní jen zhruba polovinu objemu.</p>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;text-wrap:pretty">Kulový prášek se dobře sype, ale špatně drží tvar; nepravidelný je opačný případ. Proto se pro lisování v&nbsp;matrici používá prášek atomizovaný vodou, ne plynem.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:34px 0 12px">Volba tvaru částice</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;text-wrap:pretty">Klikněte na tvar a&nbsp;zobrazí se zvětšená částice, způsob výroby a&nbsp;chování prášku.</p>
+    <div style="display:flex;gap:8px;margin:0 0 14px">
+      <div onClick="{{ p0.click }}" style="{{ p0.box }}">
+        <svg viewBox="0 0 60 60" style="width:44px;height:44px;display:block">
+          <circle cx="30" cy="30" r="20" fill="{{ p0.fill }}"></circle>
+        </svg>
+        <div style="{{ p0.label }}">kulový</div>
+      </div>
+      <div onClick="{{ p1i.click }}" style="{{ p1i.box }}">
+        <svg viewBox="0 0 60 60" style="width:44px;height:44px;display:block">
+          <polygon points="30,9 46,19 51,36 38,51 20,49 11,33 17,17" fill="{{ p1i.fill }}"></polygon>
+        </svg>
+        <div style="{{ p1i.label }}">nepravidelný</div>
+      </div>
+      <div onClick="{{ p2i.click }}" style="{{ p2i.box }}">
+        <svg viewBox="0 0 60 60" style="width:44px;height:44px;display:block">
+          <circle cx="30" cy="30" r="21" fill="{{ p2i.fill }}"></circle>
+          <circle cx="24" cy="24" r="5" fill="#0d121a"></circle>
+          <circle cx="38" cy="31" r="4" fill="#0d121a"></circle>
+          <circle cx="26" cy="39" r="5" fill="#0d121a"></circle>
+        </svg>
+        <div style="{{ p2i.label }}">houbovitý</div>
+      </div>
+      <div onClick="{{ p3i.click }}" style="{{ p3i.box }}">
+        <svg viewBox="0 0 60 60" style="width:44px;height:44px;display:block">
+          <g stroke="{{ p3i.fill }}" stroke-width="4" stroke-linecap="round">
+            <line x1="30" y1="10" x2="30" y2="50"></line>
+            <line x1="12" y1="30" x2="48" y2="30"></line>
+            <line x1="18" y1="18" x2="42" y2="42"></line>
+            <line x1="42" y1="18" x2="18" y2="42"></line>
+          </g>
+        </svg>
+        <div style="{{ p3i.label }}">dendritický</div>
+      </div>
+      <div onClick="{{ p4i.click }}" style="{{ p4i.box }}">
+        <svg viewBox="0 0 60 60" style="width:44px;height:44px;display:block">
+          <polygon points="10,34 44,22 50,28 16,40" fill="{{ p4i.fill }}"></polygon>
+        </svg>
+        <div style="{{ p4i.label }}">destičkovitý</div>
+      </div>
+    </div>
+    <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.35);border-radius:16px;padding:22px;display:grid;grid-template-columns:180px 1fr;gap:24px;align-items:center;margin:0 0 26px">
+      <div style="display:flex;align-items:center;justify-content:center;height:160px">
+        <sc-if value="{{ isSph }}" hint-placeholder-val="{{ true }}">
+          <svg viewBox="0 0 160 160" style="width:150px;height:150px;display:block">
+            <circle cx="80" cy="80" r="62" fill="#c4d2de"></circle>
+          </svg>
+        </sc-if>
+        <sc-if value="{{ isIrr }}" hint-placeholder-val="{{ false }}">
+          <svg viewBox="0 0 160 160" style="width:150px;height:150px;display:block">
+            <polygon points="80,18 118,36 142,74 128,124 86,146 42,132 20,92 30,44" fill="#c4d2de"></polygon>
+          </svg>
+        </sc-if>
+        <sc-if value="{{ isSpo }}" hint-placeholder-val="{{ false }}">
+          <svg viewBox="0 0 160 160" style="width:150px;height:150px;display:block">
+            <polygon points="80,18 122,38 142,80 124,126 80,144 36,126 18,80 38,38" fill="#c4d2de"></polygon>
+            <g fill="#0d121a">
+              <circle cx="64" cy="56" r="13"></circle>
+              <circle cx="102" cy="72" r="11"></circle>
+              <circle cx="58" cy="96" r="14"></circle>
+              <circle cx="96" cy="110" r="10"></circle>
+              <circle cx="82" cy="36" r="7"></circle>
+              <circle cx="40" cy="74" r="7"></circle>
+            </g>
+          </svg>
+        </sc-if>
+        <sc-if value="{{ isDen }}" hint-placeholder-val="{{ false }}">
+          <svg viewBox="0 0 160 160" style="width:150px;height:150px;display:block">
+            <g stroke="#c4d2de" stroke-width="9" stroke-linecap="round">
+              <line x1="80" y1="20" x2="80" y2="140"></line>
+              <line x1="20" y1="80" x2="140" y2="80"></line>
+            </g>
+            <g stroke="#c4d2de" stroke-width="6" stroke-linecap="round">
+              <line x1="80" y1="46" x2="106" y2="30"></line>
+              <line x1="80" y1="46" x2="54" y2="30"></line>
+              <line x1="80" y1="114" x2="106" y2="130"></line>
+              <line x1="80" y1="114" x2="54" y2="130"></line>
+              <line x1="46" y1="80" x2="30" y2="54"></line>
+              <line x1="46" y1="80" x2="30" y2="106"></line>
+              <line x1="114" y1="80" x2="130" y2="54"></line>
+              <line x1="114" y1="80" x2="130" y2="106"></line>
+            </g>
+          </svg>
+        </sc-if>
+        <sc-if value="{{ isPla }}" hint-placeholder-val="{{ false }}">
+          <svg viewBox="0 0 160 160" style="width:150px;height:150px;display:block">
+            <polygon points="16,92 122,54 144,72 38,110" fill="#c4d2de"></polygon>
+          </svg>
+        </sc-if>
+      </div>
+      <div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin-bottom:4px">{{ selShape }}</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#7ba3cc;margin-bottom:14px">Vzniká: {{ selMethod }}</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+          <div>
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:4px">Sypnost</div>
+            <div style="font-size:14.5px;color:#eaf2fa">{{ selFlow }}</div>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:4px">Sypná hustota</div>
+            <div style="font-size:14.5px;color:#eaf2fa">{{ selDens }}</div>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;margin-bottom:4px">Pevnost výlisku v&nbsp;syrovém stavu</div>
+            <div style="font-size:14.5px;color:#eaf2fa">{{ selGreen }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;vychoziTvar&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;kulový&quot;,&quot;options&quot;:[&quot;kulový&quot;,&quot;nepravidelný&quot;,&quot;houbovitý&quot;,&quot;dendritický&quot;,&quot;destičkovitý&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+const ROWS = [
+  { shape: 'kulový', flow: 'nejlepší', dens: 'nejvyšší', green: 'nízká, částice se nezaklesnou', method: 'atomizace plynem, karbonylový proces' },
+  { shape: 'nepravidelný', flow: 'zhoršená', dens: 'střední', green: 'dobrá, mechanické zaklesnutí', method: 'atomizace vodou' },
+  { shape: 'houbovitý', flow: 'špatná', dens: 'nízká', green: 'velmi dobrá', method: 'redukce oxidů' },
+  { shape: 'dendritický', flow: 'velmi špatná', dens: 'nízká', green: 'velmi dobrá', method: 'elektrolýza' },
+  { shape: 'destičkovitý', flow: 'velmi špatná', dens: 'nízká', green: 'dobrá', method: 'mechanické mletí' },
+];
+
+const BTN = 'cursor:pointer;user-select:none;padding:6px 14px;border-radius:999px;font-family:\'IBM Plex Sans\',sans-serif;font-size:13px;font-weight:500;background:rgba(123,163,204,0.14);border:1px solid rgba(123,163,204,0.45);color:#eaf2fa';
+
+class Component extends DCLogic {
+  state = { shape: null, play: [true, true, true, true] };
+
+  toggle(i) {
+    this.setState(s => {
+      const play = s.play.slice();
+      play[i] = !play[i];
+      return { play };
+    });
+  }
+
+  renderVals() {
+    const names = ['kulový', 'nepravidelný', 'houbovitý', 'dendritický', 'destičkovitý'];
+    const init = names.indexOf(this.props.vychoziTvar || 'kulový');
+    const sel = this.state.shape === null ? (init < 0 ? 0 : init) : this.state.shape;
+    const r = ROWS[sel];
+    const out = {
+      rows: ROWS,
+      selShape: r.shape,
+      selMethod: r.method,
+      selFlow: r.flow,
+      selDens: r.dens,
+      selGreen: r.green,
+      isSph: sel === 0,
+      isIrr: sel === 1,
+      isSpo: sel === 2,
+      isDen: sel === 3,
+      isPla: sel === 4,
+    };
+    [0, 1, 2, 3].forEach(i => {
+      const on = this.state.play[i];
+      out['p' + (i + 1)] = on ? '0' : '1';
+      out['t' + (i + 1)] = () => this.toggle(i);
+      out['lbl' + (i + 1)] = on ? 'Stop' : 'Přehrát';
+      out['btn' + (i + 1)] = BTN;
+    });
+    const keys = ['p0', 'p1i', 'p2i', 'p3i', 'p4i'];
+    keys.forEach((k, i) => {
+      const on = i === sel;
+      out[k] = {
+        click: () => this.setState({ shape: i }),
+        fill: on ? '#7ba3cc' : '#8296a8',
+        box: 'flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;padding:14px 10px;border-radius:16px;transition:background 0.15s,border-color 0.15s;background:' + (on ? 'rgba(123,163,204,0.14)' : 'rgba(120,150,180,0.05)') + ';border:1px solid ' + (on ? 'rgba(123,163,204,0.5)' : 'rgba(150,180,210,0.16)'),
+        label: 'font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:13.5px;color:' + (on ? '#eaf2fa' : '#aebfcf'),
+      };
+    });
+    return out;
+  }
+}
+
+(function () {
+  const P = '../';
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../koroze/index.html' }, { title: 'Tváření', href: '../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../o-projektu.html' }, { title: 'Novinky', href: '../novinky.html' }];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

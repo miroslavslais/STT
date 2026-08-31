@@ -49,24 +49,24 @@
 <div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
   <div style="max-width:820px;margin:0 auto">
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Kování</div>
-    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Zápustkové kování — plnění dutiny a vznik výronku</h1>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Zápustkové kování — plnění dutiny a&nbsp;vznik výronku</h1>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Při zápustkovém kování se ohřátý polotovar vtlačuje do <strong>dutiny zápustky</strong>, která má tvar budoucího výkovku (zde ojnice). Kov teče cestou nejmenšího odporu, takže se dutina neplní najednou — nejdřív snadné objemy, teprve nakonec vzdálené rohy a žebra.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Při zápustkovém kování se ohřátý polotovar vtlačuje do <strong>dutiny zápustky</strong>, která má tvar budoucího výkovku (zde ojnice). Kov teče cestou nejmenšího odporu, takže se dutina neplní najednou — nejdřív snadné objemy, teprve nakonec vzdálené rohy a&nbsp;žebra.</p>
 
     <div style="position:relative;height:520px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin-bottom:24px">
       <x-import component-from-global-scope="ZapustkoveKovani" from="../../animations.jsx ./zapustkove-kovani.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
     </div>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Klíčem je <strong>výronek</strong> — přebytek kovu vytlačený do dělicí roviny. Úzký <strong>můstek</strong> výronkové drážky klade toku odpor, tím naroste tlak v dutině a <strong>protitlak dotlačí kov i do nejvzdálenějších rohů</strong>. Přebytek se odvede do <strong>zásobníku</strong> a po kování se ostřihne.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px">Klíčem je <strong>výronek</strong> — přebytek kovu vytlačený do dělicí roviny. Úzký <strong>můstek</strong> výronkové drážky klade toku odpor, tím naroste tlak v&nbsp;dutině a&nbsp;<strong>protitlak dotlačí kov i&nbsp;do nejvzdálenějších rohů</strong>. Přebytek se odvede do <strong>zásobníku</strong> a&nbsp;po kování se ostřihne.</p>
 
     <div style="background:rgba(230,169,74,0.08);border:1px solid rgba(230,169,74,0.25);border-radius:14px;padding:18px 22px;margin-bottom:20px">
-      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.75 0.14 60);margin-bottom:6px">Vyzkoušej v animaci</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Přepínačem <strong>Výronková drážka ZAP/VYP</strong> porovnej oba případy. Ve vypnutém stavu je místo úzkého můstku <strong>široký „most“</strong> — část kovu do něj snadno odteče, tlak v dutině nestačí narůst a <strong>rohy oka zůstanou nezaplněné</strong>. Kov přitom zůstává stále spojitý (nikde se neodděluje).</div>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.75 0.14 60);margin-bottom:6px">Vyzkoušej v&nbsp;animaci</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Přepínačem <strong>Výronková drážka ZAP/VYP</strong> porovnej oba případy. Ve&nbsp;vypnutém stavu je místo úzkého můstku <strong>široký „most“</strong> — část kovu do něj snadno odteče, tlak v&nbsp;dutině nestačí narůst a&nbsp;<strong>rohy oka zůstanou nezaplněné</strong>. Kov přitom zůstává stále spojitý (nikde se neodděluje).</div>
     </div>
 
     <div style="background:rgba(214,110,80,0.08);border:1px solid rgba(214,110,80,0.25);border-radius:14px;padding:18px 22px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(0.72 0.16 20);margin-bottom:6px">Shrnutí</div>
-      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Výronek není odpad navíc — je to <strong>funkční prvek</strong>, který přes odpor můstku vytvoří protitlak a vynutí úplné vyplnění dutiny.</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf">Výronek není odpad navíc — je to <strong>funkční prvek</strong>, který přes odpor můstku vytvoří protitlak a&nbsp;vynutí úplné vyplnění dutiny.</div>
     </div>
   </div>
 </div>
@@ -78,7 +78,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

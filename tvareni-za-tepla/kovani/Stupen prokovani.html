@@ -52,12 +52,12 @@
   <div style="max-width:960px;margin:0 auto">
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Kování · nástroje</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 16px">Stupeň prokování &amp; přetvárný odpor</h1>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;max-width:680px;margin:0 0 44px">Stupeň prokování říká, kolikrát se změnil průřez (nebo výška) při kování. Dostatečně velký stupeň prokování <strong>rozbije hrubou licí strukturu</strong> ingotu a usměrní zrno do vlákna. Níže si ho spočítáš a v grafu uvidíš, jak s teplotou klesá přetvárný odpor různých ocelí.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;max-width:680px;margin:0 0 44px">Stupeň prokování říká, kolikrát se změnil průřez (nebo výška) při kování. Dostatečně velký stupeň prokování <strong>rozbije hrubou licí strukturu</strong> ingotu a&nbsp;usměrní zrno do vlákna. Níže si ho spočítáš a&nbsp;v&nbsp;grafu uvidíš, jak s&nbsp;teplotou klesá přetvárný odpor různých ocelí.</p>
 
     <!-- ── KALKULAČKA ── -->
     <section style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:20px;padding:30px 30px 34px;margin-bottom:40px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:21px;color:#eaf2fa;margin-bottom:4px">Kalkulačka stupně prokování</div>
-      <div style="font-size:14.5px;color:#8ea2b6;margin-bottom:24px">Zadej rozměry před a po tváření. K = stupeň prokování.</div>
+      <div style="font-size:14.5px;color:#8ea2b6;margin-bottom:24px">Zadej rozměry před a&nbsp;po tváření. K = stupeň prokování.</div>
 
       <div style="display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:start">
         <!-- vstupy -->
@@ -127,13 +127,13 @@
         </div>
       </div>
 
-      <div style="font-size:12px;color:#5f6d7b;margin-top:22px;line-height:1.5">Prahové hodnoty jsou orientační (učebnicové) — pro rozbití licí struktury z ingotu se běžně požaduje stupeň prokování aspoň 3 : 1. Nad ~6:1 už pevnost neroste a sílí anizotropie (rozdíl vlastností podél a napříč vlákna).</div>
+      <div style="font-size:12px;color:#5f6d7b;margin-top:22px;line-height:1.5">Prahové hodnoty jsou orientační (učebnicové) — pro rozbití licí struktury z&nbsp;ingotu se běžně požaduje stupeň prokování aspoň 3 : 1. Nad ~6:1 už pevnost neroste a&nbsp;sílí anizotropie (rozdíl vlastností podél a&nbsp;napříč vlákna).</div>
     </section>
 
     <!-- ── GRAF ── -->
     <section style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:20px;padding:30px">
       <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:21px;color:#eaf2fa;margin-bottom:4px">Přetvárný odpor × teplota</div>
-      <div style="font-size:14.5px;color:#8ea2b6;margin-bottom:22px">S rostoucí teplotou klesá přetvárný odpor — kov je snadněji tvárný. Klikni na ocel v legendě pro zvýraznění, najetím do grafu odečteš hodnoty.</div>
+      <div style="font-size:14.5px;color:#8ea2b6;margin-bottom:22px">S&nbsp;rostoucí teplotou klesá přetvárný odpor — kov je snadněji tvárný. Klikni na ocel v&nbsp;legendě pro zvýraznění, najetím do grafu odečteš hodnoty.</div>
 
       <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px">
         <sc-for list="{{ steels }}" as="s" hint-placeholder-count="4">
@@ -146,7 +146,7 @@
       </div>
 
       <div style="width:100%">{{ chartSvg }}</div>
-      <div style="font-size:12px;color:#5f6d7b;margin-top:16px;line-height:1.5">Hodnoty jsou ilustrativní (typové) — tvary a vzájemné pořadí křivek odpovídají realitě, nejde o certifikovaná měřicí data. Austenitická korozivzdorná ocel má nejvyšší odpor a nejužší teplotní interval tváření; nízkouhlíková ocel se kove nejsnáze.</div>
+      <div style="font-size:12px;color:#5f6d7b;margin-top:16px;line-height:1.5">Hodnoty jsou ilustrativní (typové) — tvary a&nbsp;vzájemné pořadí křivek odpovídají realitě, nejde o&nbsp;certifikovaná měřicí data. Austenitická korozivzdorná ocel má nejvyšší odpor a&nbsp;nejužší teplotní interval tváření; nízkouhlíková ocel se kove nejsnáze.</div>
     </section>
   </div>
 </div>
@@ -347,7 +347,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

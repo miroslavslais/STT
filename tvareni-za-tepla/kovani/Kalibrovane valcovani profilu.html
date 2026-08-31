@@ -50,7 +50,7 @@
   <div style="max-width:1120px;margin:0 auto">
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(0.72 0.15 60);margin-bottom:8px">Válcování</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Kalibrované válcování profilů</h1>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;max-width:820px;margin:0 0 24px">Průřez se na cílový tvar nedostane jedním průchodem, ale <strong>postupně přes soustavu kalibrů</strong> — drážek vyfrézovaných ve válcích. Každý kalibr sevře vývalek jen v jednom směru, proto se mezi průchody vývalek <strong>otočí o 90°</strong>. Klasická cesta z hranatého sochoru na kruhovou tyč vede systémem <strong>ovál–kruh</strong>: čtverec → ovál → kruh → ovál → kruh.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;max-width:820px;margin:0 0 24px">Průřez se na cílový tvar nedostane jedním průchodem, ale <strong>postupně přes soustavu kalibrů</strong> — drážek vyfrézovaných ve&nbsp;válcích. Každý kalibr sevře vývalek jen v&nbsp;jednom směru, proto se mezi průchody vývalek <strong>otočí o&nbsp;90°</strong>. Klasická cesta z&nbsp;hranatého sochoru na kruhovou tyč vede systémem <strong>ovál–kruh</strong>: čtverec → ovál → kruh → ovál → kruh.</p>
 
     <div style="background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;padding:18px 18px 12px;display:flex;gap:16px;align-items:stretch">
       <div style="flex:1;min-width:0">{{ frame }}</div>
@@ -82,9 +82,9 @@
 
     <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:20px;font-size:13.5px;color:#aebfcf">
       <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:linear-gradient(#f7c948,#f0932b);display:inline-block"></span>ohřátý vývalek</div>
-      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#4a5461;border:1px solid #5c6773;display:inline-block"></span>válce s kalibrem</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#4a5461;border:1px solid #5c6773;display:inline-block"></span>válce s&nbsp;kalibrem</div>
       <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:0;border-top:2px dashed #6b7684;display:inline-block"></span>výchozí sochor (Ø srovnání)</div>
-      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:2px;background:#e6a94a;display:inline-block"></span>otočení o 90°</div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:2px;background:#e6a94a;display:inline-block"></span>otočení o&nbsp;90°</div>
       <div style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:7px;border-radius:4px;background:#3ddc97;display:inline-block"></span>značka na povrchu (sleduje pootočení)</div>
     </div>
   </div>
@@ -347,7 +347,7 @@ class Component extends DCLogic {
 
 (function () {
   const P = '../../';
-  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
+  const FALLBACK_NAV = [{ title: 'Domů', href: '../../index.html' }, { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' }, { title: 'Koroze', href: '../../koroze/index.html' }, { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' }, { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' }, { title: 'O projektu', href: '../../o-projektu.html' }, { title: 'Novinky', href: '../../novinky.html' }];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};
