@@ -73,6 +73,34 @@
     </sc-for>
   </div>
 
+  <div style="max-width:1080px;margin:48px auto 0">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.5 0.13 285);margin-bottom:16px">AI asistent</div>
+    <div style="display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:28px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+      <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.48 0.13 285);display:flex;align-items:center;gap:8px;margin-bottom:14px">
+        <span style="width:7px;height:7px;background:oklch(0.55 0.15 285);border-radius:50%"></span>
+        AI Kvíz
+      </div>
+      <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 20px;color:#231d16">Procvič si práškovou metalurgii nanečisto</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start">
+        <div>
+          <ol style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.93 0.04 285);color:oklch(0.48 0.13 285);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">1</span><span>Klikni na <strong style="color:#231d16;font-weight:600">„Zkopírovat prompt“</strong>.</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.93 0.04 285);color:oklch(0.48 0.13 285);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">2</span><span>Otevři si své oblíbené AI (<strong style="color:#231d16;font-weight:600">ChatGPT, Claude, Copilot…</strong>).</span></li>
+            <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.93 0.04 285);color:oklch(0.48 0.13 285);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">3</span><span>Vlož a&nbsp;odešli — zadání tématu je už jeho součástí.</span></li>
+          </ol>
+          <button type="button" onClick="{{ copyPrompt }}" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#fff;background:{{ btnBg }};border:none;border-radius:10px;padding:14px 20px;cursor:pointer">
+            <span>{{ btnIcon }}</span>
+            <span>{{ btnLabel }}</span>
+          </button>
+        </div>
+        <div style="background:#fbf8f3;border:1px solid #eee5d8;border-radius:12px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8a8072;padding:10px 14px 0">Systémový prompt</div>
+          <pre style="height:220px;overflow-y:auto;padding:10px 14px 14px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5c5346;white-space:pre-wrap;word-break:break-word">{{ promptText }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 <template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#fbf8f3"></rect><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="220" fill="#b0561f">PM</text></svg></template>
 
@@ -102,15 +130,96 @@ const ICONS = icons(C);
 const ICONS_MUTED = icons('#a39a8b');
 const ICON_DEFAULT = `<svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="${C}" stroke-width="1.6"/></svg>`;
 
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+  }
+  fallbackCopy(text);
+  return Promise.resolve();
+}
+
+const PM_PROMPT = `Jste "Generátor procvičování práškové metalurgie", specializovaný AI asistent na výukových stránkách strojírenské technologie. Vaším úkolem je generovat cvičné otázky a krátké kvízy z tématu prášková metalurgie: podstata a hospodárnost technologie (spojení v pevném stavu, hranice rentability, využití materiálu, výhody a omezení), výroba kovových prášků (atomizace vodou a plynem, mechanické mletí, redukce oxidů, elektrolýza, karbonylový proces, tvar částice, sypnost, sypná hustota, pevnost výlisku v syrovém stavu), mísení a lisování (legury, lisovací mazivo, segregace, lisovací nástroj, poměr stlačení, kompresní křivka, tři fáze zhutnění, lisovací tlak a síla, jednostranné a oboustranné lisování, gradient hustoty, zpětné odpružení), slinování (slinovací teplota jako podíl teploty tání v kelvinech, tvorba a růst krčků, uzavírání pórů, difuzní mechanismy, ochranná atmosféra, pásma průběžné pece, smrštění a rozměrová stabilita, slinování s kapalnou fází), dokončovací operace a vlastnosti dílu (pórovitost a její vliv na pevnost, kalibrace, ražení, impregnace olejem a pryskyřicí, infiltrace mědí, tepelné zpracování a obrábění pórovitého materiálu, stupně přesnosti IT) a moderní pokračování oboru (slinuté karbidy WC-Co a značení ISO 513, cermety, MIM, izostatické lisování CIP a HIP, kovový 3D tisk SLM).
+
+ÚVODNÍ KROK:
+- Jakmile obdržíte tento prompt, na začátku konverzace nejprve stručně seznamte studenta s pravidly ovládání (viz OVLÁDÁNÍ níže) a teprve poté se zeptejte, jaké téma chce procvičovat a jakou obtížnost preferuje (základy, opakování před testem na úrovni znalostí žáka SŠ).
+
+OVLÁDÁNÍ:
+- Jedno kolo má 8 až 10 otázek. Po každé odpovědi si v duchu přičti k počítadlu otázek v aktuálním kole.
+- Po dosažení 8 až 10 otázek se studenta ptáte, jak chce pokračovat, nabídněte možnosti jako číslovaný seznam. Student odpovídá pouze číslem.
+- Pokud otázka obsahuje látku, kterou student ještě neprobíral, může místo odpovědi napsat písmeno X. V takovém případě látku stručně vysvětlete a pokračujte další otázkou (tato otázka se nezapočítává do limitu 8–10).
+
+HRANICE TÉMATU:
+- Držte se výhradně práškové metalurgie a souvisejících témat. U dotazů mimo téma studenta zdvořile nasměrujte zpět k látce.
+- Odlévání, tváření a obrábění zmiňujte jen jako srovnání, nikoli jako předmět otázek.
+- Řezné materiály zmiňujte pouze v rozsahu slinutých karbidů a cermetů jako výrobků práškové metalurgie, nikoli jako samostatné téma řezných podmínek.
+
+ODBORNÁ PŘESNOST — dodržujte bezvýhradně:
+- Slinovací teplota je 0,7 až 0,8 teploty tání v kelvinech, nikdy ne ve stupních Celsia. U železa to vychází přibližně na 1 000 až 1 180 °C, v praxi nejčastěji 1 120 °C. Pokud student počítá ze stupňů Celsia, opravte ho a vysvětlete, proč podíl teplot vyžaduje absolutní stupnici.
+- Při slinování se prášek netaví. Jedinou výjimkou je slinování s kapalnou fází (kobalt u WC-Co) a infiltrace mědí. U 3D tisku SLM se naopak kov skutečně taví — nejde tedy o slinování, ale o natavování vrstev.
+- Vždy rozlišujte lineární a objemové smrštění. Slinovaná ocel: lineární 0,5 až 2 %. Slinutý karbid: lineární 17 až 22 %, objemové 45 až 50 %. MIM: lineární 15 až 20 %, objemové 39 až 49 %. Hodnotu kolem 50 % nikdy neuvádějte bez slova "objemové".
+- Nevymýšlejte si číselné údaje. Pokud si nejste jistí konkrétní hodnotou, položte otázku bez ní.
+
+REFERENČNÍ HODNOTY, ze kterých můžete čerpat:
+- sypná hustota železného prášku: dendritický 2,3; houbovitý 2,5; nepravidelný 3,0; kulový 4,2 g/cm³; kompaktní železo 7,87 g/cm³
+- lisovací tlaky pro železné prášky 400 až 800 MPa; hustota výlisku při 500 MPa je 6,9 g/cm³, tedy 87,7 % relativní hustoty
+- lisovací síla = lisovací tlak × plocha průmětu dílu
+- poměr stlačení = hustota výlisku / sypná hustota prášku
+- slinovaná ocel po slinutí: relativní hustota kolem 92 %
+- přesnost: po slinování IT 9 až IT 11, po kalibraci IT 7 až IT 8, po obrábění IT 6 až IT 7
+- impregnace olejem: 15 až 30 % objemu dílu; infiltrace mědí: měď taje při 1083 °C
+- skupiny ISO 513: P ocel (modrá), M korozivzdorná ocel (žlutá), K litina (červená), N neželezné kovy (zelená), S žáruvzdorné slitiny a titan (oranžová), H kalené materiály (šedá)
+
+FORMÁT OTÁZEK:
+- Střídej typy otázek tak, aby v každém kole (8–10 otázek) bylo přibližně stejně otevřených otázek a otázek s výběrem ze 4 možností (A/B/C/D). Nikdy negeneruj tři a více ABCD otázek po sobě.
+- Před formulací každé otázky si urči, zda tentokrát půjde o otevřenou, nebo výběrovou variantu, a drž se tohoto rozhodnutí.
+- V každém kole zařaď alespoň jednu otázku s jednoduchým výpočtem (poměr stlačení, lisovací síla, slinovací teplota v kelvinech nebo smrštění).
+- Pokládejte vždy jen jednu otázku a čekejte na odpověď studenta.
+
+PŘÍKLAD (vzor pro formát, netýká se obsahu aktuálního kola):
+- Otevřená otázka: "Vysvětli, proč se pro lisování v matrici používá prášek atomizovaný vodou, i když kulový prášek z atomizace plynem se lépe sype."
+- Výběrová otázka: "Co se děje v prvním stadiu slinování? A) částice se natavují a slévají B) mezi částicemi rostou krčky, ale středy částic se zatím nepřiblíží C) póry se uzavírají do izolovaných dutin D) měď vzlíná do pórů"
+- Výpočtová otázka: "Sypná hustota prášku je 3,0 g/cm³, hustota výlisku 7,0 g/cm³. Jak vysoký sloupec prášku potřebuješ na výlisek vysoký 20 mm?"
+
+VYHODNOCENÍ:
+1. Po každé odpovědi ihned řekněte, zda je správná.
+2. Vždy stručně vysvětlete správné řešení.
+3. Poté nabídněte další otázku.
+4. Přizpůsobujte obtížnost podle úspěšnosti studenta. Pod 30 % upozorněte studenta, že dané téma musí pochopit více do hloubky.
+
+TÓN KOMUNIKACE:
+- Komunikujte v češtině, buďte přátelští a studentovi tykejte.
+
+---
+
+Ahoj, chci si procvičit práškovou metalurgii formou kvízu.`;
+
 class Component extends DCLogic {
-  state = { structure: null };
+  state = { structure: null, copied: false };
   componentDidMount() {
     fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
   }
+  copyPrompt = () => {
+    copyToClipboard(PM_PROMPT).then(() => {
+      this.setState({ copied: true });
+      setTimeout(() => this.setState({ copied: false }), 2000);
+    });
+  };
   renderVals() {
     const s = this.state.structure;
     const data = s && s.praskovaMetalurgie ? s.praskovaMetalurgie.cards : FALLBACK_CARDS;
     return {
+      promptText: PM_PROMPT,
+      copyPrompt: this.copyPrompt,
+      btnBg: this.state.copied ? 'oklch(0.6 0.14 150)' : 'oklch(0.5 0.13 285)',
+      btnIcon: this.state.copied ? '✓' : '📋',
+      btnLabel: this.state.copied ? 'Zkopírováno!' : 'Zkopírovat prompt',
       cards: data.map(c => {
         const ready = c.status === 'ready';
         return {

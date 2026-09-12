@@ -38,6 +38,8 @@
     @keyframes s1c1 { 0%, 32.6% { opacity: 1 } 33%, 100% { opacity: 0 } }
     @keyframes s1c2 { 0%, 32.6% { opacity: 0 } 33%, 65.6% { opacity: 1 } 66%, 100% { opacity: 0 } }
     @keyframes s1c3 { 0%, 65.6% { opacity: 0 } 66%, 100% { opacity: 1 } }
+    @keyframes s1poreA { 0%, 80% { transform: scale(1) } 92%, 100% { transform: scale(0) } }
+    @keyframes s1poreB { 0%, 84% { transform: scale(1) } 96%, 100% { transform: scale(0) } }
 
     @keyframes s2corner { 0%, 14% { transform: translate(0px, 0px) } 40% { transform: translate(-28px, -28px) } 86% { transform: translate(-28px, -28px) } 100% { transform: translate(0px, 0px) } }
     @keyframes s2gap { 0%, 20% { opacity: 0 } 44%, 84% { opacity: 1 } 96%, 100% { opacity: 0 } }
@@ -177,8 +179,8 @@
             <circle cx="211" cy="210" r="11" fill="#080b12"></circle>
             <circle cx="306" cy="210" r="12" fill="#080b12"></circle>
             <circle cx="401" cy="210" r="10" fill="#080b12"></circle>
-            <circle cx="258" cy="186" r="6" fill="#080b12"></circle>
-            <circle cx="354" cy="234" r="6" fill="#080b12"></circle>
+            <circle cx="258" cy="186" r="6" fill="#080b12" style="transform-box:fill-box;transform-origin:center;animation:s1poreA 18s linear infinite"></circle>
+            <circle cx="354" cy="234" r="6" fill="#080b12" style="transform-box:fill-box;transform-origin:center;animation:s1poreB 18s linear infinite"></circle>
           </g>
 
           <text x="306" y="304" fill="#aebfcf" font-size="11" text-anchor="middle" style="animation:s1c1 18s linear infinite">póry jsou propojené</text>

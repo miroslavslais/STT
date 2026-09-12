@@ -48,6 +48,7 @@
     @keyframes i3t3 { 0%, 65.6% { opacity: 0 } 66%, 100% { opacity: 1 } }
     @keyframes i3p1 { 0%, 32.6% { background: rgba(201,128,63,0.18); border-color: rgba(201,128,63,0.55); color: #eaf2fa } 33%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
     @keyframes i3p2 { 0%, 32.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 33%, 65.6% { background: rgba(201,128,63,0.18); border-color: rgba(201,128,63,0.55); color: #eaf2fa } 66%, 100% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } }
+    @keyframes i3note { 0%, 65.6% { opacity: 0 } 66%, 100% { opacity: 1 } }
     @keyframes i3p3 { 0%, 65.6% { background: rgba(120,150,180,0.05); border-color: rgba(150,180,210,0.16); color: #8296a8 } 66%, 100% { background: rgba(201,128,63,0.18); border-color: rgba(201,128,63,0.55); color: #eaf2fa } }
   </style>
   <script>
@@ -320,25 +321,33 @@
           </g>
 
           <g>
-            <circle cx="176" cy="108" r="8" style="animation:i3r1 18s linear infinite"></circle>
+            <circle cx="168" cy="102" r="7" fill="#0a0d14"></circle>
             <circle cx="236" cy="118" r="9" style="animation:i3r1 18s linear infinite"></circle>
             <circle cx="296" cy="106" r="7" style="animation:i3r1 18s linear infinite"></circle>
             <circle cx="348" cy="120" r="8" style="animation:i3r1 18s linear infinite"></circle>
             <circle cx="180" cy="168" r="7" style="animation:i3r2 18s linear infinite"></circle>
             <circle cx="242" cy="176" r="9" style="animation:i3r2 18s linear infinite"></circle>
             <circle cx="304" cy="166" r="8" style="animation:i3r2 18s linear infinite"></circle>
-            <circle cx="352" cy="180" r="7" style="animation:i3r2 18s linear infinite"></circle>
+            <circle cx="360" cy="186" r="6" fill="#0a0d14"></circle>
             <circle cx="172" cy="226" r="9" style="animation:i3r3 18s linear infinite"></circle>
             <circle cx="234" cy="234" r="7" style="animation:i3r3 18s linear infinite"></circle>
             <circle cx="298" cy="224" r="9" style="animation:i3r3 18s linear infinite"></circle>
             <circle cx="350" cy="238" r="8" style="animation:i3r3 18s linear infinite"></circle>
             <circle cx="178" cy="284" r="8" style="animation:i3r4 18s linear infinite"></circle>
-            <circle cx="240" cy="292" r="8" style="animation:i3r4 18s linear infinite"></circle>
+            <circle cx="244" cy="304" r="7" fill="#0a0d14"></circle>
             <circle cx="302" cy="282" r="7" style="animation:i3r4 18s linear infinite"></circle>
             <circle cx="354" cy="290" r="9" style="animation:i3r4 18s linear infinite"></circle>
           </g>
 
           <text x="260" y="342" fill="#5d7488" font-size="12" text-anchor="middle">řez pórovitým dílem</text>
+
+          <g style="animation:i3note 18s linear infinite" stroke="#8296a8" stroke-width="0.9" fill="none">
+            <path d="M168 95 L168 76 L400 76"></path>
+            <path d="M366 186 L400 186"></path>
+            <path d="M244 311 L244 326 L400 326"></path>
+            <path d="M400 76 L400 352 L392 352"></path>
+          </g>
+          <text x="388" y="356" fill="#aebfcf" font-size="11.5" text-anchor="end" style="animation:i3note 18s linear infinite">uzavřené póry — měď se do nich kapilárně nedostane</text>
 
           <rect x="560" y="50" width="46" height="240" rx="8" fill="rgba(120,150,180,0.08)" stroke="rgba(150,180,210,0.3)" stroke-width="1.2"></rect>
           <g style="transform-box:fill-box;transform-origin:bottom;animation:i3gauge 18s linear infinite">
@@ -361,7 +370,7 @@
         </div>
         <div data-anim="3" data-paused="{{ p3 }}" style="border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:12px 14px;animation:i3p3 18s linear infinite">
           <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;margin-bottom:5px">3 · Vyplněné póry</div>
-          <div style="font-size:13px;line-height:1.6;color:inherit">Póry jsou vyplněné, tabletka zmizela. Relativní hustota přes 95&nbsp;%.</div>
+          <div style="font-size:13px;line-height:1.6;color:inherit">Propojené póry jsou vyplněné, tabletka zmizela. Uzavřené póry zůstávají prázdné, proto relativní hustota přes 95&nbsp;%, nikoli 100&nbsp;%.</div>
         </div>
       </div>
     </div>
