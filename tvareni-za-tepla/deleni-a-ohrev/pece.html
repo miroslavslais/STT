@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pece a ohřev materiálu | STT</title>
+<meta name="description" content="Komorová, vozová, štěrbinová a průběžná pec, plamenný, odporový a indukční ohřev, opal a propal — jak se materiál dostane na tvářecí teplotu.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-09-20">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: #e6a94a; text-decoration: none; }
+    a:hover { color: #f2c274; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="8">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Dělení a&nbsp;ohřev materiálu</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 90px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#e6a94a;margin-bottom:8px">Dělení a&nbsp;ohřev materiálu</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Pece a&nbsp;ohřev materiálu</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:80ch;text-wrap:pretty">Ohřev je mezikrok mezi dělením a&nbsp;tvářením. Přířez vstupuje do pece studený a&nbsp;musí z&nbsp;ní vyjít prohřátý rovnoměrně v&nbsp;celém průřezu, ne&nbsp;jen na povrchu.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:80ch;text-wrap:pretty">Teplo vstupuje do materiálu povrchem. Do jádra postupuje vedením, tedy předáváním energie mezi sousedními vrstvami kovu. Povrch se proto ohřeje dřív než jádro a&nbsp;mezi nimi vznikne rozdíl teplot. Teplejší povrchová vrstva se roztahuje víc než chladnější jádro, to jí ale v&nbsp;roztažení brání — v&nbsp;materiálu tím vzniká pnutí.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;max-width:80ch;text-wrap:pretty">Rychlost ohřevu omezuje tepelná vodivost materiálu a&nbsp;průřez přířezu. Čím větší průřez, tím delší cestu musí teplo do jádra urazit. Čím nižší tepelná vodivost, tím pomaleji touto cestou postupuje. V&nbsp;obou případech se ohřev musí zpomalit, jinak rozdíl teplot po průřezu naroste.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 48px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Prohřátý rovnoměrně</div>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Povrch i&nbsp;jádro mají srovnatelný přetvárný odpor. Materiál se pod nástrojem deformuje v&nbsp;celém průřezu a&nbsp;přetvoření prostoupí až do osy přířezu.</p>
+      </div>
+      <div style="background:rgba(224,140,110,0.07);border:1px solid rgba(224,140,110,0.3);border-radius:16px;padding:20px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#e08c6e;margin-bottom:8px">Prohřátý jen na povrchu</div>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Chladnější jádro klade větší odpor než povrch. Povrchová vrstva se přetvoří snadno, jádro zůstává skoro netvářené. Deformace je nerovnoměrná a&nbsp;na rozhraní obou oblastí se materiál může porušit.</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 8px">Dělení pecí podle konstrukce</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:80ch">Konstrukce pece je dána tím, jak se do ní materiál zakládá a&nbsp;jak z&nbsp;ní vystupuje. Na tom pak závisí, pro jakou výrobu se pec hodí.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 48px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:10px">Komorová pec</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;margin-bottom:14px">Pracovním prostorem je uzavřená komora s&nbsp;jediným otvorem. Při každé výměně vsázky se pec otevírá a&nbsp;teplo z&nbsp;prostoru uniká.</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px"><span style="flex:none;width:118px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:2px">Vsázka a&nbsp;výstup</span><span style="font-size:14.5px;line-height:1.5;color:#eaf2fa">týmž otvorem dovnitř i&nbsp;ven, ručně kleštěmi nebo manipulátorem</span></div>
+          <div style="display:flex;gap:10px"><span style="flex:none;width:118px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:2px">Použití</span><span style="font-size:14.5px;line-height:1.5;color:#eaf2fa">kusová a&nbsp;malosériová výroba, volné kování</span></div>
+        </div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:10px">Vozová pec</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;margin-bottom:14px">Nístěj je pojízdná a&nbsp;vyjíždí z&nbsp;pece ven. Materiál se na ni zakládá jeřábem mimo pec a&nbsp;dovnitř vjede spolu s&nbsp;ní.</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px"><span style="flex:none;width:118px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:2px">Vsázka a&nbsp;výstup</span><span style="font-size:14.5px;line-height:1.5;color:#eaf2fa">na vysunuté nístěji, která s&nbsp;materiálem zajede zpět do pece</span></div>
+          <div style="display:flex;gap:10px"><span style="flex:none;width:118px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:2px">Použití</span><span style="font-size:14.5px;line-height:1.5;color:#eaf2fa">těžké a&nbsp;rozměrné kusy, které nelze zakládat ručně</span></div>
+        </div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:10px">Štěrbinová pec</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;margin-bottom:14px">V&nbsp;čelní stěně je podélná štěrbina. Materiál jí prochází napříč a&nbsp;zasahuje do pece jen jedním koncem, zbytek délky zůstává vně.</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px"><span style="flex:none;width:118px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:2px">Vsázka a&nbsp;výstup</span><span style="font-size:14.5px;line-height:1.5;color:#eaf2fa">koncem tyče skrz štěrbinu, týmž směrem zpět ven</span></div>
+          <div style="display:flex;gap:10px"><span style="flex:none;width:118px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:2px">Použití</span><span style="font-size:14.5px;line-height:1.5;color:#eaf2fa">ohřev konců tyčí a&nbsp;trubek, kdy se zbytek délky ohřívat nemá</span></div>
+        </div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(230,169,74,0.3);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:10px">Průběžná pec</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;margin-bottom:14px">Materiál se pecí posouvá mechanizovaně, dopravníkem nebo strkacím zařízením, a&nbsp;prochází přitom pásmy s&nbsp;různým přívodem tepla. Pec je trvale v&nbsp;provozu a&nbsp;pracovní prostor se neotevírá.</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px"><span style="flex:none;width:118px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:2px">Vsázka a&nbsp;výstup</span><span style="font-size:14.5px;line-height:1.5;color:#eaf2fa">vstupním otvorem na jednom konci, výstupním na druhém, plynule za provozu</span></div>
+          <div style="display:flex;gap:10px"><span style="flex:none;width:118px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:2px">Použití</span><span style="font-size:14.5px;line-height:1.5;color:#eaf2fa">zápustkové kování a&nbsp;sériová výroba</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 8px">Dělení podle zdroje tepla</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:80ch">Zdroj tepla určuje, kde teplo vzniká a&nbsp;jakou cestou se dostane do materiálu. Tím je dáno i&nbsp;prostředí, ve&nbsp;kterém materiál leží.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:0 0 48px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin-bottom:10px">Plamenný ohřev</div>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0 0 10px;text-wrap:pretty">Palivem je plyn nebo olej. Spaluje se přímo v&nbsp;prostoru pece, takže teplo vzniká v&nbsp;plameni vedle materiálu.</p>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Na materiál přechází sáláním od plamene, klenby a&nbsp;stěn a&nbsp;prouděním spalin kolem povrchu. Spaliny zůstávají v&nbsp;peci a&nbsp;jsou s&nbsp;povrchem materiálu v&nbsp;přímém styku.</p>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin-bottom:10px">Odporový ohřev</div>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0 0 10px;text-wrap:pretty">Proud prochází topnými články ve&nbsp;stěnách pece a&nbsp;ohřívá je svým odporem. Články předávají teplo materiálu sáláním.</p>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Nevzniká plamen ani spaliny. Prostředí v&nbsp;peci proto lze řídit a&nbsp;nahradit ochrannou atmosférou.</p>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(230,169,74,0.3);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin-bottom:10px">Indukční ohřev</div>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0 0 10px;text-wrap:pretty">Materiál se vkládá do středofrekvenční cívky. Její střídavé magnetické pole indukuje v&nbsp;materiálu vířivé proudy a&nbsp;teplo vzniká přímo v&nbsp;něm, ne&nbsp;vedením z&nbsp;okolí.</p>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Ohřev je proto rychlý a&nbsp;prohřátí postupuje od povrchové vrstvy do hloubky. Materiál je v&nbsp;ohřívacím prostoru krátce a&nbsp;vzniká na něm méně okují.</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 8px">Opal a&nbsp;propal</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:80ch">Ohřev na povrchu i&nbsp;uvnitř materiálu vyvolá pochody, které jej znehodnocují. Opal ubírá materiál z&nbsp;povrchu, propal porušuje jeho strukturu.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 20px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin-bottom:10px">Opal</div>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0 0 10px;text-wrap:pretty">Povrchová vrstva oceli reaguje s&nbsp;kyslíkem v&nbsp;okolní atmosféře, tedy ve&nbsp;spalinách nebo ve&nbsp;vzduchu, a&nbsp;mění se v&nbsp;okuje, tedy ve&nbsp;vrstvu oxidů železa. Kov, který zoxiduje, je ztracen — přířez se ohřevem zmenšuje a&nbsp;s&nbsp;delší dobou v&nbsp;peci ztráta roste.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Okuje na povrchu nedrží a&nbsp;odlupují se. Pokud zůstanou na materiálu, zatlačí se při tváření do povrchu výkovku a&nbsp;zanášejí dutinu zápustky.</p>
+      </div>
+      <div style="background:rgba(224,140,110,0.07);border:1px solid rgba(224,140,110,0.3);border-radius:16px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin-bottom:10px">Propal (spálení)</div>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0 0 10px;text-wrap:pretty">Nastává při překročení přípustné teploty nebo doby výdrže v&nbsp;peci. Hranice zrn se natavují a&nbsp;do natavené vrstvy pronikne kyslík.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Soudržnost mezi zrny je tím porušena. Materiál se při tváření rozpadá a&nbsp;vada se nedá opravit žádným dalším zpracováním — přířez je zmetek.</p>
+      </div>
+    </div>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 24px;margin:0 0 20px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:14px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8">Řez přířezem — zrna a&nbsp;povrch</div>
+        <div style="display:flex;gap:10px">
+          <div onClick="{{ selOpal }}" style="cursor:pointer;padding:8px 20px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;border:1px solid {{ d.opalBorder }};background:{{ d.opalBg }};color:{{ d.opalColor }}">Opal</div>
+          <div onClick="{{ selPropal }}" style="cursor:pointer;padding:8px 20px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;border:1px solid {{ d.propalBorder }};background:{{ d.propalBg }};color:{{ d.propalColor }}">Propal</div>
+        </div>
+      </div>
+
+      <svg viewBox="0 0 900 340" style="width:100%;display:block">
+        <rect x="252" y="66" width="396" height="212" fill="#a8552b" opacity="{{ d.okujeOp }}"></rect>
+        <rect x="252" y="66" width="396" height="212" fill="none" stroke="rgba(174,191,207,0.5)" stroke-width="1.4" stroke-dasharray="6 6" opacity="{{ d.puvodniOp }}"></rect>
+
+        <rect x="266" y="80" width="368" height="184" fill="rgba(150,180,210,0.12)"></rect>
+        <line x1="312" y1="80" x2="312" y2="264" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <line x1="358" y1="80" x2="358" y2="264" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <line x1="404" y1="80" x2="404" y2="264" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <line x1="450" y1="80" x2="450" y2="264" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <line x1="496" y1="80" x2="496" y2="264" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <line x1="542" y1="80" x2="542" y2="264" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <line x1="588" y1="80" x2="588" y2="264" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <line x1="266" y1="126" x2="634" y2="126" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <line x1="266" y1="172" x2="634" y2="172" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <line x1="266" y1="218" x2="634" y2="218" stroke="{{ d.grainStroke }}" stroke-width="{{ d.grainW }}"></line>
+        <rect x="266" y="80" width="368" height="184" fill="none" stroke="{{ d.edgeStroke }}" stroke-width="1.8"></rect>
+
+        <g opacity="{{ d.okujeOp }}">
+          <polygon points="668,140 706,132 710,152 672,160" fill="#a8552b"></polygon>
+          <polygon points="672,186 708,194 704,212 668,204" fill="#a8552b"></polygon>
+          <text x="742" y="180" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8">odloupnuté okuje</text>
+        </g>
+
+        <g opacity="{{ d.puvodniOp }}">
+          <line x1="252" y1="66" x2="180" y2="40" stroke="rgba(150,180,210,0.4)" stroke-width="1.2"></line>
+          <text x="176" y="36" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8">původní povrch</text>
+          <line x1="259" y1="240" x2="180" y2="270" stroke="rgba(224,140,110,0.5)" stroke-width="1.2"></line>
+          <text x="176" y="275" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#e08c6e">okuje</text>
+        </g>
+
+        <g opacity="{{ d.propalOp }}">
+          <line x1="450" y1="126" x2="300" y2="40" stroke="rgba(224,80,60,0.45)" stroke-width="1.2"></line>
+          <text x="296" y="36" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#e0503c">natavené hranice zrn</text>
+          <line x1="588" y1="218" x2="660" y2="258" stroke="rgba(224,80,60,0.45)" stroke-width="1.2"></line>
+          <text x="890" y="263" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8">soudržnost mezi zrny je porušena</text>
+        </g>
+
+        <text x="450" y="312" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#8296a8">{{ d.caption }}</text>
+      </svg>
+
+      <div style="margin-top:8px;padding-top:18px;border-top:1px solid rgba(150,180,210,0.16);margin-bottom:16px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:{{ d.headColor }};margin-bottom:4px">{{ d.title }}</div>
+        <div style="font-size:15px;line-height:1.65;color:#aebfcf;max-width:90ch;text-wrap:pretty">{{ d.text }}</div>
+      </div>
+
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#e6a94a;margin-bottom:8px">Rozdíl</div>
+      <div style="display:flex;flex-direction:column;gap:6px;max-width:90ch">
+        <div style="display:flex;gap:10px;align-items:baseline">
+          <span style="flex:none;width:9px;height:9px;border-radius:50%;background:#e6a94a"></span>
+          <span style="font-size:15.5px;line-height:1.65;color:#aebfcf;text-wrap:pretty">Opal je ztráta materiálu na povrchu — jádro zůstává nedotčené a&nbsp;přířez je dál použitelný.</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:baseline">
+          <span style="flex:none;width:9px;height:9px;border-radius:50%;background:#e0503c"></span>
+          <span style="font-size:15.5px;line-height:1.65;color:#aebfcf;text-wrap:pretty">Propal je porušení struktury uvnitř materiálu a&nbsp;přířez už použít nelze.</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin:32px 0 8px">Co rychlost tvorby okují ovlivňuje</h3>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:80ch">Množství okují u ocelí není dané jen tím, že se materiál ohřívá. Závisí na teplotě, na době v&nbsp;peci a&nbsp;na složení atmosféry kolem povrchu.</p>
+
+    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:20px;margin:0 0 20px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:14px">Teplota</div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:grid;grid-template-columns:132px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid rgba(150,180,210,0.12)">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa">600 až 700&nbsp;°C</span>
+            <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">okuje se tvoří téměř neznatelně</span>
+          </div>
+          <div style="display:grid;grid-template-columns:132px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid rgba(150,180,210,0.12)">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa">nad 1000&nbsp;°C</span>
+            <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">tvorba okují je velmi intenzivní</span>
+          </div>
+          <div style="display:grid;grid-template-columns:132px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid rgba(150,180,210,0.12)">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#e6a94a">1300&nbsp;°C</span>
+            <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">rychlost oxidace až sedmkrát vyšší než při 900&nbsp;°C</span>
+          </div>
+          <div style="display:grid;grid-template-columns:132px 1fr;gap:16px;padding:9px 0">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#eaf2fa">nad 1320&nbsp;°C</span>
+            <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">okuje se natavují</span>
+          </div>
+        </div>
+        <p style="font-size:14.5px;line-height:1.6;color:#8296a8;margin:12px 0 0;text-wrap:pretty">Natavení okují není propal. Taví se oxidická vrstva na povrchu, hranice zrn v&nbsp;kovu zůstávají neporušené.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Doba ohřevu</div>
+          <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Závislost na čase je parabolická. Vrstva okují brání kyslíku v&nbsp;přístupu ke&nbsp;kovu pod ní, takže s&nbsp;rostoucí dobou ohřevu přírůstek okují slábne. Největší množství vzniká na začátku. Jakmile se ale vrstva odloupne, obnaží se čistý povrch a&nbsp;oxidace se v&nbsp;tom místě znovu zrychlí.</p>
+        </div>
+        <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Atmosféra</div>
+          <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">V&nbsp;oxidační atmosféře vzniká vrstva silnější, ale od kovu se snadno odlupuje. V&nbsp;redukční nebo neutrální atmosféře je vrstva tenčí a&nbsp;na kovu pevně lpí, takže odokujení je obtížnější.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin:32px 0 8px">Opal podle způsobu ohřevu</h3>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:80ch">Hodnoty jsou uvedeny v&nbsp;procentech z&nbsp;hmotnosti výkovku s&nbsp;výronkem.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:6px 24px 20px;margin:0 0 20px">
+      <div style="display:grid;grid-template-columns:1fr 150px 1fr;gap:20px;padding:14px 0 10px;border-bottom:1px solid rgba(150,180,210,0.2)">
+        <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8">Způsob ohřevu</span>
+        <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8">Opal</span>
+        <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8">Proč</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 150px 1fr;gap:20px;padding:13px 0;border-bottom:1px solid rgba(150,180,210,0.12);align-items:baseline">
+        <span style="font-size:15.5px;color:#eaf2fa">Plynová pec</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:#e08c6e">2,5 až 3&nbsp;%</span>
+        <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">povrch je v&nbsp;přímém styku se spalinami, doba ohřevu je dlouhá</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 150px 1fr;gap:20px;padding:13px 0;border-bottom:1px solid rgba(150,180,210,0.12);align-items:baseline">
+        <span style="font-size:15.5px;color:#eaf2fa">Elektrická odporová pec</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:#e6a94a">1 až 1,5&nbsp;%</span>
+        <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">nevznikají spaliny, doba ohřevu je kratší</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 150px 1fr;gap:20px;padding:13px 0;align-items:baseline">
+        <span style="font-size:15.5px;color:#eaf2fa">Středofrekvenční pec</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;color:#7fba8c">0,5 až 1&nbsp;%</span>
+        <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">teplo vzniká přímo v&nbsp;materiálu, ohřev trvá nejkratší dobu</span>
+      </div>
+    </div>
+
+    <div style="background:rgba(224,140,110,0.07);border:1px solid rgba(224,140,110,0.3);border-radius:16px;padding:22px 24px;margin:0 0 20px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#e08c6e;margin-bottom:8px">Celková ztráta</div>
+      <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0;max-width:90ch;text-wrap:pretty">Na jeden ohřev připadá ztráta 1 až 3&nbsp;%. Materiál se ale při zpracování ohřívá několikrát, a&nbsp;proto se v&nbsp;okujích znehodnotí celkem až 4&nbsp;% vyrobené oceli. Rozpětí platí pro běžný ohřev v&nbsp;peci s&nbsp;oxidační atmosférou; při indukčním ohřevu je ztráta nižší.</p>
+    </div>
+
+    <div style="background:rgba(230,169,74,0.07);border:1px solid rgba(230,169,74,0.3);border-radius:16px;padding:22px 24px;margin:0 0 20px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#e6a94a;margin-bottom:12px">Opatření proti opalu</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin-bottom:6px">Rychlostní ohřev</div>
+          <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Zkrátí dobu, po kterou je povrch vystaven kyslíku. Tudy působí indukční ohřev: teplo vzniká přímo v&nbsp;materiálu, ohřev je krátký a&nbsp;povrch oxiduje méně.</p>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin-bottom:6px">Řízená atmosféra pece</div>
+          <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Omezí přístup kyslíku k&nbsp;povrchu. Vznikne spalováním topné látky s&nbsp;minimálním přebytkem, případně s&nbsp;mírným nedostatkem vzduchu.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 8px">Průběžná pec — pásma</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:80ch">Vodorovný řez plamennou průběžnou pecí. Materiál postupuje zleva doprava a&nbsp;prochází třemi pásmy. Klikni na pásmo ve&nbsp;schématu nebo na jeho popisek.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 26px;margin:0 0 20px">
+      <svg viewBox="0 0 900 330" style="width:100%;display:block">
+        <rect x="136" y="86" width="209" height="110" fill="{{ pz.z1Fill }}"></rect>
+        <rect x="345" y="86" width="210" height="110" fill="{{ pz.z2Fill }}"></rect>
+        <rect x="555" y="86" width="209" height="110" fill="{{ pz.z3Fill }}"></rect>
+
+        <rect x="120" y="56" width="660" height="30" fill="rgba(150,180,210,0.10)"></rect>
+        <rect x="120" y="196" width="660" height="50" fill="rgba(150,180,210,0.10)"></rect>
+        <rect x="120" y="86" width="16" height="80" fill="rgba(150,180,210,0.10)"></rect>
+        <rect x="764" y="86" width="16" height="80" fill="rgba(150,180,210,0.10)"></rect>
+
+        <polyline points="120,166 120,56 780,56 780,166" fill="none" stroke="rgba(150,180,210,0.34)" stroke-width="1.6"></polyline>
+        <polyline points="120,196 120,246 780,246 780,196" fill="none" stroke="rgba(150,180,210,0.34)" stroke-width="1.6"></polyline>
+        <polyline points="136,166 136,86 764,86 764,166" fill="none" stroke="rgba(150,180,210,0.24)" stroke-width="1.2"></polyline>
+        <line x1="136" y1="196" x2="764" y2="196" stroke="rgba(150,180,210,0.24)" stroke-width="1.2"></line>
+        <line x1="345" y1="86" x2="345" y2="196" stroke="rgba(150,180,210,0.22)" stroke-width="1.2" stroke-dasharray="5 5"></line>
+        <line x1="555" y1="86" x2="555" y2="196" stroke="rgba(150,180,210,0.22)" stroke-width="1.2" stroke-dasharray="5 5"></line>
+
+        <rect x="32" y="166" width="56" height="30" rx="2" fill="rgba(150,180,210,0.28)"></rect>
+        <rect x="212" y="166" width="56" height="30" rx="2" fill="#94795c"></rect>
+        <rect x="422" y="166" width="56" height="30" rx="2" fill="#c8843c"></rect>
+        <rect x="632" y="166" width="56" height="30" rx="2" fill="#e6a94a"></rect>
+        <rect x="812" y="166" width="56" height="30" rx="2" fill="#f2c274"></rect>
+
+        <text x="60" y="152" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#8296a8">vsázka</text>
+        <text x="840" y="152" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#8296a8">výstup</text>
+
+        <line x1="150" y1="286" x2="770" y2="286" stroke="rgba(150,180,210,0.3)" stroke-width="1.4"></line>
+        <polyline points="756,279 772,286 756,293" fill="none" stroke="rgba(150,180,210,0.45)" stroke-width="1.4"></polyline>
+        <text x="450" y="312" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8">směr postupu materiálu</text>
+
+        <g onClick="{{ selZ1 }}" style="cursor:pointer">
+          <rect x="136" y="86" width="209" height="110" fill="transparent"></rect>
+          <rect x="146" y="20" width="190" height="26" fill="transparent"></rect>
+          <text x="240" y="38" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" fill="{{ pz.z1Text }}">předehřívací</text>
+          <line x1="240" y1="46" x2="240" y2="56" stroke="{{ pz.z1Stroke }}" stroke-width="1.4"></line>
+        </g>
+        <g onClick="{{ selZ2 }}" style="cursor:pointer">
+          <rect x="345" y="86" width="210" height="110" fill="transparent"></rect>
+          <rect x="355" y="20" width="190" height="26" fill="transparent"></rect>
+          <text x="450" y="38" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" fill="{{ pz.z2Text }}">ohřívací</text>
+          <line x1="450" y1="46" x2="450" y2="56" stroke="{{ pz.z2Stroke }}" stroke-width="1.4"></line>
+        </g>
+        <g onClick="{{ selZ3 }}" style="cursor:pointer">
+          <rect x="555" y="86" width="209" height="110" fill="transparent"></rect>
+          <rect x="565" y="20" width="190" height="26" fill="transparent"></rect>
+          <text x="660" y="38" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" fill="{{ pz.z3Text }}">vyrovnávací</text>
+          <line x1="660" y1="46" x2="660" y2="56" stroke="{{ pz.z3Stroke }}" stroke-width="1.4"></line>
+        </g>
+
+        <rect x="136" y="86" width="209" height="110" fill="none" stroke="{{ pz.z1Stroke }}" stroke-width="1.6" pointer-events="none"></rect>
+        <rect x="345" y="86" width="210" height="110" fill="none" stroke="{{ pz.z2Stroke }}" stroke-width="1.6" pointer-events="none"></rect>
+        <rect x="555" y="86" width="209" height="110" fill="none" stroke="{{ pz.z3Stroke }}" stroke-width="1.6" pointer-events="none"></rect>
+      </svg>
+
+      <div style="margin-top:14px;padding-top:18px;border-top:1px solid rgba(150,180,210,0.16)">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#e6a94a;margin-bottom:4px">{{ pz.title }}</div>
+        <div style="font-size:15px;line-height:1.65;color:#aebfcf;max-width:90ch;text-wrap:pretty">{{ pz.text }}</div>
+      </div>
+    </div>
+
+    
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 22px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:#e6a94a;margin-bottom:6px">Shrnutí</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#aebfcf;max-width:90ch;text-wrap:pretty">Konstrukce pece se volí podle toho, jak se s&nbsp;materiálem manipuluje a&nbsp;jak velká je série. Zdroj tepla určuje cestu tepla do materiálu a&nbsp;prostředí kolem povrchu. Obojí se sbíhá v&nbsp;jednom požadavku: prohřát průřez rovnoměrně a&nbsp;přitom nedržet materiál v&nbsp;peci déle, než je nutné.</div>
+    </div>
+
+    
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ACC = '#e6a94a';
+
+const ZONES = {
+  z1: {
+    title: 'Předehřívací pásmo',
+    text: 'Materiál sem vstupuje studený. Teplo přebírá od spalin, které pecí odcházejí proti směru jeho pohybu a jsou už zčásti ochlazené. Přívod tepla je proto ze všech pásem nejmírnější. Povrch se ohřívá pozvolna, rozdíl teplot mezi povrchem a jádrem zůstává malý a pnutí v materiálu nenaroste.',
+  },
+  z2: {
+    title: 'Ohřívací pásmo',
+    text: 'Zde je přívod tepla nejintenzivnější. Povrch přijímá teplo sáláním od klenby a stěn a jeho teplota rychle stoupá. Do jádra teplo postupuje vedením, a protože je povrch ohříván rychleji, než stačí vedení jádro dohnat, je rozdíl teplot po průřezu v tomto pásmu největší.',
+  },
+  z3: {
+    title: 'Vyrovnávací pásmo',
+    text: 'Přívod tepla se omezí a povrch se dál neohřívá. Teplo nashromážděné v povrchové vrstvě postupuje dovnitř, takže teplota jádra stoupá a povrchu se vyrovnává. Rozdíl teplot po průřezu klesá a materiál vystupuje z pece prohřátý rovnoměrně.',
+  },
+};
+
+const RED = '#e0503c';
+
+const DIFF = {
+  opal: {
+    title: 'Opal — úbytek na povrchu',
+    caption: 'povrchová vrstva zoxidovala, zrna uvnitř jsou neporušená',
+    text: 'Povrchová vrstva kovu se změnila v okuje. Přířez je o tuto vrstvu menší a okuje se z povrchu odlupují. Zrna pod povrchem a jejich hranice zůstávají neporušené, takže přířez je dál použitelný.',
+  },
+  propal: {
+    title: 'Propal — porušení struktury',
+    caption: 'hranice zrn jsou nataveny v celém průřezu',
+    text: 'Rozměr přířezu se nezměnil, poškození je uvnitř. Hranice zrn se natavily a zrna spolu přestala držet. Materiál se při tváření rozpadá a vada se nedá opravit.',
+  },
+};
+
+class Component extends DCLogic {
+  state = { zone: 'z2', diff: 'opal' };
+
+  pickDiff = (id) => () => this.setState({ diff: id });
+
+  pickZone = (id) => () => this.setState({ zone: id });
+
+  renderVals() {
+    const z = this.state.zone;
+    const on = (id) => id === z;
+    const zone = ZONES[z];
+
+    const pz = { title: zone.title, text: zone.text };
+    ['z1', 'z2', 'z3'].forEach(id => {
+      pz[id + 'Fill'] = on(id) ? 'rgba(230,169,74,0.10)' : 'transparent';
+      pz[id + 'Stroke'] = on(id) ? ACC : 'rgba(150,180,210,0.14)';
+      pz[id + 'Text'] = on(id) ? ACC : '#aebfcf';
+    });
+
+    const isOpal = this.state.diff === 'opal';
+    const dd = DIFF[this.state.diff];
+    const d = {
+      title: dd.title, text: dd.text, caption: dd.caption,
+      headColor: isOpal ? ACC : RED,
+      okujeOp: isOpal ? 1 : 0,
+      puvodniOp: isOpal ? 1 : 0,
+      propalOp: isOpal ? 0 : 1,
+      grainStroke: isOpal ? 'rgba(150,180,210,0.28)' : RED,
+      grainW: isOpal ? 1.2 : 3,
+      edgeStroke: isOpal ? ACC : 'rgba(150,180,210,0.34)',
+      opalBorder: isOpal ? ACC : 'rgba(150,180,210,0.22)',
+      opalBg: isOpal ? 'rgba(230,169,74,0.14)' : 'transparent',
+      opalColor: isOpal ? ACC : '#aebfcf',
+      propalBorder: isOpal ? 'rgba(150,180,210,0.22)' : RED,
+      propalBg: isOpal ? 'transparent' : 'rgba(224,80,60,0.14)',
+      propalColor: isOpal ? '#aebfcf' : RED,
+    };
+
+    return {
+      pz,
+      d,
+      selOpal: this.pickDiff('opal'),
+      selPropal: this.pickDiff('propal'),
+      selZ1: this.pickZone('z1'),
+      selZ2: this.pickZone('z2'),
+      selZ3: this.pickZone('z3'),
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+  { title: 'Domů', href: '../../index.html' },
+  { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+  { title: 'Koroze', href: '../../koroze/index.html' },
+  { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+  { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+  { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+  { title: 'Odlévání', href: '../../odlevani/index.html' },
+  { title: 'O projektu', href: '../../o-projektu.html' },
+  { title: 'Novinky', href: '../../novinky.html' },
+];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

@@ -21,6 +21,14 @@
       "href": "praskova-metalurgie/index.html"
     },
     {
+      "title": "Značení ocelí",
+      "href": "znaceni-oceli/index.html"
+    },
+    {
+      "title": "Odlévání",
+      "href": "odlevani/index.html"
+    },
+    {
       "title": "O projektu",
       "href": "o-projektu.html"
     },
@@ -47,7 +55,8 @@
       {
         "id": "odlevani",
         "title": "Odlévání",
-        "status": "coming-soon"
+        "href": "odlevani/index.html",
+        "status": "ready"
       },
       {
         "id": "praskova-metalurgie",
@@ -70,6 +79,12 @@
         "id": "vnitrni-stavba",
         "title": "Vnitřní stavba kovů a tepelné zpracování",
         "href": "vnitrni-stavba-kovu-a-tz/index.html",
+        "status": "ready"
+      },
+      {
+        "id": "znaceni-oceli",
+        "title": "Značení ocelí dle EN",
+        "href": "znaceni-oceli/index.html",
         "status": "ready"
       },
       {
@@ -172,6 +187,14 @@
         "status": "ready"
       },
       {
+        "id": "deleni-a-ohrev",
+        "title": "Dělení a ohřev materiálu",
+        "desc": "Příprava přířezů pro kování — metody dělení tyčí a sochorů a jejich porovnání.",
+        "href": "deleni-a-ohrev/index.html",
+        "badge": "3 kapitoly · Interaktivní",
+        "status": "ready"
+      },
+      {
         "id": "hlavni-technologie",
         "title": "Kování a válcování",
         "desc": "Zápustkové a postupové kování, buchar × lis, válcování profilů a PKV, porovnání technologií výroby.",
@@ -193,6 +216,39 @@
         "desc": "Vady za tepla i za studena — příčina, projev a prevence u každé z nich.",
         "href": "vady/index.html",
         "badge": "10 kapitol · 4 interaktivní",
+        "status": "ready"
+      }
+    ]
+  },
+  "deleniAOhrev": {
+    "h1": "Dělení a ohřev materiálu",
+    "cards": [
+      {
+        "title": "Možnosti dělení materiálu",
+        "desc": "Pily, rozbrušování, upichování, lámání po vrubu, stříhání a řezání kyslíkem — a jejich porovnání.",
+        "href": "moznosti-deleni.html",
+        "badge": "Interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Měření teploty",
+        "desc": "Termočlánek, pyrometr a termokamera, barvy žhnutí — a čím se která metoda liší.",
+        "href": "mereni-teploty.html",
+        "badge": "Interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Pece a ohřev materiálu",
+        "desc": "Konstrukce pecí, zdroje tepla, opal a propal — čím a jak se přířez dostane na tvářecí teplotu.",
+        "href": "pece.html",
+        "badge": "Interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Vady ohřevu",
+        "desc": "Opal, oduhličení, přehřátí, propal a trhliny z rychlého ohřevu — příčina, projev a napravitelnost.",
+        "href": "vady-ohrevu.html",
+        "badge": "Interaktivní",
         "status": "ready"
       }
     ]
@@ -496,6 +552,12 @@
         "title": "Eutektická × eutektoidní přeměna",
         "desc": "Co se děje uvnitř kovu — nukleace a růst lamel při obou přeměnách.",
         "href": "rovnovazne-diagramy/Eutekticka a eutektoidni premena - mikrostruktura.html"
+      },
+      {
+        "id": "tuhy-roztok-vs-eutektikum",
+        "title": "Kdy vznikne tuhý roztok a kdy už ne",
+        "desc": "Kdy se příměs vejde do mřížky a kdy vznikne eutektikum — čtyři soustavy: Cu–Ni, A–B, Sn–Pb a Al–Cu.",
+        "href": "rovnovazne-diagramy/tuhy-roztok-vs-eutektikum.html"
       }
     ]
   },
@@ -654,6 +716,182 @@
         "href": "Srovnani za studena a za tepla.html",
         "badge": "Interaktivní",
         "status": "ready"
+      }
+    ]
+  },
+  "odlevani": {
+    "h1": "Odlévání",
+    "cards": [
+      {
+        "id": "zaklady",
+        "title": "Základy slévárenství",
+        "desc": "Co je odlitek, jak se slitiny chovají v tekutém stavu a odkud se bere tavenina.",
+        "href": "zaklady/index.html",
+        "badge": "3 kapitoly · Interaktivní",
+        "status": "ready"
+      },
+      {
+        "id": "forma",
+        "title": "Model a písková forma",
+        "desc": "Od modelu přes formovací směs po hotovou formu s jádry — ruční i strojní cestou.",
+        "href": "forma/index.html",
+        "badge": "1 z 5 kapitol · Interaktivní",
+        "status": "ready"
+      },
+      {
+        "id": "tuhnuti",
+        "title": "Plnění, tuhnutí a vady",
+        "desc": "Jak se kov do formy dostane, jak v ní tuhne a co se stane, když se to nepovede.",
+        "href": "tuhnuti/index.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "id": "specialni",
+        "title": "Speciální technologie lití",
+        "desc": "Přesné lití, lost foam, kokily, tlak a 3D tisk forem — tam, kde písek nestačí.",
+        "href": "specialni/index.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "odlevaniZaklady": {
+    "h1": "Základy slévárenství",
+    "cards": [
+      {
+        "title": "Základní pojmy a princip lití",
+        "desc": "Odlitek, forma, model, jádro — slovník, ze kterého čerpá celá kapitola.",
+        "href": "zakladni-pojmy.html",
+        "badge": "Interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Slévárenské vlastnosti slitin",
+        "desc": "Zabíhavost, smrštivost, segregace: proč se každá slitina lije jinak.",
+        "href": "vlastnosti-slitin.html",
+        "badge": "Interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Tavení a příprava taveniny",
+        "desc": "Kuplovna, indukční pec, očkování a modifikace.",
+        "href": "taveni.html",
+        "badge": "Interaktivní",
+        "status": "ready"
+      }
+    ]
+  },
+  "odlevaniForma": {
+    "h1": "Model a písková forma",
+    "cards": [
+      {
+        "title": "Modely a modelová zařízení",
+        "desc": "Přídavky, úkosy, jaderníky a proč je model vždycky větší než odlitek.",
+        "href": "modely.html",
+        "badge": "2 interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Formovací směsi a pískové formy",
+        "desc": "Ostřivo a pojivo: bentonit, pryskyřice, vodní sklo.",
+        "href": "formovaci-smesi.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Ruční formování",
+        "desc": "Formování do dvou rámů, na šablonu, s odpadem.",
+        "href": "rucni-formovani.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Strojní formování",
+        "desc": "Lisování, střásání, metání a automatické linky.",
+        "href": "strojni-formovani.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Výroba jader",
+        "desc": "Jak vzniká dutina, kterou nástroj nikdy neobrobí.",
+        "href": "jadra.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "odlevaniTuhnuti": {
+    "h1": "Plnění, tuhnutí a vady",
+    "cards": [
+      {
+        "title": "Vtoková soustava",
+        "desc": "Cesta kovu do formy — včetně papírových a keramických soustav.",
+        "href": "vtokova-soustava.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Tuhnutí, nálitky a dokončování",
+        "desc": "Směrové tuhnutí, tepelné uzly, nálitky a chladítka.",
+        "href": "nalitky.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Technologičnost konstrukce odlitku",
+        "desc": "Jak navrhnout díl, aby se dal vůbec odlít.",
+        "href": "technologicnost.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Vady odlitků",
+        "desc": "Staženiny, bubliny, zálupy: projev, příčina, náprava.",
+        "href": "vady.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "odlevaniSpecialni": {
+    "h1": "Speciální technologie lití",
+    "cards": [
+      {
+        "title": "Přesné lití — vytavitelný model",
+        "desc": "Voskový model, keramická skořepina, lopatky turbín.",
+        "href": "presne-liti.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Lost foam a plná forma",
+        "desc": "Polystyren, který se při lití odpaří.",
+        "href": "lost-foam.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Kokilové, nízkotlaké a odstředivé lití",
+        "desc": "Gravitační kokily, nízkotlaké plnění zdola a odlévání za rotace.",
+        "href": "kokilove-liti.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Vysokotlaké lití",
+        "desc": "Teplá a studená komora, sériová výroba hliníkových dílů.",
+        "href": "vysokotlake-liti.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
+      },
+      {
+        "title": "3D tisk forem a jader",
+        "desc": "Tištěný písek a vypalitelné modely.",
+        "href": "tisk-forem.html",
+        "badge": "Připravujeme",
+        "status": "coming-soon"
       }
     ]
   }

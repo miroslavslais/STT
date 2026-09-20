@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Značení podle složení | STT</title>
+<meta name="description" content="Oceli značené podle chemického složení: obsah uhlíku, legující prvky, přepočtové faktory a vysokolegované oceli.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../support.js"></script>
+</head>
+<body data-first-seen="2026-09-20">
+<x-dc>
+<helmet>
+<style>
+html,body{margin:0;padding:0;background:#f4f5f7;}
+*{box-sizing:border-box;}
+a{color:#3f6b3f;text-decoration:none}a:hover{color:#2e4f2e}
+input{font-family:inherit}
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<script>
+document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+</script>
+</helmet>
+
+<div class="site-nav-toggle" style="position:fixed;top:20px;right:20px;z-index:1000;width:230px;background:#fff;border:1px solid #dfe2e8;border-radius:12px;box-shadow:0 2px 10px rgba(15,22,33,.08);overflow:hidden;max-height:48px;transition:max-height .22s ease;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5a616c;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5a616c;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5a616c;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eceef2">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="8">
+      <a href="{{ n.href }}" style="padding:11px 16px;font-size:14px;font-weight:600;color:#20242b" style-hover="background:#f4f5f7">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<div style="min-width:1280px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#20242b;padding:34px 20px 80px;">
+  <div style="max-width:820px;margin:0 auto;">
+    <a href="./index.html" style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;letter-spacing:.02em;color:#3f6b3f;text-decoration:none;background:#fff;border:1px solid #dfe2e8;border-radius:999px;padding:9px 16px;box-shadow:0 1px 2px rgba(15,22,33,.04);transition:border-color .16s,color .16s;margin-bottom:34px" style-hover="border-color:#3f6b3f;color:#2e4f2e">← Zpět na Značení ocelí</a>
+    <h1 style="margin:0 0 12px;font-size:34px;line-height:1.15;font-weight:600;letter-spacing:-.01em;">Značení podle složení</h1>
+    <p style="margin:0 0 40px;font-size:16px;line-height:1.65;color:#5a616c;max-width:640px;">Naučíte se z čísel ve značce vyčíst obsah uhlíku a legujících prvků a poznat, kdy jde o hodnotu přepočtenou faktorem.</p>
+
+    <p style="margin:0 0 44px;font-size:16.5px;line-height:1.7;color:#20242b;max-width:660px;">Tenhle systém neříká nic o použití. Říká, co je v oceli rozpuštěné. Každý znak ve značce má svoje místo a svůj přepočet — jakmile pochopíte přepočet, přečtete i značku, kterou vidíte poprvé.</p>
+
+    <h2 style="margin:0 0 18px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#8a919c;font-weight:600;">Čtyři skupiny, čtyři pravidla</h2>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+
+      <div style="background:#fff;border:1px solid #dfe2e8;border-radius:12px;padding:24px 26px;">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;">
+          <h3 style="margin:0;font-size:19px;font-weight:600;">Nelegovaná ocel</h3>
+          <span style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:13px;color:#3f6b3f;">C…</span>
+        </div>
+        <div style="display:grid;grid-template-columns:118px 1fr;gap:6px 18px;font-size:14.5px;line-height:1.6;">
+          <div style="color:#8a919c;">Poznávací znak</div><div>značka začíná písmenem C</div>
+          <div style="color:#8a919c;">Pravidlo</div><div>číslo za C dělte stem, dostanete obsah uhlíku v %</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;margin-top:20px;padding-top:18px;border-top:1px solid #ecedf1;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#3f6b3f;">C</div><div style="height:3px;border-radius:2px;background:#3f6b3f;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">nelegovaná ocel</div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#c07a2b;">45</div><div style="height:3px;border-radius:2px;background:#c07a2b;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">45 ÷ 100 = 0,45 % C</div></div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #dfe2e8;border-radius:12px;padding:24px 26px;">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;">
+          <h3 style="margin:0;font-size:19px;font-weight:600;">Nízkolegovaná ocel</h3>
+          <span style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:13px;color:#3f6b3f;">42CrMo4</span>
+        </div>
+        <div style="display:grid;grid-template-columns:118px 1fr;gap:6px 18px;font-size:14.5px;line-height:1.6;">
+          <div style="color:#8a919c;">Poznávací znak</div><div>značka začíná číslem, pak následují chemické značky prvků</div>
+          <div style="color:#8a919c;">Pravidlo</div><div>první číslo dělte stem — uhlík. Čísla za prvky dělte přepočtovým faktorem podle tabulky pod příkladem.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;margin-top:20px;padding-top:18px;border-top:1px solid #ecedf1;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#c07a2b;">42</div><div style="height:3px;border-radius:2px;background:#c07a2b;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">42 ÷ 100 = 0,42 % C</div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#7c4a8f;">CrMo</div><div style="height:3px;border-radius:2px;background:#7c4a8f;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">legující prvky: chrom, molybden</div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#4a7d63;">4</div><div style="height:3px;border-radius:2px;background:#4a7d63;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">4 ÷ 4 = 1 % Cr</div></div>
+        </div>
+
+        <div style="margin-top:22px;padding-top:20px;border-top:1px solid #ecedf1;">
+          <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;margin-bottom:12px;">Přepočtové faktory</div>
+
+          <div style="border:1px solid #dfe2e8;border-radius:10px;overflow:hidden;">
+            <div style="display:grid;grid-template-columns:110px 1fr;gap:0;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;background:#f7f8fa;border-bottom:1px solid #dfe2e8;">
+              <div style="padding:10px 18px;">Faktor</div><div style="padding:10px 18px;">Prvky</div>
+            </div>
+            <div style="display:grid;grid-template-columns:110px 1fr;gap:0;font-size:14.5px;line-height:1.6;">
+              <div style="padding:11px 18px;font-family:ui-monospace,Consolas,'Courier New',monospace;font-weight:600;">4</div><div style="padding:11px 18px;">Cr, Co, Mn, Ni, Si, W</div>
+              <div style="padding:11px 18px;font-family:ui-monospace,Consolas,'Courier New',monospace;font-weight:600;border-top:1px solid #ecedf1;">10</div><div style="padding:11px 18px;border-top:1px solid #ecedf1;">Al, Be, Cu, Mo, Nb, Pb, Ta, Ti, V, Zr</div>
+              <div style="padding:11px 18px;font-family:ui-monospace,Consolas,'Courier New',monospace;font-weight:600;border-top:1px solid #ecedf1;">100</div><div style="padding:11px 18px;border-top:1px solid #ecedf1;">Ce, N, P, S</div>
+              <div style="padding:11px 18px;font-family:ui-monospace,Consolas,'Courier New',monospace;font-weight:600;border-top:1px solid #ecedf1;">1000</div><div style="padding:11px 18px;border-top:1px solid #ecedf1;">B</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;background:#f1f5f0;border:1px solid #cfdccb;border-left:3px solid #3f6b3f;border-radius:10px;padding:14px 18px;font-size:14.5px;line-height:1.65;color:#2e4230;">
+            Čím méně se prvku do oceli dává, tím větším číslem dělíte. Chrom a mangan se počítají na celá procenta, bór na tisíciny.
+          </div>
+
+          <div style="margin-top:10px;background:#fdf7f1;border:1px solid #e6d3c2;border-left:3px solid #a1552b;border-radius:10px;padding:14px 18px;font-size:14.5px;line-height:1.65;color:#4a3a2f;">
+            Ve značce nemusí být zakódované všechny prvky. U 42CrMo4 je molybden jen jmenovaný — jeho obsah ze značky nevyčtete a musíte ho dohledat v normě. Pořadí značek prvků ale odpovídá klesajícímu obsahu, takže i bez čísla víte, kterého prvku je víc.
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #dfe2e8;border-radius:12px;padding:24px 26px;">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;">
+          <h3 style="margin:0;font-size:19px;font-weight:600;">Vysokolegovaná ocel</h3>
+          <span style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:13px;color:#3f6b3f;">X…</span>
+        </div>
+        <div style="display:grid;grid-template-columns:118px 1fr;gap:6px 18px;font-size:14.5px;line-height:1.6;">
+          <div style="color:#8a919c;">Poznávací znak</div><div>značka začíná písmenem X</div>
+          <div style="color:#8a919c;">Pravidlo</div><div>alespoň jeden prvek je zastoupen 5 % a více. První číslo dělte stem — uhlík. Čísla za prvky jsou skutečná procenta, nic se nepřepočítává. Přesněji: jsou to střední obsahy zaokrouhlené na nejbližší vyšší celé číslo, proto norma u X5CrNi18-10 uvádí rozsah 17,5 až 19,5 % Cr.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;margin-top:20px;padding-top:18px;border-top:1px solid #ecedf1;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#3f6b3f;">X</div><div style="height:3px;border-radius:2px;background:#3f6b3f;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">vysokolegovaná ocel</div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#c07a2b;">5</div><div style="height:3px;border-radius:2px;background:#c07a2b;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">5 ÷ 100 = 0,05 % C</div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#7c4a8f;">CrNi</div><div style="height:3px;border-radius:2px;background:#7c4a8f;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">legující prvky: chrom, nikl</div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#4a7d63;">18-10</div><div style="height:3px;border-radius:2px;background:#4a7d63;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">18 % Cr; 10 % Ni — skutečná procenta</div></div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #dfe2e8;border-radius:12px;padding:24px 26px;">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;">
+          <h3 style="margin:0;font-size:19px;font-weight:600;">Rychlořezná ocel</h3>
+          <span style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:13px;color:#3f6b3f;">HS…</span>
+        </div>
+        <div style="display:grid;grid-template-columns:118px 1fr;gap:6px 18px;font-size:14.5px;line-height:1.6;">
+          <div style="color:#8a919c;">Poznávací znak</div><div>značka začíná písmeny HS</div>
+          <div style="color:#8a919c;">Pravidlo</div><div>čísla jsou přímo procenta legur, vždy v pořadí W – Mo – V – Co. Chybějící prvek se prostě neuvádí.</div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;margin-top:20px;padding-top:18px;border-top:1px solid #ecedf1;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#3f6b3f;">HS</div><div style="height:3px;border-radius:2px;background:#3f6b3f;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">rychlořezná ocel</div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;line-height:1;font-weight:600;color:#4a7d63;">6-5-2</div><div style="height:3px;border-radius:2px;background:#4a7d63;"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;">6 % W; 5 % Mo; 2 % V</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:52px;background:#fff;border:1px solid #dfe2e8;border-radius:12px;padding:24px 26px 26px;">
+      <h3 style="margin:0 0 10px;font-size:19px;font-weight:600;">Chcete si značku rozebrat?</h3>
+      <p style="margin:0 0 18px;font-size:15px;line-height:1.65;color:#5a616c;max-width:620px;">Univerzální dekodér, který zvládne všechny systémy značení včetně litin a ocelí na odlitky, najdete v poslední podkapitole.</p>
+      <a href="./csn-en.html" style="display:inline-block;font-size:14.5px;font-weight:600;letter-spacing:.01em;">Univerzální dekodér a převodník ČSN ▸</a>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {}
+
+(function () {
+  const P = '../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../index.html' },
+    { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../koroze/index.html' },
+    { title: 'Tváření', href: '../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../odlevani/index.html' },
+    { title: 'O projektu', href: '../o-projektu.html' },
+    { title: 'Novinky', href: '../novinky.html' },
+];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

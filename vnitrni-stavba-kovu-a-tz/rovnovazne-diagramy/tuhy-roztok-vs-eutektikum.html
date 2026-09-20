@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kdy vznikne tuhý roztok a kdy už ne | STT</title>
+<meta name="description" content="Interaktivní model tuhnutí: kdy vznikne tuhý roztok a kdy se složky rozdělí do dvou fází — Cu–Ni, Sn–Pb a Al–Cu.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-09-20">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: #96c4ec; }
+    a:hover { color: #d67bff; }
+    input[type=range] { accent-color: #f4c542; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="9">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14px;color:#231d16;text-decoration:none" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="../index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(255,255,255,0.14)">← Zpět na Vnitřní stavbu kovů a&nbsp;TZ</a>
+
+<div style="min-height:100vh;background:#080b12;color:#eaf2fa;font-family:'IBM Plex Sans',system-ui,sans-serif;padding:0 0 90px">
+  <div style="max-width:1180px;margin:0 auto;padding:78px 20px 0">
+
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:#d67bff;text-transform:uppercase">Rovnovážné diagramy</div>
+    <h1 style="font-size:36px;font-weight:600;letter-spacing:-0.015em;margin:10px 0 0;color:#eaf2fa">Kdy vznikne tuhý roztok a&nbsp;kdy už ne</h1>
+    <p style="max-width:760px;font-size:16.5px;line-height:1.66;color:#b9c7d6;margin:18px 0 0;text-wrap:pretty">Tavenina rozpustí prakticky cokoli, protože v&nbsp;ní nejsou atomy nijak srovnané. Jakmile začne růst krystal, musí se atomy seřadit do pravidelné mřížky a&nbsp;cizí atom se do ní musí fyzicky vejít. Podle toho, jak dobře se vejde, vznikne buď jedna společná fáze (tuhý roztok), nebo se složky musí rozdělit do dvou různých fází. Následující model ukazuje oba případy vedle sebe.</p>
+
+    <h2 style="font-size:22px;font-weight:600;margin:46px 0 0;color:#eaf2fa">Tuhnutí krok za krokem</h2>
+
+    <div style="display:flex;gap:8px;margin:18px 0 14px;flex-wrap:wrap">
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="4">
+        <button type="button" onClick="{{ m.click }}" style="background:{{ m.bg }};border:1px solid {{ m.bd }};border-radius:12px;padding:9px 14px;cursor:pointer;text-align:left;font-family:'IBM Plex Sans',sans-serif;display:flex;flex-direction:column;gap:2px">
+          <span style="font-size:14px;font-weight:600;color:{{ m.fg }}">{{ m.name }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:{{ m.sc }}">{{ m.sys }}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="border:1px solid rgba(120,180,230,0.14);background:rgba(120,180,230,0.03);border-radius:18px;padding:18px">
+      <div style="display:flex;gap:18px;align-items:stretch">
+
+        <div style="flex:45 1 0;min-width:0;display:flex;flex-direction:column;gap:10px">
+          <svg width="420" height="320" viewBox="0 0 420 320" style="display:block;align-self:center">
+            <defs>
+              <pattern id="eutA" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(0)">
+                <rect x="0" y="0" width="3" height="6" fill="{{ aColV }}"></rect>
+                <rect x="3" y="0" width="3" height="6" fill="{{ bColV }}"></rect>
+              </pattern>
+              <pattern id="eutB" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(35)">
+                <rect x="0" y="0" width="3" height="6" fill="{{ aColV }}"></rect>
+                <rect x="3" y="0" width="3" height="6" fill="{{ bColV }}"></rect>
+              </pattern>
+              <pattern id="eutC" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(70)">
+                <rect x="0" y="0" width="3" height="6" fill="{{ aColV }}"></rect>
+                <rect x="3" y="0" width="3" height="6" fill="{{ bColV }}"></rect>
+              </pattern>
+              <pattern id="eutD" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(110)">
+                <rect x="0" y="0" width="3" height="6" fill="{{ aColV }}"></rect>
+                <rect x="3" y="0" width="3" height="6" fill="{{ bColV }}"></rect>
+              </pattern>
+              <clipPath id="microClip"><rect x="0" y="20" width="420" height="300" rx="8"></rect></clipPath>
+              <clipPath id="eutReveal"><circle cx="210" cy="150" r="{{ eutR }}"></circle></clipPath>
+            </defs>
+            {{ lblMicro }}
+            <g clip-path="url(#microClip)">
+              <rect x="0" y="20" width="420" height="300" fill="#d8dce3"></rect>
+              <g transform="translate(0,20)">
+                <sc-for list="{{ microPaths }}" as="p" hint-placeholder-count="6">
+                  <path d="{{ p.d }}" fill="{{ p.f }}" stroke="{{ p.s }}" stroke-width="1"></path>
+                </sc-for>
+                <sc-for list="{{ microBlobs }}" as="b" hint-placeholder-count="9">
+                  <ellipse cx="{{ b.cx }}" cy="{{ b.cy }}" rx="{{ b.rx }}" ry="{{ b.ry }}" fill="{{ b.f }}" stroke="#ffffff" stroke-width="1"></ellipse>
+                </sc-for>
+                <g clip-path="url(#eutReveal)">
+                  <sc-for list="{{ eutPaths }}" as="p" hint-placeholder-count="6">
+                    <path d="{{ p.d }}" fill="{{ p.f }}" stroke="{{ p.s }}" stroke-width="1"></path>
+                  </sc-for>
+                  <sc-for list="{{ eutBlobs }}" as="b" hint-placeholder-count="9">
+                    <ellipse cx="{{ b.cx }}" cy="{{ b.cy }}" rx="{{ b.rx }}" ry="{{ b.ry }}" fill="{{ b.f }}" stroke="#ffffff" stroke-width="1"></ellipse>
+                  </sc-for>
+                </g>
+                <sc-for list="{{ microDots }}" as="d" hint-placeholder-count="4">
+                  <circle cx="{{ d.x }}" cy="{{ d.y }}" r="2.5" fill="{{ d.f }}"></circle>
+                </sc-for>
+              </g>
+            </g>
+            <rect x="0.5" y="20.5" width="419" height="299" rx="8" fill="none" stroke="rgba(120,180,230,0.16)"></rect>
+          </svg>
+          <div style="font-size:12px;line-height:1.5;color:{{ microNoteCol }};max-width:420px">{{ microNote }}</div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+            <sc-for list="{{ legendFills }}" as="g" hint-placeholder-count="4">
+              <button type="button" onClick="{{ g.click }}" style="display:flex;align-items:center;gap:7px;background:none;border:none;padding:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:{{ g.col }}">
+                {{ g.sw }}
+                <span>{{ g.t }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="flex:35 1 0;min-width:0;display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:#7d8ea0">Rovnovážný diagram</div>
+          <svg width="360" height="340" viewBox="0 0 360 340" style="display:block;align-self:center">
+            <sc-for list="{{ regions }}" as="r" hint-placeholder-count="3">
+              <path d="{{ r.d }}" fill="{{ r.fill }}"></path>
+            </sc-for>
+            <sc-for list="{{ yTicks }}" as="y" hint-placeholder-count="4">
+              <g>
+                <line x1="48" y1="{{ y.y }}" x2="346" y2="{{ y.y }}" stroke="rgba(150,180,210,0.09)" stroke-width="1"></line>
+                {{ y.el }}
+              </g>
+            </sc-for>
+            <line x1="48" y1="18" x2="48" y2="296" stroke="rgba(150,180,210,0.3)" stroke-width="1.3"></line>
+            <line x1="48" y1="296" x2="346" y2="296" stroke="rgba(150,180,210,0.3)" stroke-width="1.3"></line>
+            <sc-for list="{{ xTicks }}" as="x" hint-placeholder-count="2">
+              {{ x.el }}
+            </sc-for>
+            {{ xLabelEl }}
+            {{ yLabelEl }}
+            <sc-for list="{{ curves }}" as="c" hint-placeholder-count="2">
+              <path d="{{ c.d }}" fill="none" stroke="{{ c.s }}" stroke-width="2.2"></path>
+            </sc-for>
+            <sc-for list="{{ points }}" as="p" hint-placeholder-count="1">
+              <g>
+                <circle cx="{{ p.x }}" cy="{{ p.y }}" r="4.5" fill="#f4c542" stroke="#0b0e15" stroke-width="1.4"></circle>
+                {{ p.el }}
+              </g>
+            </sc-for>
+            <g transform="translate({{ crossX }},{{ crossY }})">
+              <line x1="-7" y1="-7" x2="7" y2="7" stroke="#ff5a4d" stroke-width="2.6" stroke-linecap="round"></line>
+              <line x1="-7" y1="7" x2="7" y2="-7" stroke="#ff5a4d" stroke-width="2.6" stroke-linecap="round"></line>
+            </g>
+            <sc-for list="{{ regionLabels }}" as="l" hint-placeholder-count="3">
+              <g onClick="{{ l.click }}" style="cursor:pointer">
+                <rect x="{{ l.x }}" y="{{ l.y }}" width="{{ l.w }}" height="18" rx="5" fill="rgba(8,11,18,0.82)" stroke="{{ l.stroke }}"></rect>
+                {{ l.el }}
+              </g>
+            </sc-for>
+          </svg>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+            <sc-for list="{{ legend }}" as="g" hint-placeholder-count="2">
+              <div style="display:flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d8ea0">
+                <span style="width:14px;height:2.5px;border-radius:2px;background:{{ g.c }}"></span>{{ g.t }}
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-size:12.5px;line-height:1.5;color:#7d8ea0;text-align:center">{{ note }}</div>
+        </div>
+
+        <div style="flex:20 1 0;min-width:0;display:flex;flex-direction:column;gap:12px">
+          <div style="border:1px solid rgba(214,123,255,0.28);background:rgba(214,123,255,0.07);border-radius:12px;padding:12px 13px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#d67bff">{{ primTitle }}</div>
+            <div style="font-size:13.5px;line-height:1.55;color:#e4d6f2;margin-top:6px">{{ prim }}</div>
+          </div>
+          <div style="border:1px solid rgba(120,180,230,0.16);border-radius:12px;padding:12px 13px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7d8ea0">{{ explTitle }}</div>
+            <div style="font-size:13px;line-height:1.55;color:#b9c7d6;margin-top:6px">{{ explText }}</div>
+          </div>
+          <div style="border:1px solid rgba(120,180,230,0.16);border-radius:12px;padding:12px 13px;display:flex;flex-direction:column;gap:10px;margin-top:auto">
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d8ea0">Teplota</div>
+              <div style="font-size:14px;font-weight:600;color:#f4c542;margin-top:2px">{{ tRead }}</div>
+            </div>
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d8ea0">Přítomné fáze</div>
+              <div style="font-size:14px;font-weight:600;color:#7fe0cc;margin-top:2px">{{ phaseRead }}</div>
+              <sc-if value="{{ structLine }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:12px;line-height:1.45;color:#aebfcf;margin-top:4px">{{ structLine }}</div>
+              </sc-if>
+            </div>
+            <div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d8ea0">Co se právě děje</div>
+              <div style="font-size:13px;line-height:1.5;color:#b9c7d6;margin-top:2px">{{ doingRead }}</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;gap:22px;align-items:flex-end;margin-top:18px;padding-top:16px;border-top:1px solid rgba(120,180,230,0.12)">
+        <div style="flex:1 1 0;min-width:0">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aebfcf">Složení</span>
+            <span style="font-size:13px;font-weight:600;color:#f0863c">{{ cRead }}</span>
+          </div>
+          <input type="range" min="{{ cMin }}" max="{{ cMax }}" step="1" value="{{ c }}" onChange="{{ onC }}" style="width:100%;margin-top:6px">
+          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d8ea0">
+            <span>{{ cMinLabel }}</span><span>{{ cMaxLabel }}</span>
+          </div>
+        </div>
+        <div style="flex:1 1 0;min-width:0">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#aebfcf">Teplota</span>
+            <span style="font-size:13px;font-weight:600;color:#f4c542">{{ tRead }}</span>
+          </div>
+          <input type="range" min="{{ tMin }}" max="{{ tMax }}" step="{{ tStep }}" value="{{ t }}" onChange="{{ onT }}" style="width:100%;margin-top:6px">
+          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#7d8ea0">
+            <span>{{ tMinLabel }}</span><span>{{ tMaxLabel }}</span>
+          </div>
+        </div>
+        <button type="button" onClick="{{ onCool }}" style="flex:0 0 auto;background:{{ coolBg }};border:1px solid {{ coolBd }};color:{{ coolFg }};border-radius:10px;padding:10px 20px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer">{{ coolLabel }}</button>
+      </div>
+    </div>
+
+    <h2 style="font-size:22px;font-weight:600;margin:52px 0 0;color:#eaf2fa">Co si z&nbsp;toho odnést</h2>
+    <div style="display:grid;gap:12px;margin-top:16px;max-width:860px">
+      <div style="display:flex;gap:12px"><span style="color:#7fe0cc;font-family:'IBM Plex Mono',monospace">—</span><span style="font-size:15.5px;line-height:1.6;color:#b9c7d6">Tuhý roztok poznáš tak, že pod mikroskopem vidíš jednolitá zrna jedné barvy. Příměs v&nbsp;nich je, ale netvoří samostatnou fázi.</span></div>
+      <div style="display:flex;gap:12px"><span style="color:#7fe0cc;font-family:'IBM Plex Mono',monospace">—</span><span style="font-size:15.5px;line-height:1.6;color:#b9c7d6">Rozpustnost v&nbsp;tuhém stavu je skoro vždy omezená, protože atomy se do mřížky musí velikostně vejít.</span></div>
+      <div style="display:flex;gap:12px"><span style="color:#7fe0cc;font-family:'IBM Plex Mono',monospace">—</span><span style="font-size:15.5px;line-height:1.6;color:#b9c7d6">Slitina netuhne při jedné teplotě, ale v&nbsp;intervalu. Tuhá fáze, která roste první, obsahuje méně příměsi, a&nbsp;zbylá tavenina se proto obohacuje.</span></div>
+      <div style="display:flex;gap:12px"><span style="color:#7fe0cc;font-family:'IBM Plex Mono',monospace">—</span><span style="font-size:15.5px;line-height:1.6;color:#b9c7d6">Eutektikum ztuhne naráz při jedné teplotě, protože už nemá co odmísit — vzniká jemná směs dvou fází.</span></div>
+    </div>
+
+    <h2 style="font-size:22px;font-weight:600;margin:46px 0 0;color:#eaf2fa">Kde se to používá v&nbsp;praxi</h2>
+    <div style="display:grid;gap:12px;margin-top:16px;max-width:860px">
+      <div style="display:flex;gap:12px"><span style="color:#e5703b;font-family:'IBM Plex Mono',monospace">—</span><span style="font-size:15.5px;line-height:1.6;color:#b9c7d6">Pájka s&nbsp;eutektickým složením ztuhne okamžitě bez kašovitého stavu, což je požadavek v&nbsp;elektrotechnice. Pájka mimo eutektické složení má naopak interval tuhnutí a&nbsp;dá se během tuhnutí tvarovat.</span></div>
+      <div style="display:flex;gap:12px"><span style="color:#e5703b;font-family:'IBM Plex Mono',monospace">—</span><span style="font-size:15.5px;line-height:1.6;color:#b9c7d6">Vyloučení sekundární fáze při ochlazování je podstatou vytvrzování duralu. Letecké nýty se proto skladovaly v&nbsp;chladu, aby se vylučování zpomalilo.</span></div>
+      <div style="display:flex;gap:12px"><span style="color:#e5703b;font-family:'IBM Plex Mono',monospace">—</span><span style="font-size:15.5px;line-height:1.6;color:#b9c7d6">Sůl na vozovce snižuje teplotu tuhnutí vody — jde o&nbsp;stejný jev jako pokles teploty tuhnutí směrem k&nbsp;eutektickému bodu.</span></div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const MELT = '#d8dce3', ACOL0 = '#2f5fa8', ACOL1 = '#6b4fa8', BCOL = '#c8702a', BCOL1 = '#a85a4f';
+const GRAINS = [
+  [[0, 0], [148, 0], [140, 70], [152, 135], [76, 155], [0, 140]],
+  [[148, 0], [274, 0], [286, 75], [268, 165], [210, 137.5], [152, 135], [140, 70]],
+  [[274, 0], [420, 0], [420, 160], [344, 152.5], [268, 165], [286, 75]],
+  [[0, 140], [76, 155], [152, 135], [160, 220], [132, 300], [0, 300]],
+  [[152, 135], [210, 137.5], [268, 165], [280, 232.5], [290, 300], [132, 300], [160, 220]],
+  [[268, 165], [344, 152.5], [420, 160], [420, 300], [290, 300], [280, 232.5]]
+];
+const GPATH = GRAINS.map(function (g) { return 'M' + g.map(function (p) { return p[0] + ',' + p[1]; }).join(' L') + ' Z'; });
+const EUTP = ['url(#eutA)', 'url(#eutB)', 'url(#eutC)', 'url(#eutD)'];
+const LOBES = [[40, 0, 62, 1.375], [150, 0, 54, 1.25], [290, 5, 58, 1.125], [412, 15, 50, 1.5], [0, 150, 56, 1.375], [420, 160, 52, 1.25], [56, 300, 58, 1.1875], [214, 300, 54, 1.3125], [352, 297.5, 50, 1.375]];
+const GBPTS = [[144, 35], [181, 136.25], [280, 37.5], [114, 145], [146, 260], [306, 158.75], [38, 147.5], [277, 120], [156, 177.5], [382, 156.25], [146, 102.5], [239, 151.25], [285, 266.25], [274, 198.75]];
+const DANG = [-0.7, 0.7, 2.44, 3.84];
+
+function hx(s) { return [parseInt(s.slice(1, 3), 16), parseInt(s.slice(3, 5), 16), parseInt(s.slice(5, 7), 16)]; }
+function mix(c1, c2, x) {
+  const a = hx(c1), b = hx(c2);
+  const f = function (k) { return Math.round(a[k] + (b[k] - a[k]) * Math.max(0, Math.min(1, x))); };
+  return 'rgb(' + f(0) + ',' + f(1) + ',' + f(2) + ')';
+}
+const PL = 48, PT = 18, PLW = 298, PLH = 278;
+const C_LIQ = '#96c4ec', C_SOL = '#7fe0cc', C_EUT = '#e5703b', C_SLV = '#f0a742';
+const NB = '\u00a0';
+
+const SYS = [
+  { name: 'Úplná rozpustnost', sys: 'Cu–Ni', a: 'Cu', b: 'Ni',
+    cMin: 0, cMax: 100, cDef: 35, tMin: 900, tMax: 1550, tStep: 5,
+    xLabel: 'složení: % Ni (zbytek Cu)', yLabel: 'teplota [°C]',
+    xTicks: [[0, '0'], [100, '100']], yTicks: [900, 1085, 1455, 1550],
+    legend: [[C_LIQ, 'likvidus'], [C_SOL, 'solidus']], note: '',
+    prim: 'Dva stejně velcí lidé si mohou vyměnit sedačky v' + NB + 'kině. Mřížka pozná rozdíl jen minimálně.' },
+  { name: 'Úplná nerozpustnost', sys: 'A–B', a: 'A', b: 'B',
+    cMin: 0, cMax: 100, cDef: 20, tMin: 0, tMax: 100, tStep: 1, noNums: true,
+    xLabel: 'složení', yLabel: 'teplota', xTicks: [], yTicks: [],
+    legend: [[C_LIQ, 'likvidus'], [C_EUT, 'eutektická teplota']],
+    note: 'Blíží se tomu například soustava olovo–antimon.',
+    prim: 'Voda a' + NB + 'olej. Ať mícháš jak chceš, nakonec se rozdělí.' },
+  { name: 'Částečná rozpustnost', sys: 'Sn–Pb', a: 'Pb', b: 'Sn',
+    cMin: 0, cMax: 100, cDef: 30, tMin: 20, tMax: 400, tStep: 5,
+    xLabel: 'složení: % Sn (zbytek Pb)', yLabel: 'teplota [°C]',
+    xTicks: [[0, '0'], [100, '100']], yTicks: [20, 183, 232, 327, 400],
+    legend: [[C_LIQ, 'likvidus'], [C_SOL, 'solidus'], [C_EUT, 'eutektická teplota']], note: '',
+    prim: 'Cukr v' + NB + 'kafi. Do určitého množství se rozpustí a' + NB + 'není ho vidět. Co je nad limit, zůstane na dně jako samostatná vrstva.' },
+  { name: 'Změna rozpustnosti v tuhém stavu', sys: 'Al–Cu', a: 'Al', b: 'Cu',
+    cMin: 0, cMax: 40, cDef: 4, tMin: 20, tMax: 700, tStep: 5,
+    xLabel: 'složení: % Cu (zbytek Al)', yLabel: 'teplota [°C]',
+    xTicks: [[0, '0'], [40, '40']], yTicks: [20, 548, 660],
+    legend: [[C_LIQ, 'likvidus'], [C_SOL, 'solidus'], [C_EUT, 'eutektická teplota'], [C_SLV, 'solvus']], note: '',
+    prim: 'Horký čaj rozpustí hodně cukru. Jak vychladne, cukr se začne vylučovat na dně — a' + NB + 'to už v' + NB + 'šálku žádná horká voda nepřibyla.' }
+];
+
+const EXPL = {
+  L: ['Tavenina (L)', 'Celá slitina je tekutá. Atomy obou složek se volně promíchávají a' + NB + 'žádná mřížka neexistuje.'],
+  La: ['Tavenina + α', 'Z' + NB + 'taveniny rostou krystaly tuhého roztoku α. Tuhá fáze obsahuje méně příměsi než tavenina, a' + NB + 'zbylá tavenina se proto obohacuje.'],
+  Lb: ['Tavenina + β', 'Z' + NB + 'taveniny rostou krystaly tuhého roztoku β, který je založený na mřížce druhé složky.'],
+  LA: ['Tavenina + A', 'Z' + NB + 'taveniny vypadávají krystaly čisté složky A. Druhá složka do jejich mřížky nevstupuje a' + NB + 'zůstává v' + NB + 'tavenině.'],
+  LB: ['Tavenina + B', 'Z' + NB + 'taveniny vypadávají krystaly čisté složky B. První složka do jejich mřížky nevstupuje a' + NB + 'zůstává v' + NB + 'tavenině.'],
+  a: ['Tuhý roztok α', 'Jedna fáze. Atomy příměsi sedí přímo v' + NB + 'mřížce základního kovu a' + NB + 'netvoří samostatnou fázi.'],
+  ab: ['α + β', 'Dvě tuhé fáze vedle sebe. Rozpustnost byla překročena a' + NB + 'přebytek je vyloučený jako druhá fáze.'],
+  aeut: ['α + eutektikum', 'Nejdřív vyrostla zrna tuhého roztoku α. Zbytek taveniny ztuhl při eutektické teplotě naráz jako jemná směs dvou fází.'],
+  AB: ['A + B', 'Dvě fáze: čistá složka A a' + NB + 'čistá složka B. Ani jedna nerozpouští tu druhou. Pod mikroskopem uvidíš tři strukturní složky — primární zrna jedné složky a' + NB + 'mezi nimi eutektikum, které je samo směsí obou.'],
+  legA2: ['Čistá složka A', 'Mřížka složky A bez cizích atomů. Složka B se v' + NB + 'ní nerozpouští.'],
+  legB2: ['Čistá složka B', 'Mřížka složky B bez cizích atomů. Složka A se v' + NB + 'ní nerozpouští.'],
+  legL: ['Tavenina', 'Tekutá fáze bez mřížky, obě složky jsou v' + NB + 'ní promíchané.'],
+  legA: ['Tuhý roztok α', 'Mřížka základního kovu s' + NB + 'atomy druhé složky rozpuštěnými uvnitř.'],
+  legB: ['Tuhý roztok β', 'Mřížka druhé složky s' + NB + 'omezeným množstvím rozpuštěného základního kovu.'],
+  legE: ['Eutektikum', 'Jemná směs dvou fází, která ztuhla naráz při jedné teplotě.']
+};
+
+const PRIMT = ['Příměr — tuhý roztok', 'Příměr — eutektikum', 'Příměr — částečná rozpustnost', 'Příměr — změna rozpustnosti'];
+
+const PHASE = { L: 'tavenina (L)', La: 'tavenina + α', Lb: 'tavenina + β', LA: 'tavenina + A', LB: 'tavenina + B',
+  a: 'α', b: 'β', ab: 'α + β', aeut: 'α + eutektikum', AB: 'A + B',
+  Lsek: 'tavenina + sekundární fáze', eutsek: 'eutektikum + sekundární fáze' };
+
+function cl(v, a, b) { return Math.max(a, Math.min(b, v)); }
+function eutComp(c) { return Math.abs(c - 100 / 3) < 0.5; }
+
+function liqT(i, c) {
+  if (i === 0) return 1085 + 370 * Math.pow(c / 100, 0.7);
+  if (i === 1) return c <= 100 / 3 ? 88 - 48 * Math.pow(c / (100 / 3), 0.75) : 40 + 38 * Math.pow((c - 100 / 3) / (200 / 3), 0.75);
+  if (i === 2) return c <= 61.9 ? 327 - 144 * Math.pow(c / 61.9, 0.8) : 183 + 49 * Math.pow((c - 61.9) / 38.1, 0.8);
+  return c <= 33.2 ? 660 - 112 * Math.pow(c / 33.2, 0.8) : 548 + 152 * ((c - 33.2) / 6.8);
+}
+function solT(i, c) {
+  if (i === 0) return 1085 + 370 * Math.pow(c / 100, 1.6);
+  if (i === 1) return c <= 0.001 ? 88 : (c >= 99.999 ? 78 : 40);
+  if (i === 2) return c <= 18.3 ? 327 - 144 * (c / 18.3) : (c >= 97.8 ? 232 - 49 * ((100 - c) / 2.2) : 183);
+  return c <= 5.65 ? 660 - 112 * (c / 5.65) : 548;
+}
+function solvusT(c) { return c <= 0.5 ? -1 : (c < 5.65 ? 20 + (c - 0.5) * 528 / 5.15 : 548); }
+
+function evalState(i, c, t) {
+  const lq = liqT(i, c), sd = solT(i, c);
+  const fs = t >= lq ? 0 : (t <= sd ? 1 : (lq - t) / Math.max(0.001, lq - sd));
+  const precip = i === 3 && fs >= 1 && t < solvusT(c);
+  let id;
+  if (i === 0) id = fs <= 0 ? 'L' : (fs >= 1 ? 'a' : 'La');
+  else if (i === 1) id = fs <= 0 ? 'L' : (fs >= 1 ? 'AB' : (c < 100 / 3 ? 'LA' : 'LB'));
+  else if (i === 2) {
+    if (fs <= 0) id = 'L';
+    else if (fs >= 1) id = c <= 18.3 ? 'a' : (c >= 97.8 ? 'b' : 'ab');
+    else id = c < 61.9 ? 'La' : 'Lb';
+  } else {
+    if (fs <= 0) id = 'L';
+    else if (fs >= 1) id = c <= 5.65 ? 'a' : (c <= 33.2 ? 'aeut' : 'eutsek');
+    else id = c <= 33.2 ? 'La' : 'Lsek';
+  }
+  let phase = PHASE[id];
+  if (i === 3 && id === 'a' && precip) phase = 'α + vyloučená sekundární fáze';
+  let doing;
+  if (fs <= 0) doing = 'Slitina je celá tekutá, atomy se volně promíchávají.';
+  else if (fs < 1) {
+    if (i === 1) doing = 'Z' + NB + 'taveniny vypadává čistá složka a' + NB + 'zbytek se posouvá k' + NB + 'eutektickému složení.';
+    else if (id === 'Lsek') doing = 'Z' + NB + 'taveniny roste sekundární fáze, zbylá tavenina se posouvá k' + NB + 'eutektickému složení.';
+    else doing = 'Z' + NB + 'taveniny rostou krystaly, zbylá tavenina se obohacuje o' + NB + 'příměs.';
+  } else if (i === 0) doing = 'Tuhnutí skončilo, obě složky sdílejí jednu mřížku.';
+  else if (i === 1) doing = 'Zbytek taveniny ztuhl při eutektické teplotě jako směs obou čistých složek.';
+  else if (i === 2) doing = (id === 'a' || id === 'b') ? 'Všechna příměs se vešla do mřížky, vznikl jeden tuhý roztok.'
+    : 'Zbylá tavenina ztuhla při eutektické teplotě naráz jako jemná směs dvou fází.';
+  else if (precip) doing = 'Rozpustnost mědi v' + NB + 'hliníku klesla a' + NB + 'přebytek se vylučuje jako sekundární fáze.';
+  else if (id === 'a') doing = 'Všechna měď se vešla do mřížky hliníku.';
+  else if (id === 'eutsek') doing = 'Ztuhlo eutektikum a' + NB + 'vedle něj sekundární fáze.';
+  else doing = 'Mezi zrny α ztuhlo eutektikum, které se při eutektické teplotě mění naráz.';
+  return { fs: fs, id: id, precip: precip, phase: phase, doing: doing };
+}
+
+function buildDiagram(i, activeId, selId, onPick) {
+  const m = SYS[i];
+  const X = function (c) { return PL + (c - m.cMin) / (m.cMax - m.cMin) * PLW; };
+  const Y = function (t) { return PT + (m.tMax - t) / (m.tMax - m.tMin) * PLH; };
+  const sg = function (p) { return p.map(function (q) { return X(q[0]).toFixed(1) + ',' + Y(q[1]).toFixed(1); }).join(' L'); };
+  const smp = function (a, b, n, f) { const o = []; for (let k = 0; k <= n; k++) { const c = a + (b - a) * k / n; o.push([c, f(c)]); } return o; };
+  const rev = function (a) { return a.slice().reverse(); };
+  const FILL = { L: '150,196,236', m: '214,123,255', s1: '127,224,204', s2: '229,112,59' };
+  const LCOL = { L: C_LIQ, m: '#d9a6ff', s1: C_SOL, s2: '#f0a07a' };
+  const R = [], LB = [], CV = [], PTS = [];
+  const add = function (id, fam, d) { R.push({ id: id, d: d, fill: 'rgba(' + FILL[fam] + ',' + (id === activeId ? 0.3 : 0.09) + ')' }); };
+  const lab = function (id, c, t, txt, fam) {
+    const w = txt.length * 6.9 + 14;
+    LB.push({ id: id, x: X(c) - w / 2, y: Y(t) - 9, w: w,
+      stroke: id === selId ? '#f4c542' : 'rgba(150,180,210,0.22)', click: function () { onPick(id); },
+      el: React.createElement('text', { x: X(c), y: Y(t) + 4, fontFamily: "'IBM Plex Mono',monospace",
+        fontSize: 11.5, fill: LCOL[fam], textAnchor: 'middle', style: { pointerEvents: 'none' } }, txt) });
+  };
+
+  if (i === 0) {
+    const lq = smp(0, 100, 40, function (c) { return liqT(0, c); });
+    const sd = smp(0, 100, 40, function (c) { return solT(0, c); });
+    add('L', 'L', 'M' + sg([[0, 1550], [100, 1550]]) + ' L' + sg(rev(lq)) + ' Z');
+    add('La', 'm', 'M' + sg(lq) + ' L' + sg(rev(sd)) + ' Z');
+    add('a', 's1', 'M' + sg(sd) + ' L' + sg([[100, 900], [0, 900]]) + ' Z');
+    CV.push({ d: 'M' + sg(lq), s: C_LIQ }, { d: 'M' + sg(sd), s: C_SOL });
+    lab('L', 45, 1480, 'L', 'L');
+    lab('La', 64, (liqT(0, 64) + solT(0, 64)) / 2, 'L + α', 'm');
+    lab('a', 42, 1010, 'α', 's1');
+  } else if (i === 1) {
+    const xE = 100 / 3, TE = 40;
+    const lqL = smp(0, xE, 20, function (c) { return liqT(1, c); });
+    const lqR = smp(xE, 100, 20, function (c) { return liqT(1, c); });
+    add('L', 'L', 'M' + sg([[0, 100], [100, 100]]) + ' L' + sg(rev(lqL.concat(lqR))) + ' Z');
+    add('LA', 'm', 'M' + sg(lqL) + ' L' + sg([[xE, TE], [0, TE]]) + ' Z');
+    add('LB', 'm', 'M' + sg(lqR) + ' L' + sg([[100, TE], [xE, TE]]) + ' Z');
+    add('AB', 's2', 'M' + sg([[0, TE], [100, TE], [100, 0], [0, 0]]) + ' Z');
+    CV.push({ d: 'M' + sg(lqL), s: C_LIQ }, { d: 'M' + sg(lqR), s: C_LIQ }, { d: 'M' + sg([[0, TE], [100, TE]]), s: C_EUT });
+    lab('L', 52, 80, 'L', 'L');
+    lab('LA', 13, 54, 'L + A', 'm');
+    lab('LB', 72, 53, 'L + B', 'm');
+    lab('AB', 50, 20, 'A + B', 's2');
+    PTS.push({ x: X(xE), y: Y(TE), lx: X(xE), ly: Y(TE) + 17, txt: 'E', anchor: 'middle' });
+  } else if (i === 2) {
+    const lqL = smp(0, 61.9, 26, function (c) { return liqT(2, c); });
+    const lqR = smp(61.9, 100, 14, function (c) { return liqT(2, c); });
+    add('L', 'L', 'M' + sg([[0, 400], [100, 400]]) + ' L' + sg(rev(lqL.concat(lqR))) + ' Z');
+    add('La', 'm', 'M' + sg(lqL) + ' L' + sg([[18.3, 183], [0, 327]]) + ' Z');
+    add('Lb', 'm', 'M' + sg(lqR) + ' L' + sg([[97.8, 183], [61.9, 183]]) + ' Z');
+    add('a', 's1', 'M' + sg([[0, 327], [18.3, 183], [18.3, 20], [0, 20]]) + ' Z');
+    add('b', 's1', 'M' + sg([[100, 232], [97.8, 183], [97.8, 20], [100, 20]]) + ' Z');
+    add('ab', 's2', 'M' + sg([[18.3, 183], [97.8, 183], [97.8, 20], [18.3, 20]]) + ' Z');
+    CV.push({ d: 'M' + sg(lqL), s: C_LIQ }, { d: 'M' + sg(lqR), s: C_LIQ },
+      { d: 'M' + sg([[0, 327], [18.3, 183]]), s: C_SOL }, { d: 'M' + sg([[100, 232], [97.8, 183]]), s: C_SOL },
+      { d: 'M' + sg([[18.3, 183], [18.3, 20]]), s: C_SOL }, { d: 'M' + sg([[97.8, 183], [97.8, 20]]), s: C_SOL },
+      { d: 'M' + sg([[18.3, 183], [97.8, 183]]), s: C_EUT });
+    lab('L', 42, 320, 'L', 'L');
+    lab('La', 33, 213, 'L + α', 'm');
+    lab('Lb', 81, 197, 'L + β', 'm');
+    lab('a', 8, 100, 'α', 's1');
+    lab('ab', 56, 100, 'α + β', 's2');
+    PTS.push({ x: X(61.9), y: Y(183), lx: X(61.9), ly: Y(183) + 17, txt: 'E · 61,9 % Sn, 183 °C', anchor: 'middle' });
+  } else {
+    const lqL = smp(0, 33.2, 22, function (c) { return liqT(3, c); });
+    add('L', 'L', 'M' + sg([[0, 700], [40, 700], [33.2, 548]]) + ' L' + sg(rev(lqL)) + ' Z');
+    add('La', 'm', 'M' + sg(lqL) + ' L' + sg([[5.65, 548], [0, 660]]) + ' Z');
+    add('Lsek', 'm', 'M' + sg([[33.2, 548], [40, 700], [40, 548]]) + ' Z');
+    add('a', 's1', 'M' + sg([[0, 660], [5.65, 548], [0.5, 20], [0, 20]]) + ' Z');
+    add('aeut', 's2', 'M' + sg([[5.65, 548], [33.2, 548], [33.2, 20], [0.5, 20]]) + ' Z');
+    add('eutsek', 's2', 'M' + sg([[33.2, 548], [40, 548], [40, 20], [33.2, 20]]) + ' Z');
+    CV.push({ d: 'M' + sg(lqL), s: C_LIQ }, { d: 'M' + sg([[33.2, 548], [40, 700]]), s: C_LIQ },
+      { d: 'M' + sg([[0, 660], [5.65, 548]]), s: C_SOL }, { d: 'M' + sg([[5.65, 548], [40, 548]]), s: C_EUT },
+      { d: 'M' + sg([[5.65, 548], [0.5, 20]]), s: C_SLV });
+    lab('L', 12, 665, 'L', 'L');
+    lab('La', 16, 575, 'L + α', 'm');
+    lab('a', 2.6, 300, 'α', 's1');
+    lab('aeut', 19, 300, 'α + eutektikum', 's2');
+    PTS.push({ x: X(33.2), y: Y(548), lx: X(33.2) - 7, ly: Y(548) + 17, txt: 'E · 33,2 % Cu, 548 °C', anchor: 'end' });
+  }
+  const PT2 = PTS.map(function (p) {
+    return Object.assign({}, p, { el: React.createElement('text', { x: p.lx, y: p.ly,
+      fontFamily: "'IBM Plex Mono',monospace", fontSize: 11, fill: '#f4c542', textAnchor: p.anchor }, p.txt) });
+  });
+  return { regions: R, labels: LB, curves: CV, points: PT2, X: X, Y: Y };
+}
+
+function fractions(i, c) {
+  let fa = 0, fe = 0, fb = 0, rA = 0, xA = 0, rB = 0, xB = 0;
+  if (i === 0) { fa = 1; rA = c / 100; xA = c / 100; }
+  else if (i === 1) {
+    const xE = 100 / 3;
+    if (eutComp(c)) { fe = 1; }
+    else if (c < xE) { fa = (xE - c) / xE; fe = c / xE; }
+    else { fb = (c - xE) / (100 - xE); fe = (100 - c) / (100 - xE); }
+    rA = c / 100; xA = 0;
+  }
+  else if (i === 2) {
+    if (c <= 18.3) { fa = 1; rA = c / 100; rB = 0; }
+    else if (c < 61.9) { fa = (61.9 - c) / (61.9 - 18.3); fe = 1 - fa; rA = 0.183; rB = 0.022; }
+    else if (c < 97.8) { fb = (c - 61.9) / (97.8 - 61.9); fe = 1 - fb; rA = 0.183; rB = 0.022; }
+    else { fb = 1; rB = (100 - c) / 100; rA = 0; }
+    xA = rA / 0.183;
+    xB = rB / 0.022;
+  } else {
+    if (c <= 5.65) { fa = 1; rA = c / 100; }
+    else if (c < 33.2) { fa = (33.2 - c) / (33.2 - 5.65); fe = 1 - fa; rA = 0.0565; }
+    else { fe = 1; rA = 0.0565; }
+    xA = rA / 0.0565;
+  }
+  return { fa: fa, fe: fe, fb: fb, rA: rA, xA: xA, rB: rB, xB: xB };
+}
+
+function buildMicro(i, c, t, st, aCol, bCol, eut) {
+  const paths = [], blobs = [], eutPaths = [], eutBlobs = [], dots = [];
+  const out = { paths: paths, blobs: blobs, eutPaths: eutPaths, eutBlobs: eutBlobs, dots: dots };
+  if (st.fs <= 0) return out;
+  const fr = fractions(i, c);
+  const betaPrim = (i === 1 && !eutComp(c) && c > 100 / 3) || (i === 2 && c > 61.9);
+  const col = betaPrim ? bCol : aCol;
+  const fp = betaPrim ? fr.fb : fr.fa;
+  const lobes = function (g) {
+    LOBES.forEach(function (s) { blobs.push({ cx: s[0], cy: s[1], rx: s[2] * g, ry: s[2] * s[3] * g, f: col }); });
+  };
+  if (fr.fe <= 0) {
+    if (st.fs < 1) { lobes(Math.sqrt(st.fs)); return out; }
+    GPATH.forEach(function (d) { paths.push({ d: d, f: col, s: '#ffffff' }); });
+  } else {
+    const g = (fp > 0 ? Math.sqrt(fp) : (st.id === 'Lsek' ? 1 : 0)) * Math.min(1, st.fs);
+    if (g > 0) lobes(g);
+    if (eut > 0) {
+      GPATH.forEach(function (d, k) { eutPaths.push({ d: d, f: EUTP[k % 4], s: '#ffffff' }); });
+      if (fp > 0) blobs.forEach(function (b) { eutBlobs.push(b); });
+    }
+  }
+  if (i === 3 && st.precip) {
+    const sv = solvusT(c), lo = SYS[3].tMin;
+    const frac = cl((sv - t) / Math.max(1, sv - lo), 0, 1);
+    if (blobs.length) {
+      const n = Math.round(frac * DANG.length);
+      blobs.forEach(function (b) {
+        for (let k = 0; k < n; k++) dots.push({ x: b.cx + Math.cos(DANG[k]) * b.rx, y: b.cy + Math.sin(DANG[k]) * b.ry, f: BCOL });
+      });
+    } else {
+      const n = Math.round(frac * GBPTS.length);
+      for (let k = 0; k < n; k++) dots.push({ x: GBPTS[k][0], y: GBPTS[k][1], f: BCOL });
+    }
+  }
+  return out;
+}
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { mode: 0, c: SYS[0].cDef, t: SYS[0].tMax, cooling: false, sel: null, eut: 0 };
+    this.eutStart = null;
+    this.tick = this.tick.bind(this);
+  }
+
+  componentDidMount() {
+    const self = this;
+    this.timer = setInterval(function () { self.tick(performance.now()); }, 33);
+  }
+
+  componentWillUnmount() { if (this.timer) clearInterval(this.timer); }
+
+  tick(ts) {
+    const dt = Math.min(0.05, (ts - (this.last || ts)) / 1000);
+    this.last = ts;
+    const m = SYS[this.state.mode];
+    if (this.state.cooling) {
+      this.coolT -= (m.tMax - m.tMin) * dt / 8;
+      let stop = false;
+      if (this.coolT <= m.tMin) { this.coolT = m.tMin; stop = true; }
+      const r = Math.round(this.coolT / m.tStep) * m.tStep;
+      if (r !== this.state.t || stop) this.setState(stop ? { t: r, cooling: false } : { t: r });
+    }
+    const st = evalState(this.state.mode, this.state.c, this.state.t);
+    const fr = fractions(this.state.mode, this.state.c);
+    if (st.fs >= 1 && fr.fe > 0) {
+      if (this.eutStart === null) this.eutStart = ts;
+      const v = cl((ts - this.eutStart) / 800, 0, 1);
+      if (v !== this.state.eut) this.setState({ eut: v });
+    } else {
+      this.eutStart = null;
+      if (this.state.eut !== 0) this.setState({ eut: 0 });
+    }
+  }
+
+  renderVals() {
+    const self = this;
+    const i = this.state.mode, m = SYS[i], c = this.state.c, t = this.state.t;
+    const st = evalState(i, c, t);
+    const dg = buildDiagram(i, st.id, this.state.sel, function (id) { self.setState({ sel: id }); });
+    const ex = EXPL[this.state.sel];
+    const fr = fractions(i, c);
+    const aCol = mix(ACOL0, ACOL1, fr.xA);
+    const bCol = i === 2 ? mix(BCOL, BCOL1, fr.xB) : BCOL;
+    const eut = this.state.eut;
+    const mic = buildMicro(i, c, t, st, aCol, bCol, eut);
+    const eutRun = eut > 0 && eut < 1;
+    const isE = eutComp(c), primB = !isE && c > 100 / 3;
+    let microNote = '', microNoteCol = '#aebfcf';
+    if (i === 0) microNote = 'Měď a' + NB + 'nikl mají podobně velké atomy, proto se mísí v' + NB + 'jakémkoli poměru. Jedna fáze v' + NB + 'celém rozsahu.';
+    else if (i === 1) microNote = isE
+      ? 'Žádná primární zrna nevznikla. Celá slitina ztuhla při jedné teplotě jako eutektikum.'
+      : 'V' + NB + 'mřížce nejsou žádné cizí atomy. Obě složky musí ztuhnout každá zvlášť.';
+    else if (i === 2) {
+      if (c <= 18.3) microNote = 'Cín se vejde do mřížky olova. Jedna fáze, žádné eutektikum.';
+      else if (c < 61.9) { microNote = 'Mřížka olova je nasycená na 18,3' + NB + '% Sn. Další cín se do ní nevejde a' + NB + 'skončí v' + NB + 'eutektiku mezi zrny.'; microNoteCol = C_EUT; }
+      else if (c === 61.9) microNote = 'Přesně eutektické složení. Žádná primární zrna, celá plocha ztuhla naráz.';
+      else if (c < 97.8) microNote = 'Teď jsou primární zrna z' + NB + 'fáze β. V' + NB + 'mřížce cínu se rozpustí nanejvýš 2,2' + NB + '% olova — mnohem méně než naopak.';
+      else microNote = 'Všechno olovo se vešlo do mřížky cínu. Jedna fáze.';
+    } else {
+      if (c > 5.65) microNote = 'Vedle zrn α ztuhlo eutektikum.';
+      else if (st.precip) { microNote = 'Rozpustnost klesla. Přebytečná měď se vylučuje jako sekundární fáze na hranicích zrn.'; microNoteCol = C_SLV; }
+      else microNote = 'Měď je celá rozpuštěná v' + NB + 'mřížce hliníku. Zatím se nic nevylučuje.';
+    }
+    let doing = st.doing, structLine = '';
+    if (i === 1) {
+      if (st.fs <= 0) doing = 'Slitina je celá tekutá, obě složky jsou promíchané.';
+      else if (st.fs < 1) doing = primB
+        ? 'Z' + NB + 'taveniny vypadávají krystaly čisté složky B. Zbylá tavenina se posouvá k' + NB + 'eutektickému složení.'
+        : 'Z' + NB + 'taveniny vypadávají krystaly čisté složky A. Zbylá tavenina se obohacuje o' + NB + 'složku B a' + NB + 'posouvá se k' + NB + 'eutektickému složení.';
+      else if (eutRun) doing = 'Zbylá tavenina dosáhla eutektického složení a' + NB + 'tuhne při jedné teplotě naráz jako jemná směs obou složek.';
+      else if (isE) doing = 'Žádná primární zrna nevznikla. Celá slitina ztuhla při jedné teplotě jako eutektikum.';
+      else doing = 'Hotovo. Primární zrna jsou z' + NB + 'čisté složky, eutektikum mezi nimi je jemná směs obou.';
+      if (st.fs >= 1) structLine = 'Strukturní složky: ' + (isE ? 'eutektikum (A + B)' : 'primární ' + (primB ? 'B' : 'A') + ' + eutektikum (A + B)');
+    }
+    const swatch = function (fill, pat) {
+      return React.createElement('svg', { width: 20, height: 20, style: { flex: 'none', display: 'block' } },
+        pat ? React.createElement('defs', null,
+          React.createElement('pattern', { id: 'sw', patternUnits: 'userSpaceOnUse', width: 6, height: 6 },
+            React.createElement('rect', { width: 3, height: 6, fill: aCol }),
+            React.createElement('rect', { x: 3, width: 3, height: 6, fill: bCol }))) : null,
+        React.createElement('rect', { x: 0.5, y: 0.5, width: 19, height: 19, rx: 3,
+          fill: pat ? 'url(#sw)' : fill, stroke: 'rgba(120,180,230,0.35)' }));
+    };
+    const tRead = m.noNums
+      ? (t > 40 ? 'nad eutektickou' : (t < 40 ? 'pod eutektickou' : 'eutektická'))
+      : t + NB + '°C';
+    return {
+      modes: SYS.map(function (s, k) {
+        return { name: s.name, sys: s.sys,
+          bg: k === i ? 'rgba(214,123,255,0.14)' : 'rgba(120,180,230,0.04)',
+          bd: k === i ? 'rgba(214,123,255,0.5)' : 'rgba(120,180,230,0.16)',
+          fg: k === i ? '#f0e0ff' : '#b9c7d6', sc: k === i ? '#d67bff' : '#7d8ea0',
+          click: function () { self.setState({ mode: k, c: s.cDef, t: s.tMax, cooling: false, sel: null }); } };
+      }),
+      regions: dg.regions, regionLabels: dg.labels, curves: dg.curves, points: dg.points,
+      crossX: dg.X(c), crossY: dg.Y(t),
+      xTicks: m.xTicks.map(function (x) { return { x: dg.X(x[0]), txt: x[1],
+        el: React.createElement('text', { x: dg.X(x[0]), y: 313, fontFamily: "'IBM Plex Mono',monospace", fontSize: 11, fill: '#7d8ea0', textAnchor: 'middle' }, x[1]) }; }),
+      xLabelEl: React.createElement('text', { x: 197, y: 333, fontFamily: "'IBM Plex Mono',monospace", fontSize: 11.5, fill: '#aebfcf', textAnchor: 'middle' }, m.xLabel),
+      yLabelEl: React.createElement('text', { x: 13, y: 157, fontFamily: "'IBM Plex Mono',monospace", fontSize: 11.5, fill: '#aebfcf', textAnchor: 'middle', transform: 'rotate(-90 13 157)' }, m.yLabel),
+      yTicks: m.yTicks.map(function (y) { return { y: dg.Y(y), ty: dg.Y(y) + 4, txt: String(y),
+        el: React.createElement('text', { x: 41, y: dg.Y(y) + 4, fontFamily: "'IBM Plex Mono',monospace", fontSize: 11, fill: '#7d8ea0', textAnchor: 'end' }, String(y)) }; }),
+      xLabel: m.xLabel, yLabel: m.yLabel, note: m.note,
+      legend: m.legend.map(function (l) { return { c: l[0], t: l[1] }; }),
+      prim: m.prim, primTitle: PRIMT[i],
+      structLine: structLine, microNote: microNote, microNoteCol: microNoteCol,
+      aColV: aCol, bColV: bCol,
+      microPaths: mic.paths, microBlobs: mic.blobs, microDots: mic.dots,
+      eutPaths: mic.eutPaths, eutBlobs: mic.eutBlobs, eutR: eut * 270,
+      lblMicro: React.createElement('text', { x: 0, y: 12, fontFamily: "'IBM Plex Mono',monospace", fontSize: 11.5,
+        fill: '#7d8ea0', letterSpacing: '0.14em' }, 'MIKROSTRUKTURA (POHLED MIKROSKOPEM)'),
+      legendFills: [
+        { k: 'legL', t: 'Tavenina', f: MELT, pat: false },
+        { k: i === 1 ? 'legA2' : 'legA', t: i === 1 ? 'Čistá složka A' : 'Tuhý roztok α', f: aCol, pat: false },
+        { k: i === 1 ? 'legB2' : 'legB', t: i === 1 ? 'Čistá složka B' : (i === 3 ? 'Cu' : 'Tuhý roztok β'), f: bCol, pat: false },
+        { k: 'legE', t: 'Eutektikum', f: null, pat: true }
+      ].map(function (g) {
+        return { t: g.t, sw: swatch(g.f, g.pat), col: self.state.sel === g.k ? '#f4c542' : '#aebfcf',
+          click: function () { self.setState({ sel: g.k }); } };
+      }),
+      explTitle: ex ? ex[0] : 'Oblasti diagramu',
+      explText: ex ? ex[1] : 'Klikni na popisek oblasti v' + NB + 'diagramu a' + NB + 'zobrazí se, co v' + NB + 'ní slitina obsahuje.',
+      tRead: tRead, phaseRead: st.phase, doingRead: doing,
+      c: c, t: t, cMin: m.cMin, cMax: m.cMax, tMin: m.tMin, tMax: m.tMax, tStep: m.tStep,
+      cRead: m.noNums ? 'podíl složky B' : c + NB + '% ' + m.b,
+      cMinLabel: m.noNums ? 'jen A' : '0 % ' + m.b,
+      cMaxLabel: m.noNums ? 'jen B' : m.cMax + ' % ' + m.b,
+      tMinLabel: m.noNums ? 'nižší' : m.tMin + NB + '°C',
+      tMaxLabel: m.noNums ? 'vyšší' : m.tMax + NB + '°C',
+      onC: function (e) { self.setState({ c: Number(e.target.value), cooling: false }); },
+      onT: function (e) { self.setState({ t: Number(e.target.value), cooling: false }); },
+      onCool: function () {
+        if (self.state.cooling) { self.setState({ cooling: false }); return; }
+        self.coolT = m.tMax;
+        self.setState({ t: m.tMax, cooling: true });
+      },
+      coolLabel: this.state.cooling ? 'Zastavit' : 'Ochladit',
+      coolBg: this.state.cooling ? 'rgba(229,112,59,0.18)' : 'rgba(244,197,66,0.14)',
+      coolBd: this.state.cooling ? 'rgba(229,112,59,0.55)' : 'rgba(244,197,66,0.45)',
+      coolFg: this.state.cooling ? '#f0a07a' : '#f4c542'
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+  { title: 'Domů', href: '../../index.html' },
+  { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+  { title: 'Koroze', href: '../../koroze/index.html' },
+  { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+  { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+  { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+  { title: 'Odlévání', href: '../../odlevani/index.html' },
+  { title: 'O projektu', href: '../../o-projektu.html' },
+  { title: 'Novinky', href: '../../novinky.html' },
+];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#080b12"/><circle cx="520" cy="400" r="70" fill="#4a7ff0"/><circle cx="690" cy="400" r="70" fill="#f0863c"/></svg></template>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

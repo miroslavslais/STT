@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Univerzální dekodér a převodník ČSN | STT</title>
+<meta name="description" content="Rozeberte libovolnou evropskou značku oceli nebo litiny a najděte k ní staré české číslo ČSN.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../support.js"></script>
+</head>
+<body data-first-seen="2026-09-20">
+<x-dc>
+<helmet>
+<style>
+html,body{margin:0;padding:0;background:#f4f5f7;}
+*{box-sizing:border-box;}
+a{color:#3f6b3f;text-decoration:none}a:hover{color:#2e4f2e}
+input{font-family:inherit}
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<script>
+document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+</script>
+</helmet>
+
+<div class="site-nav-toggle" style="position:fixed;top:20px;right:20px;z-index:1000;width:230px;background:#fff;border:1px solid #dfe2e8;border-radius:12px;box-shadow:0 2px 10px rgba(15,22,33,.08);overflow:hidden;max-height:48px;transition:max-height .22s ease;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5a616c;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5a616c;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5a616c;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eceef2">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+      <a href="{{ n.href }}" style="padding:11px 16px;font-size:14px;font-weight:600;color:#20242b" style-hover="background:#f4f5f7">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<div style="min-width:1280px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#20242b;padding:34px 20px 80px;">
+  <div style="max-width:980px;margin:0 auto;">
+    <a href="./index.html" style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;letter-spacing:.02em;color:#3f6b3f;background:#fff;border:1px solid #dfe2e8;border-radius:999px;padding:9px 16px;box-shadow:0 1px 2px rgba(15,22,33,.04);transition:border-color .16s,color .16s;margin-bottom:34px" style-hover="border-color:#3f6b3f;color:#2e4f2e">← Zpět na Značení ocelí</a>
+    <h1 style="margin:0 0 12px;font-size:34px;line-height:1.15;font-weight:600;letter-spacing:-.01em;">Univerzální dekodér a převodník ČSN</h1>
+    <p style="margin:0 0 40px;font-size:16px;line-height:1.65;color:#5a616c;max-width:660px;">Zadejte libovolnou evropskou značku oceli nebo litiny. Dekodér pozná systém značení a rozebere značku na jednotlivé znaky. Pod dekodérem najdete převodní tabulku na stará česká čísla.</p>
+
+    <h2 style="margin:0 0 18px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#8a919c;font-weight:600;">Univerzální dekodér</h2>
+
+    <div style="background:#fff;border:1px solid #dfe2e8;border-radius:12px;padding:24px 26px 26px;">
+      <div style="display:flex;gap:10px;align-items:center;">
+        <input value="{{ q }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" placeholder="například S355J2W, 42CrMo4 nebo EN-GJS-400-15" style="flex:1;min-width:0;font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:17px;padding:12px 14px;border:1px solid #d3d7de;border-radius:9px;background:#fff;color:#20242b;outline:none;" style-focus="border-color:#3f6b3f" />
+        <div onClick="{{ run }}" style="cursor:pointer;user-select:none;font-size:14px;font-weight:600;letter-spacing:.02em;padding:13px 22px;border-radius:9px;background:#3f6b3f;color:#fff;border:1px solid #3f6b3f;" style-hover="background:#2e4f2e;border-color:#2e4f2e">Rozebrat</div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:#8a919c;">
+        <span>Zkuste:</span>
+        <sc-for list="{{ examples }}" as="e" hint-placeholder-count="6">
+          <span onClick="{{ e.onClick }}" style="cursor:pointer;font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:13.5px;color:#3f6b3f;border:1px solid #cfdccb;background:#f7faf6;border-radius:999px;padding:5px 11px;" style-hover="background:#eaf1e7;border-color:#3f6b3f">{{ e.text }}</span>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ hasResult }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid #ecedf1;">
+          <sc-if value="{{ sysNote }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-bottom:18px;background:#f1f5f0;border:1px solid #cfdccb;border-left:3px solid #3f6b3f;border-radius:10px;padding:13px 18px;font-size:14.5px;line-height:1.6;color:#2e4230;">{{ sysNote }}</div>
+          </sc-if>
+          <div style="display:flex;align-items:flex-start;gap:22px;">
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;margin-bottom:14px;">{{ groupName }}</div>
+              <div style="display:flex;align-items:flex-start;flex-wrap:wrap;row-gap:20px;">
+                <sc-for list="{{ segs }}" as="s" hint-placeholder-count="3">
+                  <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;">
+                    <div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:38px;line-height:1;font-weight:600;color:{{ s.color }}">{{ s.text }}</div>
+                    <div style="height:3px;border-radius:2px;background:{{ s.color }}"></div>
+                    <div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:180px;">
+                      <sc-for list="{{ s.lines }}" as="l" hint-placeholder-count="1">
+                        <p style="margin:0 0 3px;">{{ l }}</p>
+                      </sc-for>
+                      <sc-if value="{{ s.note }}" hint-placeholder-val="{{ false }}">
+                        <p style="margin:5px 0 0;font-size:11.5px;line-height:1.4;color:#8a919c;">{{ s.note }}</p>
+                      </sc-if>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ missing }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:20px;background:#f1f2f4;border:1px solid #e4e6ea;border-radius:8px;padding:11px 14px;font-size:12.5px;line-height:1.6;color:#6b7280;">{{ missing }}</div>
+              </sc-if>
+            </div>
+            <div style="width:230px;flex:none;background:#f1f2f4;border:1px solid #e4e6ea;border-radius:10px;padding:14px 16px;font-size:12.5px;line-height:1.6;color:#6b7280;">
+              Dekodér počítá jen to, co je ve značce zapsané. Obsahy prvků, rozsahy a vlastnosti podle normy zde nenajdete.
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:22px;padding-top:20px;border-top:1px solid #ecedf1;font-size:15px;line-height:1.65;color:#4b525d;">{{ errorMsg }}</div>
+      </sc-if>
+    </div>
+
+    <h2 style="margin:52px 0 18px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#8a919c;font-weight:600;">Převodník ČSN a EN</h2>
+
+    <div style="background:#fff;border:1px solid #dfe2e8;border-radius:12px;padding:24px 26px 26px;">
+      <p style="margin:0 0 16px;font-size:15px;line-height:1.65;color:#4b525d;max-width:700px;">Staré české značky se dekódovat nedají — jde o číselný systém, ve kterém se hodnoty jen dohledávají. Do pole můžete napsat i skupinu nebo použití, třeba rychlořezná nebo ozubená kola.</p>
+
+      <input value="{{ f }}" onChange="{{ onFilter }}" placeholder="Hledat ve všech sloupcích" style="width:340px;font-size:14.5px;padding:10px 13px;border:1px solid #d3d7de;border-radius:9px;background:#fff;color:#20242b;outline:none;" style-focus="border-color:#3f6b3f" />
+
+      <div style="margin-top:18px;border:1px solid #dfe2e8;border-radius:10px;overflow:hidden;">
+        <div style="display:flex;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;background:#f7f8fa;border-bottom:1px solid #dfe2e8;">
+          <div style="width:110px;flex:none;padding:10px 18px;">Číslo ČSN</div>
+          <div style="width:190px;flex:none;padding:10px 18px;">Značka EN</div>
+          <div style="width:230px;flex:none;padding:10px 18px;">Skupina oceli</div>
+          <div style="flex:1;min-width:0;padding:10px 18px;">Použití</div>
+        </div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="20">
+          <div style="display:flex;font-size:14.5px;line-height:1.55;border-top:1px solid #ecedf1;">
+            <div style="width:110px;flex:none;padding:11px 18px;font-family:ui-monospace,Consolas,'Courier New',monospace;">{{ r.csn }}</div>
+            <div style="width:190px;flex:none;padding:11px 18px;font-family:ui-monospace,Consolas,'Courier New',monospace;font-weight:600;">{{ r.en }}</div>
+            <div style="width:230px;flex:none;padding:11px 18px;color:#5a616c;">{{ r.sys }}</div>
+            <div style="flex:1;min-width:0;padding:11px 18px;color:#4b525d;">{{ r.use }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:14px;font-size:14px;color:#8a919c;">Žádný řádek neodpovídá zadanému textu.</div>
+      </sc-if>
+      <div style="margin-top:16px;background:#f1f2f4;border:1px solid #e4e6ea;border-radius:10px;padding:14px 18px;font-size:13px;line-height:1.65;color:#6b7280;">Tabulka slouží k orientaci. Chemické složení ani mechanické vlastnosti přiřazených ocelí nemusí být totožné — před použitím na konkrétní součást je ověřte v normě. Pomlčka ve sloupci Použití znamená, že údaj nemáme, ne že ocel nemá využití.</div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;vychoziZnacka&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { q: null, res: null, f: '' };
+
+  EL = {
+    Cr:{n:'chrom',f:4}, Co:{n:'kobalt',f:4}, Mn:{n:'mangan',f:4}, Ni:{n:'nikl',f:4}, Si:{n:'křemík',f:4}, W:{n:'wolfram',f:4},
+    Al:{n:'hliník',f:10}, Be:{n:'beryllium',f:10}, Cu:{n:'měď',f:10}, Mo:{n:'molybden',f:10}, Nb:{n:'niob',f:10}, Pb:{n:'olovo',f:10},
+    Ta:{n:'tantal',f:10}, Ti:{n:'titan',f:10}, V:{n:'vanad',f:10}, Zr:{n:'zirkonium',f:10},
+    Ce:{n:'cer',f:100}, N:{n:'dusík',f:100}, P:{n:'fosfor',f:100}, S:{n:'síra',f:100},
+    B:{n:'bor',f:1000}
+  };
+  HS_ORDER = ['W','Mo','V','Co'];
+
+  CS = '#3f6b3f'; CN = '#c07a2b'; CE = '#7c4a8f'; CEN = '#4a7d63'; CX = '#8a919c'; CG = '#2b6f8f';
+
+  USE = { S:'ocel pro ocelové konstrukce', P:'ocel pro tlakové nádoby', E:'ocel pro strojní součásti' };
+  IMP = { J:'27 J', K:'40 J', L:'60 J' };
+  TEMP = { R:'+20 °C', '0':'0 °C', '2':'−20 °C', '3':'−30 °C', '4':'−40 °C', '5':'−50 °C', '6':'−60 °C' };
+  ADD = {
+    W:'odolná proti atmosférické korozi', N:'normalizačně žíháno nebo válcováno', M:'termomechanicky válcováno',
+    Q:'zušlechtěno', G:'jiné charakteristiky', C:'se zvláštní tvařitelností za studena'
+  };
+  ADD_P = { H:'pro vysoké teploty', L:'pro nízké teploty', X:'pro vysoké i nízké teploty' };
+  ADD_S = { H:'duté profily tvářené za tepla nebo za studena', L:'pro nízké teploty' };
+  G_NOTE = 'Co přesně varianta znamená, určuje konkrétní norma výrobku — dohledejte ji tam.';
+  SUF_C = {
+    E:'předepsaný maximální obsah síry', R:'předepsaný rozsah pro obsah síry', D:'pro tažený drát',
+    C:'pro tváření za studena', S:'pro pružiny', U:'nástrojové', W:'svařovací dráty', G:'jiné charakteristiky'
+  };
+  SUF_C_NOTE = 'Konkrétní hodnoty tenhle znak neurčuje — dohledejte je v normě.';
+  UNKNOWN = 'doplňkový znak — dohledejte jeho význam v normě';
+
+  ERR = {
+    csn:'Tohle je značka podle ČSN. Najdete ji v převodní tabulce pod dekodérem.',
+    num:'Tohle je číselné označení podle EN 10027-2. Nedekóduje se, jen se dohledává v normě.',
+    no:'Tuhle značku neumím rozebrat. Zkontrolujte zápis.'
+  };
+
+  DATA = [
+    ['10 000','S185','konstrukční','součásti bez nosných svarů, nedimenzované výpočtem'],
+    ['10 004','S185','konstrukční','součásti bez nosných svarů, dobrá svařitelnost'],
+    ['11 109','11SMn30','automatová','tažení za studena, spojovací součásti ze šroubáren'],
+    ['11 110','10S20','automatová','šrouby a matice na rychlořezných automatech'],
+    ['11 301','DC03','hlubokotažná','hluboké tažení, lakování, pokovování, smaltování'],
+    ['11 305','DC04','hlubokotažná','zvlášť hluboké tažení, odolná proti stárnutí'],
+    ['11 321','DC01','hlubokotažná','středně hluboké tažení, lakování, potisk'],
+    ['11 343','S195T','konstrukční – trubky','tenkostěnné svařované součásti, trubky pro všeobecné účely'],
+    ['11 368','P235GH','pro tlakové nádoby',''],
+    ['11 373','S235JRG1','konstrukční','svařované součásti menších tlouštěk, jezové konstrukce'],
+    ['11 375','S235JR','konstrukční','svařované konstrukce středních tlouštěk, tlakové nádoby do 300 °C'],
+    ['11 375','S235JRH','konstrukční – duté profily','svařované konstrukce středních tlouštěk, tlakové nádoby do 300 °C'],
+    ['11 375','S235JRC','konstrukční – tvářená za studena','svařované konstrukce středních tlouštěk, tlakové nádoby do 300 °C'],
+    ['11 378','S235J0','konstrukční','svařované mostní a jeřábové konstrukce, tenké plechy k lisování'],
+    ['11 418','P265GH','pro tlakové nádoby',''],
+    ['11 443','S275JR','konstrukční','mírně namáhané hřídele a osy, ozubená kola, zápustkové výkovky'],
+    ['11 443','S275J0H','konstrukční – duté profily','mírně namáhané hřídele a osy, ozubená kola, zápustkové výkovky'],
+    ['11 443','S275JRC','konstrukční – tvářená za studena','mírně namáhané hřídele a osy, ozubená kola, zápustkové výkovky'],
+    ['11 448','S275J2','konstrukční',''],
+    ['11 448','S275J2H','konstrukční – duté profily',''],
+    ['11 500','E295','na strojní součásti','hřídele, ozubená kola, čepy, kolíky, příruby, šrouby'],
+    ['11 503','S355J2','konstrukční','zařízení pracující při teplotách +400 až −50 °C'],
+    ['11 503','S355J2H','konstrukční – duté profily','zařízení pracující při teplotách +400 až −50 °C'],
+    ['11 523','S355J0','konstrukční','mostní a svařované konstrukce, ohýbané profily, součásti strojů'],
+    ['11 523','S355J0H','konstrukční – duté profily','mostní a svařované konstrukce, ohýbané profily, součásti strojů'],
+    ['11 523','S355J0C','konstrukční – tvářená za studena','mostní a svařované konstrukce, ohýbané profily, součásti strojů'],
+    ['11 600','E335','na strojní součásti','hřídele, osy, ozubená a řetězová kola, čepy, pístnice'],
+    ['11 700','E360','na strojní součásti','součásti odolné proti opotřebení, výkovky s velkou tvrdostí'],
+    ['12 010','C10E','cementační','malé cementované součásti s nižší pevností v jádře, čepy, páky'],
+    ['12 020','C16E','cementační','méně namáhaná ozubená kola, vačkové hřídele, pouzdra, vodítka'],
+    ['12 023','C15E','cementační','malé strojní součásti, páky, čepy, svorníky'],
+    ['12 024','C22','k zušlechťování','málo namáhané součásti automobilů, strojů a přístrojů'],
+    ['12 024','C22E','k zušlechťování','málo namáhané součásti automobilů, strojů a přístrojů'],
+    ['12 030','C25','k zušlechťování',''],
+    ['12 030','C25E','k zušlechťování',''],
+    ['12 031','C30','k zušlechťování',''],
+    ['12 031','C30E','k zušlechťování',''],
+    ['12 040','C35','k zušlechťování','hřídele, čepy, ojnice, jeřábové háky, táhla, pístnice'],
+    ['12 040','C35E','k zušlechťování','hřídele, čepy, ojnice, jeřábové háky, táhla, pístnice'],
+    ['12 041','C40','k zušlechťování','hřídele, čepy, šrouby, vřetena, pístnice, ojnice'],
+    ['12 041','C40E','k zušlechťování','hřídele, čepy, šrouby, vřetena, pístnice, ojnice'],
+    ['12 042','35B2','na upevňovací prvky',''],
+    ['12 050','C45','k zušlechťování','hřídele, ozubená kola, šneky, ojnice, vřetena, frézovací trny'],
+    ['12 050','C45E','k zušlechťování','hřídele, ozubená kola, šneky, ojnice, vřetena, frézovací trny'],
+    ['12 051','C50','k zušlechťování','hřídele, vřetena, pístnice, brzdové páky, držáky'],
+    ['12 051','C50E','k zušlechťování','hřídele, vřetena, pístnice, brzdové páky, držáky'],
+    ['12 060','C55','k zušlechťování','ozubená kola a věnce, pístnice, spojky, vřetena, pružiny'],
+    ['12 060','C55E','k zušlechťování','ozubená kola a věnce, pístnice, spojky, vřetena, pružiny'],
+    ['12 061','C60','k zušlechťování','klikové hřídele, ozubená kola, vřetena soustruhů, pera a klíny'],
+    ['12 061','C60E','k zušlechťování','klikové hřídele, ozubená kola, vřetena soustruhů, pera a klíny'],
+    ['13 030','P295GH','pro tlakové nádoby',''],
+    ['13 141','28Mn6','k zušlechťování',''],
+    ['13 180','70Mn4','na valivá ložiska','pružiny a pružící elementy, jeřábové kolejnice'],
+    ['14 100','102Cr6','nástrojová','součásti s velmi tvrdým povrchem odolným proti opotřebení'],
+    ['14 109','100Cr6','na valivá ložiska','ložiskové kuličky, válečky, kuželíky a kroužky'],
+    ['14 120','17Cr3','cementační','ozubená kola, šneky, čepy, vřetena, vačky, vodítka'],
+    ['14 140','37Cr4','k zušlechťování','součásti motorových vozidel a motorů menších průřezů'],
+    ['14 209','100CrMnSi6-4','na valivá ložiska','velké ložiskové kuličky, válečky, soudečky a kroužky'],
+    ['14 220','16MnCr5','cementační','ozubená kola, vačkové hřídele, pístní čepy, zubové spojky'],
+    ['14 221','20MnCr5','cementační','větší ozubená a talířová kola, vačkové kotouče, hřídele'],
+    ['15 020','16Mo3','žáropevná',''],
+    ['15 121','13CrMo4-5','žáropevná','tlakové nádoby a předehřívákové trubky do 530 °C'],
+    ['15 124','18CrMo4','cementační','pastorky, talířová kola, drážkové hřídele, kardanovy kříže'],
+    ['15 127','S355J2G1W','odolná atmosférické korozi',''],
+    ['15 130','25CrMo4','k zušlechťování',''],
+    ['15 142','42CrMo4','k zušlechťování','velmi namáhané hřídele a spojovací součásti vozidel'],
+    ['15 217','S355J0WP','odolná atmosférické korozi','konstrukce ve venkovním nechráněném prostředí'],
+    ['15 260','51CrV4','k zušlechťování','čepy, pružiny, hřídele, vřetena, poloosy, pístnice'],
+    ['15 313','10CrMo9-10','žáropevná',''],
+    ['15 313','11CrMo9-10','žáropevná',''],
+    ['15 320','21CrMoV5-7','žáropevná','rotory parních turbín, hřídele a kotouče kompresorů'],
+    ['15 330','31CrMoV9','nitridační','nitridované hřídele leteckých motorů, vačkové hřídele'],
+    ['15 340','41CrAlMo7-10','nitridační',''],
+    ['16 224','S690QL','vysokopevnostní zušlechtěná',''],
+    ['16 341','41NiCrMo7-3-2','k zušlechťování',''],
+    ['16 343','34CrNiMo6','k zušlechťování','kompresorová a turbinová kola, kloubové hřídele, ozubená kola'],
+    ['16 420','15NiCr13','cementační','hřídele, drážkové hřídele, ozubená kola'],
+    ['17 020','X6Cr13','korozivzdorná',''],
+    ['17 021','X12Cr13','korozivzdorná','zařízení pracující s parami a kapalinami, trubky, výkovky'],
+    ['17 022','X20Cr13','korozivzdorná','osy, hřídele, součásti čerpadel, ventilové kužele, lodní šrouby'],
+    ['17 023','X30Cr13','korozivzdorná','armatury a konstrukční součásti odolné korozi, nástroje'],
+    ['17 024','X39Cr13','korozivzdorná','nástroje, měřidla, nerezavějící součásti odolné proti otěru'],
+    ['17 024','X40Cr14','nástrojová','nástroje, měřidla, nerezavějící součásti odolné proti otěru'],
+    ['17 029','X47Cr14','na valivá ložiska','nože, nůžky, chirurgické nástroje, měřidla, břity vah'],
+    ['17 040','X6Cr17','korozivzdorná','kuchyňské zařízení, jídelní příbory, svařované aparatury'],
+    ['17 041','X6CrNi17-1','korozivzdorná','kuchyňská zařízení, trubky předehřívačů vzduchu, rekuperátory'],
+    ['17 102','X15CrMo5-1','žáropevná',''],
+    ['17 113','X10CrAlSi7','žáruvzdorná',''],
+    ['17 125','X10CrAlSi13','žáruvzdorná','zařízení pro kalírny a tepelnou techniku do 930 °C'],
+    ['17 134','X22CrMoV12-1','žáropevná',''],
+    ['17 240','X5CrNi18-10','korozivzdorná','potravinářství, farmacie, chemická zařízení, tlakové nádoby'],
+    ['17 241','X10CrNi18-8','korozivzdorná','chemický a potravinářský průmysl, chirurgické nástroje'],
+    ['17 246','X6CrNiTi18-10','korozivzdorná','tyče, plechy, svařované trubky, korozivzdorná do 400 °C'],
+    ['17 248','X8CrNiTi18-10','žáruvzdorná','chemická zařízení včetně tlakových nádob'],
+    ['17 249','X2CrNi19-11','korozivzdorná',''],
+    ['17 251','X15CrNiSi20-12','žáruvzdorná','zařízení pro kalírny, žíhárny, keramický a sklářský průmysl'],
+    ['17 253','X10NiCrSi35-19','žáruvzdorná','žáruvzdorné součásti pecí, topné odporové dráty'],
+    ['17 346','X5CrNiMo17-12-2','korozivzdorná','chemický průmysl, mlékárny, pivovary, tlakové nádoby'],
+    ['17 348','X6CrNiMoTi17-12-2','korozivzdorná','zařízení pro silné organické a anorganické kyseliny'],
+    ['17 349','X2CrNiMo17-12-2','korozivzdorná','chemická zařízení, odolná proti mezikrystalové korozi'],
+    ['17 350','X2CrNiMo18-14-3','korozivzdorná','výroba celulózy, textilu a umělého hedvábí'],
+    ['17 352','X3CrNiMo17-13-3','korozivzdorná',''],
+    ['17 460','X12CrMnNiN18-9-5','korozivzdorná',''],
+    ['19 083','C45U','nástrojová uhlíková','nože, kladiva, sekery, nůžky, sekáče, lisovadla'],
+    ['19 132','C70U','nástrojová uhlíková',''],
+    ['19 133','C70U','nástrojová uhlíková',''],
+    ['19 152','C80U','nástrojová uhlíková',''],
+    ['19 191','C105U','nástrojová uhlíková','nástroje pro stříhání a ražení za studena, formy, měřidla'],
+    ['19 221','C120U','nástrojová uhlíková','závitníky, výstružníky, frézy, vrtáky, měřidla, kalibry'],
+    ['19 313','90MnCrV8','nástrojová legovaná','nástroje pro stříhání a ražení, závitové čelisti, měřidla'],
+    ['19 314','95MnWCr5','nástrojová legovaná',''],
+    ['19 356','105V','nástrojová legovaná',''],
+    ['19 436','X210Cr12','nástrojová legovaná',''],
+    ['19 487','21MnCr5','nástrojová legovaná',''],
+    ['19 541','32CrMoV12-28','nástrojová legovaná',''],
+    ['19 550','50CrMoV13-15','nástrojová legovaná',''],
+    ['19 552','X37CrMoV5-1','nástrojová legovaná','formy pro tlakové lití lehkých kovů, nástroje na protlačování'],
+    ['19 554','X40CrMoV5-1','nástrojová legovaná',''],
+    ['19 663','55NiCrMoV7','nástrojová legovaná','lisovací díly, matrice, průtlačníky, razníky, menší zápustky'],
+    ['19 721','X30WCrV9-3','nástrojová legovaná',''],
+    ['19 735','60WCrV8','nástrojová legovaná',''],
+    ['19 820','HS3-3-2','rychlořezná',''],
+    ['19 824','HS18-0-1','rychlořezná',''],
+    ['19 830','HS6-5-2','rychlořezná',''],
+    ['19 852','HS6-5-2-5','rychlořezná',''],
+    ['19 861','HS10-4-3-10','rychlořezná','']
+  ];
+
+  fmt(x){ return (Math.round(x * 10000) / 10000).toString().replace('.', ','); }
+
+  symbols(up){
+    const keys = Object.keys(this.EL);
+    const out = [];
+    let i = 0;
+    while (i < up.length){
+      let hit = null;
+      for (const k of keys) if (k.length === 2 && k.toUpperCase() === up.substr(i, 2)) { hit = k; break; }
+      if (!hit) for (const k of keys) if (k.length === 1 && k.toUpperCase() === up[i]) { hit = k; break; }
+      if (!hit) return null;
+      out.push(hit);
+      i += hit.length;
+    }
+    return out.length ? out : null;
+  }
+
+  sufSeg(raw){
+    if (!raw) return null;
+    const plus = raw[0] === '+';
+    const body = plus ? raw.slice(1) : raw;
+    if (!body) return null;
+    const mean = (!plus && body.length === 1) ? this.SUF_C[body] : null;
+    if (mean) return { text:body, color:this.CX, lines:[mean], note:this.SUF_C_NOTE };
+    return { text:(plus ? '+' : '') + body, color:this.CX, lines:[this.UNKNOWN] };
+  }
+
+  useSuffix(raw, letter){
+    const segs = [];
+    let i = 0;
+    while (i < raw.length){
+      const ch = raw[i];
+      const nx = raw[i + 1];
+      if (this.IMP[ch] && nx !== undefined && this.TEMP[nx]){
+        segs.push({ text: ch + nx, color:this.CX,
+          lines:['zaručená nárazová práce ' + this.IMP[ch] + ' při ' + this.TEMP[nx]] });
+        i += 2;
+        continue;
+      }
+      if (ch === 'G' && nx !== undefined && /^[1-4]$/.test(nx)){
+        segs.push({ text:'G' + nx, color:this.CX,
+          lines:['jiné charakteristiky, varianta ' + nx], note:this.G_NOTE });
+        i += 2;
+        continue;
+      }
+      let mean = this.ADD[ch];
+      if (!mean && letter === 'P') mean = this.ADD_P[ch];
+      if (!mean && letter === 'S') mean = this.ADD_S[ch];
+      segs.push({ text:ch, color:this.CX, lines:[mean || this.UNKNOWN] });
+      i += 1;
+    }
+    return segs;
+  }
+
+  build(raw){
+    const s = (raw || '').replace(/\s+/g, '').replace(/[–—]/g, '-');
+    if (!s) return null;
+    const U = s.toUpperCase();
+    if (/^\d{5}$/.test(U)) return { error:this.ERR.csn };
+    if (/^1\./.test(U)) return { error:this.ERR.num };
+
+    const cast = this.castIron(U);
+    if (cast) return cast;
+
+    if (/^G[A-Z0-9]/.test(U)){
+      const g = this.core(U.slice(1));
+      if (g){ g.segs.unshift({ text:'G', color:this.CG, lines:['ocel na odlitky'] }); return g; }
+    }
+    return this.core(U) || { error:this.ERR.no };
+  }
+
+  castIron(U){
+    const m = U.match(/^EN-GJ(L|S)-(\d{3,4})(?:-(\d{1,2}))?$/);
+    if (!m) return null;
+    const segs = [
+      { text:'EN-', color:this.CS, lines:['normalizovaný materiál podle EN'] },
+      { text:'GJ', color:this.CS, lines:['odlitek z litiny'] },
+      { text:m[1], color:this.CS, lines:[m[1] === 'L' ? 'lupínkový grafit' : 'kuličkový grafit'] },
+      { text:m[2], color:this.CN, lines:['minimální pevnost v tahu ' + m[2] + ' MPa'] }
+    ];
+    if (m[3]) segs.push({ text:m[3], color:this.CN, lines:['minimální tažnost ' + m[3] + ' %'] });
+    return { group:'Litina', segs, missing:null,
+      note:'Litiny se neznačí podle EN 10027-1, ale podle EN 1560.' };
+  }
+
+  core(U){
+    let m;
+
+    if ((m = U.match(/^([SPE])(\d+)([A-Z0-9]*)$/))){
+      const L = m[1];
+      const segs = [
+        { text:L, color:this.CS, lines:[this.USE[L]] },
+        { text:m[2], color:this.CN, lines:['minimální mez kluzu ' + m[2] + ' MPa pro nejmenší tloušťku výrobku'] }
+      ];
+      this.useSuffix(m[3], L).forEach(x => segs.push(x));
+      return { group:'Podle použití a mechanických vlastností', segs, missing:null };
+    }
+
+    if ((m = U.match(/^C(\d+)([A-Z]?)$/))){
+      const segs = [
+        { text:'C', color:this.CS, lines:['nelegovaná ocel'] },
+        { text:m[1], color:this.CN, lines:[m[1] + ' ÷ 100 = ' + this.fmt(Number(m[1]) / 100) + ' % C'] }
+      ];
+      if (m[2]){
+        const mean = this.SUF_C[m[2]];
+        segs.push(mean
+          ? { text:m[2], color:this.CX, lines:[mean], note:this.SUF_C_NOTE }
+          : { text:m[2], color:this.CX, lines:[this.UNKNOWN] });
+      }
+      return { group:'Nelegovaná ocel', segs, missing:null };
+    }
+
+    if ((m = U.match(/^HS(\d+(?:-\d+)*)([A-Z]*)$/))){
+      const nums = m[1].split('-').map(Number);
+      if (nums.length > 4) return null;
+      const segs = [{ text:'HS', color:this.CS, lines:['rychlořezná ocel'] }];
+      nums.forEach((v, i) => {
+        const el = this.HS_ORDER[i];
+        segs.push({ text:String(v), color:this.CEN, lines:[this.fmt(v) + ' % ' + el, this.EL[el].n] });
+      });
+      const hsSuf = this.sufSeg(m[2]);
+      if (hsSuf) segs.push(hsSuf);
+      return { group:'Rychlořezná ocel', segs, missing:null };
+    }
+
+    let high = false;
+    m = U.match(/^X(\d+)([A-Z]+)((?:\d+)(?:-\d+)*)?(\+?[A-Z]+)?$/);
+    if (m) high = true;
+    else m = U.match(/^(\d+)([A-Z]+)((?:\d+)(?:-\d+)*)?(\+?[A-Z]+)?$/);
+    if (!m) return null;
+
+    let els = this.symbols(m[2]);
+    if (!els) return null;
+    let sMark = false;
+    if (els.length > 1 && els[els.length - 1] === 'S'){ els = els.slice(0, -1); sMark = true; }
+    const nums = m[3] ? m[3].split('-').map(Number) : [];
+    if (nums.length > els.length) return null;
+
+    const segs = [];
+    if (high) segs.push({ text:'X', color:this.CS, lines:['vysokolegovaná ocel'] });
+    segs.push({ text:m[1], color:this.CN, lines:[m[1] + ' ÷ 100 = ' + this.fmt(Number(m[1]) / 100) + ' % C'] });
+    segs.push({ text:els.join(''), color:this.CE, lines:['legující prvky: ' + els.map(e => this.EL[e].n).join(', ')] });
+    if (sMark) segs.push({ text:'S', color:this.CX, lines:[this.UNKNOWN] });
+    nums.forEach((v, i) => {
+      const el = els[i];
+      if (high) segs.push({ text:String(v), color:this.CEN, lines:[this.fmt(v) + ' % ' + el + ' — střední obsah zaokrouhlený nahoru'] });
+      else {
+        const f = this.EL[el].f;
+        segs.push({ text:String(v), color:this.CEN, lines:[v + ' ÷ ' + f + ' = ' + this.fmt(v / f) + ' % ' + el] });
+      }
+    });
+    const suf = this.sufSeg(m[4]);
+    if (suf) segs.push(suf);
+    const rest = els.slice(nums.length);
+    const missing = rest.length
+      ? 'Prvky bez čísla: ' + rest.map(e => this.EL[e].n).join(', ') + '. Jejich obsah není ve značce zakódován — dohledejte ho v normě.'
+      : null;
+    return { group: high ? 'Vysokolegovaná ocel' : 'Nízkolegovaná ocel', segs, missing };
+  }
+
+  renderVals(){
+    const q = this.state.q ?? (this.props.vychoziZnacka ?? '');
+    const run = (val) => {
+      const t = val ?? q;
+      this.setState({ q:t, res: this.build(t) });
+    };
+    const res = this.state.res;
+    const f = this.state.f.trim().toLowerCase();
+    const rows = this.DATA
+      .filter(r => !f || r.some(c => c.toLowerCase().includes(f)) || r[0].replace(/\s/g,'').includes(f.replace(/\s/g,'')))
+      .map(r => ({ csn:r[0], en:r[1], sys:r[2], use:r[3] || '—' }));
+
+    return {
+      q,
+      onInput: (e) => this.setState({ q: e.target.value }),
+      onKey: (e) => { if (e.key === 'Enter') run(e.target.value); },
+      run: () => run(),
+      examples: ['S355J2W','P265GH','C45E','42CrMoS4','X5CrNi18-10','HS6-5-2','EN-GJS-400-15'].map(t => ({
+        text: t,
+        onClick: () => run(t)
+      })),
+      hasResult: !!(res && res.segs),
+      hasError: !!(res && res.error),
+      errorMsg: res && res.error ? res.error : '',
+      groupName: res && res.segs ? res.group : '',
+      sysNote: res && res.note ? res.note : null,
+      segs: res && res.segs ? res.segs : [],
+      missing: res && res.missing ? res.missing : null,
+      f: this.state.f,
+      onFilter: (e) => this.setState({ f: e.target.value }),
+      rows,
+      empty: rows.length === 0
+    };
+  }
+}
+
+(function () {
+  const P = '../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../index.html' },
+    { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../koroze/index.html' },
+    { title: 'Tváření', href: '../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../odlevani/index.html' },
+    { title: 'O projektu', href: '../o-projektu.html' },
+    { title: 'Novinky', href: '../novinky.html' },
+];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

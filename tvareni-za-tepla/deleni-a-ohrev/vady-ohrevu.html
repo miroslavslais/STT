@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vady ohřevu | STT</title>
+<meta name="description" content="Opal, oduhličení, přehřátí, propal a trhliny z rychlého ohřevu — příčina, projev a napravitelnost vad, které vzniknou v peci.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-09-20">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: #e6a94a; text-decoration: none; }
+    a:hover { color: #f2c274; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="8">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Dělení a&nbsp;ohřev materiálu</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 90px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#e6a94a;margin-bottom:8px">Dělení a&nbsp;ohřev materiálu</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Vady ohřevu</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:80ch;text-wrap:pretty">Vada vzniká v&nbsp;peci, ale projeví se až později — při tváření, při tepelném zpracování nebo na hotové součásti u&nbsp;zákazníka. Vady uvnitř materiálu přitom nejsou na přířezu vidět — vypadá stejně jako ten, který ohřev snesl bez poškození.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;max-width:80ch;text-wrap:pretty">Vady ohřevu se třídí podle dvou hledisek. První říká, co se v&nbsp;materiálu poškodilo. Druhé, zda se poškození dá dalším zpracováním odstranit.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 48px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Hledisko 1 — co vada poškodí</div>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0 0 8px;text-wrap:pretty"><span style="color:#eaf2fa">Povrch.</span> Kov z&nbsp;povrchové vrstvy ubývá nebo se mění jeho složení. Jádro zůstává nedotčené a&nbsp;poškozená vrstva leží v&nbsp;dosahu obrábění.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty"><span style="color:#eaf2fa">Struktura.</span> Mění se velikost zrn, soudržnost mezi nimi, nebo se poruší celistvost materiálu. Poškození je v&nbsp;celém průřezu a&nbsp;odebráním povrchové vrstvy se neodstraní.</p>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Hledisko 2 — zda se dá napravit</div>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0 0 8px;text-wrap:pretty"><span style="color:#eaf2fa">Opravitelná vada.</span> Dalším zpracováním se materiál vrátí do použitelného stavu, třeba žíháním nebo obrobením poškozené vrstvy.</p>
+        <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty"><span style="color:#eaf2fa">Neopravitelná vada.</span> Poškození nelze vzít zpět. Přířez jde do šrotu.</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 8px">Přehled vad</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:80ch">Opal a&nbsp;propal jsou vyloženy na stránce o&nbsp;pecích. Přehřátí, oduhličení a&nbsp;trhliny z&nbsp;rychlého ohřevu rozebírají sekce níže.</p>
+
+    <div style="display:flex;flex-direction:column;gap:12px;margin:0 0 48px">
+      <div style="display:grid;grid-template-columns:190px 1fr 210px;gap:20px;align-items:start;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 22px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa">Opal</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8296a8;margin-top:3px">povrch</div>
+        </div>
+        <div style="font-size:15px;line-height:1.65;color:#aebfcf;text-wrap:pretty">Povrchová vrstva kovu oxiduje a&nbsp;mění se v&nbsp;okuje, ztráta je nevratná. <a href="pece.html">Podrobně na stránce Pece a&nbsp;ohřev materiálu</a>.</div>
+        <div style="font-size:14.5px;line-height:1.5;color:#e08c6e">ne — kov je ztracen</div>
+      </div>
+      <div style="display:grid;grid-template-columns:190px 1fr 210px;gap:20px;align-items:start;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 22px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa">Oduhličení</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8296a8;margin-top:3px">povrch</div>
+        </div>
+        <div style="font-size:15px;line-height:1.65;color:#aebfcf;text-wrap:pretty">Kyslík v&nbsp;pecní atmosféře reaguje s&nbsp;uhlíkem v&nbsp;povrchové vrstvě oceli. Vrstva ochuzená o&nbsp;uhlík změkne a&nbsp;po kalení se nedokalí.</div>
+        <div style="font-size:14.5px;line-height:1.5;color:#e6a94a">zčásti — obrobením, je-li přídavek</div>
+      </div>
+      <div style="display:grid;grid-template-columns:190px 1fr 210px;gap:20px;align-items:start;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 22px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa">Přehřátí</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8296a8;margin-top:3px">struktura</div>
+        </div>
+        <div style="font-size:15px;line-height:1.65;color:#aebfcf;text-wrap:pretty">Ohřev nad přípustnou teplotu nebo dlouhá výdrž na vysoké teplotě. Austenitická zrna rostou, struktura hrubne a&nbsp;materiál zkřehne.</div>
+        <div style="font-size:14.5px;line-height:1.5;color:#7fba8c">ano — normalizačním žíháním</div>
+      </div>
+      <div style="display:grid;grid-template-columns:190px 1fr 210px;gap:20px;align-items:start;background:rgba(224,140,110,0.07);border:1px solid rgba(224,140,110,0.3);border-radius:14px;padding:18px 22px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa">Propal</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8296a8;margin-top:3px">struktura</div>
+        </div>
+        <div style="font-size:15px;line-height:1.65;color:#aebfcf;text-wrap:pretty">Hranice zrn se natavují, přířez je zmetek. <a href="pece.html">Podrobně na stránce Pece a&nbsp;ohřev materiálu</a>.</div>
+        <div style="font-size:14.5px;line-height:1.5;color:#e08c6e">ne — zmetek</div>
+      </div>
+      <div style="display:grid;grid-template-columns:190px 1fr 210px;gap:20px;align-items:start;background:rgba(224,140,110,0.07);border:1px solid rgba(224,140,110,0.3);border-radius:14px;padding:18px 22px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa">Trhliny z&nbsp;rychlého ohřevu</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#8296a8;margin-top:3px">struktura</div>
+        </div>
+        <div style="font-size:15px;line-height:1.65;color:#aebfcf;text-wrap:pretty">Rychlý ohřev studeného materiálu vyvolá tepelné pnutí. Pnutí překročí pevnost materiálu a&nbsp;ten se poruší.</div>
+        <div style="font-size:14.5px;line-height:1.5;color:#e08c6e">ne — zmetek</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 8px">Přehřátí</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:80ch;text-wrap:pretty">Přehřátí nastane při ohřevu nad přípustnou teplotu nebo při příliš dlouhé výdrži na vysoké teplotě. Vada je uvnitř materiálu a&nbsp;na povrchu se neprojeví.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin:0 0 20px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Děj</div>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Austenitická zrna rostou a&nbsp;struktura hrubne. Čím déle materiál na vysoké teplotě setrvá a&nbsp;čím výš se ohřeje, tím větší zrna vzniknou.</p>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Projev</div>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Materiál zkřehne a&nbsp;klesnou jeho mechanické vlastnosti. Přehřátý materiál je náchylný k&nbsp;interkrystalickému lomu, tedy k&nbsp;lomu vedenému po hranicích zrn, ne&nbsp;skrz ně.</p>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(127,186,140,0.3);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#7fba8c;margin-bottom:8px">Náprava</div>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Vada je opravitelná. Zrno lze zjemnit <a href="../../vnitrni-stavba-kovu-a-tz/index.html">normalizačním žíháním</a> nebo opakovaným tvářením za tepla, při kterém rekrystalizace zrno postupně zjemní.</p>
+      </div>
+    </div>
+
+    <div style="background:rgba(230,169,74,0.07);border:1px solid rgba(230,169,74,0.3);border-radius:16px;padding:20px 24px;margin:0 0 48px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#e6a94a;margin-bottom:8px">Přehřátí × propal</div>
+      <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0;max-width:90ch;text-wrap:pretty">Rozdíl je v&nbsp;teplotě. Přehřátí nastane nad přípustnou kovací teplotou, propal až při dalším ohřevu blízko teplotě tání. U&nbsp;přehřátí zrna jen vyrostla, hranice mezi nimi drží. U&nbsp;propalu jsou hranice natavené a&nbsp;zrna spolu přestala držet. Proto je přehřátí opravitelné a&nbsp;propal ne.</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 8px">Oduhličení</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:80ch;text-wrap:pretty">Kyslík v&nbsp;pecní atmosféře reaguje s&nbsp;uhlíkem v&nbsp;povrchové vrstvě oceli. Uhlík z&nbsp;povrchu odchází a&nbsp;z&nbsp;jádra na jeho místo difunduje uhlík další, takže se ochuzená vrstva prohlubuje.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:80ch;text-wrap:pretty">Povrch tím změkne. Klesne jeho pevnost, tvrdost a&nbsp;odolnost proti opotřebení. Vada se naplno projeví až po kalení, protože oduhličená vrstva se nedokalí.</p>
+
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:20px;margin:0 0 20px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:14px">Co ovlivňuje hloubku oduhličené vrstvy</div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div style="display:grid;grid-template-columns:190px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid rgba(150,180,210,0.12)">
+            <span style="font-size:14.5px;color:#eaf2fa">Teplota ohřevu</span>
+            <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">vyšší teplota difuzi uhlíku urychlí</span>
+          </div>
+          <div style="display:grid;grid-template-columns:190px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid rgba(150,180,210,0.12)">
+            <span style="font-size:14.5px;color:#eaf2fa">Doba ohřevu</span>
+            <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">čím déle materiál v&nbsp;peci leží, tím hlouběji vrstva sahá</span>
+          </div>
+          <div style="display:grid;grid-template-columns:190px 1fr;gap:16px;padding:9px 0;border-bottom:1px solid rgba(150,180,210,0.12)">
+            <span style="font-size:14.5px;color:#eaf2fa">Chemické složení oceli</span>
+            <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">čím vyšší obsah uhlíku, tím hlouběji vrstva sahá</span>
+          </div>
+          <div style="display:grid;grid-template-columns:190px 1fr;gap:16px;padding:9px 0">
+            <span style="font-size:14.5px;color:#eaf2fa">Složení pecní atmosféry</span>
+            <span style="font-size:14.5px;line-height:1.5;color:#aebfcf">v&nbsp;oxidační atmosféře je oduhličení silnější, v&nbsp;redukční slabší</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#8296a8;margin-bottom:8px">Souvislost s&nbsp;opalem</div>
+          <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Oba pochody probíhají současně na témže povrchu. Opal ubírá kov, oduhličení ubírá uhlík z&nbsp;kovu, který zůstal.</p>
+        </div>
+        <div style="background:rgba(230,169,74,0.07);border:1px solid rgba(230,169,74,0.3);border-radius:16px;padding:20px 22px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#e6a94a;margin-bottom:8px">Náprava</div>
+          <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Vrstvu lze odstranit obrobením, pokud na to byl počítán přídavek. Jinak je součást zmetek.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:48px 0 8px">Trhliny z&nbsp;rychlého ohřevu</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:80ch;text-wrap:pretty">Příčinou je příliš rychlý ohřev v&nbsp;oblasti nízkých teplot. Povrch se ohřeje rychle a&nbsp;roztahuje se, jádro je ještě studené a&nbsp;v&nbsp;roztažení mu brání. Tím vzniká tepelné pnutí.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:80ch;text-wrap:pretty">Pnutí není po průřezu stejné. Roztažený povrch je namáhán tlakem, studené jádro tahem. Trhlina proto vzniká uvnitř a&nbsp;odtud se šíří k&nbsp;povrchu.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:80ch;text-wrap:pretty">Studený materiál má přitom malou plasticitu, takže pnutí nevyrovná přetvořením. Překročí-li pnutí pevnost materiálu, vznikne trhlina.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 48px">
+      <div style="background:rgba(224,140,110,0.07);border:1px solid rgba(224,140,110,0.3);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#e08c6e;margin-bottom:10px">Kdy trhliny hrozí</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:12px">
+          <div style="display:flex;gap:10px;align-items:baseline"><span style="flex:none;width:7px;height:7px;border-radius:50%;background:#e08c6e"></span><span style="font-size:15px;line-height:1.6;color:#aebfcf">u&nbsp;velkých průřezů</span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><span style="flex:none;width:7px;height:7px;border-radius:50%;background:#e08c6e"></span><span style="font-size:15px;line-height:1.6;color:#aebfcf">u&nbsp;vysokolegovaných ocelí</span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><span style="flex:none;width:7px;height:7px;border-radius:50%;background:#e08c6e"></span><span style="font-size:15px;line-height:1.6;color:#aebfcf">u&nbsp;materiálů se špatnou tepelnou vodivostí</span></div>
+        </div>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Čím horší vodivost a&nbsp;čím větší průřez, tím větší je rozdíl teplot mezi povrchem a&nbsp;jádrem. S&nbsp;rozdílem teplot roste i&nbsp;pnutí.</p>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(127,186,140,0.3);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.05em;text-transform:uppercase;color:#7fba8c;margin-bottom:10px">Prevence</div>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0 0 10px;text-wrap:pretty">Ohřev vést pozvolna, aby vedení tepla stačilo jádro dohnat a&nbsp;rozdíl teplot po průřezu zůstal malý.</p>
+        <p style="font-size:15px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">U&nbsp;citlivých ocelí se ohřev vede stupňovitě, tedy s&nbsp;předehřevem na nižší teplotu a&nbsp;výdrží na ní, než se pokračuje výš.</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 8px">Mapa vad na řezu přířezem</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:80ch">Svislý řez přířezem. Klikni do schématu nebo na popisek — zvýrazní se místo, kterého se vada týká.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 26px;margin:0 0 48px">
+      <svg viewBox="0 0 900 400" style="width:100%;display:block">
+        <rect x="270" y="60" width="360" height="16" fill="{{ m.oxideFill }}"></rect>
+        <rect x="270" y="304" width="360" height="16" fill="{{ m.oxideFill }}"></rect>
+        <rect x="270" y="76" width="16" height="228" fill="{{ m.oxideFill }}"></rect>
+        <rect x="614" y="76" width="16" height="228" fill="{{ m.oxideFill }}"></rect>
+        <rect x="286" y="76" width="328" height="14" fill="{{ m.decarbFill }}"></rect>
+        <rect x="286" y="290" width="328" height="14" fill="{{ m.decarbFill }}"></rect>
+        <rect x="286" y="90" width="14" height="200" fill="{{ m.decarbFill }}"></rect>
+        <rect x="600" y="90" width="14" height="200" fill="{{ m.decarbFill }}"></rect>
+        <rect x="300" y="90" width="300" height="200" fill="{{ m.coreFill }}"></rect>
+
+        <line x1="360" y1="90" x2="360" y2="290" stroke="{{ m.gbStroke }}" stroke-width="{{ m.gbW }}"></line>
+        <line x1="420" y1="90" x2="420" y2="290" stroke="{{ m.gbStroke }}" stroke-width="{{ m.gbW }}"></line>
+        <line x1="480" y1="90" x2="480" y2="290" stroke="{{ m.gbStroke }}" stroke-width="{{ m.gbW }}"></line>
+        <line x1="540" y1="90" x2="540" y2="290" stroke="{{ m.gbStroke }}" stroke-width="{{ m.gbW }}"></line>
+        <line x1="300" y1="140" x2="600" y2="140" stroke="{{ m.gbStroke }}" stroke-width="{{ m.gbW }}"></line>
+        <line x1="300" y1="190" x2="600" y2="190" stroke="{{ m.gbStroke }}" stroke-width="{{ m.gbW }}"></line>
+        <line x1="300" y1="240" x2="600" y2="240" stroke="{{ m.gbStroke }}" stroke-width="{{ m.gbW }}"></line>
+
+        <rect x="300" y="90" width="300" height="200" fill="none" stroke="{{ m.coreEdge }}" stroke-width="1.4"></rect>
+        <rect x="286" y="76" width="328" height="228" fill="none" stroke="{{ m.metalEdge }}" stroke-width="1.6"></rect>
+        <rect x="270" y="60" width="360" height="260" fill="none" stroke="{{ m.oxideEdge }}" stroke-width="1.6"></rect>
+
+        <polyline points="456,196 480,170 504,184 530,152 554,164 580,136 614,124" fill="none" stroke="{{ m.crackStroke }}" stroke-width="{{ m.crackW }}" stroke-linejoin="round"></polyline>
+
+        <g pointer-events="none">
+          <line x1="272" y1="68" x2="248" y2="68" stroke="{{ m.lOpalLine }}" stroke-width="1.2"></line>
+          <line x1="292" y1="112" x2="248" y2="122" stroke="{{ m.lOduhLine }}" stroke-width="1.2"></line>
+          <line x1="307" y1="165" x2="248" y2="186" stroke="{{ m.lPrehLine }}" stroke-width="1.2"></line>
+          <line x1="600" y1="190" x2="652" y2="176" stroke="{{ m.lPropLine }}" stroke-width="1.2"></line>
+          <line x1="614" y1="124" x2="652" y2="116" stroke="{{ m.lTrhLine }}" stroke-width="1.2"></line>
+        </g>
+
+        <g onClick="{{ selOpal }}" style="cursor:pointer">
+          <rect x="270" y="60" width="360" height="16" fill="transparent"></rect>
+          <rect x="270" y="304" width="360" height="16" fill="transparent"></rect>
+          <rect x="270" y="76" width="16" height="228" fill="transparent"></rect>
+          <rect x="614" y="76" width="16" height="228" fill="transparent"></rect>
+          <rect x="120" y="54" width="126" height="26" fill="transparent"></rect>
+          <text x="240" y="73" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="15" fill="{{ m.lOpal }}">opal</text>
+        </g>
+
+        <g onClick="{{ selOduh }}" style="cursor:pointer">
+          <rect x="286" y="76" width="328" height="14" fill="transparent"></rect>
+          <rect x="286" y="290" width="328" height="14" fill="transparent"></rect>
+          <rect x="286" y="90" width="14" height="200" fill="transparent"></rect>
+          <rect x="600" y="90" width="14" height="200" fill="transparent"></rect>
+          <rect x="110" y="110" width="136" height="26" fill="transparent"></rect>
+          <text x="240" y="128" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="15" fill="{{ m.lOduh }}">oduhličení</text>
+        </g>
+
+        <g onClick="{{ selPreh }}" style="cursor:pointer">
+          <rect x="305" y="95" width="50" height="40" fill="transparent"></rect>
+          <rect x="365" y="95" width="50" height="40" fill="transparent"></rect>
+          <rect x="425" y="95" width="50" height="40" fill="transparent"></rect>
+          <rect x="485" y="95" width="50" height="40" fill="transparent"></rect>
+          <rect x="305" y="145" width="50" height="40" fill="transparent"></rect>
+          <rect x="365" y="145" width="50" height="40" fill="transparent"></rect>
+          <rect x="425" y="145" width="50" height="40" fill="transparent"></rect>
+          <rect x="485" y="145" width="50" height="40" fill="transparent"></rect>
+          <rect x="305" y="195" width="50" height="40" fill="transparent"></rect>
+          <rect x="365" y="195" width="50" height="40" fill="transparent"></rect>
+          <rect x="425" y="195" width="50" height="40" fill="transparent"></rect>
+          <rect x="485" y="195" width="50" height="40" fill="transparent"></rect>
+          <rect x="305" y="245" width="50" height="40" fill="transparent"></rect>
+          <rect x="365" y="245" width="50" height="40" fill="transparent"></rect>
+          <rect x="425" y="245" width="50" height="40" fill="transparent"></rect>
+          <rect x="485" y="245" width="50" height="40" fill="transparent"></rect>
+          <rect x="130" y="174" width="116" height="26" fill="transparent"></rect>
+          <text x="240" y="192" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="15" fill="{{ m.lPreh }}">přehřátí</text>
+        </g>
+
+        <g onClick="{{ selProp }}" style="cursor:pointer">
+          <line x1="360" y1="95" x2="360" y2="285" stroke="transparent" stroke-width="10"></line>
+          <line x1="420" y1="95" x2="420" y2="285" stroke="transparent" stroke-width="10"></line>
+          <line x1="480" y1="95" x2="480" y2="285" stroke="transparent" stroke-width="10"></line>
+          <line x1="305" y1="140" x2="535" y2="140" stroke="transparent" stroke-width="10"></line>
+          <line x1="305" y1="190" x2="535" y2="190" stroke="transparent" stroke-width="10"></line>
+          <line x1="305" y1="240" x2="535" y2="240" stroke="transparent" stroke-width="10"></line>
+          <rect x="658" y="162" width="166" height="26" fill="transparent"></rect>
+          <text x="664" y="180" font-family="IBM Plex Sans, sans-serif" font-size="15" fill="{{ m.lProp }}">propal — hranice zrn</text>
+        </g>
+
+        <g onClick="{{ selTrh }}" style="cursor:pointer">
+          <rect x="546" y="152" width="20" height="22" fill="transparent"></rect>
+          <rect x="566" y="136" width="24" height="26" fill="transparent"></rect>
+          <rect x="590" y="122" width="24" height="24" fill="transparent"></rect>
+          <rect x="652" y="103" width="222" height="26" fill="transparent"></rect>
+          <text x="658" y="121" font-family="IBM Plex Sans, sans-serif" font-size="15" fill="{{ m.lTrh }}">trhlina z&nbsp;rychlého ohřevu</text>
+        </g>
+
+        <text x="450" y="382" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#8296a8">{{ m.caption }}</text>
+      </svg>
+
+      <div style="margin-top:8px;padding-top:18px;border-top:1px solid rgba(150,180,210,0.16)">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:{{ m.headColor }};margin-bottom:12px">{{ m.title }}</div>
+        <div style="display:flex;flex-direction:column;gap:8px;max-width:95ch;height:192px">
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;height:48px">
+            <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:3px">Příčina</span>
+            <span style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty;overflow:hidden">{{ m.cause }}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;height:48px">
+            <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:3px">Projev</span>
+            <span style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty;overflow:hidden">{{ m.effect }}</span>
+          </div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:16px;height:48px">
+            <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:3px">Napravitelnost</span>
+            <span style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty;overflow:hidden">{{ m.remedy }}</span>
+          </div>
+          <div style="height:24px">
+            <sc-if value="{{ m.hasLink }}" hint-placeholder-val="{{ true }}">
+              <div style="display:grid;grid-template-columns:150px 1fr;gap:16px">
+                <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8296a8;padding-top:3px">Výklad</span>
+                <span style="font-size:15px;line-height:1.6;color:#aebfcf"><a href="pece.html">Pece a&nbsp;ohřev materiálu</a></span>
+              </div>
+            </sc-if>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ACC = '#e6a94a';
+const RED = '#e0503c';
+const DIM = '#aebfcf';
+
+const VADY = {
+  opal: {
+    title: 'Opal',
+    caption: 'povrchová vrstva kovu zoxidovala a změnila se v okuje',
+    cause: 'Kyslík v pecní atmosféře reaguje s kovem na povrchu přířezu.',
+    effect: 'Povrchová vrstva se mění v okuje a odlupuje se. Přířez je o tuto vrstvu menší.',
+    remedy: 'Ne — zoxidovaný kov je ztracen.',
+    hasLink: true,
+    color: ACC,
+  },
+  oduhliceni: {
+    title: 'Oduhličení',
+    caption: 'vrstva těsně pod povrchem přišla o uhlík',
+    cause: 'Kyslík v pecní atmosféře reaguje s uhlíkem v povrchové vrstvě oceli. Z jádra na jeho místo difunduje uhlík další.',
+    effect: 'Povrch změkne, klesne jeho pevnost, tvrdost a odolnost proti opotřebení. Po kalení se vrstva nedokalí.',
+    remedy: 'Zčásti — obrobením, pokud na to byl počítán přídavek.',
+    hasLink: false,
+    color: ACC,
+  },
+  prehrati: {
+    title: 'Přehřátí',
+    caption: 'zrna uvnitř materiálu vyrostla, hranice mezi nimi drží',
+    cause: 'Ohřev nad přípustnou teplotu nebo příliš dlouhá výdrž na vysoké teplotě.',
+    effect: 'Austenitická zrna rostou a struktura hrubne. Materiál zkřehne a je náchylný k interkrystalickému lomu.',
+    remedy: 'Ano — normalizačním žíháním nebo opakovaným tvářením za tepla.',
+    hasLink: false,
+    color: ACC,
+  },
+  propal: {
+    title: 'Propal',
+    caption: 'hranice zrn jsou nataveny, zrna spolu přestala držet',
+    cause: 'Další zvýšení teploty nad pásmo přehřátí, blízko teplotě tání oceli.',
+    effect: 'Hranice zrn se natavují a do natavené vrstvy pronikne kyslík. Materiál se při tváření rozpadá.',
+    remedy: 'Ne — přířez je zmetek.',
+    hasLink: true,
+    color: RED,
+  },
+  trhliny: {
+    title: 'Trhliny z rychlého ohřevu',
+    caption: 'trhlina vede od jádra k povrchu',
+    cause: 'Příliš rychlý ohřev v oblasti nízkých teplot. Povrch se roztahuje, studené jádro mu v tom brání a vzniká tepelné pnutí.',
+    effect: 'Pnutí překročí pevnost materiálu a ten se poruší. Trhlina vede od jádra k povrchu.',
+    remedy: 'Ne — přířez je zmetek.',
+    hasLink: false,
+    color: RED,
+  },
+};
+
+class Component extends DCLogic {
+  state = { sel: 'opal' };
+
+  pick = (id) => () => this.setState({ sel: id });
+
+  renderVals() {
+    const s = this.state.sel;
+    const v = VADY[s];
+    const on = (id) => id === s;
+    const lab = (id) => (on(id) ? VADY[id].color : DIM);
+    const line = (id) => (on(id) ? VADY[id].color : 'rgba(150,180,210,0.3)');
+
+    const m = {
+      title: v.title,
+      caption: v.caption,
+      cause: v.cause,
+      effect: v.effect,
+      remedy: v.remedy,
+      hasLink: v.hasLink,
+      headColor: v.color,
+      oxideFill: on('opal') ? '#a8552b' : 'rgba(168,85,43,0.28)',
+      oxideEdge: on('opal') ? ACC : 'rgba(150,180,210,0.18)',
+      decarbFill: on('oduhliceni') ? 'rgba(230,169,74,0.30)' : 'rgba(150,180,210,0.07)',
+      metalEdge: on('oduhliceni') ? ACC : 'rgba(150,180,210,0.28)',
+      coreFill: on('prehrati') ? 'rgba(230,169,74,0.16)' : 'rgba(150,180,210,0.12)',
+      coreEdge: on('prehrati') ? ACC : 'rgba(150,180,210,0.18)',
+      gbStroke: on('propal') ? RED : 'rgba(150,180,210,0.28)',
+      gbW: on('propal') ? 3 : 1.2,
+      crackStroke: on('trhliny') ? RED : 'rgba(224,80,60,0.4)',
+      crackW: on('trhliny') ? 3.4 : 1.8,
+      lOpal: lab('opal'),
+      lOduh: lab('oduhliceni'),
+      lPreh: lab('prehrati'),
+      lProp: lab('propal'),
+      lTrh: lab('trhliny'),
+      lOpalLine: line('opal'),
+      lOduhLine: line('oduhliceni'),
+      lPrehLine: line('prehrati'),
+      lPropLine: line('propal'),
+      lTrhLine: line('trhliny'),
+    };
+
+    return {
+      m,
+      selOpal: this.pick('opal'),
+      selOduh: this.pick('oduhliceni'),
+      selPreh: this.pick('prehrati'),
+      selProp: this.pick('propal'),
+      selTrh: this.pick('trhliny'),
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+  { title: 'Domů', href: '../../index.html' },
+  { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+  { title: 'Koroze', href: '../../koroze/index.html' },
+  { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+  { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+  { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+  { title: 'Odlévání', href: '../../odlevani/index.html' },
+  { title: 'O projektu', href: '../../o-projektu.html' },
+  { title: 'Novinky', href: '../../novinky.html' },
+];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rozcestník značení | STT</title>
+<meta name="description" content="Klikací mapa, která vás od tvaru značky oceli dovede ke konkrétnímu systému značení.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../support.js"></script>
+</head>
+<body data-first-seen="2026-09-20">
+<x-dc>
+<helmet>
+<style>
+html,body{margin:0;padding:0;background:#f4f5f7;}
+*{box-sizing:border-box;}
+@keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+a{color:#0d6f82}a:hover{color:#09525f}
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<script>
+document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+</script>
+</helmet>
+
+<div class="site-nav-toggle" style="position:fixed;top:20px;right:20px;z-index:1000;width:230px;background:#fff;border:1px solid #dfe2e8;border-radius:12px;box-shadow:0 2px 10px rgba(15,22,33,.08);overflow:hidden;max-height:48px;transition:max-height .22s ease;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5a616c;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5a616c;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5a616c;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eceef2">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="7">
+      <a href="{{ n.href }}" style="padding:11px 16px;font-size:14px;font-weight:600;color:#20242b" style-hover="background:#f4f5f7">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<div style="min-width:1280px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#20242b;padding:18px 20px 34px;">
+
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+    <a href="./index.html" style="display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;letter-spacing:.02em;color:#0d6f82;text-decoration:none;background:#fff;border:1px solid #dfe2e8;border-radius:999px;padding:9px 16px;box-shadow:0 1px 2px rgba(15,22,33,.04);transition:border-color .16s,color .16s;" style-hover="border-color:#0d6f82;color:#09525f">← Zpět na Značení ocelí</a>
+  </div>
+
+  <div ref="{{ wrapRef }}" style="position:relative;display:flex;align-items:center;gap:26px;min-height:520px;">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0;">
+      <sc-for list="{{ paths }}" as="p" hint-placeholder-count="0">
+        <path d="{{ p.d }}" fill="none" stroke="{{ p.stroke }}" stroke-width="{{ p.w }}"></path>
+      </sc-for>
+    </svg>
+
+    <div style="position:relative;z-index:1;width:150px;display:flex;flex-direction:column;justify-content:center;gap:14px;">
+      <div ref="{{ rootRef }}" onClick="{{ reset }}" style="cursor:pointer;padding:14px 14px;border-radius:9px;font-size:15px;line-height:1.3;font-weight:600;background:#20242b;color:#fff;border:1px solid #20242b;box-shadow:0 2px 6px rgba(15,22,33,.12);">Čím značka začíná?</div>
+    </div>
+
+    <div style="position:relative;z-index:1;width:150px;display:flex;flex-direction:column;justify-content:center;gap:12px;">
+      <sc-for list="{{ branches }}" as="n" hint-placeholder-count="4">
+        <div ref="{{ n.ref }}" onClick="{{ n.onClick }}" style="cursor:pointer;padding:11px 12px;border-radius:8px;border:1px solid #d3d7de;background:#fff;font-size:13.5px;line-height:1.35;color:#2a2f38;box-shadow:0 1px 2px rgba(15,22,33,.05);transition:background .16s,border-color .16s,color .16s,opacity .16s;display:flex;gap:6px;align-items:flex-start;justify-content:space-between;border-color:{{n.bc}};background:{{n.bg}};color:{{n.fg}};opacity:{{n.op}}">
+          <span>{{ n.text }}</span><span style="font-size:11px;line-height:1.6;opacity:.7;">{{ n.chev }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="position:relative;z-index:1;width:260px;display:flex;flex-direction:column;justify-content:center;">
+      <sc-if value="{{ isInfoA }}" hint-placeholder-val="{{ false }}">
+        <div ref="{{ infoRef }}" onClick="{{ infoOpen }}" style="cursor:default;padding:12px 13px;border-radius:8px;border:1px solid #cfe0e4;background:#fff;font-size:12.5px;line-height:1.5;color:#3a4149;border-left:3px solid #0d6f82;">
+          <p style="margin:0 0 8px;">Značení podle POUŽITÍ. <br>Číslo za písmenem = minimální mez kluzu v MPa.</p>
+          <p style="margin:0;">S = konstrukční, <br>P = tlakové nádoby, <br>E = strojní součásti.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isInfoB }}" hint-placeholder-val="{{ false }}">
+        <div ref="{{ infoRef }}" onClick="{{ infoOpen }}" style="cursor:default;padding:12px 13px;border-radius:8px;border:1px solid #cfe0e4;background:#fff;font-size:12.5px;line-height:1.5;color:#3a4149;border-left:3px solid #0d6f82;">
+          <p style="margin:0 0 8px;">Vysokolegovaná ocel — alespoň jeden prvek je zastoupen 5 % a více.</p>
+          <p style="margin:0 0 8px;">Čísla za značkami prvků jsou SKUTEČNÁ procenta, nepřepočítávají se.</p>
+          <p style="margin:0;">První číslo za X ÷ 100 = obsah uhlíku v %.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isInfoC }}" hint-placeholder-val="{{ false }}">
+        <div ref="{{ infoRef }}" onClick="{{ infoOpen }}" style="cursor:default;padding:12px 13px;border-radius:8px;border:1px solid #cfe0e4;background:#fff;font-size:12.5px;line-height:1.5;color:#3a4149;border-left:3px solid #0d6f82;">
+          <p style="margin:0 0 8px;">Rychlořezná ocel.</p>
+          <p style="margin:0;">Čísla udávají procenta legur a jsou VŽDY v pořadí W – Mo – V – Co.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isInfoD }}" hint-placeholder-val="{{ false }}">
+        <div ref="{{ infoRef }}" onClick="{{ infoOpen }}" style="cursor:default;padding:12px 13px;border-radius:8px;border:1px solid #cfe0e4;background:#fff;font-size:12.5px;line-height:1.5;color:#3a4149;border-left:3px solid #0d6f82;">
+          <p style="margin:0;">Značení podle SLOŽENÍ. <br>První číslo ÷ 100 = obsah uhlíku v %.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isInfoE }}" hint-placeholder-val="{{ false }}">
+        <div ref="{{ infoRef }}" onClick="{{ infoOpen }}" style="cursor:default;padding:12px 13px;border-radius:8px;border:1px solid #cfe0e4;background:#fff;font-size:12.5px;line-height:1.5;color:#3a4149;border-left:3px solid #0d6f82;">
+          <p style="margin:0 0 8px;">Předpona G znamená ODLITEK z oceli.</p>
+          <p style="margin:0;">Za předponou se značka čte přesně stejně jako u tvářené oceli — nic dalšího se nemění.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isInfoF }}" hint-placeholder-val="{{ false }}">
+        <div ref="{{ infoRef }}" onClick="{{ infoOpen }}" style="cursor:default;padding:12px 13px;border-radius:8px;border:1px solid #e6d3c2;background:#fdf7f1;font-size:12.5px;line-height:1.5;color:#4a3a2f;border-left:3px solid #a1552b;">
+          <p style="margin:0 0 8px;font-weight:600;color:#a1552b;">POZOR — norma: EN 1560</p>
+          <p style="margin:0 0 8px;">Litiny.</p>
+          <p style="margin:0 0 8px;">Za GJ následuje písmeno podle TVARU GRAFITU, pak minimální pevnost v tahu v MPa a případně tažnost v %.</p>
+          <p style="margin:0;">Norma zná i další tvary grafitu (V, M, N), zde se jimi nezabýváme.</p>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="position:relative;z-index:1;width:152px;display:flex;flex-direction:column;justify-content:center;">
+      <sc-for list="{{ question }}" as="n" hint-placeholder-count="0">
+        <div ref="{{ n.ref }}" onClick="{{ n.onClick }}" style="cursor:pointer;padding:11px 12px;border-radius:8px;font-size:13.5px;line-height:1.35;font-weight:600;background:#20242b;color:#fff;border:1px solid #20242b;display:flex;gap:6px;justify-content:space-between;align-items:flex-start;">
+          <span>{{ n.text }}</span><span style="font-size:11px;line-height:1.6;opacity:.7;">{{ n.chev }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="position:relative;z-index:1;width:140px;display:flex;flex-direction:column;justify-content:center;gap:12px;">
+      <sc-for list="{{ answers }}" as="n" hint-placeholder-count="0">
+        <div ref="{{ n.ref }}" onClick="{{ n.onClick }}" style="cursor:pointer;padding:10px 12px;border-radius:8px;border:1px solid #d3d7de;background:#fff;font-size:13px;line-height:1.35;color:#2a2f38;box-shadow:0 1px 2px rgba(15,22,33,.05);transition:background .16s,border-color .16s,color .16s,opacity .16s;display:flex;gap:6px;justify-content:space-between;align-items:flex-start;border-color:{{n.bc}};background:{{n.bg}};color:{{n.fg}};opacity:{{n.op}}">
+          <span>{{ n.text }}</span><span style="font-size:11px;line-height:1.6;opacity:.7;">{{ n.chev }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="position:relative;z-index:1;width:186px;display:flex;flex-direction:column;justify-content:center;gap:12px;">
+      <sc-if value="{{ isMid }}" hint-placeholder-val="{{ false }}">
+        <div ref="{{ midRef }}" onClick="{{ midOpen }}" style="cursor:pointer;padding:11px 12px;border-radius:8px;border:1px solid #cfe0e4;background:#fff;font-size:12.5px;line-height:1.45;color:#3a4149;box-shadow:0 1px 2px rgba(15,22,33,.05);">
+          <p style="margin:0 0 8px;">Nízkolegovaná ocel.</p>
+          <p style="margin:0 0 8px;">Čísla za prvky se dělí přepočtovým faktorem, nejsou to přímo procenta.</p>
+          <p style="margin:0;">Značky prvků jsou vždy seřazené podle klesajícího obsahu, takže i bez čísla víte, kterého prvku je víc.</p>
+        </div>
+      </sc-if>
+      <sc-for list="{{ col5 }}" as="n" hint-placeholder-count="0">
+        <div ref="{{ n.ref }}" onClick="{{ n.onClick }}" style="cursor:pointer;padding:11px 12px;border-radius:8px;border:1px solid #d3d7de;background:#fff;line-height:1.45;color:#2a2f38;box-shadow:0 1px 2px rgba(15,22,33,.05);transition:background .16s,border-color .16s,color .16s,opacity .16s;display:flex;gap:6px;justify-content:space-between;align-items:flex-start;font-size:{{n.fs}};font-family:{{n.ff}};border-color:{{n.bc}};background:{{n.bg}};color:{{n.fg}};opacity:{{n.op}}">
+          <span>{{ n.text }}</span><span style="font-size:11px;line-height:1.6;opacity:.7;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">{{ n.chev }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="position:relative;z-index:1;width:158px;display:flex;flex-direction:column;justify-content:center;gap:12px;">
+      <sc-for list="{{ col6 }}" as="n" hint-placeholder-count="0">
+        <div ref="{{ n.ref }}" onClick="{{ n.onClick }}" style="cursor:pointer;padding:11px 12px;border-radius:8px;border:1px solid #d3d7de;background:#fff;font-size:14px;font-family:ui-monospace,Consolas,'Courier New',monospace;line-height:1.4;color:#2a2f38;box-shadow:0 1px 2px rgba(15,22,33,.05);transition:background .16s,border-color .16s,color .16s,opacity .16s;display:flex;gap:6px;justify-content:space-between;align-items:flex-start;border-color:{{n.bc}};background:{{n.bg}};color:{{n.fg}};opacity:{{n.op}}">
+          <span>{{ n.text }}</span><span style="font-size:11px;line-height:1.6;opacity:.7;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">{{ n.chev }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:flex-start;margin-top:4px;">
+    <div onClick="{{ reset }}" style="cursor:pointer;user-select:none;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;padding:7px 13px;border:1px solid #d3d7de;border-radius:999px;background:#fff;color:#4b525d;" style-hover="border-color:#0d6f82;color:#0d6f82">Začít znovu</div>
+  </div>
+
+  <sc-if value="{{ card }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:26px;background:#fff;border:1px solid #dfe2e8;border-radius:12px;padding:26px 28px 24px;box-shadow:0 6px 20px rgba(15,22,33,.07);animation:cardIn .22s ease-out;">
+
+      <sc-if value="{{ isT1 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">S</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">konstrukční ocel — značení podle použití</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">235</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">minimální mez kluzu v MPa</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">mez kluzu min. 235 MPa</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">hodnota platí pro tloušťku do 16 mm — pro jiné tloušťky dohledat v normě</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">nosníky, profily, svařované konstrukce</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT2 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">S</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">konstrukční ocel</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">355</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">minimální mez kluzu v MPa</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c2 }}">J2</div><div style="height:3px;border-radius:2px;background:{{ c2 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">zaručená nárazová práce při dané teplotě</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">mez kluzu min. 355 MPa; J2 = nárazová práce 27 J při teplotě −20 °C</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">hodnota meze kluzu platí pro tloušťku do 16 mm — pro jiné tloušťky dohledat v normě</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">konstrukce namáhané za nízkých teplot</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT3 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">S</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">konstrukční ocel</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">355</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">minimální mez kluzu v MPa</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c2 }}">J2</div><div style="height:3px;border-radius:2px;background:{{ c2 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">zaručená nárazová práce při dané teplotě</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c3 }}">W</div><div style="height:3px;border-radius:2px;background:{{ c3 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">přídavný znak na konci značky</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">jako S355J2; W = zvýšená odolnost proti atmosférické korozi</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">hodnota meze kluzu platí pro tloušťku do 16 mm — pro jiné tloušťky dohledat v normě</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">mostní a fasádní konstrukce bez nátěru</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT4 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">X</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">vysokolegovaná ocel</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">5</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">÷ 100 = obsah uhlíku v %</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c2 }}">CrNi</div><div style="height:3px;border-radius:2px;background:{{ c2 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">legující prvky: chrom, nikl</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c3 }}">18-10</div><div style="height:3px;border-radius:2px;background:{{ c3 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">skutečná procenta Cr a Ni ve stejném pořadí</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">0,05 % C; 18 % Cr; 10 % Ni</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">max. 0,07 % C; 17,5–19,5 % Cr; 8,0–10,5 % Ni</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">nerezové dřezy, potravinářství, obklady</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT5 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">X</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">vysokolegovaná ocel</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">2</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">÷ 100 = obsah uhlíku v %</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c2 }}">CrNiMo</div><div style="height:3px;border-radius:2px;background:{{ c2 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">legující prvky: chrom, nikl, molybden</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c3 }}">17-12-2</div><div style="height:3px;border-radius:2px;background:{{ c3 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">skutečná procenta Cr, Ni a Mo ve stejném pořadí</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">0,02 % C; 17 % Cr; 12 % Ni; 2 % Mo</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">max. 0,030 % C; 16,5–18,5 % Cr; 10,0–13,0 % Ni; 2,0–2,5 % Mo</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">chemický průmysl, prostředí s chloridy</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT6 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">HS</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">rychlořezná ocel</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c3 }}">6-5-2</div><div style="height:3px;border-radius:2px;background:{{ c3 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">procenta legur v pořadí W – Mo – V</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">6 % W; 5 % Mo; 2 % V</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">obsah uhlíku není ve značce zakódován — dohledat v EN ISO 4957</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">vrtáky, frézy, závitníky</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT7 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">HS</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">rychlořezná ocel</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c3 }}">10-4-3-10</div><div style="height:3px;border-radius:2px;background:{{ c3 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">procenta legur v pořadí W – Mo – V – Co</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">10 % W; 4 % Mo; 3 % V; 10 % Co</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">obsah uhlíku není ve značce zakódován — dohledat v EN ISO 4957</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">nástroje pro obrábění těžkoobrobitelných materiálů</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT8 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">C</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">nelegovaná ocel — značení podle složení</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">45</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">÷ 100 = obsah uhlíku v %</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">0,45 % C</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">přesný rozsah: 0,42–0,50 % C — dohledat v normě</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">hřídele, čepy, ozubená kola</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT9 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">42</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">÷ 100 = obsah uhlíku v %</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c2 }}">CrMo</div><div style="height:3px;border-radius:2px;background:{{ c2 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">legující prvky: chrom, molybden</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c3 }}">4</div><div style="height:3px;border-radius:2px;background:{{ c3 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">obsah chromu po dělení přepočtovým faktorem, ne přímo %</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">0,42 % C; přibližně 1 % Cr</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">0,15–0,30 % Mo — obsah není ve značce zakódován</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">namáhané hřídele, ojnice</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT10 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">16</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">÷ 100 = obsah uhlíku v %</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c2 }}">MnCr</div><div style="height:3px;border-radius:2px;background:{{ c2 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">legující prvky: mangan, chrom</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c3 }}">5</div><div style="height:3px;border-radius:2px;background:{{ c3 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">obsah manganu po dělení přepočtovým faktorem, ne přímo %</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">0,16 % C; přibližně 1,25 % Mn</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">0,80–1,10 % Cr — obsah není ve značce zakódován</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">cementovaná ozubená kola, hřídele</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT11 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">G</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">odlitek z oceli</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">E</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">strojní součásti — značení podle použití</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">240</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">minimální mez kluzu v MPa</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">odlitek; mez kluzu min. 240 MPa</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">tvarově složité díly namáhané staticky</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT12 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">G</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">odlitek z oceli</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">20</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">÷ 100 = obsah uhlíku v %</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c2 }}">Mn</div><div style="height:3px;border-radius:2px;background:{{ c2 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">legující prvek: mangan</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c3 }}">5</div><div style="height:3px;border-radius:2px;background:{{ c3 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">obsah manganu po dělení přepočtovým faktorem, ne přímo %</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">odlitek; 0,20 % C; přibližně 1,25 % Mn</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">skutečný obsah manganu 1,00–1,60 %</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">odlitky pro nízké teploty, díly větrných elektráren</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT13 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">G</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:168px;"><p style="margin:0;">odlitek z oceli</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c0 }}">X</div><div style="height:3px;border-radius:2px;background:{{ c0 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:168px;"><p style="margin:0;">vysokolegovaná ocel</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c1 }}">5</div><div style="height:3px;border-radius:2px;background:{{ c1 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:168px;"><p style="margin:0;">÷ 100 = obsah uhlíku v %</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c2 }}">CrNi</div><div style="height:3px;border-radius:2px;background:{{ c2 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:168px;"><p style="margin:0;">legující prvky: chrom, nikl</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:40px;letter-spacing:-.01em;line-height:1;font-weight:600;color:{{ c3 }}">19-10</div><div style="height:3px;border-radius:2px;background:{{ c3 }}"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:168px;"><p style="margin:0;">skutečná procenta Cr a Ni ve stejném pořadí</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">odlitek; vysokolegovaná; 0,05 % C; 19 % Cr; 10 % Ni</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">max. 0,07 % C; 18,0–20,0 % Cr; 8,0–11,0 % Ni</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">nerezová čerpadla, armatury, potravinářské odlitky</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT14 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:inline-block;margin-bottom:18px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#a1552b;background:#fdf1e7;border:1px solid #e6d3c2;border-radius:999px;padding:5px 11px;">Norma EN 1560</div>
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:#a1552b">EN-GJ</div><div style="height:3px;border-radius:2px;background:#a1552b"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">litina s grafitem podle EN 1560</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:#8a6b2f">L</div><div style="height:3px;border-radius:2px;background:#8a6b2f"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">tvar grafitu: LUPÍNKOVÝ</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:#6b4a3a">250</div><div style="height:3px;border-radius:2px;background:#6b4a3a"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">minimální pevnost v tahu v MPa</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">litina s LUPÍNKOVÝM grafitem; min. pevnost v tahu 250 MPa</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;background:#f1f2f4;border-radius:8px;padding:2px 10px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co musíte dohledat v normě</div><div style="font-size:15px;line-height:1.55;color:#6b7280;padding:8px 0;"><p style="margin:0;">pevnost platí pro zkušební tyč — hodnoty pro konkrétní tloušťku stěny odlitku dohledat v normě</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">lože obráběcích strojů, bloky motorů, tělesa převodovek</p></div></div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isT15 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:inline-block;margin-bottom:18px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#a1552b;background:#fdf1e7;border:1px solid #e6d3c2;border-radius:999px;padding:5px 11px;">Norma EN 1560</div>
+        <div style="display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;">
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:#a1552b">EN-GJ</div><div style="height:3px;border-radius:2px;background:#a1552b"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">litina s grafitem podle EN 1560</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:#8a6b2f">S</div><div style="height:3px;border-radius:2px;background:#8a6b2f"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">tvar grafitu: KULIČKOVÝ</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:#6b4a3a">400</div><div style="height:3px;border-radius:2px;background:#6b4a3a"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">minimální pevnost v tahu v MPa</p></div></div>
+          <div style="display:flex;flex-direction:column;gap:9px;min-width:0;padding-right:22px;"><div style="font-family:ui-monospace,Consolas,'Courier New',monospace;font-size:44px;letter-spacing:-.01em;line-height:1;font-weight:600;color:#7c5c6b">15</div><div style="height:3px;border-radius:2px;background:#7c5c6b"></div><div style="font-size:12.5px;line-height:1.45;color:#4b525d;max-width:190px;"><p style="margin:0;">minimální tažnost v %</p></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px;border-top:1px solid #ecedf1;padding-top:18px;">
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;">Co vyčtete ze značky</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;"><p style="margin:0;">litina s KULIČKOVÝM grafitem; min. pevnost v tahu 400 MPa; min. tažnost 15 %</p></div></div>
+          <div style="display:grid;grid-template-columns:200px 1fr;gap:2px 18px;"><div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#8a919c;padding:8px 0;border-top:1px solid #f2f3f6;">Využití pro</div><div style="font-size:15px;line-height:1.55;color:#20242b;padding:8px 0;border-top:1px solid #f2f3f6;"><p style="margin:0;">klikové hřídele, skříně, potrubní armatury</p></div></div>
+        </div>
+      </sc-if>
+
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#3f6b3f&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#0d6f82&quot;,&quot;#1f5fa8&quot;,&quot;#8a5a1f&quot;,&quot;#3f6b3f&quot;]},&quot;linkStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;křivky&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;křivky&quot;,&quot;lomené čáry&quot;]},&quot;dimOpacity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.6,&quot;min&quot;:0.25,&quot;max&quot;:1,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { branch:null, qOpen:false, answer:null, midOpen:false, target:null, paths:[] };
+  els = {};
+
+  tree = [
+    { id:'A', text:'S, P nebo E',
+      info:'Značení podle POUŽITÍ. \nČíslo za písmenem = minimální mez kluzu v MPa. \nS = konstrukční, \nP = tlakové nádoby, \nE = strojní součásti.',
+      q:'Je za číslem ještě něco?',
+      answers:[ {id:'A1',text:'Ne',target:'t1'}, {id:'A2',text:'Písmeno J a číslo',target:'t2'}, {id:'A3',text:'Písmeno W na konci',target:'t3'} ] },
+    { id:'B', text:'X',
+      info:'Vysokolegovaná ocel — alespoň jeden prvek je zastoupen 5 % a více. Čísla za značkami prvků jsou SKUTEČNÁ procenta, nepřepočítávají se. První číslo za X ÷ 100 = obsah uhlíku v %.',
+      q:'Kolik čísel je za značkami prvků?',
+      answers:[ {id:'B1',text:'Dvě',target:'t4'}, {id:'B2',text:'Tři',target:'t5'} ] },
+    { id:'C', text:'HS',
+      info:'Rychlořezná ocel. Čísla udávají procenta legur a jsou VŽDY v pořadí W – Mo – V – Co.',
+      q:'Kolik je čísel?',
+      answers:[ {id:'C1',text:'Tři',target:'t6'}, {id:'C2',text:'Čtyři',target:'t7'} ] },
+    { id:'D', text:'Číslem nebo C',
+      info:'Značení podle SLOŽENÍ. První číslo ÷ 100 = obsah uhlíku v %.',
+      q:'Jsou ve značce chemické značky prvků?',
+      answers:[ {id:'D1',text:'Ne',target:'t8'},
+                {id:'D2',text:'Ano',mid:{ id:'Dmid', text:'Nízkolegovaná ocel. \nČísla za prvky se dělí přepočtovým faktorem, nejsou to přímo procenta. \n\nZnačky prvků jsou vždy seřazené podle klesajícího obsahu, takže i bez čísla víte, kterého prvku je víc.', targets:['t9','t10'] }} ] },
+    { id:'E', text:'G',
+      info:'Předpona G znamená ODLITEK z oceli. Za předponou se značka čte přesně stejně jako u tvářené oceli — nic dalšího se nemění.',
+      q:'Co následuje za G?',
+      answers:[ {id:'E1',text:'E a číslo',target:'t11'}, {id:'E2',text:'Číslo a značky prvků',target:'t12'}, {id:'E3',text:'X',target:'t13'} ] },
+    { id:'F', text:'EN-GJ', alt:true,
+      info:'POZOR — jiná norma. Litiny neznačí EN 10027-1, ale EN 1560. Za GJ následuje písmeno podle TVARU GRAFITU, pak minimální pevnost v tahu v MPa a případně tažnost v %.',
+      q:'Jaké písmeno je za GJ?',
+      answers:[ {id:'F1',text:'L',target:'t14'}, {id:'F2',text:'S',target:'t15'} ] }
+  ];
+
+  targets = {
+    t1:{ mark:'S235', segs:[
+      {t:'S',d:'konstrukční ocel — značení podle použití',c:0},
+      {t:'235',d:'minimální mez kluzu v MPa',c:1}],
+      compA:'mez kluzu min. 235 MPa', compB:'hodnota platí pro tloušťku do 16 mm — pro jiné tloušťky dohledat v normě', use:'nosníky, profily, svařované konstrukce' },
+    t2:{ mark:'S355J2', segs:[
+      {t:'S',d:'konstrukční ocel',c:0},
+      {t:'355',d:'minimální mez kluzu v MPa',c:1},
+      {t:'J2',d:'zaručená nárazová práce při dané teplotě',c:2}],
+      compA:'mez kluzu min. 355 MPa; J2 = nárazová práce 27 J při teplotě −20 °C', compB:'hodnota mezi kluzu platí pro tloušťku do 16 mm — pro jiné tloušťky dohledat v normě', use:'konstrukce namáhané za nízkých teplot' },
+    t3:{ mark:'S355J2W', segs:[
+      {t:'S',d:'konstrukční ocel',c:0},
+      {t:'355',d:'minimální mez kluzu v MPa',c:1},
+      {t:'J2',d:'zaručená nárazová práce při dané teplotě',c:2},
+      {t:'W',d:'přídavný znak na konci značky',c:3}],
+      compA:'jako S355J2; W = zvýšená odolnost proti atmosférické korozi', compB:'hodnota mezi kluzu platí pro tloušťku do 16 mm — pro jiné tloušťky dohledat v normě', use:'mostní a fasádní konstrukce bez nátěru' },
+    t4:{ mark:'X5CrNi18-10', segs:[
+      {t:'X',d:'vysokolegovaná ocel',c:0},
+      {t:'5',d:'÷ 100 = obsah uhlíku v %',c:1},
+      {t:'CrNi',d:'legující prvky: chrom, nikl',c:2},
+      {t:'18-10',d:'skutečná procenta Cr a Ni ve stejném pořadí',c:3}],
+      compA:'max. 0,05 % C; 17,5–19,5 % Cr; 8,0–10,5 % Ni', compB:null, use:'nerezové dřezy, potravinářství, obklady' },
+    t5:{ mark:'X2CrNiMo17-12-2', segs:[
+      {t:'X',d:'vysokolegovaná ocel',c:0},
+      {t:'2',d:'÷ 100 = obsah uhlíku v %',c:1},
+      {t:'CrNiMo',d:'legující prvky: chrom, nikl, molybden',c:2},
+      {t:'17-12-2',d:'skutečná procenta Cr, Ni a Mo ve stejném pořadí',c:3}],
+      compA:'max. 0,030 % C; 16,5–18,5 % Cr; 10,0–13,0 % Ni; 2,0–2,5 % Mo', compB:null, use:'chemický průmysl, prostředí s chloridy' },
+    t6:{ mark:'HS6-5-2', segs:[
+      {t:'HS',d:'rychlořezná ocel',c:0},
+      {t:'6-5-2',d:'procenta legur v pořadí W – Mo – V',c:1}],
+      compA:'6 % W; 5 % Mo; 2 % V', compB:null, use:'vrtáky, frézy, závitníky' },
+    t7:{ mark:'HS10-4-3-10', segs:[
+      {t:'HS',d:'rychlořezná ocel',c:0},
+      {t:'10-4-3-10',d:'procenta legur v pořadí W – Mo – V – Co',c:1}],
+      compA:'10 % W; 4 % Mo; 3 % V; 10 % Co', compB:null, use:'nástroje pro obrábění těžkoobrobitelných materiálů' },
+    t8:{ mark:'C45', segs:[
+      {t:'C',d:'nelegovaná ocel — značení podle složení',c:0},
+      {t:'45',d:'÷ 100 = obsah uhlíku v %',c:1}],
+      compA:'0,45 % C', compB:'přesný rozsah: 0,42–0,50 % C — dohledat v normě', use:'hřídele, čepy, ozubená kola' },
+    t9:{ mark:'42CrMo4', segs:[
+      {t:'42',d:'÷ 100 = obsah uhlíku v %',c:0},
+      {t:'CrMo',d:'legující prvky: chrom, molybden',c:2},
+      {t:'4',d:'obsah chromu po dělení přepočtovým faktorem, ne přímo %',c:3}],
+      compA:'0,42 % C; přibližně 1 % Cr', compB:'0,15–0,30 % Mo — obsah není ve značce zakódován', use:'namáhané hřídele, ojnice' },
+    t10:{ mark:'16MnCr5', segs:[
+      {t:'16',d:'÷ 100 = obsah uhlíku v %',c:0},
+      {t:'MnCr',d:'legující prvky: mangan, chrom',c:2},
+      {t:'5',d:'obsah manganu po dělení přepočtovým faktorem, ne přímo %',c:3}],
+      compA:'0,16 % C; přibližně 1,25 % Mn', compB:'0,80–1,10 % Cr — obsah není ve značce zakódován', use:'cementovaná ozubená kola, hřídele' },
+    t11:{ mark:'GE240' },
+    t12:{ mark:'G20Mn5' },
+    t13:{ mark:'GX5CrNi19-10' },
+    t14:{ mark:'EN-GJL-250', alt:true },
+    t15:{ mark:'EN-GJS-400-15', alt:true }
+  };
+
+  ref(id){ return (el) => { if (el) this.els[id] = el; else delete this.els[id]; }; }
+
+  ALT = '#a1552b';
+
+  look(state, accent, dim, alt){
+    if (state === 'a') return { bc:accent, bg:accent, fg:'#ffffff', op:1 };
+    if (state === 'd') return alt
+      ? { bc:'#eee0d3', bg:'#fbf6f1', fg:'#b0a094', op:dim }
+      : { bc:'#e6e8ec', bg:'#f7f8fa', fg:'#9aa1ac', op:dim };
+    return alt
+      ? { bc:'#e6d3c2', bg:'#fdf7f1', fg:'#6b4a3a', op:1 }
+      : { bc:'#d3d7de', bg:'#ffffff', fg:'#2a2f38', op:1 };
+  }
+
+  componentDidMount(){
+    this.measure();
+    requestAnimationFrame(() => { this.measure(); requestAnimationFrame(() => this.measure()); });
+    window.addEventListener('resize', this._r = () => this.measure());
+    if (window.ResizeObserver){
+      this._ro = new ResizeObserver(() => this.measure());
+      if (this.els.__wrap) this._ro.observe(this.els.__wrap);
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.measure());
+  }
+  componentDidUpdate(){ this.measure(); }
+  componentWillUnmount(){ window.removeEventListener('resize', this._r); if (this._ro) this._ro.disconnect(); }
+
+  measure(){
+    const wrap = this.els.__wrap; if (!wrap || !this.edges) return;
+    const wr = wrap.getBoundingClientRect();
+    if (!wr.width || !wr.height){ requestAnimationFrame(() => this.measure()); return; }
+    if (this._ro && this._roTarget !== wrap){ this._ro.observe(wrap); this._roTarget = wrap; }
+    const accent = this.props.accent ?? '#0d6f82';
+    const ortho = (this.props.linkStyle ?? 'křivky') === 'lomené čáry';
+    const out = [];
+    for (const e of this.edges){
+      const a = this.els[e.from], b = this.els[e.to];
+      if (!a || !b) continue;
+      const ar = a.getBoundingClientRect(), br = b.getBoundingClientRect();
+      const x1 = ar.right - wr.left, y1 = ar.top - wr.top + ar.height/2;
+      const x2 = br.left - wr.left, y2 = br.top - wr.top + br.height/2;
+      const d = ortho
+        ? `M${x1},${y1} H${(x1+x2)/2} V${y2} H${x2}`
+        : `M${x1},${y1} C${x1+(x2-x1)/2},${y1} ${x2-(x2-x1)/2},${y2} ${x2},${y2}`;
+      out.push({ id:e.from+'>'+e.to, d, stroke: e.active ? (e.color || accent) : '#d6dae0', w: e.active ? 2.2 : 1.4 });
+    }
+    const degenerate = out.length > 0 && out.every(p => p.d.indexOf('M0,0 C0,0') === 0 || p.d.indexOf('M0,0 H0') === 0);
+    if (degenerate){ requestAnimationFrame(() => this.measure()); return; }
+    const key = JSON.stringify(out);
+    if (key !== this._pk){ this._pk = key; this.setState({ paths: out }); }
+  }
+
+  renderVals(){
+    const st = this.state;
+    const accent = this.props.accent ?? '#0d6f82';
+    const dim = this.props.dimOpacity ?? 0.5;
+    const br = this.tree.find(b => b.id === st.branch) || null;
+    const ans = br && st.answer ? br.answers.find(a => a.id === st.answer) : null;
+    const edges = [];
+    const set = (o) => this.setState(o);
+
+    const brAcc = br && br.alt ? this.ALT : accent;
+    const branches = this.tree.map(b => {
+      const state = st.branch ? (st.branch === b.id ? 'a' : 'd') : 'i';
+      edges.push({ from:'root', to:b.id, active: st.branch === b.id, color: b.alt ? this.ALT : accent });
+      return Object.assign({ id:b.id, text:b.text, chev: st.branch === b.id ? '' : '▸',
+        ref:this.ref(b.id),
+        onClick:() => set({ branch:b.id, qOpen:true, answer:null, midOpen:false, target:null }) },
+        this.look(state, b.alt ? this.ALT : accent, dim, b.alt));
+    });
+
+    const question = [], answers = [], col5 = [], col6 = [];
+    let isInfoA = false, isInfoB = false, isInfoC = false, isInfoD = false, isInfoE = false, isInfoF = false;
+    if (br){
+      edges.push({ from:br.id, to:'info', active:true, color:brAcc }, { from:'info', to:'q', active:true, color:brAcc });
+      isInfoA = br.id === 'A'; isInfoB = br.id === 'B'; isInfoC = br.id === 'C'; isInfoD = br.id === 'D';
+      isInfoE = br.id === 'E'; isInfoF = br.id === 'F';
+      question.push({ id:'q', text:br.q, chev: st.qOpen ? '' : '▸', ref:this.ref('q'), onClick:() => set({ qOpen:true }) });
+    }
+    const infoRef = this.ref('info');
+    const infoOpen = () => set({ qOpen:true });
+    let isMid = false, midRef = null;
+    const midOpen = () => set({ midOpen:true });
+    if (br && st.qOpen){
+      for (const a of br.answers){
+        const state = st.answer ? (st.answer === a.id ? 'a' : 'd') : 'i';
+        edges.push({ from:'q', to:a.id, active: st.answer === a.id, color:brAcc });
+        answers.push(Object.assign({ id:a.id, text:a.text, chev: st.answer === a.id ? '' : '▸',
+          ref:this.ref(a.id), onClick:() => set({ answer:a.id, midOpen:!!a.mid, target: a.target || null }) },
+          this.look(state, brAcc, dim, br.alt)));
+      }
+    }
+    const targetNode = (tid, from) => {
+      const t = this.targets[tid];
+      const state = st.target === tid ? 'a' : (st.target ? 'd' : 'i');
+      edges.push({ from, to:tid, active: st.target === tid, color: t.alt ? this.ALT : accent });
+      return Object.assign({ id:tid, text:t.mark, chev: st.target === tid ? '' : 'karta ▸',
+        fs:'14px', ff:"ui-monospace,Consolas,'Courier New',monospace",
+        ref:this.ref(tid), onClick:() => set({ target:tid }) },
+        this.look(state, t.alt ? this.ALT : accent, dim, t.alt));
+    };
+    if (ans){
+      if (ans.mid){
+        edges.push({ from:ans.id, to:ans.mid.id, active:true });
+        isMid = true;
+        midRef = this.ref(ans.mid.id);
+        if (st.midOpen) for (const tid of ans.mid.targets) col6.push(targetNode(tid, ans.mid.id));
+      } else {
+        col5.push(targetNode(ans.target, ans.id));
+      }
+    }
+    this.edges = edges;
+
+    const pal = [accent, '#c07a2b', '#7c4a8f', '#4a7d63'];
+    const card = !!st.target;
+    const targetIds = ['t1','t2','t3','t4','t5','t6','t7','t8','t9','t10','t11','t12','t13','t14','t15'];
+    const isT = {}; for (const id of targetIds) isT['is' + id[0].toUpperCase() + id.slice(1)] = st.target === id;
+
+    return { branches, isInfoA, isInfoB, isInfoC, isInfoD, isInfoE, isInfoF, infoRef, infoOpen, question, answers, col5, col6, card,
+      c0:pal[0], c1:pal[1], c2:pal[2], c3:pal[3], ...isT, isMid, midRef, midOpen,
+      paths: st.paths,
+      wrapRef: this.ref('__wrap'), rootRef: this.ref('root'),
+      reset: () => { this._pk = null; set({ branch:null, qOpen:false, answer:null, midOpen:false, target:null }); } };
+  }
+}
+
+(function () {
+  const P = '../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../index.html' },
+    { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../koroze/index.html' },
+    { title: 'Tváření', href: '../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../odlevani/index.html' },
+    { title: 'O projektu', href: '../o-projektu.html' },
+    { title: 'Novinky', href: '../novinky.html' },
+];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>
