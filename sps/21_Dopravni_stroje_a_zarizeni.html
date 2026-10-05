@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>21. Dopravní stroje a zařízení</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>21. Dopravní stroje a zařízení</h1>
+
+    <div class="box">
+        <p><strong>Účel:</strong> Přemisťování sypkých hmot (písek, štěrk, uhlí, obilí, cement) a kusových předmětů (krabice, automobilové součástky, palety). Zatímco zdvihací stroje pracují cyklicky, dopravníky pracují převážně <strong>plynule (nepřetržitě)</strong> na pevně stanovené dráze. Jsou srdcem každé hromadné výroby, těžby a automatizovaného skladu.</p>
+    </div>
+
+    <h2>1. Dopravníky s tažným prvkem</h2>
+    <p>Materiál je unášen tažným elementem (pás, řetěz, nebo lano), který je poháněn elektromotorem a běží v nekonečné smyčce.</p>
+    
+    <h3>A) Pásové dopravníky</h3>
+    <ul>
+        <li>Naprosto nejpoužívanější typ (od uhelných dolů přes pokladny v supermarketu po letištní kufry).</li>
+        <li><strong>Tažný prvek:</strong> Nekonečný pryžový nebo textilní/ocelový pás. U kusového zboží jede pás naplocho. U sypkých materiálů se pás prohne do <strong>korýtka (tvar U)</strong> pomocí šikmo nakloněných válečků, aby se písek nevysypal bokem.</li>
+        <li><strong>Hlavní části:</strong>
+            <ul>
+                <li><span class="highlight">Hnací buben:</span> Rotuje, přenáší tažnou sílu do pásu pouhým <strong>třením</strong> (bývá pogumovaný proti prokluzu).</li>
+                <li><span class="highlight">Vratný (Napínací) buben:</span> Na opačném konci. Pomocí šroubů nebo těžkého závaží zajišťuje neustálé <em>předpětí pásu</em>, aby pás na hnacím bubnu neprokluzoval a nevysmekl se.</li>
+                <li><span class="highlight">Válečkové stolice:</span> Desítky malých válečků nesoucích váhu plného pásu nahoře (nosné) a prázdného pásu dole (vratné).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Schéma: Konstrukce pásového dopravníku</strong><br>
+        <svg width="100%" height="220" viewBox="0 0 600 220">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+            </defs>
+
+            <!-- Nosný Rám (Základna) -->
+            <line x1="30" y1="120" x2="550" y2="120" stroke="#777" stroke-width="4" stroke-dasharray="20,10"/>
+
+            <!-- Hnací buben (Vlevo) -->
+            <circle cx="80" cy="70" r="45" fill="#ddd" stroke="#111" stroke-width="2.5"/>
+            <circle cx="80" cy="70" r="6" fill="#111"/> <!-- Osa -->
+            <path d="M 80 15 A 55 55 0 0 0 25 70" fill="none" stroke="#c00" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="50" y="30" font-size="14" fill="#c00" font-weight="bold">Mk</text>
+            <text x="80" y="80" font-size="12" text-anchor="middle" font-weight="bold">Hnací</text>
+
+            <!-- Napínací buben (Vpravo) s napínacím šroubem -->
+            <circle cx="480" cy="70" r="45" fill="#ddd" stroke="#111" stroke-width="2.5"/>
+            <circle cx="480" cy="70" r="6" fill="#111"/> <!-- Osa -->
+            
+            <line x1="480" y1="70" x2="560" y2="70" stroke="#111" stroke-width="3"/>
+            <rect x="520" y="60" width="10" height="20" fill="#333"/> <!-- Napínací matice -->
+            <line x1="535" y1="70" x2="570" y2="70" stroke="#00c" stroke-width="4" marker-end="url(#arrow-blue)"/>
+            <text x="580" y="75" font-size="14" fill="#00c" font-weight="bold">F (Předpětí!)</text>
+            
+            <text x="480" y="80" font-size="12" text-anchor="middle" font-weight="bold">Napínací (Vratný)</text>
+
+            <!-- Nosné válečky (Horní - zatížená větev) -->
+            <circle cx="160" cy="32" r="8" fill="#555" stroke="#111" stroke-width="1.5"/>
+            <circle cx="240" cy="32" r="8" fill="#555" stroke="#111" stroke-width="1.5"/>
+            <circle cx="320" cy="32" r="8" fill="#555" stroke="#111" stroke-width="1.5"/>
+            <circle cx="400" cy="32" r="8" fill="#555" stroke="#111" stroke-width="1.5"/>
+
+            <!-- Vratné válečky (Dolní větev) -->
+            <circle cx="200" cy="108" r="8" fill="#888" stroke="#111" stroke-width="1.5"/>
+            <circle cx="360" cy="108" r="8" fill="#888" stroke="#111" stroke-width="1.5"/>
+
+            <!-- Pás -->
+            <path d="M 80 25 L 480 25 A 45 45 0 0 1 480 115 L 80 115 A 45 45 0 0 1 80 25 Z" fill="none" stroke="#222" stroke-width="4"/>
+
+            <!-- Rychlost pásu a náklad -->
+            <rect x="230" y="5" width="60" height="20" fill="#fbb" stroke="#c00" stroke-width="2"/>
+            <text x="260" y="18" font-size="11" font-weight="bold" text-anchor="middle">Materiál</text>
+            <line x1="200" y1="15" x2="330" y2="15" stroke="#c00" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="270" y="8" font-size="12" fill="#c00" font-weight="bold" text-anchor="middle">Rychlost dopravy (v)</text>
+            
+            <!-- Popisky -->
+            <line x1="240" y1="45" x2="240" y2="60" stroke="#111" stroke-width="1"/>
+            <text x="240" y="70" font-size="11" font-weight="bold" text-anchor="middle">Nosné válečky (často jako "U" korýtko)</text>
+            
+            <line x1="200" y1="120" x2="200" y2="140" stroke="#111" stroke-width="1"/>
+            <text x="200" y="150" font-size="11" font-weight="bold" text-anchor="middle">Vratné válečky (rovné)</text>
+        </svg>
+    </div>
+
+    <h3>B) Článkové a Korečkové dopravníky</h3>
+    <ul>
+        <li><strong>Článkové dopravníky:</strong> Tažným prvkem není pryž, ale dva masivní ocelové řetězy. Na nich jsou přišroubované ocelové desky (články) tvořící neprorazitelný pás. <em>Použití:</em> Ostré ocelové třísky od soustruhů, žhavé odlitky z pískových forem ve slévárnách (vše, co by gumu roztrhalo a spálilo).</li>
+        <li><strong>Korečkové dopravníky (Elevátory):</strong> Na pásu (nebo řetězu) jsou v rozestupech přišroubovány ocelové nebo plastové "kbelíky" (korečky). <em>Použití:</em> Dokonalé pro <strong>svislou dopravu sypkých látek do obrovských výšek</strong>. Dole se kbelíky zaboří do hromady zrní nebo cementu, vyjedou nahoru na věž sila, a jak se pás obtočí přes horní buben, kbelík se obrátí dnem vzhůru a odstředivou silou se obsah vysype do nálevky.</li>
+    </ul>
+
+    <h2>2. Dopravníky bez tažného prvku</h2>
+    <p>Materiál není tažen smyčkou, ale posouvá se rotací samotného stroje, nebo padá vlastní tíhou.</p>
+
+    <h3>A) Šnekové dopravníky</h3>
+    <ul>
+        <li>Základem je pevná trubka nebo otevřené koryto (žlab). Uvnitř rotuje hřídel s navařenou ocelovou šroubovicí (princip <em>Archimédova šroubu</em> z antiky).</li>
+        <li>Otáčením šneku je sypký nebo kašovitý materiál nasilím hrnut dopředu.</li>
+        <li><strong>Výhody:</strong> Systém v trubce je absolutně prachotěsný (výborné pro cement nebo nebezpečné prášky). Zároveň materiál cestou výborně promíchává (princip mlýnku na maso). Lze tím dopravovat i šikmo vzhůru.</li>
+        <li><strong>Nevýhody:</strong> Drtí se u toho zrna, je tam obrovské tření kovu o zrno, žere to spoustu elektrického výkonu.</li>
+    </ul>
+
+    <h3>B) Válečkové tratě a Vibrační dopravníky</h3>
+    <ul>
+        <li><strong>Válečkové tratě:</strong> Stůl tvořený paralelními válečky. Kusový materiál (krabice) klouže po vrchu. Mohou být <em>gravitační</em> (skloněné z kopce, balíky jedou samy) nebo <em>poháněné</em> (řetěz zespodu roztáčí válečky a posouvá zboží např. skenerem na letišti).</li>
+        <li><strong>Vibrační (třasné) dopravníky:</strong> Těžký ocelový žlab uložený na šikmých pružinách. Elektromotor (excentr) jím neustále obrovskou rychlostí vibruje mírně šikmo vzhůru a dopředu. Materiál neustále vyskakuje do mikroskopické výšky a dopadá o milimetr dál. Pro oči se zdá, že koryto jen vrčí a písek v něm plynule "teče" nahoru. Ideální pro horké špony nebo jako podávací žlab u pecí.</li>
+    </ul>
+
+    <h2>3. Manipulační a pozemní vozíky</h2>
+    <p>Provádějí <strong>přetržitou</strong> manipulaci na volné dráze (nakládka &rarr; popojetí jinam &rarr; vykládka). Dnes většinou s elektrickým pohonem pro nulové emise uvnitř haly.</p>
+
+    <div class="grid">
+        <div>
+            <ul>
+                <li><strong>Ruční paletové vozíky:</strong> Známe jako "Paleťák". Vidlice se zasunou do EUR palety, obsluha pákou hydraulicky napumpuje pístek a zvedne paletu o pár centimetrů pro převoz.</li>
+                <li><strong>Vysokozdvižné vozíky (VZV):</strong> Králové skladů. Dokážou naložit tuny a zakládat je do regálů ve výšce 10 metrů. Poháněny elektřinou z baterií nebo LPG/Naftou. Vidlice (nosné vidle) se zvedají po ocelovém hydraulickém stožáru namontovaném <em>zcela vpředu před přední nápravou</em>.</li>
+            </ul>
+        </div>
+        <div>
+            <div class="box" style="background:#fff3e0;">
+                <h3 style="margin-top:0;">Fyzika stability VZV (Důležité)</h3>
+                <p>Protože se těžké břemeno nabírá a zvedá před předními koly, vzniká <strong>obrovský klopný moment</strong>, který se snaží celý vozík převrátit dopředu na nos. <br>Přední náprava slouží jako "bod otáčení páky". Zadní polovina vozíku proto musí být nesmírně těžká! Tvoří ji obrovský odlitek ze surové litiny (protizávaží) a těžké olověné baterie, aby se vozík vyvážil a nepadl na nos (Rovnice stability: <span class="formula">Q &cdot; L<sub>1</sub> &le; G &cdot; L<sub>2</sub></span>).</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

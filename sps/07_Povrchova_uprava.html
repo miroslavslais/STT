@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>07. Povrchová úprava, ochrana proti korozi</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>7. Povrchová úprava a ochrana proti korozi</h1>
+    
+    <div class="box">
+        <h2>Co je to koroze?</h2>
+        <p><strong>Koroze</strong> je samovolné a postupné znehodnocování materiálů (zejména kovů) vlivem fyzikálně-chemického nebo elektrochemického působení okolního prostředí. Nejběžnějším projevem je rezavění (oxidace) oceli na vlhkém vzduchu, čímž kov ztrácí pevnost, hmotnost a celistvost.</p>
+        <p>Povrchovými úpravami se snažíme korozi zabránit. Sekundárním cílem je zvýšení <strong>estetické hodnoty</strong> výrobku a případně <strong>snížení tření</strong> nebo zvýšení povrchové tvrdosti.</p>
+    </div>
+
+    <h2>1. Příprava povrchu před úpravou (Kritický krok)</h2>
+    <p>Žádná barva, lak ani kovový povlak nedrží na špinavém, mastném nebo zrezivělém povrchu. Kdybychom nanesli povlak na rez, brzy by se odloupnul. Očištění je proto absolutní nutnost.</p>
+
+    <h3>A) Mechanická příprava</h3>
+    <ul>
+        <li><strong>Broušení a kartáčování:</strong> Použití rotačních ocelových kartáčů, brusek a leštiček pro odstranění hrubé rzi a strusky ze svarů.</li>
+        <li><span class="highlight">Tryskání (Pískování):</span> Zdaleka nejúčinnější průmyslová metoda. Na povrch součásti se metacími koly nebo stlačeným vzduchem vrhají ostrá abraziva (ocelová drť, křemičitý písek, struska). Tyto částečky obijí veškerou rez a okuje z povrchu. Navíc vytvoří <strong>rovnoměrně zdrsnělý povrch</strong> (mikroskopické krátery), do kterých se barva mnohem lépe "zakousne".</li>
+    </ul>
+
+    <h3>B) Chemická příprava</h3>
+    <ul>
+        <li><strong>Odmašťování:</strong> Odstranění zbytků oleje, chladicích emulzí z obrábění a mastnoty z rukou (barva na mastnotě nedrží). Používají se průmyslová organická rozpouštědla (benzín, aceton) nebo horké alkalické lázně (louhy).</li>
+        <li><strong>Moření:</strong> Součást se ponoří do vany s naředěnou kyselinou (sírová, chlorovodíková/solná). Kyselina chemicky "sežere" (rozpustí) vrstvy oxidů a rzi, ale zdravý čistý kov nechá v podstatě nedotčený.</li>
+    </ul>
+
+    <h2>2. Nekovové povlaky</h2>
+    <p>Nejrozšířenější a obvykle nejlevnější způsob ochrany ocelových konstrukcí.</p>
+    <ul>
+        <li><strong>Klasické nátěry (Barvy a Laky):</strong> Aplikují se štětcem, stříkací pistolí, nebo máčením. Nátěrový systém se vždy skládá minimálně ze dvou vrstev:
+            <ol>
+                <li><em>Základní (primer) vrstva:</em> Musí mít dokonalou přilnavost ke kovu a obsahuje antikorozní chemické pigmenty (často zinkové).</li>
+                <li><em>Vrchní (krycí) email:</em> Dodává barevný odstín, odolává vodě, mechanickému oděru a především UV záření (slunci).</li>
+            </ol>
+        </li>
+        <li><strong>Práškové lakování (Komaxit):</strong> Moderní a vysoce odolná metoda. Na dokonale čistý a uzemněný díl se speciální stříkací pistolí nanese oblak jemného plastového prášku, který se nabije statickou elektřinou a "přisaje" se ke kovu. Následně se díl vloží do vypalovací pece (cca 180–200 °C). Prášek se rozpustí a slije do perfektní, hladké a velmi tvrdé vrstvy plastu. Nelze ho použít na díly citlivé na teplo!</li>
+        <li><strong>Smaltování:</strong> Nanesení vrstvy sklo-keramické suspenze (frity) na ocel a její vypálení v obří peci při cca 800 °C. Smalt je absolutně žáruvzdorný a odolává agresivním chemikáliím (vany, pečicí hrnce, uliční cedule). <em>Nevýhoda:</em> Je to v podstatě sklo, takže je křehký a při pádu se odštípne.</li>
+    </ul>
+
+    <h2>3. Chemické konverzní povlaky</h2>
+    <p>Při této metodě nevzniká vrstva nanesením zvenčí (jako u laku), ale <strong>chemickou přeměnou</strong> samotné svrchní mikrovrtvy základního kovu do podoby stabilní sloučeniny.</p>
+    <ul>
+        <li><strong>Černění (Brynýrování):</strong> Ocel se vyvařuje v alkalických solích při cca 140 °C. Vznikne tenounká černá vrstva oxidů železa. Ochraňuje proti korozi jen mírně (musí se vždy navíc konzervovat olejem) a vůbec se neleskne, aby neodrážela světlo. (Typické pro lovecké a vojenské zbraně, kleště, měřidla).</li>
+        <li><strong>Fosfátování:</strong> Koupel v horkém roztoku fosforečnanů. Vytvoří se krystalická vrstva, která výborně saje tekutiny. Funguje buď jako nosič maziv (oleje), nebo – což je klíčové – jako naprosto <strong>nejlepší podklad pod lakování</strong>. Barva se do porézního fosfátu doslova zakousne. (Všechny karoserie aut se před barvením fosfátují).</li>
+        <li><strong>Eloxování (Anodizace):</strong> Používá se pro hliník a jeho slitiny. Elektrolyticky nanesená zesílená vrstva oxidu hlinitého (Al<sub>2</sub>O<sub>3</sub>). Je velmi tvrdá, otěruvzdorná, nešpiní ruce a v jejích pórech ji lze nádherně obarvit zářivými barvami (růžové a modré horolezecké karabiny, rámy dražších kol).</li>
+    </ul>
+
+    <h2>4. Kovové povlaky</h2>
+    <p>Ochrana méně ušlechtilého kovu (oceli) nanesením vrstvy odolnějšího kovu (Zinek, Chrom, Nikl, Cín, Měď).</p>
+    
+    <h3>A) Žárové pokovování (ponorem)</h3>
+    <ul>
+        <li>Ocelová součást se ponoří přímo do obří vyhřívané vany s roztaveným tekutým kovem. Nejpoužívanější a nejdůležitější je <span class="highlight">Žárové zinkování</span> (zinek taje na cca 450 °C).</li>
+        <li><strong>Výhody:</strong> Zinek se spojí s ocelí a vytvoří obrovsky pevnou slitinu. Vrstva je velmi tlustá (masivní) a poskytuje extrémně trvanlivou ochranu i v drsném venkovním prostředí na desítky let bez nutnosti údržby (sloupy osvětlení, svodidla, kostry přívěsných vozíků).</li>
+        <li><strong>Nevýhody:</strong> Zinek nateče všude a udělá vrstvu, což změní tloušťku dílu (zaleje se např. vyříznutý jemný závit, do kterého pak nejde našroubovat šroub).</li>
+    </ul>
+
+    <h3>B) Galvanické pokovování (Elektrolýza)</h3>
+    <p>Velmi precizní, čistá a na nanometry přesná metoda. Umožňuje nanášet zrcadlově lesklé vrstvy chrómu či zinku. Výrobek (šroub, baterie do koupelny) si zachová naprosto přesnou původní geometrii závitů.</p>
+    <ul>
+        <li>Součást se vloží do vodní lázně (elektrolytu) obsahující rozpuštěné soli nanášeného kovu.</li>
+        <li>Do vany se připojí <strong>stejnosměrný elektrický proud</strong>.</li>
+        <li><span class="highlight">Katoda (- pól):</span> Ochráněný <strong>Výrobek</strong>! K němu cestují kladné kationty zinku z vody a usazují se na něm.</li>
+        <li><span class="highlight">Anoda (+ pól):</span> Kus (deska) nanášeného kovu (čistý zinek, chrom). Působením proudu se postupně rozpouští do lázně a doplňuje "spotřebovaný" kov ve vodě.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Schéma: Galvanické zinkování v lázni</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+            </defs>
+
+            <!-- Vana -->
+            <path d="M 50 50 L 50 220 L 550 220 L 550 50" fill="none" stroke="#111" stroke-width="4"/>
+            <!-- Elektrolyt -->
+            <rect x="54" y="80" width="492" height="138" fill="#e0f7fa" opacity="0.8"/>
+            <path d="M 54 80 Q 150 85 250 80 T 546 80" fill="none" stroke="#00bcd4" stroke-width="2"/>
+            <text x="300" y="200" font-size="14" fill="#00796b" font-weight="bold" text-anchor="middle">Elektrolyt (Vodní roztok solí zinku, např. ZnSO₄)</text>
+
+            <!-- Baterie (Zdroj DC) -->
+            <rect x="250" y="10" width="100" height="40" fill="#ddd" stroke="#111" stroke-width="2"/>
+            <text x="300" y="35" font-size="14" font-weight="bold" text-anchor="middle">Zdroj (DC)</text>
+            <line x1="250" y1="30" x2="150" y2="30" stroke="#c00" stroke-width="4"/>
+            <text x="200" y="20" font-size="16" fill="#c00" font-weight="bold">+</text>
+            <line x1="350" y1="30" x2="450" y2="30" stroke="#00c" stroke-width="4"/>
+            <text x="400" y="20" font-size="16" fill="#00c" font-weight="bold">-</text>
+
+            <!-- Anoda (+) -->
+            <rect x="130" y="30" width="40" height="160" fill="#ccc" stroke="#111" stroke-width="2"/>
+            <text x="150" y="160" font-size="14" font-weight="bold" text-anchor="middle">Zn</text>
+            <text x="150" y="110" font-size="12" font-weight="bold" text-anchor="middle" transform="rotate(-90 150,110)">ANODA (+)</text>
+
+            <!-- Katoda (-) -->
+            <path d="M 430 30 L 470 30 L 470 90 L 440 100 L 440 160 L 460 170 L 440 180 L 440 190 L 460 190 L 460 90 Z" fill="#999" stroke="#111" stroke-width="2"/>
+            <text x="450" y="140" font-size="12" font-weight="bold" text-anchor="middle" transform="rotate(-90 450,140)">KATODA (-) Výrobek</text>
+
+            <!-- Ionty a pohyb -->
+            <circle cx="260" cy="120" r="18" fill="#fff" stroke="#c00" stroke-width="2"/>
+            <text x="260" y="125" font-size="12" fill="#c00" font-weight="bold" text-anchor="middle">Zn²⁺</text>
+            
+            <circle cx="360" cy="150" r="18" fill="#fff" stroke="#c00" stroke-width="2"/>
+            <text x="360" y="155" font-size="12" fill="#c00" font-weight="bold" text-anchor="middle">Zn²⁺</text>
+
+            <!-- Šipky pohybu iontů -->
+            <line x1="180" y1="120" x2="230" y2="120" stroke="#00c" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#arrow-blue)"/>
+            <line x1="285" y1="120" x2="410" y2="140" stroke="#00c" stroke-width="3" stroke-dasharray="6,4" marker-end="url(#arrow-blue)"/>
+            <text x="300" y="110" font-size="11" fill="#00c" font-weight="bold" text-anchor="middle">Pohyb kladných kationtů k výrobku</text>
+
+            <!-- Vysvětlivka u anody -->
+            <text x="110" y="140" font-size="10" fill="#c00" text-anchor="end">Anoda (Zinek)</text>
+            <text x="110" y="155" font-size="10" fill="#c00" text-anchor="end">se rozpouští do lázně</text>
+            <path d="M 115 145 L 125 145" stroke="#c00" stroke-width="2" marker-end="url(#arrow)"/>
+        </svg>
+    </div>
+
+</body>
+</html>

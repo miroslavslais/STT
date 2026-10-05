@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>22. Čerpadla a kompresory</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>22. Čerpadla a kompresory</h1>
+    
+    <div class="box">
+        <h2>Základní fyzikální rozdíl</h2>
+        <p>Čerpadla a kompresory jsou pracovní stroje (poháněné typicky elektromotorem), které slouží k dopravě tekutin a dodávají jim energii.</p>
+        <ul>
+            <li><strong>Čerpadla dopravují KAPALINY:</strong> Kapalina je fyzikálně prakticky <em>nestlačitelná</em>. Dodaná mechanická energie se proto rovnou mění na kinetickou (kapalina teče rychleji) nebo tlakovou (kapalina má velkou sílu, např. pro hydraulický lis). Při čerpání se kapalina nezahřívá.</li>
+            <li><strong>Kompresory dopravují PLYNY:</strong> Plyn (vzduch) je z podstaty <em>stlačitelný</em>. Jak píst plyn stlačuje (zmenšuje jeho objem pro dosažení vyššího tlaku), atomy plynu do sebe více narážejí a <strong>vzniká obrovské množství tepla!</strong> Kompresory se proto musí vždy intenzivně chladit (vodou nebo vzduchovým žebrováním), jinak by se roztavily.</li>
+        </ul>
+    </div>
+
+    <h2>1. Čerpadla (Kapaliny)</h2>
+    
+    <h3>A) Hydrodynamická (Odstředivá) čerpadla</h3>
+    <p>Nejrozšířenější typ čerpadel pro domácnosti, oběhová čerpadla v topení nebo vodárny. Konstrukce vůbec nemá uzavřený pracovní prostor (nemá žádné ventily).</p>
+    <ul>
+        <li><strong>Princip:</strong> Kapalina je nasávána středem trubky do středu rotujícího oběžného kola. Lopatky kola ji okamžitě roztočí a odstředivá síla ji "vystřelí" vysokou rychlostí na okraj.</li>
+        <li><strong>Spirální skříň (Difuzor):</strong> Obal čerpadla se směrem k výtlaku rozšiřuje. Voda letící z oběžného kola vletí do tohoto širokého kanálu. Zde nastoupí fyzika (Bernoulliho rovnice): Voda se v širším prostoru musí zpomalit. Tím, že ztratí rychlost, se její <em>kinetická energie přemění na obrovský tlak</em>.</li>
+        <li><strong>Výhody:</strong> Extrémně jednoduchá konstrukce (jen jeden rotující díl, žádné ventily), 100% plynulý průtok bez pulzů. Ideální pro dopravu obrovského objemu vody.</li>
+        <li><strong>Nevýhody:</strong> Nedokážou vytvořit příliš vysoký tlak (do hydraulického lisu jsou nepoužitelná). Pokud do nich vnikne vzduch, přestanou čerpat (musí se před startem zalít vodou).</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Řez: Odstředivé čerpadlo se spirální skříní</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <pattern id="hatch-casing" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="8" x2="8" y2="0" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+
+            <!-- Spirální skříň (Řez tělesem) -->
+            <!-- Vytvoření spirály, která se nahoře otevírá do výtlaku -->
+            <path d="M 250 120 A 100 100 0 1 0 350 20 L 350 0 L 450 0 L 450 60 A 120 120 0 1 1 250 120 Z" fill="url(#hatch-casing)" stroke="#111" stroke-width="2.5"/>
+            <text x="310" y="210" font-size="12" font-weight="bold" background="#fff">Stator (Spirální skříň / Difuzor)</text>
+
+            <!-- Oběžné kolo -->
+            <circle cx="280" cy="120" r="70" fill="#f4f4f4" stroke="#111" stroke-width="3"/>
+            <circle cx="280" cy="120" r="15" fill="#fff" stroke="#111" stroke-width="3"/> <!-- Sání ve středu osy -->
+            
+            <!-- Zpětně zakřivené lopatky -->
+            <path d="M 280 105 Q 310 55 330 65" fill="none" stroke="#111" stroke-width="4"/>
+            <path d="M 295 120 Q 345 150 335 170" fill="none" stroke="#111" stroke-width="4"/>
+            <path d="M 280 135 Q 250 185 230 175" fill="none" stroke="#111" stroke-width="4"/>
+            <path d="M 265 120 Q 215 90 225 70" fill="none" stroke="#111" stroke-width="4"/>
+            
+            <text x="210" y="110" font-size="12" font-weight="bold">Oběžné kolo</text>
+            <text x="220" y="125" font-size="10" font-weight="bold">(Rotor s lopatkami)</text>
+
+            <!-- Směr rotace -->
+            <path d="M 280 30 A 90 90 0 0 1 370 120" fill="none" stroke="#c00" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="350" y="50" font-size="12" fill="#c00" font-weight="bold">Otáčky n</text>
+
+            <!-- Vektory kapaliny -->
+            <line x1="400" y1="80" x2="400" y2="20" stroke="#00c" stroke-width="5" marker-end="url(#arrow-blue)"/>
+            <text x="420" y="45" font-size="14" fill="#00c" font-weight="bold">Výtlak (tlaková energie)</text>
+            
+            <circle cx="280" cy="120" r="5" fill="#00c"/>
+            <text x="280" y="145" font-size="12" text-anchor="middle" fill="#00c" font-weight="bold">Sání z hloubky</text>
+            <text x="280" y="160" font-size="10" text-anchor="middle" fill="#00c">(do středu kola)</text>
+        </svg>
+    </div>
+
+    <h3>B) Hydrostatická (Objemová) čerpadla</h3>
+    <p>Kapalina je natáhnuta do přesně uzavřeného pracovního prostoru. Zmenšováním tohoto objemu (pohybem pístu nebo zubu) se z něj natvrdo vytlačí ven do obvodu.</p>
+    <ul>
+        <li><strong>Výhody:</strong> Dávají <strong>velmi vysoké tlaky</strong> (stovky barů). Jsou srdcem každého hydraulického stroje a lisu. Dokážou nasávat i s prázdnou trubkou plnou vzduchu (jsou samonasávací).</li>
+        <li><strong>Zubová čerpadla:</strong> Dvě masivní ozubená kola do sebe zabírají v těsné skříni. Přepravují olej v mezerách zubů okolo vnější stěny z jedné strany na druhou. (Mazání motorů, standardní stavební hydraulika).</li>
+        <li><strong>Pístová čerpadla:</strong> Válec a píst s ventily. (Tlakové myčky WAP, radiální a axiální pístová čerpadla u extrémně těžkých strojů).</li>
+    </ul>
+
+    <h2>2. Kompresory (Plyny)</h2>
+    <p>Kompresor zmenšuje objem plynu, a tím radikálně zvyšuje jeho tlak pro účely pohonu pneumatického nářadí nebo chemických procesů.</p>
+
+    <h3>A) Objemové kompresory</h3>
+    <ul>
+        <li><span class="highlight">Pístové:</span> Princip klasického spalovacího motoru bez spalování. 
+            <ol>
+                <li>Píst jede dolů (sání). Výtlačný ventil je zamčený, <strong>sací ventil se otevře</strong> podtlakem. Nasaje se vzduch z okolí.</li>
+                <li>Píst jede nahoru (komprese). Sací ventil se zamkne, píst vzduch brutálně stlačí (vzduch se extrémně zahřeje). Tlak otevře <strong>výtlačný ventil</strong> a vzduch je natlačen trubkou do ocelového vzdušníku (tlakové lahve).</li>
+            </ol>
+            Jsou skvělé pro dílny (tlaky např. 10 barů). Tok vzduchu ale <em>silně pulzuje</em>.
+        </li>
+        <li><span class="highlight">Šroubové:</span> Místo pístu tu rotují dva speciální šroubové rotory (profil samec a samice), které se do sebe plynule zanořují. Prostor mezi závity se posouvá dopředu a přitom zmenšuje svůj objem &rarr; vzduch se stlačí.
+        Jsou obrovské, určené pro průmysl a továrny, kde běží 24/7. Oproti pístovým neklepou, nemají ventily a dodávají vzduch <em>zcela plynule bez rázů</em>. Jsou extrémně tiché.</li>
+        <li><span class="highlight">Lamelové:</span> V tělese statoru běží mimo střed (excentricky) válec, ze kterého při rotaci vyjíždějí obdélníkové lopatky (lamely) a ty nahrnují a stlačují vzduch. (Levné, malé kompresorky nebo vakuové vývěvy).</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Řez: Fáze komprese u pístového kompresoru</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <pattern id="hatch-cyl" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="0" x2="8" y2="8" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+            </defs>
+
+            <!-- Válec (řez) s chladícími žebry -->
+            <rect x="200" y="40" width="20" height="120" fill="url(#hatch-cyl)" stroke="#111" stroke-width="2.5"/>
+            <rect x="380" y="40" width="20" height="120" fill="url(#hatch-cyl)" stroke="#111" stroke-width="2.5"/>
+            
+            <rect x="180" y="50" width="20" height="10" fill="#111"/>
+            <rect x="180" y="80" width="20" height="10" fill="#111"/>
+            <rect x="180" y="110" width="20" height="10" fill="#111"/>
+            <rect x="400" y="50" width="20" height="10" fill="#111"/>
+            <rect x="400" y="80" width="20" height="10" fill="#111"/>
+            <rect x="400" y="110" width="20" height="10" fill="#111"/>
+            <text x="140" y="85" font-size="10" text-anchor="middle" font-weight="bold">Chladicí žebra válce!</text>
+
+            <!-- Hlava válce (řez) -->
+            <rect x="200" y="10" width="200" height="30" fill="url(#hatch-cyl)" stroke="#111" stroke-width="2.5"/>
+            
+            <!-- Sací kanál a ventil (Zavřený během komprese) -->
+            <rect x="220" y="0" width="50" height="15" fill="#fff" stroke="#111" stroke-width="2"/>
+            <line x1="245" y1="45" x2="245" y2="25" stroke="#111" stroke-width="2"/> <!-- Dřík ventilu -->
+            <polygon points="230,45 260,45 245,35" fill="#111"/> <!-- Zavřený ventil (dolepe se k hlavě) -->
+            <text x="245" y="-5" font-size="12" fill="#00c" font-weight="bold" text-anchor="middle">Sání ZAVŘENO</text>
+
+            <!-- Výtlačný kanál a ventil (Otevřený, plyn uniká pod tlakem) -->
+            <rect x="330" y="0" width="50" height="15" fill="#fff" stroke="#111" stroke-width="2"/>
+            <line x1="355" y1="45" x2="355" y2="15" stroke="#111" stroke-width="2"/> <!-- Dřík ventilu vyjetý nahoru -->
+            <polygon points="340,30 370,30 355,20" fill="#111"/> <!-- Otevřený ventil (nahoře) -->
+            <line x1="355" y1="-10" x2="355" y2="-40" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="415" y="-20" font-size="12" fill="#c00" font-weight="bold">Výtlak do nádoby</text>
+            <text x="415" y="-5" font-size="10" fill="#c00">(Vzduch pod tlakem)</text>
+
+            <!-- Píst a kroužky -->
+            <rect x="225" y="80" width="150" height="40" fill="#ccc" stroke="#111" stroke-width="3"/>
+            <!-- Těsnicí kroužky (Pístní) -->
+            <line x1="225" y1="88" x2="375" y2="88" stroke="#111" stroke-width="2"/>
+            <line x1="225" y1="95" x2="375" y2="95" stroke="#111" stroke-width="2"/>
+            
+            <line x1="300" y1="120" x2="300" y2="200" stroke="#111" stroke-width="6"/> <!-- Ojnice (uříznutá) -->
+            <circle cx="300" cy="120" r="6" fill="#fff" stroke="#111" stroke-width="2"/>
+            
+            <!-- Pohyb pístu nahoru -->
+            <line x1="420" y1="130" x2="420" y2="90" stroke="#c00" stroke-width="5" marker-end="url(#arrow-red)"/>
+            <text x="500" y="115" font-size="14" fill="#c00" font-weight="bold" text-anchor="middle">Komprese (píst letí vzhůru)</text>
+
+            <path d="M 230 70 L 250 50 M 270 70 L 290 50 M 310 70 L 340 45" fill="none" stroke="#c00" stroke-width="2"/>
+            <text x="300" y="65" font-size="14" fill="#c00" font-weight="bold" text-anchor="middle">Stlačovaný horký vzduch (p_2)</text>
+        </svg>
+    </div>
+
+    <h3>B) Rychlostní kompresory (Turbokompresory)</h3>
+    <p>Nemají uzavřenou pracovní komoru ani píst. Vzduch stlačují pomocí lopatkových kol, která mu dodají nesmírnou rychlost a následně ho v difuzoru zabrzdí (a tím zvednou tlak).</p>
+    <ul>
+        <li><strong>Použití:</strong> Turbodmychadla v automobilech (radiální), obří ventilátory v proudových tryskových motorech letadel a dmychadla v uhelných pecích.</li>
+        <li><strong>Extrémní průtok:</strong> Polykají neskutečné množství vzduchu (stovky m<sup>3</sup> za sekundu), ale nevytvoří tak extrémní tlak z nuly jako píst. Na rozdíl od pístu nefoukají v pulsech, ale dávají hladký a spojitý proud vzduchu.</li>
+    </ul>
+
+    <h2>3. Dmychadla a ventilátory</h2>
+    <p>V podstatě "slabé" kompresory. Nejsou určené k velkému tlakování nádob, ale prostě jen k přesunu obřích kubíků vzduchu.</p>
+    <ul>
+        <li><strong>Ventilátory:</strong> Zvyšují tlak max. do poměru 1.1 k okolí. (Obyčejné větrání hal, chladič v autě, klimatizace, chlazení PC).</li>
+        <li><strong>Dmychadla:</strong> Zvyšují tlak od 1.1 do 3. Například <em>Rootsův kompresor (dmychadlo)</em> používaný na přeplňování svalnatých amerických aut (muscle cars), nebo pro vhánění spousty vzduchu do pecí ve slévárně a na čištění vody v čistírnách (bublinkování bazénů).</li>
+    </ul>
+
+</body>
+</html>

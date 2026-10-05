@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>10. Výroba závitů a ozubených kol</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>10. Výroba závitů a ozubených kol</h1>
+    
+    <div class="box">
+        <p>Závity (prostorová šroubovice navinutá na válci) i ozubená kola (přenášející moment tvarovým stykem přes evolventní profil) jsou geometricky nesmírně složité prvky. K jejich výrobě lze přistoupit buď klasickým <strong>třískovým obráběním</strong>, nebo beztřískovým <strong>tvářením</strong>.</p>
+    </div>
+
+    <h2>1. Výroba závitů</h2>
+    
+    <h3>A) Ruční a strojní řezání (Třískové obrábění)</h3>
+    <ul>
+        <li><strong>Vnitřní závit (matice):</strong> Vyvrtá se menší otvor (průměr se rovná jmenovitému průměru závitu minus stoupání). Do něj se zatahuje <span class="highlight">Závitník</span> upevněný ve vratidle. U ručního řezání (do slepých děr) se kvůli odporu třísky používá sada tří závitníků (I. Předřezávací s dlouhým kuželem, II. Řezací, III. Dořezávací bez kužele). Strojní závitníky srovnají závit naráz.</li>
+        <li><strong>Vnější závit (šroub):</strong> Na přesně osoustruženou válcovou tyč se nasadí <span class="highlight">Závitové očko</span> (upnuté ve vratidle). Tyč musí mít na začátku sraženou hranu, aby očko správně "chytlo" záběr kolmo.</li>
+    </ul>
+
+    <h3>B) Soustružení závitů (Třískové obrábění)</h3>
+    <p>Nejpřesnější metoda, naprostá nutnost pro dlouhé a velké závity (nebo pro pohybové lichoběžníkové závity). Nástrojem je tvarový <strong>závitový nůž</strong>. Soustruh musí mít mechanicky naprosto přesně svázané otáčky sklíčidla s posuvem nože (přes vodicí šroub a matici suportu). Za 1 otáčku obrobku se nůž posune přesně o 1 stoupání (P).</p>
+
+    <h3>C) Válcování závitů (Beztřískové tváření za studena)</h3>
+    <p>Nejproduktivnější metoda pro <strong>masovou sériovou výrobu</strong> (všechny běžné spojovací šrouby se dnes válcují). Polotovar (hladký dřík) se pod obrovským tlakem za studena protlačí mezi dvěma rýhovanými čelistmi nebo válci.</p>
+    <ul>
+        <li><strong>Obrovská výhoda:</strong> Vlákna materiálu se nepřeruší (jako když nůž uřízne třísku u soustružení), ale pouze se plasticky zdeformují, ohnou se podle profilu závitu a silně zahustí. Ocel se <em>zpevní deformací za studena</em> &rarr; <strong>Válcované šrouby mají mnohem vyšší pevnost</strong> a lépe odolávají únavě. Je to bleskové a nevzniká odpad.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Princip: Válcování závitu plochými čelistmi</strong><br>
+        <svg width="100%" height="220" viewBox="0 0 600 220">
+            <defs>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <pattern id="hatch-die" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="0" x2="8" y2="8" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+
+            <!-- Horní čelist pohyblivá -->
+            <rect x="50" y="20" width="300" height="30" fill="url(#hatch-die)" stroke="#111" stroke-width="2"/>
+            <path d="M 180 50 L 190 60 L 200 50 L 210 60 L 220 50 L 230 60 L 240 50 L 250 60 L 260 50" fill="none" stroke="#111" stroke-width="2.5"/>
+            
+            <line x1="370" y1="35" x2="450" y2="35" stroke="#00c" stroke-width="4" marker-end="url(#arrow-blue)"/>
+            <text x="465" y="40" font-size="14" fill="#00c" font-weight="bold">Posuv</text>
+            <text x="70" y="40" font-size="12" font-weight="bold" background="#fff">Pohyblivá čelist</text>
+
+            <!-- Polotovar dříku šroubu -->
+            <circle cx="220" cy="95" r="35" fill="#fbb" stroke="#c00" stroke-width="2.5"/>
+            
+            <!-- Vlákna materiálu (nepřerušená) -->
+            <path d="M 195 95 C 205 95, 235 95, 245 95" fill="none" stroke="#c00" stroke-width="2"/>
+            <path d="M 190 85 C 205 85, 235 85, 250 85" fill="none" stroke="#c00" stroke-width="2"/>
+            <path d="M 190 105 C 205 105, 235 105, 250 105" fill="none" stroke="#c00" stroke-width="2"/>
+            
+            <text x="360" y="100" font-size="12" fill="#c00" font-weight="bold">Vlákna kovu se nepřeruší,</text>
+            <text x="360" y="115" font-size="11" fill="#c00">ale plasticky zahustí (pevnost!)</text>
+
+            <!-- Šipka rotace -->
+            <path d="M 170 95 A 50 50 0 0 0 270 95" fill="none" stroke="#c00" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="280" y="80" font-size="12" fill="#c00" font-weight="bold">Rotace + Tváření</text>
+            
+            <!-- Síla (tlak) -->
+            <line x1="220" y1="0" x2="220" y2="20" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="230" y="15" font-size="14" fill="#c00" font-weight="bold">Tlak (F)</text>
+
+            <!-- Dolní čelist pevná -->
+            <rect x="50" y="140" width="300" height="30" fill="url(#hatch-die)" stroke="#111" stroke-width="2"/>
+            <path d="M 180 140 L 190 130 L 200 140 L 210 130 L 220 140 L 230 130 L 240 140 L 250 130 L 260 140" fill="none" stroke="#111" stroke-width="2.5"/>
+            <text x="70" y="160" font-size="12" font-weight="bold" background="#fff">Pevná čelist (Matrice)</text>
+        </svg>
+    </div>
+
+    <h2>2. Výroba ozubených kol (Čelní válcová kola)</h2>
+    <p>Ozubení (tvar dokonalé evolventy) se u přesných kovových kol vyrábí výhradně obráběním na speciálních strojích. Dělí se na dva principy:</p>
+
+    <h3>A) Dělící způsob (Tvarové frézování)</h3>
+    <p>Nástrojem je <strong>tvarová kotoučová fréza</strong>. Její břity mají přesně vybroušený tvar proluky (mezery) mezi dvěma zuby. Vyrábí se vždy striktně <em>zub po zubu</em>.</p>
+    <ul>
+        <li>Fréza na jedno projetí materiálem vyřízne právě jednu mezeru.</li>
+        <li>Následně se stůl s obrobkem musí <strong>pootočit přesně o jednu zubovou rozteč</strong> (k tomu slouží Dělící přístroj). Fréza vyřízne další mezeru atd.</li>
+        <li><strong>Výhody:</strong> Dá se to dělat na obyčejné staré univerzální frézce. Ideální pro levnou kusovou výrobu a opravárenství.</li>
+        <li><strong>Nevýhody:</strong> Zdlouhavé, pomalé, nepřesné. Navíc tvar zubové mezery se mění podle počtu zubů na kole, takže pro každý modul byste potřebovali nekonečně mnoho fréz (v praxi se pro jeden modul používá kompromisní <em>sada 8 tvarových fréz</em>).</li>
+    </ul>
+
+    <h3>B) Odvalovací způsob (Sériová a přesná výroba)</h3>
+    <p>Vysoce přesná, automatizovaná výroba. Obrobek (kolo) i nástroj vykonávají plynulý spojitý rotační pohyb, <strong>jako by do sebe už zapadala dvě hotová ozubená kola v opravdové převodovce</strong>, akorát fréza má břity, takže během valení se plynule odřezává (odvaluje) materiál z polotovaru a tvoří evolventu.</p>
+    <ul>
+        <li><strong>Odvalovací frézování šnekem (Pfauter):</strong> Nástrojem je <em>odvalovací fréza</em> (tvar šneku opatřeného břity). Fréza rotuje a noří se do pomalu rotujícího obrobku, čímž vznikne celé ozubení plynule a naráz. Obrovsky produktivní. Nedá se tak ale vyrábět vnitřní ozubení.</li>
+        <li><strong>Odvalovací obrážení (Fellows):</strong> Nástrojem je <em>obrážecí kotouček</em> (který sám vypadá jako ozubené kolo z rychlořezné oceli). Nástroj jezdí nahoru a dolů (to je hlavní řezný pohyb - řeže třísku), a zároveň se oba pomalu odvalují (rotují).</li>
+        <li><span class="highlight">Hlavní výhoda Fellowsova obrážení:</span> Umí vyrobit <strong>vnitřní ozubení</strong> (ozubené věnce pro planetové převodovky), kam by se velká šneková fréza nevešla!</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Schéma: Odvalovací obrážení vnitřního ozubení (Fellows)</strong><br>
+        <svg width="100%" height="220" viewBox="0 0 600 220">
+            <defs>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <pattern id="hatch-gear" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="8" x2="8" y2="0" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+
+            <!-- Obrobek (Kolo s vnitřním ozubením) -->
+            <path d="M 100 110 A 90 90 0 0 0 280 110 L 280 200 L 100 200 Z" fill="url(#hatch-gear)" stroke="#111" stroke-width="2"/>
+            <path d="M 100 110 A 90 90 0 0 0 280 110" fill="none" stroke="#111" stroke-width="4"/>
+            <!-- Nakreslené zuby obrobku -->
+            <path d="M 150 185 L 155 165 L 170 165 L 175 188 L 190 188 L 195 165 L 210 165 L 215 185" fill="none" stroke="#111" stroke-width="3"/>
+            <text x="320" y="200" font-size="14" font-weight="bold">Obrobek (Vnitřní ozubení)</text>
+
+            <!-- Nástroj (Obrážecí kolečko Fellows) -->
+            <circle cx="180" cy="110" r="45" fill="#f4f4f4" stroke="#111" stroke-width="2"/>
+            <!-- Zuby nástroje zabírající do obrobku -->
+            <path d="M 160 155 L 165 170 L 175 170 L 180 155 L 190 155 L 195 170 L 205 170 L 210 155" fill="#ccc" stroke="#111" stroke-width="2"/>
+            <text x="180" y="110" font-size="12" font-weight="bold" text-anchor="middle">Obrážecí kotouč</text>
+            <text x="180" y="125" font-size="10" text-anchor="middle">(Nástroj)</text>
+            
+            <!-- Hlavní řezný pohyb (Obrážení nahoru dolů) -->
+            <line x1="180" y1="50" x2="180" y2="10" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)" marker-start="url(#arrow-red)"/>
+            <text x="200" y="30" font-size="12" fill="#c00" font-weight="bold">Hlavní řezný pohyb</text>
+            <text x="200" y="45" font-size="10" fill="#c00">Nástroj obráží nahoru a dolů</text>
+
+            <!-- Odvalovací pohyb -->
+            <path d="M 130 110 A 50 50 0 0 1 180 60" fill="none" stroke="#00c" stroke-width="3" marker-end="url(#arrow-blue)"/>
+            <path d="M 100 110 A 80 80 0 0 1 180 30" fill="none" stroke="#00c" stroke-width="3" marker-end="url(#arrow-blue)"/>
+            
+            <text x="350" y="100" font-size="14" fill="#00c" font-weight="bold">Plynulé odvalování</text>
+            <text x="350" y="120" font-size="12">(Obrobek i nástroj pomalu rotují,</text>
+            <text x="350" y="135" font-size="12">jako by už fungovaly v převodovce)</text>
+        </svg>
+    </div>
+
+</body>
+</html>

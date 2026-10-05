@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>25. Technická úprava prostředí</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e8f5e9; border-left: 5px solid #388e3c; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul, ol { margin-top: 5px; margin-bottom: 10px; }
+        ul, ol { padding-left: 25px; }
+        li { margin-bottom: 4px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .box-blue  { border: 2px solid #0288d1; padding: 12px; background-color: #e1f5fe; margin-bottom: 12px; border-radius: 5px;}
+        .box-green { border: 2px solid #388e3c; padding: 12px; background-color: #e8f5e9; margin-bottom: 12px; border-radius: 5px;}
+        .box-orange{ border: 2px solid #f57c00; padding: 12px; background-color: #fff3e0; margin-bottom: 12px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 8px; border-radius: 3px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+        table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+        th { background: #333; color: #fff; padding: 6px 10px; font-size: 11pt; }
+        td { border: 1px solid #aaa; padding: 6px 10px; }
+        tr:nth-child(even) { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+
+<h1>25. Technická úprava prostředí</h1>
+
+<div class="box">
+    <p><strong>Technická úprava prostředí</strong> zahrnuje všechny technické systémy, které zajišťují čistotu, tepelnou pohodu a bezpečnost ovzduší v průmyslových provozech i budovách, a dále čistotu odpadních vod. Jde o disciplínu na pomezí strojírenství, stavebnictví a chemického inženýrství.</p>
+    <p>Tři hlavní oblasti: <span class="formula">1. Čistota vzduchu (odsávání, filtrace, cyklony) | 2. Větrání a klimatizace (VZT) | 3. Čistota vody (ČOV)</span></p>
+</div>
+
+<!-- ============================================================ -->
+<h2>1. Čistota vzduchu – Odlučovače a filtry tuhých částic</h2>
+
+<p>Průmyslové provozy (slévárny, cementárny, dřevoobráběcí dílny, svářovny) produkují obrovské množství prachu, kouře a aerosolu. Tyto částice jsou zdraví škodlivé a mnohdy i výbušné (moučný prach, uhelný prach). <strong>Odlučovače</strong> je zachycují dříve, než odejdou do ovzduší.</p>
+
+<h3>A) Cyklonový odlučovač (Cyklon)</h3>
+
+<div class="svg-container">
+    <strong>CAD Řez: Cyklonový odlučovač – princip odstředivé separace</strong>
+    <svg width="100%" height="380" viewBox="0 0 600 380">
+        <defs>
+            <marker id="arr-dust" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#795548"/>
+            </marker>
+            <marker id="arr-clean" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0288d1"/>
+            </marker>
+            <marker id="arr-blk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#222"/>
+            </marker>
+            <pattern id="hatch-cy" patternUnits="userSpaceOnUse" width="8" height="8">
+                <line x1="0" y1="8" x2="8" y2="0" stroke="#bbb" stroke-width="0.8"/>
+            </pattern>
+        </defs>
+
+        <!-- Válcová část cyklonu (řez) -->
+        <rect x="200" y="60" width="200" height="160" fill="url(#hatch-cy)" stroke="#111" stroke-width="3"/>
+        <!-- Kuželová část -->
+        <polygon points="200,220 400,220 320,360 280,360" fill="url(#hatch-cy)" stroke="#111" stroke-width="3"/>
+
+        <!-- Vnitřní výstupní potrubí (čistý vzduch nahoru) -->
+        <rect x="265" y="10" width="70" height="120" fill="#e1f5fe" stroke="#0288d1" stroke-width="2.5" stroke-dasharray="5,3"/>
+        <text x="300" y="55" font-size="10" text-anchor="middle" fill="#0288d1" font-weight="bold">Výstupní</text>
+        <text x="300" y="68" font-size="10" text-anchor="middle" fill="#0288d1" font-weight="bold">potrubí</text>
+        <text x="300" y="81" font-size="10" text-anchor="middle" fill="#0288d1">(čistý vzduch)</text>
+
+        <!-- Šipka čistého vzduchu ven nahoru -->
+        <line x1="300" y1="10" x2="300" y2="-15" stroke="#0288d1" stroke-width="5" marker-end="url(#arr-clean)"/>
+        <text x="300" y="-20" font-size="13" fill="#0288d1" font-weight="bold" text-anchor="middle">Čistý vzduch výstup</text>
+
+        <!-- Tangenciální vstup prašného vzduchu (z boku nahoře) -->
+        <rect x="400" y="70" width="120" height="40" fill="#ffccbc" stroke="#795548" stroke-width="2.5"/>
+        <line x1="400" y1="90" x2="520" y2="90" stroke="#795548" stroke-width="5" marker-end="url(#arr-dust)"/>
+        <!-- šipka ukázat směr do cyklonu -->
+        <path d="M 400 90 C 380 90 370 80 360 90" fill="none" stroke="#795548" stroke-width="4" marker-end="url(#arr-dust)"/>
+        <text x="455" y="65" font-size="12" fill="#795548" font-weight="bold" text-anchor="middle">Vstup znečištěného vzduchu</text>
+        <text x="455" y="120" font-size="10" fill="#795548" text-anchor="middle">(TANGENCIÁLNĚ – zboku, ne čelně!)</text>
+
+        <!-- Spirálový pohyb vzduchu (znázornění) -->
+        <!-- Velká vnější spirála dolů -->
+        <path d="M 360 100 A 60 30 0 0 1 240 100 A 60 30 0 0 1 360 140 A 60 30 0 0 1 240 140 A 60 30 0 0 1 360 180 A 60 30 0 0 1 240 180" 
+              fill="none" stroke="#795548" stroke-width="2" stroke-dasharray="8,4"/>
+        <text x="430" y="160" font-size="11" fill="#795548" font-weight="bold">Vzduch rotuje</text>
+        <text x="430" y="175" font-size="11" fill="#795548">(jako tornádo)</text>
+        <text x="430" y="190" font-size="11" fill="#795548">→ odstředivá síla</text>
+        <text x="430" y="205" font-size="11" fill="#795548">→ prach ke stěně</text>
+
+        <!-- Prach padá po stěně -->
+        <line x1="205" y1="120" x2="205" y2="310" stroke="#795548" stroke-width="3" stroke-dasharray="4,3" marker-end="url(#arr-dust)"/>
+        <line x1="395" y1="120" x2="395" y2="310" stroke="#795548" stroke-width="3" stroke-dasharray="4,3" marker-end="url(#arr-dust)"/>
+        <text x="140" y="240" font-size="11" fill="#795548" font-weight="bold" text-anchor="middle">Prach klouže</text>
+        <text x="140" y="255" font-size="11" fill="#795548" text-anchor="middle">po stěně dolů</text>
+
+        <!-- Sběrná nádobka dole -->
+        <rect x="265" y="358" width="70" height="22" rx="4" fill="#795548" stroke="#111" stroke-width="2"/>
+        <text x="300" y="373" font-size="11" text-anchor="middle" fill="#fff" font-weight="bold">Zásobník prachu</text>
+
+        <!-- Středová spirála nahoru (čistý vzduch) -->
+        <path d="M 310 280 A 25 12 0 0 0 290 260 A 25 12 0 0 0 310 220 A 25 12 0 0 0 290 200"
+              fill="none" stroke="#0288d1" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="140" y="280" font-size="11" fill="#0288d1" font-weight="bold" text-anchor="middle">Čistý vzduch</text>
+        <text x="140" y="295" font-size="11" fill="#0288d1" text-anchor="middle">stoupá středem</text>
+        <text x="140" y="310" font-size="11" fill="#0288d1" text-anchor="middle">ven nahoru</text>
+
+        <!-- Popis tělesa -->
+        <text x="300" y="135" font-size="11" text-anchor="middle" fill="#333" font-weight="bold">Válcová část</text>
+        <text x="300" y="280" font-size="11" text-anchor="middle" fill="#333" font-weight="bold">Kuželová část</text>
+
+        <!-- Kóta průměru -->
+        <line x1="200" y1="50" x2="400" y2="50" stroke="#111" stroke-width="1.5"/>
+        <line x1="200" y1="44" x2="200" y2="56" stroke="#111" stroke-width="1.5"/>
+        <line x1="400" y1="44" x2="400" y2="56" stroke="#111" stroke-width="1.5"/>
+        <text x="300" y="46" font-size="11" text-anchor="middle" fill="#111">⌀ D (průměr cyklonu)</text>
+    </svg>
+</div>
+
+<div class="box-orange">
+    <h3>Jak cyklon funguje – krok za krokem</h3>
+    <ol>
+        <li><strong>Tangenciální vstup:</strong> Znečištěný vzduch se přivede <em>zboku</em> (tangenciálně), nikoli čelně do středu. Tím se celý vzduchový proud okamžitě roztočí do spirály – jako voda vytékaná ze záchodové mísy.</li>
+        <li><strong>Odstředivá síla:</strong> Těžší prachové částice mají větší setrvačnost – <span class="highlight">odstředivá síla je vymrštuje ke stěně válce</span>. Lehčí vzduch zůstane blíž ke středu.</li>
+        <li><strong>Prach klesá:</strong> Částice narazí na stěnu, ztratí rychlost a <em>gravitace je stáhne dolů</em> po vnitřní stěně kuželové části do sběrné nádoby dole.</li>
+        <li><strong>Čistý vzduch stoupá:</strong> Uprostřed válce vznikne sekundární vnitřní vír, který čistý vzduch stočí a dopraví jej <em>výstupním potrubím ven nahoru</em>.</li>
+    </ol>
+    <p><strong>Účinnost:</strong> 70–90 % pro hrubší prach (&gt; 10 µm). Pro jemnější částice (kouř, saze) je potřeba doplnit tkaninový filtr nebo elektrostatický odlučovač.</p>
+    <p><strong>Výhody:</strong> Žádné pohyblivé části → velmi spolehlivý, levný na provoz, nevadí mu vysoké teploty plynů (pecní kouř).</p>
+</div>
+
+<h3>B) Tkaninové filtry (Rukávové filtry)</h3>
+<ul>
+    <li>Znečištěný vzduch prochází přes tkaninové "punčochy" (rukávce). Prach se zachytí na tkanině a čistý vzduch projde skrz. Nahromaděný prach se periodicky setřese (vibracemi nebo tlakovým impulsem vzduchu zezadu) a spadne do zásobníku.</li>
+    <li><strong>Účinnost:</strong> &gt; 99 % i pro velmi jemné částice. Zákon o ochraně ovzduší vyžaduje tento typ u moderních cementáren, elektráren a sléváren.</li>
+</ul>
+
+<h3>C) Elektrostatické odlučovače (ESP)</h3>
+<ul>
+    <li>Prachové částice projdou kolem elektrod pod napětím desítek tisíc voltů. Ionizovaný vzduch nabije částice záporně, ty jsou pak přitaženy ke kladně nabité sběrné desce. Pravidelně se oklepe a prach padá dolů.</li>
+    <li><strong>Použití:</strong> Uhelné elektrárny, velké spalovny. Účinnost &gt; 99,5 %.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2>2. Větrání a klimatizace (VZT – Vzduchotechnická zařízení)</h2>
+
+<p>Každá průmyslová hala i administrativní budova musí mít dostatečnou výměnu vzduchu, aby se nepřekročily koncentrace škodlivin a udržela se tepelná pohoda pracovníků.</p>
+
+<h3>A) Přirozené větrání</h3>
+<ul>
+    <li>Využívá <strong>teplotní rozdíl</strong> (teplý vzduch uvnitř je lehčí → stoupá a uniká otvory nahoře, čerstvý chladný vzduch nasává otvory dole) a <strong>vítr</strong> (přetlak na návětrné straně budovy, podtlak na závětrné).</li>
+    <li>Vhodné jen pro průmyslové haly s tepelnými zdroji (slévárny, kovárny), kde je stoupavý proud dostatečně silný. V moderních hermeticky utěsněných budovách nefunguje.</li>
+</ul>
+
+<h3>B) Nucené větrání (Mechanické)</h3>
+<ul>
+    <li>Ventilátor (axiální nebo radiální) dopravuje vzduch potrubím do všech místností. Systém potrubí a výdechy jsou navrženy tak, aby vzduch protékal každou místností rovnoměrně.</li>
+    <li><strong>Typy systémů:</strong>
+        <ul>
+            <li><em>Podtlakové:</em> Ventilátor vzduch odsává ven. Vzniká mírný podtlak → čerstvý vzduch se "nasaje" přirozeně netěsnostmi (kuchyňské odsávače).</li>
+            <li><em>Přetlakové:</em> Ventilátor čerstvý vzduch vhání dovnitř. Vzniká přetlak → špinavý vzduch je vytlačen ven. (Operační sály v nemocnicích – musí být čisté.)</li>
+            <li><em>Rovnotlaké (Rovnoměrné):</em> Přívod = odvod. Nejdokonalejší systém s rekuperací tepla.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>C) Klimatizace a rekuperace tepla</h3>
+<div class="box-blue">
+    <ul>
+        <li><strong>Klimatizace (HVAC):</strong> Vzduch nejen vyměňuje, ale také ochlazuje/ohřívá, zvlhčuje/odvlhčuje a filtruje. Srdcem je chladicí okruh s kompresorem, kondenzátorem a expanzním ventilem (stejný princip jako lednička).</li>
+        <li><strong>Rekuperace tepla (ZZT – Zpětné získávání tepla):</strong> Odpadní teplý vzduch odcházející ven předá své teplo přes tepelný výměník (deskový nebo rotační) čerstvému studenému vzduchu přicházejícímu zvenku. <span class="highlight">Úspora tepelné energie 60–85 %!</span> V moderních pasivních domech je povinná.</li>
+    </ul>
+    <p><strong>Rekuperační výměník – princip:</strong> Dva vzduchové kanály (odcházející teplý a přicházející studený) jsou odděleny tenkými kovovými nebo plastovými lamelami. Teplo přechází přes lamely, ale vzduchy se nesmísí.</p>
+</div>
+
+<div class="svg-container">
+    <strong>CAD Schéma: Deskový rekuperační výměník (ZZT)</strong>
+    <svg width="100%" height="200" viewBox="0 0 600 200">
+        <defs>
+            <marker id="arr-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#c62828"/>
+            </marker>
+            <marker id="arr-cold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#0288d1"/>
+            </marker>
+        </defs>
+
+        <!-- Těleso výměníku -->
+        <rect x="200" y="30" width="200" height="140" rx="5" fill="#f5f5f5" stroke="#333" stroke-width="3"/>
+
+        <!-- Dělicí lamely (střídání kanálů) -->
+        <line x1="200" y1="56"  x2="400" y2="56"  stroke="#888" stroke-width="2"/>
+        <line x1="200" y1="82"  x2="400" y2="82"  stroke="#888" stroke-width="2"/>
+        <line x1="200" y1="108" x2="400" y2="108" stroke="#888" stroke-width="2"/>
+        <line x1="200" y1="134" x2="400" y2="134" stroke="#888" stroke-width="2"/>
+
+        <!-- Teplý vzduch zleva doprava (červené kanály – liché) -->
+        <line x1="60"  y1="43"  x2="195" y2="43"  stroke="#c62828" stroke-width="4" marker-end="url(#arr-warm)"/>
+        <line x1="205" y1="43"  x2="395" y2="43"  stroke="#c62828" stroke-width="4" marker-end="url(#arr-warm)"/>
+        <line x1="400" y1="43"  x2="540" y2="43"  stroke="#c62828" stroke-width="4" stroke-dasharray="8,4" marker-end="url(#arr-warm)"/>
+
+        <line x1="60"  y1="95"  x2="195" y2="95"  stroke="#c62828" stroke-width="4" marker-end="url(#arr-warm)"/>
+        <line x1="205" y1="95"  x2="395" y2="95"  stroke="#c62828" stroke-width="4" marker-end="url(#arr-warm)"/>
+        <line x1="400" y1="95"  x2="540" y2="95"  stroke="#c62828" stroke-width="4" stroke-dasharray="8,4" marker-end="url(#arr-warm)"/>
+
+        <line x1="60"  y1="147" x2="195" y2="147" stroke="#c62828" stroke-width="4" marker-end="url(#arr-warm)"/>
+        <line x1="205" y1="147" x2="395" y2="147" stroke="#c62828" stroke-width="4" marker-end="url(#arr-warm)"/>
+        <line x1="400" y1="147" x2="540" y2="147" stroke="#c62828" stroke-width="4" stroke-dasharray="8,4" marker-end="url(#arr-warm)"/>
+
+        <!-- Studený vzduch zprava doleva (modré kanály – sudé) -->
+        <line x1="540" y1="69"  x2="405" y2="69"  stroke="#0288d1" stroke-width="4" marker-end="url(#arr-cold)"/>
+        <line x1="395" y1="69"  x2="205" y2="69"  stroke="#0288d1" stroke-width="4" marker-end="url(#arr-cold)"/>
+        <line x1="195" y1="69"  x2="60"  y2="69"  stroke="#0288d1" stroke-width="4" stroke-dasharray="8,4" marker-end="url(#arr-cold)"/>
+
+        <line x1="540" y1="121" x2="405" y2="121" stroke="#0288d1" stroke-width="4" marker-end="url(#arr-cold)"/>
+        <line x1="395" y1="121" x2="205" y2="121" stroke="#0288d1" stroke-width="4" marker-end="url(#arr-cold)"/>
+        <line x1="195" y1="121" x2="60"  y2="121" stroke="#0288d1" stroke-width="4" stroke-dasharray="8,4" marker-end="url(#arr-cold)"/>
+
+        <!-- Popisky -->
+        <text x="30"  y="38"  font-size="12" fill="#c62828" font-weight="bold" text-anchor="middle">Teplý</text>
+        <text x="30"  y="52"  font-size="12" fill="#c62828" font-weight="bold" text-anchor="middle">vzduch</text>
+        <text x="30"  y="65"  font-size="11" fill="#c62828" text-anchor="middle">+20 °C</text>
+        <text x="30"  y="78"  font-size="11" fill="#c62828" text-anchor="middle">(odpadní)</text>
+
+        <text x="565" y="38"  font-size="12" fill="#c62828" font-weight="bold" text-anchor="middle">Teplý</text>
+        <text x="565" y="52"  font-size="12" fill="#c62828" font-weight="bold" text-anchor="middle">ochlazen</text>
+        <text x="565" y="65"  font-size="11" fill="#c62828" text-anchor="middle">→ ven</text>
+
+        <text x="570" y="115" font-size="12" fill="#0288d1" font-weight="bold" text-anchor="middle">Studený</text>
+        <text x="570" y="129" font-size="12" fill="#0288d1" font-weight="bold" text-anchor="middle">vzduch</text>
+        <text x="570" y="143" font-size="11" fill="#0288d1" text-anchor="middle">-10 °C</text>
+        <text x="570" y="157" font-size="11" fill="#0288d1" text-anchor="middle">(zvenku)</text>
+
+        <text x="25"  y="115" font-size="12" fill="#0288d1" font-weight="bold" text-anchor="middle">Ohřátý</text>
+        <text x="25"  y="129" font-size="12" fill="#0288d1" font-weight="bold" text-anchor="middle">čerstvý</text>
+        <text x="25"  y="143" font-size="11" fill="#0288d1" text-anchor="middle">→ do domu</text>
+
+        <!-- Tepelný přechod přes lamely – šipky skrz stěnu -->
+        <line x1="300" y1="56"  x2="300" y2="69"  stroke="#f57c00" stroke-width="3" marker-end="url(#arr-warm)"/>
+        <line x1="300" y1="82"  x2="300" y2="95"  stroke="#f57c00" stroke-width="3" marker-end="url(#arr-warm)"/>
+        <line x1="300" y1="108" x2="300" y2="121" stroke="#f57c00" stroke-width="3" marker-end="url(#arr-warm)"/>
+        <line x1="300" y1="134" x2="300" y2="147" stroke="#f57c00" stroke-width="3" marker-end="url(#arr-warm)"/>
+        <text x="315" y="103" font-size="10" fill="#f57c00" font-weight="bold">Teplo prochází</text>
+        <text x="315" y="116" font-size="10" fill="#f57c00" font-weight="bold">přes lamelu</text>
+
+        <text x="300" y="195" font-size="11" text-anchor="middle" fill="#333">Protiproudé uspořádání = nejvyšší účinnost přenosu tepla</text>
+    </svg>
+</div>
+
+<!-- ============================================================ -->
+<h2>3. Čistírny odpadních vod (ČOV)</h2>
+
+<p>Odpadní vody z domácností a průmyslu obsahují organické látky, pevné nečistoty, dusík, fosfor a řadu škodlivých chemikálií. ČOV je komplexní technologický celek, který vodu vyčistí na úroveň, kdy ji lze bezpečně vypustit do řeky.</p>
+
+<h3>Mechanické čištění (1. stupeň)</h3>
+<ul>
+    <li><strong>Česle (hrubé a jemné):</strong> Mříže s mezerami 3–100 mm zachycují pevné odpady – hadry, plastové lahve, papír. Zachycený materiál se stírá strojně a odváží na skládku.</li>
+    <li><strong>Lapáky písku:</strong> Voda se zpomalí v širším kanálu, těžký písek a štěrk klesne na dno. Organika (lehčí) zůstane ve vodě a pokračuje dál.</li>
+    <li><strong>Usazovací nádrže (Primární čiřiče):</strong> Velké kruhové nebo obdélníkové nádrže. Voda zde velmi pomalu protéká (zdržení 1–2 hodiny). Jemné pevné částice (kal) pomalu klesají na dno, kde je škrabák průběžně shrne do středu a odčerpá. Shora je odebírán přepad = předčištěná voda.</li>
+</ul>
+
+<h3>Biologické čištění (2. stupeň) – klíčový proces</h3>
+<div class="box-green">
+    <p>Mikroorganismy (bakterie) za přítomnosti kyslíku rozkládají organické znečištění (splašky) na neškodné látky – CO₂ a vodu. Jde o biologický proces urychlený technologií.</p>
+    <ul>
+        <li><strong>Aktivační nádrže (Aktivační systém):</strong> Velké nádrže s aktivovaným kalem (obrovské množství živých bakterií). Do nádrže se nepřetržitě vhání vzduch (provzdušňování – dmychadly nebo míchadly s ponořenými turbínou). Bakterie mají dostatek kyslíku → rychle se množí a požírají organické znečištění.</li>
+        <li><strong>Dosazovací nádrže (Sekundární čiřiče):</strong> Za aktivačními nádržemi. Aktivovaný kal (bakterie s přisebraným znečištěním) se nechá usadit. Čistá voda odtéká přes přelivnou hranu ven do řeky. Kal se vrátí zpět do aktivace (recirkulace) nebo se část odvede ke zpracování.</li>
+    </ul>
+</div>
+
+<h3>Třetí stupeň čištění (chemické a membránové)</h3>
+<ul>
+    <li><strong>Odstraňování fosforu:</strong> Přidáním solí železa nebo hliníku se fosfor vysráží do nerozpustné formy a odstraní s kalem. (Důležité, jinak by přebytek fosforu v řece způsobil přemnožení řas a úhyn ryb – eutrofizace.)</li>
+    <li><strong>UV dezinfekce:</strong> Výstupní voda se ozáří ultrafialovým světlem → zničí se zbývající patogeny (viry, bakterie) bez chemikálií.</li>
+</ul>
+
+<h3>Zpracování kalu</h3>
+<ul>
+    <li>Kal z čiřičů se zahustí a odvede do <strong>vyhnívacích nádrží (digestorů)</strong>. Zde probíhá anaerobní fermentace (bez vzduchu) – bakterie rozkládají organiku a produkují <span class="highlight">bioplyn (60–70 % methan CH₄)</span>. Bioplyn pohání kogenerační jednotku vyrábějící elektřinu a teplo pro samotnou ČOV. Zbylý vyhnilý kal lze po hygienizaci použít jako hnojivo na zemědělskou půdu.</li>
+</ul>
+
+<div class="box">
+    <h3>Shrnutí: Hlavní oblasti technické úpravy prostředí</h3>
+    <table>
+        <tr><th>Oblast</th><th>Problém</th><th>Zařízení / Technologie</th><th>Princip</th></tr>
+        <tr><td>Čistota vzduchu</td><td>Průmyslový prach</td><td>Cyklon</td><td>Odstředivá separace</td></tr>
+        <tr><td>Čistota vzduchu</td><td>Jemné částice, kouř</td><td>Tkaninový / ESP filtr</td><td>Filtrace, elektrostatika</td></tr>
+        <tr><td>Větrání</td><td>Špatná kvalita vzduchu</td><td>VZT systém s ventilátory</td><td>Nucená výměna vzduchu</td></tr>
+        <tr><td>Úspora energie</td><td>Tepelné ztráty větráním</td><td>Rekuperátor (ZZT)</td><td>Protisměrný tepelný výměník</td></tr>
+        <tr><td>Čistota vody</td><td>Pevné nečistoty</td><td>Česle, lapák písku, čiřič</td><td>Fyzikální separace</td></tr>
+        <tr><td>Čistota vody</td><td>Organické znečištění</td><td>Aktivace + dosazovací nádrž</td><td>Biologická oxidace bakteriemi</td></tr>
+        <tr><td>Čistota vody</td><td>Fosfor, patogeny</td><td>Chemické srážení, UV</td><td>Chemická a fyzikální desinfekce</td></tr>
+    </table>
+</div>
+
+</body>
+</html>

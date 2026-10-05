@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>04. Tváření za studena</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>4. Tváření za studena (Stříhání, tažení, ohýbání, protlačování)</h1>
+
+    <div class="box">
+        <h2>Fyzikální podstata tváření za studena</h2>
+        <p>Proces plastické deformace probíhající <strong>pod teplotou rekrystalizace</strong> (u oceli typicky za pokojové teploty). Během tváření dochází k posuvu vrstev krystalové mřížky podél tzv. skluzových rovin.</p>
+        <p><span class="highlight">Zpevnění deformací:</span> Protože nedochází k tepelné obnově (rekrystalizaci), poruchy v mřížce (dislokace) se hromadí a blokují se navzájem. Materiál se stává stále tvrdším, pevnějším (roste mez kluzu $R_e$ i mez pevnosti $R_m$), ale dramaticky ztrácí tažnost a <strong>křehne</strong>. Pokud dosáhne meze, praskne.</p>
+        <p><strong>Řešení:</strong> Pokud potřebujeme například plech táhnout velmi hluboko, musíme proces přerušit a vložit polotovar do pece na <em>rekrystalizační žíhání (cca 600 °C)</em>. Tím se mřížka opraví, zrna se zakulatí, ocel opět změkne a můžeme tvářet dál.</p>
+
+        <h3>Výhody a nevýhody</h3>
+        <ul>
+            <li><span class="highlight">+</span> <strong>Vynikající kvalita povrchu:</strong> Nevznikají žádné okuje ani oxidace (povrch zůstává kovově lesklý a hladký).</li>
+            <li><span class="highlight">+</span> <strong>Obrovská přesnost:</strong> Nedochází k tepelné roztažnosti a smršťování. Lze dosáhnout tolerancí IT7-IT9.</li>
+            <li><span class="highlight">-</span> <strong>Vysoké síly:</strong> Vyžaduje obrovské a masivní tvářecí stroje (lisy), protože deformační odpor studeného kovu je obrovský.</li>
+        </ul>
+    </div>
+
+    <h2>1. Stříhání plechu</h2>
+    <p>Základní beztřískové dělení materiálu pomocí dvou protiběžných břitů. Materiál je namáhán na <strong>smyk</strong>.</p>
+    <p><strong>Výpočet střižné síly:</strong> <span class="formula">F<sub>S</sub> = L &cdot; s &cdot; &tau;<sub>S</sub></span><br>
+    <em>(L = obvod střiženého tvaru [mm], s = tloušťka plechu [mm], &tau;<sub>S</sub> = mez pevnosti ve střihu [MPa]. Síla lisu musí být zhruba o 30 % větší, aby překonala pasivní odpory.)</em></p>
+
+    <h3>Fáze stříhání a vliv střižné vůle</h3>
+    <p>Nejkritičtějším parametrem nástroje je <span class="highlight">Střižná vůle (c)</span>. Jde o mezeru mezi horním a dolním nožem. Počítá se jako procento tloušťky plechu (obvykle 5–10 %). Při malé vůli se břity rychle tupí a střižná síla extrémně roste. Při příliš velké vůli plech nepraskne čistě smykem, ale "žvýkne" se (ohne se) a vznikne masivní otřep.</p>
+
+    <div class="svg-container">
+        <strong>CAD Analýza: Fáze ustřižení a střižná vůle (c)</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+                <pattern id="hatch-blade" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="8" x2="8" y2="0" stroke="#333" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+
+            <!-- Osa vůle -->
+            <line x1="300" y1="50" x2="300" y2="200" stroke="#111" stroke-width="0.5" stroke-dasharray="4,4"/>
+            <line x1="320" y1="50" x2="320" y2="200" stroke="#111" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+            <!-- Horní nůž -->
+            <path d="M 300 20 L 300 120 L 150 100 L 150 20 Z" fill="url(#hatch-blade)" stroke="#111" stroke-width="2.5"/>
+            <line x1="225" y1="10" x2="225" y2="60" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="240" y="40" font-size="14" fill="#c00" font-weight="bold">Síla F</text>
+            <text x="170" y="50" font-size="12" font-weight="bold" background="#fff">Horní nůž (Razník)</text>
+            
+            <!-- Plech (S deformací lomu) -->
+            <!-- Levý odštípnutý díl -->
+            <path d="M 50 140 L 290 140 C 305 140, 295 160, 295 160 L 285 180 L 50 180 Z" fill="#fa0" stroke="#111" stroke-width="2"/>
+            <!-- Pravý pevný díl -->
+            <path d="M 305 140 L 305 160 C 305 160, 295 180, 310 180 L 550 180 L 550 140 L 305 140 Z" fill="#fa0" stroke="#111" stroke-width="2"/>
+            
+            <text x="100" y="165" font-size="12" font-weight="bold">Vystřižený plech</text>
+
+            <!-- Zóny řezu -->
+            <line x1="320" y1="140" x2="320" y2="125" stroke="#111" stroke-width="2"/>
+            <text x="330" y="130" font-size="11" font-weight="bold">1. Pásmo vniku (Zaoblení)</text>
+            <text x="330" y="145" font-size="10">Plech se pružně i plasticky vtahuje do mezery.</text>
+
+            <line x1="320" y1="150" x2="320" y2="140" stroke="#111" stroke-width="2"/>
+            <text x="330" y="165" font-size="11" font-weight="bold">2. Pásmo střihu (Lesklé)</text>
+            <text x="330" y="180" font-size="10">Nůž se zaboří hlouběji. Plocha je čistá, hladká a zrcadlově lesklá.</text>
+
+            <circle cx="285" cy="180" r="4" fill="#c00"/>
+            <text x="100" y="200" font-size="11" fill="#c00" font-weight="bold">3. Pásmo utržení (Drsný lom) a Ostrý otřep!</text>
+
+            <!-- Dolní nůž -->
+            <path d="M 320 230 L 320 140 L 520 140 L 520 230 Z" fill="url(#hatch-blade)" stroke="#111" stroke-width="2.5"/>
+            <text x="350" y="210" font-size="12" font-weight="bold" background="#fff">Dolní nůž (Matrice)</text>
+
+            <!-- Kóta střižné vůle -->
+            <line x1="300" y1="200" x2="320" y2="200" stroke="#111" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+            <text x="310" y="215" font-size="12" text-anchor="middle" font-weight="bold">vůle (c)</text>
+        </svg>
+    </div>
+
+    <h2>2. Ohýbání</h2>
+    <p>Trvalá změna tvaru polotovaru způsobená ohybovým momentem. Dělá se typicky na ohraňovacích lisech, kde beran zatlačuje plech do prizmatické matrice (tvaru V).</p>
+    <ul>
+        <li><strong>Neutrální osa:</strong> Při ohýbání plechu se vlákna materiálu ležící <em>na vnitřní straně ohybu stlačují</em> a vlákna <em>na vnější straně se natahují</em> (hrozí trhlinky na povrchu). Mezi těmito zónami existuje jedna vrstva (vlákno), které nemění svou délku – tzv. neutrální osa. Posouvá se směrem ke středu ohybu. Podle délky této osy se přesně počítá <strong>délka rozvinutého (rovného) plechu</strong> před ohybem.</li>
+        <li><strong>Odpružení:</strong> I při plastické deformaci zůstává v kovu malá elastická složka napětí. Jakmile nůž lisu vyjede z matrice, plech se o 1-3 stupně "vrátí" (rozevře se). <em>Řešení:</em> Konstruktér musí vyrobit ostřejší nástroj a tzv. <strong>plech přehnout přes míru</strong> (např. chceme-li úhel 90°, ohýbáme na 88° a plech pak odpruží přesně na 90°).</li>
+    </ul>
+
+    <h2>3. Hluboké tažení</h2>
+    <p>Nejdůležitější a nejsložitější metoda pro výrobu <strong>dutých a prostorových nádob</strong> (hrnce, vany, nábojnice, celé dveře a střechy automobilů) z rovinného kusu plechu (tzv. přístřihu). Probíhá na obřích tažných lisech.</p>
+    
+    <h3>Nástroj: Tažidlo</h3>
+    <ul>
+        <li><span class="highlight">Tažnice (Matrice):</span> Spodní pevná část nástroje s tvarovou dutinou. <strong>Tažná hrana (okraj díry) musí být dokonale zaoblená a vyleštěná!</strong> Kdyby byla ostrá, fungovala by jako nůžky a plech by místo vtažení prostě ustřihla nebo protrhla.</li>
+        <li><span class="highlight">Tažník (Razník/Píst):</span> Pohyblivá horní část. Tlačí střed plechu do tažnice, udává vnitřní rozměr a tvar nádoby.</li>
+        <li><span class="highlight">Přidržovač:</span> Zcela kritická pohyblivá deska. Volný okraj plechu má při vtahování do tažnice tendenci se "zmuchlat" (vznikají tzv. faldy nebo vlnky, jako když se zmačká papír). Přidržovač plech přimáčkne na krajích velkou silou k tažnici, dovolí mu sice proklouznout dovnitř, ale udrží ho dokonale rovný a napnutý.</li>
+    </ul>
+
+    <div class="box">
+        <p><strong>Tažení na více tahů (Součinitel tažení):</strong> Součinitel tažení $m = d / D$ (kde $d$ je průměr tažníku a $D$ průměr původního rovného plechu). Pokud chceme vyrobit velmi hluboký a úzký válec, nemůžeme to udělat naráz (dno by se odtrhlo). Musíme plech protáhnout na mělkou širokou misku (1. tah), pak ji <strong>vyžíhat v peci</strong>, a teprve poté menším tažníkem protáhnout na menší průměr a větší hloubku (2. tah).</p>
+    </div>
+
+    <div class="svg-container">
+        <strong>CAD Řez: Nástroj pro hluboké tažení v pracovní poloze</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <pattern id="hatch-die" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="0" x2="8" y2="8" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+            </defs>
+
+            <!-- Osa symetrie -->
+            <line x1="300" y1="10" x2="300" y2="240" stroke="#111" stroke-width="1" stroke-dasharray="20,10,5,10"/>
+
+            <!-- Tažník (Razník) -->
+            <rect x="220" y="20" width="160" height="110" fill="#e0f7fa" stroke="#111" stroke-width="2.5" rx="10"/>
+            <line x1="300" y1="0" x2="300" y2="50" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="320" y="30" font-size="14" fill="#c00" font-weight="bold">Tažná síla (Od Beranu)</text>
+            <text x="300" y="80" font-size="14" font-weight="bold" text-anchor="middle">Tažník</text>
+
+            <!-- Tažnice (Matrice) -->
+            <path d="M 40 230 L 200 230 L 200 150 Q 200 140, 210 140 L 280 140 L 280 230 Z" fill="url(#hatch-die)" stroke="#111" stroke-width="2"/>
+            <path d="M 560 230 L 400 230 L 400 150 Q 400 140, 390 140 L 320 140 L 320 230 Z" fill="url(#hatch-die)" stroke="#111" stroke-width="2"/>
+            <text x="120" y="210" font-size="12" font-weight="bold" background="#fff">Tažnice (Matrice)</text>
+            
+            <!-- Zaoblení hrany (křížek) -->
+            <circle cx="210" cy="150" r="10" fill="none" stroke="#c00" stroke-width="1.5" stroke-dasharray="2,2"/>
+            <line x1="160" y1="170" x2="200" y2="155" stroke="#c00" stroke-width="1.5"/>
+            <text x="50" y="175" font-size="10" font-weight="bold" fill="#c00">Dokonale zaoblená tažná hrana!</text>
+
+            <!-- Přidržovač -->
+            <rect x="40" y="100" width="150" height="30" fill="#bbb" stroke="#111" stroke-width="2"/>
+            <rect x="410" y="100" width="150" height="30" fill="#bbb" stroke="#111" stroke-width="2"/>
+            <text x="60" y="120" font-size="11" font-weight="bold" fill="#fff">Přidržovač plechu</text>
+            
+            <!-- Síla přidržovače -->
+            <line x1="115" y1="50" x2="115" y2="90" stroke="#00c" stroke-width="3" marker-end="url(#arrow-blue)"/>
+            <line x1="485" y1="50" x2="485" y2="90" stroke="#00c" stroke-width="3" marker-end="url(#arrow-blue)"/>
+            <text x="60" y="45" font-size="11" fill="#00c" font-weight="bold">Síla proti tvoření vln/faldů!</text>
+
+            <!-- Plech (Výtažek) - Tlustá oranžová čára -->
+            <!-- Tloušťka plechu musí být zřetelná, udělám to jako obrys (path plošný) -->
+            <path d="M 60 132 L 210 132 Q 220 132, 220 142 L 220 220 Q 220 230, 230 230 L 370 230 Q 380 230, 380 220 L 380 142 Q 380 132, 390 132 L 540 132 L 540 138 L 390 138 Q 374 138, 374 152 L 374 220 Q 374 224, 370 224 L 230 224 Q 226 224, 226 220 L 226 152 Q 226 138, 210 138 L 60 138 Z" fill="#fa0" stroke="#c00" stroke-width="1.5"/>
+            
+            <text x="300" y="210" font-size="12" fill="#d32f2f" font-weight="bold" text-anchor="middle">Výrobek (Dutá nádoba z plechu)</text>
+        </svg>
+    </div>
+
+    <h2>4. Protlačování</h2>
+    <p>Výroba tyčových profilů a drobných masivních i dutých nádobek z barevných kovů, hliníku i měkkých ocelí. Objemový špalík kovu (tzv. průtlaček) se vloží do pevné formy (průtlačnice). Masivní tlakový razník začne tlačit na ocel a ta <strong>"teče" (chová se jako plastelína)</strong> přes úzké ústí otvoru.</p>
+    <ul>
+        <li><strong>Dopředné protlačování:</strong> Směr toku (vytékání) kovu je stejný jako směr pohybu razníku lisu. Kov se protlačuje úzkou dírkou ve dně a tvoří dlouhou tyč nebo okenní hliníkový profil (Aluplast).</li>
+        <li><strong>Zpětné protlačování:</strong> Razník zajede do plného špalíku kovu. Kov vytéká štěrbinou mezi stěnou nástroje a stěnou matrice směrem <strong>proti pohybu lisu</strong> (nahoru). Vyrábí se tak tenkostěnné válcové obaly (tuby na pastu, hliníkové spreje, kryty svíček).</li>
+        <li><strong>Sdružené protlačování:</strong> Kombinace dopředného a zpětného v jediném kroku.</li>
+    </ul>
+
+</body>
+</html>

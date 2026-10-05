@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>00. Nástrojové materiály – značení, vlastnosti, použití</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #fce4ec; border-left: 5px solid #c62828; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul, ol { margin-top: 5px; margin-bottom: 10px; }
+        ul, ol { padding-left: 25px; }
+        li { margin-bottom: 4px; }
+        .box       { border: 2px solid #333;    padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .box-red   { border: 2px solid #c62828; padding: 12px; background-color: #fce4ec; margin-bottom: 12px; border-radius: 5px;}
+        .box-blue  { border: 2px solid #0288d1; padding: 12px; background-color: #e1f5fe; margin-bottom: 12px; border-radius: 5px;}
+        .box-green { border: 2px solid #388e3c; padding: 12px; background-color: #e8f5e9; margin-bottom: 12px; border-radius: 5px;}
+        .box-orange{ border: 2px solid #f57c00; padding: 12px; background-color: #fff3e0; margin-bottom: 12px; border-radius: 5px;}
+        .box-grey  { border: 2px solid #555;    padding: 12px; background-color: #f5f5f5; margin-bottom: 12px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 8px; border-radius: 3px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+        .značení  { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; background: #e8eaf6; padding: 2px 8px; border-radius: 3px; color: #1a237e;}
+        table { border-collapse: collapse; width: 100%; margin: 10px 0; font-size: 10.5pt;}
+        th { background: #333; color: #fff; padding: 6px 10px; }
+        td { border: 1px solid #aaa; padding: 6px 10px; vertical-align: top;}
+        tr:nth-child(even) { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+
+<h1>Nástrojové materiály – značení, vlastnosti, použití</h1>
+
+<div class="box">
+    <p><strong>Nástrojový materiál</strong> je materiál, ze kterého je vyrobena řezná část nástroje (břit). Musí být <span class="highlight">tvrdší než obráběný materiál</span>, a to i za vysokých teplot (červená tvrdost), musí odolávat otěru, tepelným a mechanickým rázům. Volba správného nástrojového materiálu přímo určuje řeznou rychlost, trvanlivost nástroje a výslednou jakost povrchu.</p>
+    <p><strong>Klíčové vlastnosti nástrojových materiálů (4T):</strong></p>
+    <ul>
+        <li><strong>Tvrdost za tepla (Červená tvrdost):</strong> Schopnost udržet tvrdost i při vysoké teplotě v místě řezu. Nejdůležitější vlastnost pro rychlé obrábění.</li>
+        <li><strong>Tvrdost za studena (HRC, HV):</strong> Základní odolnost vůči deformaci a otěru.</li>
+        <li><strong>Houževnatost:</strong> Odolnost vůči lomu a mechanickým rázům (přerušovaný řez, frézování).</li>
+        <li><strong>Odolnost proti opotřebení (Otěruvzdornost):</strong> Životnost břitu v kontaktu s třískou.</li>
+    </ul>
+    <p><em>Platí základní kompromis: <span class="highlight">čím tvrdší materiál, tím křehčí a méně houževnatý</span>. Nástrojový materiál se vždy volí jako kompromis mezi tvrdostí a houževnatostí pro daný typ operace.</em></p>
+</div>
+
+<!-- ============================================================ -->
+<h2>1. Nástrojové oceli (NO)</h2>
+
+<p>Ocelové nástroje jsou nejstarší a stále nejpoužívanější pro ruční nářadí a méně náročné obrábění. Mají vysokou houževnatost, ale nízkou červenou tvrdost – při přehřátí se popustí a ztratí tvrdost.</p>
+
+<h3>A) Nástrojové oceli uhlíkové (NU)</h3>
+<div class="box-grey">
+    <ul>
+        <li><strong>Složení:</strong> Fe + C (0,6–1,4 %), minimum legur. Nejjednodušší nástrojové oceli.</li>
+        <li><strong>Značení ČSN/EN:</strong> <span class="značení">19 1XX – 19 2XX</span> (starší ČSN), nebo <span class="značení">C80U, C100U, C120U</span> (EN – číslo = obsah C v setinách %). Písmeno <strong>U</strong> = nástrojová (Unlegiert = nelegovaná).</li>
+        <li><strong>Tepelné zpracování:</strong> Kalení do vody nebo oleje, popouštění na 150–200 °C.</li>
+        <li><strong>Červená tvrdost:</strong> Pouze do cca <span class="highlight">200–250 °C</span>. Za touto teplotou se ihned změkčí.</li>
+        <li><strong>Typická HRC po kalení:</strong> 60–65 HRC</li>
+        <li><strong>Použití:</strong> Ruční nářadí – pilníky, dláta, sekáče, rašple, ruční pily, měřidla (koncové měrky). Vše, kde nejsou vysoké řezné rychlosti.</li>
+    </ul>
+    <table>
+        <tr><th>Značka EN</th><th>Obsah C [%]</th><th>Typické použití</th></tr>
+        <tr><td><span class="značení">C70U</span></td><td>0,65–0,75</td><td>Sekáče, klíny, pružiny nástrojů</td></tr>
+        <tr><td><span class="značení">C80U</span></td><td>0,75–0,85</td><td>Dláta, sekáče, kladiva</td></tr>
+        <tr><td><span class="značení">C100U</span></td><td>0,95–1,05</td><td>Vrtáky (ruční), pilníky, hoblíkové nože</td></tr>
+        <tr><td><span class="značení">C120U</span></td><td>1,15–1,25</td><td>Závitníky (ruční), výstružníky, gravírovací nástroje</td></tr>
+    </table>
+</div>
+
+<h3>B) Nástrojové oceli legované (NL)</h3>
+<div class="box-grey">
+    <ul>
+        <li><strong>Složení:</strong> Fe + C + přísadové prvky: <strong>Cr</strong> (chromium – tvrdost, otěruvzdornost), <strong>W</strong> (wolfram – červená tvrdost), <strong>Mn</strong> (mangan – prokalitelnost), <strong>V</strong> (vanad – jemné zrno, houževnatost).</li>
+        <li><strong>Značení ČSN:</strong> <span class="značení">19 3XX – 19 7XX</span></li>
+        <li><strong>Červená tvrdost:</strong> Do cca <span class="highlight">300–350 °C</span>.</li>
+        <li><strong>Výhody oproti uhlíkovým:</strong> Větší prokalitelnost (lze kalit v oleji, menší deformace), vyšší otěruvzdornost, možnost složitějších tvarů.</li>
+        <li><strong>Použití:</strong> Strojní nástroje pro pomalé obrábění – závitníky strojní, výstružníky, záhlubníky, protlačovací trny, zápustky, střižné nástroje, nože pro dřevo.</li>
+    </ul>
+    <table>
+        <tr><th>Skupina</th><th>Hlavní legury</th><th>Použití</th></tr>
+        <tr><td>Cr oceli</td><td>Cr (1–5 %)</td><td>Střižné nástroje, razníky, matrice lisů</td></tr>
+        <tr><td>CrV oceli</td><td>Cr + V</td><td>Závitníky, výstružníky, stopkové frézy (nízká v<sub>c</sub>)</td></tr>
+        <tr><td>CrWMn oceli</td><td>Cr + W + Mn</td><td>Brousicí trny, měřidla, kalibrační kroužky</td></tr>
+        <tr><td>W oceli</td><td>W (1–2 %)</td><td>Nože pro obrábění dřeva, hoblíky</td></tr>
+    </table>
+</div>
+
+<!-- ============================================================ -->
+<h2>2. Rychlořezné oceli (RO) – HSS</h2>
+
+<div class="box-red">
+    <p><strong>Historický zlom (1900):</strong> Taylor a White na světové výstavě předvedli ocel, která při soustružení svítila červeně (300–600 °C) a stále řezala! Tím vznikly rychlořezné oceli. Otočily průmysl – dovolily 2–4× vyšší řezné rychlosti než do té doby.</p>
+    <ul>
+        <li><strong>Složení:</strong> Vysoký obsah wolframu W (6–18 %), molybdenu Mo, vanadu V, kobaltu Co a chromu Cr. Uhlík C = 0,7–1,5 %.</li>
+        <li><strong>Značení EN:</strong> Prefix <span class="značení">HS</span> + čísla ve skupinách <strong>W-Mo-V-Co</strong>.
+            <ul>
+                <li><span class="značení">HS 6-5-2</span> = 6 % W, 5 % Mo, 2 % V (nejběžnější, základní typ)</li>
+                <li><span class="značení">HS 6-5-2-5</span> = jako výše + 5 % Co (kobaltová RO, pro těžkoobrábitelné mat.)</li>
+                <li><span class="značení">HS 2-9-1-8</span> = molybdenová RO (levnější náhrada za W)</li>
+            </ul>
+        </li>
+        <li><strong>Starší ČSN značení:</strong> <span class="značení">19 800 – 19 860</span></li>
+        <li><strong>Červená tvrdost:</strong> Do <span class="highlight">600–650 °C</span>! To je klíč k úspěchu.</li>
+        <li><strong>Tvrdost po kalení:</strong> 63–67 HRC</li>
+        <li><strong>Tepelné zpracování:</strong> Kalení na vysokou teplotu (1 200–1 300 °C!) v solné lázni nebo ve vakuové peci. Trojnásobné popouštění na 550–580 °C (tzv. sekundární tvrdost – karbidy se vyloučí a materiál se ještě ztrdí!).</li>
+    </ul>
+</div>
+
+<h3>Použití RO (HSS)</h3>
+<ul>
+    <li><strong>Vrtáky:</strong> Šroubovité vrtáky pro vrtání do kovů – nejrozšířenější použití. <span class="značení">HS 6-5-2</span> je standard.</li>
+    <li><strong>Frézy:</strong> Stopkové frézy, válcové čelní frézy, tvarové frézy (levnější alternativa k SK).</li>
+    <li><strong>Závitníky a závitové čelisti:</strong> Strojní i ruční závitování.</li>
+    <li><strong>Výstružníky, záhlubníky.</strong></li>
+    <li><strong>Obrážecí nože, hoblovací nože, hoblíky (strojní).</strong></li>
+    <li><strong>Ozubené nástroje:</strong> Odvalovací frézy pro ozubení (hoblovací), protlačovadla.</li>
+    <li><strong>Kobaltové typy</strong> (HS…-Co): pro těžkoobrábitelné materiály – nerezové oceli, titan, Inconel (letecký průmysl).</li>
+</ul>
+
+<div class="svg-container">
+    <strong>CAD Schéma: Srovnání vlastností nástrojových materiálů (Pavoukový diagram)</strong>
+    <svg width="100%" height="300" viewBox="0 0 600 300">
+        <defs>
+            <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+            </marker>
+        </defs>
+
+        <!-- Osy diagramu -->
+        <!-- Svislá: Tvrdost za studena -->
+        <line x1="300" y1="260" x2="300" y2="30" stroke="#333" stroke-width="2" marker-end="url(#ax)"/>
+        <text x="300" y="25" font-size="11" text-anchor="middle" font-weight="bold">Tvrdost za studena (HRC)</text>
+
+        <!-- Vodorovná: Houževnatost -->
+        <line x1="40" y1="260" x2="560" y2="260" stroke="#333" stroke-width="2" marker-end="url(#ax)"/>
+        <text x="565" y="264" font-size="11" font-weight="bold">Houževnatost →</text>
+
+        <!-- Diagonální: Červená tvrdost -->
+        <line x1="300" y1="260" x2="520" y2="60" stroke="#c62828" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#ax)"/>
+        <text x="525" y="55" font-size="11" fill="#c62828" font-weight="bold">Červená tvrdost →</text>
+
+        <!-- Stupnice na svislé ose -->
+        <text x="285" y="55"  font-size="10" text-anchor="end">90 HRC</text>
+        <text x="285" y="115" font-size="10" text-anchor="end">75 HRC</text>
+        <text x="285" y="175" font-size="10" text-anchor="end">65 HRC</text>
+        <text x="285" y="235" font-size="10" text-anchor="end">50 HRC</text>
+        <line x1="295" y1="50"  x2="305" y2="50"  stroke="#333" stroke-width="1"/>
+        <line x1="295" y1="110" x2="305" y2="110" stroke="#333" stroke-width="1"/>
+        <line x1="295" y1="170" x2="305" y2="170" stroke="#333" stroke-width="1"/>
+        <line x1="295" y1="230" x2="305" y2="230" stroke="#333" stroke-width="1"/>
+
+        <!-- Pozice materiálů na grafu (tvrdost svisle, houževnatost vodorovně) -->
+        <!-- Nástrojová ocel uhlíková: nejvíce houževnatá, nejméně tvrdá za tepla, 60-65 HRC -->
+        <circle cx="120" cy="185" r="18" fill="#795548" fill-opacity="0.7" stroke="#333" stroke-width="2"/>
+        <text x="120" y="189" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">NU</text>
+        <text x="60"  y="215" font-size="10" text-anchor="middle" fill="#795548" font-weight="bold">Uhlíkové</text>
+        <text x="60"  y="227" font-size="10" text-anchor="middle" fill="#795548" font-weight="bold">nástrojové</text>
+
+        <!-- RO (HSS): střední tvrdost, střední houževnatost -->
+        <circle cx="230" cy="165" r="18" fill="#f57c00" fill-opacity="0.7" stroke="#333" stroke-width="2"/>
+        <text x="230" y="169" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">RO</text>
+        <text x="185" y="200" font-size="10" text-anchor="middle" fill="#f57c00" font-weight="bold">Rychlořezné</text>
+        <text x="185" y="212" font-size="10" text-anchor="middle" fill="#f57c00" font-weight="bold">oceli (HSS)</text>
+
+        <!-- SK (WC-Co): velmi tvrdé, méně houževnaté -->
+        <circle cx="380" cy="80" r="18" fill="#0288d1" fill-opacity="0.8" stroke="#333" stroke-width="2"/>
+        <text x="380" y="84" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">SK</text>
+        <text x="430" y="75" font-size="10" text-anchor="middle" fill="#0288d1" font-weight="bold">Slinutý</text>
+        <text x="430" y="87" font-size="10" text-anchor="middle" fill="#0288d1" font-weight="bold">karbid</text>
+
+        <!-- Cermety: ještě tvrdší, méně houž. -->
+        <circle cx="440" cy="60" r="14" fill="#388e3c" fill-opacity="0.8" stroke="#333" stroke-width="2"/>
+        <text x="440" y="64" font-size="8" text-anchor="middle" fill="#fff" font-weight="bold">CM</text>
+        <text x="495" y="48" font-size="10" fill="#388e3c" font-weight="bold">Cermety</text>
+
+        <!-- Keramika a PKD: nejtvrdší, nejkřehčí -->
+        <circle cx="490" cy="45" r="12" fill="#c62828" fill-opacity="0.8" stroke="#333" stroke-width="2"/>
+        <text x="490" y="49" font-size="7" text-anchor="middle" fill="#fff" font-weight="bold">KER</text>
+        <circle cx="520" cy="38" r="10" fill="#880e4f" fill-opacity="0.9" stroke="#333" stroke-width="2"/>
+        <text x="520" y="42" font-size="7" text-anchor="middle" fill="#fff" font-weight="bold">PKD</text>
+        <text x="520" y="28" font-size="10" fill="#880e4f" font-weight="bold">Keramika, PKD/CBN</text>
+
+        <!-- Šipka "Vyšší řezná rychlost →" -->
+        <line x1="100" y1="280" x2="530" y2="280" stroke="#333" stroke-width="3" marker-end="url(#ax)"/>
+        <text x="315" y="297" font-size="12" text-anchor="middle" font-weight="bold" fill="#333">Dovolená řezná rychlost v_c [m/min] →</text>
+    </svg>
+</div>
+
+<!-- ============================================================ -->
+<h2>3. Slinuté karbidy (SK) – Cemented Carbide, Hartmetall</h2>
+
+<div class="box-blue">
+    <p><strong>Revoluce č. 2 v obrábění (30. léta 20. stol.):</strong> Prášková metalurgie umožnila vyrobit materiál, který není ocel – a přitom je nesrovnatelně tvrdší a odolnější za tepla.</p>
+    <ul>
+        <li><strong>Výroba:</strong> Práškovou metalurgií. Prášek karbidu wolframu WC (keramická tvrdá fáze) se smíchá s práškem kobaltu Co (kovové pojivo – houževnatost) a dalšími karbidy (TiC, TaC, NbC). Směs se lisuje do požadovaného tvaru a slinuje v peci (1 350–1 500 °C). Kobalt se roztaví a "slepí" zrna WC dohromady.</li>
+        <li><strong>Červená tvrdost:</strong> Až <span class="highlight">900–1 000 °C!</span></li>
+        <li><strong>Tvrdost:</strong> 1 300–1 800 HV (oproti HSS max 900 HV).</li>
+        <li><strong>Nevýhoda:</strong> Křehký! Nesnáší rázy a vibrace. Proto se SK nepoužívá na celistvé nástroje pro přerušovaný řez bez povlaků. Nástroje jsou buď monolitní (celý SK – malé stopkové frézy, vrtáky) nebo vyměnitelné břitové destičky (VBD) pájené nebo šroubem upnuté do tělesa z oceli.</li>
+    </ul>
+</div>
+
+<h3>Značení a skupiny SK (ISO norma – písmena + čísla)</h3>
+<table>
+    <tr><th>ISO skupina</th><th>Barva</th><th>Materiály pro obrábění</th><th>Složení SK (přibližně)</th></tr>
+    <tr>
+        <td><span class="značení">P (P01–P50)</span></td>
+        <td style="background:#1565c0; color:#fff; text-align:center;">Modrá</td>
+        <td>Dlouhotřísková ocel, ocelolitina</td>
+        <td>WC + TiC + Co (více TiC = tvrdší, P01 = nejvíce TiC)</td>
+    </tr>
+    <tr>
+        <td><span class="značení">M (M10–M40)</span></td>
+        <td style="background:#f9a825; color:#111; text-align:center;">Žlutá</td>
+        <td>Nerezové oceli, feritická litina, manganová ocel (univerzální)</td>
+        <td>WC + TiC + TaC + Co</td>
+    </tr>
+    <tr>
+        <td><span class="značení">K (K01–K40)</span></td>
+        <td style="background:#c62828; color:#fff; text-align:center;">Červená</td>
+        <td>Krátká tříska – litina, nekovové mat., barevné kovy, plast</td>
+        <td>WC + Co (bez TiC – TiC způsobuje difúzi do Fe, ne do litiny)</td>
+    </tr>
+    <tr>
+        <td><span class="značení">N (N01–N30)</span></td>
+        <td style="background:#2e7d32; color:#fff; text-align:center;">Zelená</td>
+        <td>Neželezné kovy – hliník, mosaz, měď</td>
+        <td>WC + Co (jemnozrnné)</td>
+    </tr>
+    <tr>
+        <td><span class="značení">S (S01–S30)</span></td>
+        <td style="background:#f57c00; color:#fff; text-align:center;">Oranžová</td>
+        <td>Superslitiny na bázi niklu (Inconel), titan (letectví)</td>
+        <td>WC + Co (speciální)</td>
+    </tr>
+    <tr>
+        <td><span class="značení">H (H01–H30)</span></td>
+        <td style="background:#4a4a4a; color:#fff; text-align:center;">Šedá</td>
+        <td>Kalené oceli a litiny (tvrdost 55–68 HRC)</td>
+        <td>WC + Co (velmi jemnozrnné)</td>
+    </tr>
+</table>
+<p><em>Číslo za písmenem: <strong>nízké číslo</strong> = tvrdší, otěruvzdornější (vyšší v<sub>c</sub>, jemné dokončení). <strong>Vysoké číslo</strong> = houževnatější (přerušovaný řez, hrubování, větší posuvy).</em></p>
+
+<h3>Povlaky VBD (PVD a CVD)</h3>
+<div class="box-green">
+    <p>Moderní SK destičky jsou vždy opatřeny povlakem tloušťky 3–20 µm, který dramaticky prodlouží trvanlivost:</p>
+    <ul>
+        <li><strong>TiN</strong> (nitrid titanu) – zlatá barva, základní povlak, sníží tření.</li>
+        <li><strong>TiCN</strong> (karbonitridy) – šedá/fialová, tvrdší než TiN.</li>
+        <li><strong>TiAlN / AlTiN</strong> – tmavá/černá, excelentní červená tvrdost → vhodné pro suché obrábění (bez chlazení), vysoké otáčky. Nejmodernější a nejpoužívanější.</li>
+        <li><strong>Al₂O₃</strong> (korund) – keramický povlak, extrémně chemicky odolný, pro soustružení litin.</li>
+        <li><strong>CVD</strong> (Chemical Vapour Deposition) – tlustší povlaky, otěruvzdornější, pro soustružení.</li>
+        <li><strong>PVD</strong> (Physical Vapour Deposition) – tenčí a houževnatější povlaky, pro frézování (rázy).</li>
+    </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>4. Řezná keramika (KER)</h2>
+<div class="box-orange">
+    <ul>
+        <li><strong>Složení:</strong>
+            <ul>
+                <li><em>Oxidová keramika:</em> Al₂O₃ (čistý korund) – bílé/béžové destičky.</li>
+                <li><em>Smíšená keramika:</em> Al₂O₃ + TiC nebo TiN – černé destičky, houževnatější.</li>
+                <li><em>Nitridová keramika (Si₃N₄):</em> Pro obrábění šedé litiny extrémně vysokými rychlostmi.</li>
+            </ul>
+        </li>
+        <li><strong>Červená tvrdost:</strong> Až <span class="highlight">1 200 °C</span>. Dovoluje řezné rychlosti 3–10× vyšší než SK!</li>
+        <li><strong>Nevýhoda:</strong> Extrémně křehká. Citlivá na tepelné rázy (nesmí se použít chlazení při přerušovaném řezu!). Nevhodná pro hliník a nerez.</li>
+        <li><strong>Použití:</strong> Soustružení kalených ocelí (55–68 HRC) – tzv. tvrdé soustružení jako náhrada broušení, obrábění litiny vysokou rychlostí, superslitiny niklu v letectví.</li>
+    </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>5. Cermety (CM)</h2>
+<ul>
+    <li><strong>Název:</strong> CERamics + METs (keramika + kovy) – kompozit karbidu titanu TiC/TiCN s kovovým pojivem (Ni, Mo).</li>
+    <li>Lepší chemická stabilita (méně se přilepuje tříska) než SK u ocelí → výborný povrch Ra.</li>
+    <li><strong>Použití:</strong> Jemné a přesné soustružení ocelí a nerezů při vysokých rychlostech (dokončovací operace, IT6–IT7).</li>
+    <li><strong>Nevýhoda:</strong> Křehčí než SK, nevhodné pro hrubování a přerušovaný řez.</li>
+</ul>
+
+<!-- ============================================================ -->
+<h2>6. Supertvrdé materiály – PKD a CBN</h2>
+
+<h3>A) Polykrystalický diamant (PKD / PCD)</h3>
+<div class="box-red">
+    <ul>
+        <li><strong>Tvrdost:</strong> ~10 000 HV – nejtvrdší přírodní látka.</li>
+        <li><strong>Výroba:</strong> Syntetické diamantové krystaly se za obrovského tlaku a teploty slinou (polykrystal) a připájí na SK podložku. Tvar destičky.</li>
+        <li><strong>Klíčové omezení:</strong> Diamant je čistý uhlík. Při obrábění ocelí se uhlík z diamantu chemicky <span class="highlight">rozpouští do železa (difúze)</span> → nástroj se opotřebovává katastrofálně rychle. <strong>NESMÍ se použít na oceli a litiny!</strong></li>
+        <li><strong>Použití:</strong> Obrábění nekovových materiálů a neželezných kovů s abrazivními částicemi – <strong>hliník se Si</strong> (kola automobilů – odlitky), kompozity CFRP/GFRP (uhlíkové a skleněné vlákno – letectví), měď, mosaz, grafit, dřevo, plast.</li>
+        <li><strong>Řezné rychlosti:</strong> Hliník až v<sub>c</sub> = 3 000 m/min!</li>
+    </ul>
+</div>
+
+<h3>B) Polykrystalický kubický nitrid bóru (CBN / PCBN)</h3>
+<div class="box-red">
+    <ul>
+        <li><strong>Tvrdost:</strong> ~4 000–5 000 HV – druhý nejtvrdší materiál po diamantu.</li>
+        <li><strong>Klíčová výhoda oproti PKD:</strong> Chemicky nereaguje s železem! Lze ho použít na <span class="highlight">kalené oceli a tvrdé litiny</span>.</li>
+        <li><strong>Červená tvrdost:</strong> Až 1 400 °C.</li>
+        <li><strong>Použití:</strong> <strong>Tvrdé soustružení a frézování kalených ocelí</strong> (55–68 HRC) – hřídele, ozubená kola, ložiskové kroužky. Jako náhrada broušení (stejná přesnost IT6, Ra 0,4 µm, ale 5–10× vyšší produktivita). Tělesa spalovacích motorů z tvrdé litiny.</li>
+    </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>7. Souhrnná srovnávací tabulka všech nástrojových materiálů</h2>
+
+<table>
+    <tr>
+        <th>Materiál</th>
+        <th>Červená tvrdost</th>
+        <th>Tvrdost (HV/HRC)</th>
+        <th>Houževnatost</th>
+        <th>Dovolená v<sub>c</sub> [m/min]</th>
+        <th>Typické použití</th>
+    </tr>
+    <tr>
+        <td><strong>Nástrojová ocel uhlíková (NU)</strong></td>
+        <td>200–250 °C</td>
+        <td>60–65 HRC</td>
+        <td>Velmi vysoká</td>
+        <td>5–15</td>
+        <td>Ruční nářadí, pilníky, dláta</td>
+    </tr>
+    <tr>
+        <td><strong>Nástrojová ocel legovaná (NL)</strong></td>
+        <td>300–350 °C</td>
+        <td>62–66 HRC</td>
+        <td>Vysoká</td>
+        <td>10–25</td>
+        <td>Závitníky strojní, výstružníky, střižné nástroje</td>
+    </tr>
+    <tr>
+        <td><strong>Rychlořezná ocel (RO / HSS)</strong></td>
+        <td>600–650 °C</td>
+        <td>63–67 HRC</td>
+        <td>Vysoká</td>
+        <td>20–60</td>
+        <td>Vrtáky, frézy, závitníky, hoblíky, broach</td>
+    </tr>
+    <tr>
+        <td><strong>Slinutý karbid (SK / WC-Co)</strong></td>
+        <td>900–1 000 °C</td>
+        <td>1 300–1 800 HV</td>
+        <td>Střední</td>
+        <td>100–500</td>
+        <td>VBD pro soustružení, frézování, vrtání všech kovů</td>
+    </tr>
+    <tr>
+        <td><strong>Cermet (TiC/TiCN)</strong></td>
+        <td>950 °C</td>
+        <td>1 400–1 900 HV</td>
+        <td>Nízká–střední</td>
+        <td>200–600</td>
+        <td>Dokončovací soustružení ocelí, nerez</td>
+    </tr>
+    <tr>
+        <td><strong>Řezná keramika (Al₂O₃, Si₃N₄)</strong></td>
+        <td>1 200 °C</td>
+        <td>1 800–2 400 HV</td>
+        <td>Nízká</td>
+        <td>300–1 500</td>
+        <td>Tvrdé soustružení, litiny, superslitiny (bez chlazení)</td>
+    </tr>
+    <tr>
+        <td><strong>PKD (Diamant)</strong></td>
+        <td>700 °C (limit)</td>
+        <td>~8 000–10 000 HV</td>
+        <td>Velmi nízká</td>
+        <td>500–5 000</td>
+        <td>Hliník, kompozity, nekovové mat. BEZ oceli!</td>
+    </tr>
+    <tr>
+        <td><strong>CBN (Nitrid bóru)</strong></td>
+        <td>1 400 °C</td>
+        <td>3 500–5 000 HV</td>
+        <td>Nízká</td>
+        <td>100–500</td>
+        <td>Tvrdé soustružení kalených ocelí (55+ HRC), litina</td>
+    </tr>
+</table>
+
+<div class="box-green" style="margin-top:20px;">
+    <h3>Pamatuj si klíčové hranice – to se ptají u maturity!</h3>
+    <ul>
+        <li><strong>NU:</strong> Červená tvrdost jen do <span class="highlight">250 °C</span> → jen ruční práce.</li>
+        <li><strong>HSS:</strong> Červená tvrdost do <span class="highlight">600 °C</span> → strojní obrábění, vrtáky, frézy.</li>
+        <li><strong>SK skupiny P/M/K/N/S/H</strong> → barva dle ISO, číslo = nízké tvrdší / vysoké houževnatější.</li>
+        <li><strong>PKD NESMÍ na oceli</strong> (difúze C do Fe) → jen nekovové kovy a neželezné slitiny.</li>
+        <li><strong>CBN SMÍ na kalené oceli</strong> → náhrada broušení (tvrdé soustružení).</li>
+        <li><strong>Povlaky VBD:</strong> TiN = zlatá, TiAlN = tmavá/černá (nejlepší pro suché obrábění).</li>
+    </ul>
+</div>
+
+</body>
+</html>

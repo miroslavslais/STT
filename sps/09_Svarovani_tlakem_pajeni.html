@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>09. Svařování tlakem a pájení</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>9. Svařování tlakem a pájení</h1>
+    
+    <div class="box">
+        <h2>Rozdíl oproti tavnému svařování</h2>
+        <p>Zatímco u klasického tavného svařování dochází ke vzniku obrovské tekuté svarové lázně, metody probírané v této otázce spojují materiál odlišně. Buď působením <strong>obrovského fyzického tlaku</strong> (někdy zcela za studena, jindy s lokálním změknutím kovu), nebo pomocí přídavného materiálu – pájky, <strong>aniž by se základní materiál vůbec natavil!</strong></p>
+    </div>
+
+    <h2>1. Svařování tlakem (Za studena)</h2>
+    <p>Spojení materiálů probíhá zcela <strong>bez přívodu tepla zvenčí</strong>, spoléhá se výhradně na enormní mechanický tlak a deformaci. Kovy se do sebe natlačí s takovou brutalitou, že se roztrhne oxidová slupka na jejich povrchu a čisté atomy obou kovů se přiblíží natolik, že se pevně spojí sdílením elektronů v krystalové mřížce.</p>
+    <ul>
+        <li><span class="highlight">Výbuchové svařování:</span> Používá se pro tzv. <em>plátování</em> (nanesení tenké vrstvy extrémně drahého kovu, např. antikorozního titanu nebo nerezu, na levnou tlustou ocelovou desku pro stěny reaktoru). Exploze trhaviny položené na horní desce ji vrhne nadzvukovou rychlostí na spodní desku. Spojí to naprosto nesvařitelné kovy. Spoj je trvalý a ohybově pevný.</li>
+        <li><span class="highlight">Třecí svařování:</span> Ideální pro spojování tyčí a trubek. Jedna ocelová trubka je pevně upnutá, druhá trubka se proti ní v soustruhu šíleně rychle roztočí. Následně se na sebe zatlačí. Třením stykových ploch vznikne plastický, těstovitý stav kovu (do červeného žáru). Rotace se prudce zabrzdí a obří axiální tlak pístu díly zalisuje do sebe.</li>
+        <li><span class="highlight">Ultrazvukové svařování:</span> Vysokofrekvenční vibrace při současném tlaku naruší oxidy. Užívá se masově pro svařování plastů nebo v elektrotechnice pro mikro-spoje tenkých drátků k čipům.</li>
+    </ul>
+
+    <h2>2. Svařování teplem a tlakem (Odporové)</h2>
+    <p>Nejrozšířenější metoda v <strong>automobilovém průmyslu a sériové výrobě</strong>. Nepotřebuje žádný ochranný plyn ani elektrody, které by ubývaly. Svařování probíhá díky fyzikálnímu <strong>Jouleovu teplu</strong> (<span class="formula">Q = R &cdot; I<sup>2</sup> &cdot; t</span>), které vzniká v místě s nejvyšším elektrickým odporem.</p>
+    <p>Tím místem s největším odporem (R) je právě mikroskopická mezera v místě dotyku dvou plechů.</p>
+    
+    <h3>Fáze procesu:</h3>
+    <ol>
+        <li>Dva ocelové plechy se k sobě silně stisknou masivními <strong>měděnými elektrodami</strong> (Měď výborně vede proud i teplo, takže se sama nezačne tavit).</li>
+        <li>Strojem probleskne zkratový stejnosměrný proud (až 100 000 ampér) na zlomek vteřiny (t).</li>
+        <li>Přechodový odpor mezi plechy způsobí, že se ocel v tomto bodě bleskově roztaví a vznikne tzv. <span class="highlight">Svarová čočka</span>. Jakmile proud vypne, tlak elektrod toto místo trvale speče dohromady.</li>
+    </ol>
+
+    <div class="svg-container">
+        <strong>CAD Řez: Odporové bodové svařování plechů</strong><br>
+        <svg width="100%" height="300" viewBox="0 0 700 300">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <pattern id="hatch-steel" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="8" x2="8" y2="0" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+
+            <!-- Plechy -->
+            <rect x="150" y="120" width="400" height="30" fill="url(#hatch-steel)" stroke="#111" stroke-width="2.5"/>
+            <rect x="150" y="150" width="400" height="30" fill="url(#hatch-steel)" stroke="#111" stroke-width="2.5"/>
+            <text x="580" y="140" font-size="14" font-weight="bold">Ocelový plech 1</text>
+            <text x="580" y="170" font-size="14" font-weight="bold">Ocelový plech 2</text>
+
+            <!-- Svarová čočka (Bod) -->
+            <ellipse cx="350" cy="150" rx="35" ry="20" fill="#c00" stroke="#111" stroke-width="2"/>
+            <line x1="420" y1="150" x2="385" y2="150" stroke="#111" stroke-width="2"/>
+            <text x="430" y="155" font-size="14" fill="#c00" font-weight="bold">Svarová čočka (tekutá tavenina)</text>
+
+            <!-- Měděné Elektrody -->
+            <path d="M 310 20 L 390 20 L 390 80 L 370 120 L 330 120 L 310 80 Z" fill="#da8" stroke="#111" stroke-width="3"/>
+            <path d="M 310 280 L 390 280 L 390 220 L 370 180 L 330 180 L 310 220 Z" fill="#da8" stroke="#111" stroke-width="3"/>
+            
+            <text x="210" y="70" font-size="14" font-weight="bold">Měděná</text>
+            <text x="210" y="90" font-size="14" font-weight="bold">elektroda (+)</text>
+
+            <text x="210" y="225" font-size="14" font-weight="bold">Měděná</text>
+            <text x="210" y="245" font-size="14" font-weight="bold">elektroda (-)</text>
+
+            <!-- Síla tlaku F (červená) -->
+            <line x1="350" y1="30" x2="350" y2="60" stroke="#c00" stroke-width="5" marker-end="url(#arrow-red)"/>
+            <text x="365" y="45" font-size="16" font-weight="bold" fill="#c00">F (Přítlak stroje)</text>
+            
+            <line x1="350" y1="270" x2="350" y2="240" stroke="#c00" stroke-width="5" marker-end="url(#arrow-red)"/>
+            
+            <!-- Proud I -->
+            <path d="M 440 60 Q 350 60 350 110" fill="none" stroke="#00c" stroke-width="4" stroke-dasharray="8,6"/>
+            <text x="450" y="65" font-size="14" fill="#00c" font-weight="bold">Zkratový proud (I)</text>
+        </svg>
+    </div>
+    
+    <h3>Typy odporového svařování</h3>
+    <ul>
+        <li><span class="highlight">Bodové:</span> Dvě tyčové elektrody (viz nákres výše). Běžné u karoserií, spojí plechy jedním pevným bodem. Nelze takto udělat těsný spoj (voda plechem proteče).</li>
+        <li><span class="highlight">Švové:</span> Místo tyčí má svářečka měděná rotující kolečka (kotouče). Plechy s mírným přesahem projedou těmito koly a počítač do nich střílí zkratový proud mnohokrát za vteřinu. Vytváří se body tak těsně za sebou, až se překryjí a vytvoří souvislý <em>vodotěsný a tlakotěsný šev</em>. Použití: Výroba plechových sudů na olej, radiátorů, kanystrů a plechovek.</li>
+    </ul>
+
+    <h2>3. Pájení</h2>
+    <p>Spojování kovových materiálů roztaveným přídavným materiálem (<span class="highlight">Pájkou</span>). <strong>Základní spojovaný materiál se NIKDY netaví!</strong> Zůstává trvale v pevném stavu. Pájka (přídavný materiál) má tedy vždy výrazně nižší bod tání než základní kov.</p>
+    
+    <h3>A) Fyzikální princip (Kapilarita a Smáčivost)</h3>
+    <div class="box">
+        <p>Proč pájka "nezateče" na zem, ale drží uvnitř spoje? Odpovědí je <strong>Kapilarita (vzlínavost)</strong>. Je to fyzikální jev, díky kterému si úzká štěrbina mezi dvěma trubkami (musí být široká max. pár desetin milimetru) dokáže <strong>sama "nasát" tekutou pájku</strong> i proti směru gravitace!</p>
+        <p><strong>Tavidlo:</strong> Aby pájka ke kovu dokonale přilnula (tzv. ho <em>smáčela</em>), nesmí na něm být mastnota a zoxidovaná vrstva. Konstruktér proto před zasunutím trubek do sebe potře spoj chemickou pastou (Tavidlem, kyselinou nebo kalafunou). Tavidlo zařídí chemické odleptání oxidů a pájka (cín) se ke kovu rovnou dokonale přilepí.</p>
+    </div>
+
+    <div class="svg-container">
+        <strong>CAD Detail: Princip kapilárního pájení trubek</strong><br>
+        <svg width="100%" height="220" viewBox="0 0 600 220">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <pattern id="hatch-cu" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="8" x2="8" y2="0" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+
+            <!-- Trubka vnitřní (Měď) -->
+            <rect x="50" y="80" width="200" height="70" fill="url(#hatch-cu)" stroke="#111" stroke-width="2.5"/>
+            <text x="80" y="125" font-size="12" font-weight="bold" background="#fff">Měděná trubka</text>
+
+            <!-- Trubka vnější (Nátrubek/fitinka) -->
+            <path d="M 260 50 L 500 50 L 500 75 L 180 75 L 180 155 L 500 155 L 500 180 L 260 180 Z" fill="url(#hatch-cu)" stroke="#111" stroke-width="2.5"/>
+            <text x="350" y="150" font-size="14" font-weight="bold">Fitinka (Rozšířený nátrubek)</text>
+
+            <!-- Mezera s pájkou (zlatá/stříbrná) -->
+            <path d="M 180 75 L 290 75 L 290 80 L 180 80 Z" fill="#fa0" stroke="#111"/>
+            <path d="M 180 150 L 290 150 L 290 155 L 180 155 Z" fill="#fa0" stroke="#111"/>
+
+            <!-- Šipky toku pájky vlivem kapilarity -->
+            <line x1="200" y1="78" x2="280" y2="78" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <line x1="200" y1="152" x2="280" y2="152" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="210" y="65" font-size="12" fill="#c00" font-weight="bold">Vzlínání pájky (Kapilární tah!)</text>
+
+            <!-- Kapka a tyčinka pájky -->
+            <circle cx="215" cy="78" r="8" fill="#fa0" stroke="#111"/>
+            <path d="M 215 70 L 215 20 L 180 -10" fill="none" stroke="#fa0" stroke-width="8"/>
+            <text x="230" y="30" font-size="12" font-weight="bold">Drát pájky</text>
+            
+            <!-- Plamen hořáku znázornění -->
+            <path d="M 100 40 L 140 75 L 170 30 Q 140 20 100 40" fill="#f80" opacity="0.7"/>
+            <text x="130" y="25" font-size="12" fill="#f80" font-weight="bold">Plamen hořáku</text>
+            
+            <text x="450" y="70" font-size="10" font-weight="bold">Pájka dokonale</text>
+            <text x="450" y="85" font-size="10" font-weight="bold">vyplnila mikro-spáru</text>
+        </svg>
+    </div>
+
+    <h3>B) Rozdělení podle teploty tavení pájky</h3>
+    <ul>
+        <li><span class="highlight">Měkké pájení:</span> Pájky tají při teplotě <strong>do 450 °C</strong>. Historicky se používala slitina olova a cínu, dnes se kvůli toxicitě používá bezolovnatý cín se stříbrem/mědí. Spoj <strong>nemá velkou mechanickou pevnost</strong> (nelze s ním držet nosné břemeno), ale zajišťuje dokonalou elektrickou vodivost a hydraulickou těsnost. 
+        <em>Použití: Elektrotechnika (tištěné spoje), topenáři (měděné trubky pro vodu), klempíři. O ohřev se stará obyčejná elektrická páječka nebo malý PB hořáček.</em></li>
+        <li><span class="highlight">Tvrdé pájení:</span> Pájky tají při teplotě <strong>nad 450 °C</strong>. Používají se pájky z mosazi, bronzu nebo s příměsí stříbra. Zdrojem tepla už musí být silný autogen (kyslík+acetylen) nebo indukční pec. Tyto spoje dosahují <strong>obrovské pevnosti</strong> srovnatelné se svarem! 
+        <em>Použití: Závodní cyklistické ocelové rámy, pájení tvrdokovových destiček (SK) na těla soustružnických nožů nebo kotoučových pil, opravy litiny.</em></li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>03. Tváření za tepla, válcování, kování</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>3. Tváření za tepla, válcování, volné a zápustkové kování</h1>
+
+    <div class="box">
+        <h2>Úvod do tváření za tepla</h2>
+        <p><strong>Tváření za tepla</strong> je technologický proces trvalé (plastické) deformace materiálu, který probíhá <strong>nad teplotou rekrystalizace</strong>. U ocelí to znamená teploty zhruba v rozmezí <strong>900 °C až 1200 °C</strong>. Ocel se ohřívá v plynových pecích nebo moderně pomocí indukčních cívek (bleskový ohřev bez přístupu kyslíku).</p>
+        
+        <h3>Co se děje ve struktuře kovu? (Rekrystalizace)</h3>
+        <p>Když kov tváříme, jeho krystalová zrna se natahují a deformují. Kdyby to bylo za studena, mřížka by se zablokovala a kov by ztvrdnul a zkřehnul (tzv. zpevnění). Jenže protože tváříme <em>za tepla</em>, tepelná energie okamžitě způsobuje, že ze zničených zrn vyrostou zrna zbrusu nová (rovnoměrná). Tento proces se jmenuje <span class="highlight">Rekrystalizace</span>.</p>
+        <p><strong>Důsledek:</strong> Ocel se během tváření za tepla <strong>vůbec nezpevňuje</strong>! Zůstává trvale plastická a měkká jako plastelína. Můžeme ji tvářet prakticky donekonečna beze strachu, že praskne.</p>
+
+        <h3>Výhody a nevýhody tváření za tepla</h3>
+        <ul>
+            <li><span class="highlight">+ Obrovská plasticita a malý odpor:</span> Materiál je měkký. Na změnu tvaru gigantických bloků kovu stačí lisy o zlomku síly, než by byla potřeba za studena.</li>
+            <li><span class="highlight">+ Nepřerušená vlákna materiálu:</span> Na rozdíl od třískového obrábění (které vlákna přeřízne nožem), kování vlákna pouze ohne tak, aby kopírovala tvar součásti. Součástka (např. klíč na kola, kliková hřídel) má díky tomu <strong>obrovskou pevnost a houževnatost</strong>.</li>
+            <li><span class="highlight">- Okuje (oxidace povrchu):</span> Na žhavé oceli na vzduchu okamžitě vzniká černá vrstva oxidů železa (okuje). Ty odprýskávají a hrubě ničí kvalitu povrchu i povrch nástrojů. Dílce nelze vyrobit na setiny milimetru přesně, musí se vždy nechat <em>přídavek na obrábění</em>.</li>
+            <li><span class="highlight">- Tepelná smrštivost:</span> Dílce se po vychladnutí z 1000 °C zmenší, s čímž se musí předem počítat při návrhu nástrojů (zápustek).</li>
+        </ul>
+    </div>
+
+    <h2>1. Válcování za tepla</h2>
+    <p>První proces po odlití oceli v ocelárně do hrubých ingotů nebo bram. Probíhá na válcovacích tratích. Ocel projíždí mezi dvěma rotujícími pracovními válci, které ji vtáhnou třením do mezery, stlačí a ztenčí.</p>
+
+    <h3>Druhy válcovacích stolic (tratí)</h3>
+    <p>Protože se tloušťka zmenšuje (materiál se stlačí), ale objem oceli zůstává stejný, plech se po průchodu válci musí <strong>dramaticky prodloužit a zrychlit svou rychlost</strong>.</p>
+    <ul>
+        <li><strong>Duo:</strong> Nejobyčejnější stolice se dvěma válci. Může být reverzní (kus projede tam, motor se otočí a plech jede zpět) nebo nereverzní.</li>
+        <li><strong>Trio:</strong> Tři válce nad sebou. Výhoda: Plech se projede dolní mezerou tam, zvedací stůl ho zvedne, a horní mezerou projede zpět bez nutnosti reverzovat (zastavovat a otáčet chod) obří motor!</li>
+        <li><strong>Kvartó:</strong> Dva tenké pracovní válce uprostřed (mají menší průměr &rarr; menší dotyková plocha &rarr; menší potřebná síla stroje) jsou zvrchu a zespodu podepřeny dvěma gigantickými <em>opěrnými válci</em>. <strong>Použití:</strong> Válcování těch nejširších tenkých plechů. Bez opěrných válců by se tenký pracovní válec vprostřed prohnul a plech by měl uprostřed břicho (byl by tlustší uprostřed než na okrajích).</li>
+    </ul>
+
+    <div class="svg-container">
+        <svg width="100%" height="200" viewBox="0 0 600 200">
+            <!-- DUO trať -->
+            <text x="150" y="30" font-size="14" font-weight="bold" text-anchor="middle">DUO Stolice</text>
+            <circle cx="150" cy="80" r="30" fill="#ccc" stroke="#111" stroke-width="2"/>
+            <circle cx="150" cy="140" r="30" fill="#ccc" stroke="#111" stroke-width="2"/>
+            
+            <rect x="20" y="100" width="130" height="20" fill="#f88" stroke="#111"/> <!-- Plech in -->
+            <path d="M 150 100 L 150 110 L 280 110 L 280 105 L 150 105 Z" fill="#fbb" stroke="#111"/> <!-- Plech out -->
+            
+            <path d="M 130 55 A 35 35 0 0 1 170 65" fill="none" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>
+            <path d="M 130 165 A 35 35 0 0 0 170 155" fill="none" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>
+
+            <line x1="300" y1="20" x2="300" y2="180" stroke="#111" stroke-width="2" stroke-dasharray="10,5"/>
+
+            <!-- KVARTO trať -->
+            <text x="450" y="30" font-size="14" font-weight="bold" text-anchor="middle">KVARTO Stolice</text>
+            
+            <!-- Opěrné válce -->
+            <circle cx="450" cy="60" r="35" fill="#aaa" stroke="#111" stroke-width="2"/>
+            <circle cx="450" cy="160" r="35" fill="#aaa" stroke="#111" stroke-width="2"/>
+            <text x="450" y="55" font-size="9" text-anchor="middle">Opěrný (zabraňuje</text>
+            <text x="450" y="65" font-size="9" text-anchor="middle">průhybu)</text>
+            
+            <!-- Pracovní válce -->
+            <circle cx="450" cy="100" r="10" fill="#eee" stroke="#111" stroke-width="2"/>
+            <circle cx="450" cy="120" r="10" fill="#eee" stroke="#111" stroke-width="2"/>
+            
+            <rect x="320" y="105" width="130" height="10" fill="#f88" stroke="#111"/> <!-- Plech in -->
+            <path d="M 450 105 L 450 110 L 580 110 L 580 108 L 450 108 Z" fill="#fbb" stroke="#111"/> <!-- Plech out -->
+
+            <path d="M 465 100 A 15 15 0 0 1 465 120" fill="none" stroke="#111" stroke-width="2"/>
+            <text x="510" y="115" font-size="10" text-anchor="middle">Pracovní</text>
+
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+            </defs>
+        </svg>
+    </div>
+
+    <h3>Speciální válcování: Mannesmannův způsob (Poutní válcování)</h3>
+    <p>Unikátní způsob výroby <strong>bezešvých ocelových trubek</strong>. Plný ocelový žhavý válec se vloží mezi dva masivní kuželové válce. Tyto válce mají mimoběžné osy (jsou překřížené). Jak válce válec točí a posouvají vpřed, tahají vnější vrstvy kovu, což způsobí, že středem válce začne vznikat dutina. Do této dutiny je zaveden průbojník (trn), který trubku definitivně zkalibruje a otevře. Takto vznikají vysokotlaké plynovody.</p>
+
+    <h2>2. Volné kování</h2>
+    <p>Ocel není omezena pevnou formou (zápustkou), ale je deformována volně v prostoru mezi kovadlinou a bucarem (nebo lisem). Tvar závisí výhradně na zručnosti kováře.</p>
+    <ul>
+        <li><strong>Použití:</strong> Opravárenství, kusová výroba, kování lodních hřídelů elektrárenských generátorů (vážících stovky tun, na které se nedá vyrobit zápustka).</li>
+        <li><strong>Nástroje:</strong> Kovadliny, různá kovářská sedla, kleště. Strojní údery zajišťují buchary (dynamický rázový úder pro menší a střední kusy) nebo hydraulické kovací lisy (klidný plynulý tlak pro prokování až do středu obrovského ingotu).</li>
+    </ul>
+
+    <h3>Základní operace volného kování:</h3>
+    <ol>
+        <li><strong>Pěchování:</strong> Údery působí na ocelový válec axiálně (seshora dolů na průřez). Tím se <strong>zkracuje délka</strong> a naopak <strong>zvětšuje průřez</strong> materiálu (bortí se do šířky, vzniká "soudek").</li>
+        <li><strong>Prodlužování:</strong> Ocel se kove z boků. Průřez se zmenšuje a materiál roste do délky.</li>
+        <li><strong>Osazování:</strong> Lokální zúžení (vytvoření schodu) na hřídeli.</li>
+        <li><strong>Probíjení (Děrování):</strong> Proražení díry skrz materiál pomocí kovářského průbojníku z obou stran.</li>
+    </ol>
+
+    <h2>3. Zápustkové kování</h2>
+    <p>Základní technologie pro <strong>sériovou a hromadnou výrobu</strong> přesných, rozměrově stejných a vysoce pevných dílů (např. klíče na šrouby, ramena náprav do aut, ojnice spalovacích motorů).</p>
+    <ul>
+        <li><strong>Nástroj (Zápustka):</strong> Těžký dvoudílný ocelový blok. Jeho dutina tvoří přesný <strong>negativ (zrcadlový obraz)</strong> budoucího výkovku. Ocel se úderem vbuší dovnitř a je nucena vyplnit všechny tvary. Horní polovina je upnutá v beranu, dolní na stole (šabottě).</li>
+        <li>Během výroby kusu se obvykle dělá nejprve <em>předkovek</em> v předkovací dutině a nakonec přesný tvar v <em>dokončovací dutině</em> na stejné zápustce (má více dutin vedle sebe).</li>
+    </ul>
+
+    <div class="box">
+        <h3>Proč je tam VÝRONEK? (DŮLEŽITÉ K MATURITĚ)</h3>
+        <p>Zápustky mohou být "otevřené" (s výronkem) nebo "uzavřené" (bez). Zápustky s výronkem se používají v drtivé většině případů. Horní a dolní zápustka <strong>nesmí nikdy narazit naprázdno kov na kov!</strong> Mezi nimi musí vždy zbýt mikromezera.</p>
+        <p>Kolem tvarové dutiny výkovku je vytvořen úzký kanálek (tzv. můstek) a za ním širší drážka pro výronek.</p>
+        <p><strong>Fyzikální smysl:</strong> Jak dutina začne být plná, ocel chce uniknout do stran. Spára (můstek) je ale tak tenká, že unikající kov se o ocel zápustky okamžitě zchladí a ztuhne. Tím vytvoří pevnou zátku! Uvnitř dutiny zápustky obrovsky <strong>stoupne hydraulický tlak</strong>, který donutí zbylou ocel vyplnit i sebemenší ostré růžky ve formě. Jakmile díl zchladne, tenký výronek se jako prstenec snadno ostřihne v lisu (v nástroji zvaném <em>ostřihovadlo</em>).</p>
+    </div>
+
+    <div class="svg-container">
+        <strong>CAD Řez: Otevřená zápustka s drážkou pro výronek</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <pattern id="hatch-die" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="0" x2="8" y2="8" stroke="#555" stroke-width="0.5"/>
+                </pattern>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+            </defs>
+
+            <!-- HORNÍ ZÁPUSTKA -->
+            <path d="M 50 20 L 550 20 L 550 90 L 400 90 L 380 95 L 360 90 L 320 90 L 320 60 L 280 60 L 280 90 L 240 90 L 220 95 L 200 90 L 50 90 Z" fill="url(#hatch-die)" stroke="#111" stroke-width="2"/>
+            
+            <line x1="300" y1="5" x2="300" y2="35" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="320" y="25" font-size="14" fill="#c00" font-weight="bold">Síla bucharu</text>
+            <text x="70" y="50" font-size="14" font-weight="bold" background="#fff">Horní zápustka</text>
+
+            <!-- DOLNÍ ZÁPUSTKA -->
+            <path d="M 50 230 L 550 230 L 550 140 L 400 140 L 380 135 L 360 140 L 320 140 L 320 170 L 280 170 L 280 140 L 240 140 L 220 135 L 200 140 L 50 140 Z" fill="url(#hatch-die)" stroke="#111" stroke-width="2"/>
+            <text x="70" y="200" font-size="14" font-weight="bold" background="#fff">Dolní zápustka</text>
+
+            <!-- MATERIÁL (Žhavý výkovek oranžově/červeně) -->
+            <path d="M 180 115 L 200 115 L 220 110 L 240 115 L 280 115 L 280 60 L 320 60 L 320 115 L 360 115 L 380 110 L 400 115 L 420 115 L 420 120 L 400 120 L 380 125 L 360 120 L 320 120 L 320 170 L 280 170 L 280 120 L 240 120 L 220 125 L 200 120 L 180 120 Z" fill="#fa0" stroke="#c00" stroke-width="2"/>
+
+            <!-- KÓTY A POPISKY -->
+            <text x="300" y="105" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle" style="text-shadow: 1px 1px 2px #000;">Dutina (Výkovek)</text>
+
+            <line x1="220" y1="140" x2="220" y2="180" stroke="#111" stroke-width="1.5"/>
+            <text x="210" y="195" font-size="12" font-weight="bold">Drážka pro výronek</text>
+
+            <line x1="240" y1="120" x2="150" y2="150" stroke="#111" stroke-width="1.5"/>
+            <text x="120" y="165" font-size="12" font-weight="bold">Můstek spáry</text>
+            
+            <text x="450" y="118" font-size="12" font-weight="bold" fill="#c00">Žhavý výronek vyteklý mimo formu</text>
+        </svg>
+    </div>
+
+</body>
+</html>

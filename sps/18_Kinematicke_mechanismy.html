@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>18. Kinematické mechanismy</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>18. Kinematické mechanismy</h1>
+    
+    <div class="box">
+        <p><strong>Účel:</strong> Přeměna jednoho druhu pohybu na zcela jiný (např. rotační pohyb z elektromotoru na přímočarý vratný pohyb pístu) nebo změna charakteristik pohybu (např. převod rovnoměrného otáčení na přerušované krokování). Kinematika jako věda zkoumá <strong>výhradně pohyb (dráhu, rychlost, zrychlení)</strong>, vůbec se nezabývá hmotností těles ani silami, které pohyb způsobují (tím se zabývá dynamika).</p>
+    </div>
+
+    <h2>1. Základní pojmy a členy</h2>
+    <p>Každý mechanismus se skládá z pevného rámu a pohyblivých členů (těles), které jsou vzájemně svázány v kloubech.</p>
+    <ul>
+        <li><strong>Mechanismus:</strong> Soustava vzájemně pohyblivých a vázaných těles určená k přenosu požadovaného pohybu.</li>
+        <li><strong>Člen (Těleso):</strong> Základní kinematická část mechanismu, kterou již nelze rozebrat na menší pohybující se díly.
+            <ul>
+                <li><span class="highlight">Rám:</span> Pevný člen (vůči zemi nebo obalu stroje absolutně nepohyblivý). Musí existovat v každém mechanismu. (Značí se u něj šrafování "uzemnění").</li>
+                <li><span class="highlight">Hnací člen:</span> Pohybující se člen, na který je přiváděn pohyb (vstup z motoru).</li>
+                <li><span class="highlight">Hnaný člen:</span> Koná finální požadovaný výsledný pohyb (výstup na nástroj, píst).</li>
+                <li><span class="highlight">Spojovací (převodový) člen:</span> Těleso, které fyzicky spojuje hnací a hnaný člen a přenáší pohyb mezi nimi (typicky spojovací tyč nebo ojnice).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>2. Kinematické dvojice</h2>
+    <p>Pohyblivé funkční spojení dvou členů mechanismu. Toto spojení tělesům schválně odebírá určité <em>stupně volnosti</em> (aby se díl nemohl hýbat kamkoli, ale jen v požadovaném směru).</p>
+    <ul>
+        <li><strong>Nižší kinematické dvojice:</strong> Styk mezi oběma tělesy probíhá na relativně velké <strong>PLOŠE</strong>. Jsou mnohem odolnější proti opotřebení, protože síla se rozloží a měrný tlak je malý.
+            <ul>
+                <li><em>Rotační dvojice:</em> Čep uložený ve válcové díře (např. pant u dveří).</li>
+                <li><em>Posuvná dvojice:</em> Píst ve válci, nebo ocelový hranol jezdící v rybinové drážce.</li>
+                <li><em>Šroubová dvojice:</em> Závit a matice.</li>
+            </ul>
+        </li>
+        <li><strong>Vyšší kinematické dvojice:</strong> Styk mezi tělesy probíhá teoreticky pouze v <strong>BODĚ</strong> nebo v <strong>ČÁŘE/KŘIVCE</strong>. Jsou náchylnější k opotřebení (nesou velký dotykový Hertzův tlak).
+            <ul>
+                <li>Zuby dvou ozubených kol (styk v křivce).</li>
+                <li>Kulička uvnitř kuličkového ložiska (styk v bodě).</li>
+                <li>Vačka klouzající po zdvihátku (styk v bodě).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>3. Klikový (Pístový) mechanismus</h2>
+    <p>Historicky i současně nejznámější mechanismus světa. Mění plynulý rotační pohyb kliky na přímočarý vratný pohyb pístu, nebo naopak. Je to srdce každého <strong>spalovacího motoru, pístového čerpadla a kompresoru</strong>.</p>
+    <ul>
+        <li>Skládá se ze <strong>4 členů</strong>: Rám (blok válců), Klika, Ojnice, Píst.</li>
+        <li>Obsahuje výhradně <strong>nižší kinematické dvojice</strong> (tři rotační čepy a jedno posuvné uložení válce).</li>
+        <li><strong>Úvratě (Horní - HÚ, Dolní - DÚ):</strong> Zásadní mrtvé body, kde píst mění směr a jeho okamžitá rychlost padá na absolutní nulu. Pokud motor nemá setrvačník, který ho přes tyto mrtvé body setrvačností přehoupne, motor by se zastavil. Nejvyšší rychlost (v_max) má píst zhruba v polovině zdvihu.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Kinematické schéma: Klikové ústrojí</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+                <pattern id="hatch-frame" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="0" x2="8" y2="8" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+
+            <!-- Válec (rám) šrafováný zvenku pro naznačení nehybnosti -->
+            <!-- Horní a dolní stěna válce -->
+            <rect x="360" y="80" width="160" height="20" fill="url(#hatch-frame)" stroke="#111" stroke-width="2"/>
+            <rect x="360" y="160" width="160" height="20" fill="url(#hatch-frame)" stroke="#111" stroke-width="2"/>
+            <text x="440" y="70" font-size="12" font-weight="bold" text-anchor="middle" background="#fff">Pevné vedení (Válec / Rám)</text>
+            
+            <!-- Dráha kliky -->
+            <circle cx="120" cy="130" r="70" fill="none" stroke="#555" stroke-dasharray="6,4" stroke-width="1.5"/>
+            
+            <!-- Členy (Tlusté plné čáry tvořící kinematickou kostru) -->
+            <!-- Klika -->
+            <line x1="120" y1="130" x2="165" y2="75" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+            <!-- Ojnice -->
+            <line x1="165" y1="75" x2="380" y2="130" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+            
+            <!-- Klouby (Bílá kolečka = rotační dvojice) -->
+            <!-- Hlavní ložisko kliky (ukotveno v rámu) -->
+            <circle cx="120" cy="130" r="10" fill="#fff" stroke="#111" stroke-width="3"/>
+            <!-- Čep kliky -->
+            <circle cx="165" cy="75" r="8" fill="#fff" stroke="#111" stroke-width="3"/>
+            <!-- Pístní čep -->
+            <circle cx="380" cy="130" r="8" fill="#fff" stroke="#111" stroke-width="3"/>
+
+            <!-- Píst (Posuvný člen) -->
+            <rect x="340" y="100" width="80" height="60" fill="#ddd" stroke="#111" stroke-width="2.5"/>
+            <text x="380" y="145" font-size="14" text-anchor="middle" font-weight="bold">Píst</text>
+
+            <!-- Vektory rotace a posuvu (Červené) -->
+            <path d="M 190 130 A 70 70 0 0 0 160 55" fill="none" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="200" y="55" font-size="14" fill="#c00" font-weight="bold">Rotace (&omega;)</text>
+
+            <line x1="440" y1="130" x2="520" y2="130" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="480" y="115" font-size="14" fill="#c00" font-weight="bold" text-anchor="middle">Rychlost (v)</text>
+
+            <!-- Popis -->
+            <text x="110" y="60" font-size="12" font-weight="bold">Klika</text>
+            <text x="270" y="90" font-size="12" font-weight="bold">Ojnice (Spojovací tyč)</text>
+
+            <line x1="120" y1="130" x2="550" y2="130" stroke="#111" stroke-dasharray="10,5" stroke-width="0.5"/>
+        </svg>
+    </div>
+
+    <h2>4. Kulistový mechanismus</h2>
+    <p>Velmi specifický převrácený mechanismus. Mění plynulý rotační pohyb na přímočarý vratný pohyb <strong>s nestejnými rychlostmi</strong> v obou směrech chodu. (Zatímco obyčejná klika u pístu dělá, že posun tam i zpět trvá naprosto stejnou dobu).</p>
+    <ul>
+        <li><strong>Použití:</strong> Ve starších i moderních specializovaných obráběcích strojích (např. Vodorovná obrážečka na drážky). Nástroj odebírá železnou třísku pomalou, velkou silou (pracovní zdvih). Zpátky už jede naprázdno vzduchem (nepracuje). Kulistový mechanismus zařídí, že nástroj na cestě zpět automaticky "odskočí" (tzv. <em>Rychlý jalový zdvih</em>), čímž se v sériové výrobě šetří ohromné množství zbytečného času.</li>
+        <li><strong>Části:</strong> Klika, čep na klice (Kámen), který volně klouže v podlouhlé drážce kyvného ramene (Kulisy).</li>
+    </ul>
+
+    <h2>5. Vačkové mechanismy</h2>
+    <p>Dokonalé nástroje pro řízení extrémně přesného <strong>času a zdvihu</strong> (tzv. zákon dráhy). Jsou nenahraditelné ve ventilových rozvodech každého spalovacího motoru.</p>
+    <ul>
+        <li><strong>Vačka (Hnací člen):</strong> Rotační disk zvláštního "vajíčkovitého" tvaru. Její tvar musí konstruktér nesmírně složitě a přesně vypočítat, protože bok vačky určuje zrychlení i zpomalení nástroje.</li>
+        <li><strong>Zdvihátko (Hnaný člen s kladkou):</strong> Vykonává kývavý nebo posuvný pohyb (otevírá přímo ventil nebo tlačí na zdvihací tyčku). Dotýká se vačky na velmi malé plošce (bodě) &rarr; <span class="highlight">Vyšší kinematická dvojice</span>.</li>
+        <li><em>Zásadní věc:</em> Zdvihátko není k vačce nijak pevně přichyceno! Musí k ní být zespodu trvale a <strong>extrémní silou přitlačováno pružinou</strong>. Pokud by se motor přetočil (velké otáčky), pružina by to nestihla a zdvihátko by tzv. "odskočilo" od vačky, což by zničilo motor potkáním ventilů s pístem. Aby se snížilo opotřebení, má dnes zdvihátko dole otočnou kladku (místo smykového tření je tam valivé).</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Schéma: Kotoučová vačka s kladkovým zdvihátkem</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+            </defs>
+
+            <!-- Tvar Vačky (Asymetrické vajíčko) -->
+            <path d="M 300 200 C 370 200, 370 70, 300 30 C 230 70, 230 200, 300 200 Z" fill="#e0f7fa" stroke="#111" stroke-width="3"/>
+            <circle cx="300" cy="150" r="6" fill="#111"/> <!-- Osa otáčení vačky -->
+            
+            <path d="M 340 150 A 40 40 0 0 0 300 110" fill="none" stroke="#c00" stroke-width="3" marker-end="url(#arrow-red)"/>
+            <text x="350" y="110" font-size="12" font-weight="bold" fill="#c00">Rotace vačky</text>
+
+            <!-- Kladka (na konci zdvihátka, dotýká se vačky na vršku) -->
+            <!-- Currently at y=30, radius 20 -> center at y=10 -->
+            <circle cx="300" cy="10" r="20" fill="#fff" stroke="#111" stroke-width="2.5"/>
+            <circle cx="300" cy="10" r="3" fill="#111"/>
+            
+            <!-- Zdvihátko (tyč jdoucí kolmo nahoru) -->
+            <!-- We need more space. I'll transform it to be lower, or just draw the lifter going up -->
+            <rect x="294" y="-80" width="12" height="90" fill="#ddd" stroke="#111" stroke-width="2"/>
+            <line x1="300" y1="10" x2="300" y2="-80" stroke="#111" stroke-width="0.5"/> <!-- osa zdvihátka -->
+
+            <!-- Vedení zdvihátka (rám šrafovaný) -->
+            <rect x="250" y="-70" width="40" height="40" fill="url(#hatch-frame)" stroke="#111" stroke-width="2"/>
+            <rect x="310" y="-70" width="40" height="40" fill="url(#hatch-frame)" stroke="#111" stroke-width="2"/>
+            <text x="200" y="-50" font-size="10" font-weight="bold">Pevné vedení</text>
+
+            <!-- Vektor zdvihu (h) - Červený -->
+            <line x1="350" y1="10" x2="350" y2="-50" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="360" y="-10" font-size="14" fill="#c00" font-weight="bold">Zdvihátko koná zdvih (h)</text>
+            
+            <!-- Popisky částí -->
+            <text x="210" y="150" font-size="14" font-weight="bold">Tvarová vačka</text>
+            <text x="400" y="10" font-size="14" font-weight="bold">Otočná kladka</text>
+            <text x="400" y="25" font-size="11">(Minimalizuje tření v dotykovém bodě)</text>
+
+            <!-- Vyšší kin. dvojice -->
+            <line x1="300" y1="30" x2="400" y2="40" stroke="#111" stroke-width="1"/>
+            <text x="405" y="45" font-size="11" fill="#c00" font-weight="bold">Dotyk pouze v linii (Vyšší kin. dvojice!)</text>
+
+        </svg>
+    </div>
+
+    <h2>6. Krokové mechanismy (Maltézský kříž)</h2>
+    <p>Velmi speciální rodina mechanismů, která převádí naprosto plynulý otáčivý pohyb motoru na <strong>přerušovaný (krokový) rotační pohyb</strong> výstupního hřídele.</p>
+    <ul>
+        <li>Hřídel se pootočí (např. o 90°), na zadanou chvíli se absolutně přesně zablokuje a zastaví v klidu, a poté se zase pootočí.</li>
+        <li><strong>Použití:</strong> Promítačky kinofilmů (film musel poskočit o 1 okénko, na zlomek sekundy zmrznout, aby ho prosvítila lampa, a pak skočit dál), otočné pracovní a montážní stoly na výrobních linkách s automaty, krokování balících pásek.</li>
+    </ul>
+
+</body>
+</html>

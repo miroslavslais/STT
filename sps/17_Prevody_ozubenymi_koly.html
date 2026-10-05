@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>17. Převody ozubenými koly</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>17. Převody ozubenými koly</h1>
+    
+    <div class="box" style="text-align: center;">
+        <p style="margin:0;"><strong>Základní výpočty ozubení:</strong></p>
+        <p style="margin:10px 0;">
+            Roztečný průměr: <span class="formula">d = m &cdot; z</span> &nbsp; | &nbsp; 
+            Modul: <span class="formula">m = p / &pi;</span><br><br>
+            Převodový poměr: <span class="formula">i = n<sub>1</sub> / n<sub>2</sub> = z<sub>2</sub> / z<sub>1</sub> = d<sub>2</sub> / d<sub>1</sub></span>
+        </p>
+        <p style="margin:0; font-size: 10pt;"><em>(m = modul [mm], z = počet zubů, p = rozteč oblouku, d = průměr. U převodovek i &gt; 1 znamená zpomalení, i &lt; 1 zrychlení do rychla.)</em></p>
+    </div>
+
+    <h2>1. Účel, princip a vlastnosti</h2>
+    <p>Přenáší krouticí moment a rotační pohyb z hnacího na hnaný hřídel pomocí absolutně pevného <strong>tvarového styku</strong> do sebe zapadajících zubů (tzv. záběr). Profil zubu je nejčastěji tvořen křivkou zvanou <em>Evolventa</em>, což zaručuje, že kola se po sobě čistě odvalují (nekloužou a nedřou o sebe).</p>
+    
+    <h3>Výhody a Nevýhody</h3>
+    <ul>
+        <li><span class="highlight">+ Konstantní a přesný převod:</span> Absolutně žádný skluz, používá se pro přesné polohování (hodinky, robotika) a převodovky.</li>
+        <li><span class="highlight">+ Extrémní účinnost a výkon:</span> Účinnost až 99 %. Zvládne přenést gigantické výkony v lodních motorech. Má nesmírně kompaktní a malé rozměry oproti řemenům.</li>
+        <li><span class="highlight">- Složitá výroba:</span> Vyžaduje vysoce přesné odvalovací frézování a případně broušení zubu načisto (u kalených kol pro snížení hluku).</li>
+        <li><span class="highlight">- Přenáší rázy:</span> Na rozdíl od řemenu netlumí vibrace z motoru. Vyžaduje naprosto dokonalé mazání v olejové lázni, jinak se okamžitě zadře a zničí. Nelze libovolně měnit osovou vzdálenost hřídelů (kola do sebe musí přesně zapadnout na vypočítanou rozteč).</li>
+    </ul>
+
+    <h2>2. Základní geometrie zubu</h2>
+    <p>Základním zákonem pro spolupráci dvou ozubených kol je: <strong>Dvě kola, která spolu zabírají v převodovce, MUSÍ MÍT SHODNÝ MODUL (m)</strong>. Modul je normovaný parametr, který v milimetrech určuje, jak je zub celkově velký a tlustý.</p>
+    
+    <ul>
+        <li><strong>Roztečná kružnice (d):</strong> Pomyslná teoretická kružnice. Představte si, že kola nemají zuby, ale jsou to jen dva hladké válce, které se po sobě odvalují. To je roztečná kružnice. Na ní se měří rozteč zubů a jejich tloušťka.</li>
+        <li><strong>Hlavová kružnice (d<sub>a</sub>):</strong> Tvoří vnější obrys kola (omezuje zuby shora). Její průměr je <span class="formula">d<sub>a</sub> = d + 2m</span> (Výška hlavy h<sub>a</sub> = 1m).</li>
+        <li><strong>Patní kružnice (d<sub>f</sub>):</strong> Omezuje zuby zdola u středu kola. Její průměr je <span class="formula">d<sub>f</sub> = d - 2.5m</span> (Hloubka paty h<sub>f</sub> = 1.25m). Součet 1m (hlava) a 1.25m (pata) dává celkovou výšku zubu 2.25m.</li>
+        <li><em>Hlavová vůle (c = 0.25m):</em> Ta čtvrtina modulu navíc v patě zajišťuje, že vrchol (hlava) zubu jednoho kola nenarazí do dna (paty) cizí mezery druhého kola! Kolo tam musí mít trochu místa pro mazivo.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Profil: Geometrie čelního ozubení (Evolventní zuby)</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 400 250">
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+            </defs>
+
+            <!-- Patní kružnice (tenká) -->
+            <path d="M 20 220 A 250 250 0 0 1 380 220" fill="none" stroke="#111" stroke-width="1"/>
+            <text x="30" y="210" font-size="11" font-weight="bold">Patní kr. (d<tspan font-size="8" dy="3">f</tspan>)</text>
+            
+            <!-- Roztečná kružnice (tenká červená čerchovaná) -->
+            <path d="M 20 150 A 280 280 0 0 1 380 150" fill="none" stroke="#c00" stroke-width="2" stroke-dasharray="15,5,4,5"/>
+            <text x="30" y="140" font-size="11" font-weight="bold" fill="#c00">Roztečná kr. (d)</text>
+            
+            <!-- Hlavová kružnice (tenká) -->
+            <path d="M 20 80 A 310 310 0 0 1 380 80" fill="none" stroke="#111" stroke-width="1"/>
+            <text x="30" y="70" font-size="11" font-weight="bold">Hlavová kr. (d<tspan font-size="8" dy="3">a</tspan>)</text>
+
+            <!-- ZUBY (Tlusté viditelné hrany evolventy) -->
+            <!-- Zub 1 -->
+            <path d="M 120 220 Q 130 180 135 150 Q 140 110 145 80 L 195 80 Q 200 110 205 150 Q 210 180 220 220" fill="#e0f7fa" stroke="#111" stroke-width="3"/>
+            <!-- Zub 2 -->
+            <path d="M 270 220 Q 280 180 285 150 Q 290 110 295 80 L 345 80 Q 350 110 355 150 Q 360 180 370 220" fill="#e0f7fa" stroke="#111" stroke-width="3"/>
+
+            <!-- Kóty (Tenké) -->
+            <!-- Rozteč (p) -->
+            <path d="M 135 150 A 280 280 0 0 1 285 150" fill="none" stroke="#111" stroke-width="0.5"/>
+            <line x1="135" y1="150" x2="135" y2="115" stroke="#111" stroke-width="1"/>
+            <line x1="285" y1="150" x2="285" y2="115" stroke="#111" stroke-width="1"/>
+            <line x1="135" y1="125" x2="285" y2="125" stroke="#111" stroke-width="1" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+            <text x="210" y="120" font-size="12" font-weight="bold" text-anchor="middle">Rozteč zubu p (od osy k ose)</text>
+            
+            <!-- Hlava (ha) -->
+            <line x1="110" y1="150" x2="110" y2="80" stroke="#111" stroke-width="1" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+            <text x="100" y="120" font-size="11" text-anchor="end" font-weight="bold">h<tspan font-size="8" dy="3">a</tspan> = 1m</text>
+            
+            <!-- Pata (hf) -->
+            <line x1="110" y1="150" x2="110" y2="220" stroke="#111" stroke-width="1" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+            <text x="100" y="190" font-size="11" text-anchor="end" font-weight="bold">h<tspan font-size="8" dy="3">f</tspan> = 1.25m</text>
+        </svg>
+    </div>
+
+    <h2>3. Tvary zubů čelních kol</h2>
+    <ul>
+        <li><strong>Přímé zuby:</strong> Záběr probíhá naráz po celé šířce zubu (jako náraz). Jsou velmi hlučné při vyšších otáčkách, ale jejich výhodou je, že nevzniká absolutně žádná axiální (osová) síla na ložiska.</li>
+        <li><strong>Šikmé zuby:</strong> Zub vstupuje do záběru plynule. Má výrazně tišší chod a unese mnohem větší zatížení (v záběru jsou totiž vždy 2 až 3 zuby najednou). <span class="highlight">Kritická nevýhoda:</span> Během rotace vzniká obrovská <strong>axiální síla</strong>, která kolo doslova odtlačuje po hřídeli ven! Tato síla musí být bezpodmínečně zachycena drahými axiálními nebo kuželíkovými ložisky.</li>
+        <li><strong>Šípovité zuby:</strong> Kolo se skládá ze dvou protichůdných šikmých ozubení (vypadá jako V). Drahá a velmi náročná výroba (vynalezl André Citroën pro svou automobilku), ale obě axiální síly jdoucí proti sobě se navzájem dokonale vyruší přímo na kole, takže ložiska nenesou žádný axiální tlak.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Silový rozklad: Proč šikmé ozubení vytlačuje hřídel ven (Pohled shora)</strong><br>
+        <svg width="100%" height="220" viewBox="0 0 500 220">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+            </defs>
+            
+            <!-- Osa hřídele -->
+            <line x1="50" y1="110" x2="450" y2="110" stroke="#111" stroke-width="1" stroke-dasharray="20,10,5,10"/>
+            <text x="60" y="100" font-size="11" font-weight="bold">Osa rotace hřídele</text>
+
+            <!-- Kolo (pohled na obvod válce) -->
+            <rect x="150" y="40" width="120" height="140" fill="#f4f4f4" stroke="#111" stroke-width="3"/>
+            <!-- Šikmé zuby (čáry na válci pod úhlem) -->
+            <line x1="150" y1="70" x2="270" y2="40" stroke="#111" stroke-width="2.5"/>
+            <line x1="150" y1="100" x2="270" y2="70" stroke="#111" stroke-width="2.5"/>
+            <line x1="150" y1="130" x2="270" y2="100" stroke="#111" stroke-width="2.5"/>
+            <line x1="150" y1="160" x2="270" y2="130" stroke="#111" stroke-width="2.5"/>
+            <line x1="180" y1="180" x2="270" y2="160" stroke="#111" stroke-width="2.5"/>
+
+            <text x="210" y="30" font-size="12" font-weight="bold" text-anchor="middle">Kolo se šikmým ozubením</text>
+
+            <!-- Síly (Červené) - Těžiště sil vprostřed -->
+            <!-- Tečná síla (kolmo dolů na výkres, znázorněná jako svislý vektor) -->
+            <line x1="210" y1="110" x2="210" y2="190" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="220" y="180" font-size="14" fill="#c00" font-weight="bold">F<tspan font-size="10" dy="2">t</tspan> (Obvodová síla)</text>
+            <text x="220" y="195" font-size="10" fill="#c00">Užitečná - točí kolem</text>
+            
+            <!-- Axiální síla (posouvá po ose!) -->
+            <line x1="210" y1="110" x2="330" y2="110" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="340" y="105" font-size="14" fill="#c00" font-weight="bold">F<tspan font-size="10" dy="2">a</tspan> (Axiální síla!)</text>
+            <text x="340" y="120" font-size="11" fill="#c00" font-weight="bold">Nežádoucí - odtlačuje</text>
+            <text x="340" y="135" font-size="11" fill="#c00" font-weight="bold">kolo a hřídel ven!</text>
+
+            <!-- Normálová síla kolmo k boku zubu (výsledná) -->
+            <line x1="210" y1="110" x2="330" y2="190" stroke="#c00" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-red)"/>
+            <text x="340" y="190" font-size="12" fill="#c00" font-weight="bold">F<tspan font-size="9" dy="2">n</tspan> (Normálová k zubu)</text>
+        </svg>
+    </div>
+
+    <h2>4. Rozdělení podle polohy os</h2>
+    <p>Nejčastější typy zapojení kol v převodovkách dle toho, jak jsou k sobě prostorově orientovány hřídele:</p>
+    <ul>
+        <li><strong>Rovnoběžné osy (Čelní soukolí):</strong> Popsáno výše, obě kola mají tvar válce (jako mince). Standardní ozubená kola v běžné průmyslové převodovce.</li>
+        <li><strong>Různoběžné osy (Kuželové soukolí):</strong> Osy se fyzicky protínají (nejčastěji pod úhlem 90° - do pravého úhlu). Kola nemají tvar válce, ale komolého kužele. Typické použití: Převod pohonu v diferenciálu nápravy automobilu nebo úhlová bruska (flexa).</li>
+        <li><strong>Mimoběžné osy:</strong> Osy se v prostoru kříží, ale fyzicky se neprotínají (jdou mimo sebe).
+            <ul>
+                <li><em>Šroubové soukolí:</em> Klasická čelní kola, ale se skloněnými zuby. Vhodné jen pro malý výkon (styk je bodový).</li>
+                <li><span class="highlight">Šnekové soukolí:</span> Skládá se ze Šneku (vypadá jako dlouhý závit na hřídeli) a Šnekového kola (ozubené kolo vydutého tvaru). <strong>Extrémní výhoda:</strong> Umožňuje obrovský převodový poměr (např. 1:100) v jediném stupni (místo hromady obyčejných kol). Má nesmírně tichý chod a je často <strong>samosvorné</strong> (kolo zablokuje, nedokáže roztočit šnek zpět – využívá se to jako spolehlivá bezpečnostní brzda ve výtazích nebo zvedácích).</li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>

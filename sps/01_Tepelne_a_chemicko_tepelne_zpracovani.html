@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>01. Tepelné a chemicko-tepelné zpracování ocelí</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>1. Tepelné a chemicko-tepelné zpracování ocelí</h1>
+    
+    <div class="box">
+        <h2>Úvod do problematiky</h2>
+        <p><strong>Účel:</strong> Řízeným procesem ohřevu, výdrže na teplotě a přesně definovaným ochlazením záměrně měníme <strong>vnitřní strukturu oceli</strong> (velikost a tvar zrn, typ krystalové mřížky) a tím radikálně měníme její mechanické vlastnosti (tvrdost, pevnost, houževnatost, tažnost, otěruvzdornost).</p>
+        <p>U <em>chemicko-tepelného zpracování (CHTZ)</em> se navíc mění i <strong>chemické složení</strong> samotného povrchu oceli (sycením uhlíkem, dusíkem atd.), což umožňuje získat díl s diametrálně odlišnými vlastnostmi na povrchu a v jádře.</p>
+    </div>
+
+    <h2>1. Tepelné zpracování (Kalení a Popouštění)</h2>
+    
+    <h3>A) Kalení oceli</h3>
+    <p><strong>Cíl:</strong> Dosažení maximální možné <strong>tvrdosti</strong> a otěruvzdornosti (typické pro břity obráběcích nástrojů, vrtáky, pilníky, dosedací plochy ozubených kol).</p>
+    <ul>
+        <li><strong>Princip a teploty:</strong> Ocel (s obsahem uhlíku alespoň nad 0.3 %) se pomalu ohřeje nad překrystalizační teplotu A<sub>3</sub> (u podeutektoidních ocelí, cca nad 800 °C) nebo A<sub>1</sub> (u nadeutektoidních). Ocel při této teplotě získá strukturu zvanou <em>Austenit</em>, do které se "rozpustí" všechen uhlík. Následuje výdrž na teplotě, aby se teplota srovnala i v jádře.</li>
+        <li><strong>Ochlazování (Kritický bod):</strong> Následuje <span class="highlight">Prudké ochlazení</span> (rychlostí vyšší než tzv. kritická rychlost chladnutí). Obvykle ponořením do <strong>vody, oleje nebo polymerní lázně</strong>.</li>
+        <li><strong>Vznik struktury:</strong> Při prudkém zchlazení atomy uhlíku fyzicky "nestihnou" opustit krystalovou mřížku železa (nemají čas na difuzi). Mřížka se dramaticky zdeformuje (vznikne tzv. tetragonální mřížka) a zablokuje. Tím vzniká velmi tvrdá, objemově napjatá a nesmírně křehká jehlicovitá struktura zvaná <span class="highlight">Martenzit</span>.</li>
+    </ul>
+
+    <h3>B) Popouštění (A Zušlechťování)</h3>
+    <p>Ocel po kalení má uvnitř obrovské vnitřní pnutí. Kdybychom zakalený díl (čistý martenzit) upustili na zem, roztříštil by se jako sklo. Proto se <strong>MUSÍ IHNED po kalení popustit</strong>.</p>
+    <ul>
+        <li><strong>Nízkoteplotní popouštění (do 200 °C):</strong> Ocel se ohřeje na 150-200 °C na několik hodin. Odstraní se vnitřní pnutí (hrozba prasknutí se sníží), ale <em>tvrdost klesne jen nepatrně</em>. Používá se pro nástroje, kde vyžadujeme maximální tvrdost (vrtáky, nože, frézy). Vzniká tzv. popuštěný martenzit.</li>
+        <li><strong>Vysokoteplotní popouštění / Zušlechťování (400 - 650 °C):</strong> Jde o kombinaci <em>kalení + vysokého popouštění</em>. Tvrdost sice výrazně klesne oproti stavu po kalení, ale ocel získá naprosto optimální kombinaci <strong>velké pevnosti, meze kluzu a obrovské houževnatosti</strong> (odolnosti proti rázům a cyklickému namáhání). Struktura se mění na tzv. <em>sorbit</em>. <strong>Použití:</strong> Klikové hřídele, ojnice, nápravy vozidel, kované šrouby nejvyšších pevností (8.8, 10.9).</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Diagram: Teplotní cykly (Kalení, Popouštění, Zušlechťování)</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 800 250">
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+            </defs>
+
+            <!-- Osy T a t -->
+            <line x1="50" y1="220" x2="750" y2="220" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="740" y="240" font-size="12" font-weight="bold">Čas t [h]</text>
+            <line x1="50" y1="220" x2="50" y2="20" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="40" y="15" font-size="12" font-weight="bold">Teplota T [°C]</text>
+
+            <!-- Kritická teplota Ac3 / Ac1 -->
+            <line x1="45" y1="80" x2="750" y2="80" stroke="#888" stroke-width="1.5" stroke-dasharray="6,4"/>
+            <text x="60" y="70" font-size="12" fill="#555" font-weight="bold">Kritická teplota Ac3 (Oblast Austenitu)</text>
+
+            <!-- Křivka Kalení (Červená) -->
+            <path d="M 50 220 L 150 40 L 250 40 L 260 220" fill="none" stroke="#c00" stroke-width="3"/>
+            <text x="100" y="140" font-size="12" fill="#c00" font-weight="bold" transform="rotate(-60 100,140)">Pomalý ohřev v peci</text>
+            <text x="200" y="30" font-size="12" fill="#c00" font-weight="bold" text-anchor="middle">Výdrž (Austenitizace)</text>
+            
+            <text x="270" y="140" font-size="12" fill="#c00" font-weight="bold" transform="rotate(-85 270,140)">Prudké ochlazení (Voda/Olej)</text>
+            <text x="280" y="210" font-size="11" fill="#c00" font-weight="bold">Vznik Martenzitu!</text>
+
+            <!-- Nízkoteplotní popouštění (Zelená) -->
+            <path d="M 320 220 L 350 180 L 420 180 L 450 220" fill="none" stroke="#2e7d32" stroke-width="3"/>
+            <text x="385" y="170" font-size="12" fill="#2e7d32" font-weight="bold" text-anchor="middle">Nízkotepl. popouštění</text>
+            <text x="385" y="195" font-size="10" fill="#2e7d32" text-anchor="middle">(150 - 200 °C)</text>
+
+            <!-- Vysokoteplotní popouštění / Zušlechťování (Modrá) -->
+            <path d="M 500 220 L 550 110 L 650 110 L 700 220" fill="none" stroke="#0056b3" stroke-width="3"/>
+            <text x="600" y="100" font-size="12" fill="#0056b3" font-weight="bold" text-anchor="middle">Zušlechťování (Vysokotepl. popouštění)</text>
+            <text x="600" y="130" font-size="10" fill="#0056b3" text-anchor="middle">(400 - 650 °C)</text>
+            <text x="675" y="175" font-size="11" fill="#0056b3" font-weight="bold" transform="rotate(65 675,175)">Pomalé chladnutí na vzduchu</text>
+        </svg>
+    </div>
+
+    <h2>2. Chemicko-tepelné zpracování (CHTZ)</h2>
+    <p><strong>Cíl:</strong> Konstruktér často vyžaduje dva protichůdné požadavky na jednu součástku. Potřebuje povrch tvrdý jako sklo (odolnost proti otěru) a zároveň jádro houževnaté a poddajné (aby součástka při nárazu nepraskla, ale pouze se mírně prohnula). To nelze dosáhnout klasickým kalením (součást by ztvrdla a zkřehla celá). Řešením je CHTZ.</p>
+    <p>Součást se dlouze ohřívá v plynové peci se speciální atmosférou (nebo v lázni/prášku). Z tohoto prostředí do povrchu oceli <strong>difundují (pronikají) atomy požadovaného prvku</strong>.</p>
+
+    <h3>A) Cementování</h3>
+    <ul>
+        <li><strong>Princip:</strong> Sycení povrchu oceli <strong>uhlíkem (C)</strong>.</li>
+        <li><strong>Výchozí materiál:</strong> Používají se výhradně oceli s <em>nízkým obsahem uhlíku</em> (do 0,25 % C), např. ocel 14 220. Tyto oceli jsou extrémně houževnaté, ale samy o sobě <strong>nejdou zakalit</strong>, protože nemají dost uhlíku na vznik martenzitu.</li>
+        <li><strong>Proces:</strong> Ohřev na 900–950 °C v atmosféře bohaté na uhlík (plyn). Povrch se nasytí uhlíkem na koncentraci cca 0,8 % C do hloubky zhruba 1 mm. Jádro zůstává beze změny (0,15 % C).</li>
+        <li><span class="highlight">Zásadní fáze:</span> Po cementování se díl <strong>MUSÍ zakalit a popustit</strong>! Během kalení ztvrdne pouze obohacený povrch (vznikne v něm martenzit), zatímco jádro (s malým obsahem uhlíku) se nezakalí a zůstane měkké.</li>
+        <li><strong>Použití:</strong> Ozubená kola v převodovkách aut, vačkové hřídele, čepy.</li>
+    </ul>
+
+    <h3>B) Nitridování</h3>
+    <ul>
+        <li><strong>Princip:</strong> Sycení povrchu oceli <strong>dusíkem (N)</strong> v atmosféře čpavku (amoniaku) nebo v plazmě.</li>
+        <li><strong>Proces:</strong> Probíhá při mnohem nižších teplotách (cca 500–550 °C). Atomy dusíku vytvoří v povrchu oceli sloučeniny (nitridy), které jsou <strong>ještě mnohem tvrdší</strong> než martenzit z cementování.</li>
+        <li><span class="highlight">Obrovská výhoda:</span> Ocel získá extrémní tvrdost přímo v peci chemickou cestou. Součást už se potom <strong>NEKALÍ!</strong> (Ochlazuje se pomalu). Díky tomu nedojde k absolutně žádným tepelným deformacím a kroucení. Ocel lze kompletně opracovat načisto a na závěr jen nitridovat. Navíc nitridy skvěle odolávají korozi.</li>
+        <li><strong>Vrstva:</strong> Je velmi tenká (0,1 až 0,5 mm) oproti cementování.</li>
+        <li><strong>Použití:</strong> Extrémně přesné vřetena obráběcích strojů, formy na plasty.</li>
+    </ul>
+
+    <h3>C) Karbonitridování</h3>
+    <ul>
+        <li>Sycení povrchu <strong>uhlíkem i dusíkem</strong> současně (teploty kolem 800 °C). Je to rychlejší proces, vrstva má výhody obojího. Po procesu se součást musí kalit. Vhodné pro tenké a drobné plechové dílce v masové výrobě.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Řez zubem ozubeného kola (Tvrdý povrch / Houževnaté jádro po CHTZ)</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <pattern id="hatch-core" patternUnits="userSpaceOnUse" width="10" height="10">
+                    <line x1="0" y1="10" x2="10" y2="0" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+                <!-- Gradient pro zakalenou vrstvu (tmavá k okraji) -->
+                <radialGradient id="hard-layer" cx="50%" cy="50%" r="50%">
+                    <stop offset="65%" stop-color="#fff" stop-opacity="0" />
+                    <stop offset="100%" stop-color="#333" stop-opacity="0.8" />
+                </radialGradient>
+            </defs>
+
+            <!-- Zub ozubeného kola v řezu -->
+            <!-- Měřítko zvětšené pro formát bez limitů -->
+            <path d="M 200 230 L 260 50 A 40 40 0 0 1 340 50 L 400 230 Z" fill="url(#hatch-core)" stroke="#111" stroke-width="3"/>
+            <path d="M 200 230 L 260 50 A 40 40 0 0 1 340 50 L 400 230 Z" fill="url(#hard-layer)"/>
+            
+            <!-- Vyznačení tvrdé povrchové vrstvy (Hranice difuze) -->
+            <path d="M 215 230 L 270 58 A 30 30 0 0 1 330 58 L 385 230" fill="none" stroke="#c00" stroke-width="2.5" stroke-dasharray="8,4"/>
+
+            <!-- Kóty a Popisky -->
+            <line x1="420" y1="140" x2="375" y2="140" stroke="#111" stroke-width="1.5"/>
+            <text x="430" y="135" font-size="12" font-weight="bold">Tvrzená povrchová vrstva</text>
+            <text x="430" y="150" font-size="11">- Martenzit (po cementování a kalení)</text>
+            <text x="430" y="165" font-size="11">- Extrémní tvrdost a odolnost proti opotřebení</text>
+            <text x="430" y="180" font-size="11" fill="#c00" font-weight="bold">- Hloubka vrstvy typicky 1.0 - 1.5 mm</text>
+
+            <line x1="180" y1="180" x2="290" y2="180" stroke="#111" stroke-width="1.5"/>
+            <text x="170" y="175" font-size="12" font-weight="bold" text-anchor="end" background="#fff">Měkké ocelové jádro</text>
+            <text x="170" y="190" font-size="11" text-anchor="end">- Nízký obsah uhlíku (feriticko-perlitické)</text>
+            <text x="170" y="205" font-size="11" text-anchor="end">- Vysoká houževnatost (tlumí rázové zatížení)</text>
+        </svg>
+    </div>
+
+    <h2>3. Povrchové kalení (Bez CHTZ chemie)</h2>
+    <p>Alternativa k chemicko-tepelnému zpracování. Používá se pro oceli, které <strong>už mají dostatek uhlíku</strong> k zakalení. Trik nespočívá v sycení uhlíkem z pece, ale v tom, že teplo dodáme <strong>jen na povrch a jen na pár sekund</strong>.</p>
+    <ul>
+        <li><strong>Ohřev plamenem:</strong> Kyslíko-acetylenový hořák projede po obrobku a bleskově ohřeje jen vrchní milimetr oceli na kalicí teplotu. Těsně za hořákem jede tryska se sprchou studené vody, která to okamžitě zchladí. Výsledek: Povrch se zakalil na martenzit, ale střed zůstal celou dobu studený a měkký. Běžné pro kalení zubů obřích ozubených kol nebo vodicích loží soustruhů.</li>
+        <li><strong>Indukční kalení:</strong> Stejný princip, ale ohřev zajišťuje elektromagnetická indukční cívka, kterou prochází vysokofrekvenční proud. Ohřev je ještě rychlejší a přesnější. Ocel se ohřeje "sama zevnitř" pomocí vířivých Foucaultových proudů. (Typické pro vačkové hřídele).</li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>13. Dokončovací a nekonvenční metody</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>13. Dokončovací a nekonvenční metody</h1>
+    
+    <div class="box">
+        <p><strong>Dokončovací metody:</strong> Nasazují se až na úplný závěr výroby, většinou po broušení. Cílem už vůbec není měnit hrubý rozměr součásti (úběr kovu je nepatrný, jen tisíciny milimetru), ale dosáhnout <strong>zrcadlově hladkého povrchu (mikrogeometrie - např. drsnost Ra 0.1)</strong> a dokonalé přesnosti tvaru.</p>
+        <p><strong>Nekonvenční (neklasické) metody:</strong> Zcela mažou staré strojařské pravidlo, že "nástroj musí být tvrdší než obrobek". Místo mechanického odřezávání třísky kovem řežou pomocí energií (elektrická jiskra, plazma, laser, voda). Dají se jimi obrábět neuvěřitelně tvrdé materiály jako zakalená nástrojová ocel (ze které se běžné břity samy vyrábějí) nebo slinuté karbidy.</p>
+    </div>
+
+    <h2>1. Dokončovací metody povrchu (Mechanické)</h2>
+    
+    <h3>A) Honování</h3>
+    <ul>
+        <li>Nasazuje se typicky jako finální dokončování <strong>vnitřních válcových ploch</strong> (např. válce ve spalovacích motorech, válce hydrauliky nebo hlavně děl) po jejich předchozím vyvrtání a vystružení.</li>
+        <li>Nástrojem je <strong>honovací hlava</strong>, která má po obvodu umístěné brusné kameny z velmi jemného brusiva. Ty se během práce mechanismem roztahují a plynule jemně přitlačují na stěnu válce. Do řezu proudí obrovské množství řezného oleje k vyplavování mikrotřísek.</li>
+        <li>Zásadní je <strong>Kinematika:</strong> Honovací hlava <em>rotuje</em> a zároveň koná <em>rychlý posuv nahoru a dolů</em>. Tím ve stěně válce vzniká charakteristická <span class="highlight">Křížová stopa</span>.</li>
+        <li><strong>Účel křížové stopy:</strong> Není to výrobní vada, naopak! V těch mikroskopických rýhách vyrytých do kříže se drží tenoučký film motorového oleje. Díky němu se pístní kroužky nedřou o stěnu válce na sucho a nezadřou se.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Princip: Honování válce a tvorba křížové stopy</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <pattern id="hatch-cyl" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="0" x2="8" y2="8" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+            </defs>
+
+            <!-- Válec v řezu -->
+            <rect x="80" y="40" width="30" height="180" fill="url(#hatch-cyl)" stroke="#111" stroke-width="3"/>
+            <rect x="310" y="40" width="30" height="180" fill="url(#hatch-cyl)" stroke="#111" stroke-width="3"/>
+            <text x="95" y="235" font-size="12" font-weight="bold" text-anchor="middle">Stěna válce</text>
+
+            <!-- Honovací hlava -->
+            <rect x="175" y="10" width="70" height="190" fill="#ddd" stroke="#111" stroke-width="3"/>
+            <text x="210" y="105" font-size="14" font-weight="bold" text-anchor="middle" transform="rotate(-90 210,105)">Honovací hlava</text>
+
+            <!-- Honovací kameny (přitlačované ke stěně válce) -->
+            <rect x="110" y="70" width="65" height="35" fill="#888" stroke="#111" stroke-width="2"/>
+            <rect x="245" y="70" width="65" height="35" fill="#888" stroke="#111" stroke-width="2"/>
+            <text x="142" y="92" font-size="11" fill="#fff" font-weight="bold" text-anchor="middle">Kámen</text>
+            
+            <rect x="110" y="140" width="65" height="35" fill="#888" stroke="#111" stroke-width="2"/>
+            <rect x="245" y="140" width="65" height="35" fill="#888" stroke="#111" stroke-width="2"/>
+            
+            <!-- Přítlak -->
+            <line x1="160" y1="157" x2="115" y2="157" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <line x1="260" y1="157" x2="305" y2="157" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="210" y="150" font-size="14" fill="#c00" text-anchor="middle" font-weight="bold">Přítlak (p)</text>
+
+            <!-- Kinematika (Rotace + Posuv) -->
+            <path d="M 160 15 A 40 40 0 0 1 260 30" fill="none" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="270" y="20" font-size="14" fill="#c00" font-weight="bold">Rotace (v<tspan font-size="10" dy="3">c</tspan>)</text>
+            <line x1="210" y1="-10" x2="210" y2="50" stroke="#00c" stroke-width="4" marker-end="url(#arrow-red)" marker-start="url(#arrow-red)"/>
+            <text x="100" y="15" font-size="14" fill="#00c" font-weight="bold">Posuv (Nahoru a dolů)</text>
+
+            <!-- Zobrazení křížové stopy na stěně vpravo -->
+            <path d="M 400 100 L 480 50 M 400 90 L 480 40 M 400 110 L 480 60 M 400 120 L 480 70 M 400 130 L 480 80 M 400 140 L 480 90 M 400 150 L 480 100 M 400 160 L 480 110 M 400 170 L 480 120 M 400 180 L 480 130" fill="none" stroke="#555" stroke-width="1.5"/>
+            <path d="M 400 40 L 480 90 M 400 50 L 480 100 M 400 60 L 480 110 M 400 70 L 480 120 M 400 80 L 480 130 M 400 90 L 480 140 M 400 100 L 480 150 M 400 110 L 480 160 M 400 120 L 480 170 M 400 130 L 480 180" fill="none" stroke="#555" stroke-width="1.5"/>
+            
+            <line x1="340" y1="110" x2="390" y2="110" stroke="#111" stroke-width="2.5" marker-end="url(#arrow)"/>
+            <text x="440" y="200" font-size="14" text-anchor="middle" font-weight="bold">Křížová stopa po honování</text>
+            <text x="440" y="215" font-size="12" text-anchor="middle" fill="#c00">(Nutná pro zadržení olejového filmu!)</text>
+        </svg>
+    </div>
+
+    <h3>B) Lapování</h3>
+    <ul>
+        <li><strong>Nejpřesnější metoda obrábění vůbec!</strong> Úběr činí max 0.01 mm, odebírají se už jen zlomky tisícin milimetru a dosahuje se absolutní rovinnosti ploch (přisají se k sobě vzduchoprázdnem).</li>
+        <li>Nástrojem je <em>lapovací litinová deska</em>, na kterou se nanese <strong>lapovací pasta</strong> (olej smíchaný s velmi jemným brusným diamantovým nebo korundovým prachem).</li>
+        <li>Součást se přitlačí na desku a klouže po ní <strong>nahodile všemi směry</strong>. Typické pro ventilová sedla (musí dokonale těsnit), měrky a optiku.</li>
+    </ul>
+
+    <h3>C) Superfinišování a Leštění</h3>
+    <ul>
+        <li><strong>Superfinišování:</strong> Nástrojem je velmi jemný brusný kámen, který se přitlačí na rotující obrobek (často hřídel) a velmi rychle kmitá do stran. Tím odřízne pouze "mikrokopečky" (nerovnosti), které tam zbyly po běžném broušení. Geometrie válce už se ale nezmění.</li>
+        <li><strong>Leštění:</strong> Nemění rozměr ani přesnost součásti. Jde čistě o dosažení <strong>zrcadlového lesku</strong> (kvůli estetice, snížení tření kapalin, nebo odolnosti vůči korozi). Provádí se rotujícími filcovými nebo hadrovými kotouči potřenými leštící pastou.</li>
+    </ul>
+
+    <h2>2. Elektroerozivní obrábění (EDM - Jiskření)</h2>
+    <p>Nejčastější nekonvenční metoda. Pracuje na principu záměrného vytrhávání kovu z obrobku <strong>elektrickými jiskrovými výboji</strong>. Používá se pro výrobu extrémně složitých tvarů z kalených ocelí, tvrdokovů nebo titanu. Všechny procesy musí probíhat ponořené do nevodivé kapaliny (Dielektrika - např. petrolej nebo deionizovaná voda).</p>
+    <ul>
+        <li><strong>Základní podmínka:</strong> Obrobek i nástroj musí být <em>elektricky vodivé</em>! Dřevo nebo sklo takto řezat nelze.</li>
+        <li><strong>Hloubení (Die Sinking EDM):</strong> Výroba tvarových slepých dutin (např. výroba zápustek pro kování z kalené oceli, formy na plasty). Nástrojem je měděná nebo grafitová elektroda vybroušená do tvaru (negativu). Ponořuje se do oceli a jiskrami před sebou vyhloubí v oceli zápustku.</li>
+        <li><strong>Drátové řezání (WEDM):</strong> Elektroda je tenký mosazný drátek (cca 0.2 mm), který se neustále přetáčí z cívky na cívku a chová se jako superpřesná řezbářská pilka (jen bez mechanického dotyku - řeže jiskrami před sebou). Ideální pro přesné řezání tlustých ocelových bloků (výroba střižníků).</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Princip: Elektroerozivní hloubení (EDM)</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <pattern id="hatch-edm" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="0" x2="8" y2="8" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+            </defs>
+
+            <!-- Nádoba s dielektrikem -->
+            <path d="M 20 60 L 20 230 L 580 230 L 580 60" fill="none" stroke="#111" stroke-width="4"/>
+            <rect x="22" y="90" width="556" height="138" fill="#e0f7fa" opacity="0.8"/>
+            <path d="M 22 90 Q 80 95 300 90 T 578 90" fill="none" stroke="#00c" stroke-width="2"/>
+            <text x="470" y="115" font-size="12" fill="#00796b" font-weight="bold" text-anchor="middle">Dielektrikum</text>
+            <text x="470" y="130" font-size="11" fill="#00796b" text-anchor="middle">(Izolační tekutina)</text>
+
+            <!-- Obrobek (Kalená ocel +) -->
+            <rect x="120" y="160" width="280" height="70" fill="url(#hatch-edm)" stroke="#111" stroke-width="3"/>
+            <!-- Dutina ve tvaru elektrody -->
+            <path d="M 190 160 L 190 190 A 20 20 0 0 0 210 210 L 310 210 A 20 20 0 0 0 330 190 L 330 160 Z" fill="#e0f7fa" stroke="#111" stroke-width="3"/>
+            <text x="450" y="190" font-size="14" font-weight="bold" text-anchor="middle" background="#fff">Obrobek (Anoda +)</text>
+            <text x="450" y="205" font-size="11" text-anchor="middle">Např. kalená ocel</text>
+
+            <!-- Nástroj - Elektroda (-) -->
+            <rect x="195" y="30" width="130" height="150" fill="#fbb" stroke="#111" stroke-width="3" rx="15"/>
+            <text x="260" y="90" font-size="14" font-weight="bold" text-anchor="middle">Měděná elektroda (-)</text>
+            <text x="260" y="105" font-size="11" text-anchor="middle">(Tvarový negativ budoucí dutiny)</text>
+
+            <!-- Posuv elektrody -->
+            <line x1="260" y1="-10" x2="260" y2="20" stroke="#111" stroke-width="5" marker-end="url(#arrow)"/>
+            <text x="270" y="10" font-size="12" font-weight="bold">Posuv</text>
+
+            <!-- Jiskry (Výboje) -->
+            <path d="M 205 190 L 210 195 L 205 200" fill="none" stroke="#f80" stroke-width="4"/>
+            <path d="M 260 185 L 265 190 L 260 195" fill="none" stroke="#f80" stroke-width="4"/>
+            <path d="M 315 190 L 310 195 L 315 200" fill="none" stroke="#f80" stroke-width="4"/>
+            <circle cx="210" cy="195" r="5" fill="#ff0"/>
+            <circle cx="265" cy="190" r="5" fill="#ff0"/>
+            <circle cx="310" cy="195" r="5" fill="#ff0"/>
+            <text x="260" y="170" font-size="13" fill="#d32f2f" font-weight="bold" text-anchor="middle" style="background-color: white; opacity: 0.9;">Miliony jisker taveninu odpařují (10 000 °C!)</text>
+
+            <!-- Zdroj (Generator) -->
+            <rect x="20" y="10" width="80" height="40" fill="#ddd" stroke="#111" stroke-width="2"/>
+            <text x="60" y="35" font-size="12" font-weight="bold" text-anchor="middle">Generátor</text>
+            <line x1="60" y1="50" x2="60" y2="195" stroke="#c00" stroke-width="4"/>
+            <line x1="60" y1="195" x2="120" y2="195" stroke="#c00" stroke-width="4"/>
+            
+            <line x1="100" y1="30" x2="195" y2="30" stroke="#00c" stroke-width="4"/>
+            
+            <text x="110" y="25" font-size="18" fill="#00c" font-weight="bold">-</text>
+            <text x="75" y="185" font-size="18" fill="#c00" font-weight="bold">+</text>
+
+        </svg>
+    </div>
+
+    <h2>3. Obrábění paprskem a kapalinou</h2>
+    <ul>
+        <li><strong>Laserové a plazmové řezání:</strong> Plech se dělí ohromnou tepelnou energií světla (laser) nebo elektrického oblouku v plynu (plazma). Hrana je opálená a v okolí řezu se ocel ohřeje, zakalí a změní své vlastnosti (vzniká tzv. Tepelně ovlivněná oblast).</li>
+        <li><span class="highlight">Řezání vodním paprskem (Waterjet):</span> K oddělování materiálu slouží nesmírně tenký paprsek vody stlačené na 4000 barů, do kterého je navíc přimíchán brusný písek (abrazivo). Paprsek prořízne cokoliv - ocel tlustou 10 cm, titan, tvrzené sklo, kámen. <strong>Obrovská výhoda: Jedná se o naprosto STUDENÝ ŘEZ!</strong> Nevzniká absolutně žádné teplo. Ocel na hraně řezu nezmění strukturu, nezakalí se ani se plech teplem nezkroutí.</li>
+    </ul>
+
+</body>
+</html>

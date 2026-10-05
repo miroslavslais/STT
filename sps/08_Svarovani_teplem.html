@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>08. Svařování teplem</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>8. Svařování teplem (Tavné svařování)</h1>
+    
+    <div class="box">
+        <h2>Princip tavného svařování</h2>
+        <p>Vytvoření nerozebíratelného pevného spoje dvou součástí působením lokálního tepla, <strong>bez použití jakéhokoliv tlaku</strong>. Okraje spojovaných dílů se v místě styku <strong>roztaví</strong>, čímž vznikne tekutá <span class="highlight">Svarová lázeň</span>. Do ní se zpravidla přidává roztavený přídavný materiál (svařovací drát/elektroda). Po ztuhnutí se kovy slijí dohromady a vznikne celistvý pevný <strong>svar (housenka)</strong>.</p>
+        <p><em>Zásadní problém:</em> Rozžhavený tekutý kov okamžitě a prudce reaguje se vzdušným kyslíkem a dusíkem. Pokud bychom svarovou lázeň nechránili, svar by "zreznul" a ztvrdnul už během svařování, zporovatěl by a okamžitě by praskl. Ochrana lázně se řeší plynem nebo tavidlem.</p>
+    </div>
+
+    <h2>1. Svařování plamenem (Autogen)</h2>
+    <p>Nejstarší metoda. Zdrojem tepla je plamen svařovacího hořáku, do kterého jsou hadicemi přiváděny dva plyny.</p>
+    <ul>
+        <li><strong>Hořlavý plyn:</strong> Zcela nejčastěji <span class="highlight">Acetylen (C<sub>2</sub>H<sub>2</sub>)</span>. V láhvi má hnědou barvu (dříve bílý pruh/kaštanová). Nesmí se tlakovat sám o sobě (bouchl by), proto je v láhvi rozpuštěný v acetonu (dissous plyn).</li>
+        <li><strong>Podporující hoření:</strong> <span class="highlight">Kyslík (O<sub>2</sub>)</span>. V láhvi má modrou barvu. Směsí acetylenu a kyslíku se dosahuje neuvěřitelné teploty plamene přes <strong>3100 °C</strong>.</li>
+        <li><strong>Ochrana a přídavný drát:</strong> Ochrannou atmosféru lázně zajišťují samotné spaliny plamene (odfukují kyslík pryč). Přídavný materiál podává svářeč z boku do plamene volnou rukou formou dlouhého drátu.</li>
+        <li><strong>Výhody a nevýhody:</strong> Metoda je to pomalá. Teplo se z plamene velmi široce rozlévá do okolního kovu, takže vzniká obrovská <em>Tepelně Ovlivněná Zóna (TOZ)</em> a plechy se silně kroutí a vlní. Ocel po svařování ztrácí na krajích houževnatost.</li>
+        <li><strong>Použití:</strong> Instalatérské a topenářské práce u tenkých trubek, montáže. Pro průmyslové svařování nosných konstrukcí z oceli se už dnes téměř nepoužívá, nahradil ho oblouk. Hojně se ale používá k <em>řezání kyslíkem (řezák)</em>.</li>
+    </ul>
+
+    <h2>2. Svařování elektrickým obloukem</h2>
+    <p>Drtivá většina dnešního svařování. Zdrojem tepla je <strong>zkratový elektrický oblouk</strong> (teplota 5000–6000 °C), který se zapálí a hoří v mezeře mezi elektrodou a svařovaným materiálem.</p>
+
+    <h3>A) Ruční obloukové svařování (MMA / 111)</h3>
+    <p>Klasické svařování tzv. <strong>obalenou elektrodou</strong>. Proud (ze svářečky/invertoru) prochází do kleští, ve kterých svářeč drží obalenou elektrodu. Elektroda funguje jako pól obvodu, sama se taví, a tím do svaru přidává materiál.</p>
+    <ul>
+        <li><strong>Funkce OBALU elektrody (Kritické k maturitě):</strong> Samotné železné jádro elektrody by na kvalitní svar nestačilo. Obal na elektrodě (kyselinový, rutilový nebo bazický) plní při hoření oblouku obrovsky důležité funkce:
+            <ol>
+                <li>Vlivem žáru se obal pálí a vytváří mohutný <strong>oblak ochranného plynu</strong>, který odfoukne vzduch z okolí oblouku.</li>
+                <li>Složky obalu se taví a vytvoří na povrchu svarové lázně vrstvu <strong>strusky</strong>. Struska má tři úkoly: chrání žhavý svar před oxidací, rafinuje (chemicky čistí) kov a co je hlavní – <strong>zpomaluje chladnutí svaru</strong>. Bez strusky by svar vychladl tak rychle, že by se zakalil, zkřehl (vznikl by v něm martenzit) a při ohnutí by praskl.</li>
+            </ol>
+        </li>
+        <li>Po vychladnutí housenky se struska z povrchu svaru <strong>musí oklepat kladívkem</strong>.</li>
+        <li><strong>Použití:</strong> Stavební konstrukce, haly, mosty, montáže venku. Obalené elektrodě totiž, na rozdíl od céóčka, <em>nevadí vítr a průvan</em> (vítr oblak plynu zčásti odfoukne, ale struska na svaru zůstane a svar perfektně ochrání).</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Řez: Svařování obalenou elektrodou (MMA)</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <pattern id="hatch-base" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="8" x2="8" y2="0" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+
+            <!-- Základní materiál -->
+            <rect x="40" y="160" width="520" height="40" fill="#ddd" stroke="#111" stroke-width="2"/>
+            <text x="460" y="150" font-size="12" font-weight="bold">Základní ocelový materiál</text>
+
+            <!-- Hotový svar (Housenka) -->
+            <path d="M 40 160 Q 150 145 230 160 Z" fill="#999" stroke="#111" stroke-width="2"/>
+            <text x="100" y="150" font-size="12" font-weight="bold" fill="#fff">Hotový svar</text>
+
+            <!-- Struska -->
+            <path d="M 40 150 Q 150 130 200 155 Z" fill="#444" stroke="#111" stroke-dasharray="4,2"/>
+            <line x1="120" y1="140" x2="100" y2="100" stroke="#111" stroke-width="1.5"/>
+            <text x="100" y="90" font-size="12" font-weight="bold" text-anchor="middle">Ztuhlá struska</text>
+            <text x="100" y="105" font-size="10" text-anchor="middle">(chrání a zpomaluje chladnutí)</text>
+
+            <!-- Elektroda (nakloněná) -->
+            <g transform="translate(320, 150) rotate(-35) translate(-320, -150)">
+                <rect x="310" y="10" width="20" height="140" fill="#888" stroke="#111" stroke-width="2"/> <!-- Jádro -->
+                <rect x="290" y="10" width="20" height="150" fill="#eec" stroke="#111" stroke-width="2"/> <!-- Obal levý -->
+                <rect x="330" y="10" width="20" height="150" fill="#eec" stroke="#111" stroke-width="2"/> <!-- Obal pravý -->
+                <text x="320" y="80" font-size="12" font-weight="bold" text-anchor="middle" transform="rotate(90 320,80)">Obalená elektroda</text>
+            </g>
+
+            <!-- Elektrický oblouk -->
+            <path d="M 280 150 Q 260 160 260 170 Q 300 175 320 150" fill="#ffeb3b" stroke="#f57c00" stroke-width="3"/>
+            <text x="350" y="190" font-size="12" fill="#c00" font-weight="bold">Elektrický oblouk</text>
+
+            <!-- Svarová lázeň -->
+            <ellipse cx="250" cy="165" rx="35" ry="12" fill="#f44"/>
+            <line x1="250" y1="170" x2="250" y2="220" stroke="#111" stroke-width="1.5"/>
+            <text x="250" y="235" font-size="12" text-anchor="middle" font-weight="bold">Tekutá svarová lázeň (Tavenina)</text>
+
+            <!-- Ochranný plyn -->
+            <path d="M 180 155 A 80 80 0 0 1 360 120" fill="none" stroke="#00c" stroke-width="3" stroke-dasharray="8,4"/>
+            <text x="380" y="110" font-size="12" fill="#00c" font-weight="bold">Oblak ochranného plynu</text>
+            <text x="380" y="125" font-size="10" fill="#00c">(Vzniklý shořením obalu elektrody)</text>
+            
+            <!-- Posuv šipka -->
+            <path d="M 370 60 L 250 60" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="310" y="50" font-size="12" fill="#c00" font-weight="bold" text-anchor="middle">Směr svařování (Rychlost v)</text>
+        </svg>
+    </div>
+
+    <h3>B) Svařování v ochranné atmosféře tavící se elektrodou (MIG / MAG)</h3>
+    <p>Hovorově známo jako "Céóčko". Moderní, extrémně rychlá a masově nasazovaná metoda. Po stisknutí tlačítka na hořáku se automaticky <strong>nekonečný drát z cívky</strong> začne posouvat bovdenem až do hořáku a zároveň z hubice fouká ochranný plyn z tlakové láhve.</p>
+    <ul>
+        <li><span class="highlight">MIG (Metal Inert Gas):</span> Ochranný plyn je <em>Inertní (Netečný)</em> - nereaguje se svarovou lázní. Typicky jde o <strong>Argon</strong>. Používá se pro svařování hliníku, mědi, titanu a nerezu. Tyto plyny jsou velmi drahé.</li>
+        <li><span class="highlight">MAG (Metal Active Gas):</span> Ochranný plyn je <em>Aktivní</em> - chemicky se podílí na reakci v oblouku. Nejčastěji se používá <strong>CO<sub>2</sub> (Oxid uhličitý)</strong> nebo směsi (Corgon). Extrémně levné, používá se plošně pro běžné konstrukční oceli (automobilky, zámečnictví).</li>
+        <li><strong>Výhody:</strong> Zcela odpadá obal elektrody &rarr; <strong>nevzniká žádná struska</strong>! Svar se nemusí oklepávat a čistit, lze ihned natírat. Skvělé pro robotizaci. Svářeč nemusí zastavovat (drát se odvíjí z obří cívky).</li>
+        <li><strong>Nevýhody:</strong> Sebemenší průvan odfoukne ochranný plyn z hubice a svar okamžitě "zrezne", zporovatí jako houba a zničí se. <em>Naprosto nevhodné pro montáže venku.</em> Mírně to prská kuličky do okolí svaru.</li>
+    </ul>
+
+    <h3>C) Svařování netavící se elektrodou v ochrané atmosféře (TIG / WIG)</h3>
+    <p>Královská disciplína svářečů. Poskytuje bezkonkurenčně <strong>nejkvalitnější a vizuálně nejkrásnější svary</strong> (tzv. přesně poskládané "penízky") bez sebemenšího stříkání a kuliček do okolí.</p>
+    <ul>
+        <li>Elektroda uvnitř hořáku se <strong>netaví</strong>. Je vyrobena z extrémně žáruvzdorného <strong>Wolframu</strong> (teplota tání přes 3400 °C). WIG = Wolfram Inert Gas.</li>
+        <li>Z hubice kolem wolframové špičky proudí výhradně čistý <em>Argon</em>. Mezi wolframem a ocelí zapálí svářeč stabilní a tichý oblouk, který vytvoří lázeň.</li>
+        <li><strong>Přidávání materiálu:</strong> Svářeč drží v jedné ruce TIG hořák a ve druhé ruce dlouhý svařovací drát (přídavný materiál), který <em>ručně "namáčí"</em> do roztavené lázně, podobně jako u autogenu. Vyžaduje to špičkovou zručnost obou rukou.</li>
+        <li><strong>Použití:</strong> Letectví, farmacie, potravinářství (nerezové trubky pro mlékárny, minipivovary), tlakové nádoby z drahých slitin.</li>
+        <li><strong>Nevýhoda:</strong> Metoda je to precizní, ale velmi pomalá a drahá.</li>
+    </ul>
+
+</body>
+</html>

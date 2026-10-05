@@ -5,28 +5,54 @@
       "href": "index.html"
     },
     {
-      "title": "Vnitřní stavba kovů a TZ",
-      "href": "vnitrni-stavba-kovu-a-tz/index.html?view=home"
+      "title": "STT",
+      "href": "stt/index.html",
+      "items": [
+        {
+          "title": "Vnitřní stavba kovů a TZ",
+          "href": "vnitrni-stavba-kovu-a-tz/index.html?view=home"
+        },
+        {
+          "title": "Koroze",
+          "href": "koroze/index.html"
+        },
+        {
+          "title": "Tváření",
+          "href": "tvareni-za-tepla/index.html"
+        },
+        {
+          "title": "Prášková metalurgie",
+          "href": "praskova-metalurgie/index.html"
+        },
+        {
+          "title": "Značení ocelí",
+          "href": "znaceni-oceli/index.html"
+        },
+        {
+          "title": "Odlévání",
+          "href": "odlevani/index.html"
+        }
+      ]
     },
     {
-      "title": "Koroze",
-      "href": "koroze/index.html"
+      "title": "SPS",
+      "href": "sps/index.html"
     },
     {
-      "title": "Tváření",
-      "href": "tvareni-za-tepla/index.html"
+      "title": "MEC",
+      "href": "mec/index.html"
     },
     {
-      "title": "Prášková metalurgie",
-      "href": "praskova-metalurgie/index.html"
+      "title": "Robotika",
+      "href": "robotika/index.html"
     },
     {
-      "title": "Značení ocelí",
-      "href": "znaceni-oceli/index.html"
+      "title": "CNC",
+      "href": "cnc/index.html"
     },
     {
-      "title": "Odlévání",
-      "href": "odlevani/index.html"
+      "title": "MTE",
+      "href": "mte/index.html"
     },
     {
       "title": "O projektu",
@@ -42,68 +68,39 @@
   "home": {
     "cards": [
       {
-        "id": "koroze",
-        "title": "Koroze",
-        "href": "koroze/index.html",
+        "id": "stt",
+        "title": "STT (Strojírenská technologie)",
+        "href": "stt/index.html",
         "status": "ready"
       },
       {
-        "id": "obrabeni",
-        "title": "Obrábění",
-        "status": "coming-soon"
-      },
-      {
-        "id": "odlevani",
-        "title": "Odlévání",
-        "href": "odlevani/index.html",
+        "id": "sps",
+        "title": "SPS (Stavba a provoz strojů)",
+        "href": "sps/index.html",
         "status": "ready"
       },
       {
-        "id": "praskova-metalurgie",
-        "title": "Prášková metalurgie",
-        "href": "praskova-metalurgie/index.html",
+        "id": "mec",
+        "title": "MEC (Mechanika)",
+        "href": "mec/index.html",
         "status": "ready"
       },
       {
-        "id": "svarovani",
-        "title": "Svařování",
-        "status": "coming-soon"
-      },
-      {
-        "id": "tvareni",
-        "title": "Tváření",
-        "href": "tvareni-za-tepla/index.html",
+        "id": "robotika",
+        "title": "Robotika",
+        "href": "robotika/index.html",
         "status": "ready"
       },
       {
-        "id": "vnitrni-stavba",
-        "title": "Vnitřní stavba kovů a tepelné zpracování",
-        "href": "vnitrni-stavba-kovu-a-tz/index.html",
+        "id": "cnc",
+        "title": "CNC Programování",
+        "href": "cnc/index.html",
         "status": "ready"
       },
       {
-        "id": "znaceni-oceli",
-        "title": "Značení ocelí dle EN",
-        "href": "znaceni-oceli/index.html",
-        "status": "ready"
-      },
-      {
-        "id": "plasty",
-        "title": "Zpracování plastů",
-        "status": "coming-soon"
-      },
-      {
-        "id": "cnc-simulator",
-        "title": "CNC simulátor – frézování v G-kódu",
-        "href": "cnc-simulator/index.html",
-        "newWindow": true,
-        "status": "ready"
-      },
-      {
-        "id": "cnc-simulator-soustruzeni",
-        "title": "CNC simulátor – soustružení v G-kódu",
-        "href": "cnc-simulator/soustruzeni.html",
-        "newWindow": true,
+        "id": "mte",
+        "title": "MTE (Měření a testování)",
+        "href": "mte/index.html",
         "status": "ready"
       }
     ]

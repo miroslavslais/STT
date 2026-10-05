@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>12. Obrábění 2 (Vrtání, broušení, hoblování)</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>12. Obrábění 2 (Vrtání, Broušení, Přímočaré pohyby)</h1>
+    
+    <div class="box">
+        <p>V této kapitole se podíváme na dokončovací operace přesných válcových děr, broušení (jakožto metodu úběru materiálu nástrojem s nedefinovaným břitem, ideální pro zakalené oceli) a na specifické obrábění rovin hoblováním a obrážením.</p>
+    </div>
+
+    <h2>1. Vrtání, vyhrubování, vystružování</h2>
+    <p>Postupná výroba vysoce přesných válcových děr. Pokud potřebujeme toleranci například <strong>H7</strong> (pro nalisování čepu nebo ložiska), pouhým vrtákem to nedokážeme. Musíme postupovat ve třech krocích:</p>
+    <ul>
+        <li><span class="highlight">Vrtání:</span> Nástrojem je <strong>šroubovitý vrták</strong> (obvykle 2 břity). Vyvrtá díru do plného materiálu. Úběr je obrovský, vrták vibruje. Povrch je drsný, osa může uskočit a průměr je nepřesný (toleranci díry "podstřelíme", vyvrtáme úmyslně menší).</li>
+        <li><span class="highlight">Vyhrubování:</span> Nástrojem je <strong>výhrubník</strong> (obvykle 3 nebo 4 břity ve šroubovici). Neumí vrtat do plného materiálu! Pouze protahuje stávající vyvrtanou díru. Odebírá zhruba 0,5 mm. Perfektně srovná osu díry (zkruží ji) a připraví správný mikropřídavek pro finální operaci.</li>
+        <li><span class="highlight">Vystružování:</span> Nástrojem je <strong>výstružník</strong> (mnoho jemných rovných nebo mírně šikmých zubů, např. 8 a více). Odebírá už jen <em>setiny milimetru</em>! Z boku dře a hladí stěnu. Tvoří finální, geometricky <strong>zcela přesný a zrcadlově hladký otvor</strong>.</li>
+    </ul>
+
+    <h2>2. Metody s přímočarým hlavním pohybem</h2>
+    <p>Používá se pro obrobení ploch, drážek nebo ozubení, kde břit nože koná místo plynulé rotace pouze přímý tah/tlak. Tyto stroje konají pracovní zdvih (kdy řežou materiál) a jalový (zpětný) zdvih. Nejsou proto tak produktivní jako frézky.</p>
+    
+    <ul>
+        <li><span class="highlight">Hoblování:</span> Nástroj (hoblovací nůž) stojí, zatímco <strong>hlavní přímočarý pohyb koná obrobek</strong> (připevněný na masivním obřím stole hoblovky, který jezdí sem a tam). <em>Použití:</em> Obrábění nesmírně dlouhých a těžkých kusů (desítky tun - např. vodicí lišty a lože jiných soustruhů nebo lisů).</li>
+        <li><span class="highlight">Obrážení:</span> Obrobek pevně stojí na stole, zatímco <strong>hlavní pohyb koná nástroj</strong> (nůž jezdí ve smýkadle nahoru a dolů, nebo vodorovně ven a dovnitř). <em>Nejčastější použití:</em> Obrážení <strong>vnitřních drážek v dírách</strong> (např. drážka pro pero v náboji ozubeného kola, případně vnitřní ozubení u Fellowsova obrážení - tam se fréza v životě nevejde!).</li>
+        <li><span class="highlight">Protahování:</span> Extrémně produktivní! Nástrojem je <em>protahovák</em> (dlouhá tyč s desítkami zubů za sebou, kde je každý další zub o zlomek milimetru vyšší než ten předchozí). Protáhne se dírou a <strong>na jediný obrovský tah hydraulického lisu vyrobí celý složitý profil naráz</strong> (např. vnitřní drážkování pro hřídel převodovky). Prototyp je drahý, vyplatí se jen pro masovou sériovou výrobu aut.</li>
+    </ul>
+
+    <h2>3. Broušení</h2>
+    <p>Nejrozšířenější technologie <strong>dokončování</strong> součástí. Nástrojem je brousicí kotouč, což je porézní těleso složené z tisíců drobných tvrdých zrn (brusiva), které jsou stmeleny pojivem.</p>
+    <ul>
+        <li><strong>Nástroj s nedefinovanou geometrií břitu:</strong> Každé zrníčko v kotouči má jiný tvar (je jinak naštípané) a funguje jako miniaturní břit s náhodným záporným úhlem čela.</li>
+        <li><strong>Výhody:</strong> Brousit lze i materiály <strong>zakalené na extrémnní tvrdost (martenzit) nebo slinuté karbidy</strong>, které už žádným běžným nožem soustružit nebo frézovat nejdou. Lze dosáhnout neuvěřitelné přesnosti na tisíciny mm (IT5) a zrcadlově lesklých povrchů (Ra 0.4).</li>
+        <li><strong>Materiály zrn:</strong> Oxid hlinitý (umělý korund - na ocel), Karbid křemíku (na litinu a slinuté karbidy), <em>Kubický nitrid boru (CBN)</em> nebo umělý Diamant (na nejtěžší supertvrdé slitiny).</li>
+        <li><strong>Orovnávání:</strong> Kotouč se při práci zanese mikro-třískami nebo se zrna ztupí. Musí se pak "orovnat" (přejet orovnávacím diamantem), který celou svrchní zanesenou vrstvu kotouče doslova odštípne a obnaží nová, perfektně ostrá zrna z hloubky.</li>
+    </ul>
+
+    <h3>Bezhroté broušení (Centerless)</h3>
+    <p>Naprosto zásadní metoda pro <strong>masovou sériovou výrobu hladkých válcových součástek</strong> (např. ložiskové jehly, pístní čepy, ventily do motorů, válcové kolíky). Zásadní rozdíl: Obrobek <strong>není nijak upnutý!</strong> Není ve sklíčidle, ani mezi středicími hroty.</p>
+
+    <div class="svg-container">
+        <strong>CAD Princip: Bezhroté broušení</strong><br>
+        <svg width="100%" height="300" viewBox="0 0 600 300">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+                <pattern id="hatch-grind" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <circle cx="4" cy="4" r="1.5" fill="#555"/>
+                    <circle cx="0" cy="0" r="1" fill="#777"/>
+                </pattern>
+                <pattern id="hatch-rubber" patternUnits="userSpaceOnUse" width="10" height="10">
+                    <line x1="0" y1="10" x2="10" y2="0" stroke="#111" stroke-width="1"/>
+                    <line x1="0" y1="0" x2="10" y2="10" stroke="#111" stroke-width="1"/>
+                </pattern>
+            </defs>
+
+            <!-- Brousicí kotouč (rychlý) vlevo -->
+            <circle cx="180" cy="140" r="120" fill="url(#hatch-grind)" stroke="#111" stroke-width="3"/>
+            <circle cx="180" cy="140" r="15" fill="#fff" stroke="#111" stroke-width="3"/>
+            <path d="M 180 20 A 120 120 0 0 1 300 140" fill="none" stroke="#c00" stroke-width="6" marker-end="url(#arrow-red)"/>
+            <text x="180" y="80" font-size="16" font-weight="bold" text-anchor="middle" background="#fff">Brousicí kotouč</text>
+            <text x="180" y="105" font-size="14" fill="#c00" font-weight="bold" text-anchor="middle">Obrovská řezná rychlost v_c</text>
+            <text x="180" y="120" font-size="12" fill="#c00" text-anchor="middle">(Řeže a odebírá třísku)</text>
+
+            <!-- Podávací kotouč (pomalý, gumový) vpravo -->
+            <circle cx="480" cy="170" r="80" fill="url(#hatch-rubber)" stroke="#111" stroke-width="3"/>
+            <circle cx="480" cy="170" r="12" fill="#fff" stroke="#111" stroke-width="3"/>
+            <path d="M 480 90 A 80 80 0 0 1 560 170" fill="none" stroke="#00c" stroke-width="4" marker-end="url(#arrow-blue)"/>
+            <text x="480" y="270" font-size="16" font-weight="bold" text-anchor="middle" background="#fff">Podávací (vlečný) kotouč</text>
+            <text x="480" y="140" font-size="12" fill="#00c" font-weight="bold" text-anchor="middle">Velmi pomalá rotace</text>
+            <text x="480" y="155" font-size="11" fill="#00c" text-anchor="middle">(Brzdí obrobek třením a nutí</text>
+            <text x="480" y="170" font-size="11" fill="#00c" text-anchor="middle">jej se pomalu protáčet)</text>
+
+            <!-- Podpěrné pravítko -->
+            <polygon points="320,290 350,290 350,150 330,150" fill="#666" stroke="#111" stroke-width="3"/>
+            <text x="335" y="270" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff" transform="rotate(-90 335,270)">Podpěrné pravítko</text>
+
+            <!-- Obrobek -->
+            <circle cx="340" cy="122" r="30" fill="#ffb" stroke="#111" stroke-width="3"/>
+            <path d="M 340 92 A 30 30 0 0 1 370 122" fill="none" stroke="#111" stroke-width="2.5" marker-end="url(#arrow)"/>
+            <text x="340" y="70" font-size="14" font-weight="bold" text-anchor="middle">Obrobek</text>
+
+        </svg>
+    </div>
+    
+    <h3>Jak funguje bezhroté broušení?</h3>
+    <ul>
+        <li>Dílec leží pouze nasypaný a opřený na zkoseném tvrzeném ocelovém <strong>pravítku</strong>. Zleva do něj naráží brusný kotouč a zprava je ohraničen gumovým podávacím kotoučem.</li>
+        <li><span class="highlight">Brousicí kotouč:</span> Točí se ohromně rychle. Je tvrdý a materiál z obrobku nekompromisně odřezává a ubírá. Zároveň obrobek strhává do rotace k sobě.</li>
+        <li><span class="highlight">Podávací (Vlečný) kotouč:</span> Je měkčí (pryžový) a točí se naopak velmi pomalu. Díky tření <strong>obrobek brzdí</strong> a nutí ho se točit stejnou pomalou rychlostí, jakou má on sám. Tím vznikne mezi obrobkem a rychlým brousícím kotoučem obrovský rozdíl rychlostí &rarr; začne broušení!</li>
+        <li><em>Trik pro plynulý posuv:</em> Osa podávacího kotouče je vůči ose brousicího kotouče <strong>mírně nakloněna o 1° až 5°</strong>. Kotouč tím pádem "vtahuje" tyčku obrobku do stroje a jakoby ji šroubovitě protlačuje celým strojem až ven. Obsluha tak může sypat do stroje stovky kolíků za sebou a ty plynule vyjíždějí obroušené!</li>
+    </ul>
+
+</body>
+</html>

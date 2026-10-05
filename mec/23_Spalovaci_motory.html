@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>23. Spalovací motory</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>23. Spalovací motory</h1>
+    
+    <div class="box">
+        <h2>Fyzikální princip</h2>
+        <p>Spalovací motor je <strong>tepelný stroj</strong>, který přeměňuje chemickou energii paliva na <strong>tepelnou energii</strong> plynů, a tu následně pomocí klikového mechanismu na <strong>mechanickou práci</strong> (krouticí moment hřídele). K hoření dochází v pracovním prostoru motoru (válci), kde stlačené a ohřáté plyny prudce expandují a tlačí na píst.</p>
+    </div>
+
+    <h2>1. Rozdělení podle způsobu přípravy a zapálení směsi</h2>
+    
+    <div class="grid">
+        <div>
+            <h3>A) Zážehové motory (Benzínové / Otto)</h3>
+            <ul>
+                <li>Nasává se <strong>hotová směs</strong> paliva a vzduchu (z karburátoru) nebo se palivo do nasávaného vzduchu vstřikuje před válcem.</li>
+                <li>Píst směs stlačí a v přesný okamžik ji <strong>zapálí elektrická jiskra</strong> ze zapalovací svíčky.</li>
+                <li><span class="highlight">Kompresní poměr:</span> Musí být relativně nízký (max cca 10:1). Kdyby byl pístem vyvinutý tlak větší, vzduch by se stlačením ohřál tak moc, že by benzín <em>bouchnul sám od sebe</em> ještě před tím, než ho svíčka zapálí. Tomu se říká <strong>detonační hoření (klepání)</strong> a trhá to ojnici i ventily. (Oktanovým číslem na pumpě měříme právě odolnost benzínu proti samovznícení).</li>
+            </ul>
+        </div>
+        <div>
+            <h3>B) Vznětové motory (Naftové / Diesel)</h3>
+            <ul>
+                <li>Do válce se nasává <strong>čistý vzduch</strong>. Píst ho stlačí.</li>
+                <li><span class="highlight">Kompresní poměr:</span> Je obrovský (kolem 20:1). Tím se stlačený vzduch zahřeje na teplotu 600 až 800 °C.</li>
+                <li>Těsně před dosažením horní úvrati se do takto horkého vzduchu pod gigantickým tlakem přes trysku vstříkne nafta. Během zlomku milisekundy se nafta smíchá s rozžhaveným vzduchem a <strong>vznítí se sama od sebe</strong> (nepotřebuje svíčku).</li>
+                <li>Mají mohutnější konstrukci (musí udržet ohromné tlaky) a vyšší účinnost než benziňáky, ale na oplátku jsou mnohem dražší na výrobu a těžší.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>2. Čtyřdobý pracovní oběh</h2>
+    <p>Nejběžnější koncepce. Jeden pracovní cyklus se odehraje během <strong>4 zdvihů pístu (a tedy 2 plných otáček klikové hřídele = 720°)</strong>. Otevírání a zavírání válce dokonale řídí ventily, které do pohybu uvádí vačková hřídel. Z těch čtyř pohybů je <span class="highlight">užitečný pouze jeden jediný!</span></p>
+
+    <div class="svg-container">
+        <strong>CAD Řez: Čtyřdobý motor OHV (Pracovní fáze EXPANZE)</strong><br>
+        <svg width="100%" height="280" viewBox="0 0 600 280">
+            <defs>
+                <pattern id="hatch-block" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="0" x2="8" y2="8" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+            </defs>
+
+            <!-- Blok válců a hlava v řezu -->
+            <rect x="180" y="70" width="30" height="120" fill="url(#hatch-block)" stroke="#111" stroke-width="3"/>
+            <rect x="390" y="70" width="30" height="120" fill="url(#hatch-block)" stroke="#111" stroke-width="3"/>
+            
+            <!-- Hlava -->
+            <path d="M 150 70 L 450 70 L 450 10 L 370 10 L 340 40 L 260 40 L 230 10 L 150 10 Z" fill="url(#hatch-block)" stroke="#111" stroke-width="3"/>
+            <text x="100" y="120" font-size="14" font-weight="bold">Blok motoru (Válec)</text>
+            <text x="100" y="40" font-size="14" font-weight="bold">Hlava válců</text>
+
+            <!-- Sací a výfukový kanál -->
+            <rect x="150" y="20" width="80" height="20" fill="#fff" stroke="#111" stroke-width="2"/>
+            <rect x="370" y="20" width="80" height="20" fill="#fff" stroke="#111" stroke-width="2"/>
+            <text x="180" y="15" font-size="11" font-weight="bold" fill="#00c">Sání</text>
+            <text x="380" y="15" font-size="11" font-weight="bold" fill="#555">Výfuk</text>
+
+            <!-- Ventily (Oba ZAVŘENÉ během expanze, sedí těsně v lůžku) -->
+            <line x1="245" y1="60" x2="245" y2="-10" stroke="#111" stroke-width="4"/>
+            <polygon points="225,60 265,60 245,50" fill="#111"/> <!-- Sací -->
+            <text x="200" y="-10" font-size="10" font-weight="bold" fill="#c00">Zavřeno!</text>
+            
+            <line x1="355" y1="60" x2="355" y2="-10" stroke="#111" stroke-width="4"/>
+            <polygon points="335,60 375,60 355,50" fill="#111"/> <!-- Výfuk -->
+            <text x="365" y="-10" font-size="10" font-weight="bold" fill="#c00">Zavřeno!</text>
+
+            <!-- Zapalovací svíčka (uprostřed) a Výbuch -->
+            <rect x="290" y="5" width="20" height="35" fill="#ddd" stroke="#111" stroke-width="2"/>
+            <path d="M 300 40 L 300 60" stroke="#e00" stroke-width="3"/>
+            <text x="300" y="-5" font-size="12" font-weight="bold" text-anchor="middle" background="#fff">Svíčka dává jiskru</text>
+
+            <polygon points="300,55 260,75 285,85 240,115 300,95 360,115 315,85 340,75" fill="#fa0" stroke="#c00" stroke-width="2"/>
+            <text x="300" y="70" font-size="16" fill="#c00" font-weight="bold" text-anchor="middle" style="background:#fff;">Hořící tlakové plyny!</text>
+
+            <!-- Píst a Pístní kroužky -->
+            <rect x="215" y="120" width="170" height="50" fill="#ccc" stroke="#111" stroke-width="3"/>
+            <!-- Kroužky (Těsnicí a Stírací) -->
+            <line x1="215" y1="130" x2="385" y2="130" stroke="#111" stroke-width="2"/> 
+            <line x1="215" y1="140" x2="385" y2="140" stroke="#111" stroke-width="2"/>
+            <line x1="215" y1="150" x2="385" y2="150" stroke="#111" stroke-width="2"/>
+            <circle cx="300" cy="145" r="10" fill="#fff" stroke="#111" stroke-width="2"/> <!-- Pístní čep -->
+            <text x="450" y="145" font-size="14" font-weight="bold">Píst s kroužky (Letí dolů)</text>
+
+            <!-- Ojnice -->
+            <line x1="300" y1="145" x2="350" y2="230" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+            <text x="410" y="200" font-size="14" font-weight="bold">Ojnice</text>
+
+            <!-- Klika a Kliková hřídel -->
+            <line x1="350" y1="230" x2="300" y2="270" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+            <circle cx="350" cy="230" r="8" fill="#fff" stroke="#111" stroke-width="2"/> <!-- Ojniční čep -->
+            <circle cx="300" cy="270" r="14" fill="#fff" stroke="#111" stroke-width="3"/> <!-- Hlavní čep -->
+            <text x="240" y="275" font-size="14" font-weight="bold" text-anchor="end">Kliková hřídel</text>
+
+            <!-- Šipka Rotace -->
+            <path d="M 260 250 A 50 50 0 0 1 300 215" fill="none" stroke="#111" stroke-width="3" marker-end="url(#arrow)"/> 
+
+            <!-- Tlakové síly na píst (červené) -->
+            <line x1="240" y1="85" x2="240" y2="115" stroke="#c00" stroke-width="5" marker-end="url(#arrow-red)"/>
+            <line x1="300" y1="85" x2="300" y2="115" stroke="#c00" stroke-width="5" marker-end="url(#arrow-red)"/>
+            <line x1="360" y1="85" x2="360" y2="115" stroke="#c00" stroke-width="5" marker-end="url(#arrow-red)"/>
+            
+            <text x="450" y="260" font-size="16" fill="#c00" font-weight="bold">Zdvih: 3. EXPANZE (Práce!)</text>
+        </svg>
+    </div>
+
+    <h3>Fáze (Zdvihy) čtyřdobého cyklu:</h3>
+    <ol>
+        <li><strong>Sání:</strong> Píst jede dolů k DÚ (Dolní Úvrati). Ve válci vytvoří podtlak (vakuum). Sací ventil se otevře, výfukový je zavřený. Saje se nová směs.</li>
+        <li><strong>Komprese:</strong> Oba ventily zapadnou a hermeticky uzavřou spalovací komoru. Píst jede vzhůru k HÚ (Horní Úvrati) a brutální silou směs mačká do mrňavého prostoru v hlavě. Zvýší se tím tlak i teplota.</li>
+        <li><strong>Expanze (Zážeh a hoření - Jediný pracovní zdvih!):</strong> Svíčka hodí jiskru, nebo se vznítí nafta. Výbuch roztáhne plyny, ty narazí do pístu a obří silou s ním mrští dolů do DÚ. Tento úder rotuje klikovou hřídelí.</li>
+        <li><strong>Výfuk:</strong> Píst setrvačností od setrvačníku vystřelí zase nahoru. Otevře se výfukový ventil a píst hořící toxické plyny natlačí ven do výfuku a k turbu. Poté cyklus začíná znovu.</li>
+    </ol>
+
+    <h2>3. Konstrukční části motoru</h2>
+    <p>Moderní automobilový motor se dělí na tři mechanické celky, které se o sebe opírají, těsní a rotují závratnými rychlostmi:</p>
+    <ul>
+        <li><strong>Pevné části:</strong> Blok motoru (obsahuje vyvrtané a vyhonované válce), hlava válců (tvoří vrchní "zátku" nad pístem a jsou v ní zašroubované svíčky), olejová vana (nejnižší bod auta pro uložení oleje). Tyto části se k sobě lepí dokonalými těsněními (hlavové těsnění).</li>
+        <li><strong>Klikové (pohyblivé) ústrojí:</strong> Převádí tlak plynu na rotaci. Tvoří ho <span class="highlight">Písty</span> osazené těsnícími a stíracími <em>pístními kroužky</em> (aby plyn nepodfoukl dolů a olej se nepropálil nahoře), pevné <em>ojnice</em> a spodní <span class="highlight">Kliková hřídel</span> zakončená velkým a těžkým <em>Setrvačníkem</em> (vyrovnává otáčky motoru, uchovává energii expanze pro provedení těch tří "mrtvých" zdvihů).</li>
+        <li><strong>Rozvodové ústrojí:</strong> Otevírá a zavírá ventily přesně na vteřinu synchronizovaně s polohou pístu! Hnací sílu bere přes řemen nebo řetěz od kliky. Moderní je tzv. uspořádání <strong>OHC (OverHead Camshaft)</strong> = vačková hřídel i ventily leží těsně u sebe nahoře v hlavě motoru, je to lehké a zvládne to točit až 10 000 otáček. (Stará auta a náklaďáky mají OHV - vačka je hluboko v bloku a k ventilům nahoru vede přes tyčky).</li>
+    </ul>
+
+    <div class="box">
+        <h3>Indikátorový (P-V) Diagram</h3>
+        <p>Pro strojaře a termodynamiku se cyklus motoru nevyjadřuje slovy, ale kreslí se do grafu <strong>tlaku p (osa Y)</strong> na <strong>objemu V (osa X)</strong>. Obsah plochy uzavřené křivkou uvnitř grafu vyjadřuje fyzikálně provedenou <strong>užitečnou mechanickou práci</strong> (J). Sání tvoří mírný kopeček pod úrovní atmosférického tlaku (podtlak odebírá výkon), komprese žene tlak strmě nahoru a při expanzi tlak letí obrovskou čárou až k nebesům. Pak se výfukem tlak rychle ztratí a linka se vrátí dolů.</p>
+    </div>
+
+</body>
+</html>

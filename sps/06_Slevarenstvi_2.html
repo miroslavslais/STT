@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>06. Slévárenství 2</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>6. Slévárenství 2 (Strojní formování, vytloukání, čištění)</h1>
+    
+    <div class="box">
+        <h2>Přechod od ruční k sériové výrobě</h2>
+        <p>Klasické ruční formování (nabírání písku lopatou a tlučení ručním nebo pneumatickým pěchovadlem) je nesmírně pomalé, fyzicky zničující a výsledek závisí na síle a pečlivosti dělníka (může pískovou formu udusat málo a kov ji při lití protrhne). <strong>Strojní formování</strong> nahrazuje tuto dřinu – je určeno pro sériovou a hromadnou výrobu. V moderní slévárně formovací linka vyrobí celou udusanou pískovou formu (bábovičku) za několik sekund!</p>
+    </div>
+
+    <h2>1. Metody strojního zhutňování formovací směsi</h2>
+    <p>Na písek volně nasypaný do rámu musí působit vnější síla stroje, která zmenší póry mezi zrnky a vytvoří tuhou stěnu formy.</p>
+
+    <h3>A) Lisování</h3>
+    <ul>
+        <li>Rám se naplní pískem a shora do něj obrovskou silou zajede <strong>lisovací deska</strong> (hydraulickým válcem).</li>
+        <li><strong>Problém s třením:</strong> Jak se písek stlačuje, dře se zrnka o sebe a o boky ocelového rámu. Kvůli tomuto pasivnímu odporu se tlakový účinek lisu nedostane až dolů na dno k modelu.</li>
+        <li><strong>Výsledek:</strong> Písek je <span class="highlight">extrémně hustý a tvrdý nahoře</span>, ale nebezpečně <strong>řídký a měkký dole u modelu</strong>. Odlitek pak mívá hrubý, nekvalitní nebo zborcený povrch.</li>
+    </ul>
+
+    <h3>B) Setřásání</h3>
+    <ul>
+        <li>Model a rám s pískem leží na setřásacím stole. Píst pod stolem ho zvedne zhruba o 5–10 cm a <strong>nechá ho prudce padnout</strong> (bouchnout) zpět na masivní ocelový doraz. Tento cyklus se opakuje asi 150x za minutu (stroj strašlivě rachotí).</li>
+        <li>Při dopadu působí na každé zrnko písku obrovská setrvačná síla (kinetická energie se mění v pnutí).</li>
+        <li><strong>Výsledek:</strong> Největší energie působí dole. Písek se krásně <strong>zhutní úplně u dna kolem modelu</strong>, což dává perfektní povrch odlitku. Bohužel, nahoře zůstane povrch písku úplně řídký (kyprý), takže by se nám horní hrana formy začala sypat, jakmile bychom s ní hnuli.</li>
+    </ul>
+
+    <div class="box" style="background:#e8f5e9;">
+        <h3 style="margin-top:0;">Moderní standard: Kombinace (Setřásání s dolisováním)</h3>
+        <p>V praxi se dnes obě výše popsané metody výhradně kombinují, aby se vyrušily jejich nevýhody. Stroj formu napřed pár vteřin setřásá (udělá perfektní tvrdý "límec" z písku kolem detailů modelu dole) a vzápětí do něj shora sjede lisovací deska, která zhutní i zbytek volného písku na horní straně formy. Vznikne dokonalá forma tvrdá v celém průřezu.</p>
+    </div>
+
+    <div class="svg-container">
+        <strong>CAD Analýza: Rozložení hustoty písku ve formě (Gradienty zhutnění)</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <!-- Gradients for density representation -->
+                <linearGradient id="grad-press" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#8d6e63" stop-opacity="1"/>
+                    <stop offset="100%" stop-color="#8d6e63" stop-opacity="0.15"/>
+                </linearGradient>
+                <linearGradient id="grad-shake" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#8d6e63" stop-opacity="0.15"/>
+                    <stop offset="100%" stop-color="#8d6e63" stop-opacity="1"/>
+                </linearGradient>
+            </defs>
+
+            <!-- LISOVÁNÍ -->
+            <rect x="50" y="50" width="160" height="150" fill="none" stroke="#111" stroke-width="3"/> <!-- Rám -->
+            <rect x="53" y="53" width="154" height="144" fill="url(#grad-press)"/> <!-- Písek -->
+            
+            <rect x="50" y="30" width="160" height="20" fill="#555" stroke="#111"/> <!-- Lisovací deska -->
+            <line x1="130" y1="0" x2="130" y2="25" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="145" y="15" font-size="12" fill="#c00" font-weight="bold">Síla lisu F</text>
+            
+            <!-- Model -->
+            <path d="M 90 200 C 90 160, 170 160, 170 200 Z" fill="#fff" stroke="#111" stroke-width="2.5"/> 
+            <text x="130" y="195" font-size="10" font-weight="bold" text-anchor="middle">Model</text>
+            
+            <text x="130" y="225" font-size="14" font-weight="bold" text-anchor="middle" background="#fff">LISOVÁNÍ</text>
+            <text x="130" y="240" font-size="11" text-anchor="middle" fill="#c00" font-weight="bold">Řídké, kypré a měkké u modelu!</text>
+
+            <!-- SETŘÁSÁNÍ -->
+            <rect x="350" y="50" width="160" height="150" fill="none" stroke="#111" stroke-width="3"/> <!-- Rám -->
+            <rect x="353" y="53" width="154" height="144" fill="url(#grad-shake)"/> <!-- Písek -->
+            
+            <!-- Model -->
+            <path d="M 390 200 C 390 160, 470 160, 470 200 Z" fill="#fff" stroke="#111" stroke-width="2.5"/> 
+            <text x="430" y="195" font-size="10" font-weight="bold" text-anchor="middle">Model</text>
+            
+            <!-- Otřesy stolu -->
+            <line x1="400" y1="230" x2="400" y2="210" stroke="#00c" stroke-width="4" marker-end="url(#arrow-blue)"/>
+            <line x1="460" y1="230" x2="460" y2="210" stroke="#00c" stroke-width="4" marker-end="url(#arrow-blue)"/>
+            <text x="430" y="240" font-size="12" fill="#00c" font-weight="bold" text-anchor="middle">Náraz stolu na doraz</text>
+
+            <text x="430" y="25" font-size="14" font-weight="bold" text-anchor="middle">SETŘÁSÁNÍ</text>
+            <text x="430" y="45" font-size="11" text-anchor="middle" fill="#00c" font-weight="bold">Ideálně zhutněné u modelu!</text>
+        </svg>
+    </div>
+
+    <h3>C) Pískomety (Metání formovací směsi)</h3>
+    <p>Používají se výhradně pro kusovou výrobu <strong>naprosto gigantických forem</strong> (např. forma 5 x 5 metrů pro tělo větrné elektrárny), kterou už nemá smysl kvůli hmotnosti zvedat na stůl lisu. Velmi rychle rotující metací lopatka ve stroji na rameni vyhazuje (doslova střílí) chomáče písku ohromnou rychlostí přímo do obřího rámu ve slévárně na zemi. Kinetická energie nárazu hrsti písku do formy stačí k tomu, aby se písek sám perfektně zhutnil bez lisování.</p>
+
+    <h2>2. Vytloukání odlitků z pískové formy</h2>
+    <p>Abychom se dostali k odlitku ztuhlému ve tmě uvnitř formy, musí se CT písková bábovička doslova zničit. Ocel a železo na rozdíl od zlata pískem do značné míry prohoří, takže proces není úplně čistý.</p>
+    <ul>
+        <li><strong>Vytloukání formy:</strong> Rámy se položí na <strong>vytloukací rošty</strong> (vibrační masivní rošty poháněné excentry). Silné vibrace roštů roztřesou strukturu písku a ten se z odlitku sesype, propadne sítem na pás v podzemí a odjede do <em>regenerace</em> (tam se z něj odstraní uhelný zbytek a kamínky strusky, zalije se vodou, přidá čerstvý bentonit a pošle se zpět k formovacím strojům na novou bábovičku pro další směnu).</li>
+        <li><strong>Vytloukání jader:</strong> Formovací písek zvenku odpadne snadno. Ale jádro, které tvoří vnitřní dutiny (např. chladicí vodu v bloku motoru V8), bývá spečeno s přídavkem vodního skla do betonové tvrdosti! Odstranit ho z úzkých kanálků lze těžko. Odlitek se musí položit na vyklepávací stroj, který do něj pneumaticky tluče (jako sbíječka), dokud se jádro nerozpraská a nevysype dírami ven. Pro luxusnější odlitky (hliník) se používá k destrukci jádra tryskání tlakovou vodou.</li>
+    </ul>
+
+    <h2>3. Čištění a úprava (Dokončování po slití)</h2>
+    <p>Surový odlitek po vytažení z roštu je temně šedý nebo rezavý, má na sobě připálený sklovitý písek a "vyhřezlé" pahýly všude tam, kam směřovala vtoková jamka a nálitky. Nikdo ho nesmí takto upnout do drahého CNC obráběcího centra (zničil by nástroje)!</p>
+    
+    <h3>A) Odstranění vtoků a nálitků</h3>
+    <ul>
+        <li>Na odlitku je spousta zbytečného kovu, který fungoval jen jako "potrubí" (vtoková jamka, kůl) nebo jako doplňovací zásobník (nálitek). <strong>Vtoky tvoří často 30 až 50 % hmotnosti celé formy!</strong></li>
+        <li>U <strong>křehkých ocelí a šedé litiny</strong> stačí ostrý a přesný úder kladivem a tvrdý vtok se v zúženém místě zářezu <em>urazí a odlomí</em> sám.</li>
+        <li>U <strong>houževnaté ocelolitiny</strong> by se odlitek úderem spíše ohl, tam se vtoky a masivní nálitky musí odříznout (velkou stojanovou kotoučovou frikční pilou, řezným laserem, nebo jednoduše upálit plamenem kyslík-acetylenovým řezákem).</li>
+    </ul>
+
+    <h3>B) Čištění povrchu (Tryskání)</h3>
+    <p>Povrch odlitku se musí zbavit oxidů (okují) a zrníček písku doslova zatavených do jeho povrchu. Nesmí jít do obrobny špinavý.</p>
+    <ul>
+        <li><strong>Metací kola (Brokování):</strong> Typické průmyslové řešení. Odlitky rotují na závěsu uvnitř opancéřované skříně tryskače. Oběžné kolo metací turbíny vrhá nesmírnou silou na odlitky miliony <strong>ocelových broků, litinové drti nebo nasekaného drátu</strong> (nikoliv obyčejný písek!). Ty z odlitku mechanicky omlátí každé smítko okují až na čistý, zářivě stříbrný kov s rovnoměrnou matnou texturou.</li>
+    </ul>
+
+    <h3>C) Cizelování (Broušení dělicích rovin)</h3>
+    <ul>
+        <li>Závěrečná úprava odlitku. Kde se potkal horní a dolní formovací rám (dělící rovina), tam železo vždy zateče do mikro-spáry a udělá po celém obvodu tenký ostrý list kovu (tzv. "šev"). Tyto švy a zbylé hrboly po upálených nálitcích brusič ručně obrousí (flexou, vzduchovou bruskou na dlouhém krku).</li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>11. Obrábění 1 (Soustružení, frézování)</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>11. Obrábění 1 (Soustružení a Frézování)</h1>
+    
+    <div class="box">
+        <h2>Princip třískového obrábění</h2>
+        <p>Technologický proces, při kterém <strong>řezný klín</strong> (břit nástroje vnikající do materiálu) odděluje z polotovaru vrstvy kovu ve formě <strong>třísky</strong>, dokud nevznikne hotová součást. Pro dosažení řezu musí docházet k relativnímu pohybu mezi nástrojem a obrobkem.</p>
+        <ul>
+            <li><span class="highlight">Hlavní (řezný) pohyb:</span> Rotační nebo přímočarý. Působí na něj největší řezné síly. Udává tzv. <strong>řeznou rychlost (v<sub>c</sub>)</strong> [m/min].</li>
+            <li><span class="highlight">Vedlejší (posuvový) pohyb:</span> Zabezpečuje, aby se břit neustále posouval do nového neobrobeného materiálu. Udává <strong>posuv (s)</strong> [mm/ot].</li>
+            <li><strong>Hloubka řezu (a<sub>p</sub>):</strong> Udává, jak tlustou vrstvu kovu odebíráme na jeden záběr do hloubky [mm].</li>
+        </ul>
+    </div>
+
+    <h2>1. Soustružení</h2>
+    <p>Základní obrábění pro výrobu <strong>rotačních ploch</strong> (válce, kužely, čepy, závity, vrtání osy). Na soustruhu se vyrábí naprostá většina hřídelí.</p>
+    <ul>
+        <li><strong>Hlavní pohyb (v<sub>c</sub>):</strong> Rotační &rarr; Vykonává ho <span class="highlight">obrobek</span> (např. kulatina), který je pevně upnutý ve 3čelisťovém sklíčidle nebo mezi středicími hroty.</li>
+        <li><strong>Vedlejší pohyb (s):</strong> Posuvný (přímočarý) &rarr; Vykonává ho <span class="highlight">soustružnický nůž</span> upnutý v nožové hlavě suportu. Nůž může jet <em>podélně</em> (zmenšuje průměr hřídele) nebo <em>příčně</em> (zarovnává čelo nebo upichuje hotový kus).</li>
+        <li><strong>Nástroje:</strong> Soustružnické nože mají dnes výhradně <strong>VBD (Vyměnitelné Břitové Destičky)</strong>. Jsou to šroubkem chycené trojúhelníčky ze Slinutých Karbidů (SK). Když se břit ztupí, destička se povolí, otočí o 120° na nový ostrý roh a jede se dál.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Kinematika: Podélné soustružení nožem</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+                <pattern id="hatch-chuck" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="8" x2="8" y2="0" stroke="#111" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+
+            <!-- Osa symetrie -->
+            <line x1="10" y1="125" x2="450" y2="125" stroke="#111" stroke-width="1" stroke-dasharray="20,10,5,10"/>
+
+            <!-- Sklíčidlo -->
+            <rect x="20" y="30" width="40" height="190" fill="url(#hatch-chuck)" stroke="#111" stroke-width="3"/>
+            <rect x="60" y="45" width="20" height="30" fill="#888" stroke="#111" stroke-width="2"/>
+            <rect x="60" y="175" width="20" height="30" fill="#888" stroke="#111" stroke-width="2"/>
+            <text x="40" y="15" font-size="12" font-weight="bold">Sklíčidlo</text>
+
+            <!-- Obrobek -->
+            <rect x="80" y="45" width="120" height="160" fill="#ddd" stroke="#111" stroke-width="3"/> <!-- Neobrobeno -->
+            <rect x="200" y="75" width="150" height="100" fill="#eee" stroke="#111" stroke-width="3"/> <!-- Obrobeno -->
+            
+            <!-- Rotace v (červená) -->
+            <path d="M 120 30 A 45 45 0 0 1 170 50" fill="none" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="180" y="35" font-size="14" fill="#c00" font-weight="bold">v<tspan font-size="10" dy="4">c</tspan> (Řezná rychlost - rotace)</text>
+            <text x="130" y="120" font-size="14" font-weight="bold" fill="#555">Obrobek</text>
+
+            <!-- Soustružnický nůž -->
+            <polygon points="250,175 270,235 370,235 290,175" fill="#bbb" stroke="#111" stroke-width="2.5"/>
+            <!-- VBD Destička ze Slinutých karbidů -->
+            <polygon points="235,160 258,160 250,175" fill="#fa0" stroke="#111" stroke-width="2.5"/>
+            <text x="380" y="200" font-size="12" font-weight="bold">Soustružnický nůž</text>
+            <text x="380" y="215" font-size="11" font-weight="bold">s VBD (tvrdokovová destička)</text>
+
+            <!-- Posuv s (modrá) -->
+            <line x1="300" y1="135" x2="210" y2="135" stroke="#00c" stroke-width="4" marker-end="url(#arrow-blue)"/>
+            <text x="310" y="140" font-size="14" fill="#00c" font-weight="bold">s (Posuv nože)</text>
+
+            <!-- Hloubka řezu ap -->
+            <line x1="200" y1="45" x2="420" y2="45" stroke="#111" stroke-width="1" stroke-dasharray="4,2"/>
+            <line x1="200" y1="75" x2="420" y2="75" stroke="#111" stroke-width="1" stroke-dasharray="4,2"/>
+            <line x1="400" y1="45" x2="400" y2="75" stroke="#111" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+            <text x="415" y="65" font-size="14" font-weight="bold">a<tspan font-size="10" dy="4">p</tspan></text>
+            <text x="445" y="65" font-size="11" font-weight="bold">(Hloubka řezu)</text>
+        </svg>
+    </div>
+
+    <h2>2. Frézování</h2>
+    <p>Obrábění <strong>rovinných ploch, složitých 3D tvarových ploch</strong>, drážek, kapes a ozubení pomocí vícebřitého nástroje (frézy).</p>
+    <ul>
+        <li><strong>Hlavní pohyb (v<sub>c</sub>):</strong> Rotační &rarr; Vykonává ho <span class="highlight">fréza</span> (nástroj) pevně upnutá ve vřetenu stroje.</li>
+        <li><strong>Vedlejší pohyb (s):</strong> Posuvný &rarr; Vykonává ho <span class="highlight">obrobek</span>, který je upnutý ve svěráku na pracovním stole frézky. U moderních CNC strojů může jezdit stůl nebo samotná vřeteníková hlava plynule ve všech 3 osách X,Y,Z současně, případně i v 5 osách pro tvorbu 3D forem na plasty.</li>
+    </ul>
+
+    <div class="box">
+        <h3>Dva kritické způsoby obvodového frézování (Otázka k maturitě!)</h3>
+        <p>Pokud frézujete obvodem válcové frézy, obrovsky záleží na tom, kterým směrem do materiálu břit nabíhá vůči směru jízdy stolu.</p>
+        
+        <p><strong>A) Nesousledné frézování (Tradiční metoda pro staré stroje)</strong><br>
+        Zub frézy a stůl s obrobkem se pohybují <span class="highlight">PROTI SOBĚ</span>. Tloušťka třísky roste od nuly do maxima. <br>
+        <em>Nevýhoda:</em> Zub po materiálu na začátku dlouze klouže a dře se, než se zakousne. Tupí se břit, vzniká teplo a řezná síla odtlačuje stůl vzhůru (hrubší povrch). <em>Výhoda:</em> Břit postupně vymezí vůle v posuvovém šroubu stolu, takže to lze dělat i na "rozhrkané" staré frézce FA3V.</p>
+
+        <p><strong>B) Sousledné frézování (Moderní metoda pro CNC)</strong><br>
+        Zub frézy a stůl s obrobkem se v místě řezu pohybují <span class="highlight">STEJNÝM SMĚREM</span>. Zub se okamžitě zařízne do plné tloušťky materiálu! <br>
+        <em>Výhoda:</em> Břit vůbec neklouže! Nástroj vydrží mnohem déle ostrý, řezná síla přitlačuje obrobek pevně ke stolu (nic nevibruje) a povrch je zrcadlově lesklý. <br>
+        <em>ZÁSADNÍ PODMÍNKA:</em> Lze frézovat jedině na přesných CNC strojích s kuličkovými šrouby naprosto <strong>bez vůle</strong>! (Jinak by fréza stůl podtrhla a zlomila se).</p>
+    </div>
+
+    <div class="svg-container">
+        <strong>CAD Srovnání: Nesousledné vs. Sousledné frézování</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+            </defs>
+
+            <!-- NESOUSLEDNÉ (Vlevo) -->
+            <text x="140" y="20" font-size="14" font-weight="bold" text-anchor="middle">NESOUSLEDNÉ (Proti sobě)</text>
+            
+            <!-- Obrobek -->
+            <rect x="20" y="120" width="180" height="80" fill="#ddd" stroke="#111" stroke-width="2.5"/>
+            <path d="M 20 120 C 80 120, 110 75, 110 30 L 200 30 L 200 120 Z" fill="#fff" stroke="#111" stroke-width="2.5"/>
+            
+            <!-- Fréza -->
+            <circle cx="110" cy="75" r="45" fill="none" stroke="#555" stroke-width="2" stroke-dasharray="6,4"/>
+            <path d="M 110 30 A 45 45 0 0 1 155 75" fill="none" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="165" y="55" font-size="12" fill="#c00" font-weight="bold">Rotace (v<tspan font-size="8" dy="2">c</tspan>)</text>
+            
+            <!-- Tříska - klouže od nuly k maximu -->
+            <path d="M 65 75 C 80 120, 110 120, 110 120 C 95 105, 72 82, 65 75 Z" fill="#111"/>
+            
+            <!-- Posuv obrobku - DOPRAVA -->
+            <line x1="160" y1="160" x2="70" y2="160" stroke="#00c" stroke-width="5" marker-end="url(#arrow-blue)"/>
+            <text x="115" y="185" font-size="12" fill="#00c" font-weight="bold" text-anchor="middle">Posuv stolu (s)</text>
+            <text x="115" y="210" font-size="11" font-weight="bold" text-anchor="middle">Tříska roste od 0 k maximu!</text>
+            <text x="115" y="230" font-size="11" text-anchor="middle" fill="#c00">Břit na začátku tře, klouže a tupí se.</text>
+
+            <!-- Rozdělovník -->
+            <line x1="300" y1="10" x2="300" y2="240" stroke="#111" stroke-width="2" stroke-dasharray="8,6"/>
+
+            <!-- SOUSLEDNÉ (Vpravo) -->
+            <text x="450" y="20" font-size="14" font-weight="bold" text-anchor="middle">SOUSLEDNÉ (Stejný směr)</text>
+            
+            <!-- Obrobek -->
+            <rect x="310" y="120" width="180" height="80" fill="#ddd" stroke="#111" stroke-width="2.5"/>
+            <path d="M 310 120 C 370 120, 400 75, 400 30 L 490 30 L 490 120 Z" fill="#fff" stroke="#111" stroke-width="2.5"/>
+            
+            <!-- Fréza -->
+            <circle cx="400" cy="75" r="45" fill="none" stroke="#555" stroke-width="2" stroke-dasharray="6,4"/>
+            <!-- Rotace STEJNÁ jak vlevo -->
+            <path d="M 400 30 A 45 45 0 0 1 445 75" fill="none" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+            <text x="455" y="55" font-size="12" fill="#c00" font-weight="bold">Rotace (v<tspan font-size="8" dy="2">c</tspan>)</text>
+
+            <!-- Tříska - od maxima k nule -->
+            <path d="M 355 75 C 370 120, 400 120, 400 120 C 392 112, 362 82, 355 75 Z" fill="#111"/>
+            
+            <!-- Posuv obrobku - DOLEVA! Tím vzniká souslednost na zub -->
+            <line x1="350" y1="160" x2="440" y2="160" stroke="#00c" stroke-width="5" marker-end="url(#arrow-blue)"/>
+            <text x="395" y="185" font-size="12" fill="#00c" font-weight="bold" text-anchor="middle">Posuv stolu (s)</text>
+            <text x="395" y="210" font-size="11" font-weight="bold" text-anchor="middle">Zub okamžitě bere plnou třísku.</text>
+            <text x="395" y="230" font-size="11" text-anchor="middle" fill="#0056b3">Neklouže, vysoká trvanlivost břitu, lesk!</text>
+        </svg>
+    </div>
+
+</body>
+</html>

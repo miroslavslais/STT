@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>02. Teorie tepelného zpracování a žíhání</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>2. Teorie tepelného zpracování ocelí, žíhání</h1>
+    
+    <div class="box">
+        <h2>Základní slitiny Fe-C</h2>
+        <p>Ocel a litina jsou technické slitiny <strong>Železa (Fe)</strong> a <strong>Uhlíku (C)</strong>. Fyzikální hranice mezi nimi je dána maximální teoretickou rozpustností uhlíku v železe.</p>
+        <ul>
+            <li><strong>Ocel (do 2,14 % C):</strong> Lze ji tvářet za tepla i za studena (kovat, válcovat). Uhlíku je relativně málo, takže mřížka zůstává tvárná.</li>
+            <li><strong>Litina (2,14 % až 6,67 % C):</strong> Je <em>křehká</em> a nelze ji kovat. Má ale skvělé slévárenské vlastnosti (výborně teče do formy). Obsahuje tolik uhlíku, že se začne vylučovat ve formě grafitu.</li>
+        </ul>
+    </div>
+
+    <h2>1. Krystalové mřížky železa (Alotropie)</h2>
+    <p>Železo je <em>alotropický</em> prvek. To znamená, že v závislosti na teplotě fyzicky mění tvar své prostorové krystalové mřížky. Tím se mění jeho schopnost "vejít" do sebe atomy uhlíku. Kdyby železo nebylo alotropické, kalení by vůbec nefungovalo!</p>
+    
+    <ul>
+        <li><strong>Alfa železo (&alpha;):</strong> Existuje při pokojové teplotě (do 912 °C). Krystalová mřížka je <strong>KPC</strong> (Krychlová prostorově středěná). Uprostřed mřížky překáží atom železa, takže uhlík se tam už skoro nevejde (rozpustí maximálně 0,02 % C). Je <em>magnetické</em>. Nazývá se <span class="highlight">Ferit</span> (velmi měkký, čisté železo).</li>
+        <li><strong>Gama železo (&gamma;):</strong> Vzniká ohřevem nad 912 °C. Krystalová mřížka se "přeskupí" na <strong>KPC plošně středěnou</strong>. V jejím středu najednou vznikne velká dutina, kam se schová spousta uhlíku (rozpustí až 2,14 % C). Je <em>nemagnetické</em>. Nazývá se <span class="highlight">Austenit</span>. (Pouze z austenitu lze ocel kalit).</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Schéma: Krystalové mřížky železa</strong><br>
+        <svg width="100%" height="220" viewBox="0 0 600 220">
+            <!-- Krychle BCC (Ferit) vlevo -->
+            <text x="150" y="20" font-size="14" font-weight="bold" text-anchor="middle">Alfa železo (BCC / Prostorově středěná)</text>
+            <text x="150" y="200" font-size="12" fill="#c00" font-weight="bold" text-anchor="middle">FERIT (Rozpustí jen 0.02 % C)</text>
+            
+            <g transform="translate(100, 50)">
+                <!-- Zadní hrany -->
+                <line x1="20" y1="20" x2="100" y2="20" stroke="#aaa" stroke-dasharray="4,2"/>
+                <line x1="20" y1="20" x2="20" y2="100" stroke="#aaa" stroke-dasharray="4,2"/>
+                <line x1="20" y1="20" x2="0" y2="40" stroke="#aaa" stroke-dasharray="4,2"/>
+                <!-- Přední čtverec -->
+                <rect x="0" y="40" width="80" height="80" fill="none" stroke="#111" stroke-width="2"/>
+                <!-- Horní a boční hrany -->
+                <line x1="0" y1="40" x2="20" y2="20" stroke="#111" stroke-width="2"/>
+                <line x1="80" y1="40" x2="100" y2="20" stroke="#111" stroke-width="2"/>
+                <line x1="100" y1="20" x2="100" y2="100" stroke="#111" stroke-width="2"/>
+                <line x1="80" y1="120" x2="100" y2="100" stroke="#111" stroke-width="2"/>
+                
+                <!-- Atomy (Rohy) -->
+                <circle cx="20" cy="20" r="6" fill="#888"/>
+                <circle cx="100" cy="20" r="6" fill="#888"/>
+                <circle cx="20" cy="100" r="6" fill="#888"/>
+                <circle cx="100" cy="100" r="6" fill="#888"/>
+                <circle cx="0" cy="40" r="6" fill="#888"/>
+                <circle cx="80" cy="40" r="6" fill="#888"/>
+                <circle cx="0" cy="120" r="6" fill="#888"/>
+                <circle cx="80" cy="120" r="6" fill="#888"/>
+                <!-- Atom (Prostředek) -->
+                <circle cx="50" cy="70" r="8" fill="#c00" stroke="#111" stroke-width="1.5"/>
+            </g>
+
+            <!-- Krychle FCC (Austenit) vpravo -->
+            <text x="450" y="20" font-size="14" font-weight="bold" text-anchor="middle">Gama železo (FCC / Plošně středěná)</text>
+            <text x="450" y="200" font-size="12" fill="#00c" font-weight="bold" text-anchor="middle">AUSTENIT (Rozpustí až 2.14 % C)</text>
+            
+            <g transform="translate(400, 50)">
+                <!-- Zadní hrany -->
+                <line x1="20" y1="20" x2="100" y2="20" stroke="#aaa" stroke-dasharray="4,2"/>
+                <line x1="20" y1="20" x2="20" y2="100" stroke="#aaa" stroke-dasharray="4,2"/>
+                <line x1="20" y1="20" x2="0" y2="40" stroke="#aaa" stroke-dasharray="4,2"/>
+                <!-- Přední čtverec -->
+                <rect x="0" y="40" width="80" height="80" fill="none" stroke="#111" stroke-width="2"/>
+                <!-- Horní a boční hrany -->
+                <line x1="0" y1="40" x2="20" y2="20" stroke="#111" stroke-width="2"/>
+                <line x1="80" y1="40" x2="100" y2="20" stroke="#111" stroke-width="2"/>
+                <line x1="100" y1="20" x2="100" y2="100" stroke="#111" stroke-width="2"/>
+                <line x1="80" y1="120" x2="100" y2="100" stroke="#111" stroke-width="2"/>
+                
+                <!-- Atomy (Rohy) -->
+                <circle cx="20" cy="20" r="6" fill="#888"/>
+                <circle cx="100" cy="20" r="6" fill="#888"/>
+                <circle cx="20" cy="100" r="6" fill="#888"/>
+                <circle cx="100" cy="100" r="6" fill="#888"/>
+                <circle cx="0" cy="40" r="6" fill="#888"/>
+                <circle cx="80" cy="40" r="6" fill="#888"/>
+                <circle cx="0" cy="120" r="6" fill="#888"/>
+                <circle cx="80" cy="120" r="6" fill="#888"/>
+                
+                <!-- Atomy ve středu PLOCH -->
+                <circle cx="40" cy="80" r="8" fill="#00c" stroke="#111" stroke-width="1.5"/> <!-- Přední -->
+                <circle cx="60" cy="60" r="8" fill="#00c" stroke="#111" stroke-width="1.5"/> <!-- Zadní -->
+                <circle cx="50" cy="30" r="8" fill="#00c" stroke="#111" stroke-width="1.5"/> <!-- Horní -->
+                <circle cx="50" cy="110" r="8" fill="#00c" stroke="#111" stroke-width="1.5"/> <!-- Dolní -->
+                <circle cx="10" cy="70" r="8" fill="#00c" stroke="#111" stroke-width="1.5"/> <!-- Levá -->
+                <circle cx="90" cy="70" r="8" fill="#00c" stroke="#111" stroke-width="1.5"/> <!-- Pravá -->
+            </g>
+        </svg>
+    </div>
+
+    <h2>2. Rovnovážný diagram Fe-Fe3C (Co to znamená)</h2>
+    <p>Ukazuje, jaké struktury oceli vznikají při <strong>velmi pomalém</strong> ohřívání nebo ochlazování.</p>
+    <ul>
+        <li><span class="highlight">A1 (727 °C):</span> Dolní kritická teplota (Eutektoidní přeměna). Pod touto teplotou existuje perlit (směs feritu a cementitu). Při ohřevu nad 727 °C se struktura začíná měnit na Austenit.</li>
+        <li><span class="highlight">A3:</span> Horní kritická teplota. Křivka začíná na 912 °C (pro čisté železo) a klesá k 727 °C. Ocel ohřátá nad A3 je už stoprocentní <strong>Austenit</strong>. Na tuto teplotu (A3 + 30°C) se musí ocel ohřívat před kalením a normalizačním žíháním!</li>
+        <li><strong>Cementit (Fe<sub>3</sub>C):</strong> Tvrdá a křehká chemická sloučenina železa s uhlíkem (karbid železa).</li>
+        <li><strong>Perlit (0.76 % C):</strong> Lístková směs feritu a cementitu. Vzniká pomalým chladnutím oceli z austenitu na 727 °C.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Diagram: Rovnovážný diagram Fe-Fe3C (Ocelová část)</strong><br>
+        <svg width="100%" height="250" viewBox="0 0 600 250">
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+            </defs>
+
+            <!-- Osy -->
+            <line x1="60" y1="220" x2="550" y2="220" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="530" y="240" font-size="12" font-weight="bold">Obsah C [%]</text>
+            <line x1="60" y1="220" x2="60" y2="20" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="45" y="25" font-size="12" font-weight="bold" transform="rotate(-90 45,25)">Teplota T [°C]</text>
+
+            <!-- A1 line (727°C) -->
+            <line x1="60" y1="140" x2="480" y2="140" stroke="#00c" stroke-width="3"/>
+            <text x="20" y="145" font-size="12" fill="#00c" font-weight="bold">A1</text>
+            <text x="15" y="158" font-size="10" fill="#00c">727°C</text>
+
+            <!-- A3 line & Acm line -->
+            <!-- 912°C is at y=50 -->
+            <path d="M 60 50 L 250 140 L 480 60" fill="none" stroke="#c00" stroke-width="3"/>
+            <text x="25" y="55" font-size="12" fill="#c00" font-weight="bold">A3</text>
+            <text x="20" y="68" font-size="10" fill="#c00">912°C</text>
+            <text x="420" y="50" font-size="12" fill="#c00" font-weight="bold">Acm</text>
+
+            <!-- Oblasti struktur -->
+            <!-- Austenit -->
+            <text x="250" y="90" font-size="16" font-weight="bold" fill="#000" text-anchor="middle">AUSTENIT (&gamma;)</text>
+            <text x="150" y="110" font-size="11" fill="#555" text-anchor="middle">Austenit + Ferit</text>
+            <text x="350" y="110" font-size="11" fill="#555" text-anchor="middle">Austenit + Cementit</text>
+            
+            <!-- Pod A1 -->
+            <text x="150" y="180" font-size="12" font-weight="bold" text-anchor="middle">Ferit + Perlit</text>
+            <text x="350" y="180" font-size="12" font-weight="bold" text-anchor="middle">Perlit + Cementit</text>
+
+            <!-- Eutektoidní bod (Perlit) 0.76% -->
+            <line x1="250" y1="140" x2="250" y2="225" stroke="#111" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="250" y="240" font-size="11" font-weight="bold" text-anchor="middle">0,76 %</text>
+            <text x="250" y="130" font-size="10" text-anchor="middle" font-weight="bold">S (Eutektoida)</text>
+
+            <!-- Hranice ocel/litina 2.14% -->
+            <line x1="480" y1="60" x2="480" y2="225" stroke="#111" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="480" y="240" font-size="11" font-weight="bold" text-anchor="middle">2,14 % (Mez oceli)</text>
+        </svg>
+    </div>
+
+    <h2>3. Žíhání ocelí</h2>
+    <p>Proces spočívající v ohřevu na určenou teplotu, výdrži a <strong>velmi pomalém ochlazování</strong> (často s vypnutou pecí dlouhé hodiny). Cílem je zrušit následky předchozího zpracování a přiblížit ocel do nejstabilnějšího (rovnovážného) stavu podle diagramu Fe-Fe3C.</p>
+
+    <h3>A) Žíhání bez překrystalizace (Nízké teploty)</h3>
+    <p>Nepřekračuje se teplota A1 (727 °C). Mřížka se vůbec nemění na Austenit, pouze se teplem aktivují atomy a srovnají se deformace.</p>
+    <ul>
+        <li><strong>Na odstranění vnitřního pnutí (cca 600 °C):</strong> Provádí se po svařování těžkých ocelových konstrukcí, po hrubém obrábění (velké úběry) nebo po odlévání. Odstraňuje skrytá pnutí uvnitř kovu, čímž chrání díl před tím, aby se po čase sám od sebe zkroutil nebo nečekaně praskl v provozu.</li>
+        <li><strong>Rekrystalizační (cca 600 °C):</strong> Provádí se po tváření za studena (např. po hlubokém tažení plechů, po tažení drátů). Obnovuje "rozmačkaná" protáhlá zrna kovu zpět do původního kulatého polyedrického tvaru. Výrazně vrací oceli tažnost, aby se dala dále tvářet a nepraskla.</li>
+        <li><strong>Naměkko (těsně pod 727 °C):</strong> Slouží pro zlepšení obrobitelnosti středně a vysokouhlíkových ocelí. Ostré lamelové destičky cementitu se dlouhou výdrží vlivem povrchového napětí shluknou do kuliček (vznikne tzv. <em>zrnkový perlit</em>). Ocel se stane <em>nejměkčí možnou</em> a neničí břitové destičky na soustruhu.</li>
+    </ul>
+
+    <h3>B) Žíhání s překrystalizací (Vysoké teploty)</h3>
+    <p>Ohřev nad kritické teploty A1 a A3. Ocel se zcela změní na Austenit a při pomalém chladnutí se formuje úplně nová, čistá struktura.</p>
+    <ul>
+        <li><strong>Normalizační:</strong> Ohřev cca 30 °C nad teplotu A3 (do austenitu) a po prohřátí následuje ochlazení <em>na klidném vzduchu</em>. Cílem je vytvořit jemnozrnnou a sjednocenou (znormalizovanou) strukturu. Jde o <strong>nejčastější a nejdůležitější žíhání ocelí</strong> vůbec. Dělá se automaticky po volném kování, po válcování a před jakýmkoliv kalením, aby měla součástka jemné zrno (hrubé zrno = obrovská křehkost).</li>
+        <li><strong>Homogenizační:</strong> Ohřev na obrovské teploty blízko tání (1000–1150 °C) a výdrž desítky hodin. Cílem je difuzí vyrovnat chemické složení (odstranit chemickou segregaci) u obrovských ocelových odlitků nebo ingotů. <em>Zásadní nevýhoda:</em> Během výdrže na tak šílené teplotě narostou krystalková zrna do obřích rozměrů, takže ocel je sice chemicky jednotná, ale příšerně křehká. Ihned po něm tedy musí následovat žíhání normalizační, které to zrno opět zjemní!</li>
+    </ul>
+
+    <div class="box" style="margin-top: 20px;">
+        <h3>Zlaté pravidlo chladnutí pro zkoušku:</h3>
+        <ul style="margin: 0; padding-left: 15px;">
+            <li><strong>Velmi rychlé chladnutí</strong> (šok - voda, olej) = <span style="color: #c00; font-weight: bold;">KALENÍ</span>. Struktura "nestihne" reagovat na rovnovážný diagram, atomy nestihnou utéct. Vznikne metastabilní, velmi tvrdý Martenzit.</li>
+            <li><strong>Pomalé chladnutí</strong> (na klidném vzduchu, s pecí) = <span style="color: #0056b3; font-weight: bold;">ŽÍHÁNÍ</span>. Ocel má hromadu času, stihne sledovat rovnovážný diagram Fe-Fe3C a vzniknou stabilní měkké struktury (Ferit + Perlit).</li>
+        </ul>
+    </div>
+
+</body>
+</html>

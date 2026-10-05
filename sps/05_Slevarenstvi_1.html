@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>05. Slévárenství 1</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>5. Slévárenství 1 (Základní pojmy, formování směsi 1. generace)</h1>
+
+    <div class="box">
+        <h2>Co je to slévárenství?</h2>
+        <p>Jde o jednu z nejstarších výrobních technologií. Spočívá ve výrobě součástí tím, že se <strong>roztavený tekutý kov nalije do připravené dutiny formy</strong>, která má tvar budoucího výrobku. Po vychladnutí a ztuhnutí kovu se forma rozbije (nebo rozevře) a vznikne <span class="highlight">Odlitek</span>.</p>
+        <p><strong>Použití:</strong> Vyrábějí se tak mimořádně složité a členité součásti (bloky motorů se stovkami kanálků uvnitř, skříně převodovek, obří podstavce a rámy obráběcích strojů), které by z plného bloku kovu nešly vysoustružit a vyfrézovat, nebo by při tom vzniklo např. 80 % odpadu z třísek.</p>
+    </div>
+
+    <h2>1. Názvosloví a Slévárenský model</h2>
+    <p>Abychom v písku vyrobili dutinu, musíme do něj něco vtlačit. Tento vzor (fyzická kopie budoucího výrobku) se nazývá <strong>Model</strong>. Vyrábí se nejčastěji ze dřeva, plastu (kusová výroba) nebo hliníku/oceli (pro sériovou výrobu).</p>
+
+    <h3>Zásadní vlastnosti modelu oproti odlitku:</h3>
+    <ul>
+        <li><span class="highlight">Smrštění:</span> Kov (litina, ocelolitina) má vlastnost, že při chladnutí a tuhnutí zmenšuje svůj objem a smršťuje se (např. o 1 až 2 %). Modelář tedy musí vyrobit dřevěný <strong>model vždy fyzicky větší, než je požadovaný výkres obrobku!</strong> Používá k tomu speciální "slévačský metr", který je natažený (na metru má nakresleno 100 cm, ale reálně měří 102 cm).</li>
+        <li><span class="highlight">Přídavek na obrábění:</span> Odlitek z písku je velmi hrubý. Plochy, které se pak musí přesně frézovat, musí mít na modelu o několik milimetrů navíc.</li>
+        <li><span class="highlight">Úkosy:</span> Žádná stěna na modelu nesmí být kolmá! Všechny svislé stěny modelu musí mít šikmý <em>úkos</em>. Kdyby úkos neměly, při vytahování dřevěného modelu z písku ven by se písková forma strhla a vydrolila.</li>
+    </ul>
+
+    <h2>2. Forma a Jádro</h2>
+    <ul>
+        <li><strong>Forma:</strong> Hmota uvnitř formovacího rámu s prázdnou dutinou pro slitinu (negativ odlitku). Může být <em>na jedno použití</em> (pískové, skořepinové - po odlití se rozbije) nebo <em>trvalá</em> (kovové kokily nebo tlakové lisy). Obvykle se skládá ze dvou polovin (horní a dolní rám), oddělených tzv. <strong>dělící rovinou</strong>.</li>
+        <li><strong>Jádro:</strong> Pokud má mít odlitek vnitřní díru (např. prázdný vnitřek trubky nebo chladící kanálek v bloku motoru), vloží se do prázdné dutiny formy tzv. jádro. Zpeče se ze speciálního, extrémně tvrdého písku. Kov jádro obteče, ale dovnitř se nedostane. Po vychladnutí kovu se do odlitku udeří sbíječkou a tvrdé pískové jádro se z něj jako prach vysype.</li>
+        <li><strong>Známky:</strong> Výstupky na jádře, za které se jádro bezpečně "pověsí" nebo usadí ve formě, aby tam nelétalo a vydrželo tlak natékajícího tekutého železa.</li>
+    </ul>
+
+    <h2>3. Vtoková soustava a Nálitek</h2>
+    <p>Komplexní systém kanálků v písku formy, kudy natéká žhavý kov z pánve a jak se formuje do dutiny.</p>
+    <ul>
+        <li><strong>Vtoková jamka:</strong> Nálevka úplně nahoře. Mírní kinetickou energii dopadajícího kovu z obří pánve a udrží případnou lehkou strusku na hladině.</li>
+        <li><strong>Vtokový kůl a Kanál (Rozváděcí kanál):</strong> Kůl vede kolmo dolů (často se dole zužuje), kanál vede vodorovně podél odlitku. Někdy se používá i <em>struskovák</em>, což je speciální slepý kanál navržený tak, aby do něj odtekla veškerá ušpiněná struska dřív, než se kov dostane k výrobku.</li>
+        <li><strong>Zářez:</strong> Úzké místo, kudy kov natéká už přímo do tvarové dutiny výrobku. Dělá se malý, aby se dal pak snadno kladivem urazit.</li>
+        <li><span class="highlight">Nálitek (Zásobárna kovu - KRITICKÉ!):</span> Jak tekutý kov ve formě chladne, zmenšuje se. Kdyby se uzavřel, vznikla by po ztuhnutí uprostřed masivního odlitku velká prázdná dutina, tzv. <strong>Staženina</strong>. Dělá se to tak, že z formy trčí nahoru ještě jeden falešný dílec - Nálitek. Je to masivní špalek čistého kovu, který <strong>musí tuhnout jako úplně poslední</strong>. Jak se odlitek smršťuje a "vcucává" do sebe materiál, saje si ho z nálitku jako ze zásobníku. Staženina pak vznikne jen nahoře v nálitku a nálitek se pak odřízne a hodí zpět do pece.</li>
+    </ul>
+
+    <div class="svg-container">
+        <strong>CAD Řez: Písková forma a Vtoková soustava připravená k lití</strong><br>
+        <svg width="100%" height="320" viewBox="0 0 600 320">
+            <defs>
+                <pattern id="hatch-sand" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <circle cx="2" cy="2" r="0.8" fill="#555"/>
+                    <circle cx="6" cy="6" r="0.8" fill="#555"/>
+                </pattern>
+                <pattern id="hatch-core" patternUnits="userSpaceOnUse" width="8" height="8">
+                    <line x1="0" y1="0" x2="8" y2="8" stroke="#a63" stroke-width="1.5"/>
+                    <line x1="0" y1="8" x2="8" y2="0" stroke="#a63" stroke-width="1.5"/>
+                </pattern>
+                <marker id="arrow-orange" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#f80" /></marker>
+                <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+            </defs>
+
+            <!-- Formovací rámy (Ocelové hranaté boxy) -->
+            <rect x="50" y="50" width="500" height="110" fill="none" stroke="#111" stroke-width="4"/>
+            <rect x="50" y="160" width="500" height="110" fill="none" stroke="#111" stroke-width="4"/>
+            
+            <text x="35" y="105" font-size="12" font-weight="bold" transform="rotate(-90 35,105)">Horní rám</text>
+            <text x="35" y="215" font-size="12" font-weight="bold" transform="rotate(-90 35,215)">Dolní rám</text>
+
+            <!-- Dělící rovina -->
+            <line x1="20" y1="160" x2="580" y2="160" stroke="#c00" stroke-width="2.5" stroke-dasharray="15,5,5,5"/>
+            <text x="490" y="150" font-size="12" fill="#c00" font-weight="bold">Dělící rovina (Písků)</text>
+
+            <!-- Písek CT směsi -->
+            <rect x="52" y="52" width="496" height="216" fill="url(#hatch-sand)" opacity="0.6"/>
+            <text x="250" y="250" font-size="12" font-weight="bold" background="#fff">Formovací (CT) směs</text>
+
+            <!-- Vtoková soustava (Vyříznutá v písku - prázdný bílý prostor) -->
+            <!-- Vtoková jamka -->
+            <path d="M 90 52 L 170 52 L 150 70 L 140 70 L 140 160 L 170 160 L 170 175 L 140 175 L 140 185 L 200 185 L 200 160 L 110 160 L 110 70 L 90 52 Z" fill="#fff" stroke="#111" stroke-width="2.5"/>
+            
+            <!-- Tekutý kov (Zaléváno panví shora oranžově) -->
+            <path d="M 130 10 L 130 52" fill="none" stroke="#f80" stroke-width="6" marker-end="url(#arrow-orange)"/>
+            <text x="130" y="5" font-size="12" fill="#f80" font-weight="bold" text-anchor="middle">LITÍ KOVU Z PÁNVE</text>
+            
+            <!-- Zářez do dutiny -->
+            <!-- Dutina odlitku (představuje např. velkou trubku nebo přírubu) -->
+            <path d="M 200 160 L 250 160 L 250 130 L 370 130 L 370 160 L 400 160 L 400 230 L 200 230 Z" fill="#fff" stroke="#111" stroke-width="2.5"/>
+            
+            <line x1="170" y1="170" x2="200" y2="170" stroke="#f80" stroke-width="4" marker-end="url(#arrow-orange)"/>
+            <text x="185" y="165" font-size="10" fill="#111" font-weight="bold" text-anchor="middle">Zářez</text>
+            
+            <text x="310" y="210" font-size="14" font-weight="bold" fill="#111" text-anchor="middle">Dutina budoucího odlitku</text>
+
+            <!-- Jádro a Známky -->
+            <!-- Jádro vložené dovnitř dutiny -->
+            <rect x="180" y="175" width="240" height="30" fill="url(#hatch-core)" stroke="#111" stroke-width="2"/>
+            <text x="300" y="195" font-size="16" fill="#111" font-weight="bold" text-anchor="middle" style="background-color: white; opacity: 0.8; padding: 2px;">TVRDÉ PÍSKOVÉ JÁDRO</text>
+
+            <line x1="200" y1="205" x2="200" y2="230" stroke="#111" stroke-width="2" stroke-dasharray="4,2"/>
+            <text x="195" y="240" font-size="10" font-weight="bold" text-anchor="middle">Známka jádra</text>
+            <text x="195" y="250" font-size="9" text-anchor="middle">(Sedlo drží jádro ve vzduchu)</text>
+
+            <!-- Nálitek a Výfuky -->
+            <path d="M 360 130 L 360 52 L 400 52 L 400 130 Z" fill="#fff" stroke="#111" stroke-width="2.5"/>
+            <text x="380" y="45" font-size="12" font-weight="bold" text-anchor="middle">Otevřený nálitek</text>
+            <text x="380" y="65" font-size="10" text-anchor="middle">(Dotuje kov při tuhnutí)</text>
+
+            <line x1="280" y1="130" x2="280" y2="52" stroke="#111" stroke-width="2" stroke-dasharray="4,2"/>
+            <text x="280" y="45" font-size="11" font-weight="bold" text-anchor="middle">Výfuk (Odfuk plynů z formy)</text>
+
+            <!-- Popis levé vtokové části -->
+            <line x1="165" y1="60" x2="185" y2="60" stroke="#111" stroke-width="1"/>
+            <text x="190" y="65" font-size="11" font-weight="bold">Vtoková jamka</text>
+            <line x1="135" y1="120" x2="105" y2="120" stroke="#111" stroke-width="1"/>
+            <text x="100" y="125" font-size="11" font-weight="bold" text-anchor="end">Kůl</text>
+            <line x1="160" y1="185" x2="160" y2="200" stroke="#111" stroke-width="1"/>
+            <text x="160" y="210" font-size="11" font-weight="bold" text-anchor="middle">Rozváděcí kanál</text>
+
+        </svg>
+    </div>
+
+    <h2>4. Formovací směsi 1. generace (CT směsi)</h2>
+    <p>Nejčastější průmyslová písková hmota pro "zelené formování na syrovo". Písek se nasype do rámu s vloženým dřevěným modelem, udusá se, polovina rámu se otočí, model se z ní opatrně vytáhne a vznikne tam čistá dutina.</p>
+    
+    <h3>Složení klasické CT směsi:</h3>
+    <ol>
+        <li><strong>Ostřivo (Křemenný písek SiO<sub>2</sub> - cca 85 %):</strong> Tvoří pevnou kostru formy. Písek má obrovskou <strong>žáruvzdornost</strong> (zvládne náraz tekutého železa o teplotě 1400 °C aniž by se roztavil na sklo) a <strong>prodyšnost</strong> (prostor mezi zrnky propouští plyny z kovu ven z rámu).</li>
+        <li><strong>Pojivo (Bentonit / Jíl - cca 10 %):</strong> Jde o jemnou sušinu. Jakmile se smíchá s vodou, extrémně nabobtná a obalí zrnka písku tenkým lepkavým filmem. Funguje jako lepidlo, díky kterému drží zrníčka písku u sebe i při převracení těžké formy na stroji.</li>
+        <li><strong>Voda (cca 4 %):</strong> Aktivuje jíl.</li>
+        <li><em>Přísady (Uhelný prach):</em> Zabraňuje připékání písku ke kovu a dělá odlitky hladší.</li>
+    </ol>
+    <p>Po odlití kovové součástky se na otřesových roštech celá písková písková bábovička (forma) rozpadne, písek se dopravníkem převeze zpět, oddělí se z něj uhelný prach a kamínky, přidá se do něj trochu nové vody a bentonitu a použije se zítra na úplně novou formu <strong>(výborná recyklovatelnost)</strong>.</p>
+
+</body>
+</html>

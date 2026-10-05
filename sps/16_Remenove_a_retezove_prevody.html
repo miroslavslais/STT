@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>16. Řemenové a řetězové převody</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: 0; padding: 20px; 
+            max-width: 1000px;
+            margin: auto;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>16. Řemenové a řetězové převody</h1>
+    
+    <div class="box" style="text-align: center;">
+        <p style="margin:0; font-size: 13pt;"><strong>Převodový poměr (i)</strong></p>
+        <p style="margin:10px 0;">
+            Řetězový a ozubený: <span class="formula">i = n<sub>1</sub> / n<sub>2</sub> = z<sub>2</sub> / z<sub>1</sub> = D<sub>2</sub> / D<sub>1</sub></span><br>
+            Řemenový se skluzem: <span class="formula">i = n<sub>1</sub> / n<sub>2</sub> = D<sub>2</sub> / (D<sub>1</sub> &cdot; (1 - &xi;))</span>
+        </p>
+        <p style="margin:0; font-size: 10pt;"><em>(n = otáčky, D = průměr, z = počet zubů, &xi; = pružný skluz řemenu. Index 1 = hnací, 2 = hnané)</em><br>
+        <strong>i &gt; 1</strong> (Převod do pomala) | <strong>i &lt; 1</strong> (Převod do rychla)</p>
+    </div>
+
+    <h2>1. Řemenové převody</h2>
+    <p><strong>Účel a princip:</strong> Přenášejí točivý moment na větší vzdálenosti pomocí ohebného pásu. Přenos probíhá <strong>třením</strong> (ploché, klínové) nebo tvarovým stykem (ozubené). Součásti tvořící převod jsou: hnací řemenice, hnaná řemenice, řemen a napínací zařízení.</p>
+
+    <h3>A) Výhody a nevýhody</h3>
+    <ul>
+        <li><span class="highlight">+</span> Pružnost řemenu tlumí chvění a dynamické rázy (motor &rarr; stroj).</li>
+        <li><span class="highlight">+</span> Funguje jako pojistka (při extrémním přetížení řemen proklouzne a stroj se nezničí).</li>
+        <li><span class="highlight">+</span> Tichý chod, levná výroba, snadná údržba.</li>
+        <li><span class="highlight">-</span> <strong>Pružný skluz:</strong> Nedodrží přesný převodový poměr (ztráta otáček asi 1-2 %).</li>
+        <li><span class="highlight">-</span> Nutnost předpětí &rarr; hřídele a ložiska jsou trvale namáhány velkou radiální silou.</li>
+        <li><span class="highlight">-</span> Guma stárne a teplo třením ji poškozuje.</li>
+    </ul>
+
+    <h3>B) Druhy, materiál a skladba řemenů</h3>
+    <ul>
+        <li><strong>Ploché řemeny:</strong> Obdélníkový průřez. Materiál: kůže, pryž s polyamidovým jádrem. Řemenice je mírně vypouklá (bombírovaná), což automaticky drží řemen ve středu.</li>
+        <li><strong>Klínové řemeny:</strong> Průřez lichoběžníku. <em>Dosedají POUZE na boky drážky, nikdy na dno!</em> (Využití klínového efektu násobí třecí sílu).
+            <ul>
+                <li><em>Skladba (materiál):</em> 1. Tažná vrstva (kordy z PES/oceli, nesou celou sílu), 2. Nárazníková/tlačná vrstva (guma - udržuje tvar), 3. Obal (pogumovaná tkanina proti oděru).</li>
+            </ul>
+        </li>
+        <li><strong>Ozubené řemeny:</strong> Tvarový styk (zuby do drážek řemenice). Bez skluzu, přesné časování. (Rozvody motorů v autech).</li>
+    </ul>
+
+    <div class="box">
+        <h3>C) Schéma se silovým působením v převodu (DŮLEŽITÉ!)</h3>
+        <p>Při přenosu krouticího momentu $M_k$ je jedna větev řemenu napnutá (tažná) a druhá volnější (volná). Rozdíl těchto tahových sil tvoří užitečnou obvodovou sílu $F_t$, která otáčí hnanou řemenicí.</p>
+        <p>Pro přenos bez prokluzu musí platit <strong>Eulerův vztah pro vláknové tření:</strong> <span class="formula">F<sub>1</sub> / F<sub>2</sub> &le; e<sup>&mu; &cdot; &alpha;</sup></span> <em>(&mu; = tření, &alpha; = úhel opásání)</em>.</p>
+        
+        <div class="svg-container">
+            <svg width="100%" height="250" viewBox="0 0 600 250">
+                <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#111" /></marker>
+                    <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                    <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                </defs>
+
+                <!-- Osy a řemenice -->
+                <line x1="50" y1="125" x2="550" y2="125" stroke="#111" stroke-width="1" stroke-dasharray="10,5"/>
+                <circle cx="150" cy="125" r="50" fill="#eee" stroke="#111" stroke-width="2"/>
+                <circle cx="450" cy="125" r="80" fill="#eee" stroke="#111" stroke-width="2"/>
+                <circle cx="150" cy="125" r="5" fill="#111"/>
+                <circle cx="450" cy="125" r="5" fill="#111"/>
+
+                <!-- Řemen -->
+                <path d="M 150 75 L 450 45" fill="none" stroke="#444" stroke-width="4"/> <!-- Horní (Volná větev) -->
+                <path d="M 150 175 L 450 205" fill="none" stroke="#c00" stroke-width="4"/> <!-- Dolní (Tažná větev) - napnutá -->
+
+                <!-- Oblouky opásání řemenu na řemenicích -->
+                <path d="M 150 75 A 50 50 0 0 0 150 175" fill="none" stroke="#444" stroke-width="4"/>
+                <path d="M 450 205 A 80 80 0 0 0 450 45" fill="none" stroke="#444" stroke-width="4"/>
+
+                <!-- Směr otáčení (Rotace) -->
+                <path d="M 110 90 A 30 30 0 0 1 150 75" fill="none" stroke="#00c" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                <text x="80" y="80" font-size="12" fill="#00c" font-weight="bold">Rotace</text>
+                
+                <path d="M 410 70 A 50 50 0 0 1 450 45" fill="none" stroke="#00c" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+                <!-- Vektory sil F1 a F2 na řemenu -->
+                <!-- Na hnací -->
+                <line x1="250" y1="185" x2="180" y2="172" stroke="#c00" stroke-width="3" marker-end="url(#arrow-red)"/>
+                <text x="210" y="205" font-size="14" fill="#c00" font-weight="bold">F<tspan font-size="9" dy="3">1</tspan> (Tažná síla)</text>
+
+                <line x1="250" y1="65" x2="180" y2="72" stroke="#111" stroke-width="2" marker-end="url(#arrow)"/>
+                <text x="200" y="60" font-size="12" font-weight="bold">F<tspan font-size="8" dy="3">2</tspan> (Volná větev)</text>
+
+                <!-- Obvodová síla -->
+                <text x="300" y="235" font-size="14" font-weight="bold" text-anchor="middle">Celková přenášená obvodová síla: <tspan fill="#c00">F = F1 - F2</tspan></text>
+
+                <!-- Úhly opásání (alfa) -->
+                <line x1="150" y1="125" x2="150" y2="75" stroke="#111" stroke-dasharray="2,2"/>
+                <line x1="150" y1="125" x2="150" y2="175" stroke="#111" stroke-dasharray="2,2"/>
+                <path d="M 120 125 A 30 30 0 0 1 150 95" fill="none" stroke="#111" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                <text x="110" y="115" font-size="14" font-weight="bold">&alpha;</text>
+
+                <text x="150" y="20" font-size="12" font-weight="bold" text-anchor="middle">Hnací řemenice</text>
+                <text x="450" y="20" font-size="12" font-weight="bold" text-anchor="middle">Hnaná řemenice</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3>D) Variátory</h3>
+        <p>Speciální řemenové převody, které umožňují <strong>plynulou (bezstupňovou) změnu převodového poměru</strong> i za plného chodu stroje (použito např. u automatických převodovek CVT u skútrů a některých aut).</p>
+        <p><strong>Princip:</strong> Řemenice (hnací i hnaná) se skládá ze dvou kuželových talířů. Tyto talíře se dají na hřídeli přibližovat a oddalovat k sobě navzájem (hydraulicky, odstředivě nebo mechanicky pružinou). Široký a vysoce pevný klínový řemen běhá mezi nimi.</p>
+        <ul>
+            <li>Když se talíře k sobě <strong>přiblíží</strong>, vytlačí klínový řemen nahoru na <strong>větší pracovní průměr</strong>.</li>
+            <li>Když se talíře <strong>oddálí</strong>, řemen propadne hlouběji na <strong>menší pracovní průměr</strong>.</li>
+            <li>Protože délka řemenu se nemění, pokud se hnací talíře přiblíží (řemen jde ven), hnané talíře se musí oddálit (řemen jde dovnitř). Tímto se plynule mění poměr $D_2 / D_1$ a dochází ke změně otáček.</li>
+        </ul>
+
+        <div class="svg-container">
+            <strong>CAD Schéma: Princip Variátoru (CVT)</strong><br>
+            <svg width="100%" height="220" viewBox="0 0 500 220">
+                <defs>
+                    <pattern id="hatch-belt" patternUnits="userSpaceOnUse" width="8" height="8">
+                        <line x1="0" y1="8" x2="8" y2="0" stroke="#fff" stroke-width="1.5"/>
+                    </pattern>
+                    <marker id="arrow-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                    <marker id="arrow-blue-rev" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#00c" /></marker>
+                </defs>
+
+                <!-- VARIÁTOR 1: Velký převod (pomalé otáčky vzadu) -->
+                <text x="120" y="30" font-size="12" font-weight="bold" text-anchor="middle">Převod do pomala (Nízké otáčky)</text>
+                
+                <!-- Hřídel -->
+                <rect x="50" y="95" width="140" height="10" fill="#ddd" stroke="#111"/>
+                
+                <!-- Levé kolo (oddálené) -->
+                <path d="M 80 10 L 110 10 L 110 190 L 80 190 Z" fill="#ccc" stroke="#111" stroke-width="2"/>
+                <polygon points="110,10 130,95 110,190" fill="#ccc" stroke="#111" stroke-width="2"/>
+                
+                <!-- Pravé kolo (oddálené) -->
+                <path d="M 160 10 L 130 10 L 130 190 L 160 190 Z" fill="#ccc" stroke="#111" stroke-width="2"/>
+                <polygon points="130,10 110,95 130,190" fill="#ccc" stroke="#111" stroke-width="2"/>
+
+                <!-- Řemen dole (malý pracovní průměr) -->
+                <polygon points="113,85 127,85 125,93 115,93" fill="#333" stroke="#111" stroke-width="1.5"/>
+                <line x1="60" y1="89" x2="110" y2="89" stroke="#111" stroke-dasharray="2,2"/>
+                <text x="60" y="85" font-size="10" font-weight="bold">Malý průměr D1</text>
+
+                <!-- Šipky pohybu talířů -->
+                <line x1="80" y1="200" x2="160" y2="200" stroke="#00c" stroke-width="2" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+                <text x="120" y="215" font-size="10" fill="#00c" font-weight="bold" text-anchor="middle">Talíře od sebe (řemen padá k ose)</text>
+                
+
+                <!-- ROZDĚLOVNÍK -->
+                <line x1="250" y1="10" x2="250" y2="210" stroke="#111" stroke-dasharray="8,4" stroke-width="2"/>
+
+                <!-- VARIÁTOR 2: Rychlý převod (vysoké otáčky) -->
+                <text x="380" y="30" font-size="12" font-weight="bold" text-anchor="middle">Převod do rychla (Vysoké otáčky)</text>
+                
+                <!-- Hřídel -->
+                <rect x="310" y="95" width="140" height="10" fill="#ddd" stroke="#111"/>
+                
+                <!-- Levé kolo (přiblížené) -->
+                <path d="M 350 10 L 375 10 L 375 190 L 350 190 Z" fill="#ccc" stroke="#111" stroke-width="2"/>
+                <polygon points="375,10 395,95 375,190" fill="#ccc" stroke="#111" stroke-width="2"/>
+                
+                <!-- Pravé kolo (přiblížené) -->
+                <path d="M 410 10 L 385 10 L 385 190 L 410 190 Z" fill="#ccc" stroke="#111" stroke-width="2"/>
+                <polygon points="385,10 365,95 385,190" fill="#ccc" stroke="#111" stroke-width="2"/>
+
+                <!-- Řemen nahoře (velký pracovní průměr) -->
+                <polygon points="368,25 392,25 385,55 375,55" fill="#333" stroke="#111" stroke-width="1.5"/>
+                <polygon points="368,175 392,175 385,145 375,145" fill="#333" stroke="#111" stroke-width="1.5"/>
+                
+                <line x1="400" y1="40" x2="480" y2="40" stroke="#111" stroke-dasharray="2,2"/>
+                <text x="405" y="35" font-size="10" font-weight="bold">Velký průměr D1'</text>
+
+                <!-- Šipky pohybu talířů -->
+                <line x1="350" y1="200" x2="410" y2="200" stroke="#00c" stroke-width="2" marker-start="url(#arrow-blue)" marker-end="url(#arrow-blue-rev)"/>
+                <text x="380" y="215" font-size="10" fill="#00c" font-weight="bold" text-anchor="middle">Talíře k sobě (řemen se vytlačí nahoru)</text>
+            </svg>
+        </div>
+    </div>
+
+    <h2>2. Řetězové převody</h2>
+    <p>Přenos točivého momentu probíhá absolutně bezpečně <strong>tvarovým stykem</strong> (zuby řetězových kol přesně zapadají do mezer článků řetězu).</p>
+    
+    <h3>A) Výhody a nevýhody</h3>
+    <ul>
+        <li><span class="highlight">+</span> Bez prokluzu &rarr; stálý a absolutně přesný kinematický převodový poměr.</li>
+        <li><span class="highlight">+</span> Extrémně vysoká účinnost přenosu (nepotřebují obrovské předpětí jako řemeny &rarr; neničí ložiska radiální silou).</li>
+        <li><span class="highlight">-</span> Hlučné (kov na kov), nutnost velmi dobrého mazání (řetěz by měl ideálně běžet v uzavřené skříni v olejové lázni).</li>
+        <li><span class="highlight">-</span> <strong>Polygonální efekt:</strong> U malých řetězových kol (s malým počtem zubů, pod 17 zubů) se řetěz nepohybuje po plynulé kružnici, ale po mnohoúhelníku (polygonu). To způsobuje, že rychlost řetězu během jedné otáčky kolísá a převod "kope" a vibruje. Čím více zubů kolo má, tím je tento jev menší.</li>
+    </ul>
+
+    <h3>B) Druhy a skladba řetězů</h3>
+    <ul>
+        <li><strong>Válečkový řetěz:</strong> Běžný průmysl, jízdní kola, motocykly. Obsahuje <em>vnitřní a vnější destičku, čep, pouzdro a volně otočný váleček</em>. Váleček po zubu ozubeného kola neklouže, ale odvaluje se &rarr; vzniká jen valivé tření = mnohem nižší opotřebení ozubení.</li>
+        <li><strong>Pouzdrový řetěz:</strong> Podobný, ale chybí mu váleček. Ocelové pouzdro tře přímo o zub kola. Rychleji se opotřebí, vhodné pouze pro pomalé stroje a dopravníky.</li>
+        <li><strong>Gallův řetěz:</strong> Tvořen pouze čepy a velmi masivními destičkami (nemá pouzdro ani válečky). Určen pro obrovské tahové síly při zvedání břemen, nikoliv pro rychlý přenos otáček. Používá se u kladkostrojů a pro zvedání vidlí vysokozdvižných vozíků.</li>
+        <li><strong>Zubový (tichý) řetěz:</strong> Skládá se ze speciálních tvarovaných lamelových destiček se zuby. Zapadá do kol plynule a s minimálním rázem. Je velmi tichý a vhodný pro extrémně vysoké otáčky (rozvody vačkových hřídelí v moderních motorech aut).</li>
+    </ul>
+
+</body>
+</html>

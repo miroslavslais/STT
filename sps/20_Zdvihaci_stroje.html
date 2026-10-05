@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>20. Zdvihací stroje</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            font-size: 11pt; 
+            line-height: 1.4; 
+            color: #111; 
+            margin: auto; 
+            padding: 20px; 
+            max-width: 1000px;
+        }
+        h1 { 
+            font-size: 18pt; text-align: center; margin-bottom: 10px; 
+            border-bottom: 3px solid #333; padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+        h2 { 
+            font-size: 14pt; margin-top: 20px; margin-bottom: 10px; 
+            background-color: #e0f7fa; border-left: 5px solid #00bcd4; padding: 5px 10px;
+        }
+        h3 { font-size: 12pt; margin-top: 10px; margin-bottom: 5px; font-weight: bold; border-bottom: 1px solid #ccc;}
+        p, ul { margin-top: 5px; margin-bottom: 10px; }
+        ul { padding-left: 25px; }
+        .box { border: 2px solid #333; padding: 15px; background-color: #fdfdfd; margin-bottom: 15px; border-radius: 5px;}
+        .svg-container { text-align: center; margin: 15px 0; border: 1px solid #aaa; padding: 15px; background: #fff; border-radius: 5px;}
+        .formula { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; color: #b71c1c; background: #ffebee; padding: 2px 5px;}
+        .highlight { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+
+    <h1>20. Zdvihací stroje</h1>
+
+    <div class="box">
+        <p><strong>Účel a rozdělení:</strong> Slouží k přemisťování břemen a osob převážně ve svislém směru. Na rozdíl od dopravníků pracují vždy <strong>přetržitě (cyklicky)</strong> – naložit, zvednout, přesunout, položit, vrátit se naprázdno. Zahrnují zvedáky (krátký zdvih odspodu), kladkostroje a jeřáby (zdvih na laně) a výtahy (v pevných klecích).</p>
+    </div>
+
+    <h2>1. Zvedáky</h2>
+    <p>Nejjednodušší zdvihací zařízení. Zvedají břemeno do malé výšky (desítky cm) přímým tlakem zespodu na opěrnou hlavici (nemají lana ani háky).</p>
+    <ul>
+        <li><strong>Hřebenové zvedáky:</strong> Břemeno zvedá hlavice na ozubené tyči (hřebenu). Klička přes systém ozubených převodů hřeben vysouvá. Zásadní je <em>rohatka se západkou</em>, která brání samovolnému pádu břemene při puštění kliky.</li>
+        <li><strong>Šroubové zvedáky:</strong> Břemeno zvedá matice pohybující se po pohybovém šroubu (nebo šroub pohybující se v matici). Závit (lichoběžníkový) musí mít úhel stoupání tak malý, aby byla splněna podmínka <strong>samosvornosti</strong> &rarr; břemeno svou vlastní vahou nesmí šroub roztočit zpět dolů. (Běžný hever v autě).</li>
+        <li><strong>Hydraulické zvedáky:</strong> Využívají Pascalův zákon. Malou silou ručně pumpujeme malý píst, ten přepouští přes ventily vysokotlaký olej pod obří píst. Dává gigantické síly při kompaktních rozměrech (tzv. "panenka").</li>
+    </ul>
+
+    <h2>2. Kladky a Kladkostroje</h2>
+    <p>Stroje, které pomocí tažného lana nebo řetězu snižují námahu při zvedání břemen.</p>
+    
+    <div class="grid">
+        <div style="flex: 1;">
+            <ul>
+                <li><strong>Pevná kladka:</strong> Upevněná pevně ke stropu. Kladka se neposouvá, jen točí. <em>Neuštří vůbec žádnou sílu</em> (F = Q), ale je nesmírně užitečná, protože <strong>mění směr síly</strong> (táhneme pohodlně vlastní vahou dolů a břemeno jede nahoru).</li>
+                <li><strong>Volná kladka:</strong> Břemeno visí na ose samotné kladky. Lano jde pod kladkou a jeden konec je ukotven ve stropě. Táhneme nahoru. <strong>Ušetří přesně polovinu síly</strong> (<span class="formula">F = Q / 2</span>), protože půlku váhy nese strop. Nevýhoda: Lano musíme táhnout dvojnásobnou drahou, než o kolik se zvedne břemeno.</li>
+                <li><span class="highlight">Složený kladkostroj:</span> Systém více pevných a volných kladek spojených jedním lanem. Spojuje výhody obou předchozích (táhneme dolů a síla se dramaticky dělí). 
+                <br><br>Základní výpočetní vzorec pro sílu na laně u kladkostroje:<br>
+                <span class="formula">F = Q / n</span><br>
+                <em>(Kde n = počet nosných průřezů lana, na kterých visí volné kladky s břemenem).</em>
+                </li>
+            </ul>
+        </div>
+        <div style="flex: 1;">
+            <div class="svg-container" style="margin-top: 0;">
+                <strong>CAD Schéma: Archimédův (jednoduchý) kladkostroj</strong><br>
+                <svg width="100%" height="300" viewBox="0 0 350 300">
+                    <defs>
+                        <pattern id="hatch-roof" patternUnits="userSpaceOnUse" width="8" height="8">
+                            <line x1="0" y1="0" x2="8" y2="8" stroke="#111" stroke-width="0.5"/>
+                        </pattern>
+                        <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#c00" /></marker>
+                    </defs>
+
+                    <!-- Strop (Šrafováno) -->
+                    <rect x="50" y="20" width="250" height="20" fill="url(#hatch-roof)" stroke="#111" stroke-width="3"/>
+                    <path d="M 120 40 L 120 70" fill="none" stroke="#111" stroke-width="4"/> <!-- Závěs pevné -->
+                    <path d="M 220 40 L 220 70 A 15 15 0 0 0 205 85 L 205 130" fill="none" stroke="#555" stroke-width="3"/> <!-- Pevný konec lana -->
+
+                    <!-- Pevná kladka -->
+                    <circle cx="120" cy="95" r="30" fill="#ddd" stroke="#111" stroke-width="3"/>
+                    <circle cx="120" cy="95" r="5" fill="#111"/> 
+                    
+                    <!-- Volná kladka -->
+                    <circle cx="175" cy="190" r="30" fill="#ddd" stroke="#111" stroke-width="3"/>
+                    <circle cx="175" cy="190" r="5" fill="#111"/> 
+                    <path d="M 175 190 L 175 230" fill="none" stroke="#111" stroke-width="4"/> <!-- Závěs břemena -->
+
+                    <!-- Břemeno -->
+                    <rect x="145" y="230" width="60" height="40" fill="#bbb" stroke="#111" stroke-width="3"/>
+                    <line x1="175" y1="270" x2="175" y2="300" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+                    <text x="185" y="295" font-size="14" fill="#c00" font-weight="bold">Q</text>
+
+                    <!-- Lano (tažné přes pevnou dolů pod volnou a nahoru) -->
+                    <path d="M 90 250 L 90 95 A 30 30 0 0 1 150 95 L 150 190 A 30 30 0 0 0 205 190 L 205 80" fill="none" stroke="#444" stroke-width="3"/> 
+
+                    <!-- Síla F -->
+                    <line x1="90" y1="180" x2="90" y2="240" stroke="#c00" stroke-width="4" marker-end="url(#arrow-red)"/>
+                    <text x="25" y="220" font-size="14" fill="#c00" font-weight="bold">F = Q/2</text>
+
+                    <!-- Popisky -->
+                    <line x1="60" y1="95" x2="20" y2="95" stroke="#111" stroke-width="1"/>
+                    <text x="15" y="90" font-size="12" font-weight="bold">Pevná kladka</text>
+                    
+                    <line x1="220" y1="190" x2="260" y2="190" stroke="#111" stroke-width="1"/>
+                    <text x="265" y="195" font-size="12" font-weight="bold">Volná kladka</text>
+
+                    <!-- Průřezy -->
+                    <text x="135" y="150" font-size="12" font-weight="bold" fill="#0056b3">1</text>
+                    <text x="220" y="150" font-size="12" font-weight="bold" fill="#0056b3">2</text>
+                    <text x="260" y="125" font-size="10" fill="#0056b3">(Počet nosných průřezů)</text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <h2>3. Jeřáby</h2>
+    <p>Jeřáby kombinují zvedání (naviják s kladkostrojem) s prostorovým pojezdem do 3 os. Lze jimi obsloužit velký pracovní prostor.</p>
+    <ul>
+        <li><strong>Mostové jeřáby:</strong> Typické pro tovární haly. Obrovský ocelový příhradový nebo plnostěnný most pojíždí po kolejnicích upevněných nahoře na zdech haly. Po samotném mostě napříč pojíždí <em>jeřábová kočka</em>, která nese naviják s hákem. Obsluhují půdorys ve tvaru obdélníku.</li>
+        <li><strong>Věžové jeřáby:</strong> Stavební jeřáby. Svislá věž zakotvená v zemi a nahoře otočný výložník. Proti převrhnutí musí být dole a vzadu osazeny těžkým balastem (betonovými panely). Obsluhují půdorys ve tvaru válce.</li>
+        <li><strong>Portálové jeřáby:</strong> Most jeviště je nesen masivními vysokými nohami (portálem), které pojíždějí po kolejích přímo na zemi. Použití: Kontejnerová překladiště, vlaková nádraží.</li>
+        <li><strong>Otočné sloupové jeřáby:</strong> Malé dílenské jeřáby obsluhující jedno konkrétní pracoviště (CNC frézku). Rameno se otáčí kolem sloupu přišroubovaného k podlaze.</li>
+    </ul>
+
+    <h2>4. Vázací a nosné prostředky</h2>
+    <p>Abychom břemeno zvedli, musíme ho bezpečně ukotvit k háku stroje.</p>
+    <ul>
+        <li><strong>Ocelová lana:</strong> Skládají se z jemných ocelových drátků, které jsou spleteny (stočeny) do <em>pramenů</em>. Několik pramenů je pak stočeno kolem centrální <em>duše</em> (z textilu nebo oceli). 
+            <br><em>Zásadní vlastnost:</em> Lano nepraskne naráz jako řetěz! Vždy nejprve popraskají vnější jednotlivé drátky. Jeřábník tak vizuálně vidí, že lano začíná být zničené (chlupatí), a lano vyřadí dlouho před fatálním kolapsem.
+        </li>
+        <li><strong>Jeřábové háky:</strong> Masivní ocelové výkovky (nikdy odlitky, ty by mohly mít bublinu a prasknout). Musí mít <strong>bezpečnostní západku (pojistku)</strong>, aby lano z háku při odlehčení nebo zhoupnutí nemohlo samo vyskočit.</li>
+        <li><strong>Břemenové elektromagnety:</strong> Plochý magnet zavěšený na jeřábu. Zmáčknutím tlačítka magnet přisaje ocelový šrot nebo plechy, přenese je, a po vypnutí proudu šrot spadne dolů do vagonu.</li>
+    </ul>
+
+</body>
+</html>
