@@ -119,15 +119,15 @@
   "koroze/korozni-odolnost-kovu/korozni-odolnost-kovu": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "3ba5cc2d212c35ca30f492ef64eb8413bfb4479b04e150e35476a35b4b477d99",
+    "content_hash": "6daccb242b017ceeee81c4510fc140c6eba873343aeb9196e3ea8a3c6981fdf3",
     "file": "koroze/korozni-odolnost-kovu/Korozni odolnost kovu.html",
     "first_seen": "2026-08-09",
     "hash_version": 2,
-    "last_changed": "2026-09-20",
+    "last_changed": "2026-10-08",
     "locked": false,
     "note": "",
     "title": "Korozní odolnost kovů",
-    "written_hash": "3ba5cc2d212c35ca30f492ef64eb8413bfb4479b04e150e35476a35b4b477d99"
+    "written_hash": "6daccb242b017ceeee81c4510fc140c6eba873343aeb9196e3ea8a3c6981fdf3"
   },
   "koroze/ochrana/fluidni-poplastovani/index": {
     "badge": false,
@@ -246,18 +246,44 @@
     "title": "O projektu",
     "written_hash": "03a34b8df82a755541c6df1191c2ae5e60d708ef74ff7b556eb389d1b72ba3cd"
   },
+  "odlevani/forma/formovaci-smesi": {
+    "badge": true,
+    "category": "odlevani",
+    "content_hash": "4e3883c198150a373cb315682b76ba61cbb15a3425b87aae17e4aa0d13fb26b1",
+    "file": "odlevani/forma/formovaci-smesi.html",
+    "first_seen": "2026-10-08",
+    "hash_version": 2,
+    "last_changed": "2026-10-08",
+    "locked": false,
+    "note": "Požadavky na směs, složení v interaktivním řezu stěnou formy, rozdělení podle pojiva a klikatelný koloběh směsi ve slévárně.",
+    "title": "Formovací směsi",
+    "written_hash": "35cc8eb5794663a8e2f66941f7624b35464cd4cd5a2fd6a6dffec33ff5e5d651"
+  },
   "odlevani/forma/index": {
     "badge": true,
     "category": "odlevani",
-    "content_hash": "1d60240d5f86577f175d015b23d5a151ba0e67f46d5db638ae816f154236b97c",
+    "content_hash": "261069ee4232ea446208862c8692269a062672136d16c27630c81f348960a953",
     "file": "odlevani/forma/index.html",
     "first_seen": "2026-09-20",
     "hash_version": 2,
-    "last_changed": "2026-09-20",
+    "last_changed": "2026-10-08",
     "locked": false,
     "note": "Rozcestník skupiny: modely, formovací směsi, formování a jádra.",
     "title": "Model a písková forma",
-    "written_hash": "1afaede535a702d1bbda4cfa8c624493011520a6f72997952e4f156d094059f4"
+    "written_hash": "b464a175874cfc6ff61bb151171d7fae91becc46f56b03126df3f67644a67c75"
+  },
+  "odlevani/forma/jadra": {
+    "badge": true,
+    "category": "odlevani",
+    "content_hash": "c65d955570e69cfd72356345e8a4d57b456bb7789ec98c8ebd125fb8342d7c60",
+    "file": "odlevani/forma/jadra.html",
+    "first_seen": "2026-10-08",
+    "hash_version": 2,
+    "last_changed": "2026-10-08",
+    "locked": false,
+    "note": "Jaderník v interaktivním řezu, pět metod výroby jader, animace pracovního cyklu vstřelovacího stroje pro cold-box i hot-box a srovnání metod.",
+    "title": "Výroba jader",
+    "written_hash": "2aa7375aecbc42f83cecfead653c4654f53c0285348bc0d24173964e3c224310"
   },
   "odlevani/forma/modely": {
     "badge": true,
@@ -272,18 +298,44 @@
     "title": "Modely a modelová zařízení",
     "written_hash": "915616bc7b700cafd17d4d078d11b2a61a76c13747ec3d711d75cb87b926e5bc"
   },
+  "odlevani/forma/rucni-formovani": {
+    "badge": true,
+    "category": "odlevani",
+    "content_hash": "a0943f6bf52a6e35e7263a19728dcf6e0adb2b1fffd788e86f2ec58dbd423bd8",
+    "file": "odlevani/forma/rucni-formovani.html",
+    "first_seen": "2026-10-08",
+    "hash_version": 2,
+    "last_changed": "2026-10-08",
+    "locked": false,
+    "note": "Rám, půdnice a nářadí formíře, krokovaný postup formování na dělený model v řezu formou, formování do země a šablonování.",
+    "title": "Ruční formování",
+    "written_hash": "e23d2f4e0912bc1bbee950eb07c96352ab872daea71600898ac9acd054d83d55"
+  },
+  "odlevani/forma/strojni-formovani": {
+    "badge": true,
+    "category": "odlevani",
+    "content_hash": "6215609ed057d1f7a629ef603a969d1cb24cb8b9d93f26da01bffcb1dfe3c7e1",
+    "file": "odlevani/forma/strojni-formovani.html",
+    "first_seen": "2026-10-08",
+    "hash_version": 2,
+    "last_changed": "2026-10-08",
+    "locked": false,
+    "note": "Pět metod zhutňování se schématy principu, interaktivní řez formou s průběhem tvrdosti po výšce a srovnání metod.",
+    "title": "Strojní formování",
+    "written_hash": "86c1d279e69b2db7de7e571813d8d7c4dde7d611eb98faeea55f91248e673e01"
+  },
   "odlevani/index": {
     "badge": true,
     "category": "odlevani",
-    "content_hash": "485274d4544654413cf0fd05ad1ac33d1fb0855739c91e32c4dabbd5200236d8",
+    "content_hash": "32d7ef672e62eef61d865dd7179e57bfcc333d224239c11ff2d17c542cb3eeab",
     "file": "odlevani/index.html",
     "first_seen": "2026-09-20",
     "hash_version": 2,
-    "last_changed": "2026-09-20",
+    "last_changed": "2026-10-08",
     "locked": false,
     "note": "Nový rozcestník kapitoly odlévání se čtyřmi skupinami.",
     "title": "Odlévání",
-    "written_hash": "24c358b76c81aef0ea13dc8cc58995cb1b7292df962409cd847899bde574ea40"
+    "written_hash": "a314d38548c41ccad758b84e125860c10db51285471388e8d94478571a1feff0"
   },
   "odlevani/specialni/index": {
     "badge": true,
@@ -301,15 +353,67 @@
   "odlevani/tuhnuti/index": {
     "badge": true,
     "category": "odlevani",
-    "content_hash": "77e8873915b2f4e8e78c46de1e81af8ff74f027d712ef0beed4b30960473fa3b",
+    "content_hash": "7e2107e46da898581a95c94311f06513dd1516f45bf110fd9fd9e1cbb5bf9036",
     "file": "odlevani/tuhnuti/index.html",
     "first_seen": "2026-09-20",
     "hash_version": 2,
-    "last_changed": "2026-09-20",
+    "last_changed": "2026-10-08",
     "locked": false,
     "note": "Rozcestník skupiny: vtoková soustava, nálitky, technologičnost a vady.",
     "title": "Plnění, tuhnutí a vady",
-    "written_hash": "8b3e798122c0a7ebc3d6aefedfb58238efcfdedb38a691dfb522605ae53105a4"
+    "written_hash": "017dc5e3ce7ed4c2423b6bab722759e8b2a70481c78d248a6bce2e756800a3bb"
+  },
+  "odlevani/tuhnuti/nalitky": {
+    "badge": true,
+    "category": "odlevani",
+    "content_hash": "06162140fcac635207a22c674f430dfd3779c327475853151ac075c2bcb4ac52",
+    "file": "odlevani/tuhnuti/nalitky.html",
+    "first_seen": "2026-10-08",
+    "hash_version": 2,
+    "last_changed": "2026-10-08",
+    "locked": false,
+    "note": "Tuhnutí s ostrým rozhraním a v celém průřezu, tepelné uzly, usměrněné tuhnutí, animace tuhnutí bez nálitku, s nálitkem a s chladítkem, druhy nálitků, chladítka a dokončování odlitku.",
+    "title": "Tuhnutí, nálitky a dokončování",
+    "written_hash": "73371606997b955f8e9580221b072b555df46f0ecdada2c686473a127bb65b70"
+  },
+  "odlevani/tuhnuti/technologicnost": {
+    "badge": true,
+    "category": "odlevani",
+    "content_hash": "1dcd8f9e007825d3abfbd4e57ca7911955cc20aeb258ec546f0376093ae895e9",
+    "file": "odlevani/tuhnuti/technologicnost.html",
+    "first_seen": "2026-10-08",
+    "hash_version": 2,
+    "last_changed": "2026-10-08",
+    "locked": false,
+    "note": "Vyjmutí modelu, tloušťka stěn, styky a žebra, jádra, volné smršťování, poloha odlitku ve formě a předlité a vrtané otvory, každé téma ve schématu se stavem špatně a správně.",
+    "title": "Technologičnost konstrukce odlitku",
+    "written_hash": "c03003a89e0d5d84fe9288d5f38334ce8a0175e0098331df3037638cc71c7599"
+  },
+  "odlevani/tuhnuti/vady": {
+    "badge": true,
+    "category": "odlevani",
+    "content_hash": "732d0c8be15cdcbd0bbcd873298431d7f1392e0f6ab997edd4ae6b05a1b516a1",
+    "file": "odlevani/tuhnuti/vady.html",
+    "first_seen": "2026-10-08",
+    "hash_version": 2,
+    "last_changed": "2026-10-08",
+    "locked": false,
+    "note": "Mapa míst vzniku vad ve formě, atlas vad s projevem, příčinou a nápravou a srovnání podobných vad.",
+    "title": "Vady odlitků",
+    "written_hash": "d15b3d93d2f2c6e6f07334fe2590c484735b27060840112765b40277f7e0023a"
+  },
+  "odlevani/tuhnuti/vtokova-soustava": {
+    "badge": true,
+    "category": "odlevani",
+    "content_hash": "e3056b0983ca520e42410fa91e4d712ef29eceb130df8fcb249fa341dd8bae7e",
+    "file": "odlevani/tuhnuti/vtokova-soustava.html",
+    "first_seen": "2026-10-08",
+    "hash_version": 2,
+    "last_changed": "2026-10-08",
+    "locked": false,
+    "note": "Části vtokové soustavy, tři způsoby přívodu kovu, animace plnění formy s filtrem i bez něj, tlaková a podtlaková soustava, filtry a papírové vtokové soustavy.",
+    "title": "Vtoková soustava",
+    "written_hash": "1947b9ced3c9d32f7fd206bb844b61c3b1376b154d2908f9eb21d65dd553edeb"
   },
   "odlevani/zaklady/index": {
     "badge": true,

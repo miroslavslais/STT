@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuhnutí, nálitky a dokončování | STT</title>
+<meta name="description" content="Tuhnutí odlitku — tuhnutí s ostrým rozhraním a v celém průřezu, tepelné uzly, usměrněné tuhnutí, animace tuhnutí s nálitkem a chladítkem, druhy nálitků, chladítka a dokončování odlitku.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-08">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="9">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Plnění, tuhnutí a&nbsp;vady</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Plnění, tuhnutí a&nbsp;vady</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 28px">Tuhnutí, nálitky a&nbsp;dokončování</h1>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Jak odlitek tuhne</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Tavenina začne tuhnout u&nbsp;stěny formy, která odvádí teplo, a&nbsp;ztuhlá vrstva roste dovnitř. Nejdéle zůstane tekutá nejtlustší část odlitku. Při tuhnutí kov zmenšuje objem — úbytek musí doplnit tekutý kov odjinud, jinak zůstane v&nbsp;odlitku dutina. Smrštění popisuje <a href="../zaklady/vlastnosti-slitin.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">stránka o&nbsp;vlastnostech slitin →</a></p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 14px">
+      <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.38);border-radius:16px;padding:20px 24px">
+        <svg viewBox="0 0 400 150" style="width:100%;display:block;margin-bottom:14px">
+          <defs>
+            <marker id="ntArr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#eaf2fa"></path></marker>
+          </defs>
+          <rect x="10" y="10" width="40" height="130" fill="#2d2924"></rect>
+          <rect x="350" y="10" width="40" height="130" fill="#2d2924"></rect>
+          <rect x="50" y="10" width="90" height="130" fill="#8494a8"></rect>
+          <rect x="140" y="10" width="120" height="130" fill="oklch(0.74 0.17 52)"></rect>
+          <rect x="260" y="10" width="90" height="130" fill="#8494a8"></rect>
+          <line x1="140" y1="10" x2="140" y2="140" stroke="#eaf2fa" stroke-width="2"></line>
+          <line x1="260" y1="10" x2="260" y2="140" stroke="#eaf2fa" stroke-width="2"></line>
+          <line x1="146" y1="75" x2="172" y2="75" stroke="#eaf2fa" stroke-width="2.2" marker-end="url(#ntArr)"></line>
+          <line x1="254" y1="75" x2="228" y2="75" stroke="#eaf2fa" stroke-width="2.2" marker-end="url(#ntArr)"></line>
+        </svg>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:8px">Tuhnutí s&nbsp;ostrým rozhraním</div>
+        <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">Čisté kovy a&nbsp;eutektické slitiny. Mezi tuhou a&nbsp;tekutou částí je ostré rozhraní, které postupuje dovnitř. Úbytek objemu se soustředí do jedné dutiny — staženiny.</div>
+      </div>
+      <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.38);border-radius:16px;padding:20px 24px">
+        <svg viewBox="0 0 400 150" style="width:100%;display:block;margin-bottom:14px">
+          <defs>
+            <pattern id="ntMush" x="50" y="10" width="30" height="26" patternUnits="userSpaceOnUse"><path d="M 15 6 L 22 13 L 15 20 L 8 13 Z" fill="#8494a8"></path></pattern>
+          </defs>
+          <rect x="10" y="10" width="40" height="130" fill="#2d2924"></rect>
+          <rect x="350" y="10" width="40" height="130" fill="#2d2924"></rect>
+          <rect x="50" y="10" width="300" height="130" fill="oklch(0.74 0.17 52)"></rect>
+          <rect x="50" y="10" width="300" height="130" fill="url(#ntMush)"></rect>
+        </svg>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:8px">Tuhnutí v&nbsp;celém průřezu</div>
+        <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">Slitiny, které tuhnou v&nbsp;širokém rozmezí teplot. Krystaly rostou v&nbsp;celém průřezu najednou a&nbsp;kov mezi nimi těžko doteče. Vznikají drobné rozptýlené dutinky — řediny.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:26px;align-items:center;margin:0 0 44px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:#2d2924;border:1px solid rgba(150,180,210,0.3);box-sizing:border-box"></span>stěna formy</div>
+      <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:#8494a8"></span>tuhý kov</div>
+      <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:oklch(0.74 0.17 52)"></span>tekutý kov</div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Tepelný uzel</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Tepelný uzel je místo, kde se stýká víc stěn nebo je stěna zesílená. Kov tam tuhne nejpozději a&nbsp;vzniká tam staženina.</p>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 24px;margin:0 0 16px;box-sizing:border-box">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:10px">řezy styků stěn stejné tloušťky</div>
+      <svg viewBox="0 0 1000 350" style="width:100%;display:block">
+        <defs>
+          <radialGradient id="ntSpot"><stop offset="0" stop-color="oklch(0.80 0.17 52)"></stop><stop offset="0.6" stop-color="oklch(0.70 0.17 45)"></stop><stop offset="1" stop-color="oklch(0.70 0.17 45)" stop-opacity="0"></stop></radialGradient>
+        </defs>
+        <rect x="20" y="20" width="300" height="270" rx="8" fill="#2d2924"></rect>
+        <rect x="350" y="20" width="300" height="270" rx="8" fill="#2d2924"></rect>
+        <rect x="680" y="20" width="300" height="270" rx="8" fill="#2d2924"></rect>
+        <path d="M 90 40 H 140 V 230 H 260 V 280 H 90 Z" fill="#8494a8"></path>
+        <path d="M 380 80 H 620 V 130 H 525 V 280 H 475 V 130 H 380 Z" fill="#8494a8"></path>
+        <path d="M 805 40 H 855 V 135 H 950 V 185 H 855 V 280 H 805 V 185 H 710 V 135 H 805 Z" fill="#8494a8"></path>
+        <circle cx="115" cy="255" r="18" fill="url(#ntSpot)"></circle>
+        <circle cx="500" cy="105" r="26" fill="url(#ntSpot)"></circle>
+        <circle cx="830" cy="160" r="34" fill="url(#ntSpot)"></circle>
+        <g onClick="{{ J.L.click }}" style="cursor:pointer">
+          <rect x="130" y="304" width="90" height="36" rx="10" fill="{{ J.L.bg }}" stroke="{{ J.L.bd }}" stroke-width="1.4"></rect>
+          <text x="175" y="327" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="{{ J.L.col }}">styk L</text>
+        </g>
+        <g onClick="{{ J.T.click }}" style="cursor:pointer">
+          <rect x="455" y="304" width="90" height="36" rx="10" fill="{{ J.T.bg }}" stroke="{{ J.T.bd }}" stroke-width="1.4"></rect>
+          <text x="500" y="327" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="{{ J.T.col }}">styk T</text>
+        </g>
+        <g onClick="{{ J.X.click }}" style="cursor:pointer">
+          <rect x="785" y="304" width="90" height="36" rx="10" fill="{{ J.X.bg }}" stroke="{{ J.X.bd }}" stroke-width="1.4"></rect>
+          <text x="830" y="327" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="{{ J.X.col }}">styk X</text>
+        </g>
+      </svg>
+      <div style="display:flex;gap:26px;align-items:center;margin:14px 0 16px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:#2d2924;border:1px solid rgba(150,180,210,0.3);box-sizing:border-box"></span>forma</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:#8494a8"></span>stěny odlitku</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:50%;background:oklch(0.76 0.17 50)"></span>tepelný uzel</div>
+      </div>
+      <div style="background:rgba(123,163,204,0.10);border:1px solid rgba(123,163,204,0.40);border-radius:14px;padding:16px 22px;max-width:640px;box-sizing:border-box">
+        <sc-if value="{{ hasJn }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:6px">{{ jn.name }}</div>
+          <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ jn.text }}</div>
+        </sc-if>
+        <sc-if value="{{ noJn }}" hint-placeholder-val="{{ true }}">
+          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na popisek styku.</div>
+        </sc-if>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.7;color:#aebfcf;margin:0 0 44px;max-width:820px;text-wrap:pretty">Tepelný uzel zmenší zaoblení vnitřního rohu, odlehčení nebo vyrovnání tloušťky stěn. Jak navrhnout odlitek, aby uzly nevznikaly, řeší stránka o&nbsp;technologičnosti konstrukce.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Usměrněné tuhnutí</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 44px;max-width:820px;text-wrap:pretty">Odlitek má tuhnout postupně od místa nejvzdálenějšího od nálitku směrem k&nbsp;nálitku. Tekutý kov pak vždy doplňuje úbytek objemu v&nbsp;právě tuhnoucí části a&nbsp;poslední tuhne nálitek, ve kterém staženina zůstane. Pomáhá tomu <a href="vtokova-soustava.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">přívod nejteplejšího kovu</a> k&nbsp;nálitku, nálitek u&nbsp;nejtlustší části a&nbsp;chladítka u&nbsp;tenkých konců.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Animace tuhnutí</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Přepni variantu a&nbsp;spusť tuhnutí. Klikni na popisek ve&nbsp;schématu a&nbsp;zobrazí se, co část dělá.</p>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 26px;margin:0 0 44px;box-sizing:border-box">
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin:0 0 16px">
+        <div style="display:flex;gap:8px">
+          <sc-for list="{{ mOpts }}" as="o" hint-placeholder-count="3">
+            <div onClick="{{ o.click }}" style="cursor:pointer;border:1.5px solid {{ o.bd }};background:{{ o.bg }};border-radius:12px;padding:9px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ o.col }}">{{ o.label }}</div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:10px">svislý řez formou s&nbsp;odlitkem</div>
+
+      <svg viewBox="0 0 1000 500" style="width:100%;display:block">
+        <defs>
+          <clipPath id="ntCavClip"><path d="M 160 320 H 560 V 260 H 600 V 230 H 560 V 120 A 40 40 0 0 1 600 80 H 680 A 40 40 0 0 1 720 120 V 230 H 680 V 260 H 720 V 380 H 160 Z"></path></clipPath>
+        </defs>
+        <rect x="100" y="50" width="700" height="390" fill="#2d2924" stroke="rgba(150,180,210,0.3)" stroke-width="1.4"></rect>
+        <rect x="132" y="310" width="28" height="80" fill="oklch(0.70 0.09 160)" display="{{ an.chillDisp }}"></rect>
+        <g clip-path="url(#ntCavClip)">
+          <path d="{{ an.liquid }}" fill="oklch(0.74 0.17 52)"></path>
+          <path d="{{ an.solid }}" fill="#8494a8"></path>
+          <path d="{{ an.voids }}" fill="#05070b"></path>
+        </g>
+        <path d="{{ an.outline }}" fill="none" stroke="rgba(234,242,250,0.45)" stroke-width="1.4"></path>
+
+        <path d="M 344 452 V 352" fill="none" stroke="{{ L.odlitek.lc }}" stroke-width="1.4"></path>
+        <path d="M 830 330 H 720" fill="none" stroke="{{ L.tlusta.lc }}" stroke-width="1.4"></path>
+        <path d="M 830 155 H 720" fill="none" stroke="{{ L.nalitek.lc }}" stroke-width="1.4" display="{{ L.nalitek.disp }}"></path>
+        <path d="M 830 245 H 680" fill="none" stroke="{{ L.krcek.lc }}" stroke-width="1.4" display="{{ L.krcek.disp }}"></path>
+        <path d="M 163 452 V 390" fill="none" stroke="{{ L.chladitko.lc }}" stroke-width="1.4" display="{{ L.chladitko.disp }}"></path>
+        <path d="{{ L.stazenina.lead }}" fill="none" stroke="{{ L.stazenina.lc }}" stroke-width="1.4" display="{{ L.stazenina.disp }}"></path>
+
+        <g onClick="{{ L.odlitek.click }}" style="cursor:pointer">
+          <rect x="300" y="452" width="88" height="36" rx="10" fill="{{ L.odlitek.bg }}" stroke="{{ L.odlitek.bd }}" stroke-width="1.4"></rect>
+          <text x="344" y="475" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="{{ L.odlitek.col }}">odlitek</text>
+        </g>
+        <g onClick="{{ L.tlusta.click }}" style="cursor:pointer">
+          <rect x="830" y="312" width="122" height="36" rx="10" fill="{{ L.tlusta.bg }}" stroke="{{ L.tlusta.bd }}" stroke-width="1.4"></rect>
+          <text x="891" y="335" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="{{ L.tlusta.col }}">silná část</text>
+        </g>
+        <g onClick="{{ L.nalitek.click }}" style="cursor:pointer" display="{{ L.nalitek.disp }}">
+          <rect x="830" y="137" width="88" height="36" rx="10" fill="{{ L.nalitek.bg }}" stroke="{{ L.nalitek.bd }}" stroke-width="1.4"></rect>
+          <text x="874" y="160" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="{{ L.nalitek.col }}">nálitek</text>
+        </g>
+        <g onClick="{{ L.krcek.click }}" style="cursor:pointer" display="{{ L.krcek.disp }}">
+          <rect x="830" y="227" width="76" height="36" rx="10" fill="{{ L.krcek.bg }}" stroke="{{ L.krcek.bd }}" stroke-width="1.4"></rect>
+          <text x="868" y="250" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="{{ L.krcek.col }}">krček</text>
+        </g>
+        <g onClick="{{ L.chladitko.click }}" style="cursor:pointer" display="{{ L.chladitko.disp }}">
+          <rect x="110" y="452" width="106" height="36" rx="10" fill="{{ L.chladitko.bg }}" stroke="{{ L.chladitko.bd }}" stroke-width="1.4"></rect>
+          <text x="163" y="475" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="{{ L.chladitko.col }}">chladítko</text>
+        </g>
+        <g onClick="{{ L.stazenina.click }}" style="cursor:pointer" display="{{ L.stazenina.disp }}">
+          <rect x="830" y="{{ L.stazenina.y }}" width="106" height="36" rx="10" fill="{{ L.stazenina.bg }}" stroke="{{ L.stazenina.bd }}" stroke-width="1.4"></rect>
+          <text x="883" y="{{ L.stazenina.ty }}" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="{{ L.stazenina.col }}">staženina</text>
+        </g>
+      </svg>
+      <div style="display:flex;gap:8px;justify-content:center;margin:14px 0 0">
+        <div onClick="{{ restart }}" title="Znovu" aria-label="Znovu" style="cursor:pointer;width:42px;height:42px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(150,180,210,0.22);background:rgba(150,180,210,0.04);border-radius:12px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 0 2.4-5.7" stroke="#cfe0f0" stroke-width="2" stroke-linecap="round"></path><path d="M4 4v4.5h4.5" stroke="#cfe0f0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div onClick="{{ play }}" title="Přehrát" aria-label="Přehrát" style="cursor:pointer;width:42px;height:42px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;border:1.5px solid {{ btn.playBd }};background:{{ btn.playBg }};border-radius:12px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="{{ btn.playCol }}"></path></svg>
+        </div>
+        <div onClick="{{ pause }}" title="Pauza" aria-label="Pauza" style="cursor:pointer;width:42px;height:42px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(150,180,210,0.22);background:rgba(150,180,210,0.04);border-radius:12px">
+          <svg width="20" height="20" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1" fill="#cfe0f0"></rect><rect x="14" y="5" width="4" height="14" rx="1" fill="#cfe0f0"></rect></svg>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:26px;align-items:center;margin:14px 0 18px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:oklch(0.74 0.17 52)"></span>tekutý kov</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:#8494a8"></span>tuhý kov</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:#05070b;border:1px solid rgba(150,180,210,0.4);box-sizing:border-box"></span>staženina</div>
+        <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:oklch(0.70 0.09 160)"></span>chladítko</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:360px minmax(0,1fr);gap:20px;align-items:start">
+        <div style="background:rgba(123,163,204,0.10);border:1px solid rgba(123,163,204,0.40);border-radius:14px;padding:18px 22px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7ba3cc;margin-bottom:8px">popisek</div>
+          <sc-if value="{{ hasLab }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;line-height:1.25;color:#eaf2fa;margin-bottom:8px">{{ info.name }}</div>
+            <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ info.text }}</div>
+          </sc-if>
+          <sc-if value="{{ noLab }}" hint-placeholder-val="{{ true }}">
+            <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na popisek ve&nbsp;schématu.</div>
+          </sc-if>
+        </div>
+        <div style="background:rgba(150,180,210,0.05);border-left:3px solid #7ba3cc;border-radius:0 12px 12px 0;padding:16px 20px">
+          <p style="font-size:15.5px;line-height:1.7;color:#eaf2fa;margin:0;text-wrap:pretty">{{ modeText }}</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Nálitky</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Nálitek je zásobník tekutého kovu, který doplňuje úbytek objemu při tuhnutí odlitku. Musí tuhnout později než část, kterou doplňuje a musí obsahovat dost kovu. Bývá u&nbsp;nejsilnější části nebo tepelného uzlu. S&nbsp;odlitkem je spojen krčkem, po odlití se odstraní.</p>
+    <div style="display:flex;gap:10px;margin:0 0 16px;flex-wrap:wrap">
+      <sc-for list="{{ rTabs }}" as="t" hint-placeholder-count="3">
+        <div onClick="{{ t.click }}" style="cursor:pointer;border:1.5px solid {{ t.bd }};background:{{ t.bg }};border-radius:12px;padding:10px 20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:{{ t.col }}">{{ t.label }}</div>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:420px minmax(0,1fr);gap:26px;align-items:center;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px;margin:0 0 16px;box-sizing:border-box">
+      <div>
+        <svg viewBox="0 0 360 200" style="width:100%;display:block">
+          <sc-if value="{{ rk.open }}" hint-placeholder-val="{{ true }}">
+            <rect x="20" y="40" width="320" height="150" fill="#2d2924"></rect>
+            <rect x="70" y="120" width="220" height="50" fill="#8494a8"></rect>
+            <rect x="140" y="40" width="80" height="80" fill="oklch(0.74 0.17 52)"></rect>
+            <line x1="20" y1="40" x2="140" y2="40" stroke="rgba(234,242,250,0.6)" stroke-width="1.6"></line>
+            <line x1="220" y1="40" x2="340" y2="40" stroke="rgba(234,242,250,0.6)" stroke-width="1.6"></line>
+          </sc-if>
+          <sc-if value="{{ rk.closed }}" hint-placeholder-val="{{ false }}">
+            <rect x="20" y="40" width="320" height="150" fill="#2d2924"></rect>
+            <rect x="70" y="120" width="220" height="50" fill="#8494a8"></rect>
+            <path d="M 140 120 V 95 A 40 40 0 0 1 220 95 V 120 Z" fill="oklch(0.74 0.17 52)"></path>
+            <line x1="20" y1="40" x2="340" y2="40" stroke="rgba(234,242,250,0.6)" stroke-width="1.6"></line>
+          </sc-if>
+          <sc-if value="{{ rk.side }}" hint-placeholder-val="{{ false }}">
+            <rect x="20" y="40" width="320" height="150" fill="#2d2924"></rect>
+            <rect x="60" y="90" width="170" height="80" fill="#8494a8"></rect>
+            <rect x="230" y="110" width="30" height="40" fill="oklch(0.74 0.17 52)"></rect>
+            <path d="M 260 170 V 100 A 30 30 0 0 1 320 100 V 170 Z" fill="oklch(0.74 0.17 52)"></path>
+            <line x1="20" y1="130" x2="340" y2="130" stroke="rgba(234,242,250,0.7)" stroke-width="1.5" stroke-dasharray="8 6"></line>
+            <line x1="20" y1="40" x2="340" y2="40" stroke="rgba(234,242,250,0.6)" stroke-width="1.6"></line>
+          </sc-if>
+        </svg>
+        <div style="display:flex;gap:20px;align-items:center;margin-top:12px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#cfe0f0"><span style="width:14px;height:14px;border-radius:4px;background:#2d2924;border:1px solid rgba(150,180,210,0.3);box-sizing:border-box"></span>forma</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#cfe0f0"><span style="width:14px;height:14px;border-radius:4px;background:#8494a8"></span>odlitek</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#cfe0f0"><span style="width:14px;height:14px;border-radius:4px;background:oklch(0.74 0.17 52)"></span>nálitek</div>
+          <sc-if value="{{ rk.side }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:#cfe0f0"><span style="width:16px;height:0;border-top:1.5px dashed rgba(234,242,250,0.7)"></span>dělicí rovina</div>
+          </sc-if>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin-bottom:8px">{{ rTab.label }}</div>
+        <p style="font-size:15.5px;line-height:1.7;color:#cfe0f0;margin:0;text-wrap:pretty">{{ rTab.text }}</p>
+      </div>
+    </div>
+    <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.38);border-radius:16px;padding:20px 24px;margin:0 0 44px;max-width:820px;box-sizing:border-box">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:10px">Jak nálitek udržet déle tekutý</div>
+      <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:#cfe0f0">
+        <li>izolační obklad kolem nálitku zpomalí odvod tepla do formy</li>
+        <li>exotermický obklad nebo zásyp při ohřátí sám hoří a&nbsp;teplo dodává</li>
+        <li>zakrytí hladiny otevřeného nálitku zabrání chladnutí shora</li>
+      </ul>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 14px">Chladítka</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 16px">
+      <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.38);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:8px">Vnější chladítko</div>
+        <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">Kovová destička zaformovaná ve&nbsp;stěně formy. Odvádí teplo rychleji než směs a&nbsp;urychlí tuhnutí v&nbsp;daném místě. Po odlití se vyjme a&nbsp;použije znovu.</div>
+      </div>
+      <div style="background:rgba(123,163,204,0.09);border:1px solid rgba(123,163,204,0.38);border-radius:16px;padding:20px 22px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:8px">Vnitřní chladítko</div>
+        <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">Kovový díl vložený přímo do dutiny, kov ho obleje a&nbsp;částečně nataví, zůstane v&nbsp;odlitku. Musí být ze&nbsp;stejného nebo podobného materiálu jako odlitek a&nbsp;čisté.</div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.7;color:#aebfcf;margin:0 0 44px;max-width:820px;text-wrap:pretty">Chladítko zmenší tepelný uzel tam, kam nálitek nedosáhne, nebo vytvoří směrové tuhnutí k&nbsp;nálitku.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Dokončování odlitku</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Ztuhlý odlitek ještě není hotový výrobek.</p>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:26px 26px 24px;box-sizing:border-box">
+      <div style="position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px">
+        <div style="position:absolute;left:8.33%;right:8.33%;top:11px;height:2px;background:rgba(150,180,210,0.28)"></div>
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="6">
+          <div onClick="{{ s.click }}" style="position:relative;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+            <span style="width:24px;height:24px;box-sizing:border-box;border-radius:50%;border:2px solid {{ s.bd }};background:{{ s.dot }}"></span>
+            <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;line-height:1.35;color:{{ s.col }};text-wrap:balance">{{ s.title }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:22px;background:rgba(123,163,204,0.10);border:1px solid rgba(123,163,204,0.40);border-radius:14px;padding:16px 22px;box-sizing:border-box">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:6px">{{ step.title }}</div>
+        <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ step.text }}</div>
+        <sc-if value="{{ step.tz }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:10px;font-size:15px;line-height:1.65;color:#aebfcf">Tepelné zpracování popisuje kapitola <a href="../../vnitrni-stavba-kovu-a-tz/index.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">Vnitřní stavba kovů a&nbsp;TZ →</a></div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const DUR = 10000;
+const NB = '\u00a0';
+function inCav(mode, cx, cy) {
+  if (cx > 160 && cx < 560 && cy > 320 && cy < 380) return true;
+  if (cx > 560 && cx < 720 && cy > 260 && cy < 380) return true;
+  if (mode === 'none') return false;
+  if (cx > 600 && cx < 680 && cy > 230 && cy < 260) return true;
+  if (cx > 560 && cx < 720 && cy > 80 && cy < 230) {
+    if (cy < 120 && cx < 600) return (cx - 600) ** 2 + (cy - 120) ** 2 <= 2209;
+    if (cy < 120 && cx > 680) return (cx - 680) ** 2 + (cy - 120) ** 2 <= 2209;
+    return true;
+  }
+  return false;
+}
+function field(cells, map, init) {
+  const d = cells.map((c, k) => (init(c) ?? Infinity));
+  const nb = [[1,0,1],[-1,0,1],[0,1,1],[0,-1,1],[1,1,Math.SQRT2],[1,-1,Math.SQRT2],[-1,1,Math.SQRT2],[-1,-1,Math.SQRT2]];
+  for (let it = 0, ch = true; ch && it < 300; it++) {
+    ch = false;
+    cells.forEach((c, k) => {
+      nb.forEach(([di, dj, w]) => {
+        const n = map.get((c.j + dj) * 1000 + c.i + di);
+        if (n !== undefined && d[n] + w < d[k]) { d[k] = d[n] + w; ch = true; }
+      });
+    });
+  }
+  return d;
+}
+function build(mode) {
+  const cells = [], map = new Map();
+  for (let j = 8; j < 38; j++) for (let i = 16; i < 72; i++) {
+    if (inCav(mode, i * 10 + 5, j * 10 + 5)) { map.set(j * 1000 + i, cells.length); cells.push({ i, j }); }
+  }
+  const edge = c => [[1,0],[-1,0],[0,1],[0,-1]].some(([a, b]) => !map.has((c.j + b) * 1000 + c.i + a));
+  const d = field(cells, map, c => edge(c) ? 1 : null);
+  const gR = mode !== 'none' ? field(cells, map, c => ((c.i === 63 || c.i === 64) && c.j === 15) ? 0 : null) : null;
+  const gC = mode === 'chill' ? field(cells, map, c => c.i === 16 ? 0 : null) : null;
+  const t = cells.map((c, k) => d[k] * d[k] + (gR ? 8 * Math.max(0, 20 - gR[k]) : 0) + (gC ? 3 * gC[k] : 0));
+  const [y0, D, W] = { none: [275, 60, 32], riser: [100, 75, 36], chill: [100, 42, 42] }[mode];
+  const inV = c => { const cx = c.i * 10 + 5, cy = c.j * 10 + 5; return cy >= y0 && cy <= y0 + D && Math.abs(cx - 640) <= W * (1 - (cy - y0) / D) + 5; };
+  const vk = cells.map((c, k) => k).filter(k => inV(cells[k])).sort((a, b) => cells[a].j - cells[b].j);
+  const tmin = Math.min(...t), tmax = Math.max(...t);
+  const tA = vk.map(k => t[k]).sort((a, b) => a - b)[Math.floor(vk.length / 2)];
+  const tv = new Map();
+  vk.forEach((k, n) => tv.set(k, tA + (tmax - tA) * (n + 1) / vk.length));
+  let sx = 0, sy = 0;
+  vk.forEach(k => { sx += cells[k].i * 10 + 5; sy += cells[k].j * 10 + 5; });
+  return { cells, t, tv, tmin, tmax, cen: { x: sx / vk.length, y: sy / vk.length } };
+}
+const GEO = { none: build('none'), riser: build('riser'), chill: build('chill') };
+const OUTLINE = {
+  none: 'M 160 320 H 560 V 260 H 720 V 380 H 160 Z',
+  riser: 'M 160 320 H 560 V 260 H 600 V 230 H 560 V 120 A 40 40 0 0 1 600 80 H 680 A 40 40 0 0 1 720 120 V 230 H 680 V 260 H 720 V 380 H 160 Z',
+};
+function frame(g, p) {
+  const tau = g.tmin - 1 + (g.tmax - g.tmin + 1) * Math.pow(p, 1.6);
+  const out = { L: '', S: '', V: '' };
+  let started = false, run = null;
+  const flush = () => { if (run) out[run.c] += `M${run.x} ${run.y}h${run.w}v10h${-run.w}z`; run = null; };
+  g.cells.forEach((c, k) => {
+    const v = g.tv.get(k);
+    const cat = v !== undefined ? (tau >= v ? 'V' : 'L') : (g.t[k] <= tau ? 'S' : 'L');
+    if (cat === 'V') started = true;
+    const x = c.i * 10, y = c.j * 10;
+    if (run && run.c === cat && run.y === y && run.x + run.w === x) run.w += 10;
+    else { flush(); run = { c: cat, x, y, w: 10 }; }
+  });
+  flush();
+  return { liquid: out.L, solid: out.S, voids: out.V, started };
+}
+const MODES = [
+  { key: 'none', label: 'Bez nálitku', text: `Nálitek chybí. Tuhnutí postupuje od stěn formy dovnitř a${NB}tenká deska ztuhne první. Uprostřed silné části zůstane tekutý ostrov, který nemá odkud doplnit úbytek objemu, a${NB}mění se ve${NB}staženinu.` },
+  { key: 'riser', label: 'S nálitkem', text: `Tlustá část tuhne od stěn dovnitř a${NB}tekutý kov z${NB}nálitku dotéká krčkem dolů. Nálitek tuhne poslední, staženina vznikne v${NB}něm a${NB}odlitek je zdravý.` },
+  { key: 'chill', label: `S nálitkem a${NB}chladítkem`, text: `Na levém konci desky je ve${NB}stěně formy vnější chladítko. Levý konec tuhne nejrychleji a${NB}fronta tuhnutí postupuje plynule zleva k${NB}nálitku. Staženina v${NB}nálitku je mělčí a${NB}odlitek je zdravý.` },
+];
+const LABS = {
+  odlitek: { name: 'Odlitek', text: `Tenká deska má malý průřez a${NB}ztuhne dřív než tlustá část.` },
+  tlusta: { name: 'Silná část', text: `Nejtlustší část odlitku, kov v${NB}ní zůstává tekutý nejdéle z${NB}celého odlitku.` },
+  nalitek: { name: 'Nálitek', text: `Zásobník tekutého kovu, tuhne poslední a${NB}doplňuje úbytek objemu tlusté části.` },
+  krcek: { name: 'Krček', text: `Spojuje nálitek s${NB}odlitkem, tekutý kov jím dotéká z${NB}nálitku dolů.` },
+  chladitko: { name: 'Chladítko', text: `Kovová destička ve${NB}stěně formy, odvádí teplo rychleji než směs.` },
+  stazenina: { name: 'Staženina', text: `Dutina po úbytku objemu v${NB}místě, které tuhne poslední.` },
+};
+const JUNCS = [
+  { key: 'L', name: 'Styk do tvaru L', text: 'Nejmenší uzel, vnější roh chladne rychle.' },
+  { key: 'T', name: 'Styk do tvaru T', text: 'Uzel uprostřed styku, staženina častá.' },
+  { key: 'X', name: 'Styk do tvaru X', text: `Největší uzel, nejhorší případ; v${NB}konstrukci se nahrazuje dvěma přesazenými styky T.` },
+];
+const RISERS = [
+  { key: 'open', label: 'Otevřený nálitek', text: `Prochází vrškem až na povrch formy. Snadno se zaformuje a${NB}je vidět, že je plný. Hladina chladne na vzduchu, proto se zakrývá.` },
+  { key: 'closed', label: 'Uzavřený nálitek', text: `Skrytý ve${NB}formě, nahoře zaoblený. Méně tepla ztrácí, může být i${NB}tam, kam otevřený nedosáhne.` },
+  { key: 'side', label: 'Boční nálitek', text: `U${NB}boku odlitku, napájí části v${NB}dělicí rovině nebo pod ní.` },
+];
+const STEPS = [
+  { title: 'Vytloukání', text: `Odlitek se vyjme z${NB}formy, směs se vrací do oběhu.` },
+  { title: 'Odstranění jader', text: 'Jádro se rozpadne, vytluče nebo vyplaví.' },
+  { title: `Oddělení vtokové soustavy a${NB}nálitků`, text: `U${NB}šedé litiny se odlamují, u${NB}oceli se odřezávají plamenem, u${NB}slitin hliníku pilou.` },
+  { title: 'Čištění povrchu', text: `Tryskání ocelovou drtí nebo broky odstraní připečenou směs a${NB}okuje.` },
+  { title: 'Začištění', text: `Broušení zbytků po nálitcích, vtocích a${NB}otřepů v${NB}dělicí rovině.` },
+  { title: 'Tepelné zpracování', text: `Žíhání na snížení vnitřního pnutí, podle materiálu i${NB}další zpracování.`, tz: true },
+];
+const ON = { bg: 'rgba(224,140,70,0.16)', bd: 'oklch(0.84 0.13 48)', col: 'oklch(0.84 0.13 48)', lc: 'oklch(0.84 0.13 48)' };
+const OFF = { bg: '#0d121a', bd: 'rgba(150,180,210,0.35)', col: '#cfe0f0', lc: 'rgba(234,242,250,0.55)' };
+const optStyle = on => on
+  ? { bd: '#7ba3cc', bg: 'rgba(123,163,204,0.16)', col: '#eaf2fa' }
+  : { bd: 'rgba(150,180,210,0.22)', bg: 'rgba(150,180,210,0.04)', col: '#aebfcf' };
+
+class Component extends DCLogic {
+  state = { mode: 'none', p: 0, playing: false, lab: null, jn: null, rt: 0, step: 0 };
+  componentWillUnmount() { if (this.raf) cancelAnimationFrame(this.raf); }
+  tick = (ts) => {
+    if (!this.state.playing) return;
+    const dt = this.last == null ? 0 : ts - this.last;
+    this.last = ts;
+    const p = Math.min(1, this.state.p + dt / DUR);
+    this.setState({ p, playing: p < 1 });
+    if (p < 1) this.raf = requestAnimationFrame(this.tick);
+  };
+  play = () => {
+    if (this.state.playing) return;
+    this.last = null;
+    this.setState(s => ({ playing: true, p: s.p >= 1 ? 0 : s.p, lab: s.p >= 1 && s.lab === 'stazenina' ? null : s.lab }), () => { this.raf = requestAnimationFrame(this.tick); });
+  };
+  pause = () => { if (this.raf) cancelAnimationFrame(this.raf); this.setState({ playing: false }); };
+  restart = () => {
+    if (this.raf) cancelAnimationFrame(this.raf);
+    this.last = null;
+    this.setState(s => ({ p: 0, playing: true, lab: s.lab === 'stazenina' ? null : s.lab }), () => { this.raf = requestAnimationFrame(this.tick); });
+  };
+  setMode = (mode) => {
+    if (this.raf) cancelAnimationFrame(this.raf);
+    this.setState({ mode, p: 0, playing: false, lab: null });
+  };
+  renderVals() {
+    const { mode, p, playing, lab, jn, rt, step } = this.state;
+    const g = GEO[mode];
+    const f = frame(g, p);
+    const hasRiser = mode !== 'none';
+    const vis = { odlitek: true, tlusta: true, nalitek: hasRiser, krcek: hasRiser, chladitko: mode === 'chill', stazenina: f.started };
+    const L = {};
+    Object.keys(LABS).forEach(k => {
+      const on = lab === k && vis[k];
+      L[k] = Object.assign({}, on ? ON : OFF, { disp: vis[k] ? 'inline' : 'none', click: () => this.setState({ lab: k }) });
+    });
+    const sy = hasRiser ? 60 : 227;
+    L.stazenina.y = sy;
+    L.stazenina.ty = sy + 23;
+    L.stazenina.lead = `M 830 ${sy + 18} L ${Math.round(g.cen.x)} ${Math.round(g.cen.y)}`;
+    const curLab = lab && vis[lab] ? LABS[lab] : null;
+    const jSel = JUNCS.find(j => j.key === jn);
+    return {
+      an: { liquid: f.liquid, solid: f.solid, voids: f.voids, outline: hasRiser ? OUTLINE.riser : OUTLINE.none, chillDisp: mode === 'chill' ? 'inline' : 'none' },
+      L,
+      hasLab: !!curLab, noLab: !curLab, info: curLab || { name: '', text: '' },
+      modeText: MODES.find(m => m.key === mode).text,
+      mOpts: MODES.map(m => Object.assign({ label: m.label, click: () => this.setMode(m.key) }, optStyle(m.key === mode))),
+      btn: playing ? { playBd: '#7ba3cc', playBg: 'rgba(123,163,204,0.16)', playCol: '#eaf2fa' } : { playBd: 'rgba(150,180,210,0.22)', playBg: 'rgba(150,180,210,0.04)', playCol: '#cfe0f0' },
+      play: this.play, pause: this.pause, restart: this.restart,
+      J: Object.fromEntries(JUNCS.map(j => [j.key, Object.assign({ click: () => this.setState({ jn: j.key }) }, j.key === jn ? ON : OFF)])),
+      hasJn: !!jSel, noJn: !jSel, jn: jSel || { name: '', text: '' },
+      rTabs: RISERS.map((r, k) => Object.assign({ label: r.label, click: () => this.setState({ rt: k }) }, optStyle(k === rt))),
+      rTab: RISERS[rt],
+      rk: { open: rt === 0, closed: rt === 1, side: rt === 2 },
+      steps: STEPS.map((s, k) => ({ title: s.title, click: () => this.setState({ step: k }), bd: k === step ? 'oklch(0.84 0.13 48)' : 'rgba(150,180,210,0.45)', dot: k === step ? 'oklch(0.84 0.13 48)' : '#0d121a', col: k === step ? '#eaf2fa' : '#aebfcf' })),
+      step: Object.assign({ tz: false }, STEPS[step]),
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

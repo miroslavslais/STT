@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Výroba jader | STT</title>
+<meta name="description" content="Výroba jader: účel jádra, dělený jaderník v řezu, ruční pěchování, cold-box, hot-box, skořepinová jádra a 3D tisk, animace pracovního cyklu vstřelovacího stroje a srovnání metod.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-08">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="9">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Model a&nbsp;písková forma</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Model a&nbsp;písková forma</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 28px">Výroba jader</h1>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">K&nbsp;čemu je jádro</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 44px;max-width:820px;text-wrap:pretty">Jádro tvoří dutiny a&nbsp;otvory odlitku, které model sám nevytvoří. Ve&nbsp;formě leží na <a href="modely.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">známkách</a>, které mu vytvořil model. Tavenina je mnohem těžší než jádro, takže ho při lití nadnáší a&nbsp;obtéká ze všech stran. Známky ho proto musí udržet v&nbsp;přesné poloze. Po ztuhnutí musí jít jádro z&nbsp;odlitku odstranit, často z&nbsp;uzavřené dutiny. Proto jsou nároky na pevnost, prodyšnost a&nbsp;rozpadavost u&nbsp;jádra vyšší než u&nbsp;formy. Jádrové směsi a&nbsp;jejich pojiva popisuje stránka o&nbsp;<a href="formovaci-smesi.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">formovacích směsích</a>, tady jde o&nbsp;to, jak se jádro vyrábí.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Jaderník</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Jaderník je forma na jádro. Je dělený, aby šlo hotové jádro vyjmout. Pro ruční výrobu bývá dřevěný nebo plastový, pro strojní kovový.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 44px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8;margin:0 0 6px">svislý řez děleným kovovým jaderníkem pro strojní výrobu</div>
+      <svg viewBox="0 0 1010 320" style="width:100%;max-width:980px;display:block;margin:0 auto">
+        <defs>
+          <pattern id="jSandS" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="oklch(0.80 0.08 85)"></rect><circle cx="2" cy="2" r="0.9" fill="rgba(60,45,25,0.45)"></circle><circle cx="6" cy="6" r="0.9" fill="rgba(60,45,25,0.35)"></circle></pattern>
+        </defs>
+        <g transform="translate(270,50)">
+          <rect x="0" y="0" width="180" height="220" fill="#3f4a57" stroke="{{ S2.half.s }}" stroke-width="{{ S2.half.w }}"></rect>
+          <rect x="180" y="0" width="180" height="220" fill="#3f4a57" stroke="{{ S2.half.s }}" stroke-width="{{ S2.half.w }}"></rect>
+          <polygon points="180,40 130,40 130,70 90,70 90,170 130,170 130,200 180,200" fill="#0d121a" stroke="{{ S2.cav.s }}" stroke-width="{{ S2.cav.w }}"></polygon>
+          <polygon points="180,40 230,40 230,70 270,70 270,170 230,170 230,200 180,200" fill="#0d121a" stroke="{{ S2.cav.s }}" stroke-width="{{ S2.cav.w }}"></polygon>
+          <rect x="144" y="0" width="12" height="40" fill="#0d121a" stroke="{{ S2.hole.s }}" stroke-width="{{ S2.hole.w }}"></rect>
+          <rect x="204" y="0" width="12" height="40" fill="#0d121a" stroke="{{ S2.hole.s }}" stroke-width="{{ S2.hole.w }}"></rect>
+          <rect x="0" y="78" width="80" height="4" fill="#0d121a"></rect>
+          <rect x="280" y="78" width="80" height="4" fill="#0d121a"></rect>
+          <rect x="0" y="98" width="80" height="4" fill="#0d121a"></rect>
+          <rect x="0" y="138" width="80" height="4" fill="#0d121a"></rect>
+          <rect x="148" y="210" width="4" height="10" fill="#0d121a"></rect>
+          <rect x="208" y="210" width="4" height="10" fill="#0d121a"></rect>
+          <rect x="80" y="73" width="10" height="14" fill="#8a9aab" stroke="{{ S2.vent.s }}" stroke-width="{{ S2.vent.w }}"></rect>
+          <rect x="270" y="73" width="10" height="14" fill="#8a9aab" stroke="{{ S2.vent.s }}" stroke-width="{{ S2.vent.w }}"></rect>
+          <rect x="80" y="93" width="10" height="14" fill="#8a9aab" stroke="{{ S2.vent.s }}" stroke-width="{{ S2.vent.w }}"></rect>
+          <rect x="80" y="133" width="10" height="14" fill="#8a9aab" stroke="{{ S2.vent.s }}" stroke-width="{{ S2.vent.w }}"></rect>
+          <rect x="143" y="200" width="14" height="10" fill="#8a9aab" stroke="{{ S2.vent.s }}" stroke-width="{{ S2.vent.w }}"></rect>
+          <rect x="203" y="200" width="14" height="10" fill="#8a9aab" stroke="{{ S2.vent.s }}" stroke-width="{{ S2.vent.w }}"></rect>
+          <rect x="270" y="96" width="200" height="10" fill="#9aa9b8" stroke="{{ S2.ej.s }}" stroke-width="{{ S2.ej.w }}"></rect>
+          <rect x="270" y="150" width="200" height="10" fill="#9aa9b8" stroke="{{ S2.ej.s }}" stroke-width="{{ S2.ej.w }}"></rect>
+          <rect x="470" y="60" width="14" height="120" fill="#6b7a8a" stroke="{{ S2.ej.s }}" stroke-width="{{ S2.ej.w }}"></rect>
+          <line x1="180" y1="-20" x2="180" y2="240" stroke="{{ S2.plane.s }}" stroke-width="{{ S2.plane.w }}" stroke-dasharray="7 5"></line>
+        </g>
+        <sc-for list="{{ S2.labels }}" as="l" hint-placeholder-count="6">
+          <g onClick="{{ l.click }}" style="cursor:pointer">
+            <path d="{{ l.d }}" pointer-events="none" fill="none" stroke="{{ l.col }}" stroke-width="1.4"></path>
+            <rect x="{{ l.x }}" y="{{ l.y }}" width="{{ l.w }}" height="{{ l.h }}" rx="10" fill="{{ l.bg }}" stroke="{{ l.bd }}" stroke-width="1.4"></rect>
+            <foreignObject x="{{ l.x }}" y="{{ l.y }}" width="{{ l.w }}" height="{{ l.h }}">
+              <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;line-height:1;color:{{ l.col }};white-space:nowrap">{{ l.t }}</div>
+            </foreignObject>
+          </g>
+        </sc-for>
+      </svg>
+      <div style="background:rgba(123,163,204,0.10);border:1px solid rgba(123,163,204,0.40);border-radius:14px;padding:14px 18px;margin-top:14px;min-height:52px;box-sizing:border-box">
+        <sc-if value="{{ S2.info.has }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin-bottom:6px">{{ S2.info.name }}</div>
+          <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ S2.info.desc }}</div>
+        </sc-if>
+        <sc-if value="{{ S2.info.none }}" hint-placeholder-val="{{ true }}">
+          <div style="font-size:15px;line-height:1.65;color:#8296a8">Klikni na popisek ve&nbsp;schématu a&nbsp;zobrazí se, co daný díl dělá.</div>
+        </sc-if>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Metody výroby jader</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:820px;text-wrap:pretty">U&nbsp;strojní výroby se jaderník plní nejčastěji vstřelováním, tedy směs do něj vžene tlakový vzduch. Metody se pak liší hlavně tím, jak směs v&nbsp;jaderníku vytvrdne. Formy se zhutňují jinými metodami, popisuje je stránka <a href="strojni-formovani.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">Strojní formování</a>.</p>
+    <div style="display:flex;gap:10px;margin:0 0 16px;flex-wrap:wrap">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+        <div onClick="{{ t.click }}" style="cursor:pointer;border:1.5px solid {{ t.bd }};background:{{ t.bg }};border-radius:12px;padding:10px 20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:{{ t.col }}">{{ t.name }}</div>
+      </sc-for>
+    </div>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start">
+      <div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18.5px;line-height:1.25;color:#eaf2fa;margin-bottom:12px">{{ tab.name }}</div>
+        <p style="font-size:15.5px;line-height:1.7;color:#cfe0f0;margin:0;text-wrap:pretty">{{ tab.text }}</p>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+        <sc-for list="{{ tab.over }}" as="o" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;padding:10px 0;border-bottom:1px solid rgba(150,180,210,0.16)">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#8296a8;padding-top:2px">{{ o.k }}</div>
+            <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ o.v }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Pracovní cyklus vstřelovacího stroje</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:820px;text-wrap:pretty">Jaderník ve&nbsp;schématu je stejný jako v&nbsp;řezu výše. Přepínač mění způsob vytvrzení ve&nbsp;čtvrté fázi. Kliknutím na popisek se zobrazí, co díl dělá, animace přitom běží dál.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 44px">
+      <div style="display:flex;gap:10px;margin:0 0 14px">
+        <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+          <div onClick="{{ m.click }}" style="cursor:pointer;border:1.5px solid {{ m.bd }};background:{{ m.bg }};border-radius:12px;padding:9px 20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ m.col }}">{{ m.name }}</div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin:0 0 12px">
+        <sc-for list="{{ phases }}" as="p" hint-placeholder-count="7">
+          <div onClick="{{ p.click }}" style="cursor:pointer;position:relative;overflow:hidden;border:1.5px solid {{ p.bd }};background:{{ p.bg }};border-radius:12px;padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:{{ p.numCol }}">{{ p.num }}</div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;line-height:1.25;color:{{ p.col }};text-wrap:pretty">{{ p.name }}</div>
+            <div style="position:absolute;left:0;bottom:0;height:3px;width:{{ p.prog }};background:oklch(0.82 0.13 48)"></div>
+          </div>
+        </sc-for>
+      </div>
+
+      <svg viewBox="0 0 1280 700" style="width:100%;display:block;background:rgba(8,11,18,0.5);border-radius:12px">
+        <defs>
+          <pattern id="jSand" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="oklch(0.80 0.08 85)"></rect><circle cx="2" cy="2" r="0.9" fill="rgba(60,45,25,0.45)"></circle><circle cx="6" cy="6" r="0.9" fill="rgba(60,45,25,0.35)"></circle></pattern>
+          <clipPath id="jFill"><rect x="80" y="{{ A.fillY }}" width="200" height="240"></rect></clipPath>
+          <clipPath id="jCav"><polygon points="130,40 230,40 230,70 270,70 270,170 230,170 230,200 130,200 130,170 90,170 90,70 130,70"></polygon></clipPath>
+        </defs>
+
+        <sc-if value="{{ A.cold }}" hint-placeholder-val="{{ true }}">
+          <g transform="{{ A.gasT }}">
+            <rect x="620" y="338" width="40" height="12" fill="#4f5b69" stroke="{{ A.hl.plyn.s }}" stroke-width="{{ A.hl.plyn.w }}"></rect>
+            <rect x="630" y="350" width="20" height="40" fill="#4f5b69" stroke="{{ A.hl.plyn.s }}" stroke-width="{{ A.hl.plyn.w }}"></rect>
+            <rect x="450" y="390" width="380" height="30" fill="#4f5b69" stroke="{{ A.hl.plyn.s }}" stroke-width="{{ A.hl.plyn.w }}"></rect>
+            <rect x="470" y="396" width="340" height="12" fill="#0d121a"></rect>
+            <rect x="604" y="408" width="12" height="12" fill="#0d121a"></rect>
+            <rect x="664" y="408" width="12" height="12" fill="#0d121a"></rect>
+          </g>
+        </sc-if>
+
+        <g transform="{{ A.headT }}">
+          <polygon points="540,130 740,130 660,240 620,240" fill="#4f5b69" stroke="{{ A.hl.zasobnik.s }}" stroke-width="{{ A.hl.zasobnik.w }}"></polygon>
+          <polygon points="562,160 718,160 660,240 620,240" fill="url(#jSand)"></polygon>
+          <rect x="620" y="240" width="40" height="30" fill="#0d121a" stroke="rgba(200,215,230,0.55)" stroke-width="1.4"></rect>
+          <rect x="530" y="270" width="220" height="130" fill="#4f5b69" stroke="{{ A.hl.hlava.s }}" stroke-width="{{ A.hl.hlava.w }}"></rect>
+          <rect x="534" y="274" width="212" height="124" fill="#0d121a"></rect>
+          <rect x="534" y="{{ A.headSandY }}" width="212" height="{{ A.headSandH }}" fill="url(#jSand)"></rect>
+          <rect x="750" y="290" width="150" height="16" fill="#4f5b69" stroke="rgba(200,215,230,0.55)" stroke-width="1.4"></rect>
+          <rect x="900" y="280" width="24" height="36" fill="#6b7a8a" stroke="rgba(200,215,230,0.55)" stroke-width="1.4"></rect>
+          <rect x="450" y="400" width="380" height="20" fill="#5d6a79" stroke="{{ A.hl.deska.s }}" stroke-width="{{ A.hl.deska.w }}"></rect>
+          <rect x="604" y="400" width="12" height="20" fill="#0d121a"></rect>
+          <rect x="664" y="400" width="12" height="20" fill="#0d121a"></rect>
+        </g>
+
+        <g transform="{{ A.leftT }}">
+          <rect x="0" y="0" width="180" height="220" fill="#3f4a57" stroke="{{ A.hl.jadernik.s }}" stroke-width="{{ A.hl.jadernik.w }}"></rect>
+          <polygon points="180,40 130,40 130,70 90,70 90,170 130,170 130,200 180,200" fill="#0d121a"></polygon>
+          <rect x="144" y="0" width="12" height="40" fill="#0d121a"></rect>
+          <rect x="0" y="78" width="80" height="4" fill="#0d121a"></rect>
+          <rect x="0" y="98" width="80" height="4" fill="#0d121a"></rect>
+          <rect x="0" y="138" width="80" height="4" fill="#0d121a"></rect>
+          <rect x="148" y="210" width="4" height="10" fill="#0d121a"></rect>
+          <rect x="80" y="73" width="10" height="14" fill="#8a9aab" stroke="{{ A.hl.tryska.s }}" stroke-width="{{ A.hl.tryska.w }}"></rect>
+          <rect x="80" y="93" width="10" height="14" fill="#8a9aab" stroke="{{ A.hl.tryska.s }}" stroke-width="{{ A.hl.tryska.w }}"></rect>
+          <rect x="80" y="133" width="10" height="14" fill="#8a9aab" stroke="{{ A.hl.tryska.s }}" stroke-width="{{ A.hl.tryska.w }}"></rect>
+          <rect x="143" y="200" width="14" height="10" fill="#8a9aab" stroke="{{ A.hl.tryska.s }}" stroke-width="{{ A.hl.tryska.w }}"></rect>
+          <sc-if value="{{ A.hot }}" hint-placeholder-val="{{ false }}">
+            <g>
+              <circle cx="45" cy="40" r="8" fill="{{ A.heatFill }}" stroke="{{ A.hl.topne.s }}" stroke-width="{{ A.hl.topne.w }}"></circle>
+              <circle cx="45" cy="120" r="8" fill="{{ A.heatFill }}" stroke="{{ A.hl.topne.s }}" stroke-width="{{ A.hl.topne.w }}"></circle>
+              <circle cx="45" cy="195" r="8" fill="{{ A.heatFill }}" stroke="{{ A.hl.topne.s }}" stroke-width="{{ A.hl.topne.w }}"></circle>
+            </g>
+          </sc-if>
+        </g>
+
+        <g transform="{{ A.rightT }}">
+          <rect x="180" y="0" width="180" height="220" fill="#3f4a57" stroke="{{ A.hl.jadernik.s }}" stroke-width="{{ A.hl.jadernik.w }}"></rect>
+          <polygon points="180,40 230,40 230,70 270,70 270,170 230,170 230,200 180,200" fill="#0d121a"></polygon>
+          <rect x="204" y="0" width="12" height="40" fill="#0d121a"></rect>
+          <rect x="208" y="210" width="4" height="10" fill="#0d121a"></rect>
+          <rect x="280" y="78" width="80" height="4" fill="#0d121a"></rect>
+          <rect x="270" y="73" width="10" height="14" fill="#8a9aab" stroke="{{ A.hl.tryska.s }}" stroke-width="{{ A.hl.tryska.w }}"></rect>
+          <rect x="203" y="200" width="14" height="10" fill="#8a9aab" stroke="{{ A.hl.tryska.s }}" stroke-width="{{ A.hl.tryska.w }}"></rect>
+          <sc-if value="{{ A.hot }}" hint-placeholder-val="{{ false }}">
+            <g>
+              <circle cx="315" cy="40" r="8" fill="{{ A.heatFill }}" stroke="{{ A.hl.topne.s }}" stroke-width="{{ A.hl.topne.w }}"></circle>
+              <circle cx="315" cy="120" r="8" fill="{{ A.heatFill }}" stroke="{{ A.hl.topne.s }}" stroke-width="{{ A.hl.topne.w }}"></circle>
+              <circle cx="315" cy="195" r="8" fill="{{ A.heatFill }}" stroke="{{ A.hl.topne.s }}" stroke-width="{{ A.hl.topne.w }}"></circle>
+            </g>
+          </sc-if>
+          <g transform="{{ A.ejT }}">
+            <rect x="270" y="96" width="200" height="10" fill="#9aa9b8" stroke="{{ A.hl.vyhaz.s }}" stroke-width="{{ A.hl.vyhaz.w }}"></rect>
+            <rect x="270" y="150" width="200" height="10" fill="#9aa9b8" stroke="{{ A.hl.vyhaz.s }}" stroke-width="{{ A.hl.vyhaz.w }}"></rect>
+            <rect x="470" y="60" width="14" height="120" fill="#6b7a8a" stroke="{{ A.hl.vyhaz.s }}" stroke-width="{{ A.hl.vyhaz.w }}"></rect>
+          </g>
+        </g>
+
+        <g transform="{{ A.coreT }}" opacity="{{ A.coreOp }}">
+          <polygon points="130,40 230,40 230,70 270,70 270,170 230,170 230,200 130,200 130,170 90,170 90,70 130,70" fill="url(#jSand)" clip-path="url(#jFill)"></polygon>
+          <g clip-path="url(#jCav)">
+            <polygon points="130,40 230,40 230,70 270,70 270,170 230,170 230,200 130,200 130,170 90,170 90,70 130,70" fill="none" stroke="oklch(0.60 0.08 60)" stroke-width="{{ A.layerW }}" stroke-linejoin="miter"></polygon>
+          </g>
+          <g clip-path="url(#jCav)">
+            <rect x="80" y="40" width="200" height="{{ A.curedH }}" fill="oklch(0.60 0.08 60)" fill-opacity="0.85"></rect>
+            <rect x="80" y="{{ A.catY }}" width="200" height="{{ A.catH }}" fill="oklch(0.76 0.14 320)" fill-opacity="{{ A.catOp }}"></rect>
+            <rect x="80" y="40" width="200" height="{{ A.airH }}" fill="oklch(0.78 0.12 240)" fill-opacity="{{ A.airOp }}"></rect>
+          </g>
+        </g>
+
+        <sc-for list="{{ A.dots }}" as="d" hint-placeholder-count="0">
+          <circle cx="{{ d.x }}" cy="{{ d.y }}" r="3.2" fill="oklch(0.80 0.08 85)" stroke="rgba(60,45,25,0.6)" stroke-width="0.8"></circle>
+        </sc-for>
+        <sc-for list="{{ A.arrows }}" as="a" hint-placeholder-count="0">
+          <g>
+            <path d="{{ a.d }}" fill="none" stroke="{{ a.c }}" stroke-width="{{ a.w }}" stroke-dasharray="{{ a.dash }}" stroke-dashoffset="{{ a.off }}"></path>
+            <polygon points="{{ a.head }}" fill="{{ a.c }}"></polygon>
+          </g>
+        </sc-for>
+
+        <sc-for list="{{ A.labels }}" as="l" hint-placeholder-count="7">
+          <g onClick="{{ l.click }}" style="cursor:pointer">
+            <path d="{{ l.d }}" pointer-events="none" fill="none" stroke="{{ l.col }}" stroke-width="1.4"></path>
+            <rect x="{{ l.x }}" y="{{ l.y }}" width="{{ l.w }}" height="{{ l.h }}" rx="10" fill="{{ l.bg }}" stroke="{{ l.bd }}" stroke-width="1.4"></rect>
+            <foreignObject x="{{ l.x }}" y="{{ l.y }}" width="{{ l.w }}" height="{{ l.h }}">
+              <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;line-height:1;color:{{ l.col }};white-space:nowrap">{{ l.t }}</div>
+            </foreignObject>
+          </g>
+        </sc-for>
+      </svg>
+
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0 12px">
+        <sc-for list="{{ ctrls }}" as="b" hint-placeholder-count="3">
+          <div onClick="{{ b.click }}" title="{{ b.name }}" aria-label="{{ b.name }}" role="button" style="cursor:pointer;width:44px;height:40px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;border:1.5px solid {{ b.bd }};background:{{ b.bg }};border-radius:12px;color:{{ b.col }}">
+            <svg viewBox="0 0 20 20" width="18" height="18" style="display:block">
+              <sc-if value="{{ b.isPlay }}" hint-placeholder-val="{{ false }}"><polygon points="5,3 17,10 5,17" fill="currentColor"></polygon></sc-if>
+              <sc-if value="{{ b.isPause }}" hint-placeholder-val="{{ false }}"><g><rect x="4" y="3" width="4" height="14" rx="1" fill="currentColor"></rect><rect x="12" y="3" width="4" height="14" rx="1" fill="currentColor"></rect></g></sc-if>
+              <sc-if value="{{ b.isRestart }}" hint-placeholder-val="{{ false }}"><g><path d="M 15.5 10 A 5.5 5.5 0 1 1 13.9 6.1" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path><polygon points="11.2,2.8 17.2,4.2 14.2,9" fill="currentColor"></polygon></g></sc-if>
+            </svg>
+          </div>
+        </sc-for>
+        <input type="range" min="0" max="700" step="1" value="{{ sliderVal }}" onChange="{{ onSlide }}" style="flex:1;min-width:240px;accent-color:oklch(0.82 0.13 48);cursor:pointer"></input>
+      </div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin:0 0 18px;font-size:13.5px;color:#aebfcf">
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:12px;border-radius:3px;background:oklch(0.80 0.08 85)"></span>směs</div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:12px;border-radius:3px;background:oklch(0.60 0.08 60)"></span>vytvrzená směs</div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:4px;border-radius:2px;background:oklch(0.78 0.12 240)"></span>tlakový vzduch</div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:4px;border-radius:2px;background:oklch(0.76 0.14 320)"></span>katalyzátor</div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:4px;border-radius:2px;background:oklch(0.72 0.16 30)"></span>teplo</div>
+      </div>
+
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18.5px;line-height:1.25;color:#eaf2fa;margin-bottom:8px">{{ ph.title }}</div>
+      <p style="font-size:16px;line-height:1.7;color:#cfe0f0;margin:0 0 16px;max-width:900px;text-wrap:pretty">{{ ph.text }}</p>
+
+      <div style="background:rgba(123,163,204,0.10);border:1px solid rgba(123,163,204,0.40);border-radius:14px;padding:14px 18px;min-height:52px;box-sizing:border-box">
+        <sc-if value="{{ AI.has }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin-bottom:6px">{{ AI.name }}</div>
+          <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ AI.desc }}</div>
+        </sc-if>
+        <sc-if value="{{ AI.none }}" hint-placeholder-val="{{ true }}">
+          <div style="font-size:15px;line-height:1.65;color:#8296a8">Klikni na popisek ve&nbsp;schématu a&nbsp;zobrazí se, co daný díl dělá.</div>
+        </sc-if>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Nátěr jader</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 44px;max-width:820px;text-wrap:pretty">Jádro se po vytvrzení často máčí nebo stříká žáruvzdorným nátěrem. Nátěr brání zatečení kovu mezi zrna a&nbsp;zlepšuje povrch dutiny v&nbsp;odlitku. Podrobněji na stránce o&nbsp;<a href="formovaci-smesi.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">formovacích směsích</a>.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 14px">Srovnání metod</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1.25fr 1fr 1.5fr;gap:1px;background:rgba(150,180,210,0.16);border:1px solid rgba(150,180,210,0.16);border-radius:14px;overflow:hidden;margin:0 0 44px">
+      <div style="background:#0d121a;padding:14px 16px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Metoda</div>
+      <div style="background:#0d121a;padding:14px 16px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Rozměrová přesnost</div>
+      <div style="background:#0d121a;padding:14px 16px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Rychlost výroby</div>
+      <div style="background:#0d121a;padding:14px 16px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Cena jaderníku nebo zařízení</div>
+      <div style="background:#0d121a;padding:14px 16px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Vhodná série</div>
+      <div style="background:#0d121a;padding:14px 16px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Zvláštnost</div>
+      <sc-for list="{{ rows }}" as="r" hint-placeholder-count="5">
+        <div style="background:#0d121a;padding:14px 16px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">{{ r.name }}</div>
+        <div style="background:#0d121a;padding:14px 16px;font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">{{ r.pres }}</div>
+        <div style="background:#0d121a;padding:14px 16px;font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">{{ r.rych }}</div>
+        <div style="background:#0d121a;padding:14px 16px;font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">{{ r.cena }}</div>
+        <div style="background:#0d121a;padding:14px 16px;font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">{{ r.serie }}</div>
+        <div style="background:#0d121a;padding:14px 16px;font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">{{ r.zvl }}</div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Cold-box&quot;,&quot;Hot-box&quot;],&quot;default&quot;:&quot;Cold-box&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Animace&quot;},&quot;animSpeed&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Pomalu&quot;,&quot;Normálně&quot;,&quot;Rychle&quot;],&quot;default&quot;:&quot;Normálně&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Animace&quot;}}">
+const AIR = 'oklch(0.78 0.12 240)';
+const CAT = 'oklch(0.76 0.14 320)';
+const HEAT = 'oklch(0.72 0.16 30)';
+const nb = s => s.replace(/(?<=^|[\s„(])([aikosuvzAIKOSUVZ]|[vVzZkK]e) /g, '$1\u00a0');
+const ease = x => x <= 0 ? 0 : x >= 1 ? 1 : (1 - Math.cos(Math.PI * x)) / 2;
+const seg = (t, a, b) => ease((t - a) / (b - a));
+const HOT_C = [0.5, 0.75];
+const X0 = 460, Y0 = 420, OPEN = 110, LOW = 24, UP = 110, EJ = 100, PARK = 400;
+
+function arrow(x1, y1, x2, y2, w, c, dash, off) {
+  const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
+  const h = Math.max(9, w * 2.6), hw = Math.max(5.5, w * 1.9);
+  const bx = x2 - ux * h, by = y2 - uy * h;
+  return { d: `M ${x1} ${y1} L ${bx} ${by}`, head: `${x2},${y2} ${bx - uy * hw},${by + ux * hw} ${bx + uy * hw},${by - ux * hw}`, c, w, dash: dash || 'none', off: off || 0 };
+}
+
+function buildLabels(list, sel, onPick) {
+  return list.map(l => {
+    const h = 34, cy = l.y + h / 2, cx = l.x + l.w / 2, [tx, ty] = l.tgt;
+    const from = tx > l.x + l.w ? [l.x + l.w, cy] : tx < l.x ? [l.x, cy] : ty > l.y + h ? [cx, l.y + h] : [cx, l.y];
+    const on = sel === l.k;
+    return {
+      t: l.t, x: l.x, y: l.y, w: l.w, h,
+      d: `M ${from[0]} ${from[1]} L ${tx} ${ty}`,
+      col: on ? '#ffffff' : '#cfe0f0',
+      bg: on ? 'rgba(234,242,250,0.14)' : 'rgba(150,180,210,0.06)',
+      bd: on ? '#eaf2fa' : 'rgba(150,180,210,0.25)',
+      click: () => onPick(l.k),
+    };
+  });
+}
+const hlOf = (keys, sel, base) => {
+  const o = {};
+  keys.forEach(k => { o[k] = sel === k ? { s: '#ffffff', w: 2.8 } : { s: base, w: 1.4 }; });
+  return o;
+};
+
+const S2_LABELS = [
+  { k: 'otvor', t: 'vstřelovací otvor', x: 20, y: 4, w: 200, tgt: [420, 56] },
+  { k: 'half', t: 'polovina jaderníku', x: 20, y: 90, w: 200, tgt: [310, 107] },
+  { k: 'vent', t: 'odvzdušňovací tryska', x: 20, y: 173, w: 200, tgt: [350, 190] },
+  { k: 'plane', t: 'dělicí rovina', x: 790, y: 4, w: 200, tgt: [450, 30] },
+  { k: 'cav', t: 'dutina', x: 790, y: 60, w: 200, tgt: [490, 105] },
+  { k: 'ej', t: 'vyhazovač', x: 790, y: 153, w: 200, tgt: [754, 170] },
+];
+const S2_DESC = {
+  half: { name: 'Polovina jaderníku', desc: 'Dvě poloviny se k sobě přisunou a vytvoří uzavřenou dutinu.' },
+  plane: { name: 'Dělicí rovina', desc: 'Místo, kde se jaderník rozebere, aby šlo jádro vyjmout.' },
+  cav: { name: 'Dutina', desc: 'Má tvar jádra, vyplní ji jádrová směs.' },
+  otvor: { name: 'Vstřelovací otvor', desc: 'Jím vnikne směs do dutiny.' },
+  vent: { name: 'Odvzdušňovací tryska', desc: 'Propustí vzduch ven, zrna směsi zadrží uvnitř.' },
+  ej: { name: 'Vyhazovač', desc: 'Po otevření jaderníku vytlačí hotové jádro.' },
+};
+
+const METHODS = [
+  {
+    name: 'Ruční pěchování',
+    text: 'Směs se ručně pěchuje do otevřeného nebo děleného jaderníku, jaderník se rozebere a jádro se vyjme. Dnes se používá hlavně samotuhnoucí směs, která vytvrdne bez sušení.',
+    plni: 'Ručním pěchováním', tvrd: 'Samotuhnoucí směs vytvrdne bez sušení',
+    vyh: 'Levný jaderník', nev: 'Pomalá práce a kolísavá jakost', pouz: 'Velká jádra a kusová výroba',
+    pres: 'Kolísá', rych: 'Malá', cena: 'Malá, levný jaderník', serie: 'Kusová', zvl: 'Hlavně samotuhnoucí směs, velká jádra',
+  },
+  {
+    name: 'Cold-box',
+    text: 'Jaderník se naplní vstřelováním, pak se směs profoukne plynným katalyzátorem a nakonec vzduchem, který zbytky plynu vytlačí. Vytvrzení probíhá za studena a je velmi rychlé.',
+    plni: 'Vstřelováním', tvrd: 'Profouknutím plynným katalyzátorem za studena, velmi rychle',
+    vyh: 'Přesná a pevná jádra', nev: 'Zapáchající plyn, pracoviště potřebuje odsávání a čištění vzduchu', pouz: 'Nejrozšířenější metoda pro sériovou výrobu jader, typicky v automobilových slévárnách',
+    pres: 'Velká', rych: 'Velká, vytvrzení je velmi rychlé', cena: 'Vstřelovací stroj, navíc odsávání a čištění vzduchu', serie: 'Sériová', zvl: 'Vytvrzení za studena, zapáchající plyn',
+  },
+  {
+    name: 'Hot-box',
+    text: 'Jaderník se naplní vstřelováním a je vyhřátý. Teplo vytvrdí pojivo, jádro tuhne od stěny jaderníku dovnitř.',
+    plni: 'Vstřelováním do vyhřátého jaderníku', tvrd: 'Teplem, od stěny jaderníku dovnitř',
+    vyh: 'Přesná a pevná jádra', nev: 'Vyhřívaný jaderník je drahý a spotřebuje energii', pouz: 'Sériová výroba menších a středních jader',
+    pres: 'Velká', rych: 'Velká', cena: 'Velká, vyhřívaný jaderník je drahý', serie: 'Sériová, menší a střední jádra', zvl: 'Jádro tuhne od stěny dovnitř, spotřeba energie',
+  },
+  {
+    name: 'Skořepinová jádra',
+    text: 'Každé zrno písku je předem obalené pryskyřicí. Směs se nasype nebo vstřelí do vyhřátého jaderníku, u horké stěny vytvrdne tenká pevná skořepina. Nevytvrzený písek uvnitř se vysype, jádro je duté.',
+    plni: 'Nasypáním nebo vstřelením obaleného písku do vyhřátého jaderníku', tvrd: 'U horké stěny vytvrdne tenká skořepina, nevytvrzený písek se vysype',
+    vyh: 'Duté jádro je lehké, dobře prodyšné a velmi přesné', nev: 'Obalený písek je drahý', pouz: 'Přesná a tvarově složitá jádra',
+    pres: 'Velmi velká', rych: 'Střední', cena: 'Vyhřívaný jaderník, drahý obalený písek', serie: 'Sériová', zvl: 'Duté, lehké a dobře prodyšné jádro',
+  },
+  {
+    name: '3D tisk jader',
+    text: 'Jaderník není potřeba. Tiskárna nanese tenkou vrstvu písku a tisková hlava do ní nastříká pojivo jen tam, kde má být jádro. Vrstvy se opakují, nepojený písek se nakonec odstraní.',
+    plni: 'Jaderník není potřeba, tiskárna nanáší písek po vrstvách', tvrd: 'Pojivem, které tisková hlava nastříká jen tam, kde má být jádro',
+    vyh: 'Zvládne tvary, které by z jaderníku nešly vyjmout', nev: 'Pomalejší a dražší na kus', pouz: 'Prototypy, kusová výroba a jádra, pro která by se nevyplatil jaderník',
+    pres: 'Velká', rych: 'Malá', cena: 'Jaderník není potřeba', serie: 'Prototypy a kusová výroba', zvl: 'Tvary, které z jaderníku nejdou vyjmout',
+  },
+];
+
+const PHASES = [
+  { name: 'Plnění zásobníku', text: 'Směs se nasype ze zásobníku do vstřelovací hlavy.' },
+  { name: 'Uzavření jaderníku', text: 'Poloviny jaderníku se přisunou k sobě a jaderník se přitiskne ke vstřelovací desce.' },
+  { name: 'Vstřel', text: 'Tlakový vzduch vžene směs vstřelovacími otvory do dutiny. Vzduch odchází odvzdušňovacími tryskami, zrna směsi zůstanou uvnitř.' },
+  { name: 'Vytvrzení',
+    cold: 'Vstřelovací hlava odjede a nad jaderník přijede přívod katalyzátoru. Dutinou projde plynný katalyzátor a po něm vzduch, který zbytky plynu vytlačí. Plyn odchází tryskami do odsávání.',
+    hot: 'Vstřelovací hlava odjede. Vyhřátý jaderník předává teplo směsi, vytvrzená vrstva roste od stěny dovnitř. Jaderník se otevře dřív, než jádro vytvrdne celé, střed jádra dotvrdne zbytkovým teplem po vyjmutí.' },
+  { name: 'Otevření jaderníku', cold: 'Přívod katalyzátoru odjede a poloviny jaderníku se rozjedou od sebe.', hot: 'Poloviny jaderníku se rozjedou od sebe.' },
+  { name: 'Vyhození jádra', cold: 'Vyhazovače vytlačí hotové jádro z poloviny jaderníku.', hot: 'Vyhazovače vytlačí hotové jádro z poloviny jaderníku. Jádro mezitím dotvrzuje zbytkovým teplem.' },
+  { name: 'Odebrání jádra', text: 'Jádro se odebere a cyklus může začít znovu. Vstřelovací hlava se vrátí nad jaderník.' },
+];
+const DUR = [2600, 2800, 4200, 6000, 3000, 2600, 3000];
+const SPEED = { 'Pomalu': 0.6, 'Normálně': 1, 'Rychle': 1.6 };
+
+const A_DESC = {
+  zasobnik: { name: 'Zásobník', desc: 'Drží zásobu jádrové směsi a dávkuje ji do vstřelovací hlavy.' },
+  hlava: { name: 'Vstřelovací hlava', desc: 'Pojme dávku směsi, přivedený tlakový vzduch ji z hlavy vžene do jaderníku.' },
+  deska: { name: 'Vstřelovací deska', desc: 'Uzavírá hlavu zdola, jejími otvory projde směs do vstřelovacích otvorů jaderníku.' },
+  jadernik: { name: 'Jaderník', desc: 'Dělená forma na jádro, jeho dutina dá jádru tvar.' },
+  tryska: { name: 'Odvzdušňovací tryska', desc: 'Propustí vzduch nebo plyn ven, zrna směsi zadrží v dutině.' },
+  vyhaz: { name: 'Vyhazovač', desc: 'Po otevření jaderníku vytlačí hotové jádro z poloviny jaderníku.' },
+  plyn: { name: 'Přívod katalyzátoru', desc: 'Přivede do dutiny jaderníku plynný katalyzátor a po něm vzduch.' },
+  topne: { name: 'Topné těleso', desc: 'Vyhřívá polovinu jaderníku, teplo ze stěny dutiny vytvrzuje směs.' },
+};
+
+function geom(p, t, cold) {
+  const g = { open: 1, lower: 1, up: 0, hf: 0.35, cav: 0, gas: 0, catP: 0, airP: 0, flowEnd: 0, cured: 0, heatFlow: 0, ej: 0, gone: 0, stream: false, shoot: false, ventAll: false };
+  if (p === 0) { g.hf = 0.35 + 0.65 * seg(t, 0, 0.9); g.stream = t < 0.9; return g; }
+  g.hf = 1;
+  if (p === 1) { g.open = 1 - seg(t, 0, 0.55); g.lower = 1 - seg(t, 0.6, 1); return g; }
+  g.open = 0; g.lower = 0;
+  if (p === 2) {
+    g.hf = 1 - 0.65 * seg(t, 0.05, 0.9); g.cav = seg(t, 0.1, 0.9);
+    g.shoot = t > 0.03 && t < 0.92; g.ventAll = t > 0.1 && t < 0.97; return g;
+  }
+  g.hf = 0.35; g.cav = 1;
+  if (p === 3) {
+    g.up = seg(t, 0, 0.22);
+    if (cold) {
+      g.gas = seg(t, 0.25, 0.4);
+      g.catP = seg(t, 0.42, 0.68);
+      g.airP = seg(t, 0.7, 0.95);
+      g.flowEnd = seg(t, 0.96, 1);
+      g.cured = seg(t, 0.45, 0.72);
+    } else {
+      g.heatFlow = seg(t, 0.22, 0.3) * (1 - seg(t, 0.96, 1));
+      g.cured = HOT_C[0] * seg(t, 0.3, 1);
+    }
+    return g;
+  }
+  g.up = 1; g.gas = cold ? 1 : 0;
+  if (p === 4) {
+    g.cured = cold ? 1 : HOT_C[0] + (HOT_C[1] - HOT_C[0]) * seg(t, 0, 1);
+    if (cold) g.gas = 1 - seg(t, 0, 0.3); g.open = seg(t, 0.32, 1); g.lower = g.open; return g;
+  }
+  g.gas = 0; g.open = 1; g.lower = 1;
+  if (p === 5) { g.cured = cold ? 1 : HOT_C[1] + (1 - HOT_C[1]) * seg(t, 0, 0.9); g.ej = seg(t, 0.1, 0.9); return g; }
+  g.cured = 1;
+  g.gone = seg(t, 0, 0.45); g.up = 1 - seg(t, 0.5, 1); g.ej = 1 - seg(t, 0.5, 1);
+  return g;
+}
+
+class Component extends DCLogic {
+  state = { mode: null, phase: 0, t: 0, running: false, auto: false, sel: null, sel2: null, tab: 0, clock: 0 };
+
+  componentDidMount() {
+    let last = performance.now();
+    const loop = now => {
+      const dt = Math.min(64, now - last); last = now;
+      if (this.state.running) {
+        const sp = SPEED[this.props.animSpeed] || 1;
+        let { phase, t, auto, running } = this.state;
+        t += dt * sp / DUR[phase];
+        if (t >= 1) {
+          if (auto && phase < 6) { phase += 1; t = 0; }
+          else { t = 1; running = false; auto = false; }
+        }
+        this.setState({ phase, t, auto, running, clock: this.state.clock + dt * sp });
+      }
+      this.raf = requestAnimationFrame(loop);
+    };
+    this.raf = requestAnimationFrame(loop);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); }
+
+  play() {
+    const { phase, t } = this.state;
+    if (phase === 6 && t >= 1) this.setState({ phase: 0, t: 0, running: true, auto: true });
+    else if (t >= 1) this.setState({ phase: phase + 1, t: 0, running: true, auto: true });
+    else this.setState({ running: true, auto: true });
+  }
+  jump(i) { this.setState({ phase: Math.max(0, Math.min(6, i)), t: 0, running: true }); }
+
+  renderVals() {
+    const mode = this.state.mode ?? (this.props.defaultMode === 'Hot-box' ? 'hot' : 'cold');
+    const cold = mode === 'cold';
+    const { phase, t, clock } = this.state;
+    const g = geom(phase, t, cold);
+    const ldx = -OPEN * g.open, rdx = OPEN * g.open, dy = LOW * g.lower, hy = -UP * g.up, gx = -PARK * (1 - g.gas);
+    const sel = this.state.sel;
+    const selKey = (sel === 'plyn' && !cold) || (sel === 'topne' && cold) ? null : sel;
+
+    const dots = [], arrows = [];
+    const ph = (clock / 1000) % 1000;
+    if (g.stream) {
+      const top = 398 - 124 * g.hf;
+      for (let i = 0; i < 6; i++) {
+        const f = (ph * 1.6 + i / 6) % 1;
+        dots.push({ x: 632 + (i % 3) * 8, y: 244 + f * (top - 244) });
+      }
+    }
+    if (g.shoot) {
+      const fy = Y0 + 200 - 162 * g.cav;
+      [610, 670].forEach((x, j) => {
+        for (let i = 0; i < 5; i++) {
+          const f = (ph * 2.2 + i / 5 + j * 0.1) % 1;
+          const y = 390 + f * (fy - 390);
+          dots.push({ x: x + ((i % 2) ? 1.5 : -1.5), y });
+        }
+      });
+      const off = -(ph * 60) % 24;
+      arrows.push(arrow(960, 298, 758, 298, 3.5, AIR, '10 6', off));
+      [575, 705].forEach(x => arrows.push(arrow(x, 280, x, 312, 3, AIR)));
+    }
+    const flowing = cold && g.catP > 0 && g.flowEnd < 1;
+    if (g.ventAll || flowing) {
+      const off = -(ph * 60) % 24;
+      const col = f => g.ventAll ? AIR : g.airP >= f ? AIR : g.catP >= f ? CAT : null;
+      const cT = col(0.25), cS1 = col(0.375), cS2 = col(0.625), cB = col(0.999);
+      if (cT) { arrows.push(arrow(X0 - 4, Y0 + 80, X0 - 64, Y0 + 80, 3, cT, '10 6', off)); arrows.push(arrow(X0 + 364, Y0 + 80, X0 + 424, Y0 + 80, 3, cT, '10 6', off)); }
+      if (cS1) arrows.push(arrow(X0 - 4, Y0 + 100, X0 - 64, Y0 + 100, 3, cS1, '10 6', off));
+      if (cS2) arrows.push(arrow(X0 - 4, Y0 + 140, X0 - 64, Y0 + 140, 3, cS2, '10 6', off));
+      if (cB) [610, 670].forEach(x => arrows.push(arrow(x, Y0 + 224, x, Y0 + 270, 3, cB, '10 6', off)));
+    }
+    if (flowing && g.airP < 1) {
+      const c = g.airP > 0 ? AIR : CAT, off = -(ph * 60) % 24;
+      arrows.push(arrow(640, 300, 640, 336, 3.5, c, '10 6', off));
+      [610, 670].forEach(x => arrows.push(arrow(x, 412, x, 456, 3, c, '10 6', off)));
+    }
+    if (!cold && g.heatFlow > 0.05) {
+      const off = -(ph * 40) % 16;
+      const L = X0 + ldx, R = X0 + rdx, T = Y0 + dy;
+      [[L + 55, L + 126, 40], [L + 55, L + 86, 120], [L + 55, L + 126, 195],
+       [R + 305, R + 234, 40], [R + 305, R + 274, 120], [R + 305, R + 234, 195]]
+        .forEach(([a, b, y]) => arrows.push(arrow(a, T + y, b, T + y, 2.6, HEAT, '6 4', off)));
+    }
+
+    const heatOn = !cold;
+    const A = {
+      cold, hot: !cold,
+      gasT: `translate(${gx},0)`,
+      headT: `translate(0,${hy})`,
+      leftT: `translate(${X0 + ldx},${Y0 + dy})`,
+      rightT: `translate(${X0 + rdx},${Y0 + dy})`,
+      ejT: `translate(${-EJ * g.ej},0)`,
+      coreT: `translate(${X0 + rdx - EJ * g.ej},${Y0 + dy - 70 * g.gone})`,
+      coreOp: g.cav > 0 ? 1 - g.gone : 0,
+      fillY: 200 - 162 * g.cav,
+      headSandY: 398 - 124 * g.hf, headSandH: 124 * g.hf,
+      curedH: cold ? 160 * g.cured : 0,
+      layerW: cold ? 0 : 144 * g.cured,
+      catY: 40 + 160 * g.airP, catH: Math.max(0, 160 * (g.catP - g.airP)), catOp: 0.55 * (1 - g.flowEnd),
+      airH: 160 * g.airP, airOp: 0.45 * (1 - g.flowEnd),
+      heatFill: heatOn ? HEAT : '#6b7a8a',
+      dots, arrows,
+      hl: hlOf(['zasobnik', 'hlava', 'deska', 'jadernik', 'tryska', 'vyhaz', 'plyn', 'topne'], selKey, 'rgba(200,215,230,0.55)'),
+    };
+    const LA = [
+      { k: 'zasobnik', t: 'zásobník', x: 20, y: 150, w: 190, tgt: [580, 185 + hy] },
+      { k: 'hlava', t: 'vstřelovací hlava', x: 20, y: 250, w: 190, tgt: [530, 330 + hy] },
+      cold ? { k: 'plyn', t: 'přívod katalyzátoru', x: 20, y: 330, w: 190, tgt: [gx + 470, 390] }
+           : { k: 'topne', t: 'topné těleso', x: 20, y: 330, w: 190, tgt: [X0 + ldx + 45, Y0 + dy + 32] },
+      { k: 'tryska', t: 'odvzdušňovací tryska', x: 20, y: 503, w: 190, tgt: [X0 + ldx + 80, Y0 + dy + 140] },
+      { k: 'deska', t: 'vstřelovací deska', x: 1070, y: 393, w: 190, tgt: [830, 410 + hy] },
+      { k: 'jadernik', t: 'jaderník', x: 1070, y: 460, w: 190, tgt: [X0 + rdx + 360, Y0 + dy + 40] },
+      { k: 'vyhaz', t: 'vyhazovač', x: 1070, y: 590, w: 190, tgt: [X0 + rdx + 484 - EJ * g.ej, Y0 + dy + 170] },
+    ];
+    A.labels = buildLabels(LA, selKey, k => this.setState({ sel: k }));
+    const ai = selKey ? A_DESC[selKey] : null;
+
+    const btn = on => ({
+      bd: on ? 'oklch(0.82 0.13 48)' : 'rgba(150,180,210,0.18)',
+      bg: on ? 'rgba(224,140,110,0.12)' : 'rgba(150,180,210,0.03)',
+      col: on ? 'oklch(0.84 0.13 48)' : '#aebfcf',
+    });
+    const P = PHASES[phase];
+    const s2 = this.state.sel2;
+    const s2hl = hlOf(['half', 'plane', 'cav', 'otvor', 'vent', 'ej'], s2, 'rgba(200,215,230,0.55)');
+    s2hl.plane = s2 === 'plane' ? { s: '#ffffff', w: 2.8 } : { s: 'oklch(0.82 0.13 48)', w: 1.8 };
+    const M = METHODS[this.state.tab];
+
+    return {
+      S2: Object.assign({}, s2hl, {
+        labels: buildLabels(S2_LABELS, s2, k => this.setState({ sel2: k })),
+        info: { has: !!s2, none: !s2, name: s2 ? S2_DESC[s2].name : '', desc: s2 ? nb(S2_DESC[s2].desc) : '' },
+      }),
+      tabs: METHODS.map((m, i) => Object.assign({ name: m.name, click: () => this.setState({ tab: i }) }, btn(i === this.state.tab))),
+      tab: {
+        name: M.name, text: nb(M.text),
+        over: [
+          { k: 'čím se plní', v: M.plni }, { k: 'jak vytvrdne', v: M.tvrd },
+          { k: 'výhody', v: M.vyh }, { k: 'nevýhody', v: M.nev }, { k: 'kde se používá', v: M.pouz },
+        ].map(o => ({ k: o.k, v: nb(o.v) })),
+      },
+      modes: [['cold', 'Cold-box'], ['hot', 'Hot-box']].map(([k, n]) => Object.assign({ name: n, click: () => this.setState({ mode: k }) }, btn(k === mode))),
+      phases: PHASES.map((p, i) => {
+        const on = i === phase;
+        return {
+          num: String(i + 1), name: p.name, click: () => this.jump(i),
+          bd: on ? 'oklch(0.82 0.13 48)' : 'rgba(150,180,210,0.18)',
+          bg: on ? 'rgba(224,140,110,0.12)' : i < phase ? 'rgba(150,180,210,0.07)' : 'rgba(150,180,210,0.03)',
+          col: on ? '#ffffff' : '#aebfcf', numCol: on ? 'oklch(0.84 0.13 48)' : '#8296a8',
+          prog: on ? (t * 100) + '%' : '0%',
+        };
+      }),
+      A,
+      ctrls: [
+        Object.assign({ name: 'Znovu', isRestart: true, click: () => this.setState({ phase: 0, t: 0, running: true, auto: true }) }, btn(false)),
+        Object.assign({ name: 'Start', isPlay: true, click: () => this.play() }, btn(this.state.running)),
+        Object.assign({ name: 'Pauza', isPause: true, click: () => this.setState({ running: false, auto: false }) }, btn(!this.state.running && t > 0 && t < 1)),
+      ],
+      sliderVal: Math.round(phase * 100 + t * 100),
+      onSlide: e => {
+        const v = Math.max(0, Math.min(700, +e.target.value));
+        const p = Math.min(6, Math.floor(v / 100));
+        this.setState({ phase: p, t: (v - p * 100) / 100, running: false, auto: false });
+      },
+      ph: { title: (phase + 1) + '. ' + P.name, text: nb(P.text || (cold ? P.cold : P.hot)) },
+      AI: { has: !!ai, none: !ai, name: ai ? ai.name : '', desc: ai ? nb(ai.desc) : '' },
+      rows: METHODS.map(m => ({ name: m.name, pres: m.pres, rych: nb(m.rych), cena: nb(m.cena), serie: nb(m.serie), zvl: nb(m.zvl) })),
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

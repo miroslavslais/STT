@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruční formování | STT</title>
+<meta name="description" content="Ruční formování: rám, půdnice a nářadí formíře, krokovaný postup formování na dělený model v řezu formou, formování do země, šablonování a srovnání se strojním formováním.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-08">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="8">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Model a&nbsp;písková forma</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Model a&nbsp;písková forma</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 28px">Ruční formování</h1>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Kdy se formuje ručně</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Ruční formování se používá u&nbsp;kusové a&nbsp;opravárenské výroby, u&nbsp;rozměrných odlitků a&nbsp;u&nbsp;prototypů, tedy tam, kde se nevyplatí pořizovat modelové zařízení pro formovací stroj. Není to zastaralá metoda, jen má jinou nákladovou logiku: levný nástroj a&nbsp;drahá práce proti drahému nástroji a&nbsp;levné práci.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 44px;max-width:820px;text-wrap:pretty">Dutinu formy vytvoří model. Jeho dělicí rovinu a&nbsp;úkosy řeší stránka <a href="modely.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">Modely a&nbsp;modelová zařízení →</a></p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Rám, půdnice a&nbsp;nářadí</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Formovací rám drží směs pohromadě. Spodní a&nbsp;vrchní rám se spojují čepy a&nbsp;pouzdry, aby po složení seděly vždy ve&nbsp;stejné vzájemné poloze.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Půdnice je rovná tvrdá deska, na kterou se při formování klade rám s&nbsp;modelem. Rám nemá dno, takže bez půdnice by se směs nedala spěchovat.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Modelovou a&nbsp;výplňovou směs i&nbsp;dělicí prášek popisuje stránka <a href="formovaci-smesi.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">Formovací směsi →</a></p>
+
+    <p style="font-size:15.5px;line-height:1.7;color:#8296a8;margin:0 0 16px;max-width:820px;text-wrap:pretty">Klikni na nářadí a&nbsp;zobrazí se, k&nbsp;čemu slouží.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 16px;max-width:1060px;box-sizing:border-box;align-items:start">
+      <sc-for list="{{ tools }}" as="t" hint-placeholder-count="9">
+        <div onClick="{{ t.click }}" style="cursor:pointer;background:{{ t.bg }};border:1.5px solid {{ t.bd }};border-radius:16px;padding:18px 22px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;line-height:1.3;color:{{ t.col }}">{{ t.name }}</div>
+          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(150,180,210,0.16);font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ t.desc }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px;margin:0 0 44px;max-width:1060px;box-sizing:border-box">
+      <div style="display:flex;align-items:center;gap:10px;margin:0 0 12px;flex-wrap:wrap">
+        <sc-for list="{{ models3d }}" as="m" hint-placeholder-count="3">
+          <div onClick="{{ m.click }}" style="cursor:pointer;border:1.5px solid {{ m.bd }};background:{{ m.bg }};border-radius:12px;padding:10px 20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:{{ m.col }}">{{ m.name }}</div>
+        </sc-for>
+        <div style="margin-left:auto;font-size:14px;color:#8296a8">Tažením myší se model otáčí, kolečkem se přibližuje.</div>
+      </div>
+      <x-import component-from-global-scope="nastroje-3d" from="./nastroje-3d.js" model="{{ model3d }}" style="display:block;width:100%;height:420px" hint-size="100%,420px"></x-import>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Postup formování na dělený model</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Projdi postup krok za krokem. V&nbsp;řezu formou se objevuje vždy jen to, co v&nbsp;dané chvíli existuje, a&nbsp;prvek kroku je zvýrazněn. Kliknutím na popisek v&nbsp;řezu si zobrazíš, co daný prvek dělá.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 44px">
+      <div style="display:grid;grid-template-columns:repeat(9,1fr);gap:8px;margin:0 0 18px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="9">
+          <div onClick="{{ s.click }}" style="cursor:pointer;background:{{ s.bg }};border:1.5px solid {{ s.bd }};border-radius:12px;padding:10px 12px">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:{{ s.numCol }}">{{ s.n }}</div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;line-height:1.3;color:{{ s.col }};margin-top:4px">{{ s.short }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center;margin:0 0 18px">
+        <div onClick="{{ btnPrev.click }}" style="cursor:{{ btnPrev.cur }};border:1.5px solid {{ btnPrev.bd }};background:{{ btnPrev.bg }};border-radius:12px;padding:9px 20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ btnPrev.col }}">← Zpět</div>
+        <div onClick="{{ btnNext.click }}" style="cursor:{{ btnNext.cur }};border:1.5px solid {{ btnNext.bd }};background:{{ btnNext.bg }};border-radius:12px;padding:9px 20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ btnNext.col }}">Další →</div>
+      </div>
+
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;line-height:1.25;color:#eaf2fa;margin:0 0 8px">{{ step.title }}</div>
+      <p style="font-size:16px;line-height:1.7;color:#cfe0f0;margin:0 0 10px;max-width:880px;text-wrap:pretty">{{ step.text }}</p>
+      <sc-if value="{{ step.link }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size:15.5px;line-height:1.7;color:#aebfcf;margin:0 0 10px;max-width:880px;text-wrap:pretty">Vtokové soustavě se věnuje samostatná stránka — <a href="../plneni/vtokova-soustava.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">Vtoková soustava →</a></p>
+      </sc-if>
+
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8296a8;margin:18px 0 6px">svislý řez formou — stav po tomto kroku</div>
+      <svg viewBox="{{ vb }}" style="width:100%;display:block">
+        <sc-if value="{{ v.pudnice }}" hint-placeholder-val="{{ true }}">
+          <rect x="348" y="470" width="484" height="32" rx="3" fill="{{ c.pudnice.f }}" stroke="{{ c.pudnice.s }}" stroke-width="{{ c.pudnice.w }}"></rect>
+        </sc-if>
+
+        <sc-if value="{{ v.smesVyplnova }}" hint-placeholder-val="{{ false }}">
+          <rect x="398" y="{{ sandY }}" width="384" height="{{ sandH }}" fill="{{ c.smesVyplnova.f }}" stroke="{{ c.smesVyplnova.s }}" stroke-width="{{ c.smesVyplnova.w }}"></rect>
+        </sc-if>
+        <sc-if value="{{ v.bandDown }}" hint-placeholder-val="{{ false }}">
+          <polygon points="454,470 468,364 712,364 726,470" fill="{{ c.smesModelova.f }}" stroke="{{ c.smesModelova.s }}" stroke-width="{{ c.smesModelova.w }}"></polygon>
+        </sc-if>
+        <sc-if value="{{ v.bandUp }}" hint-placeholder-val="{{ false }}">
+          <polygon points="454,340 726,340 712,446 468,446" fill="{{ c.smesModelova.f }}" stroke="{{ c.smesModelova.s }}" stroke-width="{{ c.smesModelova.w }}"></polygon>
+        </sc-if>
+        <sc-if value="{{ v.modelDown }}" hint-placeholder-val="{{ true }}">
+          <polygon points="480,470 494,390 686,390 700,470" fill="{{ c.modelSpodni.f }}" stroke="{{ c.modelSpodni.s }}" stroke-width="{{ c.modelSpodni.w }}"></polygon>
+        </sc-if>
+        <sc-if value="{{ v.modelUp }}" hint-placeholder-val="{{ false }}">
+          <polygon points="480,340 700,340 686,420 494,420" fill="{{ c.modelSpodni.f }}" stroke="{{ c.modelSpodni.s }}" stroke-width="{{ c.modelSpodni.w }}"></polygon>
+        </sc-if>
+        <sc-if value="{{ v.dutina }}" hint-placeholder-val="{{ false }}">
+          <polygon points="480,340 700,340 686,420 494,420" fill="{{ c.dutina.f }}" stroke="{{ c.dutina.s }}" stroke-width="{{ c.dutina.w }}"></polygon>
+        </sc-if>
+        <sc-if value="{{ v.vents }}" hint-placeholder-val="{{ false }}">
+          <g stroke="{{ ventCol }}" stroke-width="2.4" stroke-linecap="round">
+            <line x1="520" y1="340" x2="520" y2="380"></line>
+            <line x1="590" y1="340" x2="590" y2="380"></line>
+            <line x1="660" y1="340" x2="660" y2="380"></line>
+          </g>
+        </sc-if>
+        <rect x="380" y="340" width="18" height="130" fill="{{ c.spodniRam.f }}" stroke="{{ c.spodniRam.s }}" stroke-width="{{ c.spodniRam.w }}"></rect>
+        <rect x="782" y="340" width="18" height="130" fill="{{ c.spodniRam.f }}" stroke="{{ c.spodniRam.s }}" stroke-width="{{ c.spodniRam.w }}"></rect>
+
+        <sc-if value="{{ v.vrchniRam }}" hint-placeholder-val="{{ false }}">
+          <g transform="{{ copeT }}">
+            <rect x="398" y="210" width="384" height="130" fill="{{ c.smesVyplnova.f }}" stroke="{{ c.smesVyplnova.s }}" stroke-width="{{ c.smesVyplnova.w }}"></rect>
+            <polygon points="454,340 726,340 712,234 468,234" fill="{{ c.smesModelova.f }}" stroke="{{ c.smesModelova.s }}" stroke-width="{{ c.smesModelova.w }}"></polygon>
+            <sc-if value="{{ v.modelVrchni }}" hint-placeholder-val="{{ false }}">
+              <polygon points="480,340 700,340 686,260 494,260" fill="{{ c.modelVrchni.f }}" stroke="{{ c.modelVrchni.s }}" stroke-width="{{ c.modelVrchni.w }}"></polygon>
+            </sc-if>
+            <sc-if value="{{ v.dutinaUp }}" hint-placeholder-val="{{ false }}">
+              <polygon points="480,340 700,340 686,260 494,260" fill="{{ c.dutina.f }}" stroke="{{ c.dutina.s }}" stroke-width="{{ c.dutina.w }}"></polygon>
+            </sc-if>
+            <polygon points="420,210 460,210 452,340 428,340" fill="{{ c.kul.f }}" stroke="{{ c.kul.s }}" stroke-width="{{ c.kul.w }}"></polygon>
+            <polygon points="568,210 612,210 604,260 576,260" fill="{{ c.vyfuk.f }}" stroke="{{ c.vyfuk.s }}" stroke-width="{{ c.vyfuk.w }}"></polygon>
+            <rect x="380" y="210" width="18" height="130" fill="{{ c.vrchniRam.f }}" stroke="{{ c.vrchniRam.s }}" stroke-width="{{ c.vrchniRam.w }}"></rect>
+            <rect x="782" y="210" width="18" height="130" fill="{{ c.vrchniRam.f }}" stroke="{{ c.vrchniRam.s }}" stroke-width="{{ c.vrchniRam.w }}"></rect>
+          </g>
+        </sc-if>
+
+        <sc-if value="{{ v.prasek }}" hint-placeholder-val="{{ false }}">
+          <g fill="{{ c.prasek.f }}">
+            <rect x="398" y="333" width="82" height="7"></rect>
+            <rect x="700" y="333" width="82" height="7"></rect>
+          </g>
+        </sc-if>
+
+        <sc-if value="{{ show.vrchniRam }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ lab.vrchniRam.click }}" style="cursor:pointer">
+            <path d="{{ lab.vrchniRam.d }}" pointer-events="none" fill="none" stroke="{{ lab.vrchniRam.col }}" stroke-width="1.4"></path>
+            <rect x="20" y="118" width="250" height="56" rx="12" fill="{{ lab.vrchniRam.bg }}" stroke="{{ lab.vrchniRam.bd }}" stroke-width="1.4"></rect>
+            <text x="40" y="153" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.vrchniRam.col }}">Vrchní rám</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.kul }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ lab.kul.click }}" style="cursor:pointer">
+            <path d="{{ lab.kul.d }}" pointer-events="none" fill="none" stroke="{{ lab.kul.col }}" stroke-width="1.4"></path>
+            <rect x="20" y="34" width="250" height="56" rx="12" fill="{{ lab.kul.bg }}" stroke="{{ lab.kul.bd }}" stroke-width="1.4"></rect>
+            <text x="40" y="69" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.kul.col }}">Vtokový kůl</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.smesModelova }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ lab.smesModelova.click }}" style="cursor:pointer">
+            <path d="{{ lab.smesModelova.d }}" pointer-events="none" fill="none" stroke="{{ lab.smesModelova.col }}" stroke-width="1.4"></path>
+            <rect x="20" y="300" width="250" height="56" rx="12" fill="{{ lab.smesModelova.bg }}" stroke="{{ lab.smesModelova.bd }}" stroke-width="1.4"></rect>
+            <text x="40" y="335" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.smesModelova.col }}">Modelová směs</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.spodniRam }}" hint-placeholder-val="{{ true }}">
+          <g onClick="{{ lab.spodniRam.click }}" style="cursor:pointer">
+            <path d="{{ lab.spodniRam.d }}" pointer-events="none" fill="none" stroke="{{ lab.spodniRam.col }}" stroke-width="1.4"></path>
+            <rect x="20" y="392" width="250" height="56" rx="12" fill="{{ lab.spodniRam.bg }}" stroke="{{ lab.spodniRam.bd }}" stroke-width="1.4"></rect>
+            <text x="40" y="427" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.spodniRam.col }}">Spodní rám</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.pudnice }}" hint-placeholder-val="{{ true }}">
+          <g onClick="{{ lab.pudnice.click }}" style="cursor:pointer">
+            <path d="{{ lab.pudnice.d }}" pointer-events="none" fill="none" stroke="{{ lab.pudnice.col }}" stroke-width="1.4"></path>
+            <rect x="20" y="476" width="250" height="56" rx="12" fill="{{ lab.pudnice.bg }}" stroke="{{ lab.pudnice.bd }}" stroke-width="1.4"></rect>
+            <text x="40" y="511" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.pudnice.col }}">Půdnice</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.vyfuk }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ lab.vyfuk.click }}" style="cursor:pointer">
+            <path d="{{ lab.vyfuk.d }}" pointer-events="none" fill="none" stroke="{{ lab.vyfuk.col }}" stroke-width="1.4"></path>
+            <rect x="910" y="118" width="250" height="56" rx="12" fill="{{ lab.vyfuk.bg }}" stroke="{{ lab.vyfuk.bd }}" stroke-width="1.4"></rect>
+            <text x="930" y="153" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.vyfuk.col }}">Výfuk</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.modelVrchni }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ lab.modelVrchni.click }}" style="cursor:pointer">
+            <path d="{{ lab.modelVrchni.d }}" pointer-events="none" fill="none" stroke="{{ lab.modelVrchni.col }}" stroke-width="1.4"></path>
+            <rect x="910" y="202" width="250" height="56" rx="12" fill="{{ lab.modelVrchni.bg }}" stroke="{{ lab.modelVrchni.bd }}" stroke-width="1.4"></rect>
+            <text x="930" y="237" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.modelVrchni.col }}">Model — vrchní polovina</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.prasek }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ lab.prasek.click }}" style="cursor:pointer">
+            <path d="{{ lab.prasek.d }}" pointer-events="none" fill="none" stroke="{{ lab.prasek.col }}" stroke-width="1.4"></path>
+            <rect x="910" y="286" width="250" height="56" rx="12" fill="{{ lab.prasek.bg }}" stroke="{{ lab.prasek.bd }}" stroke-width="1.4"></rect>
+            <text x="930" y="321" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.prasek.col }}">Dělicí prášek</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.modelSpodni }}" hint-placeholder-val="{{ true }}">
+          <g onClick="{{ lab.modelSpodni.click }}" style="cursor:pointer">
+            <path d="{{ lab.modelSpodni.d }}" pointer-events="none" fill="none" stroke="{{ lab.modelSpodni.col }}" stroke-width="1.4"></path>
+            <rect x="910" y="370" width="250" height="56" rx="12" fill="{{ lab.modelSpodni.bg }}" stroke="{{ lab.modelSpodni.bd }}" stroke-width="1.4"></rect>
+            <text x="930" y="405" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.modelSpodni.col }}">Model — spodní polovina</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.dutina }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ lab.dutina.click }}" style="cursor:pointer">
+            <path d="{{ lab.dutina.d }}" pointer-events="none" fill="none" stroke="{{ lab.dutina.col }}" stroke-width="1.4"></path>
+            <rect x="910" y="454" width="250" height="56" rx="12" fill="{{ lab.dutina.bg }}" stroke="{{ lab.dutina.bd }}" stroke-width="1.4"></rect>
+            <text x="930" y="489" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.dutina.col }}">Dutina</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ show.smesVyplnova }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ lab.smesVyplnova.click }}" style="cursor:pointer">
+            <path d="{{ lab.smesVyplnova.d }}" pointer-events="none" fill="none" stroke="{{ lab.smesVyplnova.col }}" stroke-width="1.4"></path>
+            <rect x="910" y="538" width="250" height="56" rx="12" fill="{{ lab.smesVyplnova.bg }}" stroke="{{ lab.smesVyplnova.bd }}" stroke-width="1.4"></rect>
+            <text x="930" y="573" font-family="Quicksand, sans-serif" font-weight="700" font-size="16" fill="{{ lab.smesVyplnova.col }}">Výplňová směs</text>
+          </g>
+        </sc-if>
+      </svg>
+
+      <div style="background:rgba(123,163,204,0.10);border:1px solid rgba(123,163,204,0.40);border-radius:14px;padding:18px 22px;margin-top:12px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7ba3cc;margin-bottom:8px">prvek řezu</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18.5px;line-height:1.25;color:#eaf2fa;margin-bottom:10px">{{ sel.name }}</div>
+        <div style="font-size:15px;line-height:1.7;color:#cfe0f0;max-width:900px;text-wrap:pretty">{{ sel.desc }}</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 14px">Varianty ručního formování</h2>
+
+    <div style="display:flex;gap:10px;margin:0 0 16px;flex-wrap:wrap">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+        <div onClick="{{ t.click }}" style="cursor:pointer;border:1.5px solid {{ t.bd }};background:{{ t.bg }};border-radius:12px;padding:10px 20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:{{ t.col }}">{{ t.tab }}</div>
+      </sc-for>
+    </div>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 44px;max-width:1060px;box-sizing:border-box">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18.5px;line-height:1.25;color:#eaf2fa;margin-bottom:12px">{{ variant.name }}</div>
+      <p style="font-size:15.5px;line-height:1.7;color:#cfe0f0;margin:0 0 14px;max-width:880px;text-wrap:pretty">{{ variant.text }}</p>
+      <div style="background:rgba(150,180,210,0.05);border-left:3px solid #7ba3cc;border-radius:0 12px 12px 0;padding:14px 18px;font-size:14.5px;line-height:1.6;color:#eaf2fa;max-width:880px;text-wrap:pretty">{{ variant.note }}</div>
+      <sc-if value="{{ isSablon }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(150,180,210,0.16)">
+          <div style="display:flex;align-items:center;gap:10px;margin:0 0 12px;flex-wrap:wrap">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa">Rotační šablona v&nbsp;pravoúhlém rámu</div>
+            <div style="margin-left:auto;font-size:14px;color:#8296a8">Tažením myší se model otáčí, kolečkem se přibližuje.</div>
+          </div>
+          <x-import component-from-global-scope="nastroje-3d" from="./nastroje-3d.js" model="sablonovani" style="display:block;width:100%;height:420px" hint-size="100%,420px"></x-import>
+        </div>
+      </sc-if>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 14px">Ruční&nbsp;× strojní formování</h2>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1px;background:rgba(150,180,210,0.16);border:1px solid rgba(150,180,210,0.16);border-radius:14px;overflow:hidden;max-width:1060px;box-sizing:border-box">
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Hledisko</div>
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Ruční</div>
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Strojní</div>
+      <sc-for list="{{ compare }}" as="r" hint-placeholder-count="7">
+        <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">{{ r.k }}</div>
+        <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">{{ r.rucni }}</div>
+        <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">{{ r.strojni }}</div>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startStep&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:1,&quot;min&quot;:1,&quot;max&quot;:9,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Postup formování&quot;},&quot;expandTools&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Nářadí&quot;},&quot;defaultVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Formování do země&quot;,&quot;Šablonování&quot;],&quot;default&quot;:&quot;Formování do země&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Varianty&quot;}}">
+const HL = 'oklch(0.84 0.13 48)';
+
+const BASE = {
+  pudnice: { f: '#333c48', s: 'rgba(150,180,210,0.38)' },
+  ram: { f: '#39424e', s: 'rgba(150,180,210,0.42)' },
+  vypln: { f: '#202832', s: 'rgba(150,180,210,0.16)' },
+  modelSmes: { f: '#2b3743', s: 'rgba(150,180,210,0.22)' },
+  model: { f: 'rgba(123,163,204,0.28)', s: '#7ba3cc' },
+  void: { f: '#05070a', s: 'rgba(150,180,210,0.45)' },
+  prasek: { f: 'rgba(174,191,207,0.55)', s: 'none' },
+};
+
+function paint(kind, on) {
+  if (!on) return { f: BASE[kind].f, s: BASE[kind].s, w: 1.6 };
+  if (kind === 'void') return { f: '#0c0e12', s: HL, w: 2.6 };
+  if (kind === 'prasek') return { f: HL, s: 'none', w: 0 };
+  return { f: 'rgba(224,140,110,0.30)', s: HL, w: 2.6 };
+}
+
+const ELEMS = {
+  pudnice: {
+    name: 'Půdnice', side: 'L', y: 476,
+    desc: 'Rovná tvrdá deska, na kterou se klade rám s\u00a0modelem. Rám nemá dno, takže půdnice ho při pěchování uzavírá zdola a\u00a0nese tlak od pěchovačky.',
+  },
+  spodniRam: {
+    name: 'Spodní rám', side: 'L', y: 392,
+    desc: 'Otevřený rám bez dna. Drží spěchovanou směs pohromadě, takže spodní polovina formy udrží tvar i\u00a0po otočení a\u00a0manipulaci.',
+  },
+  vrchniRam: {
+    name: 'Vrchní rám', side: 'L', y: 118,
+    desc: 'Druhý rám zaformovaný na dělicí rovinu spodku. Se spodním rámem ho spojují čepy a\u00a0pouzdra, takže se po sejmutí vrátí do stejné polohy.',
+  },
+  kul: {
+    name: 'Vtokový kůl', side: 'L', y: 34,
+    desc: 'Svislý kanál, kterým tavenina vstupuje do formy. Vznikne zaformováním modelu kůlu do vrchního rámu a\u00a0jeho vytažením před otevřením formy.',
+  },
+  smesModelova: {
+    name: 'Modelová směs', side: 'L', y: 300,
+    desc: 'Vrstva směsi přímo u\u00a0modelu. Přesívá se sítem, aby se na líc dutiny nedostaly hrudky, a\u00a0pěchuje se klínovou částí pěchovačky.',
+  },
+  vyfuk: {
+    name: 'Výfuk', side: 'R', y: 118,
+    desc: 'Kanál vedoucí z\u00a0formy nahoru. Odvádí vzduch a\u00a0plyny vytlačované taveninou a\u00a0podle kovu v\u00a0něm se pozná, že je forma plná.',
+  },
+  modelVrchni: {
+    name: 'Model — vrchní polovina', side: 'R', y: 202,
+    desc: 'Druhá polovina děleného modelu. Nasadí se na čepy spodní poloviny a\u00a0zaformuje se do vrchního rámu. Při sejmutí rámu zůstává v\u00a0jeho směsi.',
+  },
+  prasek: {
+    name: 'Dělicí prášek', side: 'R', y: 286,
+    desc: 'Sype se na uhlazenou dělicí rovinu před zaformováním vršku. Brání tomu, aby obě poloviny formy srostly v\u00a0jeden kus.',
+  },
+  modelSpodni: {
+    name: 'Model — spodní polovina', side: 'R', y: 370,
+    desc: 'Polovina děleného modelu uložená dělicí rovinou na půdnici. Po jejím vytažení zůstane ve\u00a0směsi spodní část dutiny.',
+  },
+  dutina: {
+    name: 'Dutina', side: 'R', y: 454,
+    desc: 'Prostor po vyjmutém modelu. Jeho tvar přejme odlitek, proto se poškozená místa opravují a\u00a0uvolněná směs se z\u00a0něj vyfoukne.',
+  },
+  smesVyplnova: {
+    name: 'Výplňová směs', side: 'R', y: 538,
+    desc: 'Vyplňuje zbytek rámu za modelovou vrstvou. Pěchuje se knoflíkovou částí pěchovačky a\u00a0na jakost líce nemá vliv.',
+  },
+};
+
+const STEPS = [
+  {
+    short: 'Založení', title: 'Založení',
+    text: 'Na půdnici se položí spodní rám. Do rámu se vloží polovina modelu dělicí rovinou dolů, tedy plochou na půdnici. Půdnice uzavírá rám zdola a\u00a0drží směs při pěchování.',
+    hl: ['pudnice', 'modelSpodni'],
+  },
+  {
+    short: 'Modelová směs', title: 'Modelová směs',
+    text: 'Na model se přes síto přeseje modelová směs. Prosetí zadrží hrudky, které by se otiskly do líce dutiny.',
+    hl: ['smesModelova'],
+  },
+  {
+    short: 'Pěchování', title: 'Pěchování',
+    text: 'U\u00a0modelu se pěchuje klínovou částí pěchovačky, dál od něj knoflíkovou. Zbytek rámu se plní výplňovou směsí. Pěchování musí být stejnoměrné, jinak se forma pod tlakem taveniny místně prohne.',
+    hl: ['smesVyplnova', 'smesModelova'],
+  },
+  {
+    short: 'Seříznutí a\u00a0průduchy', title: 'Seříznutí a\u00a0průduchy',
+    text: 'Přebytečná směs nad rámem se seřízne pravítkem. Bodcem se propíchají průduchy směrem k\u00a0modelu, ale ne až do něj, aby po nich při lití nezatekl kov.',
+    hl: ['smesVyplnova'],
+  },
+  {
+    short: 'Otočení spodku', title: 'Otočení spodku',
+    text: 'Rám se otočí dělicí rovinou nahoru. Rovina se uhladí hladítkem a\u00a0posype dělicím práškem.',
+    hl: ['prasek'],
+  },
+  {
+    short: 'Vršek', title: 'Vršek',
+    text: 'Na čepy modelu se nasadí druhá polovina. Na dělicí rovinu se postaví modely vtokové soustavy a\u00a0výfuku, nasadí se vrchní rám a\u00a0směs se znovu pěchuje.',
+    hl: ['vrchniRam', 'modelVrchni', 'kul', 'vyfuk'], link: true,
+  },
+  {
+    short: 'Otevření formy', title: 'Otevření formy',
+    text: 'Vytáhne se model vtokového kůlu a\u00a0výfuku. Vrchní rám se sejme a\u00a0odloží dělicí rovinou nahoru, aby se jeho dutina nepoškodila.',
+    hl: ['kul', 'vyfuk', 'vrchniRam'],
+  },
+  {
+    short: 'Vyjmutí modelu', title: 'Vyjmutí modelu a\u00a0úprava dutiny',
+    text: 'Okraje směsi u\u00a0modelu se zvlhčí štětcem, aby se neodrolily. Model se uvolní poklepem a\u00a0vytáhne trnem. Doplní se zářez a\u00a0struskovák, opraví se poškozená místa a\u00a0z\u00a0dutiny se vyfouká uvolněná směs.',
+    hl: ['dutina'],
+  },
+  {
+    short: 'Složení', title: 'Složení',
+    text: 'Založí se jádra a\u00a0rámy se složí podle čepů. Forma se zatíží nebo sepne, aby ji tlak taveniny nenadzvedl.',
+    hl: ['vrchniRam', 'spodniRam'],
+  },
+];
+
+const TOOLS = [
+  { name: 'Pěchovačka', desc: 'Směs se ručně pěchuje pěchovačkami různého tvaru a\u00a0délky. V\u00a0rozích a\u00a0v\u00a0blízkosti modelu se pěchuje klínovou částí, aby se dosáhlo vysokého stupně upěchování. Dále od modelu se pěchuje druhým koncem — „knoflíkem“.' },
+  { name: 'Hladítka', desc: 'Uhlazují dělicí rovinu a\u00a0opravují poškozená místa dutiny.' },
+  { name: 'Lancetka', desc: 'Zahlazuje těžko přístupná místa v\u00a0dutině.' },
+  { name: 'Bodec', desc: 'Propichuje průduchy pro odchod plynů.' },
+  { name: 'Vyjímací trn nebo háček', desc: 'Slouží k\u00a0uvolnění a\u00a0vytažení modelu.' },
+  { name: 'Štětec', desc: 'Zvlhčuje směs u\u00a0okrajů modelu před jeho vyjmutím.' },
+  { name: 'Síto', desc: 'Přesívá modelovou směs na model.' },
+  { name: 'Lopatka', desc: 'Nabírá a\u00a0přihazuje směs.' },
+];
+
+const MODELS3D = [
+  { key: 'pechovacka', name: 'Pěchovačka' },
+  { key: 'lancetka', name: 'Lancetka' },
+  { key: 'hladitka', name: 'Hladítka' },
+];
+
+const VARIANTS = [
+  {
+    tab: 'Formování do země', name: 'Formování do země',
+    text: 'Forma se nedělá do rámu, ale přímo v\u00a0podlaze slévárny. Používá se u\u00a0rozměrných a\u00a0těžkých odlitků, kde by byl rám neúnosně velký. Vrchní část se dělá do rámu nebo se forma zakrývá.',
+    note: 'Přesnost je nižší, protože chybí jednoznačné ustavení čepy.',
+  },
+  {
+    tab: 'Šablonování', name: 'Šablonování',
+    text: 'Místo modelu se použije šablona, tedy deska s\u00a0profilem tvaru. Šablona se otáčí kolem osy nebo posouvá podél vedení a\u00a0odebírá přebytečnou směs. Hodí se pro rotační a\u00a0protáhlé tvary, kde by výroba modelu byla zbytečně drahá.',
+    note: 'Je pomalejší a\u00a0náročné na zručnost formíře.',
+  },
+];
+
+const COMPARE = [
+  { k: 'Rozměrová přesnost', rucni: 'Nižší', strojni: 'Vyšší' },
+  { k: 'Opakovatelnost', rucni: 'Kolísá kus od kusu', strojni: 'Vysoká' },
+  { k: 'Stejnoměrnost zhutnění', rucni: 'Kolísá podle formíře', strojni: 'Stejnoměrné' },
+  { k: 'Náklad na modelové zařízení', rucni: 'Malý', strojni: 'Velký' },
+  { k: 'Vhodná velikost série', rucni: 'Kusová a\u00a0opravárenská', strojni: 'Sériová a\u00a0hromadná' },
+  { k: 'Pracnost', rucni: 'Velká', strojni: 'Malá' },
+  { k: 'Vhodná velikost odlitku', rucni: 'I\u00a0rozměrné a\u00a0těžké odlitky', strojni: 'Omezená velikostí stroje' },
+];
+
+class Component extends DCLogic {
+  state = { step: null, sel: null, tool: null, tab: null };
+
+  renderVals() {
+    const raw = this.state.step || this.props.startStep || 1;
+    const i = Math.min(9, Math.max(1, raw));
+    const S = STEPS[i - 1];
+    const sel = (this.state.sel && this.state.sel.i === i) ? this.state.sel.k : S.hl[0];
+    const lifted = i === 7 || i === 8;
+    const turned = i >= 5;
+
+    const v = {
+      pudnice: i <= 4,
+      smesVyplnova: i >= 3,
+      bandDown: i >= 2 && i <= 4,
+      bandUp: i >= 5,
+      modelDown: i <= 4,
+      modelUp: i >= 5 && i <= 7,
+      dutina: i >= 8,
+      dutinaUp: i >= 8,
+      vents: i === 4,
+      prasek: i >= 5,
+      vrchniRam: i >= 6,
+      modelVrchni: i === 6 || i === 7,
+    };
+
+    const shown = {
+      pudnice: v.pudnice,
+      spodniRam: true,
+      vrchniRam: v.vrchniRam,
+      kul: i >= 6,
+      vyfuk: i >= 6,
+      modelVrchni: v.modelVrchni,
+      modelSpodni: i <= 7,
+      smesModelova: i >= 2,
+      smesVyplnova: i >= 3,
+      prasek: v.prasek,
+      dutina: i >= 8,
+    };
+
+    const kinds = {
+      pudnice: 'pudnice', spodniRam: 'ram', vrchniRam: 'ram',
+      modelSpodni: 'model', modelVrchni: 'model',
+      smesModelova: 'modelSmes', smesVyplnova: 'vypln',
+      dutina: 'void', prasek: 'prasek',
+      kul: i >= 7 ? 'void' : 'model',
+      vyfuk: i >= 7 ? 'void' : 'model',
+    };
+
+    const hot = {};
+    S.hl.forEach(k => { hot[k] = true; });
+    hot[sel] = true;
+
+    const c = {};
+    Object.keys(kinds).forEach(k => { c[k] = paint(kinds[k], !!hot[k]); });
+
+    const anchor = {
+      vrchniRam: [389, lifted ? 95 : 275],
+      kul: [440, lifted ? 95 : 275],
+      smesModelova: turned ? [461, 400] : [458, 430],
+      spodniRam: [389, 430],
+      pudnice: [370, 486],
+      vyfuk: [590, lifted ? 55 : 235],
+      modelVrchni: [590, lifted ? 120 : 300],
+      prasek: [741, 336],
+      modelSpodni: turned ? [600, 380] : [600, 430],
+      dutina: [640, 392],
+      smesVyplnova: [770, 452],
+    };
+
+    const lab = {};
+    Object.keys(ELEMS).forEach(k => {
+      const e = ELEMS[k];
+      const on = k === sel;
+      const cy = e.y + 28;
+      const a = anchor[k];
+      lab[k] = {
+        d: e.side === 'L'
+          ? 'M 270 ' + cy + ' H 330 L ' + a[0] + ' ' + a[1]
+          : 'M 910 ' + cy + ' H 850 L ' + a[0] + ' ' + a[1],
+        col: on ? HL : '#cfe0f0',
+        bg: on ? 'rgba(224,140,110,0.12)' : 'rgba(150,180,210,0.05)',
+        bd: on ? HL : 'rgba(150,180,210,0.22)',
+        click: () => this.setState({ sel: { i: i, k: k } }),
+      };
+    });
+
+    const goto = n => this.setState({ step: n, sel: null });
+    const ti = this.state.tab !== null && this.state.tab !== undefined
+      ? this.state.tab
+      : Math.max(0, VARIANTS.findIndex(x => x.tab === this.props.defaultVariant));
+
+    return {
+      v: v, c: c, lab: lab, show: shown,
+      vb: i <= 5 ? '0 200 1180 440' : '0 0 1180 640',
+      copeT: lifted ? 'translate(0,-180)' : 'translate(0,0)',
+      sandY: i === 3 ? 318 : 340,
+      sandH: i === 3 ? 152 : 130,
+      ventCol: HL,
+      step: S,
+      sel: ELEMS[sel],
+      steps: STEPS.map((s, n) => {
+        const on = n + 1 === i;
+        return {
+          n: n + 1, short: s.short,
+          click: () => goto(n + 1),
+          bg: on ? 'rgba(224,140,110,0.14)' : 'rgba(150,180,210,0.04)',
+          bd: on ? HL : 'rgba(150,180,210,0.18)',
+          col: on ? '#eaf2fa' : '#aebfcf',
+          numCol: on ? HL : '#8296a8',
+        };
+      }),
+      btnPrev: {
+        click: () => { if (i > 1) goto(i - 1); },
+        cur: i > 1 ? 'pointer' : 'default',
+        bg: i > 1 ? 'rgba(150,180,210,0.06)' : 'transparent',
+        bd: i > 1 ? 'rgba(150,180,210,0.28)' : 'rgba(150,180,210,0.12)',
+        col: i > 1 ? '#eaf2fa' : '#5c6874',
+      },
+      btnNext: {
+        click: () => { if (i < 9) goto(i + 1); },
+        cur: i < 9 ? 'pointer' : 'default',
+        bg: i < 9 ? 'rgba(224,140,110,0.12)' : 'transparent',
+        bd: i < 9 ? HL : 'rgba(150,180,210,0.12)',
+        col: i < 9 ? 'oklch(0.86 0.12 48)' : '#5c6874',
+      },
+      tools: TOOLS.map((t, n) => {
+        const open = this.props.expandTools === true || this.state.tool === n;
+        return {
+          name: t.name, desc: t.desc, open: open,
+          click: () => this.setState(s => ({ tool: s.tool === n ? null : n })),
+          bg: open ? 'rgba(150,180,210,0.08)' : 'rgba(150,180,210,0.03)',
+          bd: open ? 'rgba(123,163,204,0.55)' : 'rgba(150,180,210,0.18)',
+          col: open ? '#eaf2fa' : '#cfe0f0',
+        };
+      }),
+      tabs: VARIANTS.map((x, n) => ({
+        tab: x.tab,
+        click: () => this.setState({ tab: n }),
+        bd: n === ti ? 'oklch(0.82 0.13 48)' : 'rgba(150,180,210,0.18)',
+        bg: n === ti ? 'rgba(224,140,110,0.12)' : 'rgba(150,180,210,0.03)',
+        col: n === ti ? 'oklch(0.84 0.13 48)' : '#aebfcf',
+      })),
+      variant: VARIANTS[ti] || VARIANTS[0],
+      isSablon: (VARIANTS[ti] || VARIANTS[0]).tab === 'Šablonování',
+      model3d: MODELS3D[this.state.m3d || 0].key,
+      models3d: MODELS3D.map((x, n) => {
+        const on = n === (this.state.m3d || 0);
+        return {
+          name: x.name,
+          click: () => this.setState({ m3d: n }),
+          bd: on ? 'oklch(0.82 0.13 48)' : 'rgba(150,180,210,0.18)',
+          bg: on ? 'rgba(224,140,110,0.12)' : 'rgba(150,180,210,0.03)',
+          col: on ? 'oklch(0.84 0.13 48)' : '#aebfcf',
+        };
+      }),
+      compare: COMPARE,
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

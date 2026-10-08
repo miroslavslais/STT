@@ -735,7 +735,7 @@
         "title": "Model a písková forma",
         "desc": "Od modelu přes formovací směs po hotovou formu s jádry — ruční i strojní cestou.",
         "href": "forma/index.html",
-        "badge": "1 z 5 kapitol · Interaktivní",
+        "badge": "5 kapitol · Interaktivní",
         "status": "ready"
       },
       {
@@ -743,8 +743,8 @@
         "title": "Plnění, tuhnutí a vady",
         "desc": "Jak se kov do formy dostane, jak v ní tuhne a co se stane, když se to nepovede.",
         "href": "tuhnuti/index.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "4 kapitoly · Animace · Interaktivní",
+        "status": "ready"
       },
       {
         "id": "specialni",
@@ -796,29 +796,29 @@
         "title": "Formovací směsi a pískové formy",
         "desc": "Ostřivo a pojivo: bentonit, pryskyřice, vodní sklo.",
         "href": "formovaci-smesi.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "2 interaktivní",
+        "status": "ready"
       },
       {
         "title": "Ruční formování",
         "desc": "Formování do dvou rámů, na šablonu, s odpadem.",
         "href": "rucni-formovani.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "3 interaktivní",
+        "status": "ready"
       },
       {
         "title": "Strojní formování",
         "desc": "Lisování, střásání, metání a automatické linky.",
         "href": "strojni-formovani.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "3 interaktivní",
+        "status": "ready"
       },
       {
         "title": "Výroba jader",
         "desc": "Jak vzniká dutina, kterou nástroj nikdy neobrobí.",
         "href": "jadra.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "Animace · 2 interaktivní",
+        "status": "ready"
       }
     ]
   },
@@ -827,31 +827,31 @@
     "cards": [
       {
         "title": "Vtoková soustava",
-        "desc": "Cesta kovu do formy — včetně papírových a keramických soustav.",
+        "desc": "Cesta kovu do formy — včetně papírových soustav a keramických filtrů.",
         "href": "vtokova-soustava.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "Animace · Interaktivní",
+        "status": "ready"
       },
       {
         "title": "Tuhnutí, nálitky a dokončování",
         "desc": "Směrové tuhnutí, tepelné uzly, nálitky a chladítka.",
         "href": "nalitky.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "Animace · Interaktivní",
+        "status": "ready"
       },
       {
         "title": "Technologičnost konstrukce odlitku",
         "desc": "Jak navrhnout díl, aby se dal vůbec odlít.",
         "href": "technologicnost.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "Interaktivní",
+        "status": "ready"
       },
       {
         "title": "Vady odlitků",
         "desc": "Staženiny, bubliny, zálupy: projev, příčina, náprava.",
         "href": "vady.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "Interaktivní",
+        "status": "ready"
       }
     ]
   },

@@ -49,27 +49,31 @@
   </div>
 
   <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-    <sc-for list="{{ cards }}" as="c" hint-placeholder-count="3">
-      <div style="position:relative;display:flex;flex-direction:column;gap:16px;background:#faf7f1;border-radius:20px;padding:26px;border:1px solid #ece4d6;cursor:not-allowed">
-        <div style="position:absolute;top:16px;right:16px;padding:5px 10px;border-radius:999px;background:#eee5d8;font-size:11px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;color:#a39a8b;letter-spacing:0.04em;text-transform:uppercase">Připravujeme</div>
-        <div style="width:56px;height:56px;border-radius:14px;background:#eee5d8;display:flex;align-items:center;justify-content:center">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="#a39a8b" stroke-width="1.8"></rect><path d="M9 12h6" stroke="#a39a8b" stroke-width="1.8" stroke-linecap="round"></path></svg>
+    <sc-for list="{{ cards }}" as="c" hint-placeholder-count="4">
+      <a href="{{ c.href }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#faf7f1;border-radius:20px;padding:26px;border:1px solid {{ c.borderColor }};cursor:{{ c.cursor }}">
+        <div style="position:absolute;top:16px;right:16px;padding:5px 10px;border-radius:999px;background:{{ c.badgeBg }};font-size:11px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;color:{{ c.badgeColor }};letter-spacing:0.04em;text-transform:uppercase">{{ c.badge }}</div>
+        <div style="width:56px;height:56px;border-radius:14px;background:{{ c.iconBg }};display:flex;align-items:center;justify-content:center">
+          <sc-if value="{{ c.ic.vtok }}" hint-placeholder-val="{{ false }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 3h8l-2.5 4v10H16" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><rect x="16" y="11" width="5.5" height="9" rx="1" stroke="{{ c.iconColor }}" stroke-width="1.8"></rect></svg></sc-if>
+          <sc-if value="{{ c.ic.nal }}" hint-placeholder-val="{{ false }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M3 20V13h6V5h6v8h6v7Z" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linejoin="round"></path><path d="M9 13h6" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="2 2"></path></svg></sc-if>
+          <sc-if value="{{ c.ic.tech }}" hint-placeholder-val="{{ false }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M4 4v16h16" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8 4v8a4 4 0 0 0 4 4h8" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round"></path></svg></sc-if>
+          <sc-if value="{{ c.ic.vady }}" hint-placeholder-val="{{ false }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="1.5" stroke="{{ c.iconColor }}" stroke-width="1.8"></rect><circle cx="9" cy="11" r="2" stroke="{{ c.iconColor }}" stroke-width="1.6"></circle><path d="M15 6l-1.5 3 2 2-1.5 3" stroke="{{ c.iconColor }}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+          <sc-if value="{{ c.ic.none }}" hint-placeholder-val="{{ true }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="{{ c.iconColor }}" stroke-width="1.8"></rect><path d="M9 12h6" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round"></path></svg></sc-if>
         </div>
         <div>
-          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#a39a8b;margin-bottom:6px">{{ c.title }}</div>
-          <div style="font-size:14.5px;line-height:1.5;color:#a39a8b;text-wrap:pretty">{{ c.desc }}</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:{{ c.titleColor }};margin-bottom:6px">{{ c.title }}</div>
+          <div style="font-size:14.5px;line-height:1.5;color:{{ c.descColor }};text-wrap:pretty">{{ c.desc }}</div>
         </div>
-      </div>
+      </a>
     </sc-for>
   </div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 const CARDS = [
-  { title: 'Vtoková soustava', desc: 'Cesta kovu do formy — včetně papírových a keramických soustav.', href: 'vtokova-soustava.html', status: 'coming-soon', badge: 'Připravujeme' },
-  { title: 'Tuhnutí, nálitky a dokončování', desc: 'Směrové tuhnutí, tepelné uzly, nálitky a chladítka.', href: 'nalitky.html', status: 'coming-soon', badge: 'Připravujeme' },
-  { title: 'Technologičnost konstrukce odlitku', desc: 'Jak navrhnout díl, aby se dal vůbec odlít.', href: 'technologicnost.html', status: 'coming-soon', badge: 'Připravujeme' },
-  { title: 'Vady odlitků', desc: 'Staženiny, bubliny, zálupy: projev, příčina, náprava.', href: 'vady.html', status: 'coming-soon', badge: 'Připravujeme' },
+  { title: 'Vtoková soustava', desc: 'Cesta kovu do formy — včetně papírových soustav a keramických filtrů.', href: 'vtokova-soustava.html', status: 'ready', badge: 'Animace · Interaktivní' },
+  { title: 'Tuhnutí, nálitky a dokončování', desc: 'Směrové tuhnutí, tepelné uzly, nálitky a chladítka.', href: 'nalitky.html', status: 'ready', badge: 'Animace · Interaktivní' },
+  { title: 'Technologičnost konstrukce odlitku', desc: 'Jak navrhnout díl, aby se dal vůbec odlít.', href: 'technologicnost.html', status: 'ready', badge: 'Interaktivní' },
+  { title: 'Vady odlitků', desc: 'Staženiny, bubliny, zálupy: projev, příčina, náprava.', href: 'vady.html', status: 'ready', badge: 'Interaktivní' },
 ];
 const FALLBACK_NAV = [
   { title: 'Domů', href: '../../index.html' },
@@ -91,7 +95,28 @@ class Component extends DCLogic {
     const s = this.state.structure;
     const SELF = 'odlevani/';
     const navItems = s ? s.nav.map(n => ({ title: n.title, href: n.href.startsWith(SELF) ? '../' + n.href.slice(SELF.length) : '../../' + n.href })) : FALLBACK_NAV;
-    const cards = (s && s.odlevaniTuhnuti && s.odlevaniTuhnuti.cards) ? s.odlevaniTuhnuti.cards : CARDS;
+    const raw = (s && s.odlevaniTuhnuti && s.odlevaniTuhnuti.cards) ? s.odlevaniTuhnuti.cards : CARDS;
+    const cards = raw.map(c => {
+      const ready = c.status === 'ready';
+      const vtok = c.href === 'vtokova-soustava.html';
+      const nal = c.href === 'nalitky.html';
+      const tech = c.href === 'technologicnost.html';
+      const vady = c.href === 'vady.html';
+      return {
+        title: c.title, desc: c.desc,
+        ic: { vtok, nal, tech, vady, none: !vtok && !nal && !tech && !vady },
+        href: ready ? c.href : undefined,
+        badge: c.badge || (ready ? 'Kapitola' : 'Připravujeme'),
+        cursor: ready ? 'pointer' : 'not-allowed',
+        borderColor: ready ? '#e5ded2' : '#ece4d6',
+        badgeBg: ready ? '#f3e3d4' : '#eee5d8',
+        badgeColor: ready ? '#b0561f' : '#a39a8b',
+        iconBg: ready ? '#f3e3d4' : '#eee5d8',
+        iconColor: ready ? '#b0561f' : '#a39a8b',
+        titleColor: ready ? '#231d16' : '#a39a8b',
+        descColor: ready ? '#6b6255' : '#a39a8b',
+      };
+    });
     return { navItems, cards };
   }
 }
