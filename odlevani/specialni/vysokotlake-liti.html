@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vysokotlaké lití | STT</title>
+<meta name="description" content="Vysokotlaké lití: princip, animace pracovního cyklu stroje s teplou a studenou komorou, porezita, výhody a nevýhody, použití a srovnání s litím do kokil.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-11">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="9">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na&nbsp;Speciální technologie lití</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Speciální technologie lití</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 28px">Vysokotlaké lití</h1>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Princip</h2>
+    <div style="display:flex;flex-direction:column;gap:14px;margin:0 0 44px;max-width:820px">
+      <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0;text-wrap:pretty">Vysokotlaké lití (také tlakové lití) je lití do trvalé kovové formy, stejně jako <a href="kokilove-liti.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">lití do kokil</a>. Rozdíl je v&nbsp;tom, jak se&nbsp;kov do formy dostane: píst ho vstříkne velkou rychlostí a&nbsp;pod&nbsp;vysokým tlakem, a&nbsp;tlak drží, dokud odlitek neztuhne. Kov tak vyplní i&nbsp;velmi tenké stěny a&nbsp;ostré detaily dřív, než stačí ztuhnout.</p>
+      <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0;text-wrap:pretty">Forma je z&nbsp;nástrojové oceli, dělená na&nbsp;pevnou a&nbsp;pohyblivou polovinu a&nbsp;chlazená kanálky. Celý cyklus je krátký a&nbsp;stroj pracuje automaticky. Odlévají se&nbsp;hlavně slitiny hliníku, zinku a&nbsp;hořčíku.</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 14px">Stroj a&nbsp;pracovní cyklus</h2>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 44px">
+      <div style="display:flex;flex-wrap:wrap;gap:22px;margin:0 0 18px;font-size:14px;color:#aebfcf">
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#6f8296"></span>Forma</div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#e07a3c"></span>Kov</div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#d0b36a"></span>Píst a&nbsp;komora</div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#9aa3ad"></span>Pec a&nbsp;lžíce</div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#4fb3a3"></span>Vyhazovače</div>
+        <div style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#a9c8e6"></span>Dělicí prostředek</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 18px;max-width:440px">
+        <sc-for list="{{ machines }}" as="mc" hint-placeholder-count="2">
+          <div onClick="{{ mc.click }}" style="cursor:pointer;background:{{ mc.bg }};border:1.5px solid {{ mc.bd }};border-radius:12px;padding:10px 14px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;text-align:center;color:{{ mc.col }}">{{ mc.t }}</div>
+        </sc-for>
+      </div>
+
+      <div style="display:grid;background:#0b0f16;border:1px solid rgba(150,180,210,0.12);border-radius:12px;overflow:hidden">
+
+        <svg viewBox="0 0 1000 500" style="grid-area:1/1;width:100%;display:block;opacity:{{ vh.op }};pointer-events:{{ vh.pe }};transition:opacity 0.45s ease">
+          <defs>
+            <clipPath id="tl-h-cav"><path d="M600,212 H612 V150 H672 V162 H624 V278 H672 V290 H612 V228 H600 Z"></path></clipPath>
+          </defs>
+          <path d="M70,290 H86 V458 H384 V290 H400 V470 H70 Z" fill="#9aa3ad"></path>
+          <rect x="86" y="340" width="298" height="118" fill="#e07a3c"></rect>
+          <rect x="162" y="300" width="36" height="138" fill="#0b0f16"></rect>
+          <rect x="162" y="{{ h.chTop }}" width="36" height="{{ h.chH }}" fill="#e07a3c"></rect>
+          <rect x="150" y="300" width="12" height="52" fill="#d0b36a"></rect>
+          <rect x="150" y="366" width="12" height="84" fill="#d0b36a"></rect>
+          <rect x="198" y="300" width="12" height="114" fill="#d0b36a"></rect>
+          <rect x="162" y="438" width="48" height="12" fill="#d0b36a"></rect>
+          <path d="M198,428 H234 Q254,428 254,408 V240 Q254,220 274,220 H500" fill="none" stroke="#d0b36a" stroke-width="28"></path>
+          <path d="M198,428 H234 Q254,428 254,408 V240 Q254,220 274,220 H500" fill="none" stroke="#0b0f16" stroke-width="16"></path>
+          <path d="M198,428 H234 Q254,428 254,408 V240 Q254,220 274,220 H500" fill="none" stroke="#e07a3c" stroke-width="16" pathLength="1000" stroke-dasharray="{{ h.dash }}"></path>
+          <g opacity="{{ h.inflow }}">
+            <line x1="104" y1="359" x2="140" y2="359" stroke="#eaf2fa" stroke-width="2.5"></line>
+            <polygon points="149,359 139,354 139,364" fill="#eaf2fa"></polygon>
+          </g>
+          <rect x="156" y="150" width="48" height="60" fill="#d0b36a"></rect>
+          <rect x="174" y="210" width="12" height="{{ h.rodH }}" fill="#d0b36a"></rect>
+          <rect x="162" y="{{ h.hy }}" width="36" height="20" fill="#d0b36a" stroke="#0b0f16" stroke-width="1"></rect>
+          <g opacity="{{ h.push }}">
+            <line x1="180" y1="104" x2="180" y2="134" stroke="#eaf2fa" stroke-width="2.5"></line>
+            <polygon points="180,143 175,133 185,133" fill="#eaf2fa"></polygon>
+          </g>
+          <rect x="500" y="110" width="100" height="220" fill="#6f8296"></rect>
+          <rect x="500" y="212" width="100" height="16" fill="#0b0f16"></rect>
+          <g transform="translate({{ h.dx }},0)">
+            <rect x="600" y="110" width="112" height="220" fill="#6f8296"></rect>
+            <path d="M600,212 H612 V150 H672 V162 H624 V278 H672 V290 H612 V228 H600 Z" fill="#0b0f16"></path>
+          </g>
+          <g transform="translate({{ h.cx }},{{ h.cy }})" opacity="{{ h.cop }}">
+            <rect x="500" y="212" width="{{ h.sw }}" height="16" fill="{{ h.col }}"></rect>
+            <g clip-path="url(#tl-h-cav)">
+              <circle cx="600" cy="220" r="{{ h.r }}" fill="{{ h.col }}"></circle>
+            </g>
+          </g>
+          <g transform="translate({{ h.ex }},0)">
+            <rect x="624" y="180" width="136" height="8" fill="#4fb3a3"></rect>
+            <rect x="624" y="252" width="136" height="8" fill="#4fb3a3"></rect>
+            <rect x="760" y="170" width="12" height="100" fill="#4fb3a3"></rect>
+          </g>
+          <polygon points="668,220 604,170 604,270" fill="#a9c8e6" opacity="{{ h.spray }}"></polygon>
+          <polygon points="692,220 756,170 756,270" fill="#a9c8e6" opacity="{{ h.spray }}"></polygon>
+          <g transform="translate(0,{{ h.sy }})">
+            <rect x="676" y="-300" width="8" height="300" fill="#5c6874"></rect>
+            <rect x="668" y="0" width="24" height="16" fill="#5c6874"></rect>
+          </g>
+          <g>
+            <line x1="{{ lh0.x1 }}" y1="{{ lh0.y1 }}" x2="{{ lh0.ax }}" y2="{{ lh0.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lh0.ax }}" cy="{{ lh0.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lh0.click }}" style="cursor:pointer">
+              <rect x="{{ lh0.bx }}" y="{{ lh0.by }}" width="{{ lh0.bw }}" height="26" rx="13" fill="{{ lh0.fill }}" stroke="{{ lh0.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lh0.tx }}" y="{{ lh0.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">pec s&nbsp;taveninou</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lh1.x1 }}" y1="{{ lh1.y1 }}" x2="{{ lh1.ax }}" y2="{{ lh1.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lh1.ax }}" cy="{{ lh1.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lh1.click }}" style="cursor:pointer">
+              <rect x="{{ lh1.bx }}" y="{{ lh1.by }}" width="{{ lh1.bw }}" height="26" rx="13" fill="{{ lh1.fill }}" stroke="{{ lh1.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lh1.tx }}" y="{{ lh1.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">komora a&nbsp;píst</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lh2.x1 }}" y1="{{ lh2.y1 }}" x2="{{ lh2.ax }}" y2="{{ lh2.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lh2.ax }}" cy="{{ lh2.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lh2.click }}" style="cursor:pointer">
+              <rect x="{{ lh2.bx }}" y="{{ lh2.by }}" width="{{ lh2.bw }}" height="26" rx="13" fill="{{ lh2.fill }}" stroke="{{ lh2.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lh2.tx }}" y="{{ lh2.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">husí krk</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lh3.x1 }}" y1="{{ lh3.y1 }}" x2="{{ lh3.ax }}" y2="{{ lh3.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lh3.ax }}" cy="{{ lh3.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lh3.click }}" style="cursor:pointer">
+              <rect x="{{ lh3.bx }}" y="{{ lh3.by }}" width="{{ lh3.bw }}" height="26" rx="13" fill="{{ lh3.fill }}" stroke="{{ lh3.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lh3.tx }}" y="{{ lh3.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">pevná polovina formy</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lh4.x1 }}" y1="{{ lh4.y1 }}" x2="{{ lh4.ax }}" y2="{{ lh4.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lh4.ax }}" cy="{{ lh4.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lh4.click }}" style="cursor:pointer">
+              <rect x="{{ lh4.bx }}" y="{{ lh4.by }}" width="{{ lh4.bw }}" height="26" rx="13" fill="{{ lh4.fill }}" stroke="{{ lh4.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lh4.tx }}" y="{{ lh4.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">pohyblivá polovina formy</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lh5.x1 }}" y1="{{ lh5.y1 }}" x2="{{ lh5.ax }}" y2="{{ lh5.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lh5.ax }}" cy="{{ lh5.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lh5.click }}" style="cursor:pointer">
+              <rect x="{{ lh5.bx }}" y="{{ lh5.by }}" width="{{ lh5.bw }}" height="26" rx="13" fill="{{ lh5.fill }}" stroke="{{ lh5.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lh5.tx }}" y="{{ lh5.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">vyhazovače</text>
+            </g>
+          </g>
+        </svg>
+
+        <svg viewBox="0 0 1000 500" style="grid-area:1/1;width:100%;display:block;opacity:{{ vc.op }};pointer-events:{{ vc.pe }};transition:opacity 0.45s ease">
+          <defs>
+            <clipPath id="tl-c-cav"><path d="M600,212 H612 V150 H672 V162 H624 V278 H672 V290 H612 V228 H600 Z"></path></clipPath>
+          </defs>
+          <path d="M30,370 H44 V456 H126 V370 H140 V470 H30 Z" fill="#9aa3ad"></path>
+          <rect x="44" y="396" width="82" height="60" fill="#e07a3c"></rect>
+          <rect x="300" y="188" width="40" height="12" fill="#d0b36a"></rect>
+          <rect x="380" y="188" width="120" height="12" fill="#d0b36a"></rect>
+          <rect x="300" y="240" width="200" height="12" fill="#d0b36a"></rect>
+          <rect x="500" y="110" width="100" height="220" fill="#6f8296"></rect>
+          <rect x="500" y="200" width="100" height="40" fill="#0b0f16"></rect>
+          <g transform="translate({{ c.dx }},0)">
+            <rect x="600" y="110" width="112" height="220" fill="#6f8296"></rect>
+            <path d="M600,212 H612 V150 H672 V162 H624 V278 H672 V290 H612 V228 H600 Z" fill="#0b0f16"></path>
+          </g>
+          <g transform="translate({{ c.cx }},{{ c.cy }})" opacity="{{ c.cop }}">
+            <rect x="{{ c.bx }}" y="{{ c.by }}" width="{{ c.bw }}" height="{{ c.bh }}" fill="{{ c.col }}"></rect>
+            <g clip-path="url(#tl-c-cav)">
+              <circle cx="600" cy="220" r="{{ c.r }}" fill="{{ c.col }}"></circle>
+            </g>
+          </g>
+          <rect x="100" y="196" width="60" height="48" fill="#d0b36a"></rect>
+          <rect x="160" y="214" width="{{ c.rodW }}" height="12" fill="#d0b36a"></rect>
+          <rect x="{{ c.hx }}" y="200" width="20" height="40" fill="#d0b36a" stroke="#0b0f16" stroke-width="1"></rect>
+          <g opacity="{{ c.push }}">
+            <line x1="40" y1="220" x2="82" y2="220" stroke="#eaf2fa" stroke-width="2.5"></line>
+            <polygon points="91,220 81,215 81,225" fill="#eaf2fa"></polygon>
+          </g>
+          <line x1="375" y1="106" x2="375" y2="236" stroke="#e07a3c" stroke-width="5" opacity="{{ c.stream }}"></line>
+          <g transform="rotate({{ c.a }} 348 138)">
+            <line x1="292" y1="100" x2="232" y2="62" stroke="#9aa3ad" stroke-width="5" stroke-linecap="round"></line>
+            <polygon points="290,95 350,95 342,140 298,140" fill="#9aa3ad"></polygon>
+            <polygon points="{{ c.lad }}" fill="#e07a3c" opacity="{{ c.ladOp }}"></polygon>
+          </g>
+          <g transform="translate({{ c.ex }},0)">
+            <rect x="624" y="180" width="136" height="8" fill="#4fb3a3"></rect>
+            <rect x="624" y="252" width="136" height="8" fill="#4fb3a3"></rect>
+            <rect x="760" y="170" width="12" height="100" fill="#4fb3a3"></rect>
+          </g>
+          <polygon points="668,220 604,170 604,270" fill="#a9c8e6" opacity="{{ c.spray }}"></polygon>
+          <polygon points="692,220 756,170 756,270" fill="#a9c8e6" opacity="{{ c.spray }}"></polygon>
+          <g transform="translate(0,{{ c.sy }})">
+            <rect x="676" y="-300" width="8" height="300" fill="#5c6874"></rect>
+            <rect x="668" y="0" width="24" height="16" fill="#5c6874"></rect>
+          </g>
+          <g>
+            <line x1="{{ lc0.x1 }}" y1="{{ lc0.y1 }}" x2="{{ lc0.ax }}" y2="{{ lc0.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lc0.ax }}" cy="{{ lc0.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lc0.click }}" style="cursor:pointer">
+              <rect x="{{ lc0.bx }}" y="{{ lc0.by }}" width="{{ lc0.bw }}" height="26" rx="13" fill="{{ lc0.fill }}" stroke="{{ lc0.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lc0.tx }}" y="{{ lc0.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">lžíce</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lc1.x1 }}" y1="{{ lc1.y1 }}" x2="{{ lc1.ax }}" y2="{{ lc1.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lc1.ax }}" cy="{{ lc1.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lc1.click }}" style="cursor:pointer">
+              <rect x="{{ lc1.bx }}" y="{{ lc1.by }}" width="{{ lc1.bw }}" height="26" rx="13" fill="{{ lc1.fill }}" stroke="{{ lc1.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lc1.tx }}" y="{{ lc1.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">plnicí komora</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lc2.x1 }}" y1="{{ lc2.y1 }}" x2="{{ lc2.ax }}" y2="{{ lc2.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lc2.ax }}" cy="{{ lc2.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lc2.click }}" style="cursor:pointer">
+              <rect x="{{ lc2.bx }}" y="{{ lc2.by }}" width="{{ lc2.bw }}" height="26" rx="13" fill="{{ lc2.fill }}" stroke="{{ lc2.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lc2.tx }}" y="{{ lc2.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">píst</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lc3.x1 }}" y1="{{ lc3.y1 }}" x2="{{ lc3.ax }}" y2="{{ lc3.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lc3.ax }}" cy="{{ lc3.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lc3.click }}" style="cursor:pointer">
+              <rect x="{{ lc3.bx }}" y="{{ lc3.by }}" width="{{ lc3.bw }}" height="26" rx="13" fill="{{ lc3.fill }}" stroke="{{ lc3.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lc3.tx }}" y="{{ lc3.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">zbytek kovu</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lc4.x1 }}" y1="{{ lc4.y1 }}" x2="{{ lc4.ax }}" y2="{{ lc4.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lc4.ax }}" cy="{{ lc4.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lc4.click }}" style="cursor:pointer">
+              <rect x="{{ lc4.bx }}" y="{{ lc4.by }}" width="{{ lc4.bw }}" height="26" rx="13" fill="{{ lc4.fill }}" stroke="{{ lc4.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lc4.tx }}" y="{{ lc4.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">pevná polovina formy</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lc5.x1 }}" y1="{{ lc5.y1 }}" x2="{{ lc5.ax }}" y2="{{ lc5.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lc5.ax }}" cy="{{ lc5.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lc5.click }}" style="cursor:pointer">
+              <rect x="{{ lc5.bx }}" y="{{ lc5.by }}" width="{{ lc5.bw }}" height="26" rx="13" fill="{{ lc5.fill }}" stroke="{{ lc5.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lc5.tx }}" y="{{ lc5.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">pohyblivá polovina formy</text>
+            </g>
+          </g>
+          <g>
+            <line x1="{{ lc6.x1 }}" y1="{{ lc6.y1 }}" x2="{{ lc6.ax }}" y2="{{ lc6.ay }}" stroke="#cfe0f0" stroke-width="1.2"></line>
+            <circle cx="{{ lc6.ax }}" cy="{{ lc6.ay }}" r="3" fill="#eaf2fa"></circle>
+            <g onClick="{{ lc6.click }}" style="cursor:pointer">
+              <rect x="{{ lc6.bx }}" y="{{ lc6.by }}" width="{{ lc6.bw }}" height="26" rx="13" fill="{{ lc6.fill }}" stroke="{{ lc6.stroke }}" stroke-width="1.5"></rect>
+              <text x="{{ lc6.tx }}" y="{{ lc6.ty }}" font-family="Quicksand, sans-serif" font-weight="700" font-size="13.5" fill="#eaf2fa">vyhazovače</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div style="display:flex;gap:10px;align-items:center;margin:16px 0 16px">
+        <div onClick="{{ btnStart.click }}" style="cursor:{{ btnStart.cur }};border:1.5px solid {{ btnStart.bd }};background:{{ btnStart.bg }};border-radius:12px;padding:9px 20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ btnStart.col }}">▶ Spustit cyklus</div>
+        <div onClick="{{ btnReplay.click }}" style="cursor:{{ btnReplay.cur }};border:1.5px solid {{ btnReplay.bd }};background:{{ btnReplay.bg }};border-radius:12px;padding:9px 20px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ btnReplay.col }}">↻ Přehrát znovu</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:0 0 12px">
+        <sc-for list="{{ phases }}" as="ph" hint-placeholder-count="6">
+          <div onClick="{{ ph.click }}" style="cursor:pointer;background:{{ ph.bg }};border:1.5px solid {{ ph.bd }};border-radius:10px;padding:8px 10px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;text-align:center;color:{{ ph.col }}">{{ ph.t }}</div>
+        </sc-for>
+      </div>
+      <div style="min-height:28px;margin:0 0 14px;font-size:16px;line-height:1.6;color:#cfe0f0;max-width:880px">
+        <sc-if value="{{ hasPhase }}" hint-placeholder-val="{{ false }}">
+          <div><span style="font-family:'Quicksand',sans-serif;font-weight:700;color:oklch(0.86 0.12 48)">{{ phaseName }}</span> — {{ phaseText }}</div>
+        </sc-if>
+        <sc-if value="{{ noPhase }}" hint-placeholder-val="{{ true }}">
+          <div style="color:#8296a8">Kliknutím na&nbsp;fázi se&nbsp;přehraje jen tato fáze.</div>
+        </sc-if>
+      </div>
+
+      <div style="min-height:28px;margin:0 0 18px;font-size:16px;line-height:1.6;color:#cfe0f0;max-width:880px">
+        <sc-if value="{{ hasSel }}" hint-placeholder-val="{{ false }}">
+          <div><span style="font-family:'Quicksand',sans-serif;font-weight:700;color:oklch(0.86 0.12 48)">{{ selName }}</span> — {{ selText }}</div>
+        </sc-if>
+        <sc-if value="{{ noSel }}" hint-placeholder-val="{{ true }}">
+          <div style="color:#8296a8">Kliknutím na&nbsp;popisek ve&nbsp;schématu se&nbsp;zobrazí jeho vysvětlení.</div>
+        </sc-if>
+      </div>
+
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;line-height:1.25;color:#eaf2fa;margin:0 0 8px">{{ cur.t }}</div>
+      <p style="font-size:16px;line-height:1.7;color:#cfe0f0;margin:0 0 10px;max-width:880px;text-wrap:pretty">{{ cur.text }}</p>
+      <p style="font-size:16px;line-height:1.7;color:#aebfcf;margin:0;max-width:880px;text-wrap:pretty"><span style="font-weight:600;color:#eaf2fa">Slitiny:</span> {{ cur.alloys }}</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Porezita — hlavní slabina</h2>
+    <div style="display:flex;flex-direction:column;gap:14px;margin:0 0 20px;max-width:820px">
+      <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0;text-wrap:pretty">Kov plní formu tak rychle, že v&nbsp;ní uzavře vzduch a&nbsp;plyny z&nbsp;dělicího prostředku. V&nbsp;odlitku zůstanou drobné dutinky — porezita. Na&nbsp;povrchu odlitek vypadá bezvadně, dutinky jsou pod&nbsp;ním. Proto se&nbsp;odlitky z&nbsp;vysokotlakého lití běžně tepelně nezpracovávají ani nesvařují: plyn v&nbsp;dutinkách by se&nbsp;teplem roztáhl a&nbsp;povrch by se&nbsp;vyboulil v&nbsp;puchýřích.</p>
+      <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0;text-wrap:pretty">Porezitu omezují přetoky — malé dutiny za koncem odlitku, do kterých odteče první studený kov se&nbsp;vzduchem — odvzdušnění formy a&nbsp;vakuové vysokotlaké lití, při kterém se&nbsp;z&nbsp;formy před vstřikem odsaje vzduch. Porezita je druh bublin popsaných na <a href="../tuhnuti/vady.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">stránce o&nbsp;vadách</a>.</p>
+    </div>
+    <div style="background:#0b0f16;border:1px solid rgba(150,180,210,0.12);border-radius:12px;overflow:hidden;max-width:820px;margin:0 0 44px">
+      <svg viewBox="0 0 940 230" style="width:100%;display:block">
+        <rect x="60" y="96" width="36" height="48" fill="#e07a3c"></rect>
+        <rect x="96" y="116" width="14" height="8" fill="#e07a3c"></rect>
+        <rect x="110" y="110" width="320" height="20" fill="#e07a3c"></rect>
+        <rect x="430" y="116" width="14" height="8" fill="#e07a3c"></rect>
+        <rect x="444" y="96" width="36" height="48" fill="#e07a3c"></rect>
+        <circle cx="72" cy="110" r="2.6" fill="#3a2416"></circle>
+        <circle cx="86" cy="128" r="2.6" fill="#3a2416"></circle>
+        <circle cx="456" cy="112" r="2.6" fill="#3a2416"></circle>
+        <circle cx="470" cy="130" r="2.6" fill="#3a2416"></circle>
+        <circle cx="140" cy="118" r="1.8" fill="#3a2416"></circle>
+        <circle cx="165" cy="124" r="1.8" fill="#3a2416"></circle>
+        <circle cx="190" cy="116" r="1.8" fill="#3a2416"></circle>
+        <circle cx="214" cy="122" r="1.8" fill="#3a2416"></circle>
+        <circle cx="240" cy="119" r="1.8" fill="#3a2416"></circle>
+        <circle cx="262" cy="125" r="1.8" fill="#3a2416"></circle>
+        <circle cx="288" cy="115" r="1.8" fill="#3a2416"></circle>
+        <circle cx="311" cy="121" r="1.8" fill="#3a2416"></circle>
+        <circle cx="336" cy="118" r="1.8" fill="#3a2416"></circle>
+        <circle cx="358" cy="124" r="1.8" fill="#3a2416"></circle>
+        <circle cx="382" cy="116" r="1.8" fill="#3a2416"></circle>
+        <circle cx="405" cy="121" r="1.8" fill="#3a2416"></circle>
+        <line x1="472" y1="94" x2="500" y2="70" stroke="#cfe0f0" stroke-width="1.2"></line>
+        <text x="504" y="70" font-family="Quicksand, sans-serif" font-weight="700" font-size="14" fill="#eaf2fa">přetok</text>
+        <line x1="262" y1="130" x2="262" y2="172" stroke="#cfe0f0" stroke-width="1.2"></line>
+        <text x="262" y="190" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="14" fill="#eaf2fa">porezita</text>
+        <rect x="580" y="110" width="320" height="20" fill="#e07a3c"></rect>
+        <path d="M628,110 Q650,84 672,110 Z" fill="#e07a3c"></path>
+        <path d="M636,111 Q650,94 664,111 Z" fill="#0b0f16"></path>
+        <path d="M718,110 Q740,84 762,110 Z" fill="#e07a3c"></path>
+        <path d="M726,111 Q740,94 754,111 Z" fill="#0b0f16"></path>
+        <path d="M808,110 Q830,84 852,110 Z" fill="#e07a3c"></path>
+        <path d="M816,111 Q830,94 844,111 Z" fill="#0b0f16"></path>
+        <circle cx="604" cy="120" r="1.8" fill="#3a2416"></circle>
+        <circle cx="694" cy="123" r="1.8" fill="#3a2416"></circle>
+        <circle cx="786" cy="118" r="1.8" fill="#3a2416"></circle>
+        <circle cx="876" cy="121" r="1.8" fill="#3a2416"></circle>
+        <line x1="724" y1="48" x2="650" y2="96" stroke="#cfe0f0" stroke-width="1.2"></line>
+        <line x1="740" y1="48" x2="740" y2="96" stroke="#cfe0f0" stroke-width="1.2"></line>
+        <line x1="756" y1="48" x2="830" y2="96" stroke="#cfe0f0" stroke-width="1.2"></line>
+        <text x="740" y="40" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="14" fill="#eaf2fa">puchýře</text>
+      </svg>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 14px">Výhody a&nbsp;nevýhody</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:0 0 44px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:20px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#7fcfbf;margin:0 0 10px">Výhody</div>
+        <ul style="margin:0;padding:0 0 0 20px;display:flex;flex-direction:column;gap:8px;font-size:15.5px;line-height:1.55;color:#aebfcf">
+          <li>Nejvyšší produktivita ze všech způsobů lití, krátký cyklus, automatizace</li>
+          <li>Velmi tenké stěny a&nbsp;složité tvary</li>
+          <li>Vysoká přesnost a&nbsp;hladký povrch, obrábění je minimální</li>
+          <li>Do odlitku lze zalít vložky, například závitová pouzdra</li>
+        </ul>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:20px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:oklch(0.8 0.12 40);margin:0 0 10px">Nevýhody</div>
+        <ul style="margin:0;padding:0 0 0 20px;display:flex;flex-direction:column;gap:8px;font-size:15.5px;line-height:1.55;color:#aebfcf">
+          <li>Velmi drahý stroj i&nbsp;forma, vyplatí se&nbsp;jen ve&nbsp;velkých sériích</li>
+          <li>Porezita, odlitky se&nbsp;běžně nesvařují ani tepelně nezpracovávají</li>
+          <li>Jen neželezné slitiny s&nbsp;nižší teplotou tavení</li>
+          <li>Velikost odlitku omezuje síla, kterou stroj udrží formu zavřenou</li>
+          <li>Dutiny tvoří jen kovová vytahovací jádra, vnitřní tvary s&nbsp;převisy jsou obtížné</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 14px">Kde se&nbsp;používá</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 44px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin:0 0 6px">Skříně převodovek a&nbsp;motorů</div>
+        <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Hliníkové slitiny, tenké stěny, velké série.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin:0 0 6px">Rámy a&nbsp;kryty elektroniky</div>
+        <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Hliník a&nbsp;hořčík, lehké a&nbsp;přesné.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin:0 0 6px">Chladiče</div>
+        <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Tenká žebra, která by jinak lít nešla.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin:0 0 6px">Kliky, zámky a&nbsp;kování</div>
+        <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Zinkové slitiny s&nbsp;hladkým povrchem pro pokovení.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin:0 0 6px">Modely aut a&nbsp;hračky</div>
+        <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Zinek, jemné detaily.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:14px;padding:18px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin:0 0 6px">Velké díly karoserie</div>
+        <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Nejnovější obří stroje odlijí zadní část podvozku jedním kusem místo mnoha svařovaných výlisků.</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 14px">Srovnání s&nbsp;litím do kokil</h2>
+    <div style="display:grid;grid-template-columns:0.8fr 1fr 1fr 1fr;gap:1px;background:rgba(150,180,210,0.16);border:1px solid rgba(150,180,210,0.16);border-radius:14px;overflow:hidden;max-width:1180px;box-sizing:border-box">
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Hledisko</div>
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Gravitační <a href="kokilove-liti.html" style="color:#a9c8e6;text-decoration:underline">kokila</a></div>
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Nízkotlaké lití</div>
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:#7ba3cc">Vysokotlaké lití</div>
+
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">Co dopraví kov</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">vlastní tíha</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">tlak plynu na&nbsp;hladinu</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">píst</div>
+
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">Rychlost plnění</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">pomalá</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">pomalá a&nbsp;klidná</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">velmi vysoká</div>
+
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">Forma</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">kokila, často s&nbsp;pískovými jádry</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">kokila</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">ocelová forma jen s&nbsp;kovovými jádry</div>
+
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">Tenké stěny</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">omezeně</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">dobře</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">nejlépe</div>
+
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">Porezita</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">malá</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">nejmenší</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">největší</div>
+
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">Svařování a&nbsp;tepelné zpracování</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">ano</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">ano</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">běžně ne</div>
+
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">Cena zařízení</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">nejnižší</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">střední</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">nejvyšší</div>
+
+      <div style="background:#0d121a;padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;line-height:1.45;color:#eaf2fa">Série</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">malé až velké</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">velké</div>
+      <div style="background:#0d121a;padding:14px 18px;font-size:14.5px;line-height:1.55;color:#aebfcf">velmi velké</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const HL = 'oklch(0.84 0.13 48)';
+
+const PH = [
+  { t: 'Zavření formy', d: 1400, s: 'Pohyblivá polovina dojede k\u00a0pevné a\u00a0stroj ji drží zavřenou velkou silou.' },
+  { t: 'Plnění komory', d: 2000, s: { h: 'Kov sám nateče otvorem do komory.', c: 'Kov se\u00a0do komory nalije lžící.' } },
+  { t: 'Vstřik', d: 2400, s: 'Píst vtlačí kov do formy, nejdřív pomalu, aby vytlačil vzduch z\u00a0komory, potom velmi rychle, aby forma byla plná dřív, než kov ztuhne.' },
+  { t: 'Dotlak', d: 1600, s: 'Píst dál tlačí, kov tuhne pod\u00a0tlakem a\u00a0doplňuje úbytek objemu.' },
+  { t: 'Otevření a\u00a0vyhození', d: 3200, s: 'Pohyblivá polovina odjede, vyhazovače vytlačí odlitek.' },
+  { t: 'Ostřik', d: 2000, s: 'Forma se\u00a0ostříká dělicím prostředkem, který ji ochladí a\u00a0usnadní vyjmutí dalšího odlitku.' },
+];
+const START = [];
+let TOTAL = 0;
+PH.forEach(x => { START.push(TOTAL); TOTAL += x.d; });
+
+const MACHINES = [
+  { k: 'h', t: 'Teplá komora',
+    text: 'Komora je ponořená přímo v\u00a0tavenině, kov do ní nateče sám a\u00a0cyklus je proto velmi krátký. Ocelová komora je ale stále v\u00a0kontaktu s\u00a0roztaveným kovem. Vydrží jen slitiny s\u00a0nízkou teplotou tavení, které ocel nenapadají.',
+    alloys: 'zinek, hořčík. Hliník ne — rozpouští ocel komory, komora se\u00a0rychle opotřebí a\u00a0kov se\u00a0znečistí železem.' },
+  { k: 'c', t: 'Studená komora',
+    text: 'Komora je mimo pec a\u00a0kov do ní přichází pro každý odlitek zvlášť. Cyklus je delší než u\u00a0teplé komory, ale komora je v\u00a0kontaktu s\u00a0kovem jen krátce, proto se\u00a0tak dají lít i\u00a0slitiny, které by teplou komoru zničily.',
+    alloys: 'hliník, hořčík, mosaz.' },
+];
+
+const FIXED = { t: 'pevná polovina formy', d: 'připevněná ke\u00a0stroji, prochází jí vtok.' };
+const MOVING = { t: 'pohyblivá polovina formy', d: 'otevírá se\u00a0a\u00a0nese vyhazovače.' };
+const EJECT = { t: 'vyhazovače', d: 'kolíky, které vytlačí odlitek z\u00a0formy.' };
+
+const LABELS = {
+  h: [
+    { t: 'pec s\u00a0taveninou', d: 'kov je v\u00a0ní stále roztavený, komora je ponořená přímo v\u00a0něm.', bx: 430, by: 440, a: v => [370, 420] },
+    { t: 'komora a\u00a0píst', d: 'píst vytlačí kov z\u00a0komory do formy.', bx: 14, by: 240, a: v => [150, 310] },
+    { t: 'husí krk', d: 'zahnutý kanál, kterým kov stoupá k\u00a0formě.', bx: 300, by: 160, a: v => [268, 280] },
+    Object.assign({ bx: 400, by: 70, a: v => [540, 110] }, FIXED),
+    Object.assign({ bx: 640, by: 420, a: v => [656 + v.dx, 330] }, MOVING),
+    Object.assign({ bx: 820, by: 70, a: v => [766 + v.ex, 170] }, EJECT),
+  ],
+  c: [
+    { t: 'lžíce', d: 'přenese z\u00a0pece přesnou dávku kovu na\u00a0jeden odlitek.', bx: 130, by: 118, a: v => [291, 112] },
+    { t: 'plnicí komora', d: 'je mimo pec, kov v\u00a0ní je jen chvíli.', bx: 300, by: 300, a: v => [400, 252] },
+    { t: 'píst', d: 'vodorovně vtlačí kov do formy.', bx: 150, by: 300, a: v => [230, 226] },
+    { t: 'zbytek kovu', d: 'kov u\u00a0čela pístu ztuhne a\u00a0vyhodí se\u00a0s\u00a0odlitkem.', bx: 480, by: 70, a: v => v.p[2] > 0 && v.cop > 0 ? [580 + v.cx, 200 + v.cy] : [580, 200] },
+    Object.assign({ bx: 430, by: 380, a: v => [540, 330] }, FIXED),
+    Object.assign({ bx: 640, by: 420, a: v => [656 + v.dx, 330] }, MOVING),
+    Object.assign({ bx: 820, by: 70, a: v => [766 + v.ex, 170] }, EJECT),
+  ],
+};
+
+const clamp = x => Math.max(0, Math.min(1, x));
+const f = (p, a, b) => clamp((p - a) / (b - a));
+const ease = x => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+const METAL = [224, 122, 60], SOLID = [168, 106, 72];
+const mix = k => 'rgb(' + METAL.map((c, i) => Math.round(c + (SOLID[i] - c) * k)).join(',') + ')';
+
+function common(t) {
+  const p = PH.map((x, i) => clamp((t - START[i]) / x.d));
+  const dx = p[4] > 0 ? 160 * ease(f(p[4], 0.25, 0.55)) : 160 * (1 - ease(p[0]));
+  const push = ease(f(p[4], 0.6, 0.75));
+  const ex = dx - 40 * (push - ease(f(p[4], 0.85, 1)));
+  const q = f(p[4], 0.78, 1);
+  const sy = -40 + 252 * ease(f(p[5], 0, 0.25)) - 252 * ease(f(p[5], 0.75, 1));
+  const spray = p[5] > 0.25 && p[5] < 0.75 ? 0.32 + 0.12 * Math.sin(t / 55) : 0;
+  return {
+    p, dx, ex, cx: dx - 40 * push, cy: 90 * q * q, cop: 1 - q, col: mix(p[3]), sy, spray,
+    push: p[2] > 0 && p[3] < 1 ? 1 : 0,
+  };
+}
+
+const fr = y => (58.96 + 408 - y) / 475.9;
+
+function hot(t) {
+  const v = common(t), p = v.p;
+  let hy;
+  if (p[4] > 0) hy = 400 - 70 * ease(f(p[4], 0, 0.25));
+  else if (p[3] > 0) hy = 398 + 2 * p[3];
+  else if (p[2] > 0) hy = 330 + 15 * f(p[2], 0, 0.4) + 53 * ease(f(p[2], 0.4, 0.6));
+  else hy = 330;
+  const lvl = p[4] > 0 ? 400 : 400 - 50 * ease(p[1]);
+  const chTop = Math.max(hy + 20, lvl);
+  let G;
+  if (p[4] > 0) G = 1 - (1 - fr(400)) * ease(f(p[4], 0, 0.25));
+  else if (p[2] > 0) G = fr(340) + (1 - fr(340)) * f(p[2], 0, 0.4);
+  else G = fr(400 - 60 * ease(p[1]));
+  return Object.assign(v, {
+    hy, rodH: hy - 210, chTop, chH: 438 - chTop,
+    dash: (G * 1000).toFixed(1) + ' 1000',
+    sw: 100 * f(p[2], 0.4, 0.47), r: 102 * f(p[2], 0.47, 0.62),
+    inflow: p[1] > 0 && p[1] < 1 ? 1 : 0,
+  });
+}
+
+function cold(t) {
+  const v = common(t), p = v.p;
+  const a = 40 * (ease(f(p[1], 0, 0.2)) - ease(f(p[1], 0.8, 1)));
+  const m = clamp(1 - f(p[1], 0.2, 0.8) + f(p[5], 0.3, 1));
+  const yT = 136 - 33 * m;
+  const xl = y => 294 + 8 * (y - 95) / 45, xr = y => 346 - 8 * (y - 95) / 45;
+  let face;
+  if (p[4] > 0) { const k = ease(f(p[4], 0.8, 1)); face = (560 + Math.min(v.dx, 40)) * (1 - k) + 330 * k; }
+  else if (p[2] > 0) face = p[2] < 0.6 ? 330 + 202.5 * (p[2] / 0.6) : 532.5 + 27.5 * f(p[2], 0.6, 0.66);
+  else face = 330;
+  const h = p[2] > 0 ? Math.min(40, 2700 / (600 - face)) : 10 * f(p[1], 0.25, 0.85);
+  const bx = p[4] > 0 ? 560 : face;
+  return Object.assign(v, {
+    a, stream: p[1] > 0.2 && p[1] < 0.8 ? 1 : 0,
+    lad: [xl(yT), yT, xr(yT), yT, xr(136), 136, xl(136), 136].map(n => n.toFixed(1)).join(' '),
+    ladOp: m > 0.02 ? 1 : 0,
+    hx: face - 20, rodW: face - 180,
+    bx, bw: 600 - bx, by: 240 - h, bh: h,
+    r: 102 * f(p[2], 0.6, 0.68),
+  });
+}
+
+class Component extends DCLogic {
+  state = { m: 'h', ts: { h: 0, c: 0 }, run: false, sel: null, only: null };
+  componentWillUnmount() { cancelAnimationFrame(this.raf); }
+  play(a, b, only) {
+    cancelAnimationFrame(this.raf);
+    const m = this.state.m;
+    let t0 = null;
+    this.setState(s => ({ run: true, only, ts: Object.assign({}, s.ts, { [m]: a }) }));
+    const tick = now => {
+      if (t0 === null) t0 = now;
+      const t = Math.min(b, a + (now - t0));
+      this.setState(s => ({ ts: Object.assign({}, s.ts, { [m]: t }), run: t < b }));
+      if (t < b) this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  setMachine(k) {
+    if (k === this.state.m) return;
+    cancelAnimationFrame(this.raf);
+    this.setState(s => ({ m: k, run: false, sel: null, only: null, ts: Object.assign({}, s.ts, { [k]: 0 }) }));
+  }
+  labels(key, v) {
+    const sel = this.state.sel;
+    return LABELS[key].map((d, i) => {
+      const [ax, ay] = d.a(v);
+      const bw = Math.round(d.t.length * 7.4 + 22), bx = d.bx, by = d.by;
+      let x1, y1;
+      if (ax > bx + bw) { x1 = bx + bw; y1 = by; }
+      else if (ax < bx) { x1 = bx; y1 = by; }
+      else { x1 = ax; y1 = ay > by ? by + 13 : by - 13; }
+      const on = sel === key + i;
+      return {
+        x1, y1, ax, ay, bx, by: by - 13, bw, tx: bx + 11, ty: by + 5,
+        fill: on ? 'rgba(224,140,110,0.22)' : '#141b26',
+        stroke: on ? HL : 'rgba(150,180,210,0.35)',
+        click: () => this.setState({ sel: key + i }),
+      };
+    });
+  }
+  renderVals() {
+    const { m, ts, run, sel, only } = this.state;
+    const h = hot(ts.h), c = cold(ts.c);
+    const t = ts[m];
+    const idx = only !== null ? only : (t <= 0 ? -1 : PH.findIndex((x, i) => t <= START[i] + x.d));
+    const btn = (on, primary, click) => ({
+      click: () => { if (on) click(); },
+      cur: on ? 'pointer' : 'default',
+      bg: on ? (primary ? 'rgba(224,140,110,0.12)' : 'rgba(150,180,210,0.06)') : 'transparent',
+      bd: on ? (primary ? HL : 'rgba(150,180,210,0.28)') : 'rgba(150,180,210,0.12)',
+      col: on ? (primary ? 'oklch(0.86 0.12 48)' : '#eaf2fa') : '#5c6874',
+    });
+    let selName = '', selText = '';
+    if (sel) { const d = LABELS[sel[0]][+sel.slice(1)]; selName = d.t; selText = d.d; }
+    const lab = {};
+    this.labels('h', h).forEach((l, i) => { lab['lh' + i] = l; });
+    this.labels('c', c).forEach((l, i) => { lab['lc' + i] = l; });
+    const vis = k => ({ op: k === m ? 1 : 0, pe: k === m ? 'auto' : 'none' });
+    const ph = idx >= 0 ? PH[idx] : null;
+    return {
+      ...lab, h, c, vh: vis('h'), vc: vis('c'),
+      machines: MACHINES.map(x => {
+        const on = x.k === m;
+        return { t: x.t, click: () => this.setMachine(x.k), bg: on ? 'rgba(224,140,110,0.14)' : 'rgba(150,180,210,0.04)', bd: on ? HL : 'rgba(150,180,210,0.18)', col: on ? '#eaf2fa' : '#aebfcf' };
+      }),
+      cur: MACHINES.find(x => x.k === m),
+      btnStart: btn(!run && t === 0, true, () => this.play(0, TOTAL, null)),
+      btnReplay: btn(t > 0, false, () => this.play(0, TOTAL, null)),
+      phases: PH.map((x, i) => {
+        const on = i === idx;
+        return { t: x.t, click: () => this.play(START[i], START[i] + x.d, i), bg: on ? 'rgba(224,140,110,0.14)' : 'rgba(150,180,210,0.04)', bd: on ? HL : 'rgba(150,180,210,0.18)', col: on ? '#eaf2fa' : '#aebfcf' };
+      }),
+      hasPhase: !!ph, noPhase: !ph,
+      phaseName: ph ? ph.t : '', phaseText: ph ? (typeof ph.s === 'string' ? ph.s : ph.s[m]) : '',
+      hasSel: !!sel, noSel: !sel, selName, selText,
+    };
+  }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

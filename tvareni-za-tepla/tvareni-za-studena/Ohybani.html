@@ -15,7 +15,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }</style>
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }
+  @keyframes robotSway { 0%,100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+  @keyframes robotSmoke { 0% { transform: translate(0,0) scale(0.4); opacity: 0; } 15% { opacity: 0.75; } 100% { transform: translate(-14px,-70px) scale(1.8); opacity: 0; } }
+  @keyframes robotFizz { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(-26px); opacity: 0; } }</style>
   <script>
     document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
     document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
@@ -40,7 +43,12 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Tváření za studena</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Ohýbání</h1>
 
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Při ohybu se materiál nedeformuje po celé tloušťce stejně. Vnější vlákna se prodlužují, vnitřní se pěchují a&nbsp;mezi nimi zůstává vrstva, jejíž délka se nemění — <strong>neutrální osa</strong>. Ta se s&nbsp;klesajícím poloměrem ohybu posouvá od středu tloušťky k&nbsp;vnitřní straně, a&nbsp;právě její délka určuje rozvinutý rozměr polotovaru.</p>
+    <div style="display:flex;gap:32px;align-items:center;margin:0 0 18px">
+      <div style="flex:1;min-width:0">
+        <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0;text-wrap:pretty">Při ohybu se materiál nedeformuje po celé tloušťce stejně. Vnější vlákna se prodlužují, vnitřní se pěchují a&nbsp;mezi nimi zůstává vrstva, jejíž délka se nemění — <strong>neutrální osa</strong>. Ta se s&nbsp;klesajícím poloměrem ohybu posouvá od středu tloušťky k&nbsp;vnitřní straně, a&nbsp;právě její délka určuje rozvinutý rozměr polotovaru.</p>
+      </div>
+      <div style="flex:0 0 152px;height:216px;background:#fbfbfa;border-radius:16px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden">{{ robot }}</div>
+    </div>
 
     <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Poloměr × přetvoření vnějších vláken</div>
     <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Nastavte poměr R/t a&nbsp;spusťte ohyb tlačítkem Přehrát. Sledujte, jak se s&nbsp;ostřejším poloměrem posouvá neutrální osa dovnitř, roste tahové přetvoření na vnějším povrchu a&nbsp;plech se v&nbsp;ohybu ztenčuje.</p>
@@ -175,22 +183,31 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  renderVals() { return {}; }
+  renderVals() {
+    const e = React.createElement;
+    const puff = (d) => e('span', { key: 's' + d, style: { position: 'absolute', left: 2, top: 69, width: 10, height: 10, borderRadius: '50%', background: 'rgba(150,155,165,0.55)', filter: 'blur(1.5px)', animation: 'robotSmoke 3s ease-out ' + d + 's infinite', opacity: 0 } });
+    const fizz = (d, x) => e('span', { key: 'f' + d, style: { position: 'absolute', left: x, top: 64, width: 4, height: 4, borderRadius: '50%', background: 'rgba(210,150,60,0.9)', animation: 'robotFizz 1.6s ease-out ' + d + 's infinite', opacity: 0 } });
+    const robot = e('div', { style: { position: 'relative', width: 136, height: 198, transformOrigin: '50% 100%', animation: 'robotSway 3.2s ease-in-out infinite' } },
+      e('img', { src: 'ohybani-robot.png', alt: '', style: { width: 136, height: 198, display: 'block' } }),
+      puff(0), puff(1), puff(2), fizz(0, 119), fizz(0.8, 122));
+    return { robot };
+  }
 }
 
 (function () {
   const P = '../../';
   const FALLBACK_NAV = [
-  { title: 'Domů', href: '../../index.html' },
-  { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
-  { title: 'Koroze', href: '../../koroze/index.html' },
-  { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
-  { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
-  { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
-  { title: 'Odlévání', href: '../../odlevani/index.html' },
-  { title: 'O projektu', href: '../../o-projektu.html' },
-  { title: 'Novinky', href: '../../novinky.html' },
-];
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

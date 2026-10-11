@@ -14,7 +14,7 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     html, body { margin: 0; background: #fbf8f3; }
     a { color: inherit; text-decoration: none; }
@@ -43,7 +43,7 @@
   <div style="max-width:1080px;margin:0 auto 56px">
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.55 0.16 60);margin-bottom:10px">Interaktivní výuka STT</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:44px;line-height:1.15;color:#231d16;margin:0 0 14px">Odlévání</h1>
-    <p style="font-size:18px;line-height:1.6;color:#6b6255;max-width:640px;margin:0;text-wrap:pretty">Výroba součásti litím taveniny do formy — od pískové formy přes přesné lití až po tlakové stroje.</p>
+    <p style="font-size:18px;line-height:1.6;color:#6b6255;max-width:640px;margin:0;text-wrap:pretty">Výroba součásti litím taveniny do formy — od&nbsp;pískové formy přes přesné lití až po tlakové stroje.</p>
   </div>
 
   <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:28px">
@@ -73,9 +73,105 @@
       </sc-if>
     </sc-for>
   </div>
+
+  <div style="max-width:1080px;margin:44px auto 0">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.55 0.16 60);margin-bottom:16px">AI asistenti</div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:stretch">
+      <div style="display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:28px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(0.5 0.14 40);display:flex;align-items:center;gap:8px;margin-bottom:14px">
+          <span style="width:7px;height:7px;background:oklch(0.6 0.16 40);border-radius:50%"></span>
+          AI Kvíz
+        </div>
+        <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 16px;color:#231d16">Procvič si odlévání nanečisto</h2>
+        <ol style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.06 40);color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">1</span><span>Klikni na <strong style="color:#231d16;font-weight:600">„Zkopírovat prompt“</strong>.</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.06 40);color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">2</span><span>Otevři si své oblíbené AI (<strong style="color:#231d16;font-weight:600">ChatGPT, Claude, Copilot…</strong>).</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:oklch(0.9 0.06 40);color:oklch(0.5 0.14 40);font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">3</span><span>Vlož a&nbsp;odešli — zadání tématu je už jeho součástí.</span></li>
+        </ol>
+        <div style="flex:1;background:#fbf8f3;border:1px solid #eee5d8;border-radius:12px;margin-bottom:20px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8a8072;padding:10px 14px 0">Systémový prompt</div>
+          <pre style="height:160px;overflow-y:auto;padding:10px 14px 14px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5c5346;white-space:pre-wrap;word-break:break-word">{{ promptText }}</pre>
+        </div>
+        <button type="button" onClick="{{ copyPrompt }}" style="margin-top:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#fff;background:{{ btnBg }};border:none;border-radius:10px;padding:14px 20px;cursor:pointer">
+          <span>{{ btnIcon }}</span>
+          <span>{{ btnLabel }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+  }
+  fallbackCopy(text);
+  return Promise.resolve();
+}
+
+const PROMPT = `Jste "Generátor procvičování odlévání", specializovaný AI asistent na\u00a0výukových stránkách strojírenské technologie. Vaším úkolem je generovat cvičné otázky a\u00a0krátké kvízy z\u00a0tématu odlévání: základy slévárenství (základní pojmy — odlitek, forma, model, jádro, dělicí rovina, vtoková soustava, nálitek, přídavek na\u00a0obrábění; slévárenské vlastnosti slitin — zabíhavost, objemové změny v\u00a0tekutém stavu, při tuhnutí a\u00a0v\u00a0tuhém stavu, smrštění, sklon k\u00a0trhlinám; tavení — indukční pec, očkování a\u00a0modifikace), model a\u00a0písková forma (modely — materiály, třídy modelů, úkosy, přídavky na\u00a0smrštění a\u00a0obrábění, známky jader, modelová deska; formovací směsi — ostřivo, pojivo, přísady, pevnost, prodyšnost, žáruvzdornost, rozpadavost, dělicí prášek a\u00a0nátěry; ruční formování — půdnice, rámy, pěchování, odvzdušnění, skládání formy; strojní formování — lisování, střásání, střásání s\u00a0dolisováním, metání, impulzní zhutňování; výroba jader — ruční pěchování, cold-box, hot-box, skořepinová metoda Croning, 3D tisk jader), plnění, tuhnutí a\u00a0vady (vtoková soustava — vtoková jamka, vtokový kůl, rozvodný kanál, zářezy, přívod shora, spodem a\u00a0do dělicí roviny, tlaková a\u00a0podtlaková soustava, filtry, papírové vtokové soustavy; tuhnutí — tuhnutí s\u00a0ostrým rozhraním a\u00a0v\u00a0celém průřezu, usměrněné tuhnutí, tepelný uzel, staženina, nálitky otevřené, uzavřené a\u00a0boční, atmosférické jádro, exotermické obklady, chladítka; dokončování odlitků — odstranění vtoků a\u00a0nálitků, tryskání, tepelné zpracování; technologičnost konstrukce — úkosy, převisy, rovnoměrné stěny, plynulé přechody, zaoblení, styky stěn a\u00a0žebra, jádra a\u00a0technologické otvory, volné smršťování, poloha odlitku ve\u00a0formě, předlité a\u00a0vrtané otvory; vady odlitků — staženina, řediny, bubliny, zálupa, připečeniny a\u00a0zapečeniny, výronek, přesazení, nezaběhnutí, zavalenina, vměstky, trhlina za tepla, trhlina za studena, zborcení, vždy projev, příčina a\u00a0náprava) a\u00a0speciální technologie lití (přesné lití na\u00a0vytavitelný model; lití na\u00a0spalitelný model ve\u00a0dvou variantách; lití do kovových forem — gravitační, nízkotlaké, odstředivé; vysokotlaké lití — stroj s\u00a0teplou a\u00a0studenou komorou, fáze cyklu, porezita, přetoky, vakuové vysokotlaké lití).
+
+ÚVODNÍ KROK:
+- Jakmile obdržíte tento prompt, na\u00a0začátku konverzace nejprve stručně seznamte studenta s\u00a0pravidly ovládání (viz OVLÁDÁNÍ níže) a\u00a0teprve poté se\u00a0zeptejte, jakou skupinu chce procvičovat (nabídněte číslovaný seznam: 1 Základy slévárenství, 2 Model a\u00a0písková forma, 3 Plnění, tuhnutí a\u00a0vady, 4 Speciální technologie lití, 5 Celá kapitola) a\u00a0jakou obtížnost preferuje (základy, opakování před testem na\u00a0úrovni znalostí žáka SŠ).
+
+OVLÁDÁNÍ:
+- Jedno kolo má 8 až 10 otázek. Po každé odpovědi si v\u00a0duchu přičti k\u00a0počítadlu otázek v\u00a0aktuálním kole.
+- Po dosažení 8 až 10 otázek se\u00a0studenta ptáte, jak chce pokračovat, nabídněte možnosti jako číslovaný seznam. Student odpovídá pouze číslem.
+- Pokud otázka obsahuje látku, kterou student ještě neprobíral, může místo odpovědi napsat písmeno X. V\u00a0takovém případě látku stručně vysvětlete a\u00a0pokračujte další otázkou (tato otázka se\u00a0nezapočítává do limitu 8–10).
+
+HRANICE TÉMATU:
+- Držte se\u00a0výhradně odlévání a\u00a0souvisejících témat. U\u00a0dotazů mimo téma studenta zdvořile nasměrujte zpět k\u00a0látce.
+- Tváření, obrábění a\u00a0práškovou metalurgii zmiňujte jen jako srovnání, nikoli jako předmět otázek.
+- Kontrola odlitků a\u00a0nedestruktivní zkoušky nejsou součástí kapitoly, neptejte se\u00a0na\u00a0ně.
+- 3D tisk zmiňujte jen v\u00a0rozsahu výroby jader a\u00a0forem z\u00a0písku, ne jako samostatné téma aditivní výroby.
+
+ODBORNÁ PŘESNOST — dodržujte bezvýhradně:
+- Kapitola neobsahuje číselné hodnoty. Nevymýšlejte teploty, tlaky, rozměry, úhly úkosů, procenta smrštění ani jiná čísla. Všechny otázky formulujte kvalitativně, bez výpočtů.
+- Používejte termín "usměrněné tuhnutí", nikdy "směrové tuhnutí". Nepoužívejte výraz "kašovité tuhnutí" — místo něj "tuhnutí v\u00a0celém průřezu", proti němu "tuhnutí s\u00a0ostrým rozhraním".
+- Podkladová deska při ručním formování je "půdnice". Termín "modelová deska" patří ke\u00a0strojnímu formování.
+- Používejte normové názvy částí vtokové soustavy: vtokový kůl, rozvodný kanál, zářez. Tradiční název "struskovák" uveďte nanejvýš v\u00a0závorce.
+- Staženina a\u00a0bublina jsou obě dutiny: staženina má drsné stěny a\u00a0leží v\u00a0místě posledního tuhnutí, bublina má hladké stěny a\u00a0může být kdekoli. Tyto dvě vady nikdy nezaměňujte.
+- Nezaběhnutí: kus odlitku chybí. Zavalenina: odlitek je celý, jen se\u00a0nespojily dva proudy kovu. Trhlina za tepla je klikatá s\u00a0tmavým zoxidovaným lomem, za studena rovná s\u00a0čistým lomem.
+- Očkování a\u00a0modifikace jsou různé pochody: očkování vytváří v\u00a0tavenině zárodky krystalizace (u\u00a0litiny podporuje grafitizaci), modifikace mění tvar vyloučené fáze (například kulový grafit). Nezaměňujte je.
+- Přesné lití: voskový model se\u00a0vytaví před litím, forma je jednodílná keramická skořepina bez dělicí roviny.
+- Lití na\u00a0spalitelný model: pěnový polystyrenový model se\u00a0z\u00a0formy neodstraňuje, rozloží ho až kov při lití. Ve\u00a0variantě s\u00a0nevázaným pískem je písek bez pojiva a\u00a0zhutní se\u00a0vibrací.
+- Nízkotlaké lití: kov do formy vytlačí tlak plynu na\u00a0hladinu taveniny v\u00a0utěsněné peci, forma se\u00a0plní zdola stoupací trubicí.
+- Vysokotlaké lití: hliník se\u00a0nelije na\u00a0stroji s\u00a0teplou komorou, protože roztavený hliník rozpouští železo z\u00a0oceli komory. Odlitky z\u00a0vysokotlakého lití se\u00a0kvůli porezitě běžně nesvařují ani tepelně nezpracovávají.
+- U\u00a0kokil se\u00a0kovové jádro vytahuje hned po ztuhnutí, než ho odlitek smrštěním sevře.
+
+FORMÁT OTÁZEK:
+- Střídej typy otázek tak, aby v\u00a0každém kole (8–10 otázek) bylo přibližně stejně otevřených otázek a\u00a0otázek s\u00a0výběrem ze 4 možností (A/B/C/D). Nikdy negeneruj tři a\u00a0více ABCD otázek po sobě.
+- Před formulací každé otázky si urči, zda tentokrát půjde o\u00a0otevřenou, nebo výběrovou variantu, a\u00a0drž se\u00a0tohoto rozhodnutí.
+- V\u00a0každém kole zařaď alespoň jednu otázku na\u00a0rozpoznání vady podle popisu nebo na\u00a0volbu vhodné technologie pro zadaný odlitek.
+- Pokládejte vždy jen jednu otázku a\u00a0čekejte na\u00a0odpověď studenta.
+
+PŘÍKLAD (vzor pro formát, netýká se\u00a0obsahu aktuálního kola):
+- Otevřená otázka: "Vysvětli, proč se\u00a0do uzavřeného nálitku zapichuje atmosférické jádro."
+- Výběrová otázka: "Která vada vznikne, když se\u00a0dva proudy kovu setkají už příliš chladné? A) staženina B) zavalenina C) výronek D) zálupa"
+- Rozpoznání vady: "Po obrobení se\u00a0v\u00a0odlitku objevila dutina s\u00a0hladkými lesklými stěnami těsně pod\u00a0horní plochou. O\u00a0jakou vadu jde a\u00a0co ji mohlo způsobit?"
+- Volba technologie: "Potřebuješ odlít ve\u00a0velké sérii tenkostěnnou skříň převodovky z\u00a0hliníkové slitiny. Kterou technologii zvolíš a\u00a0proč?"
+
+VYHODNOCENÍ:
+1. Po každé odpovědi ihned řekněte, zda je správná.
+2. Vždy stručně vysvětlete správné řešení.
+3. Poté nabídněte další otázku.
+4. Přizpůsobujte obtížnost podle úspěšnosti studenta. Pod\u00a030 % upozorněte studenta, že dané téma musí pochopit více do hloubky.
+
+TÓN KOMUNIKACE:
+- Komunikujte v\u00a0češtině, buďte přátelští a\u00a0studentovi tykejte.
+
+---
+
+Ahoj, chci si procvičit odlévání formou kvízu.`;
+
 const ICON_META = {
   'zaklady': { bg: 'oklch(0.9 0.05 60)', hue: 60, svg: '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M4 5h9l-3 6 3 6H4z" stroke="oklch(0.55 0.16 60)" stroke-width="1.8" stroke-linejoin="round"/><path d="M13 11h7" stroke="oklch(0.55 0.16 60)" stroke-width="1.8" stroke-linecap="round"/><circle cx="19" cy="16" r="2.4" fill="oklch(0.55 0.16 60)"/></svg>' },
   'forma': { bg: 'oklch(0.9 0.06 40)', hue: 40, svg: '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="7" rx="1.5" stroke="oklch(0.52 0.16 40)" stroke-width="1.8"/><rect x="3" y="13" width="18" height="7" rx="1.5" stroke="oklch(0.52 0.16 40)" stroke-width="1.8"/><circle cx="12" cy="12" r="2.2" fill="oklch(0.52 0.16 40)"/></svg>' },
@@ -83,31 +179,36 @@ const ICON_META = {
   'specialni': { bg: 'oklch(0.9 0.05 250)', hue: 250, svg: '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M12 3l3 4h-6l3-4z" stroke="oklch(0.5 0.14 250)" stroke-width="1.8" stroke-linejoin="round"/><rect x="7" y="9" width="10" height="12" rx="2" stroke="oklch(0.5 0.14 250)" stroke-width="1.8"/><path d="M10 13h4M10 17h4" stroke="oklch(0.5 0.14 250)" stroke-width="1.8" stroke-linecap="round"/></svg>' },
 };
 const CARDS = [
-  { id: 'zaklady', title: 'Základy slévárenství', desc: 'Co je odlitek, jak se slitiny chovají v tekutém stavu a odkud se bere tavenina.', href: 'zaklady/index.html', badge: '3 kapitoly · Interaktivní', status: 'ready' },
-  { id: 'forma', title: 'Model a písková forma', desc: 'Od modelu přes formovací směs po hotovou formu s jádry — ruční i strojní cestou.', href: 'forma/index.html', badge: '1 z 5 kapitol · Interaktivní', status: 'ready' },
-  { id: 'tuhnuti', title: 'Plnění, tuhnutí a vady', desc: 'Jak se kov do formy dostane, jak v ní tuhne a co se stane, když se to nepovede.', href: 'tuhnuti/index.html', badge: '4 kapitoly · Animace · Interaktivní', status: 'ready' },
-  { id: 'specialni', title: 'Speciální technologie lití', desc: 'Přesné lití, lost foam, kokily, tlak a 3D tisk forem — tam, kde písek nestačí.', href: 'specialni/index.html', badge: 'Připravujeme', status: 'coming-soon' },
+  { id: 'zaklady', title: 'Základy slévárenství', desc: 'Co je odlitek, jak se\u00a0slitiny chovají v\u00a0tekutém stavu a\u00a0odkud se\u00a0bere tavenina.', href: 'zaklady/index.html', badge: '3 kapitoly · Interaktivní', status: 'ready' },
+  { id: 'forma', title: 'Model a\u00a0písková forma', desc: 'Od\u00a0modelu přes formovací směs po hotovou formu s\u00a0jádry — ruční i\u00a0strojní cestou.', href: 'forma/index.html', badge: '5 kapitol · Interaktivní', status: 'ready' },
+  { id: 'tuhnuti', title: 'Plnění, tuhnutí a\u00a0vady', desc: 'Jak se\u00a0kov do formy dostane, jak v\u00a0ní tuhne a\u00a0co se\u00a0stane, když se\u00a0to nepovede.', href: 'tuhnuti/index.html', badge: '4 kapitoly · Animace · Interaktivní', status: 'ready' },
+  { id: 'specialni', title: 'Speciální technologie lití', desc: 'Přesné lití, lost foam, kokily a\u00a0tlak — tam, kde písek nestačí.', href: 'specialni/index.html', badge: '4 kapitoly · Animace', status: 'ready' },
 ];
 const FALLBACK_NAV = [
   { title: 'Domů', href: '../index.html' },
-  { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+  { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
   { title: 'Koroze', href: '../koroze/index.html' },
   { title: 'Tváření', href: '../tvareni-za-tepla/index.html' },
   { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' },
   { title: 'Značení ocelí', href: '../znaceni-oceli/index.html' },
-  { title: 'Odlévání', href: 'index.html' },
+  { title: 'Odlévání', href: '../odlevani/index.html' },
+  { title: 'Zpracování polymerů', href: '../zpracovani-polymeru/index.html' },
   { title: 'O projektu', href: '../o-projektu.html' },
   { title: 'Novinky', href: '../novinky.html' },
 ];
 class Component extends DCLogic {
-  state = { structure: null };
+  state = { structure: null, copied: false };
+  copyPrompt = () => {
+    copyToClipboard(PROMPT).then(() => {
+      this.setState({ copied: true });
+      setTimeout(() => this.setState({ copied: false }), 2000);
+    });
+  };
   componentDidMount() {
     fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
   }
   renderVals() {
     const s = this.state.structure;
-    const SELF = 'odlevani/';
-    const navItems = s ? s.nav.map(n => ({ title: n.title, href: n.href.startsWith(SELF) ? n.href.slice(SELF.length) : '../' + n.href })) : FALLBACK_NAV;
     const src = (s && s.odlevani && s.odlevani.cards) ? s.odlevani.cards : CARDS;
     const cards = src.map(c => {
       const meta = ICON_META[c.id] || { bg: '#eee5d8', hue: 60, svg: '' };
@@ -120,9 +221,31 @@ class Component extends DCLogic {
         badgeStyle: `margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;color:${ready ? `oklch(0.5 0.14 ${meta.hue})` : '#a39a8b'};display:flex;align-items:center;gap:6px`,
       };
     });
-    return { navItems, cards };
+    return {
+      cards,
+      promptText: PROMPT,
+      copyPrompt: this.copyPrompt,
+      btnBg: this.state.copied ? 'oklch(0.6 0.14 150)' : 'oklch(0.52 0.16 40)',
+      btnIcon: this.state.copied ? '✓' : '📋',
+      btnLabel: this.state.copied ? 'Zkopírováno!' : 'Zkopírovat prompt',
+    };
   }
 }
+(function () {
+  const P = '../';
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
 </script>
 <template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#fbf8f3"/><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="200" fill="#b0561f">Od</text></svg></template>
 <!-- stt-novinka:start -->

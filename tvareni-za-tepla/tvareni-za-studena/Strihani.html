@@ -78,33 +78,157 @@
       <div style="height:1px;background:rgba(150,180,210,0.16);margin:18px 0"></div>
       <div style="font-size:14.5px;line-height:1.7;color:#c4d2de"><strong>Příklad:</strong> vystřižení kruhu ⌀ 60&nbsp;mm z&nbsp;plechu t = 3&nbsp;mm, ocel R<sub>m</sub> = 400&nbsp;MPa. &nbsp; o = π · 60 = 188,5&nbsp;mm &nbsp;→&nbsp; S = 188,5 · 3 = 565,5&nbsp;mm² &nbsp;→&nbsp; τ<sub>s</sub> = 320&nbsp;MPa &nbsp;→&nbsp; F<sub>s</sub> = 565,5 · 320 · 1,2 ≈ <strong>217&nbsp;kN</strong>. Mezera v = 0,06 · 3 = 0,18&nbsp;mm na stranu, celková vůle z = 0,36&nbsp;mm.</div>
     </div>
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Vystřihování a&nbsp;děrování</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 10px;text-wrap:pretty"><strong>Vystřihování:</strong> užitečný je vystřižený kus (výstřižek), zbytek pásu je odpad.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 10px;text-wrap:pretty"><strong>Děrování:</strong> užitečný je díl s&nbsp;dírou, vystřižený kus je odpad.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty"><strong>Pravidlo:</strong> rozměr dílu vždy určuje ten prvek nástroje, o&nbsp;který se opírá užitečná část. Při vystřihování má výstřižek rozměr střižnice — střižnice má jmenovitý rozměr, střižník je menší o&nbsp;celkovou vůli <em>z</em>. Při děrování má díra rozměr střižníku — střižník má jmenovitý rozměr, střižnice je větší o&nbsp;<em>z</em>.</p>
+
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px 22px;margin:0 0 18px">
+      <div style="display:flex;gap:8px;margin-bottom:14px">
+        <button onClick="{{ setBlank }}" style="{{ btnBlankStyle }}">Vystřihování</button>
+        <button onClick="{{ setPierce }}" style="{{ btnPierceStyle }}">Děrování</button>
+      </div>
+      <svg viewBox="0 0 720 350" style="display:block;width:100%;height:auto" font-family="IBM Plex Sans, sans-serif">
+        <g onClick="{{ selPunch }}" style="cursor:pointer">
+          <rect x="240" y="60" width="240" height="140" fill="#253242" stroke="{{ punchStroke }}" stroke-width="{{ punchSW }}"></rect>
+          <text x="360" y="136" text-anchor="middle" font-size="16" font-weight="600" fill="#eaf2fa">Střižník</text>
+        </g>
+        <g onClick="{{ selDie }}" style="cursor:pointer">
+          <rect x="60" y="220" width="168" height="80" fill="#253242" stroke="{{ dieStroke }}" stroke-width="{{ dieSW }}"></rect>
+          <rect x="492" y="220" width="168" height="80" fill="#253242" stroke="{{ dieStroke }}" stroke-width="{{ dieSW }}"></rect>
+          <text x="144" y="266" text-anchor="middle" font-size="16" font-weight="600" fill="#eaf2fa">Střižnice</text>
+          <text x="576" y="266" text-anchor="middle" font-size="16" font-weight="600" fill="#eaf2fa">Střižnice</text>
+        </g>
+        <g onClick="{{ selStrip }}" style="cursor:pointer">
+          <rect x="60" y="190" width="174" height="30" fill="{{ stripFill }}" stroke="{{ stripStroke }}" stroke-width="2"></rect>
+          <rect x="486" y="190" width="174" height="30" fill="{{ stripFill }}" stroke="{{ stripStroke }}" stroke-width="2"></rect>
+          <sc-if value="{{ isBlank }}" hint-placeholder-val="{{ true }}">
+            <text x="147" y="178" text-anchor="middle" font-size="14" font-weight="600" fill="#aebfcf">Odpad (zbytek pásu)</text>
+          </sc-if>
+          <sc-if value="{{ isPierce }}" hint-placeholder-val="{{ false }}">
+            <text x="147" y="178" text-anchor="middle" font-size="14" font-weight="600" fill="#6fb3e0">Díl s dírou</text>
+          </sc-if>
+        </g>
+        <g onClick="{{ selPiece }}" style="cursor:pointer">
+          <rect x="234" y="200" width="252" height="30" fill="{{ pieceFill }}" stroke="{{ pieceStroke }}" stroke-width="2"></rect>
+          <sc-if value="{{ isBlank }}" hint-placeholder-val="{{ true }}">
+            <text x="360" y="272" text-anchor="middle" font-size="14" font-weight="600" fill="#6fb3e0">Výstřižek</text>
+          </sc-if>
+          <sc-if value="{{ isPierce }}" hint-placeholder-val="{{ false }}">
+            <text x="360" y="272" text-anchor="middle" font-size="14" font-weight="600" fill="#aebfcf">Odpad (vystřižený kus)</text>
+          </sc-if>
+        </g>
+        <g onClick="{{ selGap }}" style="cursor:pointer">
+          <line x1="228" y1="188" x2="228" y2="66" stroke="{{ gapStroke }}" stroke-width="1" stroke-dasharray="3 3"></line>
+          <line x1="492" y1="188" x2="492" y2="66" stroke="{{ gapStroke }}" stroke-width="1" stroke-dasharray="3 3"></line>
+          <line x1="218" y1="76" x2="240" y2="76" stroke="{{ gapStroke }}" stroke-width="1.5"></line>
+          <line x1="480" y1="76" x2="502" y2="76" stroke="{{ gapStroke }}" stroke-width="1.5"></line>
+          <line x1="224" y1="82" x2="232" y2="70" stroke="{{ gapStroke }}" stroke-width="1.5"></line>
+          <line x1="236" y1="82" x2="244" y2="70" stroke="{{ gapStroke }}" stroke-width="1.5"></line>
+          <line x1="476" y1="82" x2="484" y2="70" stroke="{{ gapStroke }}" stroke-width="1.5"></line>
+          <line x1="488" y1="82" x2="496" y2="70" stroke="{{ gapStroke }}" stroke-width="1.5"></line>
+          <text x="212" y="81" text-anchor="end" font-size="14" font-style="italic" fill="{{ gapStroke }}">z/2</text>
+          <text x="508" y="81" text-anchor="start" font-size="14" font-style="italic" fill="{{ gapStroke }}">z/2</text>
+        </g>
+        <sc-if value="{{ isBlank }}" hint-placeholder-val="{{ true }}">
+          <g onClick="{{ selDie }}" style="cursor:pointer">
+            <rect x="84" y="312" width="120" height="26" rx="13" fill="#e3b062"></rect>
+            <text x="144" y="330" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1408">určuje rozměr</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ isPierce }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ selPunch }}" style="cursor:pointer">
+            <rect x="300" y="22" width="120" height="26" rx="13" fill="#e3b062"></rect>
+            <text x="360" y="40" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1408">určuje rozměr</text>
+          </g>
+        </sc-if>
+      </svg>
+      <div style="min-height:48px;margin-top:12px;font-size:14.5px;line-height:1.6;color:#c4d2de">{{ info }}</div>
+    </div>
+
+    <div style="font-size:14.5px;line-height:1.7;color:#c4d2de;margin:0 0 8px"><strong>Příklad:</strong> podložka ⌀&nbsp;30 / ⌀&nbsp;12&nbsp;mm, t = 3&nbsp;mm, z = 0,36&nbsp;mm</div>
+    <table style="width:100%;border-collapse:collapse;font-size:14.5px;color:#c4d2de;margin:0 0 8px">
+      <thead>
+        <tr style="border-bottom:1px solid rgba(150,180,210,0.3)">
+          <th style="text-align:left;padding:8px 10px;font-family:'Quicksand',sans-serif;font-weight:700;color:#7ba3cc">Operace</th>
+          <th style="text-align:right;padding:8px 10px;font-family:'Quicksand',sans-serif;font-weight:700;color:#7ba3cc">Rozměr dílu</th>
+          <th style="text-align:right;padding:8px 10px;font-family:'Quicksand',sans-serif;font-weight:700;color:#7ba3cc">Střižník</th>
+          <th style="text-align:right;padding:8px 10px;font-family:'Quicksand',sans-serif;font-weight:700;color:#7ba3cc">Střižnice</th>
+        </tr>
+      </thead>
+      <tbody style="font-family:'IBM Plex Mono',monospace">
+        <tr style="border-bottom:1px solid rgba(150,180,210,0.16)">
+          <td style="padding:8px 10px;font-family:'IBM Plex Sans',sans-serif">Vystřihování obrysu</td>
+          <td style="text-align:right;padding:8px 10px">⌀&nbsp;30</td>
+          <td style="text-align:right;padding:8px 10px">⌀&nbsp;29,64</td>
+          <td style="text-align:right;padding:8px 10px;color:#e3b062">⌀&nbsp;30,00</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(150,180,210,0.16)">
+          <td style="padding:8px 10px;font-family:'IBM Plex Sans',sans-serif">Děrování díry</td>
+          <td style="text-align:right;padding:8px 10px">⌀&nbsp;12</td>
+          <td style="text-align:right;padding:8px 10px;color:#e3b062">⌀&nbsp;12,00</td>
+          <td style="text-align:right;padding:8px 10px">⌀&nbsp;12,36</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:14px;line-height:1.6;color:#8296a8;margin:0 0 26px">Zjednodušeno — v&nbsp;praxi se k&nbsp;rozměrům přidává ještě tolerance dílu a&nbsp;přídavek na opotřebení nástroje.</p>
+
     <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Střižnou sílu lze snížit zkosením břitu nebo odstupňováním střižníků v&nbsp;postupovém nástroji — práce zůstává stejná, ale rozloží se do delší dráhy, takže lis nemusí být tak silný.</p>
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
-      <a href="../vady/Cipatost.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Cípatost →</a>
-      <a href="../vady/Odpruzeni.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Odpružení →</a>
+      <a href="strizne-nastroje.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Střižné nástroje a&nbsp;nástřihový plán →</a>
     </div>
   </div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  renderVals() { return {}; }
+  state = { mode: 'blank', sel: null };
+  renderVals() {
+    const blank = this.state.mode === 'blank';
+    const sel = this.state.sel;
+    const USE = '#6fb3e0', WASTE = '#56606c', DET = '#e3b062', TOOL = '#8296a8', HI = '#ffffff';
+    const btn = on => ({ padding: '8px 16px', borderRadius: '10px', cursor: 'pointer', fontFamily: "'Quicksand',sans-serif", fontWeight: 700, fontSize: '14px', border: '1px solid ' + (on ? '#7ba3cc' : 'rgba(150,180,210,0.16)'), background: on ? 'rgba(123,163,204,0.18)' : 'transparent', color: on ? '#eaf2fa' : '#aebfcf' });
+    const tool = (key, det) => sel === key ? [HI, 3] : det ? [DET, 3] : [TOOL, 1.5];
+    const [punchStroke, punchSW] = tool('punch', !blank);
+    const [dieStroke, dieSW] = tool('die', blank);
+    const pick = s => () => this.setState({ sel: s });
+    const info = {
+      punch: blank ? 'Střižník je menší o celkovou vůli z. Rozměr výstřižku neurčuje.' : 'Střižník má jmenovitý rozměr. Díra má rozměr střižníku, protože o střižník se opírá užitečný díl s dírou.',
+      die: blank ? 'Střižnice má jmenovitý rozměr. Výstřižek má rozměr střižnice, protože o střižnici se opírá užitečný výstřižek.' : 'Střižnice je větší o celkovou vůli z. Rozměr díry neurčuje.',
+      strip: blank ? 'Zbytek pásu je při vystřihování odpad.' : 'Díl s dírou je při děrování užitečná část.',
+      piece: blank ? 'Výstřižek je při vystřihování užitečná část.' : 'Vystřižený kus je při děrování odpad.',
+      gap: 'Celková vůle z je rozdíl rozměru střižnice a střižníku. Na každé straně je polovina z.',
+    };
+    return {
+      isBlank: blank, isPierce: !blank,
+      setBlank: () => this.setState({ mode: 'blank' }),
+      setPierce: () => this.setState({ mode: 'pierce' }),
+      btnBlankStyle: btn(blank), btnPierceStyle: btn(!blank),
+      punchStroke, punchSW, dieStroke, dieSW,
+      stripFill: blank ? WASTE : USE, pieceFill: blank ? USE : WASTE,
+      stripStroke: sel === 'strip' ? HI : 'none', pieceStroke: sel === 'piece' ? HI : 'none',
+      gapStroke: sel === 'gap' ? HI : '#aebfcf',
+      selPunch: pick('punch'), selDie: pick('die'), selStrip: pick('strip'), selPiece: pick('piece'), selGap: pick('gap'),
+      info: sel ? info[sel] : 'Klikni na prvek schématu.',
+    };
+  }
 }
 
 (function () {
   const P = '../../';
   const FALLBACK_NAV = [
-  { title: 'Domů', href: '../../index.html' },
-  { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
-  { title: 'Koroze', href: '../../koroze/index.html' },
-  { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
-  { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
-  { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
-  { title: 'Odlévání', href: '../../odlevani/index.html' },
-  { title: 'O projektu', href: '../../o-projektu.html' },
-  { title: 'Novinky', href: '../../novinky.html' },
-];
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

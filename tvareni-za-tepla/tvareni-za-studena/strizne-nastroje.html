@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Střižné nástroje a nástřihový plán | STT</title>
+<meta name="description" content="Jednoduchý a postupový střižný nástroj, nástřihový plán, využití materiálu a technologické zásady pro tvar výstřižku.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-10-11">
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>html, body { margin: 0; background: #080b12; } a { color: inherit; text-decoration: none; } a:hover { color: #a9c8e6; }</style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#8296a8;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid rgba(150,180,210,0.16)">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:rgba(150,180,210,0.08)">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Tváření za studena</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Tváření za studena</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 20px">Střižné nástroje a&nbsp;nástřihový plán</h1>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Stříhá se z&nbsp;pásu plechu. Nástroj může na jeden zdvih lisu udělat jednu operaci, nebo několik operací současně na různých místech pásu. Rozložení výstřižků v&nbsp;pásu popisuje nástřihový plán.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Jednoduchý a&nbsp;postupový nástroj</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Přepínačem nahoře zvol nástroj. Krok provede jeden zdvih lisu, Přehrát spouští zdvihy za sebou. Kliknutím na popisek nebo na část nástroje se část zvýrazní — u&nbsp;postupového nástroje v&nbsp;bokorysu i&nbsp;v&nbsp;půdorysu pásu.</p>
+    <div style="position:relative;height:730px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 18px">
+      <x-import component-from-global-scope="StrizneNastrojeAnimace" from="./strizne-nastroje-animace.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+    <div style="border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 26px">
+      <table style="width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.5;color:#c4d2de">
+        <thead><tr style="background:rgba(120,150,180,0.06)"><th style="text-align:left;padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc">Hledisko</th><th style="text-align:left;padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc">Jednoduchý nástroj</th><th style="text-align:left;padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc">Postupový nástroj</th></tr></thead>
+        <tbody>
+          <tr><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16);color:#eaf2fa">Operací na jeden zdvih</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">jedna</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">více současně</td></tr>
+          <tr><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16);color:#eaf2fa">Poloha díry vůči obrysu</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">—</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">zajišťuje hledáček</td></tr>
+          <tr><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16);color:#eaf2fa">Výkon</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">nižší</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">vysoký</td></tr>
+          <tr><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16);color:#eaf2fa">Složitost a&nbsp;cena nástroje</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">nízká</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">vysoká</td></tr>
+          <tr><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16);color:#eaf2fa">Vhodná výroba</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">kusová a&nbsp;malosériová</td><td style="padding:12px 18px;border-top:1px solid rgba(150,180,210,0.16)">velkosériová a&nbsp;hromadná</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Jednoduchý střižný nástroj ve&nbsp;3D</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Model nástroje pro jednu operaci — vystřihování kruhového výstřižku ⌀ 30&nbsp;mm z&nbsp;pásu t = 3&nbsp;mm. Otáčej tažením myši, kliknutím na díl zobrazíš jeho popis.</p>
+    <div style="position:relative;height:680px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 18px">
+      <x-import component-from-global-scope="StriznyNastroj3D" from="./strizny-nastroj-3d.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px;text-wrap:pretty">Bez vodicích sloupků vede horní část nástroje jen beran lisu a&nbsp;vodicí deska. Vodicí sloupky zajistí přesnou polohu střižníku vůči střižnici už v&nbsp;nástroji samotném — nástroj se snáz upíná do lisu a&nbsp;břity se méně opotřebí.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Nástřihový plán</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Nástřihový plán určuje, jak jsou výstřižky rozmístěny v&nbsp;pásu. Cílem je co nejvyšší využití materiálu při dodržení můstků — mezi výstřižky musí zůstat materiál, jinak se pás při posuvu trhá a&nbsp;okraj výstřižku je nekvalitní.</p>
+    <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:24px 26px;margin:0 0 18px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">k = rozměr dílu ve&nbsp;směru posuvu + e</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">k — krok</div>
+      <div style="height:1px;background:rgba(150,180,210,0.16);margin:18px 0"></div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">B = rozměr dílu napříč pásem + 2a</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">B — šířka pásu</div>
+      <div style="height:1px;background:rgba(150,180,210,0.16);margin:18px 0"></div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;color:#eaf2fa;margin-bottom:8px">η = n · S / (B · k) · 100 %</div>
+      <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">η — využití materiálu &nbsp;·&nbsp; n — počet výstřižků na jeden krok &nbsp;·&nbsp; S — plocha výstřižku</div>
+      <div style="height:1px;background:rgba(150,180,210,0.16);margin:18px 0"></div>
+      <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Orientačně pro ocel: můstek e ≈ t, okrajový můstek a ≈ 1,5 · t.</div>
+    </div>
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin:22px 0 10px">Typy uspořádání</h3>
+    <ul style="margin:0 0 14px;padding-left:22px;font-size:16.5px;line-height:1.7;color:#aebfcf">
+      <li>přímé</li>
+      <li>šikmé</li>
+      <li>obrácené</li>
+      <li>víceřadé</li>
+    </ul>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Šikmé a&nbsp;obrácené uspořádání se používá u&nbsp;nepravidelných tvarů (L, T, trojúhelník), kdy se díly do sebe „zaklesnou“. Obrácené uspořádání znamená, že každý druhý díl je otočený o&nbsp;180°.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">Plech t = 3&nbsp;mm, můstek e = 3&nbsp;mm, okrajový můstek a = 4,5&nbsp;mm. Tlačítky přepni variantu uspořádání.</p>
+    <div style="position:relative;height:580px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 18px">
+      <x-import component-from-global-scope="NastrihovyPlan" from="./nastrihovy-plan.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;text-wrap:pretty">U&nbsp;stejného dílu může změna natočení nebo uspořádání změnit využití o&nbsp;několik procent, při velké sérii to rozhoduje o&nbsp;ceně.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Technologické zásady</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:0 0 26px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">1 — Minimální průměr díry</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">d ≥ t pro měkkou ocel, u&nbsp;tvrdších materiálů víc. Tenký střižník se láme.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">2 — Vzdálenost díry od okraje a&nbsp;mezi dírami</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Alespoň t. Jinak se úzký můstek deformuje nebo utrhne.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">3 — Zaoblení rohů</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">R ≥ 0,5 · t. Ostré rohy zvyšují opotřebení nástroje a&nbsp;jsou místem vzniku trhlin.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:0.07em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">4 — Tvar vhodný do pásu</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#c4d2de">Díl navrhovat tak, aby šel hustě uložit — bez úzkých výstupků a&nbsp;drážek, které oslabují střižník.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+      <a href="Strihani.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">← Stříhání — princip a&nbsp;výpočet</a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

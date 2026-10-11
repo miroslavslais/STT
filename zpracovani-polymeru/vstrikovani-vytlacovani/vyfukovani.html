@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vyfukování | STT</title>
+<meta name="description" content="Vyfukování dutých těles: z vytlačeného předlisku a ze vstřikované preformy s dloužením, stopy na výrobku a srovnání obou metod.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-11">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e59a62; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Vstřikování, vytlačování, vyfukování</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:10px">Vstřikování, vytlačování, vyfukování</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 24px">Vyfukování</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Vyfukováním se&nbsp;vyrábějí dutá tělesa — lahve, kanystry, nádrže, hračky.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Polotovar ve&nbsp;tvaru trubky se&nbsp;uzavře do dvoudílné formy. Stlačený vzduch ho roztáhne až ke&nbsp;stěnám dutiny. Stěna formy je chlazená, výrobek na&nbsp;ní ztuhne. Chlazení je nejdelší část cyklu.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0;max-width:820px;text-wrap:pretty">Polotovar vzniká dvěma způsoby: vytlačováním (předlisek) nebo vstřikováním (preforma).</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Vyfukování z&nbsp;vytlačeného předlisku</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Extruder s&nbsp;příčnou hlavou vytlačuje svisle dolů trubku — předlisek. Předlisek je tavenina.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Forma se&nbsp;kolem předlisku zavře. Spodní hrany formy předlisek sevřou, svaří dno a&nbsp;odstřihnou přebytek. Nahoře se&nbsp;předlisek odřízne.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Vyfukovací trn vžene do předlisku vzduch a&nbsp;zároveň tvaruje vnitřek hrdla.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Po vychlazení se&nbsp;forma otevře a&nbsp;odstraní se&nbsp;výronky (ostřih) u&nbsp;dna, hrdla a&nbsp;madla. Výronky se&nbsp;rozemelou a&nbsp;vrátí do výroby jako recyklát.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Takto lze vyrobit i&nbsp;duté madlo a&nbsp;velké nádoby. Pro velké nádrže hlava taveninu nejdřív nashromáždí a&nbsp;pak předlisek vytlačí najednou.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Předlisek visí a&nbsp;vlastní tíhou se&nbsp;protahuje — nahoře se&nbsp;ztenčuje. Proto se&nbsp;tloušťka stěny předlisku během vytlačování řídí pohybem trnu v&nbsp;hubici.</p>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Kanystr z&nbsp;předlisku</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Bokorys, forma v&nbsp;řezu. Klikni na&nbsp;díl nebo na&nbsp;jeho popisek.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
+        <sc-for list="{{ kSteps }}" as="b" hint-placeholder-count="6">
+          <button onClick="{{ b.onClick }}" style="padding:8px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+        </sc-for>
+        <button onClick="{{ kPlay }}" aria-label="{{ kPlayAria }}" title="{{ kPlayAria }}" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+          <sc-if value="{{ kPaused }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+          <sc-if value="{{ kPlaying }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
+        </button>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start">
+        <div>
+          <svg viewBox="0 0 1000 600" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <g transform="translate(300 60)">
+              <path d="{{ kHeadMelt }}" fill="#e59a62" pointer-events="none"></path>
+              <path d="{{ k.stub }}" fill="#e59a62" pointer-events="none"></path>
+              <sc-for list="{{ kHead }}" as="s" hint-placeholder-count="3">
+                <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+              </sc-for>
+              <g opacity="{{ k.hiOp }}" pointer-events="none">
+                <path d="{{ k.hiD }}" fill="none" stroke="#e59a62" stroke-width="2.5" stroke-linejoin="round"></path>
+                <path d="M78 40 V108 M71 50 L78 39 L85 50 M71 98 L78 109 L85 98" fill="none" stroke="#e59a62" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </g>
+            </g>
+            <sc-if value="{{ k.showPar }}" hint-placeholder-val="{{ true }}">
+              <g transform="{{ k.parTr }}" opacity="{{ k.parOp }}">
+                <path d="{{ k.par }}" fill="#e59a62" stroke="{{ kSelP.c }}" stroke-width="{{ kSelP.w }}" stroke-linejoin="round" onClick="{{ kPickPar }}" style="cursor:pointer"></path>
+              </g>
+            </sc-if>
+            <sc-if value="{{ k.showProd }}" hint-placeholder-val="{{ false }}">
+              <g transform="{{ k.prodTr }}" opacity="{{ k.prodOp }}">
+                <path d="{{ k.prod }}" fill="{{ k.prodFill }}" fill-rule="evenodd" stroke="{{ kSelP.c }}" stroke-width="{{ kSelP.w }}" stroke-linejoin="round" onClick="{{ kPickPar }}" style="cursor:pointer"></path>
+              </g>
+              <g transform="{{ k.flTr }}" opacity="{{ k.flOp }}">
+                <path d="{{ kFl }}" fill="{{ k.prodFill }}" stroke="{{ kSelV.c }}" stroke-width="{{ kSelV.w }}" stroke-linejoin="round" onClick="{{ kPickVyr }}" style="cursor:pointer"></path>
+              </g>
+            </sc-if>
+            <g transform="{{ k.mlTr }}">
+              <sc-for list="{{ kML }}" as="s" hint-placeholder-count="3">
+                <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+              </sc-for>
+            </g>
+            <g transform="{{ k.mrTr }}">
+              <sc-for list="{{ kMR }}" as="s" hint-placeholder-count="3">
+                <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+              </sc-for>
+            </g>
+            <path d="{{ k.knife }}" fill="#a9bccd" pointer-events="none"></path>
+            <g transform="translate(700 60)" opacity="{{ k.airOp }}">
+              <path d="{{ kAir }}" fill="none" stroke="#eaf2fa" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"></path>
+            </g>
+            <g transform="{{ k.pinTr }}">
+              <sc-for list="{{ kPin }}" as="s" hint-placeholder-count="2">
+                <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+              </sc-for>
+            </g>
+            <sc-for list="{{ kLabels }}" as="l" hint-placeholder-count="8">
+              <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke="{{ l.color }}" stroke-width="1.2" pointer-events="none"></line>
+              <g onClick="{{ l.click }}" style="cursor:pointer">
+                <rect x="{{ l.rx }}" y="{{ l.ry }}" width="{{ l.w }}" height="{{ l.h }}" rx="8" fill="#0d121a" stroke="{{ l.color }}" stroke-width="{{ l.sw }}"></rect>
+              </g>
+            </sc-for>
+<text x="150" y="35.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ kC.hlava }}" pointer-events="none">příčná hlava</text>
+<text x="860" y="35.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ kC.trn }}" pointer-events="none">vyfukovací trn</text>
+<text x="70" y="575.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ kC.predlisek }}" pointer-events="none">předlisek</text>
+<text x="225" y="575.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ kC.formaL }}" pointer-events="none">levá polovina formy</text>
+<text x="405" y="575.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ kC.hrany }}" pointer-events="none">ostřihové hrany</text>
+<text x="540" y="575.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ kC.vyronky }}" pointer-events="none">výronky</text>
+<text x="705" y="575.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ kC.formaR }}" pointer-events="none">pravá polovina formy</text>
+<text x="890" y="575.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ kC.kanaly }}" pointer-events="none">chladicí kanály</text>
+<text x="362" y="214" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa" opacity="{{ k.tlOp }}" pointer-events="none">silnější</text>
+<text x="362" y="464" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa" opacity="{{ k.tlOp }}" pointer-events="none">tenčí</text>
+<text x="700" y="355" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa" opacity="{{ k.rvOp }}" pointer-events="none">rovnoměrná stěna</text>
+          </svg>
+          <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#e59a62"></span>tavenina</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#8fb4d6"></span>ztuhlý plast</span>
+          </div>
+          <div style="background:#0a0e15;border-radius:14px;padding:14px 18px;margin-top:14px">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">{{ kStepTitle }}</div>
+            <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ kStepText }}</div>
+          </div>
+        </div>
+        <div style="background:#0a0e15;border:1px solid {{ kInfo.border }};border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ kInfo.color }}">{{ kInfo.name }}</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ kInfo.text }}</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:18px">
+      <a href="vytlacovani.html" style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Extruder a&nbsp;příčná hlava: Vytlačování</a>
+      <a href="../zaklady/priprava-materialu.html#recyklat" style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Recyklát</a>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 4px">Vyfukování ze&nbsp;vstřikované preformy</h2>
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba;margin-bottom:14px">Vstřikovací vyfukování s&nbsp;dloužením</div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Preforma je vstřikovaný polotovar ve&nbsp;tvaru zkumavky. Hrdlo se&nbsp;závitem a&nbsp;podpěrným kroužkem je hotové už po vstřikování a&nbsp;dál se&nbsp;netvaruje.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Preforma se&nbsp;ohřeje nad teplotu skelného přechodu, ale pod&nbsp;teplotu tání — do vysokoelastického stavu. Není to tavenina.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Ve&nbsp;formě dloužicí trn preformu natáhne podélně a&nbsp;vzduch ji roztáhne příčně. Materiál se&nbsp;protáhne ve&nbsp;dvou směrech — je pevnější, průhlednější a&nbsp;lépe drží plyn (sycené nápoje).</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Takto se&nbsp;vyrábějí lahve z&nbsp;PET. Lahev vzniká bez výronků.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Dvoustupňová výroba</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Preformy se&nbsp;vyrobí jinde, skladují se&nbsp;a&nbsp;před vyfukováním se&nbsp;znovu ohřejí.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Jednostupňová výroba</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Preforma jde ze&nbsp;vstřikování rovnou do vyfukování.</div>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:20px 0 4px;max-width:820px;text-wrap:pretty">Malé lahvičky (léky, kosmetika) se&nbsp;vyfukují ze&nbsp;vstřikované preformy i&nbsp;bez dloužení.</p>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="margin-bottom:14px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">PET lahev z&nbsp;preformy</div>
+        <div style="font-size:14px;color:#8296a8;margin-top:4px">Bokorys, forma v&nbsp;řezu. Klikni na&nbsp;díl nebo na&nbsp;jeho popisek.</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
+        <sc-for list="{{ pSteps }}" as="b" hint-placeholder-count="5">
+          <button onClick="{{ b.onClick }}" style="padding:8px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+        </sc-for>
+        <button onClick="{{ pPlay }}" aria-label="{{ pPlayAria }}" title="{{ pPlayAria }}" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+          <sc-if value="{{ pPaused }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+          <sc-if value="{{ pPlaying }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
+        </button>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start">
+        <div>
+          <svg viewBox="0 0 1000 600" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <path d="{{ q.glow }}" fill="#ff9a5a" fill-opacity="0.22" opacity="{{ q.glowOp }}" pointer-events="none"></path>
+            <sc-for list="{{ pHeat }}" as="s" hint-placeholder-count="1">
+              <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+            </sc-for>
+            <sc-if value="{{ q.showPf }}" hint-placeholder-val="{{ true }}">
+              <g transform="{{ q.pfTr }}">
+                <path d="{{ q.pf }}" fill="{{ q.pfFill }}" fill-rule="evenodd" stroke="{{ pSelPf.c }}" stroke-width="{{ pSelPf.w }}" onClick="{{ pPickPf }}" style="cursor:pointer"></path>
+              </g>
+            </sc-if>
+            <sc-if value="{{ q.showProd }}" hint-placeholder-val="{{ false }}">
+              <g transform="{{ q.prodTr }}">
+                <path d="{{ pProdD }}" fill="{{ q.prodFill }}" fill-rule="evenodd" stroke="{{ pSelPf.c }}" stroke-width="{{ pSelPf.w }}" onClick="{{ pPickPf }}" style="cursor:pointer"></path>
+              </g>
+            </sc-if>
+            <g transform="{{ q.mlTr }}">
+              <sc-for list="{{ pML }}" as="s" hint-placeholder-count="1">
+                <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+              </sc-for>
+            </g>
+            <g transform="{{ q.mrTr }}">
+              <sc-for list="{{ pMR }}" as="s" hint-placeholder-count="1">
+                <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+              </sc-for>
+            </g>
+            <g transform="{{ q.baseTr }}">
+              <sc-for list="{{ pBase }}" as="s" hint-placeholder-count="1">
+                <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+              </sc-for>
+            </g>
+            <g transform="{{ q.pfTr }}">
+              <path d="{{ pNeckD }}" fill="#8fb4d6" stroke="{{ pSelH.c }}" stroke-width="{{ pSelH.w }}" onClick="{{ pPickH }}" style="cursor:pointer"></path>
+              <path d="{{ pRingD }}" fill="#8fb4d6" stroke="{{ pSelK.c }}" stroke-width="{{ pSelK.w }}" onClick="{{ pPickK }}" style="cursor:pointer"></path>
+            </g>
+            <sc-for list="{{ pTrn }}" as="s" hint-placeholder-count="2">
+              <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+            </sc-for>
+            <g opacity="{{ q.stOp }}" pointer-events="none">
+              <path d="M750 300 V440 M741 428 L750 442 L759 428" fill="none" stroke="#6cc4ba" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <text x="762" y="376" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="#6cc4ba">podélně</text>
+            </g>
+            <g opacity="{{ q.blOp }}" pointer-events="none">
+              <path d="M672 360 H620 M632 351 L618 360 L632 369 M728 360 H780 M768 351 L782 360 L768 369" fill="none" stroke="#6cc4ba" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <text x="750" y="344" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="#6cc4ba">příčně</text>
+            </g>
+            <sc-for list="{{ pLabels }}" as="l" hint-placeholder-count="7">
+              <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke="{{ l.color }}" stroke-width="1.2" pointer-events="none"></line>
+              <g onClick="{{ l.click }}" style="cursor:pointer">
+                <rect x="{{ l.rx }}" y="{{ l.ry }}" width="{{ l.w }}" height="{{ l.h }}" rx="8" fill="#0d121a" stroke="{{ l.color }}" stroke-width="{{ l.sw }}"></rect>
+              </g>
+            </sc-for>
+<text x="110" y="35.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ pC.ohrev }}" pointer-events="none">ohřev (infrazářiče)</text>
+<text x="400" y="35.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ pC.hrdlo }}" pointer-events="none">hrdlo</text>
+<text x="540" y="35.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ pC.krouzek }}" pointer-events="none">podpěrný kroužek</text>
+<text x="870" y="35.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ pC.trn }}" pointer-events="none">dloužicí trn</text>
+<text x="110" y="575.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ pC.preforma }}" pointer-events="none">preforma</text>
+<text x="480" y="575.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ pC.forma }}" pointer-events="none">forma</text>
+<text x="760" y="575.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ pC.dno }}" pointer-events="none">dno formy</text>
+          </svg>
+          <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#8fb4d6"></span>ztuhlý plast</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#d8c4b6"></span>ohřátá preforma (vysokoelastický stav)</span>
+          </div>
+          <div style="background:#0a0e15;border-radius:14px;padding:14px 18px;margin-top:14px">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">{{ pStepTitle }}</div>
+            <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ pStepText }}</div>
+          </div>
+        </div>
+        <div style="background:#0a0e15;border:1px solid {{ pInfo.border }};border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ pInfo.color }}">{{ pInfo.name }}</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ pInfo.text }}</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:18px">
+      <a href="../zaklady/termomechanicka-krivka.html" style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Vysokoelastický stav: Termomechanická křivka</a>
+      <a href="../zaklady/priprava-materialu.html#suseni" style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Sušení PET před vstřikováním preformy</a>
+      <a href="vstrikovani.html" style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Vstřikování</a>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Stopy na&nbsp;výrobku</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Podle stop na&nbsp;dně se&nbsp;pozná, jak byl výrobek vyroben.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="margin-bottom:14px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Kanystr × PET lahev</div>
+        <div style="font-size:14px;color:#8296a8;margin-top:4px">Pohled z&nbsp;boku a&nbsp;na&nbsp;dno. Klikni na&nbsp;značku nebo na&nbsp;její popisek.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start">
+        <svg viewBox="0 0 1000 500" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+          <text x="150" y="24" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8">kanystr, pohled z&nbsp;boku</text>
+          <text x="400" y="212" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8">kanystr, pohled na&nbsp;dno</text>
+          <text x="640" y="24" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8">lahev, pohled z&nbsp;boku</text>
+          <text x="870" y="194" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8">lahev, pohled na&nbsp;dno</text>
+          <g transform="translate(150 40) scale(0.95)">
+            <path d="{{ sKanD }}" fill="#1b2a3a" stroke="#8fb4d6" stroke-width="1.5" fill-rule="evenodd" stroke-linejoin="round" pointer-events="none"></path>
+            <path d="M0 112 V398" fill="none" stroke="{{ sMk.kDel.c }}" stroke-width="{{ sMk.kDel.w }}" stroke-dasharray="6 5" pointer-events="none"></path>
+            <rect x="-7" y="112" width="14" height="286" fill="transparent" onClick="{{ sPick.kDel }}" style="cursor:pointer"></rect>
+            <path d="{{ sEyeD }}" fill="none" stroke="{{ sMk.kMadlo.c }}" stroke-width="{{ sMk.kMadlo.w }}" stroke-dasharray="3 3" pointer-events="none"></path>
+            <rect x="40" y="136" width="52" height="32" fill="transparent" onClick="{{ sPick.kMadlo }}" style="cursor:pointer"></rect>
+          </g>
+          <path d="M315 230 H485 Q505 230 505 250 V330 Q505 350 485 350 H315 Q295 350 295 330 V250 Q295 230 315 230 Z" fill="#1b2a3a" stroke="#8fb4d6" stroke-width="1.5" pointer-events="none"></path>
+          <path d="{{ sSeamD }}" fill="none" stroke="{{ sMk.kOst.c }}" stroke-width="{{ sMk.kOst.w }}" stroke-linejoin="round" pointer-events="none"></path>
+          <rect x="390" y="236" width="20" height="108" fill="transparent" onClick="{{ sPick.kOst }}" style="cursor:pointer"></rect>
+          <g transform="translate(640 30) scale(0.85)">
+            <path d="{{ pProdOuter }}" fill="#1b2a3a" stroke="#8fb4d6" stroke-width="1.5" stroke-linejoin="round" pointer-events="none"></path>
+            <path d="{{ pNeckD }}" fill="#1b2a3a" stroke="{{ sMk.lHrdlo.c }}" stroke-width="{{ sMk.lHrdlo.w }}" pointer-events="none"></path>
+            <path d="{{ pRingD }}" fill="#1b2a3a" stroke="{{ sMk.lHrdlo.c }}" stroke-width="{{ sMk.lHrdlo.w }}" pointer-events="none"></path>
+            <rect x="-38" y="88" width="76" height="60" fill="transparent" onClick="{{ sPick.lHrdlo }}" style="cursor:pointer"></rect>
+            <path d="M0 150 V470" fill="none" stroke="{{ sMk.lDel.c }}" stroke-width="{{ sMk.lDel.w }}" stroke-dasharray="6 5" pointer-events="none"></path>
+            <rect x="-7" y="150" width="14" height="320" fill="transparent" onClick="{{ sPick.lDel }}" style="cursor:pointer"></rect>
+          </g>
+          <circle cx="870" cy="290" r="80" fill="#1b2a3a" stroke="#8fb4d6" stroke-width="1.5" pointer-events="none"></circle>
+          <circle cx="870" cy="290" r="50" fill="none" stroke="#4a5a6e" stroke-width="1.2" pointer-events="none"></circle>
+          <circle cx="870" cy="290" r="5" fill="{{ sMk.lVtok.c }}" pointer-events="none"></circle>
+          <circle cx="870" cy="290" r="14" fill="transparent" stroke="{{ sMk.lVtok.ring }}" stroke-width="2" onClick="{{ sPick.lVtok }}" style="cursor:pointer"></circle>
+          <sc-for list="{{ sLabels }}" as="l" hint-placeholder-count="6">
+            <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke="{{ l.color }}" stroke-width="1.2" pointer-events="none"></line>
+            <g onClick="{{ l.click }}" style="cursor:pointer">
+              <rect x="{{ l.rx }}" y="{{ l.ry }}" width="{{ l.w }}" height="{{ l.h }}" rx="8" fill="#0d121a" stroke="{{ l.color }}" stroke-width="{{ l.sw }}"></rect>
+            </g>
+          </sc-for>
+<text x="350" y="115.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ sC.kMadlo }}" pointer-events="none">stopa po výronku u&nbsp;madla</text>
+<text x="150" y="475.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ sC.kDel }}" pointer-events="none">dělicí rovina</text>
+<text x="400" y="395.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ sC.kOst }}" pointer-events="none">čára ostřihu</text>
+<text x="640" y="65.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ sC.lHrdlo }}" pointer-events="none">hrdlo se&nbsp;závitem a&nbsp;podpěrným kroužkem</text>
+<text x="640" y="487.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ sC.lDel }}" pointer-events="none">dělicí rovina</text>
+<text x="870" y="405.4" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ sC.lVtok }}" pointer-events="none">vtokový bod</text>
+        </svg>
+        <div style="background:#0a0e15;border:1px solid {{ sInfo.border }};border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ sInfo.color }}">{{ sInfo.name }}</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ sInfo.text }}</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:18px">
+      <a href="../zaklady/identifikace-plastu.html" style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Identifikace plastů</a>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Vícevrstvé nádoby</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 8px;max-width:820px;text-wrap:pretty">Předlisek může být koextrudovaný — například palivové nádrže aut s&nbsp;vrstvou, která nepropouští páry paliva.</p>
+    <a href="vytlacovani.html#koextruze" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Koextruze</a>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Shrnutí</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:15px;line-height:1.5">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa"></th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Z&nbsp;vytlačeného předlisku</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Ze&nbsp;vstřikované preformy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Polotovar</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">předlisek (trubka)</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">preforma (zkumavka s&nbsp;hotovým hrdlem)</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Stav materiálu při foukání</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">tavenina</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vysokoelastický stav</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Protažení</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">hlavně příčné</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">podélné trnem a&nbsp;příčné vzduchem</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Hrdlo</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">tvaruje ho vyfukovací trn</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">hotové ze&nbsp;vstřikování</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Výronky</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">ano, recyklují se</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">ne</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Duté madlo</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">lze</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nelze</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Typické výrobky</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">kanystry, lahve od&nbsp;čisticích prostředků, nádrže</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">PET lahve</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Stopa na&nbsp;dně</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">čára ostřihu</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vtokový bod</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const f1 = n => Math.round(n * 10) / 10;
+const f2 = n => Math.round(n * 100) / 100;
+const T = s => s.replace(/~/g, '\u00a0');
+const hexRgb = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(a, b, u) { const A = hexRgb(a), B = hexRgb(b); return 'rgb(' + A.map((v, i) => Math.round(v + (B[i] - v) * u)).join(',') + ')'; }
+const R = (x0, y0, x1, y1) => 'M' + x0 + ' ' + y0 + ' H' + x1 + ' V' + y1 + ' H' + x0 + ' Z';
+const CIRC = (cx, cy, r) => 'M' + (cx - r) + ' ' + cy + ' a' + r + ' ' + r + ' 0 1 0 ' + (2 * r) + ' 0 a' + r + ' ' + r + ' 0 1 0 ' + (-2 * r) + ' 0 Z';
+const sstep = u => u * u * (3 - 2 * u);
+const cl = u => Math.max(0, Math.min(1, u));
+const lerp = (a, b, u) => a + (b - a) * u;
+const MELT = '#e59a62', SOLID = '#8fb4d6', WARM = '#d8c4b6', HL = '#e59a62';
+const pill = on => ({ bg: on ? '#6cc4ba' : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? '#6cc4ba' : '#263040' });
+const KIND = {
+  steel: ['#1a2230', '#4a5a6e'], heat: ['#3a1f1a', '#ef8f73'], heatOn: ['#ff8a4c', '#ffe0c8'], cool: ['#132b3b', '#7fb0e0'], coolOn: ['#1d4a68', '#a8d6f7'],
+  screw: ['#39424e', '#a9bccd'], track: ['#2a3442', '#8296a8'],
+};
+function mkShapes(list, sel, pick) {
+  return list.map(([part, kind, d]) => {
+    const on = sel === part, k = KIND[kind];
+    return { d, click: pick(part), fill: on ? mix(k[0], HL, 0.35) : k[0], stroke: on ? HL : k[1], sw: on ? 2.5 : 1.2 };
+  });
+}
+function lab(list, sel, pick) {
+  const h = 28;
+  return list.map(([part, cx, y, w, x2, y2, show]) => {
+    const on = sel === part, below = y2 > y;
+    const x1 = Math.max(cx - w / 2 + 10, Math.min(cx + w / 2 - 10, x2)), y1 = below ? y + h / 2 : y - h / 2;
+    const vis = show !== false;
+    return { rx: cx - w / 2, ry: y - h / 2, w, h, x1: f1(x1), y1, x2: f1(vis ? x2 : x1), y2: f1(vis ? y2 : y1), color: on ? HL : '#a9bccd', sw: on ? 3 : 1.2, click: pick(part) };
+  });
+}
+const cm = (sel, keys) => { const o = {}; keys.forEach(k => { o[k] = sel === k ? HL : '#a9bccd'; }); return o; };
+const selStroke = on => on ? { c: '#eaf2fa', w: 2.5 } : { c: 'none', w: 0 };
+
+/* Kanystr z předlisku */
+const KA = 300, KB = 700, KDY = 60, LMAX = 368;
+const O_K = 'M-22 110 H22 V118 H96 Q110 118 110 132 V382 Q110 400 92 400 H-92 Q-110 400 -110 382 V192 Q-110 176 -94 170 L-22 146 Z';
+const OL_K = 'M0 110 H-22 V146 L-94 170 Q-110 176 -110 192 V382 Q-110 400 -92 400 H0 Z';
+const OR_K = 'M0 110 H22 V118 H96 Q110 118 110 132 V382 Q110 400 92 400 H0 Z';
+const E_K = R(40, 136, 92, 168);
+const IN_K = 'M-15 110 H15 V125 H98 Q103 125 103 131 V380 Q103 393 90 393 H-90 Q-103 393 -103 380 V195 Q-103 182 -90 177 L-15 153 Z ' + R(34, 131, 97, 175);
+const FL_K = R(-50, 100, -15, 110) + ' ' + R(15, 100, 50, 110) + ' ' + R(-8, 440, 8, 462) + ' ' + E_K;
+const AIR_K = 'M0 160 V300 M-7 290 L0 302 L7 290 M-12 220 H-70 M-60 213 L-72 220 L-60 227 M12 220 H70 M60 213 L72 220 L60 227';
+const HEAD_MELT = R(-170, 48, -50, 62) + ' ' + R(-50, 30, 50, 92);
+const mandDY = g => (20 - g) * 26 / 16;
+const mandPath = g => { const y = f1(66 + mandDY(g)), t = f1(92 + mandDY(g)); return 'M-46 30 V' + y + ' L-30 ' + t + ' H30 L46 ' + y + ' V30 Z'; };
+const gapPath = g => { const y = f1(66 + mandDY(g)), r = f1(50 - g); return 'M-50 30 V92 H' + (-r) + ' L-46 ' + y + ' V30 Z M50 30 V92 H' + r + ' L46 ' + y + ' V30 Z'; };
+const headShapes = g => [
+  ['hlava', 'steel', R(-60, 20, 60, 92) + ' ' + R(-50, 30, 50, 92) + ' ' + R(-60, 48, -50, 62)],
+  ['hlava', 'steel', R(-170, 40, -60, 48) + ' ' + R(-170, 62, -60, 70)],
+  ['hlava', 'screw', mandPath(g)],
+];
+const CH = s => [180, 260, 340].map(y => CIRC(s * 130, y, 8)).join(' ');
+const moldK = (s, cool) => s < 0
+  ? [['formaL', 'steel', R(-150, 110, 0, 440) + ' ' + OL_K + ' ' + R(-30, 400, 0, 440) + ' ' + CH(-1)], ['hrany', 'track', R(-30, 400, 0, 440)], ['kanaly', cool ? 'coolOn' : 'cool', CH(-1)]]
+  : [['formaR', 'steel', R(0, 110, 150, 440) + ' ' + OR_K + ' ' + E_K + ' ' + R(0, 400, 30, 440) + ' ' + CH(1)], ['hrany', 'track', R(0, 400, 30, 440)], ['kanaly', cool ? 'coolOn' : 'cool', CH(1)]];
+const PIN_K = [['trn', 'steel', R(-30, 0, 30, 30)], ['trn', 'screw', R(-15, 30, 15, 90) + ' ' + R(-4, 30, 4, 90)]];
+function roK(y, c) {
+  const nk = lerp(50, 22, c), pb = lerp(50, 1, c), tl = lerp(50, 8, c);
+  if (y < 106) return 50;
+  if (y < 110) return lerp(50, nk, (y - 106) / 4);
+  if (y < 146) return nk;
+  if (y < 154) return lerp(nk, 50, (y - 146) / 8);
+  if (y < 396) return 50;
+  if (y < 404) return lerp(50, pb, (y - 396) / 8);
+  if (y < 440) return pb;
+  if (y < 446) return lerp(pb, tl, (y - 440) / 6);
+  return tl;
+}
+const thK = (y, yb) => 7 + 9 * (yb - y) / LMAX;
+function parPath(y0, y1, c, yb) {
+  if (y1 - y0 < 1) return '';
+  const ys = []; for (let y = y0; y < y1; y += 4) ys.push(y); ys.push(y1);
+  const pts = ys.map(y => { const ro = roK(y, c); return [ro, Math.max(0, ro - thK(y, yb)), y]; });
+  const side = s => 'M' + pts.map(p => f1(s * p[0]) + ' ' + f1(p[2])).join(' L') + ' L' + pts.slice().reverse().map(p => f1(s * p[1]) + ' ' + f1(p[2])).join(' L') + ' Z';
+  return side(-1) + ' ' + side(1);
+}
+function kScene(step, p) {
+  const L = step === 0 ? p : 1, yb = 92 + LMAX * L;
+  const c = step === 0 ? 0 : step === 1 ? sstep(cl(p / 0.7)) : step === 5 ? 1 - sstep(cl((p - 0.2) / 0.4)) : 1;
+  const cut = step > 2 || (step === 2 && p >= 0.15);
+  const mcx = step < 2 ? KA : step === 2 ? lerp(KA, KB, sstep(cl((p - 0.3) / 0.7))) : KB;
+  const gap = 70 * (1 - c);
+  const pinDY = step === 3 ? 60 * sstep(cl(p / 0.3)) : step === 4 ? 60 : step === 5 ? 60 * (1 - sstep(cl(p / 0.2))) : 0;
+  const e = step === 3 ? sstep(cl((p - 0.3) / 0.6)) : step > 3 ? 1 : 0;
+  const cool = step === 3 ? 0.25 * e : step === 4 ? 0.25 + 0.75 * p : step === 5 ? 1 : 0;
+  const pcx = cut ? mcx : KA, prodOp = cl(e / 0.3);
+  const flFade = step === 5 ? cl((p - 0.65) / 0.3) : 0;
+  const sx = lerp(0.45, 1, e), sy = lerp(0.96, 1, e);
+  const gapHead = step === 0 ? 7 + 9 * p : 16;
+  const kx = step === 2 && p < 0.3 ? lerp(160, 460, p / 0.3) : null;
+  return {
+    showPar: e < 0.3, par: cut ? parPath(100, 460, c, 460) : parPath(92, yb, c, yb),
+    parTr: 'translate(' + f1(pcx) + ' ' + KDY + ')', parOp: f2(1 - cl(e / 0.3)),
+    stub: cut ? parPath(92, 100, 0, 460) : '',
+    showProd: e > 0, prod: O_K + ' ' + IN_K + ' ' + E_K,
+    prodTr: 'translate(' + f1(mcx) + ' ' + KDY + ') translate(0 110) scale(' + f2(sx) + ' ' + f2(sy) + ') translate(0 -110)',
+    prodOp: f2(prodOp), prodFill: mix(MELT, SOLID, cool),
+    flTr: 'translate(' + f1(mcx) + ' ' + f1(KDY + 20 * flFade) + ')', flOp: f2(prodOp * (1 - flFade)), flVis: prodOp * (1 - flFade) > 0.1,
+    mlTr: 'translate(' + f1(mcx - gap) + ' ' + KDY + ')', mrTr: 'translate(' + f1(mcx + gap) + ' ' + KDY + ')',
+    pinTr: 'translate(' + KB + ' ' + f1(KDY + pinDY) + ')',
+    knife: kx == null ? '' : R(f1(kx - 50), 158, f1(kx), 162),
+    airOp: step === 3 && p > 0.3 && p < 0.95 ? 1 : 0,
+    hiD: mandPath(gapHead) + ' ' + gapPath(gapHead), hiOp: step === 0 ? 1 : 0,
+    tlOp: step === 0 ? f2(cl((p - 0.5) / 0.2)) : 0, rvOp: step >= 4 ? 1 : 0,
+    gapHead, mcx, gap, pinDY, e, pcx, cool: step === 4,
+  };
+}
+const K_STEPS = [
+  ['Vytlačení předlisku', 'Trn se\u00a0v~hubici posouvá a~mění mezeru. Horní část předlisku vyjde silnější, protože se\u00a0vlastní tíhou protáhne nejvíc.'],
+  ['Zavření formy', 'Forma se\u00a0zavře, spodní hrany předlisek sevřou, svaří dno a~odstřihnou přebytek.'],
+  ['Odříznutí a\u00a0přesun pod\u00a0vyfukovací trn', 'Předlisek se\u00a0nad formou odřízne a~forma s~ním přejede pod\u00a0vyfukovací trn.'],
+  ['Vyfouknutí', 'Trn vjede do hrdla a~stlačený vzduch roztáhne předlisek až ke\u00a0stěnám dutiny.'],
+  ['Chlazení', 'Výrobek ztuhne na\u00a0chlazené stěně formy. Chlazení je nejdelší část cyklu.'],
+  ['Otevření a\u00a0odstranění výronků', 'Forma se\u00a0otevře a~z~výrobku se\u00a0odstraní výronky u~dna, hrdla a~madla.'],
+];
+const K_DUR = [2.4, 1.8, 2.4, 2.4, 2.4, 2.6];
+const K_INFO = {
+  hlava: ['Příčná hlava', 'Tavenina přichází z~extruderu ze strany a~hlava ji obrací svisle dolů. Mezi trnem a~hubicí vychází trubka — předlisek. Pohybem trnu v~hubici se\u00a0mění mezera, a~tím tloušťka stěny předlisku.'],
+  predlisek: ['Předlisek', 'Trubka taveniny vytlačená z~hlavy. Visí volně dolů a~vlastní tíhou se\u00a0protahuje. Proto ho hlava vytlačuje nahoře silnější — pohybem trnu v~hubici.'],
+  formaL: ['Levá polovina formy', 'Nese polovinu dutiny ve~tvaru kanystru. Při zavření dosedne na\u00a0pravou polovinu.'],
+  formaR: ['Pravá polovina formy', 'Nese druhou polovinu dutiny a~výstupek, který tvoří otvor madla.'],
+  kanaly: ['Chladicí kanály', 'Kanály ve~stěně formy, kterými proudí chladivo. Odvádějí teplo z~výrobku, který dosedl na\u00a0stěnu dutiny.'],
+  hrany: ['Ostřihové hrany', 'Spodní hrany formy při zavření předlisek sevřou, svaří dno a~odstřihnou přebytek.'],
+  trn: ['Vyfukovací trn', 'Vjede do hrdla, vžene do předlisku vzduch a~zároveň tvaruje vnitřek hrdla.'],
+  vyronky: ['Výronky', 'Přebytečný materiál u~dna, hrdla a~madla. Po otevření formy se\u00a0odstraní, rozemelou a~vrátí do výroby jako recyklát.'],
+};
+
+/* PET lahev z preformy */
+const HX = 260, MX = 700;
+const mir = (x, y) => f1(-x) + ' ' + f1(y);
+function contour(c) {
+  const [start, segs] = c, ends = [start].concat(segs.map(s => s[1].slice(-2)));
+  let d = 'M' + f1(start[0]) + ' ' + f1(start[1]);
+  segs.forEach(([t, n]) => { d += ' ' + t + n.map(f1).join(' '); });
+  for (let i = segs.length - 1; i >= 0; i--) {
+    const [t, n] = segs[i], pts = [];
+    for (let j = n.length - 4; j >= 0; j -= 2) pts.push(mir(n[j], n[j + 1]));
+    pts.push(mir(ends[i][0], ends[i][1]));
+    d += ' ' + t + pts.join(' ');
+  }
+  return d + ' Z';
+}
+const lerpC = (a, b, u) => [a[0].map((v, i) => lerp(v, b[0][i], u)), a[1].map((s, k) => [s[0], s[1].map((v, i) => lerp(v, b[1][k][1][i], u))])];
+const OUT_B = [[24, 148], [['L', [24, 168]], ['C', [24, 200, 90, 205, 90, 240]], ['L', [90, 470]], ['Q', [88, 500, 50, 504]], ['Q', [18, 506, 0, 490]]]];
+const OUT_S = [[20, 148], [['L', [20, 168]], ['C', [20, 200, 20, 205, 20, 240]], ['L', [20, 468]], ['Q', [20, 478, 15, 483]], ['Q', [10, 488, 0, 488]]]];
+const IN_B = [[13, 148], [['L', [13, 166]], ['C', [13, 202, 88.5, 207, 88.5, 241]], ['L', [88.5, 469]], ['Q', [86.5, 498.5, 50, 502.5]], ['Q', [22, 503, 8, 484]], ['Q', [4, 478, 0, 478]]]];
+const IN_S = [[15, 148], [['L', [15, 166]], ['C', [15, 202, 15, 207, 15, 241]], ['L', [15, 467]], ['Q', [15, 474.5, 11.3, 478.3]], ['Q', [9.4, 480.1, 6.5, 481.2]], ['Q', [3.2, 482, 0, 482]]]];
+const O_P = contour(OUT_B);
+const NECK_P = R(-26, 90, -18, 140) + ' ' + R(18, 90, 26, 140) + ' ' + R(-30, 100, -26, 106) + ' ' + R(-30, 114, -26, 120) + ' ' + R(-30, 128, -26, 134) + ' ' + R(26, 106, 30, 112) + ' ' + R(26, 120, 30, 126);
+const RING_P = R(-38, 140, -18, 148) + ' ' + R(18, 140, 38, 148);
+const CAV_PL = 'M0 148 H-24 V168 C-24 200 -90 205 -90 240 V470 H0 Z', CAV_PR = 'M0 148 H24 V168 C24 200 90 205 90 240 V470 H0 Z';
+const PML = [['forma', 'steel', R(-140, 148, 0, 530) + ' ' + CAV_PL + ' ' + R(-100, 470, 0, 530)]];
+const PMR = [['forma', 'steel', R(0, 148, 140, 530) + ' ' + CAV_PR + ' ' + R(0, 470, 100, 530)]];
+const PBASE = [['dno', 'track', 'M-100 470 H-90 Q-88 500 -50 504 Q-18 506 0 490 Q18 506 50 504 Q88 500 90 470 H100 V530 H-100 Z']];
+const HEATERS = R(HX - 80, 160, HX - 64, 320) + ' ' + R(HX + 64, 160, HX + 80, 320);
+const HEAT_GLOW = R(HX - 92, 150, HX - 52, 330) + ' ' + R(HX + 52, 150, HX + 92, 330);
+function pfPath(s) {
+  const ro = lerp(24, 20, s), ri = lerp(13, 15, s), bo = lerp(314, 488, s), bi = bo - lerp(14, 6, s);
+  const tube = (r, b) => 'M' + f1(-r) + ' 148 V' + f1(b - r) + ' Q' + f1(-r) + ' ' + f1(b) + ' 0 ' + f1(b) + ' Q' + f1(r) + ' ' + f1(b) + ' ' + f1(r) + ' ' + f1(b - r) + ' V148 Z';
+  return { d: tube(ro, bo) + ' ' + tube(ri, bi), ro, bi };
+}
+function pScene(step, p, running) {
+  const px = step === 0 ? HX : step === 1 ? lerp(HX, MX, sstep(cl(p / 0.6))) : MX;
+  const gap = step === 0 ? 60 : step === 1 ? 60 * (1 - sstep(cl((p - 0.6) / 0.4))) : step === 4 ? 60 * sstep(cl((p - 0.6) / 0.25)) : 0;
+  const drop = step === 4 ? 15 * sstep(cl((p - 0.6) / 0.25)) : 0;
+  const s = step === 2 ? sstep(cl((p - 0.2) / 0.8)) : step > 2 ? 1 : 0;
+  const pf = pfPath(s);
+  const tip = step === 2 ? (p < 0.2 ? lerp(80, 300, sstep(p / 0.2)) : pf.bi) : step === 3 ? pf.bi : step === 4 ? lerp(pf.bi, 80, sstep(cl((p - 0.35) / 0.25))) : 80;
+  const e = step === 3 ? sstep(cl(p / 0.8)) : step === 4 ? 1 : 0;
+  const heat = step === 0 ? sstep(p) : 1;
+  const cool = step === 3 ? 0.15 * e * e : step === 4 ? sstep(cl(p / 0.45)) : 0;
+  return {
+    px, gap, drop, e, ro: pf.ro,
+    showPf: e <= 0, pf: pf.d, pfTr: 'translate(' + f1(px) + ' 0)', pfFill: mix(SOLID, WARM, heat),
+    showProd: e > 0, prod: contour(lerpC(OUT_S, OUT_B, e)) + ' ' + contour(lerpC(IN_S, IN_B, e)), prodFill: mix(WARM, SOLID, cool),
+    prodTr: 'translate(' + MX + ' 0)',
+    mlTr: 'translate(' + f1(MX - gap) + ' 0)', mrTr: 'translate(' + f1(MX + gap) + ' 0)', baseTr: 'translate(' + MX + ' ' + f1(drop) + ')',
+    rod: R(MX - 6, 50, MX + 6, f1(tip)), heatOn: running && step === 0, glowOp: running && step === 0 ? 1 : 0, glow: HEAT_GLOW,
+    stOp: step === 2 && p > 0.2 ? 1 : 0, blOp: step === 3 && p < 0.9 ? 1 : 0,
+  };
+}
+const P_STEPS = [
+  ['Ohřev preformy', 'Infrazářiče ohřejí preformu nad teplotu skelného přechodu, ale pod\u00a0teplotu tání — do vysokoelastického stavu.'],
+  ['Vložení do formy', 'Ohřátá preforma se\u00a0vloží do formy. Hrdlo s~podpěrným kroužkem zůstává nad dutinou.'],
+  ['Dloužení trnem', 'Dloužicí trn natáhne preformu podélně až ke\u00a0dnu formy.'],
+  ['Vyfouknutí', 'Stlačený vzduch roztáhne preformu příčně až ke\u00a0stěnám dutiny.'],
+  ['Chlazení a\u00a0vyjmutí', 'Lahev ztuhne na\u00a0chlazené stěně formy, forma se\u00a0otevře a~lahev se\u00a0vyjme.'],
+];
+const P_DUR = [2.4, 2.4, 2.2, 2.0, 2.8];
+const P_INFO = {
+  preforma: ['Preforma', 'Vstřikovaný polotovar ve~tvaru zkumavky. Před vyfukováním se\u00a0ohřeje do vysokoelastického stavu — není to tavenina. Stěna těla lahve je po protažení mnohem tenčí než stěna preformy.'],
+  hrdlo: ['Hrdlo', 'Hrdlo se\u00a0závitem je hotové ze~vstřikování preformy. Leží mimo dutinu formy a~po celou dobu se\u00a0nemění. Nehřeje se\u00a0a~nedlouží, proto má stejnou tloušťku stěny jako preforma.'],
+  krouzek: ['Podpěrný kroužek', 'Je součástí hrdla preformy. Ve~formě dosedá na\u00a0její horní plochu, hrdlo tak zůstává nad dutinou.'],
+  ohrev: ['Ohřev (infrazářiče)', 'Infrazářiče ohřívají stěnu preformy nad teplotu skelného přechodu, ale pod\u00a0teplotu tání — do vysokoelastického stavu.'],
+  forma: ['Forma', 'Dvě poloviny formy nesou dutinu ve~tvaru lahve. Stěna dutiny je chlazená.'],
+  dno: ['Dno formy', 'Samostatný díl formy. Tvaruje dno lahve.'],
+  trn: ['Dloužicí trn', 'Projde hrdlem a~natáhne preformu podélně až ke\u00a0dnu formy.'],
+};
+
+/* Stopy na výrobku */
+let S_SEAM = 'M400 240';
+for (let y = 246, i = 0; y <= 340; y += 6, i++) S_SEAM += ' L' + (i % 2 ? 403 : 397) + ' ' + y;
+const S_INFO = {
+  kOst: ['Kanystr — čára ostřihu na\u00a0dně', 'Místo, kde forma předlisek sevřela a~svařila.'],
+  kDel: ['Kanystr — dělicí rovina', 'Stopa po styku dvou polovin formy po boku výrobku.'],
+  kMadlo: ['Kanystr — stopa po výronku u~madla', 'Místo, odkud se\u00a0po otevření formy odstranil výronek z~otvoru madla.'],
+  lVtok: ['Lahev — vtokový bod', 'Stopa po vtoku při vstřikování preformy, uprostřed dna.'],
+  lDel: ['Lahev — dělicí rovina', 'Stopa po styku dvou polovin formy po boku lahve.'],
+  lHrdlo: ['Lahev — hrdlo se\u00a0závitem a~podpěrným kroužkem', 'Tvar z~preformy. Při vyfukování se\u00a0nemění.'],
+};
+
+class Component extends DCLogic {
+  state = { kStep: 0, kP: 1, kMode: null, kSel: null, pStep: 0, pP: 1, pMode: null, pSel: null, sSel: null };
+  _raf = null; _last = null;
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+  run(upd) { this.setState(upd, () => { if (!this._raf) { this._last = null; this._raf = requestAnimationFrame(this.tick); } }); }
+  tick = now => {
+    const dt = this._last == null ? 0 : Math.min(0.05, (now - this._last) / 1000);
+    this._last = now;
+    const st = this.state, upd = {};
+    let active = false;
+    [['k', K_DUR], ['p', P_DUR]].forEach(([x, D]) => {
+      const mode = st[x + 'Mode'];
+      if (!mode) return;
+      let s = st[x + 'Step'], p = st[x + 'P'] + dt / D[s];
+      if (p >= 1) { if (mode === 'play' && s < D.length - 1) { s++; p = 0; } else { p = 1; upd[x + 'Mode'] = null; } }
+      upd[x + 'Step'] = s; upd[x + 'P'] = p; active = true;
+    });
+    if (active) this.setState(upd);
+    this._raf = active ? requestAnimationFrame(this.tick) : null;
+  };
+  tg(key) { return part => () => this.setState(s => ({ [key]: s[key] === part ? null : part })); }
+  steps(x, list) {
+    const st = this.state;
+    return list.map((n, i) => Object.assign({ label: (i + 1) + '. ' + n[0], onClick: () => this.run({ [x + 'Step']: i, [x + 'P']: 0, [x + 'Mode']: 'step' }) }, pill(st[x + 'Step'] === i)));
+  }
+  play(x) {
+    const st = this.state;
+    return () => { if (st[x + 'Mode'] === 'play') this.setState({ [x + 'Mode']: null }); else this.run({ [x + 'Step']: 0, [x + 'P']: 0, [x + 'Mode']: 'play' }); };
+  }
+  info(sel, map, emptyName, emptyText) {
+    return sel ? { name: T(map[sel][0]), text: T(map[sel][1]), color: HL, border: HL } : { name: emptyName, text: emptyText, color: '#eaf2fa', border: '#232c39' };
+  }
+  renderVals() {
+    const st = this.state;
+    /* kanystr */
+    const k = kScene(st.kStep, st.kP), kPick = this.tg('kSel');
+    const pL = k.e > 0.3 ? k.mcx - 110 * lerp(0.45, 1, k.e) : k.pcx - 50;
+    const kLabels = lab([
+      ['hlava', 150, 30, 140, 260, 80],
+      ['trn', 860, 30, 160, KB + 30, KDY + k.pinDY + 15],
+      ['predlisek', 70, 570, 100, pL, 380],
+      ['formaL', 225, 570, 180, k.mcx - k.gap - 75, 500],
+      ['hrany', 405, 570, 150, k.mcx - k.gap - 15, 500],
+      ['vyronky', 540, 570, 90, k.mcx, KDY + 462, k.flVis],
+      ['formaR', 705, 570, 190, k.mcx + k.gap + 75, 500],
+      ['kanaly', 890, 570, 150, k.mcx + k.gap + 130, KDY + 348],
+    ], st.kSel, kPick);
+    /* PET */
+    const q = pScene(st.pStep, st.pP, !!st.pMode), pPick = this.tg('pSel');
+    const pLabels = lab([
+      ['ohrev', 110, 30, 190, HX - 72, 160],
+      ['hrdlo', 400, 30, 80, q.px + 26, 100],
+      ['krouzek', 540, 30, 180, q.px + 38, 144],
+      ['trn', 870, 30, 140, MX + 25, 35],
+      ['preforma', 110, 570, 110, q.e > 0.3 ? MX - 90 : q.px - q.ro, q.e > 0.3 ? 400 : 280],
+      ['forma', 480, 570, 80, MX - q.gap - 120, 530],
+      ['dno', 760, 570, 120, MX + 40, 530 + q.drop],
+    ], st.pSel, pPick);
+    const pSel = st.pSel;
+    const solidSel = on => on ? { c: HL, w: 2.5 } : { c: 'none', w: 0 };
+    /* stopy */
+    const sPickF = this.tg('sSel'), sKeys = Object.keys(S_INFO), sPick = {}, sMk = {};
+    sKeys.forEach(id => { const on = st.sSel === id; sPick[id] = sPickF(id); sMk[id] = { c: on ? HL : '#eaf2fa', w: on ? 3 : 1.5, ring: on ? HL : 'none' }; });
+    sMk.lHrdlo = st.sSel === 'lHrdlo' ? { c: HL, w: 2.5 } : { c: '#8fb4d6', w: 1.2 };
+    const sLabels = lab([
+      ['kMadlo', 350, 110, 230, 215, 172],
+      ['kDel', 150, 470, 130, 150, 418],
+      ['kOst', 400, 390, 130, 400, 344],
+      ['lHrdlo', 640, 60, 330, 640, 104],
+      ['lDel', 640, 482, 130, 640, 430],
+      ['lVtok', 870, 400, 120, 870, 298],
+    ], st.sSel, sPickF);
+    return {
+      k, kHeadMelt: HEAD_MELT, kHead: mkShapes(headShapes(k.gapHead), st.kSel, kPick),
+      kML: mkShapes(moldK(-1, k.cool), st.kSel, kPick), kMR: mkShapes(moldK(1, k.cool), st.kSel, kPick), kPin: mkShapes(PIN_K, st.kSel, kPick),
+      kFl: FL_K, kAir: AIR_K, kLabels, kC: cm(st.kSel, Object.keys(K_INFO)),
+      kSelP: selStroke(st.kSel === 'predlisek'), kSelV: selStroke(st.kSel === 'vyronky'),
+      kPickPar: kPick('predlisek'), kPickVyr: kPick('vyronky'),
+      kSteps: this.steps('k', K_STEPS), kPlay: this.play('k'), kPlaying: st.kMode === 'play', kPaused: st.kMode !== 'play', kPlayAria: st.kMode === 'play' ? 'Pozastavit' : 'Přehrát',
+      kStepTitle: (st.kStep + 1) + '. ' + K_STEPS[st.kStep][0], kStepText: T(K_STEPS[st.kStep][1]),
+      kInfo: this.info(st.kSel, K_INFO, 'Díly', 'Klikni na\u00a0díl ve\u00a0schématu nebo na\u00a0jeho popisek.'),
+      q, pProdD: q.prod, pProdOuter: O_P, pNeckD: NECK_P, pRingD: RING_P,
+      pHeat: mkShapes([['ohrev', q.heatOn ? 'heatOn' : 'heat', HEATERS]], pSel, pPick),
+      pML: mkShapes(PML, pSel, pPick), pMR: mkShapes(PMR, pSel, pPick), pBase: mkShapes(PBASE, pSel, pPick),
+      pTrn: mkShapes([['trn', 'steel', R(MX - 25, 20, MX + 25, 50)], ['trn', 'screw', q.rod]], pSel, pPick),
+      pSelPf: solidSel(pSel === 'preforma'), pSelH: solidSel(pSel === 'hrdlo'), pSelK: solidSel(pSel === 'krouzek'),
+      pPickPf: pPick('preforma'), pPickH: pPick('hrdlo'), pPickK: pPick('krouzek'),
+      pLabels, pC: cm(pSel, Object.keys(P_INFO)),
+      pSteps: this.steps('p', P_STEPS), pPlay: this.play('p'), pPlaying: st.pMode === 'play', pPaused: st.pMode !== 'play', pPlayAria: st.pMode === 'play' ? 'Pozastavit' : 'Přehrát',
+      pStepTitle: (st.pStep + 1) + '. ' + P_STEPS[st.pStep][0], pStepText: T(P_STEPS[st.pStep][1]),
+      pInfo: this.info(pSel, P_INFO, 'Díly', 'Klikni na\u00a0díl ve\u00a0schématu nebo na\u00a0jeho popisek.'),
+      sKanD: O_K + ' ' + E_K, sEyeD: E_K, sSeamD: S_SEAM, sMk, sPick, sLabels, sC: cm(st.sSel, sKeys),
+      sInfo: this.info(st.sSel, S_INFO, 'Stopy na\u00a0výrobku', 'Klikni na\u00a0značku na\u00a0výrobku nebo na\u00a0její popisek.'),
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

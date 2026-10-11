@@ -42,9 +42,9 @@
   <div style="max-width:1080px;margin:0 auto 40px">
     <a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#8a8072;margin-bottom:18px">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="#8a8072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Zpět na Odlévání
+      Zpět na&nbsp;Odlévání
     </a>
-    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#231d16;margin:0 0 12px">Model a písková forma</h1>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#231d16;margin:0 0 12px">Model a&nbsp;písková forma</h1>
     <p style="font-size:17px;line-height:1.6;color:#6b6255;max-width:620px;margin:0;text-wrap:pretty">Nejrozšířenější cesta k&nbsp;odlitku — a&nbsp;nejvíc řemesla v&nbsp;celé kapitole.</p>
   </div>
 
@@ -70,20 +70,21 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 const CARDS = [
-  { title: 'Modely a modelová zařízení', desc: 'Přídavky, úkosy, jaderníky a proč je model vždycky větší než odlitek.', href: 'modely.html', status: 'ready', badge: '2 interaktivní' },
-  { title: 'Formovací směsi a pískové formy', desc: 'Ostřivo a pojivo: bentonit, pryskyřice, vodní sklo.', href: 'formovaci-smesi.html', status: 'coming-soon', badge: 'Připravujeme' },
-  { title: 'Ruční formování', desc: 'Formování do dvou rámů, na šablonu, s odpadem.', href: 'rucni-formovani.html', status: 'ready', badge: '3 interaktivní' },
-  { title: 'Strojní formování', desc: 'Lisování, střásání, metání a automatické linky.', href: 'strojni-formovani.html', status: 'ready', badge: '3 interaktivní' },
+  { title: 'Modely a\u00a0modelová zařízení', desc: 'Přídavky, úkosy, jaderníky a\u00a0proč je model vždycky větší než odlitek.', href: 'modely.html', status: 'ready', badge: '2 interaktivní' },
+  { title: 'Formovací směsi a\u00a0pískové formy', desc: 'Ostřivo a\u00a0pojivo: bentonit, pryskyřice, vodní sklo.', href: 'formovaci-smesi.html', status: 'ready', badge: '2 interaktivní' },
+  { title: 'Ruční formování', desc: 'Formování do dvou rámů, na\u00a0šablonu, s\u00a0odpadem.', href: 'rucni-formovani.html', status: 'ready', badge: '3 interaktivní' },
+  { title: 'Strojní formování', desc: 'Lisování, střásání, metání a\u00a0automatické linky.', href: 'strojni-formovani.html', status: 'ready', badge: '3 interaktivní' },
   { title: 'Výroba jader', desc: 'Jak vzniká dutina, kterou nástroj nikdy neobrobí.', href: 'jadra.html', status: 'ready', badge: 'Animace · 2 interaktivní' },
 ];
 const FALLBACK_NAV = [
   { title: 'Domů', href: '../../index.html' },
-  { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+  { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
   { title: 'Koroze', href: '../../koroze/index.html' },
   { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
   { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
   { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
-  { title: 'Odlévání', href: '../index.html' },
+  { title: 'Odlévání', href: '../../odlevani/index.html' },
+  { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
   { title: 'O projektu', href: '../../o-projektu.html' },
   { title: 'Novinky', href: '../../novinky.html' },
 ];
@@ -101,8 +102,6 @@ class Component extends DCLogic {
   }
   renderVals() {
     const s = this.state.structure;
-    const SELF = 'odlevani/';
-    const navItems = s ? s.nav.map(n => ({ title: n.title, href: n.href.startsWith(SELF) ? '../' + n.href.slice(SELF.length) : '../../' + n.href })) : FALLBACK_NAV;
     const raw = (s && s.odlevaniForma && s.odlevaniForma.cards) ? s.odlevaniForma.cards : CARDS;
     const cards = raw.map(c => {
       const ready = c.status === 'ready';
@@ -121,9 +120,24 @@ class Component extends DCLogic {
         descColor: ready ? '#6b6255' : '#a39a8b',
       };
     });
-    return { navItems, cards };
+    return { cards };
   }
 }
+(function () {
+  const P = '../../';
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
 </script>
 <template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#fbf8f3"/><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="200" fill="#b0561f">Fo</text></svg></template>
 <!-- stt-novinka:start -->

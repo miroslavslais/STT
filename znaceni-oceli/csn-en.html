@@ -502,9 +502,10 @@ class Component extends DCLogic {
     { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' },
     { title: 'Značení ocelí', href: '../znaceni-oceli/index.html' },
     { title: 'Odlévání', href: '../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../zpracovani-polymeru/index.html' },
     { title: 'O projektu', href: '../o-projektu.html' },
     { title: 'Novinky', href: '../novinky.html' },
-];
+  ];
   const rv = Component.prototype.renderVals;
   Component.prototype.renderVals = function () {
     const base = rv ? (rv.call(this) || {}) : {};

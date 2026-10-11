@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vstřikování, vytlačování, vyfukování | STT</title>
+<meta name="description" content="Vstřikování, vady výstřiků, vytlačování a vyfukování termoplastů.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-11">
+<x-dc>
+<helmet>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #fbf8f3; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #b0561f; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#fff;border:1px solid #e5ded2;border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,0.08);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#5c5346;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #eee5d8">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#231d16" style-hover="background:#fbf8f3">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+
+<div style="min-height:100vh;background:#fbf8f3;font-family:'IBM Plex Sans',sans-serif;padding:56px 48px 80px;box-sizing:border-box">
+  <div style="max-width:1080px;margin:0 auto 40px">
+    <a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#8a8072;margin-bottom:18px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="#8a8072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      Zpět na&nbsp;Zpracování polymerů
+    </a>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#231d16;margin:0 0 12px">Vstřikování, vytlačování, vyfukování</h1>
+    <p style="font-size:17px;line-height:1.6;color:#6b6255;max-width:620px;margin:0;text-wrap:pretty">Technologie, při kterých se&nbsp;termoplast zpracovává ve&nbsp;stavu taveniny.</p>
+  </div>
+  <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+    <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+      <a href="{{ c.href }}" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#faf7f1;border-radius:20px;padding:26px;border:1px solid {{ c.borderColor }};cursor:{{ c.cursor }}">
+        <div style="position:absolute;top:16px;right:16px;padding:5px 10px;border-radius:999px;background:{{ c.badgeBg }};box-shadow:inset 0 0 0 1px {{ c.badgeRing }};font-size:11px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;color:{{ c.badgeColor }};letter-spacing:0.04em;text-transform:uppercase">{{ c.badge }}</div>
+        <div style="width:56px;height:56px;border-radius:14px;background:{{ c.iconBg }};display:flex;align-items:center;justify-content:center">
+          <sc-if value="{{ c.iInject }}" hint-placeholder-val="{{ true }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="8" width="13" height="8" rx="1.5" stroke="{{ c.iconColor }}" stroke-width="1.8"></rect><path d="M15.5 10.5l3 1.5-3 1.5" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linejoin="round"></path><path d="M18.5 12h3" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round"></path><path d="M5 12h8" stroke="{{ c.iconColor }}" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="1.6 1.6"></path></svg></sc-if>
+          <sc-if value="{{ c.iDefect }}" hint-placeholder-val="{{ false }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 3.5l9 16H3z" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 10v4.5" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="12" cy="17.2" r="1" fill="{{ c.iconColor }}"></circle></svg></sc-if>
+          <sc-if value="{{ c.iExtrude }}" hint-placeholder-val="{{ false }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="5" width="6" height="14" rx="1.5" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></rect><path d="M8.5 10h12.5M8.5 14h12.5" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17 7.5l2.5 2.5M17 16.5l2.5-2.5" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+          <sc-if value="{{ c.iBlow }}" hint-placeholder-val="{{ false }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M10 3h4v3l2.5 3.5V20a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1V9.5L10 6z" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.5 13h9" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+          <sc-if value="{{ c.iTwo }}" hint-placeholder-val="{{ false }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="9" width="19" height="6" rx="1.5" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></rect><rect x="8" y="6" width="8" height="12" rx="2" stroke="{{ c.iconColor }}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></rect></svg></sc-if>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:{{ c.titleColor }};margin-bottom:6px">{{ c.title }}</div>
+          <div style="font-size:14.5px;line-height:1.5;color:{{ c.descColor }};text-wrap:pretty">{{ c.desc }}</div>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const CARDS = [
+  { title: 'Vstřikování', desc: 'Princip, vstřikovací stroj a pracovní cyklus.', href: 'vstrikovani.html', status: 'ready', badge: '4 animace · 2 interaktivní', icon: 'inject' },
+  { title: 'Vady výstřiků', desc: 'Projev, příčina a náprava typických vad.', href: 'vady-vystriku.html', status: 'ready', badge: '1 animace · 2 interaktivní', icon: 'defect' },
+  { title: 'Vytlačování', desc: 'Princip, vytlačovací stroj, výroba profilů, trubek, desek a fólií.', href: 'vytlacovani.html', status: 'ready', badge: '2 animace · 4 interaktivní', icon: 'extrude' },
+  { title: 'Vyfukování', desc: 'Vytlačovací a vstřikovací vyfukování, vyfukování s dloužením.', href: 'vyfukovani.html', status: 'ready', badge: '2 animace · 1 interaktivní', icon: 'blow' },
+  { title: 'Speciální vstřikování', desc: 'Dva materiály v\u00a0jednom dílu, kovové vložky, etiketa ve\u00a0formě, vstřikování s\u00a0plynem a\u00a0vytvrzování reaktoplastů.', href: 'specialni-vstrikovani.html', status: 'ready', badge: 'Bonus', icon: 'two' },
+];
+class Component extends DCLogic {
+  state = { structure: null };
+  componentDidMount() {
+    fetch('../../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
+  }
+  renderVals() {
+    const s = this.state.structure;
+    const raw = (s && s.zpracovaniPolymeruVstrikovaniVytlacovani && s.zpracovaniPolymeruVstrikovaniVytlacovani.cards) ? s.zpracovaniPolymeruVstrikovaniVytlacovani.cards : CARDS;
+    const cards = raw.map(c => {
+      const ready = c.status === 'ready';
+      const bonus = c.badge === 'Bonus';
+      return {
+        title: c.title, desc: c.desc,
+        iInject: c.icon === 'inject' || !c.icon, iDefect: c.icon === 'defect', iExtrude: c.icon === 'extrude', iBlow: c.icon === 'blow', iTwo: c.icon === 'two',
+        href: ready ? c.href : undefined,
+        badge: c.badge || (ready ? 'Kapitola' : 'Připravujeme'),
+        cursor: ready ? 'pointer' : 'not-allowed',
+        borderColor: ready ? '#e5ded2' : '#ece4d6',
+        badgeBg: bonus ? 'transparent' : ready ? '#d6ecea' : '#eee5d8',
+        badgeRing: bonus ? '#e59a62' : 'transparent',
+        badgeColor: bonus ? '#e59a62' : ready ? '#1f7a73' : '#a39a8b',
+        iconBg: ready ? '#d6ecea' : '#eee5d8',
+        iconColor: ready ? '#1f7a73' : '#a39a8b',
+        titleColor: ready ? '#231d16' : '#a39a8b',
+        descColor: ready ? '#6b6255' : '#a39a8b',
+      };
+    });
+    return { cards };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#fbf8f3"/><text x="600" y="400" text-anchor="middle" dominant-baseline="central" font-family="Georgia, serif" font-size="200" fill="#1f7a73">Vs</text></svg></template>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

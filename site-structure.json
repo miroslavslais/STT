@@ -29,6 +29,10 @@
       "href": "odlevani/index.html"
     },
     {
+      "title": "Zpracování polymerů",
+      "href": "zpracovani-polymeru/index.html"
+    },
+    {
       "title": "O projektu",
       "href": "o-projektu.html"
     },
@@ -89,8 +93,9 @@
       },
       {
         "id": "plasty",
-        "title": "Zpracování plastů",
-        "status": "coming-soon"
+        "title": "Zpracování polymerů",
+        "href": "zpracovani-polymeru/index.html",
+        "status": "ready"
       },
       {
         "id": "cnc-simulator",
@@ -197,9 +202,9 @@
       {
         "id": "hlavni-technologie",
         "title": "Kování a válcování",
-        "desc": "Zápustkové a postupové kování, buchar × lis, válcování profilů a PKV, porovnání technologií výroby.",
+        "desc": "Zápustkové a postupové kování, buchar × lis, válcování profilů, PKV, šikmé válcování a poutnická stolice, porovnání technologií výroby.",
         "href": "kovani/index.html",
-        "badge": "7 kapitol · 5 animací",
+        "badge": "9 kapitol · 7 animací",
         "status": "ready"
       },
       {
@@ -281,14 +286,14 @@
         "desc": "Kalkulačka stupně prokování + graf přetvárného odporu oceli.",
         "href": "Stupen prokovani.html",
         "status": "ready",
-        "badge": "Interaktivní"
+        "badge": "Bonus"
       },
       {
         "title": "Porovnání technologií — ozubené kolo",
         "desc": "Kováno × svařováno × sléváno: osový řez, hmotnosti polotovarů a vhodné oceli.",
         "href": "Porovnani technologii - ozubene kolo.html",
         "status": "ready",
-        "badge": "Interaktivní"
+        "badge": "Bonus"
       },
       {
         "title": "Příčné klínové válcování",
@@ -303,6 +308,20 @@
         "href": "Kalibrovane valcovani profilu.html",
         "status": "ready",
         "badge": "Animace"
+      },
+      {
+        "title": "Šikmé válcování — Mannesmannův způsob",
+        "desc": "Děrování plného polotovaru na dutý předvalek a Mannesmannův jev v ose.",
+        "href": "Sikme valcovani Mannesmann.html",
+        "status": "ready",
+        "badge": "Animace · Interaktivní"
+      },
+      {
+        "title": "Válcování na poutnické stolici",
+        "desc": "Ztenčení stěny dutého předvalku na poutnickém trnu a pracovní cyklus poutnického válce.",
+        "href": "Poutnicka stolice.html",
+        "status": "ready",
+        "badge": "Animace · Interaktivní"
       }
     ]
   },
@@ -686,6 +705,14 @@
         "status": "ready"
       },
       {
+        "id": "strizne-nastroje",
+        "title": "Střižné nástroje a nástřihový plán",
+        "desc": "Jednoduchý a postupový nástroj, uspořádání výstřižků v pásu a využití materiálu.",
+        "href": "strizne-nastroje.html",
+        "badge": "Animace · Interaktivní",
+        "status": "ready"
+      },
+      {
         "id": "ohybani",
         "title": "Ohýbání",
         "desc": "Neutrální osa, minimální poloměr ohybu a výpočet rozvinuté délky.",
@@ -749,10 +776,10 @@
       {
         "id": "specialni",
         "title": "Speciální technologie lití",
-        "desc": "Přesné lití, lost foam, kokily, tlak a 3D tisk forem — tam, kde písek nestačí.",
+        "desc": "Přesné lití, lost foam, kokily a tlak — tam, kde písek nestačí.",
         "href": "specialni/index.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "4 kapitoly · Animace",
+        "status": "ready"
       }
     ]
   },
@@ -862,35 +889,176 @@
         "title": "Přesné lití — vytavitelný model",
         "desc": "Voskový model, keramická skořepina, lopatky turbín.",
         "href": "presne-liti.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "Animace",
+        "status": "ready"
       },
       {
-        "title": "Lost foam a plná forma",
+        "title": "Lití na spalitelný model",
         "desc": "Polystyren, který se při lití odpaří.",
         "href": "lost-foam.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "Animace",
+        "status": "ready"
       },
       {
         "title": "Kokilové, nízkotlaké a odstředivé lití",
         "desc": "Gravitační kokily, nízkotlaké plnění zdola a odlévání za rotace.",
         "href": "kokilove-liti.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "Animace",
+        "status": "ready"
       },
       {
         "title": "Vysokotlaké lití",
         "desc": "Teplá a studená komora, sériová výroba hliníkových dílů.",
         "href": "vysokotlake-liti.html",
+        "badge": "Animace",
+        "status": "ready"
+      }
+    ]
+  },
+  "zpracovaniPolymeru": {
+    "h1": "Zpracování polymerů",
+    "cards": [
+      {
+        "id": "zaklady",
+        "title": "Základy polymerů",
+        "desc": "Rozdělení, struktura, vlastnosti a chování polymerů za tepla; příprava a identifikace materiálu.",
+        "href": "zaklady/index.html",
+        "badge": "5 kapitol",
+        "status": "ready"
+      },
+      {
+        "id": "vstrikovani-vytlacovani",
+        "title": "Vstřikování, vytlačování, vyfukování",
+        "desc": "Hlavní technologie zpracování termoplastů a vady výstřiků.",
+        "href": "vstrikovani-vytlacovani/index.html",
+        "badge": "4 kapitoly",
+        "status": "ready"
+      },
+      {
+        "id": "ostatni",
+        "title": "Ostatní technologie",
+        "desc": "Kalandrování, vakuové tváření, lisování, přetlačování, odlévání a máčení.",
+        "href": "ostatni/index.html",
         "badge": "Připravujeme",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "zpracovaniPolymeruZaklady": {
+    "h1": "Základy polymerů",
+    "cards": [
+      {
+        "title": "Rozdělení a struktura",
+        "desc": "Termoplasty, reaktoplasty, elastomery; lineární, rozvětvené a zesíťované makromolekuly; amorfní a semikrystalické polymery.",
+        "href": "rozdeleni-struktura.html",
+        "status": "ready",
+        "badge": "2 animace · 2 interaktivní",
+        "icon": "chain"
+      },
+      {
+        "title": "Vlastnosti, přísady a plniva",
+        "desc": "Vlastnosti polymerů; změkčovadla, stabilizátory, barviva, plniva a vyztužující vlákna.",
+        "href": "vlastnosti-prisady.html",
+        "status": "ready",
+        "badge": "2 animace · 2 interaktivní",
+        "icon": "beaker"
+      },
+      {
+        "title": "Termomechanická křivka",
+        "desc": "Stav sklovitý, kaučukovitý a viskózní; teplota skelného přechodu, tání, tečení a rozkladu.",
+        "href": "termomechanicka-krivka.html",
+        "status": "ready",
+        "badge": "3 interaktivní grafy",
+        "icon": "curve"
+      },
+      {
+        "title": "Příprava materiálu",
+        "desc": "Granulát, sušení, barvení a použití recyklátu.",
+        "href": "priprava-materialu.html",
+        "status": "ready",
+        "badge": "3 animace · 2 interaktivní",
+        "icon": "granules"
+      },
+      {
+        "title": "Identifikace plastů",
+        "desc": "Rozlišení plastů zkouškou plamenem a podle hustoty.",
+        "href": "identifikace-plastu.html",
+        "status": "ready",
+        "badge": "2 animace",
+        "icon": "flame"
+      }
+    ]
+  },
+  "zpracovaniPolymeruVstrikovaniVytlacovani": {
+    "h1": "Vstřikování, vytlačování, vyfukování",
+    "cards": [
+      {
+        "title": "Vstřikování",
+        "desc": "Princip, vstřikovací stroj a pracovní cyklus.",
+        "href": "vstrikovani.html",
+        "status": "ready",
+        "badge": "4 animace · 2 interaktivní",
+        "icon": "inject"
+      },
+      {
+        "title": "Vady výstřiků",
+        "desc": "Projev, příčina a náprava typických vad.",
+        "href": "vady-vystriku.html",
+        "status": "ready",
+        "badge": "1 animace · 2 interaktivní",
+        "icon": "defect"
+      },
+      {
+        "title": "Vytlačování",
+        "desc": "Princip, vytlačovací stroj, výroba profilů, trubek, desek a fólií.",
+        "href": "vytlacovani.html",
+        "status": "ready",
+        "badge": "2 animace · 4 interaktivní",
+        "icon": "extrude"
+      },
+      {
+        "title": "Vyfukování",
+        "desc": "Vytlačovací a vstřikovací vyfukování, vyfukování s dloužením.",
+        "href": "vyfukovani.html",
+        "status": "ready",
+        "badge": "2 animace · 1 interaktivní",
+        "icon": "blow"
+      },
+      {
+        "title": "Speciální vstřikování",
+        "desc": "Dva materiály v jednom dílu, kovové vložky, etiketa ve formě, vstřikování s plynem a vytvrzování reaktoplastů.",
+        "href": "specialni-vstrikovani.html",
+        "status": "ready",
+        "badge": "Bonus",
+        "icon": "two"
+      }
+    ]
+  },
+  "zpracovaniPolymeruOstatni": {
+    "h1": "Ostatní technologie",
+    "cards": [
+      {
+        "title": "Kalandrování",
+        "desc": "Výroba fólií a desek válcováním.",
+        "href": "kalandrovani.html",
         "status": "coming-soon"
       },
       {
-        "title": "3D tisk forem a jader",
-        "desc": "Tištěný písek a vypalitelné modely.",
-        "href": "tisk-forem.html",
-        "badge": "Připravujeme",
+        "title": "Vakuové tváření",
+        "desc": "Tvarování ohřáté desky nebo fólie podtlakem.",
+        "href": "vakuove-tvareni.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Lisování a přetlačování",
+        "desc": "Zpracování reaktoplastů; srovnání přímého lisování a přetlačování.",
+        "href": "lisovani-pretlacovani.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Odlévání a máčení",
+        "desc": "Odlévání plastů včetně rotačního odlévání; výroba tenkostěnných dílů máčením.",
+        "href": "odlevani-maceni.html",
         "status": "coming-soon"
       }
     ]

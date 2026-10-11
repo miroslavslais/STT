@@ -33,15 +33,15 @@
     </sc-for>
   </div>
 </div>
-<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na Plnění, tuhnutí a&nbsp;vady</a>
+<a href="index.html" style="position:fixed;top:16px;left:16px;z-index:1000;display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(6px);color:#e8ecf3;font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,0.14)">← Zpět na&nbsp;Plnění, tuhnutí a&nbsp;vady</a>
 
 <div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:78px 48px 80px;box-sizing:border-box;color:#eaf2fa">
   <div style="max-width:1180px;margin:0 auto">
     <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;color:#7ba3cc;margin-bottom:8px">Plnění, tuhnutí a&nbsp;vady</div>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:34px;line-height:1.2;color:#eaf2fa;margin:0 0 28px">Technologičnost konstrukce odlitku</h1>
 
-    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Proč na tom záleží</h2>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Technologičnost znamená, že se odlitek dá vyrobit jednoduše, levně a&nbsp;bez vad. O&nbsp;většině vad a&nbsp;o&nbsp;ceně odlitku rozhoduje konstruktér na výkrese dřív, než se dostane do slévárny. Co se pokazí v&nbsp;konstrukci, slévárna už nezachrání, nanejvýš to dražeji obchází.</p>
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Proč na&nbsp;tom záleží</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Technologičnost znamená, že se&nbsp;odlitek dá vyrobit jednoduše, levně a&nbsp;bez vad. O&nbsp;většině vad a&nbsp;o&nbsp;ceně odlitku rozhoduje konstruktér na&nbsp;výkrese dřív, než se&nbsp;dostane do slévárny. Co se&nbsp;pokazí v&nbsp;konstrukci, slévárna už nezachrání, nanejvýš to dražeji obchází.</p>
     <div style="display:flex;gap:26px;align-items:center;margin:0 0 48px;flex-wrap:wrap">
       <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:#2d2924;border:1px solid rgba(150,180,210,0.3);box-sizing:border-box"></span>forma</div>
       <div style="display:flex;align-items:center;gap:9px;font-size:14.5px;color:#cfe0f0"><span style="width:16px;height:16px;border-radius:4px;background:#8494a8"></span>odlitek</div>
@@ -51,14 +51,14 @@
     </div>
 
     <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Vyjmutí modelu</h2>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Model musí jít z&nbsp;formy vytáhnout, aniž by strhl směs. Proto má dělicí rovinu co nejjednodušší, stěny se šikmými úkosy a&nbsp;žádné převisy. Úkosy popisuje <a href="../forma/modely.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">stránka o&nbsp;modelech</a>.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Model musí jít z&nbsp;formy vytáhnout, aniž by strhl směs. Proto má dělicí rovinu co nejjednodušší, stěny se&nbsp;šikmými úkosy a&nbsp;žádné převisy. Úkosy popisuje <a href="../forma/modely.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">stránka o&nbsp;modelech</a>.</p>
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 24px;margin:0 0 48px;box-sizing:border-box">
       <div style="display:flex;gap:8px;margin:0 0 14px">
         <sc-for list="{{ s2.opts }}" as="o" hint-placeholder-count="2">
           <div onClick="{{ o.click }}" style="cursor:pointer;border:1.5px solid {{ o.bd }};background:{{ o.bg }};border-radius:12px;padding:9px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ o.col }}">{{ o.label }}</div>
         </sc-for>
       </div>
-      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Svislý řez formou — nad tenkou světlou čárou (dělicí rovinou) vršek, pod ní spodek. Šipka ukazuje směr vytažení modelu.</div>
+      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Svislý řez formou — nad tenkou světlou čárou (dělicí rovinou) vršek, pod&nbsp;ní spodek. Šipka ukazuje směr vytažení modelu.</div>
       <svg viewBox="0 0 1000 460" style="width:100%;display:block">
         <defs><marker id="tcArr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#eaf2fa"></path></marker></defs>
         <rect x="120" y="60" width="600" height="340" fill="#2d2924" stroke="rgba(150,180,210,0.3)" stroke-width="1.4"></rect>
@@ -102,13 +102,13 @@
           <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ s2.info.text }}</div>
         </sc-if>
         <sc-if value="{{ s2.noInfo }}" hint-placeholder-val="{{ true }}">
-          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na popisek ve&nbsp;schématu.</div>
+          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
         </sc-if>
       </div>
     </div>
 
     <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Tloušťka stěn</h2>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Stěny mají mít co nejrovnoměrnější tloušťku. Kde se tenká stěna náhle mění v&nbsp;silnou, vzniká tepelný uzel a&nbsp;staženina, ostrý vnitřní roh navíc soustředí napětí a&nbsp;praská. Tepelný uzel popisuje <a href="nalitky.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">stránka o&nbsp;tuhnutí a&nbsp;nálitcích</a>.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Stěny mají mít co nejrovnoměrnější tloušťku. Kde se&nbsp;tenká stěna náhle mění v&nbsp;silnou, vzniká tepelný uzel a&nbsp;staženina, ostrý vnitřní roh navíc soustředí napětí a&nbsp;praská. Tepelný uzel popisuje <a href="nalitky.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">stránka o&nbsp;tuhnutí a&nbsp;nálitcích</a>.</p>
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 24px;margin:0 0 48px;box-sizing:border-box">
       <div style="display:flex;gap:8px;margin:0 0 14px">
         <sc-for list="{{ s3.opts }}" as="o" hint-placeholder-count="2">
@@ -156,20 +156,20 @@
           <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ s3.info.text }}</div>
         </sc-if>
         <sc-if value="{{ s3.noInfo }}" hint-placeholder-val="{{ true }}">
-          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na popisek ve&nbsp;schématu.</div>
+          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
         </sc-if>
       </div>
     </div>
 
     <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Styky a&nbsp;žebra</h2>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Křížový styk stěn tvoří největší tepelný uzel. Nahrazuje se dvěma přesazenými styky do tvaru T. Místo masivního zesílení se dává tenčí stěna se žebry, která je stejně tuhá a&nbsp;tuhne rovnoměrně.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Křížový styk stěn tvoří největší tepelný uzel. Nahrazuje se&nbsp;dvěma přesazenými styky do tvaru T. Místo masivního zesílení se&nbsp;dává tenčí stěna se&nbsp;žebry, která je stejně tuhá a&nbsp;tuhne rovnoměrně.</p>
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 24px;margin:0 0 48px;box-sizing:border-box">
       <div style="display:flex;gap:8px;margin:0 0 14px">
         <sc-for list="{{ s4.opts }}" as="o" hint-placeholder-count="2">
           <div onClick="{{ o.click }}" style="cursor:pointer;border:1.5px solid {{ o.bd }};background:{{ o.bg }};border-radius:12px;padding:9px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ o.col }}">{{ o.label }}</div>
         </sc-for>
       </div>
-      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Vlevo svislý řez deskou se žebrem, vpravo pohled shora na rozložení žeber pod deskou.</div>
+      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Vlevo svislý řez deskou se&nbsp;žebrem, vpravo pohled shora na&nbsp;rozložení žeber pod&nbsp;deskou.</div>
       <svg viewBox="0 0 1000 460" style="width:100%;display:block">
         <defs><clipPath id="tcPlate"><rect x="540" y="80" width="400" height="300"></rect></clipPath></defs>
         <g style="opacity:{{ s4.badOp }};pointer-events:{{ s4.badPe }};transition:opacity 0.4s ease">
@@ -221,7 +221,7 @@
           <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ s4.info.text }}</div>
         </sc-if>
         <sc-if value="{{ s4.noInfo }}" hint-placeholder-val="{{ true }}">
-          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na popisek ve&nbsp;schématu.</div>
+          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
         </sc-if>
       </div>
     </div>
@@ -234,7 +234,7 @@
           <div onClick="{{ o.click }}" style="cursor:pointer;border:1.5px solid {{ o.bd }};background:{{ o.bg }};border-radius:12px;padding:9px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ o.col }}">{{ o.label }}</div>
         </sc-for>
       </div>
-      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Svislý řez formou — nad tenkou světlou čárou (dělicí rovinou) vršek, pod ní spodek. Jádro tvoří dutinu uvnitř odlitku.</div>
+      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Svislý řez formou — nad tenkou světlou čárou (dělicí rovinou) vršek, pod&nbsp;ní spodek. Jádro tvoří dutinu uvnitř odlitku.</div>
       <svg viewBox="0 0 1000 460" style="width:100%;display:block">
         <rect x="100" y="60" width="640" height="340" fill="#2d2924" stroke="rgba(150,180,210,0.3)" stroke-width="1.4"></rect>
         <rect x="220" y="140" width="400" height="160" fill="#8494a8"></rect>
@@ -278,20 +278,20 @@
           <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ s5.info.text }}</div>
         </sc-if>
         <sc-if value="{{ s5.noInfo }}" hint-placeholder-val="{{ true }}">
-          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na popisek ve&nbsp;schématu.</div>
+          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
         </sc-if>
       </div>
     </div>
 
     <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Volné smršťování</h2>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Při chladnutí se odlitek smršťuje. Kde mu v&nbsp;tom brání forma, jádro nebo jeho vlastní tužší část, vzniká vnitřní pnutí, deformace a&nbsp;trhliny. Konstrukce má smršťování dovolit.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Při chladnutí se&nbsp;odlitek smršťuje. Kde mu v&nbsp;tom brání forma, jádro nebo jeho vlastní tužší část, vzniká vnitřní pnutí, deformace a&nbsp;trhliny. Konstrukce má smršťování dovolit.</p>
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 24px;margin:0 0 48px;box-sizing:border-box">
       <div style="display:flex;gap:8px;margin:0 0 14px">
         <sc-for list="{{ s6.opts }}" as="o" hint-placeholder-count="2">
           <div onClick="{{ o.click }}" style="cursor:pointer;border:1.5px solid {{ o.bd }};background:{{ o.bg }};border-radius:12px;padding:9px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ o.col }}">{{ o.label }}</div>
         </sc-for>
       </div>
-      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Pohled shora na kolo — uprostřed náboj, po obvodu věnec, mezi nimi ramena.</div>
+      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Pohled shora na&nbsp;kolo — uprostřed náboj, po obvodu věnec, mezi nimi ramena.</div>
       <svg viewBox="0 0 1000 460" style="width:100%;display:block">
         <g style="opacity:{{ s6.badOp }};pointer-events:{{ s6.badPe }};transition:opacity 0.4s ease">
           <path d="M 425 230 H 548" stroke="#8494a8" stroke-width="20" fill="none"></path>
@@ -335,20 +335,20 @@
           <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ s6.info.text }}</div>
         </sc-if>
         <sc-if value="{{ s6.noInfo }}" hint-placeholder-val="{{ true }}">
-          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na popisek ve&nbsp;schématu.</div>
+          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
         </sc-if>
       </div>
     </div>
 
     <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Poloha odlitku ve&nbsp;formě</h2>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Nečistoty, struska a&nbsp;bubliny vyplavou v&nbsp;tavenině nahoru. Nejčistší kov je proto ve&nbsp;spodku formy. Plochy, které se budou obrábět nebo ponesou zatížení, se dávají dolů.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Nečistoty, struska a&nbsp;bubliny vyplavou v&nbsp;tavenině nahoru. Nejčistší kov je proto ve&nbsp;spodku formy. Plochy, které se&nbsp;budou obrábět nebo ponesou zatížení, se&nbsp;dávají dolů.</p>
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 24px;margin:0 0 48px;box-sizing:border-box">
       <div style="display:flex;gap:8px;margin:0 0 14px">
         <sc-for list="{{ s7.opts }}" as="o" hint-placeholder-count="2">
           <div onClick="{{ o.click }}" style="cursor:pointer;border:1.5px solid {{ o.bd }};background:{{ o.bg }};border-radius:12px;padding:9px 18px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:{{ o.col }}">{{ o.label }}</div>
         </sc-for>
       </div>
-      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Svislý řez formou — nad tenkou světlou čárou (dělicí rovinou) vršek, pod ní spodek. Silná bílá čára je obráběná plocha, černé tečky jsou nečistoty a&nbsp;bubliny.</div>
+      <div style="font-size:14px;color:#8296a8;margin-bottom:10px">Svislý řez formou — nad tenkou světlou čárou (dělicí rovinou) vršek, pod&nbsp;ní spodek. Silná bílá čára je obráběná plocha, černé tečky jsou nečistoty a&nbsp;bubliny.</div>
       <svg viewBox="0 0 1000 460" style="width:100%;display:block">
         <rect x="100" y="60" width="640" height="340" fill="#2d2924" stroke="rgba(150,180,210,0.3)" stroke-width="1.4"></rect>
         <line x1="80" y1="220" x2="760" y2="220" stroke="rgba(234,242,250,0.75)" stroke-width="1.6"></line>
@@ -401,13 +401,13 @@
           <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ s7.info.text }}</div>
         </sc-if>
         <sc-if value="{{ s7.noInfo }}" hint-placeholder-val="{{ true }}">
-          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na popisek ve&nbsp;schématu.</div>
+          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
         </sc-if>
       </div>
     </div>
 
     <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:0 0 10px">Předlité a&nbsp;vrtané otvory</h2>
-    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Velký otvor se předlévá jádrem, ušetří se kov i&nbsp;obrábění. Malý a&nbsp;hluboký otvor se nepředlévá: tenké jádro by kov obtékal ze&nbsp;všech stran, jádro by se přehřálo, propálilo nebo zlomilo a&nbsp;otvor by byl stejně nepřesný. Takový otvor se vrtá. Předlévání otvorů zmiňuje i&nbsp;<a href="../forma/modely.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">stránka o&nbsp;modelech</a>.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Velký otvor se&nbsp;předlévá jádrem, ušetří se&nbsp;kov i&nbsp;obrábění. Malý a&nbsp;hluboký otvor se&nbsp;nepředlévá: tenké jádro by kov obtékal ze&nbsp;všech stran, jádro by se&nbsp;přehřálo, propálilo nebo zlomilo a&nbsp;otvor by byl stejně nepřesný. Takový otvor se&nbsp;vrtá. Předlévání otvorů zmiňuje i&nbsp;<a href="../forma/modely.html" style="color:#7ba3cc;font-family:'Quicksand',sans-serif;font-weight:600">stránka o&nbsp;modelech</a>.</p>
     <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:22px 26px 24px;margin:0;box-sizing:border-box">
       <div style="display:flex;gap:8px;margin:0 0 14px">
         <sc-for list="{{ s8.opts }}" as="o" hint-placeholder-count="2">
@@ -452,7 +452,7 @@
           <div style="font-size:15px;line-height:1.65;color:#cfe0f0;text-wrap:pretty">{{ s8.info.text }}</div>
         </sc-if>
         <sc-if value="{{ s8.noInfo }}" hint-placeholder-val="{{ true }}">
-          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na popisek ve&nbsp;schématu.</div>
+          <div style="font-size:15px;line-height:1.65;color:#aebfcf">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
         </sc-if>
       </div>
     </div>
@@ -465,20 +465,20 @@ const COL = { bad: 'oklch(0.68 0.2 25)', good: 'oklch(0.76 0.15 150)' };
 const TINT = { bad: 'oklch(0.68 0.2 25 / 0.32)', good: 'oklch(0.76 0.15 150 / 0.32)' };
 const DATA = {
   s2: {
-    bad: { summary: `Převis a${NB}stěny bez úkosu brání vytažení modelu, forma se při něm poškodí.`, labels: {
+    bad: { summary: `Převis a${NB}stěny bez úkosu brání vytažení modelu, forma se\u00a0při něm poškodí.`, labels: {
       previs: { name: 'převis', text: `Model nejde vytáhnout, výstupek by vylomil směs.` },
-      bezUkosu: { name: 'stěna bez úkosu', text: `Model se při vytahování o${NB}směs otírá a${NB}poškodí ji.` } } },
+      bezUkosu: { name: 'stěna bez úkosu', text: `Model se\u00a0při vytahování o${NB}směs otírá a${NB}poškodí ji.` } } },
     good: { summary: `Úkosy a${NB}výstupek vedený k${NB}dělicí rovině dovolí vytáhnout model bez poškození formy.`, labels: {
-      ukos: { name: 'úkos', text: `Model se uvolní hned při prvním pohybu.` },
+      ukos: { name: 'úkos', text: `Model se\u00a0uvolní hned při prvním pohybu.` },
       vystupek: { name: `výstupek k${NB}dělicí rovině`, text: `Tvar jde vytáhnout bez jádra.` } } },
   },
   s3: {
     bad: { summary: `Skok tloušťky a${NB}ostrý roh vytvářejí místo pro staženinu i${NB}trhlinu.`, labels: {
       skok: { name: 'skok tloušťky', text: `Silná část tuhne poslední a${NB}vznikne v${NB}ní staženina.` },
-      roh: { name: 'ostrý roh', text: `Při chladnutí se tu soustředí napětí, vzniká trhlina.` } } },
+      roh: { name: 'ostrý roh', text: `Při chladnutí se\u00a0tu soustředí napětí, vzniká trhlina.` } } },
     good: { summary: `Plynulý přechod a${NB}zaoblený roh omezí napětí a${NB}dovolí silnou část napájet, tepelný uzel v${NB}ní ale zůstává.`, labels: {
       prechod: { name: 'plynulý přechod', text: `Přechod nevytváří další uzel, kov může silnou část napájet z${NB}nálitku a${NB}tuhnutí postupuje plynule.` },
-      zaobleni: { name: 'zaoblení', text: `Napětí se rozloží, roh nepraská.` } } },
+      zaobleni: { name: 'zaoblení', text: `Napětí se\u00a0rozloží, roh nepraská.` } } },
   },
   s4: {
     bad: { summary: `Silná deska a${NB}křížení žeber hromadí kov do jednoho velkého tepelného uzlu.`, labels: {
@@ -489,32 +489,32 @@ const DATA = {
       presaz: { name: 'přesazený styk', text: `Dva menší uzly místo jednoho velkého.` } } },
   },
   s5: {
-    bad: { summary: `Jádro s${NB}jedinou známkou není pevně podepřené, hůř se odvzdušní a${NB}po odlití se hůř odstraní.`, labels: {
-      znamka1: { name: 'jediná známka', text: `Jádro se vztlakem kovu vychýlí nebo zlomí.` },
-      dutina: { name: `dutina otevřená z${NB}jedné strany`, text: `Plyny i${NB}rozpadlé jádro mohou ven jen jedinou známkou, jádro se hůř odvzdušní i${NB}odstraní.` } } },
+    bad: { summary: `Jádro s${NB}jedinou známkou není pevně podepřené, hůř se\u00a0odvzdušní a${NB}po odlití se\u00a0hůř odstraní.`, labels: {
+      znamka1: { name: 'jediná známka', text: `Jádro se\u00a0vztlakem kovu vychýlí nebo zlomí.` },
+      dutina: { name: `dutina otevřená z${NB}jedné strany`, text: `Plyny i${NB}rozpadlé jádro mohou ven jen jedinou známkou, jádro se\u00a0hůř odvzdušní i${NB}odstraní.` } } },
     good: { summary: `Druhá známka v${NB}technologickém otvoru jádro podepře, odvede z${NB}něj plyny a${NB}dovolí ho po odlití odstranit.`, labels: {
-      znamka2: { name: 'druhá známka', text: `Jádro je podepřené na obou koncích.` },
-      otvor: { name: 'technologický otvor', text: `Plyny odcházejí známkou a${NB}jádro jde odstranit, otvor se pak případně zaslepí zátkou.` } } },
+      znamka2: { name: 'druhá známka', text: `Jádro je podepřené na\u00a0obou koncích.` },
+      otvor: { name: 'technologický otvor', text: `Plyny odcházejí známkou a${NB}jádro jde odstranit, otvor se\u00a0pak případně zaslepí zátkou.` } } },
   },
   s6: {
     bad: { summary: `Rovná ramena brání smršťování kola a${NB}praskají.`, labels: {
-      rovne: { name: 'rovné rameno', text: `Náboj a${NB}věnec chladnou jinak rychle, rovné rameno se nemůže prodloužit ani zkrátit a${NB}praská.` } } },
-    good: { summary: `Zakřivená ramena se při smršťování prohnou a${NB}pnutí se uvolní.`, labels: {
-      zakriv: { name: 'zakřivené rameno', text: `Při smršťování se mírně prohne a${NB}pnutí se uvolní.` } } },
+      rovne: { name: 'rovné rameno', text: `Náboj a${NB}věnec chladnou jinak rychle, rovné rameno se\u00a0nemůže prodloužit ani zkrátit a${NB}praská.` } } },
+    good: { summary: `Zakřivená ramena se\u00a0při smršťování prohnou a${NB}pnutí se\u00a0uvolní.`, labels: {
+      zakriv: { name: 'zakřivené rameno', text: `Při smršťování se\u00a0mírně prohne a${NB}pnutí se\u00a0uvolní.` } } },
   },
   s7: {
     bad: { summary: `Obráběná plocha nahoře leží v${NB}kovu s${NB}nečistotami a${NB}bublinami.`, labels: {
-      nahore: { name: 'obráběná plocha nahoře', text: `Po obrobení se otevřou bubliny a${NB}vměstky pod povrchem.` } } },
+      nahore: { name: 'obráběná plocha nahoře', text: `Po obrobení se\u00a0otevřou bubliny a${NB}vměstky pod\u00a0povrchem.` } } },
     good: { summary: `Obráběná plocha dole leží v${NB}nejčistším kovu, nečistoty skončí nahoře.`, labels: {
       dole: { name: 'obráběná plocha dole', text: `Leží v${NB}nejčistším kovu.` },
-      necist: { name: 'nečistoty nahoře', text: `Skončí v${NB}ploše, na které nezáleží, nebo v${NB}nálitku.` } } },
+      necist: { name: 'nečistoty nahoře', text: `Skončí v${NB}ploše, na\u00a0které nezáleží, nebo v${NB}nálitku.` } } },
   },
   s8: {
     bad: { summary: `Oba otvory jsou předlité, tenké jádro malého otvoru kov obtéká ze${NB}všech stran.`, labels: {
       tenke: { name: 'tenké jádro', text: `Přehřeje se, zapeče nebo zlomí.` } } },
-    good: { summary: `Velký otvor se předlévá jádrem, malý se vyvrtá do plného materiálu.`, labels: {
-      predlity: { name: 'předlitý otvor', text: `Jádro je dost silné, otvor se jen dokončí.` },
-      vrtany: { name: 'vrtaný otvor', text: `Vyvrtá se do plného materiálu přesně.` } } },
+    good: { summary: `Velký otvor se\u00a0předlévá jádrem, malý se\u00a0vyvrtá do plného materiálu.`, labels: {
+      predlity: { name: 'předlitý otvor', text: `Jádro je dost silné, otvor se\u00a0jen dokončí.` },
+      vrtany: { name: 'vrtaný otvor', text: `Vyvrtá se\u00a0do plného materiálu přesně.` } } },
   },
 };
 const optStyle = on => on
@@ -553,12 +553,13 @@ class Component extends DCLogic {
   const P = '../../';
   const FALLBACK_NAV = [
     { title: 'Domů', href: '../../index.html' },
-    { title: 'Vnitřní stavba kovů a TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
     { title: 'Koroze', href: '../../koroze/index.html' },
     { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
     { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
     { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
     { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
     { title: 'O projektu', href: '../../o-projektu.html' },
     { title: 'Novinky', href: '../../novinky.html' },
   ];

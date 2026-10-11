@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Příprava materiálu | STT</title>
+<meta name="description" content="Příprava materiálu pro zpracování polymerů: výchozí formy, výroba granulátu, skladování, sušení, barvení a použití recyklátu.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-11">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    html { scroll-behavior: smooth; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e59a62; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Základy polymerů</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:10px">Základy polymerů</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 8px">Příprava materiálu</h1>
+
+    <h2 id="cesta" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:44px 0 12px">Cesta materiálu do stroje</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Kvalita výrobku začíná u&nbsp;materiálu — nesprávně připravený materiál způsobí vady, které už seřízením stroje nenapravíš.</p>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="margin-bottom:14px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Cesta materiálu</div>
+        <div style="font-size:14px;color:#8296a8;margin-top:4px">Klikni na&nbsp;blok ve&nbsp;schématu.</div>
+      </div>
+      <svg ref="{{ refFlow }}" viewBox="0 0 1100 300" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <defs>
+          <marker id="flowArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#8296a8"></path></marker>
+        </defs>
+        <line x1="165" y1="150" x2="215" y2="150" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <line x1="345" y1="150" x2="395" y2="150" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <line x1="525" y1="150" x2="575" y2="150" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <line x1="705" y1="150" x2="755" y2="150" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <line x1="885" y1="150" x2="935" y2="150" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <line x1="460" y1="64" x2="460" y2="118" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <line x1="280" y1="236" x2="280" y2="182" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <line x1="820" y1="182" x2="820" y2="236" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <line x1="755" y1="260" x2="705" y2="260" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <line x1="575" y1="260" x2="345" y2="260" stroke="#8296a8" stroke-width="2" marker-end="url(#flowArrow)"></line>
+        <g onClick="{{ flow.b.sklad.click }}" style="cursor:pointer">
+          <rect x="35" y="118" width="130" height="64" rx="14" fill="{{ flow.b.sklad.fill }}" stroke="{{ flow.b.sklad.stroke }}" stroke-width="{{ flow.b.sklad.sw }}"></rect>
+            <text x="100" y="146" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Sklad</text>
+            <text x="100" y="164" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">granulátu</text>
+        </g>
+        <g onClick="{{ flow.b.susarna.click }}" style="cursor:pointer">
+          <rect x="215" y="118" width="130" height="64" rx="14" fill="{{ flow.b.susarna.fill }}" stroke="{{ flow.b.susarna.stroke }}" stroke-width="{{ flow.b.susarna.sw }}"></rect>
+            <text x="280" y="155" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Sušárna</text>
+        </g>
+        <g onClick="{{ flow.b.davkovani.click }}" style="cursor:pointer">
+          <rect x="395" y="118" width="130" height="64" rx="14" fill="{{ flow.b.davkovani.fill }}" stroke="{{ flow.b.davkovani.stroke }}" stroke-width="{{ flow.b.davkovani.sw }}"></rect>
+            <text x="460" y="146" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Dávkování</text>
+            <text x="460" y="164" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">a&nbsp;míchání</text>
+        </g>
+        <g onClick="{{ flow.b.nasypka.click }}" style="cursor:pointer">
+          <rect x="575" y="118" width="130" height="64" rx="14" fill="{{ flow.b.nasypka.fill }}" stroke="{{ flow.b.nasypka.stroke }}" stroke-width="{{ flow.b.nasypka.sw }}"></rect>
+            <text x="640" y="155" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Násypka</text>
+        </g>
+        <g onClick="{{ flow.b.stroj.click }}" style="cursor:pointer">
+          <rect x="755" y="118" width="130" height="64" rx="14" fill="{{ flow.b.stroj.fill }}" stroke="{{ flow.b.stroj.stroke }}" stroke-width="{{ flow.b.stroj.sw }}"></rect>
+            <text x="820" y="146" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Vstřikovací</text>
+            <text x="820" y="164" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">stroj</text>
+        </g>
+        <g onClick="{{ flow.b.vyrobek.click }}" style="cursor:pointer">
+          <rect x="935" y="118" width="130" height="64" rx="14" fill="{{ flow.b.vyrobek.fill }}" stroke="{{ flow.b.vyrobek.stroke }}" stroke-width="{{ flow.b.vyrobek.sw }}"></rect>
+            <text x="1000" y="155" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Výrobek</text>
+        </g>
+        <g onClick="{{ flow.b.mb.click }}" style="cursor:pointer">
+          <rect x="395" y="16" width="130" height="48" rx="14" fill="{{ flow.b.mb.fill }}" stroke="{{ flow.b.mb.stroke }}" stroke-width="{{ flow.b.mb.sw }}"></rect>
+            <text x="460" y="45" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Masterbatch</text>
+        </g>
+        <g onClick="{{ flow.b.recyklat.click }}" style="cursor:pointer">
+          <rect x="215" y="236" width="130" height="48" rx="14" fill="{{ flow.b.recyklat.fill }}" stroke="{{ flow.b.recyklat.stroke }}" stroke-width="{{ flow.b.recyklat.sw }}"></rect>
+            <text x="280" y="265" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Recyklát</text>
+        </g>
+        <g onClick="{{ flow.b.mlyn.click }}" style="cursor:pointer">
+          <rect x="575" y="236" width="130" height="48" rx="14" fill="{{ flow.b.mlyn.fill }}" stroke="{{ flow.b.mlyn.stroke }}" stroke-width="{{ flow.b.mlyn.sw }}"></rect>
+            <text x="640" y="265" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Mlýn</text>
+        </g>
+        <g onClick="{{ flow.b.vtoky.click }}" style="cursor:pointer">
+          <rect x="755" y="236" width="130" height="48" rx="14" fill="{{ flow.b.vtoky.fill }}" stroke="{{ flow.b.vtoky.stroke }}" stroke-width="{{ flow.b.vtoky.sw }}"></rect>
+            <text x="820" y="256" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">Vtoky</text>
+            <text x="820" y="274" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="15" fill="#eaf2fa" pointer-events="none">a&nbsp;zmetky</text>
+        </g>
+        <sc-for list="{{ flow.dots }}" as="d" hint-placeholder-count="10">
+          <circle cx="{{ d.cx }}" cy="{{ d.cy }}" r="4.5" fill="{{ d.fill }}" stroke="{{ d.stroke }}" stroke-width="1.5" opacity="{{ d.op }}" pointer-events="none"></circle>
+        </sc-for>
+        <sc-for list="{{ flow.crumbs }}" as="d" hint-placeholder-count="6">
+          <polygon points="{{ d.pts }}" fill="#4a5563" stroke="#aebfcf" stroke-width="1.2" opacity="{{ d.op }}" pointer-events="none"></polygon>
+        </sc-for>
+        <sc-for list="{{ flow.pieces }}" as="d" hint-placeholder-count="4">
+          <rect x="{{ d.x }}" y="{{ d.y }}" width="12" height="7" rx="2" fill="#15302f" stroke="#6cc4ba" stroke-width="1.2" opacity="{{ d.op }}" pointer-events="none"></rect>
+        </sc-for>
+      </svg>
+      <div style="margin-top:14px;min-height:72px">
+        <sc-if value="{{ flow.hasSel }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#6cc4ba;margin-bottom:4px">{{ flow.title }}</div>
+          <div style="font-size:15.5px;line-height:1.65;color:#eaf2fa;max-width:860px;text-wrap:pretty">{{ flow.text }}</div>
+          <a href="{{ flow.href }}" style="display:inline-flex;margin-top:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">{{ flow.link }}</a>
+        </sc-if>
+        <sc-if value="{{ flow.noSel }}" hint-placeholder-val="{{ true }}">
+          <div style="font-size:15.5px;line-height:1.65;color:#aebfcf;max-width:860px;text-wrap:pretty">Granulát prochází ze skladu přes sušárnu a&nbsp;dávkování do násypky stroje. Vtoky a&nbsp;zmetky se&nbsp;vracejí přes mlýn a&nbsp;sušárnu zpět do výroby.</div>
+        </sc-if>
+      </div>
+    </div>
+
+    <h2 id="formy" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Výchozí formy materiálu</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Granulát</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Nejběžnější forma termoplastů. Válečky nebo čočky stejné velikosti se&nbsp;dobře sypou a&nbsp;dávkují.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Prášek</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Například suché směsi PVC nebo materiál pro rotační odlévání.</div>
+        <a href="../ostatni/odlevani-maceni.html" style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Odlévání a&nbsp;máčení</a>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Kapalné pryskyřice a&nbsp;pasty</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Reaktoplasty pro odlévání a&nbsp;laminování, pasty PVC pro máčení.</div>
+        <a href="../ostatni/odlevani-maceni.html" style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Odlévání a&nbsp;máčení</a>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Lisovací hmoty</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Reaktoplasty ve&nbsp;formě prášku, granulí nebo předem slisovaných tablet.</div>
+        <a href="../ostatni/lisovani-pretlacovani.html" style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Lisování a&nbsp;přetlačování</a>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px;grid-column:span 2">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Kaučukové směsi</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Kaučuk se&nbsp;na&nbsp;míchacích válcích nebo v&nbsp;hnětiči smíchá s&nbsp;vulkanizačními činidly, plnivy (např. saze) a&nbsp;dalšími přísadami. Směs se&nbsp;tvaruje před vulkanizací.</div>
+      </div>
+    </div>
+
+    <h3 id="granulace" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:21px;color:#eaf2fa;margin:40px 0 10px">Výroba granulátu</h3>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 8px;max-width:820px;text-wrap:pretty">Polymer se&nbsp;smíchá s&nbsp;přísadami, roztaví a&nbsp;vytlačí do strun. Struny se&nbsp;ochladí ve&nbsp;vodní lázni a&nbsp;nasekají na&nbsp;granule.</p>
+    <a href="vlastnosti-prisady.html" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Vlastnosti, přísady a&nbsp;plniva</a>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Granulace</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Klikni na&nbsp;část linky.</div>
+        </div>
+        <button onClick="{{ gToggle }}" style="padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;background:#e59a62;color:#080b12;border:1px solid #e59a62">{{ gLabel }}</button>
+      </div>
+      <svg ref="{{ refG }}" viewBox="0 0 1100 300" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <defs>
+          <linearGradient id="gStrandGrad" gradientUnits="userSpaceOnUse" x1="200" y1="0" x2="560" y2="0">
+            <stop offset="0" stop-color="#e8804f"></stop>
+            <stop offset="1" stop-color="#8fa6ba"></stop>
+          </linearGradient>
+        </defs>
+        <rect x="20" y="70" width="120" height="100" rx="8" fill="#39424e" stroke="#8296a8" stroke-width="1.5"></rect>
+        <rect x="140" y="100" width="15" height="40" fill="#a9bccd"></rect>
+        <rect x="195" y="140" width="370" height="65" rx="6" fill="#2c4a63" stroke="#8fb4d6" stroke-width="1.5"></rect>
+        <rect x="600" y="100" width="130" height="60" rx="8" fill="#0d121a" stroke="#8296a8" stroke-width="1.5"></rect>
+        <path d="M624 84 H636 L630 96 Z M659 84 H671 L665 96 Z M694 84 H706 L700 96 Z" fill="#8296a8"></path>
+        <path d="M155 112 L200 157 L560 157 L600 122 L795 122 M155 120 L200 165 L560 165 L600 130 L795 130 M155 128 L200 173 L560 173 L600 138 L795 138" fill="none" stroke="url(#gStrandGrad)" stroke-width="5" stroke-linejoin="round" stroke-dasharray="18 5" stroke-dashoffset="{{ g.dash }}"></path>
+        <sc-for list="{{ g.drops }}" as="d" hint-placeholder-count="6">
+          <circle cx="{{ d.cx }}" cy="{{ d.cy }}" r="3" fill="#8fb4d6" opacity="{{ d.op }}"></circle>
+        </sc-for>
+        <circle cx="825" cy="130" r="32" fill="#0d121a" stroke="#a9bccd" stroke-width="2.5"></circle>
+        <g transform="{{ g.rot }}">
+          <path d="M825 130 L853 130 M825 130 L825 158 M825 130 L797 130 M825 130 L825 102" stroke="#a9bccd" stroke-width="4" stroke-linecap="round"></path>
+        </g>
+        <circle cx="825" cy="130" r="5" fill="#a9bccd"></circle>
+        <path d="M930 175 L1060 175 L1050 245 Q995 258 940 245 Z" fill="#131a24" stroke="#8296a8" stroke-width="1.5"></path>
+        <path d="M955 238 h9 v6 h-9 Z M970 241 h9 v6 h-9 Z M985 237 h9 v6 h-9 Z M1000 241 h9 v6 h-9 Z M1015 238 h9 v6 h-9 Z M962 231 h9 v6 h-9 Z M978 230 h9 v6 h-9 Z M994 231 h9 v6 h-9 Z M1010 230 h9 v6 h-9 Z" fill="#9fb7c2" stroke="#8fa6ba" stroke-width="1"></path>
+        <sc-for list="{{ g.grains }}" as="p" hint-placeholder-count="8">
+          <rect x="{{ p.x }}" y="{{ p.y }}" width="9" height="6" fill="#9fb7c2" stroke="#8fa6ba" stroke-width="1"></rect>
+        </sc-for>
+        <g onClick="{{ g.pick.head }}" style="cursor:pointer">
+          <rect x="20" y="70" width="135" height="100" rx="8" fill="{{ g.fill.head }}"></rect>
+          <rect x="12" y="262" width="150" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ g.sw.head }}"></rect>
+          <text x="87" y="280" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">vytlačovací hlava</text>
+        </g>
+        <g onClick="{{ g.pick.bath }}" style="cursor:pointer">
+          <rect x="195" y="140" width="370" height="65" rx="6" fill="{{ g.fill.bath }}"></rect>
+          <rect x="325" y="262" width="110" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ g.sw.bath }}"></rect>
+          <text x="380" y="280" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">vodní lázeň</text>
+        </g>
+        <g onClick="{{ g.pick.air }}" style="cursor:pointer">
+          <rect x="600" y="84" width="130" height="76" rx="8" fill="{{ g.fill.air }}"></rect>
+          <rect x="612" y="262" width="106" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ g.sw.air }}"></rect>
+          <text x="665" y="280" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">odfuk vody</text>
+        </g>
+        <g onClick="{{ g.pick.knife }}" style="cursor:pointer">
+          <circle cx="825" cy="130" r="34" fill="{{ g.fill.knife }}"></circle>
+          <rect x="770" y="262" width="110" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ g.sw.knife }}"></rect>
+          <text x="825" y="280" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">rotační nůž</text>
+        </g>
+        <g onClick="{{ g.pick.bag }}" style="cursor:pointer">
+          <path d="M930 175 L1060 175 L1050 245 Q995 258 940 245 Z" fill="{{ g.fill.bag }}"></path>
+          <rect x="960" y="262" width="70" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ g.sw.bag }}"></rect>
+          <text x="995" y="280" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">pytel</text>
+        </g>
+      </svg>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:26px;text-wrap:pretty">{{ g.info }}</p>
+    </div>
+
+    <h2 id="skladovani" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Skladování</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Suché místo</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Granulát se&nbsp;skladuje v&nbsp;uzavřených obalech na&nbsp;suchém místě.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Vyrovnání teploty</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Pytel přinesený ze&nbsp;studeného skladu se&nbsp;otevře až po vyrovnání teploty. Jinak na&nbsp;studených granulích zkondenzuje vlhkost.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Uzavření obalu</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Otevřený obal se&nbsp;znovu uzavře. Hygroskopický materiál nasává vlhkost ze&nbsp;vzduchu.</div>
+      </div>
+    </div>
+
+    <h2 id="suseni" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Sušení</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Hygroskopické plasty</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Vlhkost nasávají dovnitř granulí.</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span style="padding:3px 10px;border-radius:999px;background:#142131;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#bcd8f0">PA</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#142131;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#bcd8f0">PET</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#142131;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#bcd8f0">PC</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#142131;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#bcd8f0">PMMA</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#142131;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#bcd8f0">ABS</span>
+        </div>
+        <a href="vlastnosti-prisady.html" style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Nasákavost: Vlastnosti, přísady a&nbsp;plniva</a>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Nehygroskopické plasty</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Vlhkost nenasávají. Může se&nbsp;na&nbsp;nich jen srazit na&nbsp;povrchu.</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PE</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PP</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PS</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:21px;color:#eaf2fa;margin:36px 0 12px">Proč sušit</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Pára v&nbsp;tavenině</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Voda se&nbsp;v&nbsp;tavenině změní v&nbsp;páru. Na&nbsp;povrchu výrobku vzniknou bubliny a&nbsp;stříbřité šmouhy.</div>
+        <a href="../vstrikovani-vytlacovani/vady-vystriku.html" style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Vady výstřiků</a>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Hydrolýza</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">U&nbsp;PA, PET a&nbsp;PC voda za vysoké teploty štěpí řetězce. Výrobek je křehký, i&nbsp;když vypadá v&nbsp;pořádku.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:21px;color:#eaf2fa;margin:36px 0 12px">Sušárny</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Horkovzdušná</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Materiálem proudí ohřátý okolní vzduch. Stačí pro povrchovou vlhkost.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">S&nbsp;vysoušeným vzduchem</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Vzduch se&nbsp;před ohřevem vysuší v&nbsp;adsorpční náplni. Sušárna je nutná pro hygroskopické plasty.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px">
+      <div style="background:#131a24;border-radius:16px;padding:18px 22px;font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">Usušený materiál jde rovnou do násypky stroje, jinak znovu nasákne.</div>
+      <div style="background:#131a24;border-radius:16px;padding:18px 22px;font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">Přesušení škodí — dlouhým sušením za vysoké teploty materiál oxiduje a&nbsp;žloutne (typicky PA).</div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Vlhký × suchý granulát</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <sc-for list="{{ dryModes }}" as="m" hint-placeholder-count="2">
+            <button onClick="{{ m.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ m.bg }};color:{{ m.color }};border:1px solid {{ m.border }}">{{ m.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <svg ref="{{ refDry }}" viewBox="0 0 1100 420" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <defs>
+          <marker id="dryArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#8296a8"></path></marker>
+          <clipPath id="dryBarrel"><rect x="340" y="100" width="380" height="100" rx="10"></rect></clipPath>
+        </defs>
+        <ellipse cx="150" cy="150" rx="105" ry="62" fill="#131a24" stroke="#8296a8" stroke-width="2"></ellipse>
+        <sc-for list="{{ dry.water }}" as="w" hint-placeholder-count="14">
+          <circle cx="{{ w.cx }}" cy="{{ w.cy }}" r="5" fill="#8fb4d6" opacity="0.85"></circle>
+        </sc-for>
+        <line x1="262" y1="150" x2="330" y2="150" stroke="#8296a8" stroke-width="2" marker-end="url(#dryArrow)"></line>
+        <rect x="340" y="100" width="380" height="100" rx="10" fill="#2e1f17" stroke="#8296a8" stroke-width="2"></rect>
+        <rect x="340" y="143" width="380" height="14" fill="#8296a8"></rect>
+        <g clip-path="url(#dryBarrel)">
+          <sc-for list="{{ dry.flights }}" as="fl" hint-placeholder-count="11">
+            <line x1="{{ fl.x1 }}" y1="104" x2="{{ fl.x2 }}" y2="196" stroke="#8296a8" stroke-width="3"></line>
+          </sc-for>
+          <sc-for list="{{ dry.steam }}" as="s" hint-placeholder-count="12">
+            <circle cx="{{ s.cx }}" cy="{{ s.cy }}" r="{{ s.r }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="1.5"></circle>
+          </sc-for>
+        </g>
+        <line x1="730" y1="150" x2="792" y2="150" stroke="#8296a8" stroke-width="2" marker-end="url(#dryArrow)"></line>
+        <rect x="800" y="95" width="260" height="110" rx="14" fill="#15302f" stroke="#6cc4ba" stroke-width="2"></rect>
+        <sc-if value="{{ dry.wet }}" hint-placeholder-val="{{ true }}">
+          <path d="M825 125 C860 118 900 132 940 124 M850 160 C890 152 930 168 980 158 M900 140 C930 134 960 146 1000 138 M830 185 C860 180 890 190 920 184" fill="none" stroke="#b9c2c6" stroke-width="7" stroke-linecap="round" opacity="0.6"></path>
+          <path d="M825 125 C860 118 900 132 940 124 M850 160 C890 152 930 168 980 158 M900 140 C930 134 960 146 1000 138 M830 185 C860 180 890 190 920 184" fill="none" stroke="#0d121a" stroke-width="3" stroke-linecap="round"></path>
+          <path d="M964 115 A4 4 0 1 1 956 115 A4 4 0 1 1 964 115 Z M1024 170 A4 4 0 1 1 1016 170 A4 4 0 1 1 1024 170 Z M879 175 A4 4 0 1 1 871 175 A4 4 0 1 1 879 175 Z M1039 125 A4 4 0 1 1 1031 125 A4 4 0 1 1 1039 125 Z M994 190 A4 4 0 1 1 986 190 A4 4 0 1 1 994 190 Z" fill="#0d121a" stroke="#8296a8" stroke-width="1.5"></path>
+        </sc-if>
+        <sc-for list="{{ dry.chains }}" as="c" hint-placeholder-count="9">
+          <path d="{{ c.d }}" fill="none" stroke="#a9bccd" stroke-width="3" stroke-linecap="round"></path>
+        </sc-for>
+        <sc-for list="{{ dry.breaks }}" as="b" hint-placeholder-count="5">
+          <circle cx="{{ b.cx }}" cy="{{ b.cy }}" r="4" fill="#8fb4d6"></circle>
+        </sc-for>
+        <g onClick="{{ dry.lb.granule.click }}" style="cursor:pointer">
+          <rect x="98" y="222" width="104" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ dry.lb.granule.sw }}"></rect>
+          <text x="150" y="240" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">granule PA</text>
+        </g>
+        <g onClick="{{ dry.lb.screw.click }}" style="cursor:pointer">
+          <rect x="458" y="222" width="144" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ dry.lb.screw.sw }}"></rect>
+          <text x="530" y="240" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">šnek s&nbsp;taveninou</text>
+        </g>
+        <g onClick="{{ dry.lb.product.click }}" style="cursor:pointer">
+          <rect x="888" y="222" width="84" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ dry.lb.product.sw }}"></rect>
+          <text x="930" y="240" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">výrobek</text>
+        </g>
+        <sc-if value="{{ dry.wet }}" hint-placeholder-val="{{ true }}">
+          <g onClick="{{ dry.lb.chains.click }}" style="cursor:pointer">
+            <rect x="795" y="384" width="270" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ dry.lb.chains.sw }}"></rect>
+            <text x="930" y="402" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">kratší řetězce → křehký výrobek</text>
+          </g>
+        </sc-if>
+        <sc-if value="{{ dry.notWet }}" hint-placeholder-val="{{ false }}">
+          <g onClick="{{ dry.lb.chains.click }}" style="cursor:pointer">
+            <rect x="865" y="384" width="130" height="26" rx="8" fill="#0d121a" stroke="#6cc4ba" stroke-width="{{ dry.lb.chains.sw }}"></rect>
+            <text x="930" y="402" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">dlouhé řetězce</text>
+          </g>
+        </sc-if>
+      </svg>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:52px;text-wrap:pretty">{{ dry.info }}</p>
+    </div>
+
+    <h2 id="barveni" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Barvení</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Předbarvený granulát</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Výrobce materiálu dodá granulát už obarvený. Způsob je jednoduchý, ale dražší a&nbsp;každá barva se&nbsp;musí skladovat zvlášť.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #e59a62;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Barevný koncentrát (masterbatch)</div>
+          <span style="padding:3px 10px;border-radius:999px;background:#2e1f17;font-size:12px;font-weight:600;color:#e59a62">nejběžnější</span>
+        </div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Granule s&nbsp;vysokým obsahem pigmentu v&nbsp;nosném polymeru. Přidávají se&nbsp;dávkovačem k&nbsp;přírodnímu (nebarvenému) granulátu přímo u&nbsp;stroje. Existuje i&nbsp;masterbatch s&nbsp;jinými přísadami, např. UV stabilizátorem.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Tekuté barvy</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Dávkují se&nbsp;čerpadlem do šneku.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px">
+      <div style="background:#131a24;border-radius:16px;padding:18px 22px;font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">Nosný polymer masterbatche musí být snášenlivý se&nbsp;základním plastem.</div>
+      <div style="background:#131a24;border-radius:16px;padding:18px 22px;font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">Nedokonalé promíchání způsobí barevné šmouhy na&nbsp;výrobku.</div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="margin-bottom:14px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Animace</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Dávkování masterbatche</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;align-items:center">
+        <svg ref="{{ refMb }}" viewBox="0 0 900 400" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+          <defs>
+            <marker id="mbArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#8296a8"></path></marker>
+            <clipPath id="mbProd"><rect x="300" y="300" width="300" height="80" rx="14"></rect></clipPath>
+          </defs>
+          <rect x="380" y="0" width="80" height="30" fill="#232c39" stroke="#8296a8" stroke-width="1.5"></rect>
+          <polygon points="300,70 600,70 490,230 410,230" fill="#0d121a" stroke="#8296a8" stroke-width="2.5" stroke-linejoin="round"></polygon>
+          <rect x="410" y="230" width="80" height="30" fill="#0d121a" stroke="#8296a8" stroke-width="2.5"></rect>
+          <rect x="660" y="20" width="140" height="60" rx="8" fill="#2e1f17" stroke="#e59a62" stroke-width="2"></rect>
+          <path d="M660 56 L560 98 L560 110 L660 70 Z" fill="#232c39" stroke="#8296a8" stroke-width="1.5" stroke-linejoin="round"></path>
+          <sc-for list="{{ mb.grains }}" as="p" hint-placeholder-count="18">
+            <circle cx="{{ p.cx }}" cy="{{ p.cy }}" r="5" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="1.3" opacity="{{ p.op }}"></circle>
+          </sc-for>
+          <line x1="450" y1="262" x2="450" y2="296" stroke="#8296a8" stroke-width="2" marker-end="url(#mbArrow)"></line>
+          <rect x="300" y="300" width="300" height="80" rx="14" fill="{{ mb.prod }}"></rect>
+          <sc-if value="{{ mb.bad }}" hint-placeholder-val="{{ false }}">
+            <g clip-path="url(#mbProd)">
+              <path d="M300 322 C360 308 420 342 500 322 S580 332 600 316 M300 354 C360 346 420 370 480 350 S560 344 600 356" fill="none" stroke="{{ mb.streak }}" stroke-width="8" stroke-linecap="round" opacity="0.9"></path>
+              <path d="M300 338 C380 330 450 352 540 340 S590 334 600 338 M380 372 C440 362 520 378 600 366" fill="none" stroke="#101722" stroke-width="6" stroke-linecap="round" opacity="0.9"></path>
+            </g>
+          </sc-if>
+          <rect x="300" y="300" width="300" height="80" rx="14" fill="none" stroke="#8296a8" stroke-width="2"></rect>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:10px">Množství masterbatche</div>
+            <div style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center">
+              <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#aebfcf">málo</span>
+              <input type="range" min="0" max="100" step="1" value="{{ mbAmount }}" onInput="{{ onMbAmount }}" style="width:100%;accent-color:#e59a62;cursor:pointer">
+              <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#e59a62">hodně</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:10px">Promíchání</div>
+            <div style="display:flex;gap:10px">
+              <sc-for list="{{ mixModes }}" as="m" hint-placeholder-count="2">
+                <button onClick="{{ m.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ m.bg }};color:{{ m.color }};border:1px solid {{ m.border }}">{{ m.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#aebfcf">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:#0d121a;border:1.5px solid #8296a8;box-sizing:border-box"></span>přírodní granulát</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:#e59a62;border:1.5px solid #f0b48a;box-sizing:border-box"></span>masterbatch z&nbsp;bočního dávkovače</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:10px;border-radius:3px;background:{{ mb.prod }};border:1.5px solid #8296a8;box-sizing:border-box"></span>výrobek</span>
+          </div>
+          <div style="font-size:15px;line-height:1.6;color:#eaf2fa;min-height:48px;text-wrap:pretty">{{ mb.info }}</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 id="recyklat" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Recyklát</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Mletí</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Vtoky a&nbsp;zmetky z&nbsp;termoplastů se&nbsp;nadrtí v&nbsp;mlýnu na&nbsp;drť a&nbsp;přidávají se&nbsp;k&nbsp;původnímu granulátu.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Zkracování řetězců</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Každým přetavením se&nbsp;řetězce zkracují. Klesá pevnost a&nbsp;houževnatost, proto se&nbsp;podíl recyklátu omezuje.</div>
+        <a href="termomechanicka-krivka.html" style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Rozklad: Termomechanická křivka</a>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Tvar drti</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Drť má nepravidelný tvar a&nbsp;velikost, proto se&nbsp;hůř dávkuje. Má velký povrch a&nbsp;snáz nasákne — hygroskopické plasty se&nbsp;musí sušit i&nbsp;jako drť.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Čistota</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Recyklát musí být čistý a&nbsp;z&nbsp;téhož materiálu. Smíchání různých plastů zhorší vlastnosti.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Reaktoplasty</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Reaktoplasty přetavit nelze. Jejich drť se&nbsp;může použít jen jako plnivo.</div>
+        <a href="rozdeleni-struktura.html" style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Rozdělení a&nbsp;struktura polymerů</a>
+      </div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Opakované přetavení</div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button onClick="{{ rc.remelt }}" style="padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;cursor:{{ rc.cursor }};background:{{ rc.bg }};color:{{ rc.color }};border:1px solid {{ rc.border }}">Přetavit znovu</button>
+          <button onClick="{{ rc.reset }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:#0d121a;color:#eaf2fa;border:1px solid #263040">Nový materiál</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:center">
+        <svg viewBox="0 0 700 280" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+          <sc-for list="{{ rc.segs }}" as="s" hint-placeholder-count="5">
+            <path d="{{ s.d }}" fill="none" stroke="#a9bccd" stroke-width="3.5" stroke-linecap="round"></path>
+          </sc-for>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:8px">pevnost</div>
+            <div style="height:16px;border-radius:8px;background:#232c39;overflow:hidden">
+              <div style="height:100%;width:{{ rc.strength }};background:#6cc4ba;border-radius:8px;transition:width 0.4s ease"></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:8px">houževnatost</div>
+            <div style="height:16px;border-radius:8px;background:#232c39;overflow:hidden">
+              <div style="height:100%;width:{{ rc.tough }};background:#e59a62;border-radius:8px;transition:width 0.4s ease"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;text-wrap:pretty">Proto se&nbsp;recyklát mísí s&nbsp;novým granulátem a&nbsp;jeho podíl se&nbsp;omezuje.</p>
+    </div>
+
+    <h2 id="shrnuti" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Shrnutí</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:15px;line-height:1.5">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Krok</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Proč</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Co hrozí při zanedbání</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">skladování</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">materiál nenasákne</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vlhkost, kondenzace</td>
+        </tr>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">sušení</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">odstranit vlhkost</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">bubliny, šmouhy, křehkost (hydrolýza)</td>
+        </tr>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">barvení</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">požadovaná barva</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">barevné šmouhy, nestejná barva</td>
+        </tr>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">přidání recyklátu</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">využití odpadu</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">horší vlastnosti, nerovnoměrné dávkování</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const f1 = n => Math.round(n * 10) / 10;
+const clamp01 = v => Math.max(0, Math.min(1, v));
+const hexRgb = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(a, b, u) {
+  const A = hexRgb(a), B = hexRgb(b);
+  return 'rgb(' + A.map((v, i) => Math.round(v + (B[i] - v) * u)).join(',') + ')';
+}
+function rng(seed) {
+  return function () {
+    seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+const MB = '#e59a62';
+const TOGGLE = on => ({ bg: on ? '#6cc4ba' : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? '#6cc4ba' : '#263040' });
+
+/* Cesta materiálu */
+const FLOW = [
+  { id: 'sklad', title: 'Sklad granulátu', href: '#skladovani', link: '→ Skladování', text: 'Granulát se\u00a0skladuje v\u00a0uzavřených obalech na\u00a0suchém místě. Obal brání nasávání vlhkosti ze\u00a0vzduchu.' },
+  { id: 'susarna', title: 'Sušárna', href: '#suseni', link: '→ Sušení', text: 'Sušárna odstraní z\u00a0granulátu vlhkost. U\u00a0hygroskopických plastů způsobí vlhkost bubliny, šmouhy a\u00a0křehkost výrobku.' },
+  { id: 'davkovani', title: 'Dávkování a\u00a0míchání', href: '#barveni', link: '→ Barvení', text: 'K\u00a0přírodnímu granulátu se\u00a0přidává masterbatch. Při nedokonalém promíchání vzniknou na\u00a0výrobku barevné šmouhy.' },
+  { id: 'nasypka', title: 'Násypka', href: '#suseni', link: '→ Sušení', text: 'Z\u00a0násypky padá materiál do šneku stroje. Usušený materiál jde do násypky rovnou, jinak znovu nasákne.' },
+  { id: 'stroj', title: 'Vstřikovací stroj', href: '../vstrikovani-vytlacovani/vstrikovani.html', link: '→ Vstřikování', text: 'Stroj materiál roztaví a\u00a0vstříkne do formy. Vady způsobené nesprávnou přípravou materiálu seřízením stroje nenapravíš.' },
+  { id: 'vyrobek', title: 'Výrobek', href: '#shrnuti', link: '→ Shrnutí', text: 'Vlastnosti a\u00a0vzhled výrobku závisí na\u00a0skladování, sušení, barvení a\u00a0podílu recyklátu.' },
+  { id: 'mb', title: 'Masterbatch', href: '#barveni', link: '→ Barvení', text: 'Masterbatch jsou granule s\u00a0vysokým obsahem pigmentu v\u00a0nosném polymeru. Dávkovač je přidává k\u00a0přírodnímu granulátu přímo u\u00a0stroje.' },
+  { id: 'recyklat', title: 'Recyklát', href: '#recyklat', link: '→ Recyklát', text: 'Recyklát je drť z\u00a0vtoků a\u00a0zmetků. K\u00a0původnímu granulátu se\u00a0přidává v\u00a0omezeném podílu. Hygroskopický recyklát se\u00a0suší spolu s\u00a0granulátem.' },
+  { id: 'mlyn', title: 'Mlýn', href: '#recyklat', link: '→ Recyklát', text: 'Mlýn nadrtí vtoky a\u00a0zmetky na\u00a0drť nepravidelného tvaru a\u00a0velikosti.' },
+  { id: 'vtoky', title: 'Vtoky a\u00a0zmetky', href: '#recyklat', link: '→ Recyklát', text: 'Vtoky a\u00a0zmetky jsou odpad z\u00a0výroby. U\u00a0termoplastů se\u00a0vracejí do výroby jako recyklát.' },
+];
+const SEGS = [
+  { a: [165, 150], b: [215, 150], k: 'nat' }, { a: [345, 150], b: [395, 150], k: 'nat' },
+  { a: [525, 150], b: [575, 150], k: 'mix' }, { a: [705, 150], b: [755, 150], k: 'mix' },
+  { a: [460, 64], b: [460, 118], k: 'mb' }, { a: [280, 236], b: [280, 182], k: 'drt' },
+  { a: [820, 182], b: [820, 236], k: 'piece' }, { a: [755, 260], b: [705, 260], k: 'piece' },
+  { a: [575, 260], b: [345, 260], k: 'drt', n: 4 },
+];
+const DRT = [[[-6, -3], [0, -5], [5, -2], [4, 4], [-3, 4]], [[-5, -4], [3, -5], [6, 1], [0, 5], [-6, 2]]];
+const NAT = { fill: '#0d121a', stroke: '#8296a8' }, MBC = { fill: MB, stroke: '#f0b48a' };
+function flowParticles(t) {
+  const dots = [], crumbs = [], pieces = [];
+  SEGS.forEach(s => {
+    const dx = s.b[0] - s.a[0], dy = s.b[1] - s.a[1], len = Math.hypot(dx, dy), ux = dx / len, uy = dy / len;
+    const L = len - 16;
+    const n = s.n || 2;
+    for (let j = 0; j < n; j++) {
+      const u = (t * 0.6 * 34 / L + j / n) % 1;
+      const x = s.a[0] + ux * (4 + u * L), y = s.a[1] + uy * (4 + u * L);
+      const op = Math.round(Math.min(1, Math.sin(Math.PI * u) * 2.5) * 100) / 100;
+      if (s.k === 'nat' || s.k === 'mb' || s.k === 'mix') {
+        const c = s.k === 'nat' ? NAT : s.k === 'mb' ? MBC : (j ? MBC : NAT);
+        dots.push({ cx: f1(x), cy: f1(y), fill: c.fill, stroke: c.stroke, op });
+      } else if (s.k === 'drt') {
+        crumbs.push({ pts: DRT[j % 2].map(p => f1(x + p[0]) + ',' + f1(y + p[1])).join(' '), op });
+      } else {
+        pieces.push({ x: f1(x - 6), y: f1(y - 3.5), op });
+      }
+    }
+  });
+  return { dots, crumbs, pieces };
+}
+
+/* Granulace */
+const G_INFO = {
+  head: 'Roztavená směs polymeru s\u00a0přísadami se\u00a0protlačuje otvory hlavy a\u00a0vystupuje jako souvislé struny.',
+  bath: 'Struny procházejí vodou, odevzdávají jí teplo a\u00a0tuhnou.',
+  air: 'Proud vzduchu odstraní ze\u00a0strun vodu, která na\u00a0nich ulpěla v\u00a0lázni.',
+  knife: 'Rotující nože sekají ztuhlé struny na\u00a0granule stejné délky.',
+  bag: 'Granule padají do pytle, ve\u00a0kterém se\u00a0uzavřené skladují.',
+};
+const G_KEYS = ['head', 'bath', 'air', 'knife', 'bag'];
+
+/* Vlhký × suchý granulát */
+const WATER = (() => {
+  const r = rng(7), out = [];
+  while (out.length < 14) {
+    const x = (r() * 2 - 1), y = (r() * 2 - 1);
+    if (x * x + y * y < 0.62 && out.every(p => Math.hypot(p[0] - x * 105, (p[1] - y * 62) * 1.4) > 22)) out.push([x * 105, y * 62]);
+  }
+  return out;
+})();
+const CH_Y = [290, 315, 340, 365];
+const CH_BREAKS = [[900], [960, 1010], [], [870, 990]];
+const chY = (k, x) => CH_Y[k] + 3.5 * Math.sin(x / 14 + k * 1.7);
+function chainPath(k, x0, x1) {
+  const pts = [];
+  for (let x = x0; x < x1; x += 6) pts.push([x, chY(k, x)]);
+  pts.push([x1, chY(k, x1)]);
+  return 'M' + pts.map(p => f1(p[0]) + ' ' + f1(p[1])).join(' L');
+}
+const DRY_KEYS = ['granule', 'screw', 'product', 'chains'];
+const DRY_INFO = {
+  wet: {
+    none: 'Nesušený PA: voda z\u00a0granulí se\u00a0v\u00a0tavenině mění v\u00a0páru a\u00a0štěpí řetězce.',
+    granule: 'Granule PA nasála vlhkost ze\u00a0vzduchu. Voda je rozptýlená uvnitř granule, ne jen na\u00a0povrchu.',
+    screw: 'V\u00a0horkém šneku se\u00a0voda mění v\u00a0páru. Pára tvoří v\u00a0tavenině bublinky.',
+    product: 'Pára vystupuje na\u00a0povrch výrobku a\u00a0vytváří stříbřité šmouhy a\u00a0bublinky.',
+    chains: 'Voda za vysoké teploty štěpí řetězce PA — hydrolýza. Výrobek z\u00a0kratších řetězců je křehký, i\u00a0když vypadá v\u00a0pořádku.',
+  },
+  dry: {
+    none: 'Usušený PA: tavenina je bez páry, řetězce zůstávají dlouhé.',
+    granule: 'Sušením se\u00a0voda z\u00a0granule odstranila.',
+    screw: 'Tavenina neobsahuje vodu ani páru.',
+    product: 'Povrch výrobku je hladký, bez šmouh a\u00a0bublinek.',
+    chains: 'Bez vody k\u00a0hydrolýze nedochází. Řetězce zůstávají dlouhé a\u00a0výrobek houževnatý.',
+  },
+};
+
+/* Dávkování masterbatche */
+const MB_NAT = (() => { const r = rng(31); return Array.from({ length: 13 }, (_, k) => ({ p: 392 + r() * 56, laneGood: r(), laneBad: 0.05 + r() * 0.5, ph: k / 13 })); })();
+const MB_COL = (() => { const r = rng(47); return Array.from({ length: 12 }, () => ({ laneGood: r(), laneBad: 0.78 + r() * 0.17 })); })();
+const hopL = y => 300 + 110 * clamp01((y - 70) / 160), hopR = y => 600 - 110 * clamp01((y - 70) / 160);
+const laneX = (y, l) => y >= 230 ? 410 + l * 80 : hopL(y) + l * (hopR(y) - hopL(y));
+function mbScene(t, a, bad) {
+  const grains = [];
+  MB_NAT.forEach(g => {
+    const u = (t * 0.32 + g.ph) % 1, y = 32 + u * 225, lane = bad ? g.laneBad : g.laneGood;
+    const x = y < 70 ? g.p : g.p + (laneX(y, lane) - g.p) * clamp01((y - 70) / 30);
+    grains.push({ cx: f1(x), cy: f1(y), fill: NAT.fill, stroke: NAT.stroke, op: y > 245 ? Math.round((257 - y) / 12 * 100) / 100 : 1 });
+  });
+  const nc = 1 + Math.round(a * 11);
+  for (let k = 0; k < nc; k++) {
+    const g = MB_COL[k], u = (t * 0.32 + k / nc) % 1, lane = bad ? g.laneBad : g.laneGood;
+    let x, y;
+    if (u < 0.3) { const v = u / 0.3; x = 650 - 85 * v; y = 62 + 38 * v; }
+    else { const v = (u - 0.3) / 0.7; y = 100 + v * 157; x = 565 + (laneX(y, lane) - 565) * clamp01((y - 100) / 30); }
+    grains.push({ cx: f1(x), cy: f1(y), fill: MBC.fill, stroke: MBC.stroke, op: y > 245 ? Math.round((257 - y) / 12 * 100) / 100 : 1 });
+  }
+  const base = '#101722';
+  return {
+    grains, bad,
+    prod: mix(base, MB, bad ? 0.1 + 0.45 * a : 0.1 + 0.8 * a),
+    streak: mix(base, MB, Math.min(1, 0.35 + a)),
+    info: bad ? 'Masterbatch zůstal v\u00a0materiálu soustředěný na\u00a0jedné straně. Výrobek má barevné šmouhy.' : (a < 0.35 ? 'Malé množství masterbatche: výrobek má slabou barvu, rovnoměrnou v\u00a0celém objemu.' : 'Výrobek má rovnoměrnou barvu. Větší množství masterbatche dá sytější barvu.'),
+  };
+}
+
+/* Opakované přetavení */
+const RC_MAX = 5;
+const RC_CUTS = [[340, 520, 160, 610, 250], [210, 450, 580, 110, 330], [400, 140, 560, 270, 480], [290, 600, 180, 420, 90], [500, 230, 370, 130, 600]];
+const rcY = (k, x) => 45 + k * 48 + 6 * Math.sin(x / 40 + k * 1.4) + 3 * Math.sin(x / 17 + k);
+function rcSegs(level) {
+  const out = [];
+  RC_CUTS.forEach((cuts, k) => {
+    const b = [30].concat(cuts.slice(0, level).sort((p, q) => p - q), [670]);
+    for (let i = 0; i < b.length - 1; i++) {
+      const x0 = b[i] + (i > 0 ? 6 : 0), x1 = b[i + 1] - (i < b.length - 2 ? 6 : 0), pts = [];
+      for (let x = x0; x < x1; x += 8) pts.push([x, rcY(k, x)]);
+      pts.push([x1, rcY(k, x1)]);
+      out.push({ d: 'M' + pts.map(p => f1(p[0]) + ' ' + f1(p[1])).join(' L') });
+    }
+  });
+  return out;
+}
+
+class Component extends DCLogic {
+  state = { t: 0, flowSel: null, gRun: false, gT: 0, gSel: null, wet: true, drySel: null, mbAmount: 40, mbBad: false, rcLevel: 0 };
+  _raf = null; _last = null;
+  _vis = { flow: false, g: false, dry: false, mb: false };
+  _els = {};
+  refFlow = el => this.observe('flow', el);
+  refG = el => this.observe('g', el);
+  refDry = el => this.observe('dry', el);
+  refMb = el => this.observe('mb', el);
+  observe(key, el) {
+    if (this._els[key] === el) return;
+    if (!this._io) this._io = new IntersectionObserver(entries => {
+      entries.forEach(e => { this._vis[e.target.__animKey] = e.isIntersecting; });
+      this.ensureLoop();
+    });
+    if (this._els[key]) this._io.unobserve(this._els[key]);
+    this._els[key] = el;
+    if (el) { el.__animKey = key; this._io.observe(el); }
+  }
+  isActive() {
+    const v = this._vis, st = this.state;
+    return v.flow || (st.gRun && v.g) || (st.wet && v.dry) || v.mb;
+  }
+  ensureLoop() { if (!this._raf && this.isActive()) { this._last = null; this._raf = requestAnimationFrame(this.tick); } }
+  componentDidUpdate() { this.ensureLoop(); }
+  componentDidMount() {
+    this._io = null;
+    const els = this._els; this._els = {};
+    Object.keys(els).forEach(k => this.observe(k, els[k]));
+    this.ensureLoop();
+  }
+  componentWillUnmount() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._io) this._io.disconnect();
+    this._io = null; this._raf = null; this._last = null;
+    this._vis = { flow: false, g: false, dry: false, mb: false };
+  }
+  tick = (now) => {
+    if (!this.isActive()) { this._raf = null; this._last = null; return; }
+    const dt = this._last == null ? 0 : Math.min(0.05, (now - this._last) / 1000);
+    this._last = now;
+    const gOn = this._vis.g;
+    this.setState(s => ({ t: s.t + dt, gT: s.gRun && gOn ? s.gT + dt : s.gT }));
+    this._raf = requestAnimationFrame(this.tick);
+  };
+  renderVals() {
+    const st = this.state, t = st.t;
+
+    const sel = FLOW.find(b => b.id === st.flowSel);
+    const fb = {};
+    FLOW.forEach(b => {
+      const on = b.id === st.flowSel;
+      fb[b.id] = { fill: on ? '#15302f' : '#0d121a', stroke: on ? '#6cc4ba' : '#39424e', sw: on ? 2.5 : 1.5, click: () => this.setState(s => ({ flowSel: s.flowSel === b.id ? null : b.id })) };
+    });
+    const flow = Object.assign({ b: fb, hasSel: !!sel, noSel: !sel, title: sel ? sel.title : '', text: sel ? sel.text : '', href: sel ? sel.href : '#cesta', link: sel ? sel.link : '' }, flowParticles(t));
+
+    const gT = st.gT, pick = {}, fill = {}, sw = {};
+    G_KEYS.forEach(k => {
+      pick[k] = () => this.setState(s => ({ gSel: s.gSel === k ? null : k }));
+      fill[k] = st.gSel === k ? 'rgba(108,196,186,0.16)' : 'rgba(0,0,0,0)';
+      sw[k] = st.gSel === k ? 3 : 1.5;
+    });
+    const drops = [630, 665, 700, 645, 685, 715].map((x, i) => {
+      const u = (gT * 1.4 + i / 6) % 1, dir = i < 3 ? 1 : -1;
+      return { cx: f1(x + 6 * u), cy: f1(130 + dir * (12 + 22 * u)), op: st.gRun ? Math.round((1 - u) * 100) / 100 : 0 };
+    });
+    const grains = Array.from({ length: 8 }, (_, k) => {
+      const u = (gT * 0.9 + k / 8) % 1;
+      return { x: f1(852 + u * (100 + (k % 4) * 25)), y: f1(136 + 75 * u * u) };
+    });
+    const g = {
+      dash: f1(-(gT * 60) % 23), rot: 'rotate(' + f1((gT * 360) % 360) + ' 825 130)',
+      drops, grains, pick, fill, sw,
+      info: st.gSel ? G_INFO[st.gSel] : 'Struny z\u00a0vytlačovací hlavy se\u00a0ochladí ve\u00a0vodní lázni, odfukem se\u00a0zbaví vody a\u00a0rotační nůž je naseká na\u00a0granule.',
+    };
+
+    const wet = st.wet, mode = wet ? 'wet' : 'dry';
+    const water = wet ? WATER.map((p, i) => ({ cx: f1(150 + p[0] + 1.5 * Math.sin(t * 2 + i)), cy: f1(150 + p[1] + 1.5 * Math.cos(t * 1.7 + i)) })) : [];
+    const off = (t * 25) % 40;
+    const flights = Array.from({ length: 11 }, (_, i) => { const x = 300 + i * 40 + off; return { x1: f1(x), x2: f1(x + 22) }; });
+    const steam = wet ? Array.from({ length: 12 }, (_, k) => {
+      const u = (t * 0.18 + k / 12) % 1, v = clamp01(u * 1.6);
+      return { cx: f1(350 + u * 360), cy: 112 + (k * 37) % 76, r: f1(3 + 5 * u), fill: mix('#8fb4d6', '#0d121a', v), stroke: mix('#8fb4d6', '#8296a8', u) };
+    }) : [];
+    const chains = [], breaks = [];
+    CH_Y.forEach((_, k) => {
+      const cuts = wet ? CH_BREAKS[k] : [];
+      const b = [805].concat(cuts, [1055]);
+      for (let i = 0; i < b.length - 1; i++) chains.push({ d: chainPath(k, b[i] + (i > 0 ? 5 : 0), b[i + 1] - (i < b.length - 2 ? 5 : 0)) });
+      cuts.forEach(x => breaks.push({ cx: x, cy: f1(chY(k, x) - 9) }));
+    });
+    const lb = {};
+    DRY_KEYS.forEach(k => { lb[k] = { sw: st.drySel === k ? 3 : 1.5, click: () => this.setState(s => ({ drySel: s.drySel === k ? null : k })) }; });
+    const dry = { wet, notWet: !wet, water, flights, steam, chains, breaks, lb, info: DRY_INFO[mode][st.drySel || 'none'] };
+    const dryModes = [['Nesušený PA', true], ['Usušený PA', false]].map(([label, w]) => Object.assign({ label, onClick: () => this.setState({ wet: w }) }, TOGGLE(st.wet === w)));
+
+    const mixModes = [['dobré', false], ['špatné', true]].map(([label, b]) => Object.assign({ label, onClick: () => this.setState({ mbBad: b }) }, TOGGLE(st.mbBad === b)));
+
+    const lv = st.rcLevel, atMax = lv >= RC_MAX;
+    const rc = {
+      segs: rcSegs(lv),
+      strength: (100 - 14 * lv) + '%', tough: (100 - 17 * lv) + '%',
+      remelt: () => this.setState(s => ({ rcLevel: Math.min(RC_MAX, s.rcLevel + 1) })),
+      reset: () => this.setState({ rcLevel: 0 }),
+      bg: atMax ? '#232c39' : '#e59a62', color: atMax ? '#6b7684' : '#0d121a', border: atMax ? '#232c39' : '#e59a62', cursor: atMax ? 'not-allowed' : 'pointer',
+    };
+
+    return {
+      flow, g, gLabel: st.gRun ? 'Zastavit' : 'Spustit', gToggle: () => this.setState(s => ({ gRun: !s.gRun })),
+      dry, dryModes,
+      mb: mbScene(t, st.mbAmount / 100, st.mbBad), mbAmount: st.mbAmount, onMbAmount: e => this.setState({ mbAmount: +e.target.value }), mixModes,
+      rc, refFlow: this.refFlow, refG: this.refG, refDry: this.refDry, refMb: this.refMb,
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

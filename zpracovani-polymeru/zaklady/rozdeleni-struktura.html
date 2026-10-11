@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rozdělení a struktura polymerů | STT</title>
+<meta name="description" content="Rozdělení a struktura polymerů: vznik makromolekul, tvar a uspořádání řetězců, termoplasty, elastomery a reaktoplasty, přehled zkratek.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-11">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e59a62; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Základy polymerů</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:10px">Základy polymerů</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 8px">Rozdělení a&nbsp;struktura polymerů</h1>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:44px 0 12px">Co je polymer</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Polymer je látka složená z&nbsp;makromolekul. Makromolekula je velmi dlouhý řetězec, který vzniká opakovaným spojením malých molekul — monomerů. Opakující se&nbsp;jednotka řetězce se&nbsp;nazývá mer.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Hlavní řetězec tvoří převážně uhlík. Vlastnosti polymeru určuje délka řetězců, jejich tvar a&nbsp;uspořádání.</p>
+    <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 26px;max-width:820px;box-sizing:border-box">
+      <div style="display:flex;align-items:center;gap:12px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px">
+        <span style="padding:6px 14px;border-radius:12px;background:#131a24;color:#eaf2fa">Plast</span>
+        <span style="color:#8296a8">=</span>
+        <span style="padding:6px 14px;border-radius:12px;background:#15302f;color:#6cc4ba">polymer</span>
+        <span style="color:#8296a8">+</span>
+        <span style="padding:6px 14px;border-radius:12px;background:#2e1f17;color:#e59a62">přísady</span>
+      </div>
+      <a href="vlastnosti-prisady.html" style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Vlastnosti, přísady a&nbsp;plniva</a>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Vznik makromolekul</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Makromolekuly vznikají třemi druhy reakcí. Liší se&nbsp;tím, zda se&nbsp;při spojování monomerů odštěpuje vedlejší produkt.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Polymerace</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Monomery s&nbsp;dvojnou vazbou se&nbsp;spojují do řetězce bez vedlejšího produktu.</div>
+        <div style="font-size:14px;color:#8296a8">Příklad: etylen → polyetylen</div>
+        <div style="margin-top:auto;font-size:13px;font-weight:600;color:#6cc4ba">Vedlejší produkt: ne</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Polykondenzace</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Při spojování monomerů se&nbsp;odštěpuje nízkomolekulární látka, nejčastěji voda.</div>
+        <div style="font-size:14px;color:#8296a8">Příklady: polyamidy, fenolformaldehydové pryskyřice</div>
+        <div style="margin-top:auto;font-size:13px;font-weight:600;color:#e59a62">Vedlejší produkt: ano</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Polyadice</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Monomery se&nbsp;spojují bez vedlejšího produktu. Spojení vzniká přesunem atomů mezi monomery.</div>
+        <div style="font-size:14px;color:#8296a8">Příklady: polyuretany, epoxidy</div>
+        <div style="margin-top:auto;font-size:13px;font-weight:600;color:#6cc4ba">Vedlejší produkt: ne</div>
+      </div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Polymerace × polykondenzace</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <sc-for list="{{ pmModes }}" as="m" hint-placeholder-count="2">
+            <button onClick="{{ m.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ m.bg }};color:{{ m.color }};border:1px solid {{ m.border }}">{{ m.label }}</button>
+          </sc-for>
+          <button onClick="{{ pmPlay }}" style="padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;background:#e59a62;color:#080b12;border:1px solid #e59a62">{{ pmPlayLabel }}</button>
+        </div>
+      </div>
+      <svg viewBox="0 0 900 240" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <sc-for list="{{ pm.bonds }}" as="b" hint-placeholder-count="0">
+          <line x1="{{ b.x1 }}" y1="120" x2="{{ b.x2 }}" y2="120" stroke="#a9bccd" stroke-width="5" stroke-linecap="round"></line>
+        </sc-for>
+        <sc-for list="{{ pm.monomers }}" as="m" hint-placeholder-count="6">
+          <circle cx="{{ m.cx }}" cy="{{ m.cy }}" r="22" fill="#15302f" stroke="#6cc4ba" stroke-width="2.5"></circle>
+          <sc-if value="{{ m.dbl }}" hint-placeholder-val="{{ false }}">
+            <path d="{{ m.dblPath }}" stroke="#6cc4ba" stroke-width="2.5" stroke-linecap="round"></path>
+          </sc-if>
+        </sc-for>
+        <sc-for list="{{ pm.mols }}" as="w" hint-placeholder-count="0">
+          <g opacity="{{ w.op }}">
+            <circle cx="{{ w.cx }}" cy="{{ w.cy }}" r="9" fill="#2c4a63" stroke="#8fb4d6" stroke-width="2"></circle>
+            <sc-if value="{{ w.label }}" hint-placeholder-val="{{ false }}">
+              <text x="{{ w.tx }}" y="{{ w.ty }}" font-family="IBM Plex Mono, monospace" font-size="14" fill="#8fb4d6">H₂O</text>
+            </sc-if>
+          </g>
+        </sc-for>
+      </svg>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:50%;background:#15302f;border:2px solid #6cc4ba;box-sizing:border-box"></span>monomer</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:4px;border-radius:2px;background:#a9bccd"></span>vazba v&nbsp;řetězci</span>
+        <sc-if value="{{ pmIsCond }}" hint-placeholder-val="{{ false }}">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:#2c4a63;border:2px solid #8fb4d6;box-sizing:border-box"></span>odštěpená nízkomolekulární látka</span>
+        </sc-if>
+        <sc-if value="{{ pmIsPoly }}" hint-placeholder-val="{{ true }}">
+          <span style="display:flex;align-items:center;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;color:#6cc4ba;font-weight:500">=</span>dvojná vazba monomeru</span>
+        </sc-if>
+      </div>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;text-wrap:pretty">Při polymeraci se&nbsp;monomery spojují bez vedlejšího produktu, při polykondenzaci se&nbsp;při každém spojení odštěpí nízkomolekulární látka.</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Tvar makromolekul</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Lineární</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Řetězce jsou bez větví a&nbsp;mohou se&nbsp;k&nbsp;sobě těsně přiblížit.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Rozvětvené</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Na&nbsp;hlavním řetězci jsou postranní větve. Řetězce se&nbsp;k&nbsp;sobě nepřiblíží tak těsně.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Zesíťované</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty;margin-bottom:10px">Řetězce jsou navzájem spojeny příčnými chemickými vazbami (můstky).</div>
+        <div style="display:flex;flex-direction:column;gap:5px;font-size:14.5px;color:#eaf2fa">
+          <div>řídce zesíťované → elastomery</div>
+          <div>hustě zesíťované → reaktoplasty</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Tvar makromolekuly</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ shapeButtons }}" as="b" hint-placeholder-count="4">
+            <button onClick="{{ b.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <svg viewBox="0 0 900 300" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <sc-for list="{{ shape.links }}" as="l" hint-placeholder-count="0">
+          <line x1="{{ l.x }}" y1="{{ l.y1 }}" x2="{{ l.x }}" y2="{{ l.y2 }}" stroke="#e59a62" stroke-width="3.5" stroke-linecap="round"></line>
+        </sc-for>
+        <sc-for list="{{ shape.branches }}" as="b" hint-placeholder-count="0">
+          <path d="{{ b.d }}" fill="none" stroke="#a9bccd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </sc-for>
+        <sc-for list="{{ shape.chains }}" as="c" hint-placeholder-count="5">
+          <path d="{{ c.d }}" fill="none" stroke="#a9bccd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+        </sc-for>
+      </svg>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:14px">
+        <div style="display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:#aebfcf">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:3px;border-radius:2px;background:#a9bccd"></span>řetězec</span>
+          <sc-if value="{{ shape.hasLinks }}" hint-placeholder-val="{{ false }}">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:4px;height:18px;border-radius:2px;background:#e59a62"></span>příčná vazba (můstek)</span>
+          </sc-if>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14.5px;color:#aebfcf">Typicky patří mezi:<span style="padding:5px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;background:{{ shape.tagBg }};color:{{ shape.tagColor }}">{{ shape.tag }}</span></div>
+      </div>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:12px 0 0;text-wrap:pretty">{{ shape.caption }}</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Uspořádání řetězců — amorfní a&nbsp;semikrystalické polymery</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Amorfní polymery</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Řetězce jsou náhodně propletené do klubka.</div>
+        <div style="display:flex;flex-direction:column;gap:5px;font-size:15px;line-height:1.5;color:#eaf2fa">
+          <div>Obvykle průhledné.</div>
+          <div>Měknou postupně v&nbsp;širším rozsahu teplot.</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PS</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PMMA</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PC</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PVC</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">ABS</span>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Semikrystalické polymery</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Část řetězců se&nbsp;pravidelně složí do krystalických oblastí — lamel. Mezi lamelami zůstávají amorfní oblasti. Polymer nikdy není zcela krystalický.</div>
+        <div style="display:flex;flex-direction:column;gap:5px;font-size:15px;line-height:1.5;color:#eaf2fa">
+          <div>Obvykle neprůhledné až mléčně zakalené.</div>
+          <div>Mají výraznou teplotu tání.</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PE</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PP</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PA</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">POM</span>
+          <span style="padding:3px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">PTFE</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:20px 0 8px;max-width:820px;text-wrap:pretty">Krystalické oblasti zvyšují tuhost, pevnost a&nbsp;odolnost vůči chemikáliím. Zvyšují ale i&nbsp;smrštění při chladnutí.</p>
+    <a href="termomechanicka-krivka.html" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Chování za tepla podrobně: Termomechanická křivka</a>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Amorfní × semikrystalický</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Klikni na&nbsp;oblast ve&nbsp;schématu.</div>
+        </div>
+        <button onClick="{{ toggleHeat }}" style="display:flex;align-items:center;gap:10px;padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;background:{{ heatBtn.bg }};color:{{ heatBtn.color }};border:1px solid #e59a62">
+          <span style="width:10px;height:10px;border-radius:50%;background:{{ heatBtn.dot }}"></span>{{ heatBtn.label }}
+        </button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:8px">Amorfní polymer</div>
+          <svg viewBox="0 0 440 320" style="width:100%;display:block">
+            <rect x="10" y="10" width="420" height="300" fill="#0a0e15" stroke="#263040"></rect>
+            <rect x="10" y="10" width="420" height="300" fill="{{ am.fill }}" onClick="{{ am.click }}" style="cursor:pointer"></rect>
+            <sc-for list="{{ am.chains }}" as="c" hint-placeholder-count="8">
+              <path d="{{ c.d }}" fill="none" stroke="{{ c.color }}" stroke-width="2.4" stroke-linecap="round" pointer-events="none"></path>
+            </sc-for>
+            <g onClick="{{ am.click }}" style="cursor:pointer">
+              <rect x="160" y="146" width="120" height="28" rx="8" fill="#0d121a" stroke="#e59a62" stroke-width="{{ am.labelStroke }}"></rect>
+              <text x="220" y="165" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#e59a62">amorfní oblast</text>
+            </g>
+          </svg>
+          <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;margin-top:8px;min-height:44px;text-wrap:pretty">{{ am.status }}</div>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:8px">Semikrystalický polymer</div>
+          <svg viewBox="0 0 440 320" style="width:100%;display:block">
+            <rect x="10" y="10" width="420" height="300" fill="#0a0e15" stroke="#263040"></rect>
+            <path d="{{ sc.regionPath }}" fill-rule="evenodd" fill="{{ sc.regionFill }}" onClick="{{ sc.clickAmorph }}" style="cursor:pointer"></path>
+            <sc-for list="{{ sc.lams }}" as="L" hint-placeholder-count="3">
+              <polygon points="{{ L.poly }}" fill="{{ L.fill }}" stroke="{{ L.stroke }}" stroke-width="1.5" stroke-dasharray="5 4" onClick="{{ L.click }}" style="cursor:pointer"></polygon>
+            </sc-for>
+            <sc-for list="{{ sc.chains }}" as="c" hint-placeholder-count="7">
+              <path d="{{ c.d }}" fill="none" stroke="{{ c.color }}" stroke-width="2.4" stroke-linecap="round" pointer-events="none"></path>
+            </sc-for>
+            <sc-for list="{{ sc.lamChains }}" as="c" hint-placeholder-count="3">
+              <path d="{{ c.d }}" fill="none" stroke="{{ c.color }}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"></path>
+            </sc-for>
+            <sc-for list="{{ sc.labels }}" as="lb" hint-placeholder-count="3">
+              <g onClick="{{ lb.click }}" style="cursor:pointer">
+                <rect x="{{ lb.x }}" y="{{ lb.y }}" width="{{ lb.w }}" height="28" rx="8" fill="#0d121a" stroke="{{ lb.color }}" stroke-width="{{ lb.stroke }}"></rect>
+                <sc-if value="{{ lb.long }}" hint-placeholder-val="{{ false }}">
+                  <text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">krystalická oblast (lamela)</text>
+                </sc-if>
+                <sc-if value="{{ lb.short }}" hint-placeholder-val="{{ true }}">
+                  <text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#6cc4ba">lamela</text>
+                </sc-if>
+              </g>
+            </sc-for>
+            <g onClick="{{ sc.amLabel.click }}" style="cursor:pointer">
+              <rect x="24" y="268" width="120" height="28" rx="8" fill="#0d121a" stroke="#e59a62" stroke-width="{{ sc.amLabel.stroke }}"></rect>
+              <text x="84" y="287" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#e59a62">amorfní oblast</text>
+            </g>
+          </svg>
+          <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;margin-top:8px;min-height:44px;text-wrap:pretty">{{ sc.status }}</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Rozdělení podle chování za tepla</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start">
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #6cc4ba;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#6cc4ba">Termoplasty</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Lineární nebo rozvětvené řetězce drží pohromadě jen fyzikálními silami. Ohřevem měknou, až přejdou do taveniny, chlazením znovu tuhnou. Děj lze opakovat. Termoplasty lze recyklovat přetavením.</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa"><span style="font-weight:600">Zpracování:</span> <a href="../vstrikovani-vytlacovani/index.html" style="color:#6cc4ba;font-weight:600">vstřikování, vytlačování, vyfukování →</a></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">PE</span>
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">PP</span>
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">PVC</span>
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">PS</span>
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">PA</span>
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">PET</span>
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">PC</span>
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">PMMA</span>
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">ABS</span>
+          <span style="padding:3px 9px;border-radius:999px;background:#15302f;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#9fdcd4">POM</span>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #b3a6e6;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#b3a6e6">Reaktoplasty (termosety)</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Při zpracování se&nbsp;nevratně vytvrdí — vznikne hustá síť chemických vazeb. Po vytvrzení je nelze přetavit, při silném ohřevu se&nbsp;rozkládají (uhelnatí). Jsou tvrdé, tuhé, tepelně odolné a&nbsp;křehčí.</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa"><span style="font-weight:600">Zpracování:</span> <a href="../ostatni/lisovani-pretlacovani.html" style="color:#b3a6e6;font-weight:600">lisování, přetlačování →</a></div>
+        <div style="display:flex;flex-direction:column;gap:4px;font-size:14px;color:#eaf2fa">
+          <div><span style="font-family:'IBM Plex Mono',monospace;color:#b3a6e6">PF</span> fenolformaldehydové pryskyřice</div>
+          <div><span style="font-family:'IBM Plex Mono',monospace;color:#b3a6e6">EP</span> epoxidové pryskyřice</div>
+          <div><span style="font-family:'IBM Plex Mono',monospace;color:#b3a6e6">UP</span> nenasycené polyesterové pryskyřice</div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #e59a62;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#e59a62">Elastomery</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Řetězce jsou řídce zesíťované. Za běžné teploty jsou v&nbsp;kaučukovitém stavu — lze je velmi pružně deformovat a&nbsp;po odlehčení se&nbsp;vrátí do původního tvaru. Síťování kaučuku se&nbsp;nazývá vulkanizace, vzniká pryž. Elastomery nelze přetavit.</div>
+        <div style="font-size:14px;color:#eaf2fa">Příklady: přírodní kaučuk, syntetické kaučuky, silikon</div>
+        <div style="background:#0a0e15;border:1px solid #232c39;border-radius:14px;padding:14px 14px 12px;margin-top:4px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;color:#eaf2fa">Proč je pryž pružná</div>
+            <button onClick="{{ toggleStretch }}" style="padding:6px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;background:#e59a62;color:#080b12;border:1px solid #e59a62">{{ stretchLabel }}</button>
+          </div>
+          <svg viewBox="0 0 330 190" style="width:100%;display:block">
+            <rect x="14" y="40" width="14" height="120" rx="3" fill="#39424e"></rect>
+            <rect x="{{ rb.gripX }}" y="40" width="14" height="120" rx="3" fill="#39424e"></rect>
+            <sc-for list="{{ rb.chains }}" as="c" hint-placeholder-count="3">
+              <path d="{{ c.d }}" fill="none" stroke="#a9bccd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </sc-for>
+            <sc-for list="{{ rb.links }}" as="l" hint-placeholder-count="3">
+              <line x1="{{ l.x }}" y1="{{ l.y1 }}" x2="{{ l.x }}" y2="{{ l.y2 }}" stroke="#e59a62" stroke-width="4" stroke-linecap="round"></line>
+              <circle cx="{{ l.x }}" cy="{{ l.y1 }}" r="4" fill="#e59a62"></circle>
+              <circle cx="{{ l.x }}" cy="{{ l.y2 }}" r="4" fill="#e59a62"></circle>
+            </sc-for>
+          </svg>
+          <div style="font-size:13.5px;line-height:1.55;color:#aebfcf;margin-top:6px;min-height:42px;text-wrap:pretty">{{ rb.caption }}</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#131a24;border-radius:16px;padding:18px 22px;margin:18px 0 0;max-width:900px;box-sizing:border-box">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:6px">Hraniční skupina: termoplastické elastomery (TPE)</div>
+      <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Chovají se&nbsp;jako elastomery, ale jejich síť je fyzikální. Ohřevem se&nbsp;síť uvolní, proto se&nbsp;TPE zpracovávají jako termoplasty.</div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Animace</div>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin-bottom:16px">Co udělá teplo</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+        <div style="background:#0a0e15;border-radius:14px;padding:14px 16px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#6cc4ba;margin-bottom:6px">Termoplast</div>
+          <svg viewBox="0 0 260 230" style="width:100%;display:block">
+            <rect x="20" y="170" width="180" height="10" rx="2" fill="#39424e"></rect>
+            <path d="{{ hp.tp.outline }}" fill="#15302f" stroke="#6cc4ba" stroke-width="1.6" stroke-linejoin="round"></path>
+            <sc-if value="{{ hp.tp.hasDrop }}" hint-placeholder-val="{{ false }}">
+              <path d="{{ hp.tp.drop }}" fill="#15302f" stroke="#6cc4ba" stroke-width="1.6"></path>
+            </sc-if>
+            <sc-for list="{{ hp.tp.chains }}" as="c" hint-placeholder-count="6">
+              <path d="{{ c.d }}" fill="none" stroke="#a9bccd" stroke-width="2" stroke-linecap="round"></path>
+            </sc-for>
+          </svg>
+          <div style="font-size:14px;line-height:1.5;color:#eaf2fa;min-height:42px">{{ hp.tp.status }}</div>
+        </div>
+        <div style="background:#0a0e15;border-radius:14px;padding:14px 16px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#e59a62;margin-bottom:6px">Elastomer</div>
+          <svg viewBox="0 0 260 230" style="width:100%;display:block">
+            <rect x="20" y="170" width="180" height="10" rx="2" fill="#39424e"></rect>
+            <path d="M40 70 H170 V170 H40 Z" fill="{{ hp.el.fill }}" stroke="{{ hp.el.stroke }}" stroke-width="1.6"></path>
+            <sc-for list="{{ hp.el.links }}" as="l" hint-placeholder-count="10">
+              <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke="{{ hp.el.linkColor }}" stroke-width="3" stroke-linecap="round"></line>
+            </sc-for>
+            <sc-for list="{{ hp.el.chains }}" as="c" hint-placeholder-count="6">
+              <path d="{{ c.d }}" fill="none" stroke="{{ hp.el.chainColor }}" stroke-width="2" stroke-linecap="round"></path>
+            </sc-for>
+          </svg>
+          <div style="font-size:14px;line-height:1.5;color:#eaf2fa;min-height:42px">{{ hp.el.status }}</div>
+        </div>
+        <div style="background:#0a0e15;border-radius:14px;padding:14px 16px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#b3a6e6;margin-bottom:6px">Reaktoplast</div>
+          <svg viewBox="0 0 260 230" style="width:100%;display:block">
+            <rect x="20" y="170" width="180" height="10" rx="2" fill="#39424e"></rect>
+            <path d="M40 70 H170 V170 H40 Z" fill="{{ hp.rt.fill }}" stroke="{{ hp.rt.stroke }}" stroke-width="1.6"></path>
+            <sc-for list="{{ hp.rt.links }}" as="l" hint-placeholder-count="34">
+              <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke="{{ hp.rt.linkColor }}" stroke-width="3" stroke-linecap="round"></line>
+            </sc-for>
+            <sc-for list="{{ hp.rt.chains }}" as="c" hint-placeholder-count="6">
+              <path d="{{ c.d }}" fill="none" stroke="{{ hp.rt.chainColor }}" stroke-width="2" stroke-linecap="round"></path>
+            </sc-for>
+          </svg>
+          <div style="font-size:14px;line-height:1.5;color:#eaf2fa;min-height:42px">{{ hp.rt.status }}</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;margin-top:18px;max-width:760px">
+        <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#8fb4d6">nízká</span>
+        <input type="range" min="0" max="100" step="1" value="{{ heatT }}" onInput="{{ onHeatT }}" style="width:100%;accent-color:#e59a62;cursor:pointer">
+        <span style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#e59a62">vysoká</span>
+      </div>
+      <div style="font-size:13px;color:#8296a8;margin-top:4px">Teplota</div>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;text-wrap:pretty">Přetavit lze jen termoplast — elastomer a&nbsp;reaktoplast se&nbsp;při vysoké teplotě rozloží.</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Srovnání termoplastů, elastomerů a&nbsp;reaktoplastů</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:15px;line-height:1.5">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Skupina</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Tvar řetězců</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Chování po ohřevu</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Lze přetavit</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Typické zpracování</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Termoplasty</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">lineární nebo rozvětvené</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">měknou, až tečou</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#6cc4ba;font-weight:600">ano</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vstřikování, vytlačování, vyfukování</td>
+        </tr>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#e59a62">Elastomery</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">řídce zesíťované</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nemění tvar, při vysoké teplotě se&nbsp;rozkládají</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#ef8f73;font-weight:600">ne</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">lisování, vstřikování kaučukových směsí s&nbsp;následnou vulkanizací</td>
+        </tr>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#b3a6e6">Reaktoplasty</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">hustě zesíťované</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nemění tvar, při vysoké teplotě se&nbsp;rozkládají</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#ef8f73;font-weight:600">ne</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">lisování, přetlačování</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Další dělení</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin-bottom:10px">Podle původu</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.55;color:#aebfcf">
+          <div><span style="color:#eaf2fa;font-weight:600">přírodní</span> — kaučuk, celulóza</div>
+          <div><span style="color:#eaf2fa;font-weight:600">modifikované přírodní</span> — např. acetát celulózy</div>
+          <div><span style="color:#eaf2fa;font-weight:600">syntetické</span></div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin-bottom:10px">Podle použití</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">
+          <div><span style="color:#eaf2fa;font-weight:600">plasty pro široké použití</span> — PE, PP, PVC, PS</div>
+          <div><span style="color:#eaf2fa;font-weight:600">konstrukční plasty</span> — PA, POM, PC, PET; mají vyšší pevnost a&nbsp;tuhost a&nbsp;nahrazují kovové součásti</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Přehled zkratek</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:14.5px;line-height:1.45">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Zkratka</th>
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Název</th>
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Skupina</th>
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Uspořádání</th>
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Typické použití</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PE</td><td style="padding:11px 16px;border-top:1px solid #232c39">polyetylen</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">semikrystalický</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">fólie, sáčky, nádoby, trubky</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PP</td><td style="padding:11px 16px;border-top:1px solid #232c39">polypropylen</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">semikrystalický</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">obaly, díly automobilů, nádobí</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PVC</td><td style="padding:11px 16px;border-top:1px solid #232c39">polyvinylchlorid</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">amorfní</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">trubky, okenní profily, podlahoviny</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PS</td><td style="padding:11px 16px;border-top:1px solid #232c39">polystyren</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">amorfní</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">kelímky, obaly, pěnový polystyren</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">ABS</td><td style="padding:11px 16px;border-top:1px solid #232c39">akrylonitril-butadien-styren</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">amorfní</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">kryty spotřebičů, dílky stavebnic</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PMMA</td><td style="padding:11px 16px;border-top:1px solid #232c39">polymetylmetakrylát (plexisklo)</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">amorfní</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">průhledné desky, kryty světel</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PC</td><td style="padding:11px 16px;border-top:1px solid #232c39">polykarbonát</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">amorfní</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">průhledné kryty, ochranné štíty</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PA</td><td style="padding:11px 16px;border-top:1px solid #232c39">polyamid</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">semikrystalický</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">ozubená kola, kluzná pouzdra, vlákna</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">POM</td><td style="padding:11px 16px;border-top:1px solid #232c39">polyoxymetylen</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">semikrystalický</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">přesné součásti, ozubená kola, klipy</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PET</td><td style="padding:11px 16px;border-top:1px solid #232c39">polyetylentereftalát</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">amorfní i&nbsp;semikrystalický podle zpracování</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">lahve, vlákna</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PTFE</td><td style="padding:11px 16px;border-top:1px solid #232c39">polytetrafluoretylen (teflon)</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6cc4ba">termoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39">semikrystalický</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">těsnění, kluzné vrstvy</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PF</td><td style="padding:11px 16px;border-top:1px solid #232c39">fenolformaldehydová pryskyřice</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#b3a6e6">reaktoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6b7684">—</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">elektroinstalační díly, rukojeti</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">EP</td><td style="padding:11px 16px;border-top:1px solid #232c39">epoxidová pryskyřice</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#b3a6e6">reaktoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6b7684">—</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">lepidla, kompozity, zalévání elektroniky</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">UP</td><td style="padding:11px 16px;border-top:1px solid #232c39">nenasycená polyesterová pryskyřice</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#b3a6e6">reaktoplast</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6b7684">—</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">laminátové díly, lodě</td></tr>
+        <tr><td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">PUR</td><td style="padding:11px 16px;border-top:1px solid #232c39">polyuretan</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#eaf2fa">reaktoplast, elastomer nebo termoplast podle typu</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#6b7684">—</td><td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">pěny, těsnění, kolečka</td></tr>
+      </tbody>
+    </table>
+    <a href="identifikace-plastu.html" style="display:inline-flex;margin-top:14px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Jak plasty rozlišit v&nbsp;praxi: Identifikace plastů</a>
+
+    
+    
+
+    
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const f1 = n => Math.round(n * 10) / 10;
+const clamp01 = v => Math.max(0, Math.min(1, v));
+const ease = u => u < 0.5 ? 2 * u * u : 1 - 2 * (1 - u) * (1 - u);
+const pl = pts => 'M' + pts.map(p => f1(p[0]) + ' ' + f1(p[1])).join(' L');
+function sp(pts) {
+  let d = 'M' + f1(pts[0][0]) + ' ' + f1(pts[0][1]);
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+    d += ' C' + f1(p1[0] + (p2[0] - p0[0]) / 6) + ' ' + f1(p1[1] + (p2[1] - p0[1]) / 6) + ' ' + f1(p2[0] - (p3[0] - p1[0]) / 6) + ' ' + f1(p2[1] - (p3[1] - p1[1]) / 6) + ' ' + f1(p2[0]) + ' ' + f1(p2[1]);
+  }
+  return d;
+}
+function rng(seed) {
+  return function () {
+    seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+const hexRgb = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(a, b, u) {
+  const A = hexRgb(a), B = hexRgb(b);
+  return 'rgb(' + A.map((v, i) => Math.round(v + (B[i] - v) * u)).join(',') + ')';
+}
+
+/* Polymerace × polykondenzace */
+const PM_N = 6, PM_Y = 120, PM_TOTAL = PM_N - 1 - 0.35 + 1.2;
+const PM_X = i => 140 + i * 124;
+function pmScene(cond, t) {
+  const monomers = [], bonds = [], mols = [];
+  for (let i = 0; i < PM_N; i++) {
+    const fx = PM_X(i), sx = i === 0 ? fx : fx + 30, sy = i === 0 ? PM_Y : (i % 2 ? 42 : 198);
+    const u = i === 0 ? 1 : clamp01((t - (i - 1)) / 0.65);
+    const e = ease(u);
+    const x = sx + (fx - sx) * e, y = sy + (PM_Y - sy) * e;
+    const joined = u >= 1;
+    monomers.push({ cx: f1(x), cy: f1(y), dbl: !cond && i > 0 && !joined, dblPath: 'M' + f1(x - 9) + ' ' + f1(y - 4) + ' H' + f1(x + 9) + ' M' + f1(x - 9) + ' ' + f1(y + 4) + ' H' + f1(x + 9) });
+    if (i > 0 && joined) bonds.push({ x1: PM_X(i - 1) + 22, x2: fx - 22 });
+    if (cond && i > 0) {
+      const tj = i - 0.35;
+      if (t < tj) mols.push({ cx: f1(x - 34), cy: f1(y), op: 1, label: false, tx: 0, ty: 0 });
+      else {
+        const w = clamp01((t - tj) / 1.2);
+        if (w < 1) {
+          const cx = fx - 34 + 12 * w, cy = PM_Y - 92 * w;
+          mols.push({ cx: f1(cx), cy: f1(cy), op: Math.round((1 - w * w) * 100) / 100, label: true, tx: f1(cx + 14), ty: f1(cy + 5) });
+        }
+      }
+    }
+  }
+  return { monomers, bonds, mols };
+}
+
+/* Tvar makromolekuly */
+const SHAPES = {
+  lin: { label: 'Lineární', n: 5, y0: 70, gap: 40, tag: 'termoplasty', tagBg: '#15302f', tagColor: '#6cc4ba', caption: 'Řetězce bez větví se\u00a0k\u00a0sobě mohou těsně přiblížit.' },
+  branch: { label: 'Rozvětvená', n: 4, y0: 60, gap: 60, branches: true, tag: 'termoplasty', tagBg: '#15302f', tagColor: '#6cc4ba', caption: 'Postranní větve brání těsnému přiblížení řetězců.' },
+  sparse: { label: 'Řídce zesíťovaná', n: 5, y0: 60, gap: 45, cross: 'sparse', tag: 'elastomery', tagBg: '#2e1f17', tagColor: '#e59a62', caption: 'Řetězce jsou spojeny malým počtem příčných vazeb (můstků).' },
+  dense: { label: 'Hustě zesíťovaná', n: 5, y0: 60, gap: 45, cross: 'dense', tag: 'reaktoplasty', tagBg: '#1f1b33', tagColor: '#b3a6e6', caption: 'Řetězce jsou spojeny velkým počtem příčných vazeb do husté sítě.' },
+};
+const SHAPE_KEYS = ['lin', 'branch', 'sparse', 'dense'];
+const SPARSE_X = [[252, 612], [144, 468, 780], [336, 696], [216, 552]];
+const chainY = (k, base, x) => base + 7 * Math.sin(x / 45 + k * 1.3) + 4 * Math.sin(x / 19 + k * 2.1);
+function shapeScene(key) {
+  const S = SHAPES[key];
+  const chains = [], links = [], branches = [];
+  for (let k = 0; k < S.n; k++) {
+    const base = S.y0 + k * S.gap, pts = [];
+    for (let x = 60; x <= 840; x += 12) pts.push([x, chainY(k, base, x)]);
+    chains.push({ d: pl(pts) });
+    if (S.branches) {
+      for (let n = 0, x0 = 96 + k * 36; x0 <= 800; n++, x0 += 120) {
+        const y0 = chainY(k, base, x0), dir = (n + k) % 2 ? 1 : -1;
+        branches.push({ d: pl([[x0, y0], [x0 + 5, y0 + dir * 7], [x0 + 2, y0 + dir * 13], [x0 + 8, y0 + dir * 18]]) });
+      }
+    }
+  }
+  if (S.cross) {
+    for (let k = 0; k < S.n - 1; k++) {
+      let xs = [];
+      if (S.cross === 'sparse') xs = SPARSE_X[k];
+      else for (let x = 84 + (k % 2) * 24; x <= 830; x += 60) xs.push(x);
+      xs.forEach(x => links.push({ x, y1: f1(chainY(k, S.y0 + k * S.gap, x)), y2: f1(chainY(k + 1, S.y0 + (k + 1) * S.gap, x)) }));
+    }
+  }
+  return { chains, links, branches, hasLinks: links.length > 0, tag: S.tag, tagBg: S.tagBg, tagColor: S.tagColor, caption: S.caption };
+}
+
+/* Amorfní × semikrystalický */
+const LAMS = [{ cx: 120, cy: 95, a: 20 }, { cx: 320, cy: 100, a: -35 }, { cx: 220, cy: 225, a: 70 }];
+function toWorld(L, lx, ly) {
+  const r = L.a * Math.PI / 180, c = Math.cos(r), s = Math.sin(r);
+  return [L.cx + lx * c - ly * s, L.cy + lx * s + ly * c];
+}
+function inLam(L, x, y, pad) {
+  const r = -L.a * Math.PI / 180, dx = x - L.cx, dy = y - L.cy;
+  const lx = dx * Math.cos(r) - dy * Math.sin(r), ly = dx * Math.sin(r) + dy * Math.cos(r);
+  return Math.abs(lx) < 60 + pad && Math.abs(ly) < 35 + pad;
+}
+function walkChains(r, count, steps, avoid) {
+  const out = [];
+  for (let c = 0; c < count; c++) {
+    let p = [220, 160];
+    for (let k = 0; k < 60; k++) { p = [40 + r() * 360, 40 + r() * 240]; if (!avoid(p[0], p[1])) break; }
+    const pts = [p];
+    let ang = r() * Math.PI * 2;
+    for (let s = 0; s < steps; s++) {
+      let ok = false;
+      for (let k = 0; k < 16; k++) {
+        const a = ang + (r() - 0.5) * (1.6 + k * 0.4);
+        const x = p[0] + Math.cos(a) * 28, y = p[1] + Math.sin(a) * 28;
+        if (x > 28 && x < 412 && y > 28 && y < 292 && !avoid(x, y)) { p = [x, y]; ang = a; ok = true; break; }
+      }
+      if (!ok) break;
+      pts.push(p);
+    }
+    out.push(pts);
+  }
+  return out;
+}
+const AM_CHAINS = walkChains(rng(11), 8, 20, () => false);
+const SC_CHAINS = walkChains(rng(23), 7, 14, (x, y) => LAMS.some(L => inLam(L, x, y, 8)));
+const LAM_DATA = LAMS.map((L, li) => {
+  const r = rng(101 + li), local = [];
+  for (let j = 0; j < 9; j++) {
+    const lx = -50 + j * 12.5, down = j % 2 === 0;
+    for (let q = 0; q < 5; q++) local.push([lx, down ? -28 + q * 14 : 28 - q * 14]);
+    if (j < 8) local.push([lx + 6.25, down ? 34 : -34]);
+  }
+  const pts = local.map(p => toWorld(L, p[0], p[1]));
+  const rnd = pts.map(() => [(r() - 0.5) * 36, (r() - 0.5) * 36]);
+  const corners = [[-60, -35], [60, -35], [60, 35], [-60, 35]].map(p => toWorld(L, p[0], p[1]));
+  return { pts, rnd, corners, poly: corners.map(p => f1(p[0]) + ',' + f1(p[1])).join(' ') };
+});
+const SC_REGION = 'M10 10 H430 V310 H10 Z ' + LAM_DATA.map(L => 'M' + L.corners.map(p => f1(p[0]) + ' ' + f1(p[1])).join(' L') + ' Z').join(' ');
+const wobble = (pts, a, t, c) => a === 0 ? pts : pts.map((p, i) => [p[0] + a * Math.sin(t * 1.9 + i * 1.3 + c * 2.1), p[1] + a * Math.cos(t * 1.5 + i * 0.7 + c * 1.7)]);
+
+/* Co udělá teplo */
+const HX = Array.from({ length: 14 }, (_, i) => 46 + 9 * i);
+const HY = k => 82 + k * 16;
+function heatChainPts(amp, tf) {
+  return [0, 1, 2, 3, 4, 5].map(k => HX.map((x, i) => {
+    const y = HY(k) + 2.5 * Math.sin(x / 10 + k * 1.7) + amp * Math.sin(i * 2.3 + k * 1.1) * Math.cos(i * 0.9 + k * 2.7);
+    return tf(x, y);
+  }));
+}
+const EL_IDX = k => k % 2 ? [6, 12] : [3, 9];
+const RT_IDX = k => k % 2 ? [2, 4, 6, 8, 10, 12] : [1, 3, 5, 7, 9, 11, 13];
+function netLinks(chains, idxFn) {
+  const out = [];
+  for (let k = 0; k < chains.length - 1; k++) idxFn(k).forEach(i => out.push({ x1: f1(chains[k][i][0]), y1: f1(chains[k][i][1]), x2: f1(chains[k + 1][i][0]), y2: f1(chains[k + 1][i][1]) }));
+  return out;
+}
+function heatScene(tau) {
+  const l = clamp01(tau / 0.6), f = clamp01((tau - 0.6) / 0.4);
+  const W = 130 * (1 + 0.6 * f), H = 100 * (1 - 0.6 * f);
+  const tf = (x, y) => {
+    const u = (x - 40) / 130, v = (170 - y) / 100, X = 40 + u * W;
+    return [X, 170 - v * H + (X > 200 ? (X - 200) * 1.1 * f : 0)];
+  };
+  const ol = [];
+  for (let i = 0; i <= 12; i++) ol.push(tf(40 + 130 * i / 12, 70));
+  for (let i = 1; i <= 6; i++) ol.push(tf(170, 70 + 100 * i / 6));
+  for (let i = 11; i >= 0; i--) ol.push(tf(40 + 130 * i / 12, 170));
+  const tip = tf(170, 170);
+  let drop = '', hasDrop = false;
+  if (f > 0.4) {
+    const g = (f - 0.4) / 0.6, r = 3.5 + 3.5 * g, cx = tip[0] - 3, ay = tip[1] - 1, cy = ay + 2.4 * r + 18 * g;
+    drop = 'M' + f1(cx) + ' ' + f1(ay) + ' Q' + f1(cx + r * 1.1) + ' ' + f1(cy - r * 0.9) + ' ' + f1(cx + r) + ' ' + f1(cy) + ' A' + f1(r) + ' ' + f1(r) + ' 0 1 1 ' + f1(cx - r) + ' ' + f1(cy) + ' Q' + f1(cx - r * 1.1) + ' ' + f1(cy - r * 0.9) + ' ' + f1(cx) + ' ' + f1(ay) + ' Z';
+    hasDrop = true;
+  }
+  const tp = {
+    outline: pl(ol) + ' Z', drop, hasDrop,
+    chains: heatChainPts(6 * l + 4 * f, tf).map(p => ({ d: sp(p) })),
+    status: f > 0 ? 'Teče. Po ochlazení znovu ztuhne.' : (l < 0.5 ? 'Tuhý stav.' : 'Měkne, řetězce se\u00a0rozvolňují.'),
+  };
+  const d = clamp01((tau - 0.88) / 0.12);
+  const id = (x, y) => [x, y];
+  const elP = heatChainPts(3 * tau, id), rtP = heatChainPts(0, id);
+  const el = {
+    chains: elP.map(p => ({ d: sp(p) })), links: netLinks(elP, EL_IDX),
+    fill: mix('#2e1f17', '#cfe0f0', d), stroke: mix('#e59a62', '#eaf2fa', d),
+    chainColor: mix('#a9bccd', '#eaf2fa', d), linkColor: mix('#e59a62', '#f0c8a8', d),
+    status: d > 0 ? 'Tmavne — rozklad.' : 'Síť drží, materiál nevyteče.',
+  };
+  const rt = {
+    chains: rtP.map(p => ({ d: sp(p) })), links: netLinks(rtP, RT_IDX),
+    fill: mix('#1f1b33', '#cfe0f0', d), stroke: mix('#b3a6e6', '#eaf2fa', d),
+    chainColor: mix('#a9bccd', '#eaf2fa', d), linkColor: mix('#e59a62', '#f0c8a8', d),
+    status: d > 0 ? 'Zuhelnatí — rozklad.' : 'Tvar se\u00a0nemění.',
+  };
+  return { tp, el, rt };
+}
+
+/* Proč je pryž pružná */
+const RB_LINKS = [[0, 1], [0, 3], [1, 2]];
+function rbScene(s) {
+  const R = 180 + 110 * s, c = 9 * (1 - s);
+  const ys = [0, 1, 2].map(k => 100 + (k - 1) * 40 * (1 - 0.375 * s));
+  const xs = [0, 1, 2, 3, 4].map(j => 28 + j * (R - 28) / 4);
+  const chains = ys.map((yk, k) => {
+    const pts = [];
+    for (let j = 0; j < 4; j++) {
+      const dx = xs[j + 1] - xs[j], sign = (j + k) % 2 ? 1 : -1;
+      for (let q = j === 0 ? 0 : 1; q <= 24; q++) {
+        const u = q / 24;
+        pts.push([xs[j] + u * dx - c * Math.sin(4 * Math.PI * u), yk + sign * c * 0.8 * (1 - Math.cos(4 * Math.PI * u))]);
+      }
+    }
+    return { d: pl(pts) };
+  });
+  const links = RB_LINKS.map(([k, j]) => ({ x: f1(xs[j]), y1: f1(ys[k]), y2: f1(ys[k + 1]) }));
+  return { chains, links, gripX: f1(R) };
+}
+
+class Component extends DCLogic {
+  state = { pmCond: false, pmT: 0, pmPlaying: false, shape: 'lin', heat: false, h: 0, clock: 0, sel: null, heatT: 0, stretched: false, s: 0 };
+  _raf = null;
+  _last = null;
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+  startLoop() { if (!this._raf) { this._last = null; this._raf = requestAnimationFrame(this.tick); } }
+  tick = (now) => {
+    const dt = this._last == null ? 0 : Math.min(0.05, (now - this._last) / 1000);
+    this._last = now;
+    const st = this.state, upd = {};
+    let active = false;
+    if (st.pmPlaying) {
+      let t = st.pmT + dt;
+      if (t >= PM_TOTAL) { t = PM_TOTAL; upd.pmPlaying = false; } else active = true;
+      upd.pmT = t;
+    }
+    if (st.heat || st.h > 0) {
+      const h = st.heat ? Math.min(1, st.h + dt / 4) : Math.max(0, st.h - dt / 2.5);
+      upd.h = h; upd.clock = st.clock + dt;
+      if (st.heat || h > 0) active = true;
+    }
+    const target = st.stretched ? 1 : 0;
+    if (st.s !== target) {
+      let s = st.s + Math.sign(target - st.s) * dt / 0.9;
+      if ((target === 1 && s >= 1) || (target === 0 && s <= 0)) s = target; else active = true;
+      upd.s = s;
+    }
+    this.setState(upd);
+    this._raf = active ? requestAnimationFrame(this.tick) : null;
+  };
+  renderVals() {
+    const st = this.state;
+    const btn = on => ({ bg: on ? '#6cc4ba' : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? '#6cc4ba' : '#263040' });
+    const pmModes = [['Polymerace', false], ['Polykondenzace', true]].map(([label, cond]) => Object.assign({ label, onClick: () => this.setState({ pmCond: cond, pmT: 0, pmPlaying: false }) }, btn(st.pmCond === cond)));
+    const pmPlay = () => { this.setState({ pmT: 0, pmPlaying: true }); this.startLoop(); };
+    const pmPlayLabel = st.pmT > 0 && !st.pmPlaying ? 'Znovu' : 'Přehrát';
+    const shapeButtons = SHAPE_KEYS.map(k => Object.assign({ label: SHAPES[k].label, onClick: () => this.setState({ shape: k }) }, btn(st.shape === k)));
+
+    const h = st.h, t = st.clock;
+    const amA = 14 * h;
+    const am = {
+      chains: AM_CHAINS.map((p, c) => ({ d: sp(wobble(p, amA, t, c)), color: mix('#a9bccd', '#e59a62', h * 0.8) })),
+      fill: st.sel === 'am' ? 'rgba(229,154,98,0.10)' : 'rgba(0,0,0,0)',
+      click: () => this.setState(s => ({ sel: s.sel === 'am' ? null : 'am' })),
+      labelStroke: st.sel === 'am' ? 3 : 1.5,
+      status: h === 0 ? 'Řetězce jsou náhodně propletené v\u00a0celém objemu.' : 'Klubko se\u00a0uvolňuje postupně v\u00a0celém objemu.',
+    };
+    const scA = 14 * Math.min(1, h / 0.7), m = clamp01((h - 0.72) / 0.1);
+    const lams = LAM_DATA.map((L, i) => ({
+      poly: L.poly,
+      fill: st.sel === 'lam' + i ? 'rgba(108,196,186,0.18)' : 'rgba(108,196,186,0.05)',
+      stroke: st.sel === 'lam' + i ? '#6cc4ba' : 'rgba(108,196,186,0.35)',
+      click: () => this.setState(s => ({ sel: s.sel === 'lam' + i ? null : 'lam' + i })),
+    }));
+    const lamChains = LAM_DATA.map((L, li) => {
+      const pts = L.pts.map((p, i) => [p[0] + m * L.rnd[i][0], p[1] + m * L.rnd[i][1]]);
+      return { d: sp(wobble(pts, 6 * m, t, li + 9)), color: mix('#6cc4ba', '#e59a62', m * 0.8) };
+    });
+    const pick = key => () => this.setState(s => ({ sel: s.sel === key ? null : key }));
+    const labels = LAMS.map((L, i) => {
+      const on = st.sel === 'lam' + i, w = on ? 200 : 70, x = L.cx - w / 2, y = L.cy - 14;
+      return { long: on, short: !on, color: '#6cc4ba', w, x: f1(x), y: f1(y), tx: f1(L.cx), ty: f1(y + 19), stroke: on ? 3 : 1.5, click: pick('lam' + i) };
+    });
+    const amLabel = { stroke: st.sel === 'scam' ? 3 : 1.5, click: pick('scam') };
+    let scStatus = 'Mezi lamelami jsou amorfní oblasti s\u00a0propletenými řetězci.';
+    if (h > 0) scStatus = m === 0 ? 'Uvolňují se\u00a0jen amorfní oblasti, lamely drží.' : (m < 1 ? 'Lamely se\u00a0rozpadají najednou — tání.' : 'Lamely se\u00a0rozpadly — polymer roztál.');
+    const sc = {
+      regionPath: SC_REGION,
+      regionFill: st.sel === 'scam' ? 'rgba(229,154,98,0.10)' : 'rgba(0,0,0,0)',
+      clickAmorph: () => this.setState(s => ({ sel: s.sel === 'scam' ? null : 'scam' })),
+      lams, lamChains,
+      chains: SC_CHAINS.map((p, c) => ({ d: sp(wobble(p, scA, t, c)), color: mix('#a9bccd', '#e59a62', Math.min(1, h / 0.7) * 0.8) })),
+      labels, amLabel,
+      status: scStatus,
+    };
+    const heatBtn = st.heat ? { bg: '#e59a62', color: '#080b12', dot: '#ffd9b8', label: 'Ohřev zapnutý' } : { bg: '#0d121a', color: '#e59a62', dot: '#39424e', label: 'Ohřev' };
+    const toggleHeat = () => { this.setState(s => ({ heat: !s.heat })); this.startLoop(); };
+
+    const rb = rbScene(st.s);
+    rb.caption = st.s > 0.5 ? 'Řetězce mezi příčnými vazbami se\u00a0napřímily. Příčné vazby brání jejich vzájemnému sklouznutí.' : 'Řetězce mezi příčnými vazbami jsou stočené do klubka.';
+    const toggleStretch = () => { this.setState(s => ({ stretched: !s.stretched })); this.startLoop(); };
+
+    return {
+      pmModes, pmPlay, pmPlayLabel, pm: pmScene(st.pmCond, st.pmT), pmIsCond: st.pmCond, pmIsPoly: !st.pmCond,
+      shapeButtons, shape: shapeScene(st.shape),
+      am, sc, heatBtn, toggleHeat,
+      hp: heatScene(st.heatT / 100), heatT: st.heatT, onHeatT: e => this.setState({ heatT: +e.target.value }),
+      rb, toggleStretch, stretchLabel: st.stretched ? 'Pustit' : 'Natáhnout',
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

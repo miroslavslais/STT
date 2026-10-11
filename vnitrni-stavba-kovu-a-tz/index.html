@@ -676,16 +676,17 @@ class Component extends DCLogic {
 
   renderVals() {
     const FALLBACK_NAV = [
-  { title: 'Domů', href: '../index.html' },
-  { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
-  { title: 'Koroze', href: '../koroze/index.html' },
-  { title: 'Tváření', href: '../tvareni-za-tepla/index.html' },
-  { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' },
-  { title: 'Značení ocelí', href: '../znaceni-oceli/index.html' },
-  { title: 'Odlévání', href: '../odlevani/index.html' },
-  { title: 'O projektu', href: '../o-projektu.html' },
-  { title: 'Novinky', href: '../novinky.html' },
-];
+      { title: 'Domů', href: '../index.html' },
+      { title: 'Vnitřní stavba kovů a TZ', href: '../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+      { title: 'Koroze', href: '../koroze/index.html' },
+      { title: 'Tváření', href: '../tvareni-za-tepla/index.html' },
+      { title: 'Prášková metalurgie', href: '../praskova-metalurgie/index.html' },
+      { title: 'Značení ocelí', href: '../znaceni-oceli/index.html' },
+      { title: 'Odlévání', href: '../odlevani/index.html' },
+      { title: 'Zpracování polymerů', href: '../zpracovani-polymeru/index.html' },
+      { title: 'O projektu', href: '../o-projektu.html' },
+      { title: 'Novinky', href: '../novinky.html' },
+    ];
     const SELF = 'vnitrni-stavba-kovu-a-tz/';
     const navItems = this.state.structure ? this.state.structure.nav.map(n => ({ title: n.title, href: n.href.startsWith(SELF) ? n.href.slice(SELF.length) : '../' + n.href })) : FALLBACK_NAV;
     const positions = {};

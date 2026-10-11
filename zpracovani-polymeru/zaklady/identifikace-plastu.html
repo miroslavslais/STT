@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Identifikace plastů | STT</title>
+<meta name="description" content="Identifikace plastů: značení na výrobku, vzhled a omak, zkouška ve vodě, ohřevem a plamenem, určovací klíč a laboratorní metody.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-11">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    html { scroll-behavior: smooth; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e59a62; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Základy polymerů</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:10px">Základy polymerů</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 8px">Identifikace plastů</h1>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:44px 0 12px">Proč a&nbsp;jak plasty rozlišit</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Při opravách, recyklaci nebo volbě technologie je potřeba vědět, o&nbsp;jaký plast jde. Postup začíná nejjednodušší zkouškou a&nbsp;k&nbsp;náročnějším se&nbsp;přechází, jen když předchozí krok nestačí.</p>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0 22px">
+      <a href="#znaceni" style="padding:8px 14px;border-radius:12px;background:#0d121a;border:1px solid #263040;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa">Značení na&nbsp;výrobku</a>
+      <span style="color:#8296a8">→</span>
+      <a href="#vzhled" style="padding:8px 14px;border-radius:12px;background:#0d121a;border:1px solid #263040;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa">Vzhled a&nbsp;omak</a>
+      <span style="color:#8296a8">→</span>
+      <a href="#voda" style="padding:8px 14px;border-radius:12px;background:#0d121a;border:1px solid #263040;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa">Zkouška ve&nbsp;vodě</a>
+      <span style="color:#8296a8">→</span>
+      <a href="#ohrev" style="padding:8px 14px;border-radius:12px;background:#0d121a;border:1px solid #263040;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa">Zkouška ohřevem</a>
+      <span style="color:#8296a8">→</span>
+      <a href="#plamen" style="padding:8px 14px;border-radius:12px;background:#0d121a;border:1px solid #263040;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa">Zkouška plamenem</a>
+      <span style="color:#8296a8">→</span>
+      <a href="#lab" style="padding:8px 14px;border-radius:12px;background:#0d121a;border:1px solid #263040;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#eaf2fa">Laboratorní metody</a>
+    </div>
+    <div style="background:#131a24;border-radius:16px;padding:18px 22px;max-width:900px;box-sizing:border-box">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:6px">Dílenské zkoušky jsou orientační</div>
+      <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Plniva, barviva, retardéry hoření a&nbsp;směsi plastů mohou výsledek změnit.</div>
+    </div>
+
+    <h2 id="znaceni" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px;scroll-margin-top:96px">Značení na&nbsp;výrobku</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Na&nbsp;výliscích bývá zkratka materiálu mezi lomenými závorkami. Značka se&nbsp;hledá na&nbsp;vnitřní straně dílu. Pokud je značka čitelná, další zkoušky nejsou potřeba.</p>
+    <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 26px;max-width:820px;box-sizing:border-box">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="padding:6px 14px;border-radius:12px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:18px;color:#eaf2fa">&gt;PP&lt;</span>
+        <span style="padding:6px 14px;border-radius:12px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:18px;color:#eaf2fa">&gt;ABS&lt;</span>
+        <span style="padding:6px 14px;border-radius:12px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:18px;color:#eaf2fa">&gt;PA-GF&lt;</span>
+        <span style="font-size:14.5px;color:#aebfcf">PA-GF — vyztužený skelnými vlákny</span>
+      </div>
+      <a href="rozdeleni-struktura.html" style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Přehled zkratek: Rozdělení a&nbsp;struktura polymerů</a>
+    </div>
+
+    <h2 id="vzhled" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px;scroll-margin-top:96px">Vzhled a&nbsp;omak</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Průhlednost</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Průhledné bývají amorfní plasty (PS, PMMA, PC). <br>Semikrystalické plasty jsou mléčně zakalené až neprůhledné.</div>
+        <a href="rozdeleni-struktura.html" style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Amorfní a&nbsp;semikrystalické polymery</a>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Voskový omak</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Voskový omak mají PE a&nbsp;PP. Do PE jde nehtem vyrýt rýha, PP je tvrdší.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Ohebný pant</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Tenké místo z&nbsp;PP vydrží opakované ohýbání (víčka lahviček).</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Zvuk</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">PS při poklepu nebo upuštění kovově cinká a&nbsp;snadno se&nbsp;láme.</div>
+      </div>
+    </div>
+
+    <h2 id="voda" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px;scroll-margin-top:96px">Zkouška ve&nbsp;vodě</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">PE a&nbsp;PP jsou lehčí než voda — plavou. Většina ostatních plastů klesne ke&nbsp;dnu. Ve&nbsp;vhodné směsi vody a&nbsp;lihu PP plave a&nbsp;PE-HD klesne.</p>
+    <div style="background:#131a24;border-radius:16px;padding:18px 22px;max-width:900px;box-sizing:border-box">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:6px">Pozor</div>
+      <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Pěnový plast plave vždy. Plněný PP (např. mastkem) může klesnout.</div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Plave, nebo klesne?</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <sc-for list="{{ liqButtons }}" as="b" hint-placeholder-count="2">
+            <button onClick="{{ b.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+          <button onClick="{{ pour }}" style="padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;background:#e59a62;color:#080b12;border:1px solid #e59a62">Vylít</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <sc-for list="{{ wLabels }}" as="b" hint-placeholder-count="11">
+          <button onClick="{{ b.onClick }}" style="padding:7px 13px;border-radius:10px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+        </sc-for>
+      </div>
+      <div style="position:relative">
+      <svg viewBox="0 0 900 380" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <path d="M253 130 H647 V330 Q647 347 630 347 H270 Q253 347 253 330 Z" fill="{{ liqFill }}"></path>
+        <sc-for list="{{ wItems }}" as="s" hint-placeholder-count="0">
+          <rect x="{{ s.x }}" y="{{ s.y }}" width="92" height="22" rx="5" fill="#0d121a" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" stroke-dasharray="{{ s.dash }}" onClick="{{ s.click }}" style="cursor:pointer"></rect>
+        </sc-for>
+        <path d="M253 130 H647 V330 Q647 347 630 347 H270 Q253 347 253 330 Z" fill="{{ liqFill }}" fill-opacity="0.4" pointer-events="none"></path>
+        <line x1="253" y1="130" x2="647" y2="130" stroke="#7ba3cc" stroke-width="2"></line>
+        <path d="M244 56 Q250 56 250 64 V330 Q250 350 270 350 H630 Q650 350 650 330 V64 Q650 56 656 56" fill="none" stroke="#8296a8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+        <sc-for list="{{ wItems }}" as="s" hint-placeholder-count="0">
+          <div onClick="{{ s.click }}" style="position:absolute;left:{{ s.left }};top:{{ s.top }};width:10.222%;height:5.79%;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#eaf2fa;white-space:nowrap;cursor:pointer">{{ s.name }}</div>
+        </sc-for>
+      </div>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:52px;text-wrap:pretty">{{ wMsg }}</p>
+    </div>
+
+    <h2 id="ohrev" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px;scroll-margin-top:96px">Zkouška ohřevem</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">K&nbsp;vzorku se&nbsp;přiloží horký drát nebo hrot páječky. <br>Zkouška rychle rozliší termoplast × reaktoplast bez otevřeného plamene.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #6cc4ba;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#6cc4ba">Termoplast</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf">Měkne a&nbsp;taje.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #b3a6e6;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#b3a6e6">Reaktoplast</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf">Neměkne, jen zuhelnatí.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #e59a62;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#e59a62">Pryž</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf">Zůstane pružná.</div>
+      </div>
+    </div>
+    <a href="rozdeleni-struktura.html" style="display:inline-flex;margin-top:16px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Termoplasty, reaktoplasty a&nbsp;elastomery: Rozdělení a&nbsp;struktura polymerů</a>
+
+    <h2 id="plamen" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px;scroll-margin-top:96px">Zkouška plamenem</h2>
+    <div style="background:#2c1a16;border:2px solid #ef8f73;border-radius:18px;padding:20px 24px;max-width:900px;box-sizing:border-box">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <span style="width:28px;height:28px;border-radius:50%;background:#ef8f73;color:#080b12;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px">!</span>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#ef8f73">Bezpečnost</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px;font-size:15.5px;line-height:1.55;color:#eaf2fa">
+        <div>Jen pod&nbsp;dohledem učitele, v&nbsp;digestoři nebo venku.</div>
+        <div>Malý vzorek v&nbsp;kleštích, nad nehořlavou podložkou nebo miskou s&nbsp;vodou.</div>
+        <div>Zápach nečichat přímo, jen ovívat rukou k&nbsp;nosu.</div>
+        <div style="font-weight:600">PVC uvolňuje chlorovodík, PTFE se&nbsp;nezkouší vůbec — zplodiny jsou jedovaté.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:20px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">V&nbsp;plameni</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Vzorek se&nbsp;vloží do plamene. Sleduje se&nbsp;barva plamene a&nbsp;čadění.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Po vyjmutí</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Vzorek se&nbsp;vyjme z&nbsp;plamene. Sleduje se, zda hoří dál, odkapává a&nbsp;jak páchne.</div>
+      </div>
+    </div>
+
+    <div ref="{{ flameRef }}" style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Zkouška plamenem</div>
+        </div>
+        <button onClick="{{ removeSample }}" style="padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;cursor:{{ removeCursor }};opacity:{{ removeOp }};background:#e59a62;color:#080b12;border:1px solid #e59a62">Vyjmout z&nbsp;plamene</button>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <sc-for list="{{ fLabels }}" as="b" hint-placeholder-count="11">
+          <button onClick="{{ b.onClick }}" style="padding:7px 13px;border-radius:10px;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:20px;align-items:start">
+        <div>
+          <svg viewBox="0 0 700 380" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <rect x="320" y="336" width="120" height="14" rx="3" fill="#39424e"></rect>
+            <rect x="326" y="338" width="108" height="5" fill="#2c4a63"></rect>
+            <rect x="100" y="330" width="120" height="16" rx="4" fill="#8296a8"></rect>
+            <rect x="148" y="210" width="24" height="120" fill="#6b7684"></rect>
+            <path d="{{ fl.outer }}" fill="{{ fl.fill }}" fill-opacity="{{ fl.op }}" stroke="{{ fl.stroke }}" stroke-width="{{ fl.sw }}" stroke-linejoin="round"></path>
+            <sc-if value="{{ fl.hasTip }}" hint-placeholder-val="{{ false }}">
+              <path d="{{ fl.tip }}" fill="#f2c53d" fill-opacity="0.9"></path>
+            </sc-if>
+            <path d="{{ fl.inner }}" fill="#4f78c9" fill-opacity="0.8"></path>
+            <sc-if value="{{ fl.hasSample }}" hint-placeholder-val="{{ false }}">
+              <g transform="{{ fl.tr }}">
+                <rect x="170" y="143" width="80" height="12" rx="2" fill="#1a2230" stroke="#8296a8" stroke-width="1.5"></rect>
+                <rect x="170" y="143" width="18" height="12" rx="2" fill="#cfe0f0" fill-opacity="{{ fl.char }}"></rect>
+                <sc-if value="{{ fl.ball }}" hint-placeholder-val="{{ false }}">
+                  <circle cx="170" cy="149" r="7" fill="#d9c9a8" stroke="#8296a8" stroke-width="1.5"></circle>
+                </sc-if>
+                <path d="M236 141 L330 150 L480 182" fill="none" stroke="#a9bccd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M236 157 L330 150 L480 118" fill="none" stroke="#a9bccd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle cx="330" cy="150" r="5" fill="#a9bccd"></circle>
+              </g>
+            </sc-if>
+            <sc-if value="{{ fl.burnOut }}" hint-placeholder-val="{{ false }}">
+              <path d="{{ fl.sOuter }}" fill="{{ fl.sFill }}" fill-opacity="{{ fl.sOp }}" stroke="{{ fl.sStroke }}" stroke-width="{{ fl.sSw }}" stroke-linejoin="round"></path>
+              <sc-if value="{{ fl.hasTip }}" hint-placeholder-val="{{ false }}">
+                <path d="{{ fl.sTip }}" fill="#f2c53d" fill-opacity="0.9"></path>
+              </sc-if>
+            </sc-if>
+            <sc-for list="{{ fl.soot }}" as="p" hint-placeholder-count="0">
+              <circle cx="{{ p.x }}" cy="{{ p.y }}" r="{{ p.r }}" fill="#cfe0f0" fill-opacity="{{ p.op }}"></circle>
+            </sc-for>
+            <sc-for list="{{ fl.drips }}" as="p" hint-placeholder-count="0">
+              <circle cx="{{ p.x }}" cy="{{ p.y }}" r="3.5" fill="#d9c9a8" stroke="#8296a8" stroke-width="1"></circle>
+            </sc-for>
+          </svg>
+          <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;margin-top:8px;min-height:44px;text-wrap:pretty">{{ fStatus }}</div>
+        </div>
+        <div style="background:#0a0e15;border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+          <sc-if value="{{ fr.has }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:24px;color:#eaf2fa">{{ fr.name }}</div>
+            <sc-for list="{{ fr.rows }}" as="r" hint-placeholder-count="4">
+              <div style="border-top:1px solid #232c39;padding-top:10px">
+                <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:3px">{{ r.label }}</div>
+                <div style="font-size:15.5px;line-height:1.5;color:#eaf2fa">{{ r.value }}</div>
+              </div>
+            </sc-for>
+          </sc-if>
+          <sc-if value="{{ fr.none }}" hint-placeholder-val="{{ true }}">
+            <div style="font-size:15px;line-height:1.6;color:#aebfcf">Vyber plast ze&nbsp;štítků nad schématem.</div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:32px 0 12px">Výsledky zkoušky plamenem</h3>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:14.5px;line-height:1.45">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Plast</th>
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Plamen</th>
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Po vyjmutí</th>
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Zápach</th>
+          <th style="padding:12px 16px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Další znaky</th>
+        </tr>
+      </thead>
+      <tbody>
+        <sc-for list="{{ fTable }}" as="r" hint-placeholder-count="11">
+          <tr id="{{ r.id }}" style="background:{{ r.bg }};scroll-margin-top:110px">
+            <td style="padding:11px 16px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;font-weight:500;color:#eaf2fa">{{ r.name }}</td>
+            <td style="padding:11px 16px;border-top:1px solid #232c39">{{ r.flame }}</td>
+            <td style="padding:11px 16px;border-top:1px solid #232c39">{{ r.after }}</td>
+            <td style="padding:11px 16px;border-top:1px solid #232c39">{{ r.smell }}</td>
+            <td style="padding:11px 16px;border-top:1px solid #232c39;color:#aebfcf">{{ r.other }}</td>
+          </tr>
+        </sc-for>
+      </tbody>
+    </table>
+
+    
+    
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:18px 0 0;max-width:820px;text-wrap:pretty">PET se&nbsp;obvykle pozná podle značení a&nbsp;tvaru výrobku (lahve).</p>
+
+    <h2 id="lab" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px;scroll-margin-top:96px">Laboratorní metody</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Infračervená spektroskopie</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Podle pohlcování infračerveného záření určí druh polymeru i&nbsp;přísady.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Diferenční kalorimetrie (DSC)</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Změří Tg a&nbsp;Tm.</div>
+        <a href="termomechanicka-krivka.html" style="margin-top:auto;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Termomechanická křivka</a>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:20px 0 0;max-width:820px;text-wrap:pretty">Laboratorní metody se&nbsp;používají tam, kde dílenské zkoušky nestačí — reklamace, recyklace, kontrola dodávek.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const f1 = n => Math.round(n * 10) / 10;
+const clamp01 = v => Math.max(0, Math.min(1, v));
+const ease = u => u < 0.5 ? 2 * u * u : 1 - 2 * (1 - u) * (1 - u);
+const nowS = () => performance.now() / 1000;
+
+/* Plave, nebo klesne? */
+const S_Y = 130, FLOOR = 347;
+const W_LIST = [
+  { k: 'PE-HD', water: 'float', mix: 'sink' },
+  { k: 'PP', water: 'float', mix: 'float' },
+  { k: 'PS', water: 'sink', mix: 'sink' },
+  { k: 'PVC', water: 'sink', mix: 'sink' },
+  { k: 'PA', water: 'sink', mix: 'sink' },
+  { k: 'PET', water: 'sink', mix: 'sink' },
+  { k: 'PMMA', water: 'sink', mix: 'sink' },
+  { k: 'PC', water: 'sink', mix: 'sink' },
+  { k: 'ABS', water: 'sink', mix: 'sink' },
+  { k: 'pěnový PS', water: 'float', mix: 'float', foam: true },
+  { k: 'PP plněný', water: 'sink', mix: 'sink' },
+];
+const WS = Object.fromEntries(W_LIST.map(s => [s.k, s]));
+function waterText(s, liq) {
+  if (s.foam) return 'Pěnový PS plave — pěnový plast plave vždy.';
+  if (s.k === 'PP plněný') return liq === 'water' ? 'PP plněný ve\u00a0vodě klesne. Plněný PP (např. mastkem) může klesnout, i\u00a0když PP bez plniva plave.' : 'PP plněný ve\u00a0vodě s\u00a0lihem klesne ke\u00a0dnu.';
+  if (liq === 'water') return s.water === 'float' ? s.k + ' ve\u00a0vodě plave — je lehčí než voda.' : s.k + ' ve\u00a0vodě klesne ke\u00a0dnu.';
+  if (s.k === 'PP') return 'PP ve\u00a0vodě s\u00a0lihem plave. PE-HD v\u00a0téže směsi klesne.';
+  if (s.k === 'PE-HD') return 'PE-HD ve\u00a0vodě s\u00a0lihem klesne. Tím se\u00a0odliší od\u00a0PP, který v\u00a0téže směsi plave.';
+  return s.k + ' ve\u00a0vodě s\u00a0lihem klesne ke\u00a0dnu.';
+}
+function wLayout(keys, liq) {
+  const out = {};
+  let fi = 0, si = 0;
+  keys.forEach(k => {
+    const s = WS[k];
+    if (s[liq] === 'float') { out[k] = { x: 262 + fi * 100, y: s.foam ? S_Y - 17 : S_Y - 10 }; fi++; }
+    else { const col = si % 4, row = Math.floor(si / 4); out[k] = { x: 262 + col * 96, y: FLOOR - 24 - row * 25 }; si++; }
+  });
+  return out;
+}
+function kfPos(kf, u) {
+  if (u <= kf[0].t) return kf[0];
+  for (let i = 0; i < kf.length - 1; i++) {
+    if (u <= kf[i + 1].t) {
+      const e = ease((u - kf[i].t) / (kf[i + 1].t - kf[i].t));
+      return { x: kf[i].x + (kf[i + 1].x - kf[i].x) * e, y: kf[i].y + (kf[i + 1].y - kf[i].y) * e };
+    }
+  }
+  return kf[kf.length - 1];
+}
+
+/* Zkouška plamenem */
+const FLAME = [
+  { k: 'PE', flame: 'modrý plamen se\u00a0žlutou špičkou', after: 'hoří dál, odkapává', smell: 'jako svíčka (parafín)', other: 'voskový omak', fs: 'blueTip', soot: 0, burns: true, drips: true },
+  { k: 'PP', flame: 'modrý plamen se\u00a0žlutou špičkou', after: 'hoří dál, odkapává', smell: 'parafín, ostřejší než PE', other: 'tvrdší než PE', fs: 'blueTip', soot: 0, burns: true, drips: true },
+  { k: 'PS', flame: 'žlutý, silně čadí', after: 'hoří dál', smell: 'sladký (styren)', other: 'křehký, cinká', fs: 'yellow', soot: 14, burns: true },
+  { k: 'ABS', flame: 'žlutý, čadí', after: 'hoří dál', smell: 'styren, pryžový', other: 'houževnatý', fs: 'yellow', soot: 7, burns: true },
+  { k: 'PVC', flame: 'žlutý se\u00a0zeleným okrajem', after: 'zhasne', smell: 'štiplavý (chlorovodík)', other: 'měkčené PVC hoří snáz', fs: 'yellowGreen', soot: 0, burns: false },
+  { k: 'PA', flame: 'modravý se\u00a0žlutým okrajem', after: 'většinou zhasne, odkapává', smell: 'spálené vlasy', other: 'konec vzorku vytvoří tvrdou kuličku', fs: 'bluishEdge', soot: 0, burns: false, drips: true, ball: true },
+  { k: 'PMMA', flame: 'svítivý, málo sazí', after: 'hoří dál, praská', smell: 'ovocný', other: 'průhledný', fs: 'luminous', soot: 3, burns: true },
+  { k: 'PC', flame: 'žlutý, čadí', after: 'zhasne, zuhelnatí', smell: 'fenol', other: 'průhledný, houževnatý', fs: 'yellow', soot: 7, burns: false, char: true },
+  { k: 'POM', flame: 'téměř neviditelný modrý', after: 'hoří dál, odkapává', smell: 'štiplavý (formaldehyd)', other: '—', fs: 'invisible', soot: 0, burns: true, drips: true },
+  { k: 'PET', flame: 'žlutý, čadí', after: 'hoří pomalu, odkapává', smell: 'sladkavý', other: '—', fs: 'yellow', soot: 7, burns: true, drips: true, slow: true },
+  { k: 'PF', flame: 'hoří obtížně', after: 'zhasne, zuhelnatí, neměkne', smell: 'fenol, formaldehyd', other: 'reaktoplast', fs: 'base', soot: 0, burns: false, char: true },
+];
+const FD = Object.fromEntries(FLAME.map(r => [r.k, r]));
+const FS = {
+  base: { fill: '#bcd0f2', op: 0.5, stroke: 'none', sw: 0 },
+  blueTip: { fill: '#8fb0ea', op: 0.6, stroke: 'none', sw: 0, tip: true },
+  yellow: { fill: '#f2b632', op: 0.85, stroke: 'none', sw: 0 },
+  yellowGreen: { fill: '#f2b632', op: 0.85, stroke: '#3e9b4f', sw: 6 },
+  bluishEdge: { fill: '#9db8ee', op: 0.65, stroke: '#f2b632', sw: 5 },
+  luminous: { fill: '#ffd34d', op: 0.95, stroke: '#fff1b8', sw: 4, scale: 1.1 },
+  invisible: { fill: '#bcd0f2', op: 0.16, stroke: 'none', sw: 0 },
+};
+const OUT_DX = 200;
+function tear(cx, by, w, h, sway) {
+  return 'M' + f1(cx - w / 2) + ' ' + by + ' C' + f1(cx - w / 2) + ' ' + f1(by - h * 0.45) + ' ' + f1(cx - w * 0.18 + sway) + ' ' + f1(by - h * 0.75) + ' ' + f1(cx + sway) + ' ' + f1(by - h) +
+    ' C' + f1(cx + w * 0.18 + sway) + ' ' + f1(by - h * 0.75) + ' ' + f1(cx + w / 2) + ' ' + f1(by - h * 0.45) + ' ' + f1(cx + w / 2) + ' ' + by +
+    ' Q' + cx + ' ' + f1(by + w * 0.25) + ' ' + f1(cx - w / 2) + ' ' + by + ' Z';
+}
+function sootParts(cx, topY, n, t) {
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const ph = (t * 0.6 + i / n) % 1;
+    out.push({ x: f1(cx + 9 * Math.sin(t * 2 + i * 2.3) * ph + (i % 3 - 1) * 4), y: f1(topY - ph * 130), r: f1(2 + ph * 5), op: f1(0.7 * (1 - ph) * 100) / 100 });
+  }
+  return out;
+}
+function dripParts(x, y0, y1, t) {
+  return [0, 1].map(i => { const ph = (t * 0.9 + i / 2) % 1; return { x, y: f1(y0 + ph * ph * (y1 - y0)) }; });
+}
+
+/* Určovací klíč */
+const KEY = {
+  1: { q: 'Je na\u00a0výrobku značka >…<?', a: [{ l: 'Ano', r: 'mark' }, { l: 'Ne', n: 2 }] },
+  2: { q: 'Měkne vzorek při ohřevu?', a: [{ l: 'Ano', note: 'termoplast', n: 3 }, { l: 'Ne', r: 'rt' }] },
+  3: { q: 'Plave ve\u00a0vodě?', a: [{ l: 'Ano', n: 4 }, { l: 'Ne', n: 5 }] },
+  4: { q: 'Lze nehtem vyrýt rýhu?', a: [{ l: 'Ano', r: 'PE' }, { l: 'Ne', r: 'PP' }] },
+  5: { q: 'Jak se\u00a0chová v\u00a0plameni?', a: [
+    { l: 'žlutý, silně čadí, sladký zápach', n: 6 },
+    { l: 'zelený okraj plamene, mimo plamen zhasne', r: 'PVC' },
+    { l: 'zápach spálených vlasů', r: 'PA' },
+    { l: 'svítivý plamen, praská, ovocný zápach', r: 'PMMA' },
+    { l: 'téměř neviditelný modrý plamen', r: 'POM' },
+    { l: 'čadí, zhasne, zuhelnatí', r: 'PC' },
+  ] },
+  6: { q: 'Je vzorek křehký a\u00a0cinká?', a: [{ l: 'Ano', r: 'PS' }, { l: 'Ne', r: 'ABS' }] },
+};
+const RES = {
+  mark: { title: 'Značka na\u00a0výrobku', text: 'Materiál je uveden ve\u00a0značce.' },
+  rt: { title: 'Reaktoplast', text: 'Pokud je pružný, jde o\u00a0pryž (elastomer).', row: 'PF' },
+  PE: { title: 'PE', text: 'polyetylen', row: 'PE' },
+  PP: { title: 'PP', text: 'polypropylen', row: 'PP' },
+  PVC: { title: 'PVC', text: 'polyvinylchlorid', row: 'PVC' },
+  PA: { title: 'PA', text: 'polyamid', row: 'PA' },
+  PMMA: { title: 'PMMA', text: 'polymetylmetakrylát (plexisklo)', row: 'PMMA' },
+  POM: { title: 'POM', text: 'polyoxymetylen', row: 'POM' },
+  PC: { title: 'PC', text: 'polykarbonát', row: 'PC' },
+  PS: { title: 'PS', text: 'polystyren', row: 'PS' },
+  ABS: { title: 'ABS', text: 'akrylonitril-butadien-styren', row: 'ABS' },
+};
+
+class Component extends DCLogic {
+  state = { now: 0, liq: 'water', wItems: [], wSel: null, fSel: null, fP: 1, fTarget: 0, fHeat: 0, fHl: null, kAns: [] };
+  flameRef = React.createRef();
+  _raf = null; _last = null; _flameVis = false;
+  componentDidMount() {
+    this.setState({ now: nowS() });
+    if (window.IntersectionObserver && this.flameRef.current) {
+      this._io = new IntersectionObserver(es => { this._flameVis = es[0].isIntersecting; if (this._flameVis) this.startLoop(); });
+      this._io.observe(this.flameRef.current);
+    }
+  }
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); if (this._io) this._io.disconnect(); }
+  startLoop() { if (!this._raf) { this._last = null; this._raf = requestAnimationFrame(this.tick); } }
+  beakerActive(now) { return this.state.wItems.some(it => now - it.t0 < it.kf[it.kf.length - 1].t); }
+  tick = () => {
+    const now = nowS();
+    const dt = this._last == null ? 0 : Math.min(0.05, now - this._last);
+    this._last = now;
+    const st = this.state, upd = { now };
+    if (st.fSel) {
+      if (st.fP !== st.fTarget) {
+        let p = st.fP + Math.sign(st.fTarget - st.fP) * dt / 0.8;
+        if ((st.fTarget === 1 && p > 1) || (st.fTarget === 0 && p < 0)) p = st.fTarget;
+        upd.fP = p;
+      }
+      if (st.fP < 0.15) upd.fHeat = st.fHeat + dt;
+    }
+    this.setState(upd);
+    const fAct = !!st.fSel && (st.fP !== st.fTarget || st.fP < 0.15 || (st.fTarget === 1 && FD[st.fSel].burns));
+    this._raf = (this._flameVis || fAct || this.beakerActive(now)) ? requestAnimationFrame(this.tick) : null;
+  };
+  drop(k) {
+    const st = this.state;
+    if (st.wItems.some(it => it.k === k)) { this.setState({ wSel: k }); return; }
+    const t0 = nowS(), keys = st.wItems.map(it => it.k).concat(k);
+    const tg = wLayout(keys, st.liq)[k];
+    const fl = WS[k][st.liq] === 'float';
+    const kf = fl ? [{ t: 0, x: tg.x, y: 14 }, { t: 0.45, x: tg.x, y: S_Y + 40 }, { t: 1.4, x: tg.x, y: tg.y }]
+      : [{ t: 0, x: tg.x, y: 14 }, { t: 0.4, x: tg.x, y: S_Y + 8 }, { t: 1.8, x: tg.x, y: tg.y }];
+    this.setState({ wItems: st.wItems.concat({ k, kf, t0 }), wSel: k, now: t0 });
+    this.startLoop();
+  }
+  setLiq(liq) {
+    const st = this.state;
+    if (liq === st.liq) return;
+    const t0 = nowS(), lay = wLayout(st.wItems.map(it => it.k), liq);
+    const wItems = st.wItems.map(it => { const c = kfPos(it.kf, t0 - it.t0); return { k: it.k, t0, kf: [{ t: 0, x: c.x, y: c.y }, { t: 1.2, x: lay[it.k].x, y: lay[it.k].y }] }; });
+    this.setState({ liq, wItems, now: t0 });
+    this.startLoop();
+  }
+  renderVals() {
+    const st = this.state, t = st.now;
+    const btn = on => ({ bg: on ? '#6cc4ba' : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? '#6cc4ba' : '#263040' });
+
+    const liqButtons = [['Voda', 'water'], ['Voda s\u00a0lihem', 'mix']].map(([label, v]) => Object.assign({ label, onClick: () => this.setLiq(v) }, btn(st.liq === v)));
+    const inB = new Set(st.wItems.map(it => it.k));
+    const wLabels = W_LIST.map(s => Object.assign({ label: s.k, onClick: () => this.drop(s.k) },
+      inB.has(s.k) ? { bg: '#15302f', color: '#9fdcd4', border: '#6cc4ba' } : btn(false)));
+    const wItems = st.wItems.map(it => {
+      const p = kfPos(it.kf, t - it.t0), on = st.wSel === it.k;
+      return { name: it.k, x: f1(p.x), y: f1(p.y), left: (p.x / 9).toFixed(3) + '%', top: (p.y / 3.8).toFixed(3) + '%', stroke: on ? '#6cc4ba' : '#a9bccd', sw: on ? 2.5 : 1.5, dash: WS[it.k].foam ? '3 2' : 'none', click: () => this.setState({ wSel: it.k }) };
+    });
+    const wMsg = st.wSel ? waterText(WS[st.wSel], st.liq) : 'Klikni na\u00a0štítek se\u00a0vzorkem.';
+    const pour = () => this.setState({ wItems: [], wSel: null });
+
+    const spec = st.fSel ? FD[st.fSel] : null;
+    const inFlame = !!spec && st.fP < 0.15;
+    const burnOut = !!spec && st.fTarget === 1 && st.fP > 0.15 && spec.burns;
+    const flick = 1 + 0.05 * Math.sin(t * 9.1) + 0.03 * Math.sin(t * 14.3), sway = 3 * Math.sin(t * 6.3);
+    const mS = inFlame ? FS[spec.fs] : FS.base;
+    const mh = 125 * flick * (mS.scale || 1);
+    const sS = spec ? FS[spec.fs] : FS.base;
+    const dx = (st.fP || 0) * OUT_DX, tipX = 170 + dx;
+    const sh = (spec && spec.slow ? 24 : 36) * flick;
+    let soot = [], drips = [];
+    if (spec && inFlame && spec.soot) soot = sootParts(160 + sway, 210 - mh, spec.soot, t);
+    if (burnOut && spec.soot) soot = sootParts(tipX + 6 + sway * 0.5, 146 - sh, Math.ceil(spec.soot / 2), t);
+    if (spec && spec.drips && inFlame && st.fHeat > 0.6) drips = dripParts(177, 156, 328, t);
+    if (burnOut && spec.drips && st.fP >= 1) drips = dripParts(tipX + 7, 156, 337, t);
+    const fl = {
+      outer: tear(160, 210, 52, mh, sway), fill: mS.fill, op: mS.op, stroke: mS.stroke, sw: mS.sw,
+      hasTip: !!mS.tip || (burnOut && !!sS.tip), tip: mS.tip ? tear(160, f1(210 - mh * 0.6), 28, mh * 0.4, sway) : (burnOut ? tear(tipX + 6, f1(146 - sh * 0.6), 9, sh * 0.4, sway * 0.5) : ''),
+      inner: tear(160, 210, 18, 48 * flick, sway * 0.3),
+      hasSample: !!spec, tr: 'translate(' + f1(dx) + ' 0)',
+      char: spec && spec.char ? f1(clamp01(st.fHeat / 2) * 100) / 100 : 0,
+      ball: !!spec && !!spec.ball && st.fTarget === 1 && st.fHeat > 0.5,
+      burnOut, sOuter: tear(tipX + 6, 146, 18, sh, sway * 0.5), sFill: sS.fill, sOp: sS.op, sStroke: sS.stroke, sSw: sS.sw / 2,
+      sTip: tear(tipX + 6, f1(146 - sh * 0.6), 9, sh * 0.4, sway * 0.5),
+      soot, drips,
+    };
+    if (fl.hasTip && !mS.tip) fl.tip = fl.sTip;
+    let fStatus = 'Kahan hoří. Vzorek se\u00a0vkládá kleštěmi.';
+    if (spec) {
+      if (st.fTarget === 0) fStatus = inFlame ? 'Vzorek je v\u00a0plameni. Plamen: ' + spec.flame + '.' : 'Vzorek se\u00a0vkládá do plamene.';
+      else fStatus = st.fP < 1 ? 'Vzorek se\u00a0vyjímá z\u00a0plamene.' : 'Mimo plamen: ' + spec.after + '.';
+    }
+    const fLabels = FLAME.map(r => Object.assign({ label: r.k, onClick: () => { this.setState({ fSel: r.k, fP: 1, fTarget: 0, fHeat: 0 }); this.startLoop(); } }, btn(st.fSel === r.k)));
+    const canRemove = !!spec && st.fTarget === 0;
+    const fr = spec ? { has: true, none: false, name: spec.k, rows: [
+      { label: 'Plamen', value: spec.flame }, { label: 'Po vyjmutí', value: spec.after },
+      { label: 'Zápach', value: spec.smell }, { label: 'Další znaky', value: spec.other },
+    ] } : { has: false, none: true, name: '', rows: [] };
+    const fTable = FLAME.map(r => ({ id: 'plamen-' + r.k.toLowerCase(), name: r.k, flame: r.flame, after: r.after, smell: r.smell, other: r.other, bg: st.fHl === r.k ? '#24180f' : '#0d121a' }));
+
+    let step = 1, res = null;
+    const kPath = [];
+    st.kAns.forEach(ai => {
+      const S = KEY[step], a = S.a[ai];
+      kPath.push({ n: step, q: S.q, a: a.l + (a.note ? ' → ' + a.note : ''), hasA: true, border: '#232c39' });
+      if (a.r) res = a.r; else step = a.n;
+    });
+    if (!res) kPath.push({ n: step, q: KEY[step].q, a: '', hasA: false, border: '#6cc4ba' });
+    const kAnswers = res ? [] : KEY[step].a.map((a, i) => ({ label: a.l, onClick: () => this.setState(s => ({ kAns: s.kAns.concat(i) })) }));
+    const R = res ? RES[res] : null;
+    const kRes = R ? { has: true, title: R.title, text: R.text, hasRow: !!R.row, row: R.row || '', href: R.row ? '#plamen-' + R.row.toLowerCase() : '#', onRow: () => this.setState({ fHl: R.row }) } : { has: false, hasRow: false };
+
+    return {
+      liqButtons, wLabels, wItems, wMsg, pour, liqFill: st.liq === 'water' ? '#1a3444' : '#1f2540',
+      flameRef: this.flameRef, fl, fStatus, fLabels, fr, fTable,
+      removeSample: () => { if (canRemove) { this.setState({ fTarget: 1 }); this.startLoop(); } },
+      removeCursor: canRemove ? 'pointer' : 'default', removeOp: canRemove ? 1 : 0.45,
+      kPath, kAsk: !res, kStep: step, kQuestion: KEY[step].q, kAnswers, kRes,
+      kReset: () => this.setState({ kAns: [] }),
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

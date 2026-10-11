@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vady výstřiků | STT</title>
+<meta name="description" content="Vady výstřiků: projev, příčina a náprava vad podle fáze cyklu, vliv parametrů vstřikování, propadlina a staženina.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-11">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e59a62; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Vstřikování, vytlačování, vyfukování</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:10px">Vstřikování, vytlačování, vyfukování</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 24px">Vady výstřiků</h1>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Většina vad vzniká v&nbsp;určité fázi cyklu — při plnění, dotlaku nebo chlazení — nebo už nesprávnou přípravou materiálu.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 8px;max-width:820px;text-wrap:pretty">Při hledání příčiny se&nbsp;mění vždy jen jeden parametr.</p>
+    <a href="vstrikovani.html" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Pracovní cyklus a&nbsp;technologické parametry: Vstřikování</a>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Klinika vad</h2>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="margin-bottom:14px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Klinika vad</div>
+        <div style="font-size:14px;color:#8296a8;margin-top:4px">Klikni na&nbsp;vadu. Vada se&nbsp;zobrazí na&nbsp;výstřiku na&nbsp;typickém místě.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ kButtons }}" as="b" hint-placeholder-count="8">
+            <button onClick="{{ b.onClick }}" style="padding:8px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1.5px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ kButtonsMat }}" as="b" hint-placeholder-count="2">
+            <button onClick="{{ b.onClick }}" style="padding:8px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1.5px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin:12px 0 16px;font-size:14px;color:#aebfcf">
+        <sc-for list="{{ phaseLegend }}" as="p" hint-placeholder-count="4">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:{{ p.color }}"></span>{{ p.label }}</span>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start">
+        <svg viewBox="0 0 620 370" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+          <sc-for list="{{ kPaths }}" as="p" hint-placeholder-count="9">
+            <path d="{{ p.d }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}" stroke-dasharray="{{ p.dash }}" opacity="{{ p.op }}" stroke-linejoin="round" stroke-linecap="round"></path>
+          </sc-for>
+        </svg>
+        <div style="background:#0a0e15;border:1px solid {{ kCard.border }};border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;min-height:200px;box-sizing:border-box">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:{{ kCard.color }}">{{ kCard.name }}</div>
+          <sc-if value="{{ kHas }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div>
+                <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:2px">Projev</div>
+                <div style="font-size:15px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ kCard.projev }}</div>
+              </div>
+              <div>
+                <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:2px">Příčina</div>
+                <div style="font-size:15px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ kCard.pricina }}</div>
+              </div>
+              <div>
+                <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:2px">Náprava</div>
+                <div style="font-size:15px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ kCard.naprava }}</div>
+                <sc-if value="{{ kCard.hasLink }}" hint-placeholder-val="{{ false }}">
+                  <a href="{{ kCard.href }}" style="display:inline-flex;margin-top:4px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">{{ kCard.linkLabel }}</a>
+                </sc-if>
+              </div>
+              <div>
+                <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#8296a8;margin-bottom:2px">Kde vzniká</div>
+                <div style="font-size:15px;line-height:1.55;font-weight:600;color:{{ kCard.color }}">{{ kCard.phase }}</div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ kNone }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:15px;line-height:1.55;color:#aebfcf">Výstřik bez vady. Klikni na&nbsp;některou vadu.</div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Co se&nbsp;stane, když…</h2>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="margin-bottom:14px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Co se&nbsp;stane, když…</div>
+        <div style="font-size:14px;color:#8296a8;margin-top:4px">Změň jeden parametr. Ostatní se&nbsp;vrátí na&nbsp;„správná“.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <svg viewBox="0 0 620 370" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <sc-for list="{{ wPaths }}" as="p" hint-placeholder-count="9">
+              <path d="{{ p.d }}" fill="{{ p.fill }}" stroke="{{ p.stroke }}" stroke-width="{{ p.sw }}" stroke-dasharray="{{ p.dash }}" opacity="{{ p.op }}" stroke-linejoin="round" stroke-linecap="round"></path>
+            </sc-for>
+          </svg>
+          <div style="background:#0a0e15;border-radius:14px;padding:14px 18px;min-height:76px;box-sizing:border-box">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:{{ wColor }};margin-bottom:4px">{{ wTitle }}</div>
+            <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ wText }}</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ wParams }}" as="r" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center">
+              <div style="font-weight:600;font-size:15px;color:#eaf2fa">{{ r.label }}</div>
+              <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px">
+                <sc-for list="{{ r.opts }}" as="o" hint-placeholder-count="3">
+                  <button onClick="{{ o.onClick }}" style="padding:7px 8px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ o.bg }};color:{{ o.color }};border:1px solid {{ o.border }}">{{ o.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid #232c39;padding-top:14px;margin-top:4px">
+            <sc-for list="{{ wSpecial }}" as="o" hint-placeholder-count="2">
+              <button onClick="{{ o.onClick }}" style="padding:8px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ o.bg }};color:{{ o.color }};border:1px solid {{ o.border }}">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Propadlina a&nbsp;staženina podrobně</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Silné místo chladne déle než tenká stěna. Povrch ztuhne a&nbsp;jádro se&nbsp;dál smršťuje.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Pokud povrch ještě poddá, vznikne propadlina. Pokud už je tuhý, vznikne staženina uvnitř.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Stejná × nestejná stěna</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <sc-for list="{{ smModes }}" as="m" hint-placeholder-count="4">
+            <button onClick="{{ m.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ m.bg }};color:{{ m.color }};border:1px solid {{ m.border }}">{{ m.label }}</button>
+          </sc-for>
+          <button onClick="{{ smPlay }}" style="padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;background:#e59a62;color:#080b12;border:1px solid #e59a62">{{ smPlayLabel }}</button>
+        </div>
+      </div>
+      <svg viewBox="0 0 900 240" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <path d="{{ sm.d }}" fill="{{ sm.fill }}" stroke="#6b7f96" stroke-width="1.5" stroke-linejoin="round"></path>
+        <sc-if value="{{ sm.hasCore }}" hint-placeholder-val="{{ false }}">
+          <ellipse cx="450" cy="148" rx="{{ sm.rx }}" ry="{{ sm.ry }}" fill="#e59a62" opacity="{{ sm.coreOp }}"></ellipse>
+        </sc-if>
+        <sc-if value="{{ sm.hasVoid }}" hint-placeholder-val="{{ false }}">
+          <ellipse cx="450" cy="150" rx="{{ sm.vrx }}" ry="{{ sm.vry }}" fill="#0a0e15" stroke="#ef8f73" stroke-width="1.5"></ellipse>
+        </sc-if>
+        <path d="M132 80 H150 V110 H132 Z" fill="#e59a62"></path>
+        <sc-if value="{{ sm.arrow }}" hint-placeholder-val="{{ false }}">
+          <rect x="150" y="{{ sm.bandY }}" width="260" height="{{ sm.bandH }}" fill="#e59a62"></rect>
+          <path d="M162 95 H392 M392 87 L408 95 L392 103 Z" fill="#eaf2fa" stroke="#eaf2fa" stroke-width="3" stroke-linejoin="round"></path>
+        </sc-if>
+      </svg>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#e59a62"></span>tavenina</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#8fb4d6"></span>ztuhlý materiál</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:2px;background:#e59a62"></span>vtok</span>
+        <sc-if value="{{ smIsHold }}" hint-placeholder-val="{{ false }}">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:3px;background:#eaf2fa"></span>doplňování taveniny dotlakem</span>
+        </sc-if>
+      </div>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:26px;text-wrap:pretty">{{ smCaption }}</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Shrnutí</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:15px;line-height:1.5">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Fáze</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Vady</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Hlavní nápravy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#e59a62">plnění</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nedostřik, přetok, studený spoj, proud taveniny, spálené místo</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">teplota, rychlost a&nbsp;tlak vstřiku, odvzdušnění, uzavírací síla</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#b3a6e6">dotlak</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">propadlina, staženina</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">výše a&nbsp;doba dotlaku, stejná tloušťka stěn</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#8fb4d6">chlazení</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">deformace</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">rovnoměrná temperace, doba chlazení</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">materiál</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">stříbřité a&nbsp;barevné šmouhy</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">sušení, promíchání</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const f1 = n => Math.round(n * 10) / 10;
+const ease = u => u < 0.5 ? 2 * u * u : 1 - 2 * (1 - u) * (1 - u);
+const hexRgb = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(a, b, u) { const A = hexRgb(a), B = hexRgb(b); return 'rgb(' + A.map((v, i) => Math.round(v + (B[i] - v) * u)).join(',') + ')'; }
+const MELT = '#e59a62', SOLID = '#8fb4d6';
+const pill = on => ({ bg: on ? '#6cc4ba' : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? '#6cc4ba' : '#263040' });
+const E = (cx, cy, rx, ry) => 'M' + (cx - rx) + ' ' + cy + ' a' + rx + ' ' + ry + ' 0 1 0 ' + 2 * rx + ' 0 a' + rx + ' ' + ry + ' 0 1 0 ' + -2 * rx + ' 0 Z';
+const P = (d, fill, stroke, sw, dash, op) => ({ d, fill: fill || 'none', stroke: stroke || 'none', sw: sw || 0, dash: dash || 'none', op: op == null ? 1 : op });
+
+const PHASES = {
+  plneni: { label: 'plnění', color: '#e59a62' },
+  dotlak: { label: 'dotlak', color: '#b3a6e6' },
+  chlazeni: { label: 'chlazení', color: '#8fb4d6' },
+  material: { label: 'materiál', color: '#6cc4ba' },
+};
+const DEFECTS = [
+  { id: 'nedostrik', name: 'Nedostřik', phase: 'plneni', projev: 'dutina se\u00a0nezaplní celá', pricina: 'málo materiálu, nízký tlak nebo rychlost vstřiku, nízká teplota, vzduch bez odvzdušnění', naprava: 'zvětšit dávku, zvýšit tlak, rychlost nebo teplotu, odvzdušnit formu' },
+  { id: 'pretok', name: 'Přetok', phase: 'plneni', projev: 'tavenina vnikne do dělicí roviny', pricina: 'vysoký tlak, malá uzavírací síla, opotřebená dělicí rovina', naprava: 'snížit tlak, zvýšit uzavírací sílu, opravit formu' },
+  { id: 'spoj', name: 'Studený spoj', phase: 'plneni', projev: 'viditelná čára, slabé místo', pricina: 'čela taveniny jsou při setkání příliš chladná', naprava: 'zvýšit teplotu taveniny a\u00a0formy, zrychlit vstřik, přemístit vtok' },
+  { id: 'proud', name: 'Proud taveniny', phase: 'plneni', projev: 'hadovitá stopa na\u00a0povrchu', pricina: 'tavenina vystříkne volně do dutiny malým ústím', naprava: 'snížit rychlost na\u00a0začátku vstřiku, směrovat ústí proti stěně' },
+  { id: 'spaleni', name: 'Spálené místo', phase: 'plneni', projev: 'černé nebo hnědé zabarvení', pricina: 'vzduch se\u00a0nestihne vytlačit, stlačením se\u00a0zahřeje a\u00a0spálí taveninu', naprava: 'odvzdušnit formu, snížit rychlost vstřiku' },
+  { id: 'propadlina', name: 'Propadlina', phase: 'dotlak', projev: 'prohlubeň na\u00a0povrchu nad silným místem', pricina: 'smrštění silného místa není doplněno taveninou', naprava: 'zvýšit a\u00a0prodloužit dotlak, stejná tloušťka stěn, vtok umístit k\u00a0silnému místu' },
+  { id: 'stazenina', name: 'Staženina', phase: 'dotlak', projev: 'dutina uvnitř silného místa', pricina: 'jako propadlina, povrch už ztuhl a\u00a0smrštění proběhlo uvnitř', naprava: 'zvýšit a\u00a0prodloužit dotlak, stejná tloušťka stěn, vtok umístit k\u00a0silnému místu' },
+  { id: 'deformace', name: 'Deformace', phase: 'chlazeni', projev: 'výstřik se\u00a0po vyhození zkroutí', pricina: 'nerovnoměrné chlazení a\u00a0smrštění, krátká doba chlazení', naprava: 'rovnoměrná temperace formy, delší chlazení, stejná tloušťka stěn' },
+  { id: 'smouhy', name: 'Stříbřité šmouhy', phase: 'material', projev: 'světlé šmouhy ve\u00a0směru toku', pricina: 'vlhký materiál, voda se\u00a0mění v\u00a0páru', naprava: 'usušit materiál', href: '../zaklady/priprava-materialu.html#suseni', linkLabel: '→ Sušení' },
+  { id: 'barvy', name: 'Barevné šmouhy', phase: 'material', projev: 'nestejná barva', pricina: 'špatně promíchaný masterbatch', naprava: 'lepší promíchání, vhodný nosný polymer', href: '../zaklady/priprava-materialu.html#barveni', linkLabel: '→ Barvení' },
+];
+const DEF = {}; DEFECTS.forEach(d => { DEF[d.id] = d; });
+
+const MARKS = {
+  nedostrik: [P('M520 120 L580 120 L580 175 L551 194 L551 139 Z', '#0a0e15', '#ef8f73', 2, '5 4')],
+  pretok: [P('M112 340 H460 L580 260 L591 257 L465 347 H112 Z', '#cfdbe6', null, 0, null, 0.9)],
+  spoj: [P('M392 160 L474 148', null, '#0a0e15', 2.5)],
+  proud: [P('M166 280 C186 262 200 298 222 280 S258 262 280 280 S316 298 338 280 S374 262 396 280', null, '#a9bccd', 3)],
+  spaleni: [P(E(552, 130, 22, 9), '#4a2a18', null, 0, null, 0.8), P(E(552, 130, 13, 5), '#120a06')],
+  propadlina: [P(E(245, 138, 26, 10), '#0a0e15', null, 0, null, 0.45), P('M219 139 A26 10 0 0 0 271 139', null, '#8fb4d6', 1.5)],
+  stazenina: [
+    P('M24 24 H204 V124 H24 Z', '#0d121a', '#6b7f96', 1.2),
+    P('M40 44 H188 V60 H40 Z M94 60 H134 V112 H94 Z', '#3d5470', '#8fb4d6', 1.2),
+    P(E(114, 78, 8, 12), '#0a0e15', '#ef8f73', 2),
+    P('M204 112 L221 136', null, '#8296a8', 1.2, '4 3'),
+  ],
+  smouhy: [P('M178 268 L232 262 M180 286 L250 284 M176 300 L224 304 M200 276 L262 272 M196 294 L270 296', null, '#e6eef5', 2.5, null, 0.8)],
+  barvy: [P(E(250, 262, 60, 22), '#5b7c9e', null, 0, null, 0.55), P(E(380, 305, 55, 18), '#1f2d3d', null, 0, null, 0.7), P(E(420, 150, 50, 12), '#55718f', null, 0, null, 0.5)],
+};
+function partPaths(set) {
+  const warp = set.includes('deformace'), dy = warp ? -14 : 0;
+  const base = [
+    P(warp ? 'M120 200 Q290 172 460 200 L580 120 Q410 92 240 120 Z' : 'M120 200 L460 200 L580 120 L240 120 Z', '#3d5470', '#8fb4d6', 1.5),
+    P(warp ? 'M120 200 Q290 172 460 200 V340 H120 Z' : 'M120 200 H460 V340 H120 Z', '#2c3e54', '#8fb4d6', 1.5),
+    P('M460 200 L580 120 V260 L460 340 Z', '#22313f', '#8fb4d6', 1.5),
+    P(E(350, 160 + dy, 38, 16), '#0a0e15', '#8fb4d6', 1.5),
+    P(warp ? 'M365 188.7 L485 108.7 V260 L365 340 Z' : 'M365 200 L485 120 V260 L365 340 Z', null, '#6b7f96', 1.2, '5 4'),
+    P(E(245, 138 + dy, 24, 10) + ' M221 ' + (138 + dy) + ' V238 M269 ' + (138 + dy) + ' V238 M221 238 A24 10 0 0 0 269 238', null, '#6b7f96', 1.2, '5 4'),
+    P(E(160, 280, 7, 7), '#e59a62'),
+  ];
+  return base.concat(...set.filter(id => MARKS[id]).map(id => MARKS[id]));
+}
+
+const LV3 = ['nízká', 'správná', 'vysoká'];
+const PARAMS = [
+  { key: 'tavenina', label: 'teplota taveniny', lv: LV3 },
+  { key: 'forma', label: 'teplota formy', lv: LV3 },
+  { key: 'rychlost', label: 'rychlost vstřiku', lv: LV3 },
+  { key: 'dotlak', label: 'dotlak', lv: ['nízký', 'správný', 'vysoký'] },
+  { key: 'chlazeni', label: 'doba chlazení', lv: ['krátká', 'správná', 'dlouhá'] },
+];
+const OUT = {
+  'tavenina-1': [['nedostrik', 'spoj'], 'Tavenina je málo tekutá a\u00a0tuhne dřív, než vyplní dutinu. Čela taveniny se\u00a0za otvorem setkají příliš chladná.'],
+  'tavenina1': [['pretok'], 'Tavenina je velmi tekutá a\u00a0vnikne do dělicí roviny. Při vysoké teplotě se\u00a0navíc rozkládá a\u00a0mění barvu.'],
+  'forma-1': [['spoj'], 'Studená stěna formy ochlazuje čela taveniny. Za otvorem vznikne studený spoj a\u00a0povrch je horší.'],
+  'forma1': [[], 'Výstřik chladne ve\u00a0formě pomaleji — cyklus se\u00a0prodlouží.'],
+  'rychlost-1': [['nedostrik', 'spoj'], 'Tavenina teče dutinou pomalu a\u00a0chladne. Ztuhne dřív, než dutinu vyplní, a\u00a0čela taveniny se\u00a0setkají chladná.'],
+  'rychlost1': [['spaleni', 'proud'], 'Tavenina vystříkne z\u00a0ústí volně do dutiny. Vzduch se\u00a0nestihne vytlačit, stlačením se\u00a0zahřeje a\u00a0spálí taveninu.'],
+  'dotlak-1': [['propadlina', 'stazenina'], 'Smrštění silného místa není doplněno taveninou. Pokud povrch ještě poddá, vznikne nad nálitkem propadlina. Pokud už je tuhý, vznikne uvnitř staženina.'],
+  'dotlak1': [['pretok'], 'Tlak taveniny je větší, než udrží dělicí rovina. Tavenina vnikne do dělicí roviny.'],
+  'chlazeni-1': [['deformace'], 'Výstřik se\u00a0vyhodí dřív, než ve\u00a0formě rovnoměrně ztuhne. Po vyhození se\u00a0nerovnoměrně smrští a\u00a0zkroutí.'],
+  'chlazeni1': [[], 'Výstřik zůstává ve\u00a0formě déle — cyklus se\u00a0prodlouží.'],
+  vlhky: [['smouhy'], 'Voda v\u00a0materiálu se\u00a0v\u00a0tavenině mění v\u00a0páru. Na\u00a0povrchu vzniknou stříbřité šmouhy ve\u00a0směru toku.'],
+  sila: [['pretok'], 'Uzavírací síla neudrží formu zavřenou proti tlaku taveniny. Tavenina vnikne do dělicí roviny.'],
+};
+
+function smScene(mode, c) {
+  let d;
+  if (mode !== 'eq') {
+    const depth = mode === 'neq' ? 12 : (mode === 'hold' ? 4 : 0), top = [];
+    for (let x = 150; x <= 750; x += 10) top.push(x + ' ' + f1(80 + depth * c * Math.exp(-Math.pow((x - 450) / 45, 2))));
+    d = 'M' + top.join(' L') + ' L750 110 H490 V200 H410 V110 H150 Z';
+  } else d = 'M150 80 H750 V110 H465 V200 H435 V110 H150 Z';
+  const k = 1 - Math.pow(c, 1.6);
+  return { d, fill: mix(MELT, SOLID, mode === 'eq' ? c : Math.min(1, c * 1.15)), hasCore: mode !== 'eq' && c < 1, rx: f1(34 * k + 0.1), ry: f1(50 * k + 0.1), coreOp: f1(k * 100) / 100, arrow: mode === 'hold' && c > 0 && c < 1,
+    bandY: f1(95 - 5 * (1 - c)), bandH: f1(10 * (1 - c)),
+    hasVoid: mode === 'rigid' && c > 0, vrx: f1(12 * c), vry: f1(20 * c) };
+}
+
+class Component extends DCLogic {
+  state = { kSel: 'nedostrik', wKey: null, wVal: 0, smMode: 'neq', smC: 0, smRun: false };
+  _raf = null; _last = null;
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+  tick = now => {
+    const dt = this._last == null ? 0 : Math.min(0.05, (now - this._last) / 1000);
+    this._last = now;
+    const c = this.state.smC + dt / 3;
+    if (c >= 1) { this.setState({ smC: 1, smRun: false }); this._raf = null; }
+    else { this.setState({ smC: c }); this._raf = requestAnimationFrame(this.tick); }
+  };
+  runSm(upd) { this.setState(Object.assign({ smC: 0, smRun: true }, upd)); if (!this._raf) { this._last = null; this._raf = requestAnimationFrame(this.tick); } }
+  renderVals() {
+    const st = this.state;
+    const ks = st.kSel;
+    const btn = d => {
+      const on = ks === d.id, col = PHASES[d.phase].color;
+      return { label: d.name, bg: on ? col : '#0d121a', color: on ? '#080b12' : '#eaf2fa', border: col, onClick: () => this.setState(s => ({ kSel: s.kSel === d.id ? null : d.id })) };
+    };
+    const kButtons = DEFECTS.filter(d => d.phase !== 'material').map(btn);
+    const kButtonsMat = DEFECTS.filter(d => d.phase === 'material').map(btn);
+    const phaseLegend = Object.keys(PHASES).map(k => PHASES[k]);
+    const dsel = ks ? DEF[ks] : null;
+    const kCard = dsel
+      ? { name: dsel.name, projev: dsel.projev, pricina: dsel.pricina, naprava: dsel.naprava, phase: PHASES[dsel.phase].label, color: PHASES[dsel.phase].color, border: PHASES[dsel.phase].color, hasLink: !!dsel.href, href: dsel.href || '', linkLabel: dsel.linkLabel || '' }
+      : { name: 'Vady výstřiků', color: '#eaf2fa', border: '#232c39', hasLink: false };
+
+    const wk = st.wKey, wv = st.wVal;
+    const setP = (key, v) => () => this.setState(v === 0 ? { wKey: null, wVal: 0 } : { wKey: key, wVal: v });
+    const wParams = PARAMS.map(p => ({
+      label: p.label,
+      opts: [-1, 0, 1].map((v, i) => Object.assign({ label: p.lv[i], onClick: setP(p.key, v) }, pill(wk === p.key ? wv === v : v === 0))),
+    }));
+    const wSpecial = [['vlhky', 'Vlhký materiál'], ['sila', 'Malá uzavírací síla']].map(([k, label]) => Object.assign({ label, onClick: () => this.setState(s => s.wKey === k ? { wKey: null, wVal: 0 } : { wKey: k, wVal: 0 }) }, pill(wk === k)));
+    const oKey = !wk ? null : (wk === 'vlhky' || wk === 'sila' ? wk : wk + wv);
+    const out = oKey ? OUT[oKey] : null;
+    const wSet = out ? out[0] : [];
+    const wTitle = !out ? 'Výstřik je bez vad.' : (wSet.length ? wSet.map(id => DEF[id].name).join(', ') : 'Výstřik je bez vad.');
+    const wText = out ? out[1] : 'Všechny parametry jsou nastavené správně.';
+    const wColor = wSet.length ? PHASES[DEF[wSet[0]].phase].color : '#6cc4ba';
+
+    const sm = smScene(st.smMode, st.smC);
+    const smModes = [['eq', 'Stejná stěna'], ['neq', 'Nestejná stěna'], ['hold', 'Nestejná stěna, delší dotlak'], ['rigid', 'Nestejná stěna, tuhý povrch']].map(([m, label]) => Object.assign({ label, onClick: () => this.runSm({ smMode: m }) }, pill(st.smMode === m)));
+    let smCaption;
+    if (st.smMode === 'eq') smCaption = 'Stěna má všude stejnou tloušťku. Chladne a\u00a0smršťuje se\u00a0rovnoměrně, povrch zůstane rovný.';
+    else if (st.smMode === 'neq') smCaption = st.smC >= 1 ? 'Silné místo chladlo a\u00a0smršťovalo se\u00a0déle než tenká stěna. Nad ním vznikla propadlina.' : 'Tenká stěna ztuhne dřív. Jádro silného místa zůstává déle roztavené.';
+    else if (st.smMode === 'hold') smCaption = st.smC >= 1 ? 'Smrštění silného místa bylo během chladnutí doplňováno taveninou. Propadlina je jen mělká.' : 'Dotlak tlačí taveninu od\u00a0vtoku do silného místa, dokud tenká stěna úplně neztuhne.';
+    else smCaption = st.smC >= 1 ? 'Povrch ztuhl dřív, než se\u00a0jádro smrštilo. Smrštění proběhlo uvnitř — vznikla staženina.' : 'Tenká stěna ztuhne dřív. Jádro silného místa zůstává déle roztavené.';
+
+    return {
+      kButtons, kButtonsMat, phaseLegend, kPaths: partPaths(ks ? [ks] : []), kCard, kHas: !!dsel, kNone: !dsel,
+      wParams, wSpecial, wPaths: partPaths(wSet), wTitle, wText, wColor,
+      sm, smModes, smCaption, smIsHold: st.smMode === 'hold',
+      smPlay: () => this.runSm({}), smPlayLabel: st.smC > 0 ? 'Znovu' : 'Ochladit',
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>
