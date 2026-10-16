@@ -36,6 +36,11 @@ from pathlib import Path, PurePosixPath
 from urllib.parse import unquote
 
 try:
+    from zoneinfo import ZoneInfo
+except ImportError:  # Python < 3.9
+    ZoneInfo = None
+
+try:
     from bs4 import BeautifulSoup
 except ImportError:
     sys.exit("Chybí knihovna beautifulsoup4. Nainstaluj:  pip install beautifulsoup4")
@@ -46,6 +51,8 @@ except ImportError:
 # ──────────────────────────────────────────────────────────────────────
 
 MANIFEST_NAME = "pages.json"
+LAST_UPDATE_NAME = "last-update.json"
+LAST_UPDATE_TZ = "Europe/Prague"
 BADGE_DAYS = 30
 
 # Stránky, které se kopírují, ale nesledují jako obsah (nedostanou badge,
@@ -469,6 +476,17 @@ def sync(args) -> int:
         for e in (x for x in entries if x.kind == "rename"):
             old_file = manifest.get(e.slug, {}).get("file")
             new_file = resolve(e.new_slug, index, report)
+            if e.new_slug in manifest:
+                # Přejmenování už proběhlo dřív. Kdyby se soubor se starým
+                # názvem v exportu znovu objevil (typicky přesměrování),
+                # nesmí se záznam nové stránky přepsat.
+                if e.slug in manifest:
+                    report.warnings.append(
+                        f"V exportu je znovu soubor pro '{e.slug}', ačkoliv "
+                        f"přejmenování na '{e.new_slug}' už proběhlo. "
+                        f"Rename přeskakuji — obě stránky zůstávají samostatné."
+                    )
+                continue
             if e.slug in manifest and new_file:
                 rec = manifest.pop(e.slug)
                 rec["file"] = new_file
@@ -478,8 +496,6 @@ def sync(args) -> int:
                     trash = repo / "_trash" / old_file
                     trash.parent.mkdir(parents=True, exist_ok=True)
                     shutil.move(str(repo / old_file), str(trash))
-            elif e.new_slug in manifest and e.slug not in manifest:
-                pass  # přejmenování už proběhlo dřív — v pořádku
             elif e.slug not in manifest:
                 report.warnings.append(
                     f"Rename '{e.slug}' → '{e.new_slug}': starý slug není v "
@@ -684,6 +700,35 @@ def print_report(r: Report, assets: int, args) -> None:
     print()
 
 
+def zapis_datum(repo_dir: Path) -> None:
+    """Zapíše do kořene repozitáře last-update.json s dnešním datem.
+
+    Běží až po hashování i po vložení badge, takže na detekci změn nemá vliv.
+    Chyba zápisu skript nezastaví — jen se vypíše varování.
+    """
+    if ZoneInfo is not None:
+        try:
+            dnes = datetime.now(ZoneInfo(LAST_UPDATE_TZ)).date()
+        except Exception:
+            # Windows bez balíčku tzdata — místní čas stroje je stejně pražský
+            dnes = date.today()
+    else:
+        dnes = date.today()
+
+    cil = repo_dir / LAST_UPDATE_NAME
+    try:
+        cil.write_text(
+            json.dumps({"datum": dnes.isoformat()}, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+    except OSError as exc:
+        print(f"  ⚠  {LAST_UPDATE_NAME} se nepodařilo zapsat: {exc}")
+        return
+
+    print(f"  Datum synchronizace: {dnes.isoformat()}  ({LAST_UPDATE_NAME})")
+    print()
+
+
 def main() -> int:
     p = argparse.ArgumentParser(
         description="Synchronizace exportu z Claude Design do repozitáře STT.",
@@ -701,7 +746,12 @@ def main() -> int:
                         "(oprava po chybném zápisu); first_seen zůstává")
     p.add_argument("--no-links", action="store_true",
                    help="vypne kontrolu vnitřních odkazů")
-    return sync(p.parse_args())
+
+    args = p.parse_args()
+    kod = sync(args)
+    if not args.dry_run:
+        zapis_datum(Path(args.repo).resolve())
+    return kod
 
 
 if __name__ == "__main__":

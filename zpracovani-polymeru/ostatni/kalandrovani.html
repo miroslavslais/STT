@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalandrování | STT</title>
+<meta name="description" content="Kalandrování plastů: kalandrovací linka, uspořádání válců I, L, F, Z, průhyb válců, nanášení na podklad a srovnání s vytlačováním štěrbinovou hlavou.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-16">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e59a62; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Ostatní technologie</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:10px">Ostatní technologie</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 6px">Kalandrování</h1>
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#8296a8;margin:0 0 24px">válcování plastů</div>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Kalandr je soustava vyhřívaných válců. Plastický materiál prochází mezerami mezi válci a&nbsp;poslední mezera mu dá konečnou tloušťku. Vzniká nekonečný pás — fólie, deska, podlahovina nebo koženka.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Kalandruje se hlavně PVC (měkčené i&nbsp;neměkčené) a&nbsp;pryž.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 8px;max-width:820px;text-wrap:pretty">Kalandr je drahé a&nbsp;velké zařízení, vyplatí se pro široké pásy, přesnou tloušťku a&nbsp;velké série.</p>
+    <a href="../zaklady/vlastnosti-prisady.html" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Změkčovadla a&nbsp;stabilizátory: Vlastnosti a&nbsp;přísady</a>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Kalandrovací linka</h2>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Kalandrovací linka</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Bokorys. Klikni na&nbsp;stanici linky nebo na&nbsp;její popisek.</div>
+        </div>
+        <button onClick="{{ lnToggle }}" aria-label="{{ lnPlayAria }}" title="{{ lnPlayAria }}" style="width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+          <sc-if value="{{ lnPaused }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+          <sc-if value="{{ lnPlaying }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
+        </button>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start">
+        <div ref="{{ lnRef }}">
+          <svg viewBox="0 0 1100 330" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <defs>
+              <linearGradient id="klGrad" gradientUnits="userSpaceOnUse" x1="724" y1="0" x2="856" y2="0">
+                <stop offset="0" stop-color="#e59a62"></stop>
+                <stop offset="1" stop-color="#8fb4d6"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M10 270 H1090 V276 H10 Z M205 146 H215 V270 H205 Z M20 152 H30 V270 H20 Z" fill="#131a24" pointer-events="none"></path>
+            <sc-for list="{{ lnShapes }}" as="s" hint-placeholder-count="20">
+              <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" fill-rule="evenodd" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+            </sc-for>
+            <path d="{{ ln.marks }}" fill="none" stroke="#a9bccd" stroke-opacity="0.8" stroke-width="1.6" stroke-linecap="round" pointer-events="none"></path>
+            <path d="{{ ln.feed }}" fill="none" stroke="#e59a62" stroke-width="12" pointer-events="none"></path>
+            <path d="{{ ln.feed }}" fill="none" stroke="#0a0e15" stroke-opacity="0.45" stroke-width="12" stroke-dasharray="2 16" stroke-dashoffset="{{ ln.feedOff }}" pointer-events="none"></path>
+            <path d="{{ ln.bank }}" fill="#e59a62" pointer-events="none"></path>
+            <sc-for list="{{ ln.segs }}" as="g" hint-placeholder-count="3">
+              <path d="{{ g.d }}" fill="none" stroke="url(#klGrad)" stroke-width="{{ g.w }}" stroke-linejoin="round" pointer-events="none"></path>
+              <path d="{{ g.d }}" fill="none" stroke="#0a0e15" stroke-opacity="0.45" stroke-width="{{ g.w }}" stroke-dasharray="2 16" stroke-dashoffset="{{ g.off }}" pointer-events="none"></path>
+            </sc-for>
+            <path d="{{ lnRings }}" fill="none" stroke="#ef8f73" stroke-width="1.5" pointer-events="none"></path>
+            <sc-for list="{{ lnLabels }}" as="l" hint-placeholder-count="9">
+              <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke="{{ l.color }}" stroke-width="1.2" pointer-events="none"></line>
+              <g onClick="{{ l.click }}" style="cursor:pointer">
+                <rect x="{{ l.rx }}" y="{{ l.ry }}" width="{{ l.w }}" height="{{ l.h }}" rx="8" fill="#0d121a" stroke="{{ l.color }}" stroke-width="{{ l.sw }}"></rect>
+              </g>
+            </sc-for>
+<text x="65" y="30.5" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600" fill="{{ lnC.michani }}" pointer-events="none">Míchání</text>
+<text x="180" y="30.5" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600" fill="{{ lnC.plastikace }}" pointer-events="none">Plastikace</text>
+<text x="470" y="30.5" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600" fill="{{ lnC.kalandr }}" pointer-events="none">Kalandr</text>
+<text x="670" y="30.5" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600" fill="{{ lnC.razeni }}" pointer-events="none">Ražení dezénu</text>
+<text x="905" y="30.5" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600" fill="{{ lnC.mereni }}" pointer-events="none">Měření tloušťky</text>
+<text x="335" y="314.5" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600" fill="{{ lnC.privod }}" pointer-events="none">Přívod</text>
+<text x="600" y="314.5" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600" fill="{{ lnC.odtah }}" pointer-events="none">Odtahové válce</text>
+<text x="790" y="314.5" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600" fill="{{ lnC.chlazeni }}" pointer-events="none">Chladicí válce</text>
+<text x="1030" y="314.5" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="18" font-weight="600" fill="{{ lnC.navijeni }}" pointer-events="none">Navíjení</text>
+          </svg>
+          <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#e59a62"></span>plastický materiál</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#8fb4d6"></span>ztuhlý plast</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#39424e;border:1px solid #a9bccd;box-sizing:border-box"></span>válce</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#132b3b;border:1px solid #7fb0e0;box-sizing:border-box"></span>chladicí válce</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;border:1.5px solid #ef8f73;box-sizing:border-box"></span>temperace válce</span>
+          </div>
+        </div>
+        <div style="background:#0a0e15;border:1px solid {{ lnInfo.border }};border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ lnInfo.color }}">{{ lnInfo.name }}</div>
+          <sc-if value="{{ lnHasSel }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:3px">Úkol</div>
+              <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ lnInfo.ukol }}</div>
+            </div>
+            <div>
+              <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:3px">Jak funguje</div>
+              <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ lnInfo.jak }}</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ lnNoSel }}" hint-placeholder-val="{{ true }}">
+            <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Klikni na&nbsp;stanici linky nebo na&nbsp;její popisek.</div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Kalandr a&nbsp;uspořádání válců</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Válce se&nbsp;otáčejí proti sobě a&nbsp;materiál vtahují do mezery. Před každou mezerou se&nbsp;drží malá zásoba materiálu, která se&nbsp;otáčí a&nbsp;promíchává.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Sousední válce mají různou obvodovou rychlost. Materiál se&nbsp;v&nbsp;mezeře smyká, lépe se&nbsp;promíchá a&nbsp;přechází na&nbsp;rychlejší a&nbsp;teplejší válec — tak se&nbsp;pás dostane do další mezery.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Největší rozdíl rychlostí je na&nbsp;vstupní mezeře — materiál se&nbsp;tu ještě promíchá a&nbsp;smykem prohřeje. Hlavní hnětení a&nbsp;plastikace proběhne už před kalandrem. K&nbsp;poslední mezeře se&nbsp;rozdíl rychlostí zmenšuje, tady rozhoduje tloušťka a&nbsp;povrch pásu.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Válce se&nbsp;uspořádávají do tvaru písmen I, L, F nebo Z. Uspořádání ovlivňuje dráhu pásu, přístup k&nbsp;mezerám a&nbsp;průhyb válců.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Uspořádání válců</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Čelní pohled na&nbsp;čela čtyř válců. Klikni na&nbsp;část schématu nebo na&nbsp;její popisek.</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <sc-for list="{{ uvBtns }}" as="b" hint-placeholder-count="4">
+            <button onClick="{{ b.onClick }}" style="width:44px;padding:9px 0;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+          <button onClick="{{ uvToggle }}" aria-label="{{ uvPlayAria }}" title="{{ uvPlayAria }}" style="width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+            <sc-if value="{{ uvPaused }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+            <sc-if value="{{ uvPlaying }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
+          </button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start">
+        <div ref="{{ uvRef }}">
+          <svg viewBox="0 0 760 470" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <path d="{{ uv.selStrip }}" fill="none" stroke="#e59a62" stroke-opacity="0.45" stroke-width="{{ uv.selW }}" stroke-linejoin="round" pointer-events="none"></path>
+            <sc-for list="{{ uv.rolls }}" as="c" hint-placeholder-count="4">
+              <path d="{{ c.d }}" fill="{{ c.fill }}" stroke="{{ c.stroke }}" stroke-width="{{ c.sw }}" onClick="{{ uvPickRoll }}" style="cursor:pointer"></path>
+            </sc-for>
+            <path d="{{ uv.rings }}" fill="none" stroke="#ef8f73" stroke-width="1.5" pointer-events="none"></path>
+            <path d="{{ uv.arcs }}" fill="none" stroke="#a9bccd" stroke-width="2" stroke-linecap="round" pointer-events="none"></path>
+            <path d="{{ uv.heads }}" fill="#a9bccd" pointer-events="none"></path>
+            <path d="{{ uv.marks }}" fill="none" stroke="#a9bccd" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round" pointer-events="none"></path>
+            <path d="{{ uv.feed }}" fill="none" stroke="#e59a62" stroke-width="18" pointer-events="none"></path>
+            <path d="{{ uv.feed }}" fill="none" stroke="#0a0e15" stroke-opacity="0.45" stroke-width="18" stroke-dasharray="2 18" stroke-dashoffset="{{ uv.feedOff }}" pointer-events="none"></path>
+            <path d="{{ uv.bank }}" fill="#e59a62" stroke="{{ uv.bankStroke }}" stroke-width="2" pointer-events="none"></path>
+            <path d="{{ uv.swirl }}" fill="none" stroke="#0a0e15" stroke-opacity="0.5" stroke-width="2.5" stroke-linecap="round" pointer-events="none"></path>
+            <sc-for list="{{ uv.segs }}" as="g" hint-placeholder-count="3">
+              <path d="{{ g.d }}" fill="none" stroke="#e59a62" stroke-width="{{ g.w }}" stroke-linejoin="round" pointer-events="none"></path>
+              <path d="{{ g.d }}" fill="none" stroke="#0a0e15" stroke-opacity="0.45" stroke-width="{{ g.w }}" stroke-dasharray="2 18" stroke-dashoffset="{{ g.off }}" pointer-events="none"></path>
+            </sc-for>
+            <path d="{{ uv.arrow }}" fill="#a9bccd" pointer-events="none"></path>
+            <path d="{{ uv.stripHit }}" fill="none" stroke="transparent" stroke-width="16" onClick="{{ uvPickStrip }}" style="cursor:pointer"></path>
+            <path d="{{ uv.bankHit }}" fill="transparent" onClick="{{ uvPickBank }}" style="cursor:pointer"></path>
+            <sc-for list="{{ uv.nips }}" as="m" hint-placeholder-count="3">
+              <ellipse cx="{{ m.cx }}" cy="{{ m.cy }}" rx="{{ m.rx }}" ry="{{ m.ry }}" transform="{{ m.tr }}" fill="{{ m.fill }}" stroke="{{ m.stroke }}" stroke-width="2" onClick="{{ uvPickNip }}" style="cursor:pointer"></ellipse>
+            </sc-for>
+          </svg>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <sc-for list="{{ uvList }}" as="p" hint-placeholder-count="4">
+              <button onClick="{{ p.onClick }}" style="display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:14.5px;cursor:pointer;text-align:left;background:{{ p.bg }};color:{{ p.tc }};border:1px solid {{ p.border }}">
+                <span style="width:14px;height:14px;border-radius:{{ p.rad }};background:{{ p.swatch }};border:1.5px solid {{ p.sb }};box-sizing:border-box;flex:none"></span>{{ p.name }}
+              </button>
+            </sc-for>
+          </div>
+          <div style="background:#0a0e15;border:1px solid {{ uvInfo.border }};border-radius:14px;padding:14px 18px;min-height:96px;box-sizing:border-box">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:{{ uvInfo.color }};margin-bottom:4px">{{ uvInfo.name }}</div>
+            <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ uvInfo.text }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Průhyb válců</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Materiál v&nbsp;mezeře tlačí válce od&nbsp;sebe. Válce jsou podepřené jen na&nbsp;koncích, proto se&nbsp;uprostřed prohnou — mezera je uprostřed větší a&nbsp;pás vyjde uprostřed silnější.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Bombírované válce</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Válec má uprostřed nepatrně větší průměr. Po&nbsp;prohnutí je mezera rovná.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Křížení os</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Osy válců se&nbsp;vůči sobě mírně natočí, mezera se&nbsp;na&nbsp;krajích zvětší a&nbsp;vyrovná průhyb.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Protiohyb</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Síly na&nbsp;koncích válce ho ohýbají opačně, než ho prohýbá materiál.</div>
+      </div>
+    </div>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní schéma</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Průhyb válců</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Pohled zepředu na&nbsp;dvojici válců po&nbsp;délce, průhyb je výrazně přehnaný. Klikni na&nbsp;část nebo na&nbsp;její popisek.</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ phBtns }}" as="b" hint-placeholder-count="4">
+            <button onClick="{{ b.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start">
+        <div>
+          <svg viewBox="0 0 1000 420" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <path d="{{ ph.gap }}" fill="transparent" stroke="{{ ph.gapStroke }}" stroke-width="2" onClick="{{ phPickGap }}" style="cursor:pointer"></path>
+            <path d="{{ ph.melt }}" fill="#e59a62" pointer-events="none"></path>
+            <sc-for list="{{ phShapes }}" as="s" hint-placeholder-count="8">
+              <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" stroke-linejoin="round" onClick="{{ s.click }}" style="cursor:pointer"></path>
+            </sc-for>
+            <path d="{{ ph.force }}" fill="none" stroke="{{ ph.forceColor }}" stroke-width="3" stroke-linecap="round" pointer-events="none"></path>
+            <path d="{{ ph.forceHeads }}" fill="{{ ph.forceColor }}" pointer-events="none"></path>
+            <path d="{{ ph.forceHit }}" fill="transparent" onClick="{{ phPickForce }}" style="cursor:pointer"></path>
+            <path d="{{ ph.endForce }}" fill="none" stroke="#b3a6e6" stroke-width="3" stroke-linecap="round" pointer-events="none"></path>
+            <path d="{{ ph.endHeads }}" fill="#b3a6e6" pointer-events="none"></path>
+            <path d="{{ ph.strip }}" fill="{{ ph.stripFill }}" stroke="{{ ph.stripStroke }}" stroke-width="2" onClick="{{ phPickStrip }}" style="cursor:pointer"></path>
+            <sc-for list="{{ phLabels }}" as="l" hint-placeholder-count="5">
+              <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke="{{ l.color }}" stroke-width="1.2" pointer-events="none"></line>
+              <g onClick="{{ l.click }}" style="cursor:pointer">
+                <rect x="{{ l.rx }}" y="{{ l.ry }}" width="{{ l.w }}" height="{{ l.h }}" rx="8" fill="#0d121a" stroke="{{ l.color }}" stroke-width="{{ l.sw }}"></rect>
+              </g>
+            </sc-for>
+<text x="160" y="27.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ phC.podpera }}" pointer-events="none">podpěra (ložisko)</text>
+<text x="450" y="27.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ phC.sila }}" pointer-events="none">síla od&nbsp;materiálu</text>
+<text x="880" y="165.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ phC.valec }}" pointer-events="none">válec</text>
+<text x="880" y="210.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ phC.mezera }}" pointer-events="none">mezera</text>
+<text x="880" y="390.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ phC.pas }}" pointer-events="none">pás</text>
+          </svg>
+          <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#39424e;border:1px solid #a9bccd;box-sizing:border-box"></span>válec</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#e59a62"></span>materiál v&nbsp;mezeře</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:3px;background:#e59a62"></span>síla od&nbsp;materiálu</span>
+            <sc-if value="{{ phIsProti }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:3px;background:#b3a6e6"></span>síla na&nbsp;koncích válce</span></sc-if>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#8fb4d6"></span>průřez pásu po&nbsp;šířce</span>
+          </div>
+          <div style="background:#0a0e15;border-radius:14px;padding:14px 18px;margin-top:14px">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:8px">Tloušťka pásu po&nbsp;šířce</div>
+            <div style="position:relative;height:10px;border-radius:5px;background:#1a2230;border:1px solid #263040">
+              <div style="position:absolute;top:-5px;left:{{ phThickPos }};width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#e59a62;border:2px solid #0a0e15;box-sizing:border-box;transition:left 0.3s ease"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:13.5px;color:#8296a8"><span>rovnoměrná</span><span>uprostřed silnější</span></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="background:#0a0e15;border:1px solid #232c39;border-radius:14px;padding:14px 18px">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:4px">{{ phMode.name }}</div>
+            <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ phMode.text }}</div>
+          </div>
+          <sc-if value="{{ phIsKriz }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#0a0e15;border:1px solid #232c39;border-radius:14px;padding:14px 18px">
+              <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:8px">Pohled shora</div>
+              <svg viewBox="0 0 240 110" style="width:100%;display:block">
+                <path d="M20 43 H220 V67 H20 Z" fill="#39424e" stroke="#a9bccd" stroke-width="1.5"></path>
+                <path d="M20 43 H220 V67 H20 Z" fill="#39424e" fill-opacity="0.7" stroke="#a9bccd" stroke-width="1.5" transform="rotate(-8 120 55)"></path>
+                <path d="M10 55 H230" fill="none" stroke="#8296a8" stroke-width="1" stroke-dasharray="4 4"></path>
+                <path d="M10 55 H230" fill="none" stroke="#8296a8" stroke-width="1" stroke-dasharray="4 4" transform="rotate(-8 120 55)"></path>
+              </svg>
+              <div style="font-size:13.5px;line-height:1.5;color:#aebfcf;margin-top:6px;text-wrap:pretty">Osy válců jsou vůči sobě natočené (úhel přehnaný).</div>
+            </div>
+          </sc-if>
+          <div style="background:#0a0e15;border:1px solid {{ phInfo.border }};border-radius:14px;padding:14px 18px;min-height:80px;box-sizing:border-box">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:{{ phInfo.color }};margin-bottom:4px">{{ phInfo.name }}</div>
+            <div style="font-size:14.5px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ phInfo.text }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Nanášení na&nbsp;podklad</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Do poslední mezery kalandru se&nbsp;přivádí textilie nebo papír a&nbsp;plastický materiál se&nbsp;do nich vtlačí. Tak vzniká koženka, podlahoviny s&nbsp;podkladem nebo pogumované tkaniny.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="margin-bottom:14px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Schéma</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Nanášení v&nbsp;poslední mezeře</div>
+        <div style="font-size:14px;color:#8296a8;margin-top:4px">Klikni na&nbsp;část schématu nebo na&nbsp;její popisek.</div>
+      </div>
+      <svg viewBox="0 0 1000 360" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <defs>
+          <clipPath id="nnClip"><circle cx="830" cy="180" r="110"></circle></clipPath>
+        </defs>
+        <sc-for list="{{ nnShapes }}" as="s" hint-placeholder-count="5">
+          <path d="{{ s.d }}" fill="{{ s.fill }}" stroke="{{ s.stroke }}" stroke-width="{{ s.sw }}" onClick="{{ s.click }}" style="cursor:pointer"></path>
+        </sc-for>
+        <path d="M343 110 a17 17 0 1 0 34 0 a17 17 0 1 0 -34 0 Z M343 242 a17 17 0 1 0 34 0 a17 17 0 1 0 -34 0 Z" fill="none" stroke="#ef8f73" stroke-width="1.5" pointer-events="none"></path>
+        <path d="{{ nnArrows.arcs }}" fill="none" stroke="#a9bccd" stroke-width="2" stroke-linecap="round" pointer-events="none"></path>
+        <path d="{{ nnArrows.heads }}" fill="#a9bccd" pointer-events="none"></path>
+        <path d="M110 179 H660" fill="none" stroke="{{ nnC.tex }}" stroke-width="6" pointer-events="none"></path>
+        <path d="M296 30 V110 A64 64 0 0 0 360 174" fill="none" stroke="{{ nnC.plast }}" stroke-width="8" pointer-events="none"></path>
+        <path d="M360 174 H660" fill="none" stroke="{{ nnC.spoj }}" stroke-width="8" pointer-events="none"></path>
+        <path d="M296 30 V110 A64 64 0 0 0 351.1 173.4" fill="none" stroke="transparent" stroke-width="16" onClick="{{ nnPick.plast }}" style="cursor:pointer"></path>
+        <path d="M150 179 H330" fill="none" stroke="transparent" stroke-width="12" onClick="{{ nnPick.tex }}" style="cursor:pointer"></path>
+        <path d="M380 176.5 H660" fill="none" stroke="transparent" stroke-width="18" onClick="{{ nnPick.spoj }}" style="cursor:pointer"></path>
+        <path d="M620 177 m-16 0 a16 16 0 1 0 32 0 a16 16 0 1 0 -32 0 Z M634 168 L752 102 M634 186 L752 258" fill="none" stroke="#a9bccd" stroke-width="1.2" stroke-dasharray="4 4" pointer-events="none"></path>
+        <g clip-path="url(#nnClip)" pointer-events="none">
+          <path d="M720 70 H940 V290 H720 Z" fill="#0d121a"></path>
+          <path d="M720 112 H940 V214 H720 Z" fill="#e59a62"></path>
+          <path d="{{ nnYarns }}" fill="#b3a6e6" stroke="#0a0e15" stroke-width="1.5"></path>
+        </g>
+        <path d="M830 180 m-110 0 a110 110 0 1 0 220 0 a110 110 0 1 0 -220 0 Z" fill="transparent" stroke="{{ nnC.rez }}" stroke-width="{{ nnC.rezW }}" onClick="{{ nnPick.rez }}" style="cursor:pointer"></path>
+        <sc-for list="{{ nnLabels }}" as="l" hint-placeholder-count="5">
+          <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke="{{ l.color }}" stroke-width="1.2" pointer-events="none"></line>
+          <g onClick="{{ l.click }}" style="cursor:pointer">
+            <rect x="{{ l.rx }}" y="{{ l.ry }}" width="{{ l.w }}" height="{{ l.h }}" rx="8" fill="#0d121a" stroke="{{ l.color }}" stroke-width="{{ l.sw }}"></rect>
+          </g>
+        </sc-for>
+<text x="170" y="45.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ nnLC.plast }}" pointer-events="none">plastický pás</text>
+<text x="360" y="340.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ nnLC.valce }}" pointer-events="none">válce</text>
+<text x="110" y="325.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ nnLC.tex }}" pointer-events="none">textilie</text>
+<text x="520" y="255.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ nnLC.spoj }}" pointer-events="none">spojený pás</text>
+<text x="830" y="325.8" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="{{ nnLC.rez }}" pointer-events="none">řez spojeného pásu</text>
+      </svg>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#e59a62"></span>plastický materiál</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#b3a6e6"></span>textilní podklad</span>
+      </div>
+      <div style="margin-top:14px;min-height:54px">
+        <sc-if value="{{ nnHasSel }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#e59a62;margin-bottom:4px">{{ nnInfo.name }}</div>
+        </sc-if>
+        <div style="font-size:15.5px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ nnInfo.text }}</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Shrnutí</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:15px;line-height:1.5">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa"></th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Kalandrování</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Vytlačování štěrbinovou hlavou</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Princip</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">mezery mezi vyhřívanými válci</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">tavenina protlačená štěrbinou</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Typický materiál</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">PVC, pryž</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">polyolefiny a&nbsp;další termoplasty</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Šířka pásu</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">velká</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">menší</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Přesnost tloušťky</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vysoká</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">dobrá</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Nanášení na&nbsp;podklad</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">ano, v&nbsp;poslední mezeře</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">jen se&nbsp;zvláštní hlavou</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Cena zařízení</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vysoká</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nižší</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Vyplatí se</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">velké série, široké pásy</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">i&nbsp;menší série</td></tr>
+      </tbody>
+    </table>
+    <a href="../vstrikovani-vytlacovani/vytlacovani.html" style="display:inline-flex;margin-top:16px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Plochá fólie a&nbsp;desky: Vytlačování</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const f1 = n => Math.round(n * 10) / 10;
+const T = s => s.replace(/~/g, '\u00a0');
+const hexRgb = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(a, b, u) { const A = hexRgb(a), B = hexRgb(b); return 'rgb(' + A.map((v, i) => Math.round(v + (B[i] - v) * u)).join(',') + ')'; }
+const R = (x0, y0, x1, y1) => 'M' + x0 + ' ' + y0 + ' H' + x1 + ' V' + y1 + ' H' + x0 + ' Z';
+const CIRC = (cx, cy, r) => 'M' + f1(cx - r) + ' ' + f1(cy) + ' a' + r + ' ' + r + ' 0 1 0 ' + (2 * r) + ' 0 a' + r + ' ' + r + ' 0 1 0 ' + (-2 * r) + ' 0 Z';
+const PT = p => f1(p[0]) + ' ' + f1(p[1]);
+const TAU = Math.PI * 2, DEG = Math.PI / 180;
+const MELT = '#e59a62', HL = '#e59a62', LBL = '#a9bccd';
+const pill = on => ({ bg: on ? '#6cc4ba' : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? '#6cc4ba' : '#263040' });
+const KIND = { steel: ['#1a2230', '#4a5a6e'], heat: ['#3a1f1a', '#ef8f73'], roll: ['#39424e', '#a9bccd'], cool: ['#132b3b', '#7fb0e0'], track: ['#2a3442', '#8296a8'], tex: ['#2c2840', '#b3a6e6'] };
+function mkShapes(list, sel, pick) {
+  return list.map(([part, kind, d]) => { const on = sel === part, k = KIND[kind]; return { d, click: pick(part), fill: on ? mix(k[0], HL, 0.35) : k[0], stroke: on ? HL : k[1], sw: on ? 2.5 : 1.2 }; });
+}
+function mkLabels(list, sel, pick, fs) {
+  const h = Math.round(fs * 1.9);
+  return list.map(([part, , cx, cy, w, l]) => { const on = sel === part; return { rx: cx - w / 2, ry: cy - h / 2, w, h, x1: l[0], y1: l[1], x2: l[2], y2: l[3], color: on ? HL : LBL, sw: on ? 3 : 1.2, click: pick(part) }; });
+}
+const at = (c, rho, a) => [c[0] + rho * Math.cos(a), c[1] + rho * Math.sin(a)];
+const ang = (a, b) => Math.atan2(b[1] - a[1], b[0] - a[0]);
+const norm = a => ((a % TAU) + TAU) % TAU;
+const arcD = (c, rho, a1, dir, sw) => ' A' + f1(rho) + ' ' + f1(rho) + ' 0 ' + (sw > Math.PI + 1e-6 ? 1 : 0) + ' ' + (dir === 1 ? 1 : 0) + ' ' + PT(at(c, rho, a1));
+
+/* Geometrie kalandru: C středy válců, G mezery, dir1 směr 2. válce (1 = po směru hodin) */
+function calGeom(C, r, G, dir1, o) {
+  const n = C.length, dirs = C.map((_, k) => (k % 2 === 1 ? dir1 : -dir1));
+  const nips = [];
+  for (let k = 0; k < n - 1; k++) { const a = ang(C[k], C[k + 1]); nips.push({ p: at(C[k], r + G[k] / 2, a), a, g: G[k] }); }
+  const segs = [], hits = []; let exit = null;
+  for (let k = 1; k < n; k++) {
+    const rho = r + G[k - 1] / 2, dir = dirs[k], aIn = ang(C[k], C[k - 1]), last = k === n - 1;
+    const aOut = last ? o.exitA * DEG : ang(C[k], C[k + 1]);
+    const sw = norm(dir === 1 ? aOut - aIn : aIn - aOut);
+    let tail;
+    if (!last) tail = ' L' + PT(nips[k].p);
+    else { const p1 = at(C[k], rho, aOut), t = [-dir * Math.sin(aOut), dir * Math.cos(aOut)], e = [p1[0] + o.exitLen * t[0], p1[1] + o.exitLen * t[1]]; tail = ' L' + PT(e); exit = { p: e, t }; }
+    segs.push({ d: 'M' + PT(at(C[k], rho, aIn)) + arcD(C[k], rho, aOut, dir, sw) + tail, w: G[k - 1], k });
+    const dt = o.trim / rho, a0 = aIn + dir * dt, swh = sw - dt - (last ? 0 : dt);
+    if (swh > 0.05) hits.push('M' + PT(at(C[k], rho, a0)) + arcD(C[k], rho, a0 + dir * swh, dir, swh) + (last ? tail : ''));
+    else if (last) hits.push('M' + PT(at(C[k], rho, aOut)) + tail);
+  }
+  const a1 = ang(C[1], C[0]), v = [-dirs[1] * Math.sin(a1), dirs[1] * Math.cos(a1)], b = [-v[0], -v[1]];
+  const m = nips[0].p, u = [Math.cos(nips[0].a), Math.sin(nips[0].a)], g = G[0];
+  const w = s => g / 2 + r - Math.sqrt(Math.max(0, r * r - s * s));
+  const pt = (s, q) => [m[0] + s * b[0] + q * u[0], m[1] + s * b[1] + q * u[1]];
+  const sf = (u[0] * b[1] - u[1] * b[0]) > 0 ? 1 : 0;
+  const bank = (sa, sb) => {
+    const N = 10, P = [], M = [];
+    for (let i = 0; i <= N; i++) { const s = sa + (sb - sa) * i / N; P.push(PT(pt(s, w(s)))); M.unshift(PT(pt(s, -w(s)))); }
+    const wr = f1(w(sb));
+    return 'M' + P.join(' L') + ' A' + wr + ' ' + wr + ' 0 0 ' + sf + ' ' + M[0] + ' L' + M.join(' L') + ' Z';
+  };
+  const bc = pt((o.s0 + o.s1) / 2 + 4, 0);
+  return {
+    dirs, nips, segs, hit: hits.join(' '), exit,
+    bank: bank(0.5, o.s1), bankHit: o.s0 != null ? bank(o.s0, o.s1) : '', bankC: bc, bankR: w(o.s1) * 0.55,
+    feed: 'M' + PT(pt(o.s1 + o.feedLen, 0)) + ' L' + PT(pt(o.s1 - 2, 0)),
+    center: segs.map(s => s.d).join(' '),
+  };
+}
+function rotArrows(C, rr, dirs) {
+  let arcs = '', heads = '';
+  C.forEach((c, k) => {
+    const d = dirs[k], a0 = -140 * DEG, a1 = a0 + d * 100 * DEG;
+    arcs += 'M' + PT(at(c, rr, a0)) + arcD(c, rr, a1, d, 100 * DEG) + ' ';
+    const p = at(c, rr, a1), t = [-d * Math.sin(a1), d * Math.cos(a1)], nn = [Math.cos(a1), Math.sin(a1)];
+    heads += 'M' + PT([p[0] + 8 * t[0], p[1] + 8 * t[1]]) + ' L' + PT([p[0] + 5 * nn[0], p[1] + 5 * nn[1]]) + ' L' + PT([p[0] - 5 * nn[0], p[1] - 5 * nn[1]]) + ' Z ';
+  });
+  return { arcs: arcs.trim(), heads: heads.trim() };
+}
+function marks(list, t) {
+  let d = '';
+  list.forEach(([c, r, dir, sp, nM]) => {
+    const th = dir * sp * t / r;
+    for (let j = 0; j < nM; j++) { const a = th + j * TAU / nM; d += 'M' + PT(at(c, r * 0.68, a)) + ' L' + PT(at(c, r * 0.9, a)) + ' '; }
+  });
+  return d.trim();
+}
+
+/* Linka */
+const LN_V = 40;
+const LN_C = [[470, 98], [470, 166], [470, 232], [534, 232]];
+const LN_G = calGeom(LN_C, 30, [8, 6, 4], 1, { exitA: -90, exitLen: 496, s0: null, s1: 22, feedLen: 218, trim: 0 });
+const LN_SP = [0.85, 1, 1.15, 1.3];
+const LN_INFO = {
+  michani: ['Míchání', 'Připraví směs pro plastikaci.', 'Smíchá prášek PVC se\u00a0změkčovadly, stabilizátory, plnivy a~barvivy.'],
+  plastikace: ['Plastikace', 'Převede směs do plastického stavu.', 'Směs se\u00a0prohněte a~ohřeje do plastického stavu. Plastikuje se\u00a0v~extruderu nebo na\u00a0válcovací stolici.'],
+  privod: ['Přívod', 'Zásobuje kalandr plastickým materiálem.', 'Plastický materiál se\u00a0přivádí do první mezery kalandru.'],
+  kalandr: ['Kalandr', 'Dá pásu konečnou tloušťku.', 'Materiál prochází mezerami mezi vyhřívanými válci, mezery se\u00a0postupně zmenšují. Poslední mezera určuje tloušťku pásu.'],
+  odtah: ['Odtahové válce', 'Odtahují pás z~kalandru.', 'Rychlejší odtah pás protáhne a~ztenčí.'],
+  razeni: ['Ražení dezénu', 'Vytvoří na\u00a0povrchu pásu vzor.', 'Válec s~dezénem vytlačí do ještě měkkého povrchu vzor — například strukturu kůže.'],
+  chlazeni: ['Chladicí válce', 'Ochladí a~zpevní pás.', 'Pás prochází po\u00a0povrchu chladicích válců a~předává jim teplo.'],
+  mereni: ['Měření tloušťky', 'Kontroluje tloušťku pásu.', 'Měří tloušťku po\u00a0celé šířce pásu; podle výsledku se\u00a0seřizuje mezera kalandru.'],
+  navijeni: ['Navíjení', 'Odebírá hotový pás z~linky.', 'Hotový pás se\u00a0navíjí do role nebo řeže na\u00a0desky.'],
+};
+const LN_SHAPES = [
+  ['michani', 'steel', 'M15 44 H115 V80 L80 96 H50 L15 80 Z ' + R(58, 96, 72, 104)],
+  ['michani', 'roll', R(63, 44, 67, 78) + ' ' + R(46, 78, 84, 82)],
+  ['plastikace', 'steel', R(10, 112, 40, 152) + ' ' + R(40, 118, 230, 146) + ' M45 104 H85 L73 118 H57 Z'],
+  ['plastikace', 'heat', [90, 130, 170].map(x => R(x, 112, x + 30, 118) + ' ' + R(x, 146, x + 30, 152)).join(' ')],
+  ['privod', 'track', 'M256 138 H414 A6 6 0 0 1 414 150 H256 A6 6 0 0 1 256 138 Z'],
+  ['kalandr', 'roll', LN_C.map(c => CIRC(c[0], c[1], 30)).join(' ')],
+  ['odtah', 'roll', CIRC(600, 184, 14) + ' ' + CIRC(600, 216, 14)],
+  ['razeni', 'roll', CIRC(670, 176, 22)],
+  ['razeni', 'track', CIRC(670, 220, 18)],
+  ['chlazeni', 'cool', CIRC(740, 182, 16) + ' ' + CIRC(790, 218, 16) + ' ' + CIRC(840, 182, 16)],
+  ['mereni', 'steel', R(895, 166, 915, 192) + ' ' + R(895, 208, 915, 234)],
+  ['navijeni', 'roll', CIRC(1030, 232, 30)],
+  ['navijeni', 'steel', CIRC(1030, 232, 9)],
+];
+const LN_LABELS = [
+  ['michani', 'Míchání', 65, 24, 96, [65, 41, 65, 44]],
+  ['plastikace', 'Plastikace', 180, 24, 126, [180, 41, 180, 112]],
+  ['kalandr', 'Kalandr', 470, 24, 96, [470, 41, 470, 68]],
+  ['razeni', 'Ražení dezénu', 670, 24, 156, [670, 41, 670, 154]],
+  ['mereni', 'Měření tloušťky', 905, 24, 176, [905, 41, 905, 166]],
+  ['privod', 'Přívod', 335, 308, 86, [335, 291, 335, 150]],
+  ['odtah', 'Odtahové válce', 600, 308, 166, [600, 291, 600, 230]],
+  ['chlazeni', 'Chladicí válce', 790, 308, 166, [790, 291, 790, 234]],
+  ['navijeni', 'Navíjení', 1030, 308, 106, [1030, 291, 1030, 262]],
+];
+const LN_RINGS = LN_C.map(c => CIRC(c[0], c[1], 8)).join(' ');
+const LN_MARK_SRC = LN_C.map((c, k) => [c, 30, LN_G.dirs[k], LN_SP[k] * LN_V, 3]).concat([
+  [[600, 184], 14, -1, 1.4 * LN_V, 2], [[600, 216], 14, 1, 1.4 * LN_V, 2],
+  [[670, 176], 22, -1, 1.4 * LN_V, 8], [[670, 220], 18, 1, 1.4 * LN_V, 2],
+  [[740, 182], 16, -1, 1.4 * LN_V, 2], [[790, 218], 16, 1, 1.4 * LN_V, 2], [[840, 182], 16, -1, 1.4 * LN_V, 2],
+  [[1030, 232], 30, 1, 1.4 * LN_V, 3],
+]);
+
+/* Uspořádání válců */
+const UV_R = 46, UV_G = [14, 10, 7], UV_V = 45, UV_SP = [0.85, 1, 1.15, 1.3];
+const UV_DEF = {
+  I: { C: [[0, 0], [0, 106], [0, 208], [0, 307]], dir1: -1, exitA: 90 },
+  L: { C: [[0, 0], [0, 106], [0, 208], [99, 208]], dir1: 1, exitA: -90 },
+  F: { C: [[106, 0], [0, 0], [0, 102], [0, 201]], dir1: 1, exitA: 0 },
+  Z: { C: [[0, 0], [106, 0], [106, 102], [205, 102]], dir1: -1, exitA: 90 },
+};
+const UV_O = e => ({ exitA: e, exitLen: 70, s0: 20, s1: 40, feedLen: 80, trim: 20 });
+const UV = {};
+Object.keys(UV_DEF).forEach(key => {
+  const df = UV_DEF[key];
+  const g0 = calGeom(df.C, UV_R, UV_G, df.dir1, UV_O(df.exitA));
+  const xs = [], ys = [];
+  df.C.forEach(c => { xs.push(c[0] - UV_R, c[0] + UV_R); ys.push(c[1] - UV_R, c[1] + UV_R); });
+  const fs = g0.feed.match(/-?[\d.]+/g).map(Number);
+  xs.push(fs[0], g0.exit.p[0] + 12 * g0.exit.t[0]); ys.push(fs[1], g0.exit.p[1] + 12 * g0.exit.t[1]);
+  const dx = 380 - (Math.min(...xs) + Math.max(...xs)) / 2, dy = 235 - (Math.min(...ys) + Math.max(...ys)) / 2;
+  const C = df.C.map(c => [c[0] + dx, c[1] + dy]);
+  const g = calGeom(C, UV_R, UV_G, df.dir1, UV_O(df.exitA));
+  const e = g.exit.p, t = g.exit.t, nn = [-t[1], t[0]];
+  g.arrow = 'M' + PT([e[0] + 14 * t[0], e[1] + 14 * t[1]]) + ' L' + PT([e[0] + 7 * nn[0], e[1] + 7 * nn[1]]) + ' L' + PT([e[0] - 7 * nn[0], e[1] - 7 * nn[1]]) + ' Z';
+  g.C = C; g.rings = C.map(c => CIRC(c[0], c[1], 11)).join(' ');
+  g.rot = rotArrows(C, 25, g.dirs);
+  g.nipEl = g.nips.map(nb => ({ cx: f1(nb.p[0]), cy: f1(nb.p[1]), rx: f1(nb.g / 2), ry: 18, tr: 'rotate(' + f1(nb.a / DEG) + ' ' + f1(nb.p[0]) + ' ' + f1(nb.p[1]) + ')' }));
+  UV[key] = g;
+});
+const UV_PARTS = {
+  valec: ['Válec', 'Vyhřívaný, broušený a~leštěný povrch; jeho povrch se\u00a0otiskne do pásu.'],
+  mezera: ['Mezera', 'Postupně se\u00a0zmenšuje; poslední mezera určuje tloušťku pásu. Na\u00a0vstupní mezeře je největší rozdíl rychlostí válců — materiál se\u00a0smyká a~prohřívá.'],
+  zasoba: ['Zásoba materiálu', 'Drží se\u00a0před mezerou, otáčí se\u00a0a~promíchává; zajišťuje, že mezera je stále plně zásobena.'],
+  pas: ['Pás', 'Přechází vždy na\u00a0rychlejší a~teplejší válec.'],
+};
+
+/* Průhyb */
+const PH_U = 160, PH_L = 250, PH_RR = 40, PH_HJ = 14, PH_D = 16;
+const defl = x => PH_D * (1 - Math.pow((x - 450) / 302, 2));
+const PH_MODES = {
+  rovne: { btn: 'Rovné válce', name: 'Rovné válce', def: true, crown: false, text: 'Válce se\u00a0prohnou. Mezera je uprostřed větší a~pás vyjde uprostřed silnější.' },
+  bomb: { btn: 'Bombírované válce', name: 'Bombírované válce', def: true, crown: true, text: 'Válec má uprostřed nepatrně větší průměr. Po\u00a0prohnutí je mezera rovná a~pás rovnoměrný.' },
+  kriz: { btn: 'Křížení os', name: 'Křížení os', def: false, crown: false, text: 'Osy válců se\u00a0vůči sobě mírně natočí. Mezera se\u00a0na\u00a0krajích zvětší a~vyrovná průhyb; mezera je rovná a~pás rovnoměrný.' },
+  proti: { btn: 'Protiohyb', name: 'Protiohyb', def: false, crown: false, text: 'Síly na\u00a0koncích válce ho ohýbají opačně, než ho prohýbá materiál. Mezera je rovná a~pás rovnoměrný.' },
+};
+function phGeom(mode) {
+  const M = PH_MODES[mode];
+  const dv = x => (M.def ? defl(x) : 0);
+  const cr = x => (M.crown && x >= 170 && x <= 730 ? defl(x) - defl(170) : 0);
+  const half = (x, body) => (body ? PH_RR + cr(x) : PH_HJ);
+  const outline = (y0, sg, pts) => {
+    const top = pts.map(([x, b]) => PT([x, y0 + sg * dv(x) - half(x, b)])), bot = pts.slice().reverse().map(([x, b]) => PT([x, y0 + sg * dv(x) + half(x, b)]));
+    return 'M' + top.join(' L') + ' L' + bot.join(' L') + ' Z';
+  };
+  const body = [[162, false], [170, false]];
+  for (let x = 170; x <= 730; x += 10) body.push([x, true]);
+  body.push([730, false], [738, false]);
+  const piece = (y0, sg) => [outline(y0, sg, [[100, false], [134, false]]), outline(y0, sg, body), outline(y0, sg, [[766, false], [800, false]])].join(' ');
+  const uB = x => PH_U - dv(x) + PH_RR + cr(x), lT = x => PH_L + dv(x) - PH_RR - cr(x);
+  const gapPts = (x0, x1) => { const a = [], b = []; for (let x = x0; x <= x1; x += 10) { a.push(PT([x, uB(x)])); b.unshift(PT([x, lT(x)])); } return 'M' + a.join(' L') + ' L' + b.join(' L') + ' Z'; };
+  let force = '', heads = '', hit = '';
+  [290, 450, 610].forEach(x => {
+    const ut = PH_U - dv(x) - PH_RR - cr(x) - 4, lb = PH_L + dv(x) + PH_RR + cr(x) + 4;
+    force += 'M' + x + ' ' + f1(ut) + ' V' + f1(ut - 18) + ' M' + x + ' ' + f1(lb) + ' V' + f1(lb + 18) + ' ';
+    heads += 'M' + x + ' ' + f1(ut - 28) + ' L' + (x - 7) + ' ' + f1(ut - 16) + ' L' + (x + 7) + ' ' + f1(ut - 16) + ' Z M' + x + ' ' + f1(lb + 28) + ' L' + (x - 7) + ' ' + f1(lb + 16) + ' L' + (x + 7) + ' ' + f1(lb + 16) + ' Z ';
+    hit += R(x - 11, f1(ut - 28), x + 11, f1(ut)) + ' ' + R(x - 11, f1(lb), x + 11, f1(lb + 28)) + ' ';
+  });
+  let endF = '', endH = '';
+  if (mode === 'proti') [110, 790].forEach(x => {
+    endF += 'M' + x + ' 146 V130 M' + x + ' 264 V280 ';
+    endH += 'M' + x + ' 120 L' + (x - 7) + ' 132 L' + (x + 7) + ' 132 Z M' + x + ' 290 L' + (x - 7) + ' 278 L' + (x + 7) + ' 278 Z ';
+  });
+  const sp = [], sb = [];
+  for (let x = 230; x <= 670; x += 10) { const th = lT(x) - uB(x); sp.push(PT([x, 385 - th / 2])); sb.unshift(PT([x, 385 + th / 2])); }
+  return {
+    upper: piece(PH_U, -1), lower: piece(PH_L, 1), gap: gapPts(170, 730), melt: gapPts(230, 670),
+    force: force.trim(), forceHeads: heads.trim(), forceHit: hit.trim(), endForce: endF.trim(), endHeads: endH.trim(),
+    strip: 'M' + sp.join(' L') + ' L' + sb.join(' L') + ' Z', topMid: f1(PH_U - dv(450) - PH_RR - cr(450) - 32),
+  };
+}
+const PH = {}; Object.keys(PH_MODES).forEach(k => { PH[k] = phGeom(k); });
+const PH_BEAR = R(134, 132, 162, 188) + ' ' + R(738, 132, 766, 188) + ' ' + R(134, 222, 162, 278) + ' ' + R(738, 222, 766, 278);
+const PH_PARTS = {
+  valec: ['Válec', 'Je podepřený jen na\u00a0koncích. Materiál v~mezeře ho tlačí od~protějšího válce.'],
+  mezera: { rovne: ['Mezera', 'Uprostřed je větší než na\u00a0krajích.'], other: ['Mezera', 'Je po\u00a0celé šířce stejná.'] },
+  podpera: ['Podpěra (ložisko)', 'Válec je podepřený jen v~ložiskách na\u00a0koncích, proto se\u00a0uprostřed prohne.'],
+  sila: ['Síla od~materiálu', 'Materiál v~mezeře tlačí válce od~sebe.'],
+  pas: { rovne: ['Pás', 'Uprostřed vyjde silnější.'], other: ['Pás', 'Má po\u00a0celé šířce stejnou tloušťku.'] },
+};
+
+/* Nanášení */
+const NN_INFO = {
+  valce: ['Válce', 'Poslední dvojice válců kalandru. V~jejich mezeře se\u00a0plastický materiál vtlačí do podkladu.'],
+  plast: ['Plastický pás', 'Přichází shora po\u00a0povrchu válce do poslední mezery.'],
+  tex: ['Textilie', 'Přivádí se\u00a0z~boku do poslední mezery. Místo textilie se\u00a0přivádí i~papír.'],
+  spoj: ['Spojený pás', 'Za mezerou vychází plast spojený s~podkladem — koženka, podlahovina s~podkladem nebo pogumovaná tkanina.'],
+  rez: ['Řez spojeného pásu', 'Vrstva plastu je zatlačená do textilie a~vyplňuje prostor mezi vlákny.'],
+};
+const NN_SHAPES = [
+  ['valce', 'roll', CIRC(360, 110, 60) + ' ' + CIRC(360, 242, 60)],
+  ['tex', 'tex', CIRC(110, 222, 40)],
+  ['tex', 'steel', CIRC(110, 222, 10)],
+];
+const NN_LABELS = [
+  ['plast', 'plastický pás', 170, 40, 144, [242, 40, 292, 48]],
+  ['valce', 'válce', 360, 335, 80, [360, 320, 360, 302]],
+  ['tex', 'textilie', 110, 320, 100, [110, 305, 110, 262]],
+  ['spoj', 'spojený pás', 520, 250, 130, [520, 235, 520, 182]],
+  ['rez', 'řez spojeného pásu', 830, 320, 188, [830, 305, 830, 290]],
+];
+const NN_ARROWS = rotArrows([[360, 110], [360, 242], [110, 222]], 32, [-1, 1, 1]);
+let NN_YARNS = '';
+for (let x = 730; x <= 950; x += 44) NN_YARNS += 'M' + (x - 20) + ' 210 a20 11 0 1 0 40 0 a20 11 0 1 0 -40 0 Z ';
+for (let x = 752; x <= 950; x += 44) NN_YARNS += 'M' + (x - 20) + ' 236 a20 11 0 1 0 40 0 a20 11 0 1 0 -40 0 Z ';
+
+class Component extends DCLogic {
+  state = { lnSel: null, lnOn: true, lnVis: false, lnT: 0, uvKey: 'I', uvSel: null, uvOn: true, uvVis: false, uvT: 0, phMode: 'rovne', phSel: null, nnSel: null };
+  _raf = null; _last = null; _els = {};
+  lnRef = el => { this._els.ln = el; this.observe(); };
+  uvRef = el => { this._els.uv = el; this.observe(); };
+  observe() {
+    if (!this._io) {
+      this._io = new IntersectionObserver(en => {
+        const upd = {};
+        en.forEach(e => { ['ln', 'uv'].forEach(k => { if (e.target === this._els[k]) upd[k + 'Vis'] = e.isIntersecting; }); });
+        this.setState(upd, () => this.startLoop());
+      });
+      this._seen = new Set();
+    }
+    Object.values(this._els).forEach(el => { if (el && !this._seen.has(el)) { this._seen.add(el); this._io.observe(el); } });
+  }
+  componentDidMount() { this.observe(); }
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); if (this._io) this._io.disconnect(); }
+  startLoop() { if (!this._raf) { this._last = null; this._raf = requestAnimationFrame(this.tick); } }
+  tick = now => {
+    const dt = this._last == null ? 0 : Math.min(0.05, (now - this._last) / 1000);
+    this._last = now;
+    const st = this.state, upd = {};
+    let active = false;
+    if (st.lnVis && st.lnOn) { upd.lnT = st.lnT + dt; active = true; }
+    if (st.uvVis && st.uvOn) { upd.uvT = st.uvT + dt; active = true; }
+    if (active) this.setState(upd);
+    this._raf = active ? requestAnimationFrame(this.tick) : null;
+  };
+  tg(key) { return part => () => this.setState(s => ({ [key]: s[key] === part ? null : part })); }
+  renderVals() {
+    const st = this.state;
+    /* linka */
+    const lnPick = this.tg('lnSel'), lt = st.lnT;
+    const ln = {
+      feed: LN_G.feed, feedOff: f1(-lt * LN_V * 0.6), bank: LN_G.bank,
+      segs: LN_G.segs.map(s => ({ d: s.d, w: s.w, off: f1(-lt * LN_V * LN_SP[s.k]) })),
+      marks: marks(LN_MARK_SRC, lt),
+    };
+    const li = st.lnSel ? LN_INFO[st.lnSel] : null;
+    const lnInfo = li ? { name: li[0], ukol: T(li[1]), jak: T(li[2]), color: HL, border: HL } : { name: 'Stanice linky', ukol: '', jak: '', color: '#eaf2fa', border: '#232c39' };
+    /* uspořádání */
+    const g = UV[st.uvKey], us = st.uvSel, ut = st.uvT;
+    const uvPick = p => () => this.setState(s => ({ uvSel: s.uvSel === p ? null : p }));
+    const rollOn = us === 'valec';
+    const uv = {
+      rolls: g.C.map(c => ({ d: CIRC(c[0], c[1], UV_R), fill: rollOn ? mix('#39424e', HL, 0.35) : '#39424e', stroke: rollOn ? HL : '#a9bccd', sw: rollOn ? 2.5 : 1.5 })),
+      rings: g.rings, arcs: g.rot.arcs, heads: g.rot.heads,
+      marks: marks(g.C.map((c, k) => [c, UV_R, g.dirs[k], UV_SP[k] * UV_V, 3]), ut),
+      feed: g.feed, feedOff: f1(-ut * UV_V * 0.6), bank: g.bank, bankHit: g.bankHit, bankStroke: us === 'zasoba' ? '#eaf2fa' : 'none',
+      swirl: (() => { const a = -g.dirs[1] * ut * 1.6, c = g.bankC, rr = g.bankR; return 'M' + PT(at(c, rr, a)) + ' L' + PT(at(c, rr, a + Math.PI)); })(),
+      segs: g.segs.map(s => ({ d: s.d, w: s.w, off: f1(-ut * UV_V * UV_SP[s.k]) })),
+      arrow: g.arrow, stripHit: g.hit, selStrip: us === 'pas' ? g.center : '', selW: 22,
+      nips: g.nipEl.map(nb => Object.assign({}, nb, { fill: us === 'mezera' ? 'rgba(234,242,250,0.25)' : 'transparent', stroke: us === 'mezera' ? '#eaf2fa' : 'none' })),
+    };
+    const uvList = [
+      ['valec', 'válec', '#39424e', '#a9bccd', '3px'], ['mezera', 'mezera', 'transparent', '#eaf2fa', '50%'],
+      ['zasoba', 'zásoba materiálu', MELT, MELT, '50%'], ['pas', 'pás', MELT, MELT, '3px'],
+    ].map(([id, name, sw, sb, rad]) => { const on = us === id; return { name, swatch: sw, sb, rad, bg: on ? '#2e1f17' : '#0a0e15', tc: on ? HL : '#eaf2fa', border: on ? HL : '#232c39', onClick: uvPick(id) }; });
+    const uvInfo = us ? { name: UV_PARTS[us][0], text: T(UV_PARTS[us][1]), color: HL, border: HL } : { name: 'Uspořádání ' + st.uvKey, text: 'Klikni na\u00a0válec, mezeru, zásobu materiálu nebo pás.', color: '#eaf2fa', border: '#232c39' };
+    const uvBtns = Object.keys(UV).map(k => Object.assign({ label: k, onClick: () => this.setState({ uvKey: k }) }, pill(st.uvKey === k)));
+    /* průhyb */
+    const pm = st.phMode, pg = PH[pm], ps = st.phSel, phPick = this.tg('phSel');
+    const phShapes = mkShapes([['valec', 'roll', pg.upper], ['valec', 'roll', pg.lower], ['podpera', 'steel', PH_BEAR]], ps, phPick);
+    const ph = Object.assign({}, pg, {
+      gapStroke: ps === 'mezera' ? '#eaf2fa' : 'none', forceColor: ps === 'sila' ? '#eaf2fa' : MELT,
+      stripFill: ps === 'pas' ? mix('#8fb4d6', '#ffffff', 0.25) : '#8fb4d6', stripStroke: ps === 'pas' ? HL : 'none',
+    });
+    const phLabels = mkLabels([
+      ['podpera', 'podpěra (ložisko)', 160, 22, 170, [148, 37, 148, 132]],
+      ['sila', 'síla od\u00a0materiálu', 450, 22, 170, [450, 37, 450, pg.topMid]],
+      ['valec', 'válec', 880, 160, 80, [840, 160, 800, 160]],
+      ['mezera', 'mezera', 880, 205, 90, [835, 205, 730, 205]],
+      ['pas', 'pás', 880, 385, 60, [850, 385, 670, 385]],
+    ], ps, phPick, 16);
+    const sub = pm === 'rovne' ? 'rovne' : 'other';
+    const pp = ps ? (PH_PARTS[ps][sub] || PH_PARTS[ps]) : null;
+    const phInfo = pp ? { name: T(pp[0]), text: T(pp[1]), color: HL, border: HL } : { name: 'Části schématu', text: 'Klikni na\u00a0válec, mezeru, podpěru, sílu od\u00a0materiálu nebo pás.', color: '#eaf2fa', border: '#232c39' };
+    const phBtns = Object.keys(PH_MODES).map(k => Object.assign({ label: PH_MODES[k].btn, onClick: () => this.setState({ phMode: k }) }, pill(pm === k)));
+    /* nanášení */
+    const ns = st.nnSel, nnPickF = this.tg('nnSel');
+    const nnPick = {}; Object.keys(NN_INFO).forEach(k => { nnPick[k] = nnPickF(k); });
+    const nnC = { tex: ns === 'tex' || ns === 'spoj' ? '#d6ccf5' : '#b3a6e6', plast: ns === 'plast' ? '#f3c29c' : MELT, spoj: ns === 'spoj' ? '#f3c29c' : MELT, rez: ns === 'rez' ? HL : '#a9bccd', rezW: ns === 'rez' ? 3 : 1.5 };
+    const nnInfo = ns ? { name: NN_INFO[ns][0], text: T(NN_INFO[ns][1]) } : { name: '', text: 'Klikni na\u00a0část schématu nebo na\u00a0její popisek.' };
+    const cm = (sel, keys) => { const o = {}; keys.forEach(k => { o[k] = sel === k ? HL : LBL; }); return o; };
+    return {
+      ln, lnShapes: mkShapes(LN_SHAPES, st.lnSel, lnPick), lnLabels: mkLabels(LN_LABELS, st.lnSel, lnPick, 18), lnRings: LN_RINGS, lnInfo, lnHasSel: !!li, lnNoSel: !li,
+      lnPlaying: st.lnOn, lnPaused: !st.lnOn, lnPlayAria: st.lnOn ? 'Pozastavit' : 'Spustit', lnToggle: () => this.setState(s => ({ lnOn: !s.lnOn }), () => this.startLoop()), lnRef: this.lnRef,
+      uv, uvList, uvInfo, uvBtns, uvPickRoll: uvPick('valec'), uvPickStrip: uvPick('pas'), uvPickBank: uvPick('zasoba'), uvPickNip: uvPick('mezera'),
+      uvPlaying: st.uvOn, uvPaused: !st.uvOn, uvPlayAria: st.uvOn ? 'Pozastavit' : 'Spustit', uvToggle: () => this.setState(s => ({ uvOn: !s.uvOn }), () => this.startLoop()), uvRef: this.uvRef,
+      ph, phShapes, phLabels, phInfo, phBtns, phMode: { name: PH_MODES[pm].name, text: T(PH_MODES[pm].text) }, phIsKriz: pm === 'kriz', phIsProti: pm === 'proti',
+      phThickPos: pm === 'rovne' ? '100%' : '0%', phPickGap: phPick('mezera'), phPickForce: phPick('sila'), phPickStrip: phPick('pas'),
+      lnC: cm(st.lnSel, Object.keys(LN_INFO)), phC: cm(ps, ['podpera', 'sila', 'valec', 'mezera', 'pas']), nnLC: cm(ns, Object.keys(NN_INFO)),
+      nnShapes: mkShapes(NN_SHAPES, ns, nnPickF), nnLabels: mkLabels(NN_LABELS, ns, nnPickF, 16), nnArrows: NN_ARROWS, nnYarns: NN_YARNS.trim(), nnC, nnPick, nnInfo, nnHasSel: !!ns,
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

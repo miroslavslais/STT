@@ -126,62 +126,146 @@ function Scene({ z, stroke, m }) {
   );
 }
 
-function Surface({ m, z }) {
-  const H = 230, W = 150, x0 = 96, y0 = 34;
+function Surface({ m }) {
+  const [part, setPart] = useState('hole');
+  const hole = part === 'hole';
+  const H = 200, Y0 = 100, Y1 = 300, eX = 80;
   const hRoll = m.roll * H, hSm = m.smooth * H, hFr = m.frac * H;
-  const yA = y0, yB = y0 + hRoll, yC = yB + hSm, yD = yC + hFr;
-  const skew = 6 + m.zr * 150;              // sklon lomové plochy
+  const skew = 6 + m.zr * 150;
   const burrH = m.burr * 46;
-  const edge = `M${x0 + W} ${yA} C${x0 + W - 26} ${yA + 2} ${x0 + W - 30} ${yB - hRoll * 0.3} ${x0 + W - 30} ${yB}`
-    + ` L${x0 + W - 30} ${yC} L${x0 + W - 30 + skew} ${yD} L${x0 + W - 30 + skew} ${yD}`;
-  const body = edge + ` L${x0} ${yD} L${x0} ${yA} Z`;
+  const rw = hRoll * 0.6;
+  const burrC = m.burr > 0.12 ? BAD : STEEL_E;
+  // geometrie díry (materiál vpravo); výstřižek = otočení o 180° kolem středu sloupce
+  const yB = Y0 + hRoll, yC = yB + hSm, ex2 = eX + skew;
+  const wall = `M${eX + rw} ${Y0} Q${eX} ${Y0} ${eX} ${yB} L${eX} ${yC} L${ex2} ${Y1}`;
+  const body = `M150 ${Y0} L${eX + rw} ${Y0} Q${eX} ${Y0} ${eX} ${yB} L${eX} ${yC} L${ex2} ${Y1} L150 ${Y1} Z`;
+  const burrPath = `M${ex2} ${Y1} L${ex2 - 1} ${Y1 + burrH} L${ex2 + 4 + burrH * 0.4} ${Y1} Z`;
+  const R = (x, y) => hole ? [x, y] : [170 - x, 400 - y];
+  const rot = hole ? undefined : 'rotate(180 85 200)';
+  const proj = [[eX + rw, Y0], [eX, yB], [eX, yC], [ex2, Y1]].map(([x, y]) => R(x, y));
 
-  const bands = [
-    { y: yA, h: hRoll, c: '#9fb3c4', label: 'vtažení', pct: m.roll },
-    { y: yB, h: hSm, c: '#dbe6ef', label: 'plastické (hladké) pásmo', pct: m.smooth },
-    { y: yC, h: hFr, c: '#8b9bab', label: 'lomová plocha', pct: m.frac },
+  // pásma v pohledu P (shora dolů)
+  const holeBands = [
+    { k: 'roll', y: Y0, h: hRoll }, { k: 'smooth', y: yB, h: hSm }, { k: 'frac', y: yC, h: hFr },
   ];
+  const bands = hole ? holeBands : [
+    { k: 'frac', y: Y0, h: hFr }, { k: 'smooth', y: Y0 + hFr, h: hSm }, { k: 'roll', y: Y0 + hFr + hSm, h: hRoll },
+  ];
+  const fill = { roll: hole ? 'url(#sfRollH)' : 'url(#sfRollB)', smooth: '#dbe6ef', frac: '#8b9bab' };
+  const info = {
+    roll: { label: 'vtažení', val: Math.round(m.roll * 100) + ' % t' },
+    smooth: { label: 'plastické (hladké) pásmo', val: Math.round(m.smooth * 100) + ' % t' },
+    frac: { label: 'lomová plocha', val: Math.round(m.frac * 100) + ' % t' },
+    burr: { label: 'otřep', val: (m.burr * T).toFixed(2) + ' mm' },
+  };
+  const burrY = hole ? Y1 + burrH / 2 : Y0 - burrH / 2;
+  let labels = bands.map(b => ({ k: b.k, c: b.y + b.h / 2 }));
+  labels = hole ? [...labels, { k: 'burr', c: burrY }] : [{ k: 'burr', c: burrY }, ...labels];
+  const ys = labels.map(l => l.c);
+  for (let i = 0; i < ys.length; i++) ys[i] = Math.max(ys[i], i ? ys[i - 1] + 34 : 44);
+  for (let i = ys.length - 1; i >= 0; i--) ys[i] = Math.min(ys[i], i < ys.length - 1 ? ys[i + 1] - 34 : 292);
+
+  const zig = [];
+  for (let x = 175, i = 0; x <= 255; x += 8, i++) zig.push(x + ',' + (hole ? Y1 + (i % 2 ? Math.max(2, burrH) : 0) : Y0 - (i % 2 ? Math.max(2, burrH) : 0)));
+
+  const arrowY = hole ? (yB + yC) / 2 : 400 - (yB + yC) / 2;
+  const aX0 = hole ? 34 : 146, aX1 = hole ? eX - 3 : 170 - eX + 3, dir = hole ? 1 : -1;
+
+  const btn = (id, label) => {
+    const on = part === id;
+    return (
+      <button type="button" key={id} onClick={() => setPart(id)}
+        style={{ height: 32, padding: '0 14px', borderRadius: 10, cursor: 'pointer', fontFamily: HEAD, fontWeight: 700, fontSize: 13,
+          background: on ? ACC : 'rgba(123,163,204,0.14)', color: on ? '#0b1017' : ACC, border: '1px solid rgba(123,163,204,0.5)' }}>{label}</button>
+    );
+  };
 
   return (
-    <svg viewBox="0 0 430 330" width="100%" style={{ display: 'block' }}>
-      <defs>
-        <pattern id="rough" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-          <line x1="0" y1="0" x2="0" y2="6" stroke="#5d6b79" strokeWidth="1.6" />
-        </pattern>
-        <clipPath id="edgeclip"><path d={body} /></clipPath>
-      </defs>
-      <text x={x0} y={18} fontFamily={HEAD} fontWeight="700" fontSize={14} fill="#eaf2fa">Řez střižnou plochou</text>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ display: 'flex', gap: 8 }}>{btn('hole', 'Díra v pásu')}{btn('blank', 'Výstřižek')}</div>
+      <svg viewBox="0 0 430 330" width="100%" style={{ display: 'block' }}>
+        <defs>
+          <linearGradient id="sfRollH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#7f92a3" /><stop offset="1" stopColor="#d3dfea" /></linearGradient>
+          <linearGradient id="sfRollB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#d3dfea" /><stop offset="1" stopColor="#7f92a3" /></linearGradient>
+          <pattern id="sfStri" width="4" height="10" patternUnits="userSpaceOnUse"><line x1="1" y1="0" x2="1" y2="10" stroke="#b2c2d0" strokeWidth="0.7" /></pattern>
+          <pattern id="sfDots" width="6" height="6" patternUnits="userSpaceOnUse">
+            <circle cx="1.2" cy="1.5" r="0.9" fill="#5d6b79" /><circle cx="4.2" cy="3.4" r="0.8" fill="#6b7a89" /><circle cx="2.4" cy="5" r="0.7" fill="#56636f" />
+          </pattern>
+          <clipPath id="sfHoleClip"><ellipse cx="60" cy="50" rx="16" ry="8" /></clipPath>
+        </defs>
+        <text x={20} y={18} fontFamily={HEAD} fontWeight="700" fontSize={14} fill="#eaf2fa">Detail hrany po střihu</text>
 
-      <path d={body} fill={STEEL} stroke={STEEL_E} strokeWidth={1.3} />
-      {/* pásma jako barevné proužky u hrany */}
-      {bands.map((b, i) => (
-        <rect key={i} x={x0 + W - 30} y={b.y} width={26} height={b.h} fill={b.c} opacity={0.9} />
-      ))}
-      <rect x={x0 + W - 30} y={yC} width={Math.min(26 + skew, W - 30)} height={hFr} fill="url(#rough)" opacity={0.55} clipPath="url(#edgeclip)" />
-      <path d={edge} fill="none" stroke="#eaf2fa" strokeWidth={1.8} />
+        {/* izometrická ikonka */}
+        {hole ? (
+          <g>
+            <path d="M20 50 L60 68 L60 76 L20 58 Z" fill={STEEL_E} />
+            <path d="M60 68 L100 50 L100 58 L60 76 Z" fill="#a9bccc" />
+            <path d="M20 50 L60 32 L100 50 L60 68 Z" fill={STEEL} stroke={STEEL_E} strokeWidth={1} />
+            <ellipse cx="60" cy="50" rx="16" ry="8" fill={WARN} />
+            <ellipse cx="60" cy="58" rx="16" ry="8" fill="#0b1017" clipPath="url(#sfHoleClip)" />
+            <ellipse cx="60" cy="50" rx="16" ry="8" fill="none" stroke={STEEL_E} strokeWidth={1} />
+            <line x1="60" y1="64" x2="60" y2="48" stroke="#eaf2fa" strokeWidth={1.4} />
+            <path d="M60 44 L57 49 L63 49 Z" fill="#eaf2fa" />
+            <text x={66} y={66} fontFamily={MONO} fontWeight="700" fontSize={12} fill="#eaf2fa">P</text>
+          </g>
+        ) : (
+          <g>
+            <path d="M26 48 L26 58 A34 17 0 0 0 94 58 L94 48 A34 17 0 0 1 26 48 Z" fill={WARN} stroke={STEEL_E} strokeWidth={1} />
+            <ellipse cx="60" cy="48" rx="34" ry="17" fill={STEEL} stroke={STEEL_E} strokeWidth={1} />
+            <line x1="60" y1="90" x2="60" y2="80" stroke="#eaf2fa" strokeWidth={1.4} />
+            <path d="M60 76 L57 81 L63 81 Z" fill="#eaf2fa" />
+            <text x={66} y={90} fontFamily={MONO} fontWeight="700" fontSize={12} fill="#eaf2fa">P</text>
+          </g>
+        )}
 
-      {/* otřep */}
-      <path d={`M${x0 + W - 30 + skew} ${yD} l${4 + burrH * 0.5} ${burrH} l${-6 - burrH * 0.2} ${-burrH * 0.45} Z`}
-        fill={m.burr > 0.12 ? BAD : STEEL} stroke={m.burr > 0.12 ? BAD : STEEL_E} strokeWidth={1.2} />
+        {/* strany nástroje */}
+        <text transform="translate(14 200) rotate(-90)" x={50} y={0} textAnchor="middle" fontFamily={SANS} fontSize={11} fill="#66788a">strana střižníku</text>
+        <text transform="translate(14 200) rotate(-90)" x={-50} y={0} textAnchor="middle" fontFamily={SANS} fontSize={11} fill="#66788a">strana střižnice</text>
 
-      {/* popisky pásem */}
-      {bands.map((b, i) => (
-        <g key={'l' + i}>
-          <line x1={x0 + W + 2} y1={b.y + b.h / 2} x2={x0 + W + 26} y2={b.y + b.h / 2} stroke="#5d6b79" strokeWidth={1} />
-          <text x={x0 + W + 32} y={b.y + b.h / 2 - 2} fontFamily={SANS} fontSize={13} fill="#c4d2de">{b.label}</text>
-          <text x={x0 + W + 32} y={b.y + b.h / 2 + 14} fontFamily={MONO} fontSize={12} fill="#8296a8">{Math.round(b.pct * 100)} % t</text>
+        {/* řez */}
+        <g transform={rot}>
+          <path d={body} fill={STEEL} stroke={STEEL_E} strokeWidth={1.3} />
+          <path d={wall} fill="none" stroke="#eaf2fa" strokeWidth={1.8} />
+          <path d={burrPath} fill={m.burr > 0.12 ? BAD : STEEL} stroke={m.burr > 0.12 ? BAD : STEEL_E} strokeWidth={1.2} />
         </g>
-      ))}
-      <g>
-        <line x1={x0 + W + 2} y1={yD + burrH * 0.6} x2={x0 + W + 26} y2={yD + burrH * 0.6} stroke="#5d6b79" strokeWidth={1} />
-        <text x={x0 + W + 32} y={yD + burrH * 0.6 - 2} fontFamily={SANS} fontSize={13} fill={m.burr > 0.12 ? BAD : '#c4d2de'}>otřep</text>
-        <text x={x0 + W + 32} y={yD + burrH * 0.6 + 14} fontFamily={MONO} fontSize={12} fill="#8296a8">{(m.burr * T).toFixed(2)} mm</text>
-      </g>
-      {/* strana nástroje */}
-      <text x={x0 - 6} y={yA + 12} textAnchor="end" fontFamily={SANS} fontSize={12} fill="#66788a">strana</text>
-      <text x={x0 - 6} y={yA + 26} textAnchor="end" fontFamily={SANS} fontSize={12} fill="#66788a">střižníku</text>
-      <text x={x0 - 6} y={yD - 6} textAnchor="end" fontFamily={SANS} fontSize={12} fill="#66788a">strana střižnice</text>
-    </svg>
+        <line x1={aX0} y1={arrowY} x2={aX1 - dir * 5} y2={arrowY} stroke="#eaf2fa" strokeWidth={1.4} />
+        <path d={`M${aX1} ${arrowY} L${aX1 - dir * 6} ${arrowY - 3.5} L${aX1 - dir * 6} ${arrowY + 3.5} Z`} fill="#eaf2fa" />
+        <text x={(aX0 + aX1) / 2} y={arrowY - 7} textAnchor="middle" fontFamily={MONO} fontWeight="700" fontSize={12} fill="#eaf2fa">P</text>
+
+        {/* promítací čáry */}
+        {proj.map(([x, y], i) => (
+          <line key={'p' + i} x1={x} y1={y} x2={175} y2={y} stroke="#8296a8" strokeWidth={0.9} strokeDasharray="3 3" />
+        ))}
+
+        {/* pohled P */}
+        <text x={215} y={Y0 - (hole ? 8 : 10 + burrH)} textAnchor="middle" fontFamily={SANS} fontSize={12} fill="#aebfcf">pohled P</text>
+        {bands.map((b, i) => (
+          <g key={'b' + i}>
+            <rect x={175} y={b.y} width={80} height={b.h} fill={fill[b.k]} />
+            {b.k === 'smooth' && <rect x={175} y={b.y} width={80} height={b.h} fill="url(#sfStri)" />}
+            {b.k === 'frac' && <rect x={175} y={b.y} width={80} height={b.h} fill="url(#sfDots)" />}
+          </g>
+        ))}
+        <rect x={175} y={Y0} width={80} height={H} fill="none" stroke={STEEL_E} strokeWidth={1.2} />
+        <polyline points={zig.join(' ')} fill="none" stroke={burrC} strokeWidth={1.6} strokeLinejoin="miter" />
+
+        {/* popisky */}
+        {labels.map((l, i) => (
+          <g key={'l' + i}>
+            <polyline points={`257,${l.c} 262,${l.c} 268,${ys[i]}`} fill="none" stroke="#5d6b79" strokeWidth={1} />
+            <text x={272} y={ys[i] - 2} fontFamily={SANS} fontSize={13} fill={l.k === 'burr' && m.burr > 0.12 ? BAD : '#c4d2de'}>{info[l.k].label}</text>
+            <text x={272} y={ys[i] + 14} fontFamily={MONO} fontSize={12} fill="#8296a8">{info[l.k].val}</text>
+          </g>
+        ))}
+
+        {hole
+          ? <text x={20} y={325} fontFamily={SANS} fontSize={11} fill="#8296a8">Vtažení na straně střižníku, otřep na straně střižnice.</text>
+          : <text x={20} y={316} fontFamily={SANS} fontSize={11} fill="#8296a8">
+              <tspan x={20}>U výstřižku je pořadí obrácené:</tspan>
+              <tspan x={20} dy={12}>otřep na straně střižníku, vtažení na straně střižnice.</tspan>
+            </text>}
+      </svg>
+    </div>
   );
 }
 
@@ -296,7 +380,7 @@ function Strihani() {
     <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', padding: 20, boxSizing: 'border-box', fontFamily: SANS, color: '#eaf2fa', overflow: 'hidden' }}>
       <div style={{ display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: 16, alignItems: 'center' }}>
         <Scene z={z} stroke={stroke} m={m} />
-        <Surface m={m} z={z} />
+        <Surface m={m} />
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 26, margin: '4px 0 14px' }}>
         <Slider label="Střižná mezera v (na stranu)" value={z} min={0.03} max={0.60} step={0.01} onChange={setZ}

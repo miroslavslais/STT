@@ -939,8 +939,8 @@
         "title": "Ostatní technologie",
         "desc": "Kalandrování, vakuové tváření, lisování, přetlačování, odlévání a máčení.",
         "href": "ostatni/index.html",
-        "badge": "Připravujeme",
-        "status": "coming-soon"
+        "badge": "2 kapitoly",
+        "status": "ready"
       }
     ]
   },
@@ -1041,7 +1041,8 @@
         "title": "Kalandrování",
         "desc": "Výroba fólií a desek válcováním.",
         "href": "kalandrovani.html",
-        "status": "coming-soon"
+        "status": "ready",
+        "badge": "2 animace · 2 interaktivní"
       },
       {
         "title": "Vakuové tváření",
@@ -1059,7 +1060,8 @@
         "title": "Odlévání a máčení",
         "desc": "Odlévání plastů včetně rotačního odlévání; výroba tenkostěnných dílů máčením.",
         "href": "odlevani-maceni.html",
-        "status": "coming-soon"
+        "status": "ready",
+        "badge": "3 animace"
       }
     ]
   }

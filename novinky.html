@@ -41,7 +41,95 @@
 <div style="min-height:100vh;background:#fbf8f3;font-family:'IBM Plex Sans',sans-serif;padding:64px 48px 96px;box-sizing:border-box">
   <div style="max-width:760px;margin:0 auto">
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:44px;line-height:1.15;color:#231d16;margin:0 0 12px">Novinky</h1>
-    <p style="font-size:16.5px;line-height:1.7;color:#8a8072;margin:0 0 48px;max-width:52ch;text-wrap:pretty">Přehled změn ve&nbsp;výukových materiálech — nové stránky, doplněný obsah a&nbsp;úpravy rozložení.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#8a8072;margin:0 0 28px;max-width:52ch;text-wrap:pretty">Přehled změn ve&nbsp;výukových materiálech — nové stránky, doplněný obsah a&nbsp;úpravy rozložení.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+        <button type="button" onClick="{{ f.select }}" style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;padding:8px 16px;border-radius:999px;cursor:pointer;border:1px solid {{ f.border }};background:{{ f.bg }};color:{{ f.color }}" style-hover="border-color:#231d16">{{ f.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="border-top:1px solid #e5ded2;padding-top:32px;margin-bottom:44px" data-news-group="2026-10-16">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.06em;color:#b0561f;margin-bottom:20px">16. října 2026</div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./zpracovani-polymeru/ostatni/odlevani-maceni.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Odlévání a&nbsp;máčení plastů</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Upřesněn vliv doby výdrže a&nbsp;teploty formy na&nbsp;tloušťku vrstvy při máčení.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./tvareni-za-tepla/tvareni-za-studena/Strihani.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Stříhání</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Nový detail hrany po střihu s&nbsp;řezem a&nbsp;pohledem na stěnu, přepínatelný mezi dírou v&nbsp;pásu a&nbsp;výstřižkem.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid #e5ded2;padding-top:32px;margin-bottom:44px" data-news-group="2026-10-14">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.06em;color:#b0561f;margin-bottom:20px">14. října 2026</div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#e7f0e7;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#3f6b3f">Nové</span>
+          <div>
+            <a href="./zpracovani-polymeru/ostatni/odlevani-maceni.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Odlévání a&nbsp;máčení plastů</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Krokové schéma odlévání pryskyřice, animace rotačního odlévání s&nbsp;přepínačem jedné a&nbsp;dvou os, animace máčení v&nbsp;plastisolu a&nbsp;latexu a&nbsp;srovnávací tabulka.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./zpracovani-polymeru/ostatni/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Ostatní technologie</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Kapitola Odlévání a&nbsp;máčení je zpřístupněná.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./zpracovani-polymeru/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Zpracování polymerů</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Skupina Ostatní technologie nově obsahuje 2 kapitoly.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#eee6d8;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a6b3f">Rozložení</span>
+          <div>
+            <a href="./novinky.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Novinky</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Pod nadpisem je filtr změn podle typu — nové, upravené a&nbsp;změny rozložení.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./zpracovani-polymeru/ostatni/kalandrovani.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Kalandrování</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Doplněný výklad o&nbsp;rozdílu obvodových rychlostí na&nbsp;vstupní a&nbsp;poslední mezeře kalandru.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#e7f0e7;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#3f6b3f">Nové</span>
+          <div>
+            <a href="./zpracovani-polymeru/ostatni/kalandrovani.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Kalandrování</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Kalandrovací linka s&nbsp;animací, uspořádání válců I, L, F a&nbsp;Z, průhyb válců a&nbsp;způsoby jeho vyrovnání, nanášení na&nbsp;podklad a&nbsp;srovnání s&nbsp;vytlačováním štěrbinovou hlavou.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./zpracovani-polymeru/ostatni/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Ostatní technologie</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Kapitola Kalandrování je zpřístupněná.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <span style="flex:none;margin-top:2px;padding:4px 10px;border-radius:999px;background:#f3eee4;font-size:11.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#8a8072">Úprava</span>
+          <div>
+            <a href="./zpracovani-polymeru/index.html" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#231d16">Zpracování polymerů</a>
+            <div style="font-size:15px;line-height:1.65;color:#8a8072;margin-top:3px">Skupina Ostatní technologie je zpřístupněná s&nbsp;první kapitolou.</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div style="border-top:1px solid #e5ded2;padding-top:32px;margin-bottom:44px" data-news-group="2026-10-11">
       <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.06em;color:#b0561f;margin-bottom:20px">11. října 2026</div>
@@ -1516,6 +1604,20 @@
 </div>
 
 <pre id="changelog-data" hidden="hidden" style="display:none">
+## 2026-10-16
+- [edit] zpracovani-polymeru/ostatni/odlevani-maceni | Odlévání a máčení plastů | Upřesněn vliv doby výdrže a teploty formy na tloušťku vrstvy při máčení.
+- [edit] tvareni-za-tepla/tvareni-za-studena/strihani | Stříhání | Nový detail hrany po střihu s řezem a pohledem na stěnu, přepínatelný mezi dírou v pásu a výstřižkem.
+
+## 2026-10-14
+- [new] zpracovani-polymeru/ostatni/odlevani-maceni | Odlévání a máčení plastů | Krokové schéma odlévání pryskyřice, animace rotačního odlévání s přepínačem jedné a dvou os, animace máčení v plastisolu a latexu a srovnávací tabulka.
+- [edit] zpracovani-polymeru/ostatni/index | Ostatní technologie | Kapitola Odlévání a máčení je zpřístupněná.
+- [edit] zpracovani-polymeru/index | Zpracování polymerů | Skupina Ostatní technologie nově obsahuje 2 kapitoly.
+- [layout] novinky | Novinky | Pod nadpisem je filtr změn podle typu — nové, upravené a změny rozložení.
+- [edit] zpracovani-polymeru/ostatni/kalandrovani | Kalandrování | Doplněný výklad o rozdílu obvodových rychlostí na vstupní a poslední mezeře kalandru.
+- [new] zpracovani-polymeru/ostatni/kalandrovani | Kalandrování | Kalandrovací linka s animací, uspořádání válců I, L, F a Z, průhyb válců a způsoby jeho vyrovnání, nanášení na podklad a srovnání s vytlačováním štěrbinovou hlavou.
+- [edit] zpracovani-polymeru/ostatni/index | Ostatní technologie | Kapitola Kalandrování je zpřístupněná.
+- [edit] zpracovani-polymeru/index | Zpracování polymerů | Skupina Ostatní technologie je zpřístupněná s první kapitolou.
+
 ## 2026-10-11
 - [edit] zpracovani-polymeru/index | Zpracování polymerů | Skupina Ostatní technologie je označená jako připravovaná.
 - [edit] zpracovani-polymeru/ostatni/index | Ostatní technologie | Všechny čtyři kapitoly skupiny jsou označené jako připravované.
@@ -1752,16 +1854,24 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { showAll: false };
+  state = { showAll: false, filter: 'all' };
   componentDidMount() { this.applyCutoff(); }
   componentDidUpdate() { this.applyCutoff(); }
   applyCutoff() {
     const cutoff = Date.now() - 30 * 86400000;
+    const CAT = { 'Nové': 'new', 'Nová stránka': 'new', 'Úprava': 'edit', 'Obsah': 'edit', 'Doplněno': 'edit', 'Rozložení': 'layout' };
+    const f = this.state.filter;
     let hidden = 0;
     document.querySelectorAll('[data-news-group]').forEach(g => {
+      let visible = 0;
+      g.querySelectorAll('span[style*="text-transform"]').forEach(s => {
+        const ok = f === 'all' || CAT[s.textContent.trim()] === f;
+        s.parentElement.style.display = ok ? 'flex' : 'none';
+        if (ok) visible++;
+      });
       const old = new Date(g.getAttribute('data-news-group') + 'T00:00:00').getTime() < cutoff;
-      if (old) hidden++;
-      g.style.display = (old && !this.state.showAll) ? 'none' : '';
+      if (old && visible) hidden++;
+      g.style.display = (!visible || (old && !this.state.showAll)) ? 'none' : '';
     });
     const wrap = document.querySelector('[data-news-history]');
     if (!wrap) return;
@@ -1770,7 +1880,12 @@ class Component extends DCLogic {
     if (b) b.textContent = this.state.showAll ? 'Skrýt starší novinky' : 'Zobrazit celou historii';
   }
   renderVals() {
-    return { toggleHistory: () => this.setState(s => ({ showAll: !s.showAll })) };
+    const opts = [['all', 'Vše'], ['new', 'Nové'], ['edit', 'Upraveno'], ['layout', 'Rozložení']];
+    const filters = opts.map(([id, label]) => {
+      const on = this.state.filter === id;
+      return { label, bg: on ? '#231d16' : '#fff', color: on ? '#fff' : '#231d16', border: on ? '#231d16' : '#e5ded2', select: () => this.setState({ filter: id }) };
+    });
+    return { filters, toggleHistory: () => this.setState(s => ({ showAll: !s.showAll })) };
   }
 }
 

@@ -938,15 +938,15 @@
   "tvareni-za-tepla/tvareni-za-studena/strihani": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "9a6588b87a9a7cdd5b310b4c21b039b9be11f635e9ea8bd3ad8b46d0cc0a3948",
+    "content_hash": "1d4d5550dd3c2f8fb4f0753192eab3e8afd197aa97a3362c1ccdc7e1e57916a4",
     "file": "tvareni-za-tepla/tvareni-za-studena/Strihani.html",
     "first_seen": "2026-08-09",
     "hash_version": 2,
-    "last_changed": "2026-10-11",
+    "last_changed": "2026-10-16",
     "locked": false,
     "note": "Interaktivní animace vlivu střižné vůle na pásma střižné plochy, otřep a průběh střižné síly.",
     "title": "Stříhání",
-    "written_hash": "9a6588b87a9a7cdd5b310b4c21b039b9be11f635e9ea8bd3ad8b46d0cc0a3948"
+    "written_hash": "1d4d5550dd3c2f8fb4f0753192eab3e8afd197aa97a3362c1ccdc7e1e57916a4"
   },
   "tvareni-za-tepla/tvareni-za-studena/strizne-nastroje": {
     "badge": true,
@@ -1510,28 +1510,54 @@
   "zpracovani-polymeru/index": {
     "badge": true,
     "category": "zpracovani-polymeru",
-    "content_hash": "198258a4a38d9a21ba561c4ebf7a6eed94d927a60f2abd9f9ff0d9a4346c3cd9",
+    "content_hash": "b4d444a1f611cf6e46a6b0846f26fc068c2c4adb980b08305fa6938f6926906c",
     "file": "zpracovani-polymeru/index.html",
     "first_seen": "2026-10-11",
     "hash_version": 2,
-    "last_changed": "2026-10-11",
+    "last_changed": "2026-10-16",
     "locked": false,
     "note": "Rozcestník nové kapitoly se skupinami Základy polymerů, Vstřikování, vytlačování, vyfukování a Ostatní technologie.",
     "title": "Zpracování polymerů",
-    "written_hash": "934025fdd38f9ca2b84880fe83a2f5f18d5d2e170640759054ffb3537b2f647b"
+    "written_hash": "7ab2305a92765b4e60df2bfb69e2cb92665f9b9e71d231a97e5609d6a5f37de5"
   },
   "zpracovani-polymeru/ostatni/index": {
     "badge": true,
     "category": "zpracovani-polymeru",
-    "content_hash": "16069a7b9676b285bac86094fbefe25af37c89901ae0ef5fd9fd0c8ba01b2136",
+    "content_hash": "5b7e34fc58e10fb2f52de682da24b5e4809f317f73b0a211a06bf8b59fe91164",
     "file": "zpracovani-polymeru/ostatni/index.html",
     "first_seen": "2026-10-11",
     "hash_version": 2,
-    "last_changed": "2026-10-11",
+    "last_changed": "2026-10-16",
     "locked": false,
     "note": "Rozcestník skupiny s kapitolami o kalandrování, vakuovém tváření, lisování a přetlačování, odlévání a máčení.",
     "title": "Ostatní technologie",
-    "written_hash": "2e922f1617015d69fb90e5ff5cc2c28f7d4ada73faccc1b7b36362690ae1fa25"
+    "written_hash": "025cca9356829f757748f1ed564f83f851e91817042b96089989a9d82154d193"
+  },
+  "zpracovani-polymeru/ostatni/kalandrovani": {
+    "badge": true,
+    "category": "zpracovani-polymeru",
+    "content_hash": "14aea01fe6d37d1878b393b79467d4be0af3bfba021e568a178e5f13f554edcd",
+    "file": "zpracovani-polymeru/ostatni/kalandrovani.html",
+    "first_seen": "2026-10-16",
+    "hash_version": 2,
+    "last_changed": "2026-10-16",
+    "locked": false,
+    "note": "Kalandrovací linka s animací, uspořádání válců I, L, F a Z, průhyb válců a způsoby jeho vyrovnání, nanášení na podklad a srovnání s vytlačováním štěrbinovou hlavou.",
+    "title": "Kalandrování",
+    "written_hash": "3c50803f8f503bda82378d984c2d8982272b3bccbeab396b1afb59fe81ce0f73"
+  },
+  "zpracovani-polymeru/ostatni/odlevani-maceni": {
+    "badge": true,
+    "category": "zpracovani-polymeru",
+    "content_hash": "8b4b57dfad3400d7eac6c2314cde1f6c98e1ef81dbf17f15f1b62cee62f33afd",
+    "file": "zpracovani-polymeru/ostatni/odlevani-maceni.html",
+    "first_seen": "2026-10-16",
+    "hash_version": 2,
+    "last_changed": "2026-10-16",
+    "locked": false,
+    "note": "Krokové schéma odlévání pryskyřice, animace rotačního odlévání s přepínačem jedné a dvou os, animace máčení v plastisolu a latexu a srovnávací tabulka.",
+    "title": "Odlévání a máčení plastů",
+    "written_hash": "a0257e27553abaccfe98476d63a337b37b476c045cdfc03d990ee22fd8cce970"
   },
   "zpracovani-polymeru/vstrikovani-vytlacovani/index": {
     "badge": true,
