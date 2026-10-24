@@ -1510,28 +1510,28 @@
   "zpracovani-polymeru/index": {
     "badge": true,
     "category": "zpracovani-polymeru",
-    "content_hash": "b4d444a1f611cf6e46a6b0846f26fc068c2c4adb980b08305fa6938f6926906c",
+    "content_hash": "29667a0924e27ea1b5cc81a3b1f8c1769372eebd776d1ef405d567e21b33a92a",
     "file": "zpracovani-polymeru/index.html",
     "first_seen": "2026-10-11",
     "hash_version": 2,
-    "last_changed": "2026-10-16",
+    "last_changed": "2026-10-24",
     "locked": false,
     "note": "Rozcestník nové kapitoly se skupinami Základy polymerů, Vstřikování, vytlačování, vyfukování a Ostatní technologie.",
     "title": "Zpracování polymerů",
-    "written_hash": "7ab2305a92765b4e60df2bfb69e2cb92665f9b9e71d231a97e5609d6a5f37de5"
+    "written_hash": "6c2a3583fee16752d91b7b8d11b4d43f6c9c6636f50bed127f2fdb1ed1536b18"
   },
   "zpracovani-polymeru/ostatni/index": {
     "badge": true,
     "category": "zpracovani-polymeru",
-    "content_hash": "5b7e34fc58e10fb2f52de682da24b5e4809f317f73b0a211a06bf8b59fe91164",
+    "content_hash": "e135205e03ac865be167bd3be5eb242a6c73d306c49d4faed8de69ff8eef00c7",
     "file": "zpracovani-polymeru/ostatni/index.html",
     "first_seen": "2026-10-11",
     "hash_version": 2,
-    "last_changed": "2026-10-16",
+    "last_changed": "2026-10-24",
     "locked": false,
     "note": "Rozcestník skupiny s kapitolami o kalandrování, vakuovém tváření, lisování a přetlačování, odlévání a máčení.",
     "title": "Ostatní technologie",
-    "written_hash": "025cca9356829f757748f1ed564f83f851e91817042b96089989a9d82154d193"
+    "written_hash": "0fba8db8ad10798dc40cfae2e76aedf78f9c10007994feca93c38cab9533821c"
   },
   "zpracovani-polymeru/ostatni/kalandrovani": {
     "badge": true,
@@ -1546,18 +1546,44 @@
     "title": "Kalandrování",
     "written_hash": "3c50803f8f503bda82378d984c2d8982272b3bccbeab396b1afb59fe81ce0f73"
   },
+  "zpracovani-polymeru/ostatni/lisovani-pretlacovani": {
+    "badge": true,
+    "category": "zpracovani-polymeru",
+    "content_hash": "e88539e04309b39d43ed957b7259a2107c6afc47619d53a67cb85fd2233a8098",
+    "file": "zpracovani-polymeru/ostatni/lisovani-pretlacovani.html",
+    "first_seen": "2026-10-24",
+    "hash_version": 2,
+    "last_changed": "2026-10-24",
+    "locked": false,
+    "note": "Graf viskozity reaktoplastu s dobou tečení, krokové animace lisování a přetlačování v řezu s přepínačem zálisku, materiály a srovnání se vstřikováním reaktoplastů.",
+    "title": "Lisování a přetlačování",
+    "written_hash": "99cfa56b8b0bf4ca8860464254b08889b71945b325636c6d2d5d1c5d6a463fd8"
+  },
   "zpracovani-polymeru/ostatni/odlevani-maceni": {
     "badge": true,
     "category": "zpracovani-polymeru",
-    "content_hash": "8b4b57dfad3400d7eac6c2314cde1f6c98e1ef81dbf17f15f1b62cee62f33afd",
+    "content_hash": "d610de439e2b82f2df414c66d924a7a6c0b4631148cf2f4db24a1dcd62f1da8a",
     "file": "zpracovani-polymeru/ostatni/odlevani-maceni.html",
     "first_seen": "2026-10-16",
     "hash_version": 2,
-    "last_changed": "2026-10-16",
+    "last_changed": "2026-10-24",
     "locked": false,
     "note": "Krokové schéma odlévání pryskyřice, animace rotačního odlévání s přepínačem jedné a dvou os, animace máčení v plastisolu a latexu a srovnávací tabulka.",
     "title": "Odlévání a máčení plastů",
-    "written_hash": "a0257e27553abaccfe98476d63a337b37b476c045cdfc03d990ee22fd8cce970"
+    "written_hash": "7deb9d7c86663808fca80c16af6f92d22d873fe374c3160e357867234f1a5bcc"
+  },
+  "zpracovani-polymeru/ostatni/vakuove-tvareni": {
+    "badge": true,
+    "category": "zpracovani-polymeru",
+    "content_hash": "6680b4afbc0e049c97479c905322fbb51fad1a7dd5479a79666dc784d6253886",
+    "file": "zpracovani-polymeru/ostatni/vakuove-tvareni.html",
+    "first_seen": "2026-10-24",
+    "hash_version": 2,
+    "last_changed": "2026-10-24",
+    "locked": false,
+    "note": "Kroková animace postupu, srovnání negativní a pozitivní formy s předtažením, ohřev na termomechanické křivce, paměťový efekt a srovnávací tabulka.",
+    "title": "Vakuové tváření",
+    "written_hash": "9b04f7d8f300ad391a120a104ec38d2939eab0c0eaf2473a5a09aeeb809334de"
   },
   "zpracovani-polymeru/vstrikovani-vytlacovani/index": {
     "badge": true,

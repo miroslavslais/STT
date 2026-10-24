@@ -14,7 +14,7 @@
   <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <style>
     html, body { margin: 0; background: #fbf8f3; }
     a { color: inherit; text-decoration: none; }
@@ -72,9 +72,117 @@
       </sc-if>
     </sc-for>
   </div>
+
+  <div style="max-width:1080px;margin:44px auto 0">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:#1f7a73;margin-bottom:16px">AI asistenti</div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:stretch">
+      <div style="display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:28px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#1f7a73;display:flex;align-items:center;gap:8px;margin-bottom:14px">
+          <span style="width:7px;height:7px;background:#2f9a91;border-radius:50%"></span>
+          AI Kvíz
+        </div>
+        <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 16px;color:#231d16">Procvič si zpracování polymerů nanečisto</h2>
+        <ol style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#d6ecea;color:#1f7a73;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">1</span><span>Klikni na <strong style="color:#231d16;font-weight:600">„Zkopírovat prompt“</strong>.</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#d6ecea;color:#1f7a73;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">2</span><span>Otevři si své oblíbené AI (<strong style="color:#231d16;font-weight:600">ChatGPT, Claude, Copilot…</strong>).</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#d6ecea;color:#1f7a73;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">3</span><span>Vlož a&nbsp;odešli — zadání tématu je už jeho součástí.</span></li>
+        </ol>
+        <div style="flex:1;background:#fbf8f3;border:1px solid #eee5d8;border-radius:12px;margin-bottom:20px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8a8072;padding:10px 14px 0">Systémový prompt</div>
+          <pre style="height:160px;overflow-y:auto;padding:10px 14px 14px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5c5346;white-space:pre-wrap;word-break:break-word">{{ promptText }}</pre>
+        </div>
+        <button type="button" onClick="{{ copyPrompt }}" style="margin-top:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#fff;background:{{ btnBg }};border:none;border-radius:10px;padding:14px 20px;cursor:pointer">
+          <span>{{ btnIcon }}</span>
+          <span>{{ btnLabel }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+  }
+  fallbackCopy(text);
+  return Promise.resolve();
+}
+
+const PROMPT = `Jste "Generátor procvičování zpracování polymerů", specializovaný AI asistent na výukových stránkách strojírenské technologie. Vaším úkolem je generovat cvičné otázky a\u00a0krátké kvízy z\u00a0tématu zpracování polymerů: základy polymerů (rozdělení a\u00a0struktura — termoplasty, reaktoplasty, elastomery, lineární, rozvětvené a\u00a0síťované makromolekuly, amorfní a\u00a0částečně krystalické polymery; vlastnosti a\u00a0přísady — plniva, výztuže, změkčovadla, stabilizátory, barviva; termomechanická křivka — sklovitá oblast, vysokoelastická oblast, viskózní tok, teplota skelného přechodu, teplota tání, rozdíl mezi amorfním a\u00a0částečně krystalickým termoplastem a\u00a0reaktoplastem; příprava materiálu — sušení, barvení, recyklát; identifikace plastů), vstřikování, vytlačování a\u00a0vyfukování (vstřikování — vstřikovací stroj, plastikace, cyklus, vstřikovací forma, vtoková soustava, temperace formy, úkosy, násobnost formy, technologické parametry, smrštění; vady výstřiků — projev, příčina a\u00a0náprava podle fází cyklu, vliv parametrů a\u00a0vlhkého materiálu, propadlina a\u00a0staženina; vytlačování — vytlačovací linka, extruder, šnek a\u00a0jeho pásma, hlavy a\u00a0hubice, narůstání za hubicí, profily a\u00a0trubky, vyfukovaná fólie, koextruze, granulace; vyfukování — kanystr z\u00a0předlisku, PET lahev z\u00a0preformy s\u00a0dloužením, stopy na výrobku, srovnání obou způsobů; speciální vstřikování — vícekomponentní vstřikování, zastřikování, etiketa ve\u00a0formě, sendvičové vstřikování, vstřikování s\u00a0plynem nebo vodou, vstřikování reaktoplastů a\u00a0silikonu) a\u00a0ostatní technologie (kalandrování — uspořádání válců, průhyb válců a\u00a0jeho vyrovnání, frikce, nanášení na podklad; odlévání a\u00a0máčení — odlévání pryskyřic do forem, lité desky a\u00a0lité polyamidy, rotační odlévání, máčení v\u00a0plastisolu a\u00a0latexu, vylévání; vakuové tváření — postup, negativní a\u00a0pozitivní forma, předtažení, ohřev podle termomechanické křivky, paměťový efekt, přetlakové tváření; lisování a\u00a0přetlačování — viskozita reaktoplastu ve\u00a0vyhřáté formě, doba tečení, přetoková a\u00a0uzavřená forma, zálisky, materiály).
+
+ÚVODNÍ KROK:
+- Jakmile obdržíte tento prompt, na začátku konverzace nejprve stručně seznamte studenta s\u00a0pravidly ovládání (viz OVLÁDÁNÍ níže) a\u00a0teprve poté se zeptejte, jakou skupinu chce procvičovat (nabídněte číslovaný seznam: 1 Základy polymerů, 2 Vstřikování, vytlačování a\u00a0vyfukování, 3 Ostatní technologie, 4 Celá kapitola) a\u00a0jakou obtížnost preferuje (základy, opakování před testem na úrovni znalostí žáka SŠ).
+
+OVLÁDÁNÍ:
+- Jedno kolo má 8 až 10 otázek. Po každé odpovědi si v\u00a0duchu přičti k\u00a0počítadlu otázek v\u00a0aktuálním kole.
+- Po dosažení 8 až 10 otázek se studenta ptáte, jak chce pokračovat, nabídněte možnosti jako číslovaný seznam. Student odpovídá pouze číslem.
+- Pokud otázka obsahuje látku, kterou student ještě neprobíral, může místo odpovědi napsat písmeno X. V\u00a0takovém případě látku stručně vysvětlete a\u00a0pokračujte další otázkou (tato otázka se nezapočítává do limitu 8–10).
+
+HRANICE TÉMATU:
+- Držte se výhradně zpracování polymerů a\u00a0souvisejících témat. U\u00a0dotazů mimo téma studenta zdvořile nasměrujte zpět k\u00a0látce.
+- Odlévání a\u00a0tváření kovů zmiňujte jen jako srovnání (například staženina v\u00a0odlitku, válcování kovů u\u00a0kalandrování), nikoli jako předmět otázek.
+- Neptejte se na chemické vzorce, reakce ani názvy chemických sloučenin nad rámec zkratek plastů (PE, PP, PVC, PS, ABS, PMMA, PC, PA, PET, PF, MF, UF, UP, EP, PUR).
+- Neptejte se na číselné recyklační kódy ani na jiná čísla.
+
+ODBORNÁ PŘESNOST — dodržujte bezvýhradně:
+- Kapitola neobsahuje číselné hodnoty. Nevymýšlejte teploty, tlaky, rychlosti, časy, rozměry, procenta smrštění ani jiná čísla. Všechny otázky formulujte kvalitativně, bez výpočtů.
+- Termoplast tuhne ochlazením a\u00a0lze ho znovu roztavit. Reaktoplast ztuhne síťováním (vytvrzením), které je nevratné, a\u00a0znovu roztavit nejde. Elastomer je řídce zesíťovaný a\u00a0za běžné teploty pružný.
+- Termomechanická křivka: ve\u00a0sklovité oblasti je plast tuhý, ve\u00a0vysokoelastické se dá velmi protáhnout (deformace je vratná), ve\u00a0viskózním toku teče (deformace je nevratná). Vstřikování a\u00a0vytlačování pracují s\u00a0taveninou, vakuové tváření a\u00a0dloužení PET preformy ve\u00a0vysokoelastickém stavu.
+- Paměťový efekt: vakuově tvarovaný výrobek má orientaci molekul „zamrzlou“ pod teplotou skelného přechodu; po ohřevu nad ni se smrští zpět do ploché desky. Využívají ho smršťovací fólie a\u00a0bužírky.
+- PET preforma se při vyfukování ohřívá nad teplotu skelného přechodu, ale pod teplotu tání, a\u00a0dloužením se zpevní. Kanystr se vyfukuje z\u00a0předlisku vytlačeného jako tavenina. Nezaměňujte předlisek a\u00a0preformu.
+- Pásma šneku jsou transportní, kompresní a\u00a0homogenizační, v\u00a0tomto pořadí od násypky.
+- Narůstání za hubicí: tavenina po výstupu z\u00a0hubice nabobtná, proto hubice nemá přesně tvar výsledného profilu.
+- Propadlina i\u00a0staženina vznikají smrštěním v\u00a0tlustém místě výstřiku. Propadlina je prohlubeň na povrchu, staženina je dutina uvnitř, když povrch už ztuhl. Nezaměňujte je.
+- Kalandrování: průhyb válců se vyrovnává bombírováním, křížením os nebo protiohybem. Při frikci je největší rozdíl obvodových rychlostí na vstupní mezeře a\u00a0hlavní hnětení probíhá před kalandrem.
+- Rotační odlévání: forma se otáčí ve\u00a0dvou osách; při otáčení jen v\u00a0jedné ose by stěna vznikla jen po obvodu kolem osy a\u00a0čela by zůstala bez stěny. Výrobek vzniká bez tlaku a\u00a0téměř bez vnitřního pnutí.
+- Plastisol (pasta z\u00a0PVC a\u00a0změkčovadla) želatinuje: na předehřáté formě předželatinuje, v\u00a0peci úplně želatinuje. Plastisol nesíťuje — nepoužívejte pro něj slovo „vytvrzení“ ani „dogeluje“.
+- Máčení: tloušťku vrstvy ovlivňuje viskozita, rychlost vytahování a\u00a0počet ponoření; doba výdrže jen u\u00a0předehřáté formy a\u00a0u latexu s\u00a0koagulantem. Na studené formě delší výdrž vrstvu téměř nezesílí.
+- Vakuové tváření: deska ztuhne a\u00a0přestane se protahovat tam, kde se formy dotkne nejdřív. U\u00a0negativní formy jsou nejtenčí rohy dna, u\u00a0pozitivní formy stěny a\u00a0rohy u\u00a0základny. Předtažení (razníkem nebo předfouknutím bubliny) dává rovnoměrnější stěnu. Pozitivní forma potřebuje větší úkos, protože se na ni výrobek smrští.
+- Lisování a\u00a0přetlačování reaktoplastů: forma je trvale vyhřátá, výrobek se vyjímá horký. Viskozita nejdřív klesá (měknutí), pak je nízká (doba tečení — v\u00a0ní se dutina musí zaplnit), pak síťováním prudce roste. Pootevření formy při lisování slouží k\u00a0úniku vzduchu a\u00a0plynů z\u00a0vytvrzování.
+- Zálisek: při lisování ho tuhá dávka může vychýlit, při přetlačování hmota přitéká už změklá a\u00a0zálisek obteče.
+- Přetlačování plastů není protlačování kovů. U\u00a0plastů jde o\u00a0vtlačení změklé hmoty z\u00a0přetlačovací komory do uzavřené formy.
+- Kuchyňská fólie na rolích je jednovrstvá. Koextruzí se vyrábějí vícevrstvé, například bariérové obalové fólie.
+
+FORMÁT OTÁZEK:
+- Otázky mají ověřovat porozumění a\u00a0souvislosti, ne memorování definic. V\u00a0každém kole musí být alespoň polovina otázek některého z\u00a0těchto typů:
+  • porovnání dvou technologií, stavů nebo materiálů (v\u00a0čem se liší, kdy zvolit kterou),
+  • „Co se stane, když…“ (změna parametru, materiálu nebo postupu a\u00a0její důsledek),
+  • „Vysvětli, proč…“ (příčina jevu).
+- V\u00a0každém kole zařaď alespoň jednu otázku na volbu vhodné technologie pro zadaný výrobek a\u00a0alespoň jednu otázku navazující na termomechanickou křivku.
+- Střídej otevřené otázky a\u00a0otázky s\u00a0výběrem ze\u00a04 možností (A/B/C/D) přibližně napůl. Nikdy negeneruj tři a\u00a0více ABCD otázek po sobě.
+- Před formulací každé otázky si urči, o\u00a0jaký typ půjde a\u00a0zda bude otevřená, nebo výběrová, a\u00a0drž se tohoto rozhodnutí.
+- U\u00a0výběrových otázek musí být nesprávné možnosti věrohodné — typické záměny (předlisek × preforma, propadlina × staženina, vysokoelastický stav × tavenina, želatinace × vytvrzení).
+- Pokládejte vždy jen jednu otázku a\u00a0čekejte na odpověď studenta.
+
+PŘÍKLAD (vzor pro formát, netýká se obsahu aktuálního kola):
+- Porovnání: "V čem se liší výroba kanystru a\u00a0PET lahve vyfukováním? Uveď polotovar a\u00a0stav materiálu při foukání."
+- Co se stane, když: "Co se stane s\u00a0výrobkem z\u00a0vakuového tváření, když ho položíš na topení?"
+- Vysvětli proč: "Proč se forma při rotačním odlévání otáčí ve\u00a0dvou osách, a\u00a0ne jen v\u00a0jedné?"
+- Výběrová: "Kde bude nejtenčí stěna vaničky tvarované na negativní formě bez předtažení? A) u\u00a0okraje B) uprostřed dna C) v\u00a0rozích dna D) všude stejná"
+- Volba technologie: "Potřebuješ vyrobit zapouzdřenou cívku s\u00a0jemnými vývody z\u00a0epoxidové hmoty. Lisování, nebo přetlačování? Zdůvodni."
+- Termomechanická křivka: "Proč se vakuově netvaruje deska ohřátá až do viskózního toku?"
+
+VYHODNOCENÍ:
+1. Po každé odpovědi ihned řekněte, zda je správná.
+2. Vždy stručně vysvětlete správné řešení a\u00a0u porovnávacích otázek pojmenujte hlavní rozdíl jednou větou.
+3. Poté nabídněte další otázku.
+4. Přizpůsobujte obtížnost podle úspěšnosti studenta. Pod 30\u00a0% upozorněte studenta, že dané téma musí pochopit více do hloubky.
+
+TÓN KOMUNIKACE:
+- Komunikujte v\u00a0češtině, buďte přátelští a\u00a0studentovi tykejte.
+
+---
+
+Ahoj, chci si procvičit zpracování polymerů formou kvízu.`;
+
 const ICONS = {
   'zaklady': '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="2.4" stroke="#1f7a73" stroke-width="1.8"></circle><circle cx="12" cy="7" r="2.4" stroke="#1f7a73" stroke-width="1.8"></circle><circle cx="19" cy="12" r="2.4" stroke="#1f7a73" stroke-width="1.8"></circle><circle cx="12" cy="18" r="2.4" stroke="#1f7a73" stroke-width="1.8"></circle><path d="M7 10.6l3-2.2M14 8.4l3 2.2M17 13.6l-3 2.9M10 16.5l-3-2.9" stroke="#1f7a73" stroke-width="1.6" stroke-linecap="round"></path></svg>',
   'vstrikovani-vytlacovani': '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="8" width="13" height="8" rx="1.5" stroke="#1f7a73" stroke-width="1.8"></rect><path d="M15.5 10.5l3 1.5-3 1.5" stroke="#1f7a73" stroke-width="1.8" stroke-linejoin="round"></path><path d="M18.5 12h3" stroke="#1f7a73" stroke-width="1.8" stroke-linecap="round"></path><path d="M5 12h8" stroke="#1f7a73" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="1.6 1.6"></path></svg>',
@@ -83,10 +191,16 @@ const ICONS = {
 const CARDS = [
   { id: 'zaklady', title: 'Základy polymerů', desc: 'Rozdělení, struktura, vlastnosti a chování polymerů za tepla; příprava a identifikace materiálu.', href: 'zaklady/index.html', badge: '5 kapitol', status: 'ready' },
   { id: 'vstrikovani-vytlacovani', title: 'Vstřikování, vytlačování, vyfukování', desc: 'Hlavní technologie zpracování termoplastů a vady výstřiků.', href: 'vstrikovani-vytlacovani/index.html', badge: '4 kapitoly', status: 'ready' },
-  { id: 'ostatni', title: 'Ostatní technologie', desc: 'Kalandrování, vakuové tváření, lisování, přetlačování, odlévání a máčení.', href: 'ostatni/index.html', badge: '2 kapitoly', status: 'ready' },
+  { id: 'ostatni', title: 'Ostatní technologie', desc: 'Kalandrování, vakuové tváření, lisování, přetlačování, odlévání a máčení.', href: 'ostatni/index.html', badge: '4 kapitoly', status: 'ready' },
 ];
 class Component extends DCLogic {
-  state = { structure: null };
+  state = { structure: null, copied: false };
+  copyPrompt = () => {
+    copyToClipboard(PROMPT).then(() => {
+      this.setState({ copied: true });
+      setTimeout(() => this.setState({ copied: false }), 2000);
+    });
+  };
   componentDidMount() {
     fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
   }
@@ -97,7 +211,14 @@ class Component extends DCLogic {
       const ready = c.status === 'ready';
       return { title: c.title, desc: c.desc, href: c.href, badge: c.badge, ready, notReady: !ready, icon: { __html: ICONS[c.id] || '' } };
     });
-    return { cards };
+    return {
+      cards,
+      promptText: PROMPT,
+      copyPrompt: this.copyPrompt,
+      btnBg: this.state.copied ? 'oklch(0.6 0.14 150)' : '#1f7a73',
+      btnIcon: this.state.copied ? '✓' : '📋',
+      btnLabel: this.state.copied ? 'Zkopírováno!' : 'Zkopírovat prompt',
+    };
   }
 }
 (function () {

@@ -72,10 +72,9 @@
           <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Postup odlévání pryskyřice</div>
           <div style="font-size:14px;color:#8296a8;margin-top:4px">Klikni na&nbsp;krok nebo na&nbsp;jeho popisek, nebo přehraj celý postup.</div>
         </div>
-        <button onClick="{{ odToggle }}" style="display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;cursor:pointer;background:#e59a62;border:1px solid #e59a62;color:#080b12;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px">
-          <sc-if value="{{ odIdle }}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
-          <sc-if value="{{ odPlay }}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 3 H13 V13 H3 Z" fill="#080b12"></path></svg></sc-if>
-          {{ odBtn }}
+        <button onClick="{{ odToggle }}" aria-label="{{ odBtn }}" title="{{ odBtn }}" style="width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+          <sc-if value="{{ odIdle }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+          <sc-if value="{{ odPlay }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
         </button>
       </div>
       <svg viewBox="0 0 1100 304" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
@@ -275,10 +274,9 @@
           <sc-for list="{{ maMatBtns }}" as="b" hint-placeholder-count="2">
             <button onClick="{{ b.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
           </sc-for>
-          <button onClick="{{ maToggle }}" style="display:flex;align-items:center;gap:8px;padding:9px 18px;border-radius:999px;cursor:pointer;background:#e59a62;border:1px solid #e59a62;color:#080b12;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px">
-            <sc-if value="{{ maIdle }}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
-            <sc-if value="{{ maPlay }}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 16 16"><path d="M3 3 H13 V13 H3 Z" fill="#080b12"></path></svg></sc-if>
-            {{ maBtn }}
+          <button onClick="{{ maToggle }}" aria-label="{{ maBtn }}" title="{{ maBtn }}" style="width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+            <sc-if value="{{ maIdle }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+            <sc-if value="{{ maPlay }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
           </button>
         </div>
       </div>
@@ -519,9 +517,9 @@ function maAt(t, segs, TH, dips) {
 const MA_TXT = {
   plastisol: [
     'Forma se ponoří do lázně plastisolu. Pasta formu smáčí a~ulpívá na ní.',
-    { hot: 'Na předehřáté formě pasta želatinuje a~vrstva roste. Delší výdrž dá silnější vrstvu.', cold: 'Na studené formě pasta neželatinuje. Ulpí jen vrstva, kterou udrží viskozita pasty, delší výdrž ji téměř nezesílí.' },
+    { hot: 'Na předehřáté formě pasta předželatinuje a~vrstva gelu roste. Delší výdrž dá silnější vrstvu.', cold: 'Na studené formě pasta zůstává kapalná. Ulpí jen vrstva, kterou udrží viskozita pasty, delší výdrž ji téměř nezesílí.' },
     'Forma se pomalu vytahuje. Přebytečná pasta stéká a~na spodním okraji se tvoří kapka.',
-    { hot: 'V~peci se vrstva dogeluje — PVC pohltí změkčovadlo a~vznikne pružný plast.', cold: 'V~peci vrstva želatinuje — PVC pohltí změkčovadlo a~vznikne pružný plast.' },
+    { hot: 'V~peci vrstva úplně želatinuje — nabobtnalé částice PVC splynou v~pružný plast.', cold: 'V~peci pasta želatinuje — částice PVC pohltí změkčovadlo, nabobtnají a~splynou v~pružný plast.' },
   ],
   latex: [
     'Forma s~vrstvou koagulantu se ponoří do latexu.',
@@ -532,7 +530,7 @@ const MA_TXT = {
 };
 const MA_REDIP = 'Forma s~první vrstvou se ponoří znovu. Nová vrstva narůstá na předchozí.';
 const MA_MAT = {
-  plastisol: ['Plastisol', 'Pasta z~prášku PVC a~změkčovadla. Na předehřáté formě pasta želatinuje. Po vytažení se vrstva v~peci dogeluje — PVC pohltí změkčovadlo a~vznikne pružný plast.'],
+  plastisol: ['Plastisol', 'Pasta z~prášku PVC a~změkčovadla. Na předehřáté formě pasta předželatinuje — vznikne gel, který na formě drží. Po vytažení vrstva v~peci úplně želatinuje: nabobtnalé částice PVC splynou v~pružný plast.'],
   latex: ['Latex', 'Vodní disperze kaučuku. Forma se nejdřív namočí do koagulantu, ten na ní srazí latex. Vrstva se pak suší a~vulkanizuje.'],
 };
 const MA_KIND = {
@@ -576,7 +574,7 @@ class Component extends DCLogic {
   renderVals() {
     const st = this.state;
     /* odlévání */
-    const odCur = st.odPlay ? Math.min(4, Math.floor(st.odT / OD_DUR)) : -1;
+    const odCur = st.odPlay || st.odT > 0 ? Math.min(4, Math.floor(st.odT / OD_DUR)) : -1;
     const odPick = i => () => this.setState(s => ({ odPlay: false, odT: 0, odSel: s.odSel === i && !s.odPlay ? null : i }));
     const odPanels = OD_STEPS.map((_, i) => {
       const x0 = OD_X(i), on = st.odSel === i;
@@ -613,8 +611,8 @@ class Component extends DCLogic {
     const lvl = (hot ? 1 : 0) + (st.maDips === 2 ? 1 : 0) + (st.maDwell === 'long' && !dwellOff ? 1 : 0);
     const TH = 4 + 4 * lvl;
     const segs = maTimeline(st.maDips, st.maDwell), tot = segs.reduce((a, s) => a + s.dur, 0);
-    const idle = !st.maPlay && !st.maDone;
-    const ms = maAt(st.maPlay ? st.maT : st.maDone ? tot : 0, segs, TH, st.maDips);
+    const idle = !st.maPlay && !st.maDone && st.maT === 0;
+    const ms = maAt(st.maPlay || st.maT > 0 ? st.maT : 0, segs, TH, st.maDips);
     const fm = st.maKind === 'vyrobek' ? { hw: 30, top: 60, fill: '#3a3630', stroke: '#cfc6b8', name: 'keramická forma' } : { hw: 14, top: 24, fill: '#39424e', stroke: '#a9bccd', name: 'kovový díl' };
     const cg = latex ? 2.5 : 0;
     let sx = 0, sy = 0;
@@ -631,7 +629,7 @@ class Component extends DCLogic {
     const curStep = idle ? -1 : ms.s;
     const maSteps = stepNames.map((n, k) => { const on = k === curStep; return { label: T(n), bg: on ? '#6cc4ba' : '#0a0e15', color: on ? '#0d121a' : '#aebfcf', border: on ? '#6cc4ba' : '#232c39' }; });
     let maInfo;
-    if (idle) maInfo = { name: 'Postup máčení', text: 'Spusť animaci tlačítkem Přehrát.', color: '#eaf2fa', border: '#232c39' };
+    if (idle) maInfo = { name: 'Postup máčení', text: 'Spusť animaci tlačítkem ▶.', color: '#eaf2fa', border: '#232c39' };
     else {
       const txt = MA_TXT[st.maMat];
       let name = stepNames[ms.s], text;
@@ -651,7 +649,7 @@ class Component extends DCLogic {
     const shownTh = idle ? TH : ms.th;
     return {
       odPanels, odShapes, odChev: OD_CHEV, odC, odInfo, odPlay: st.odPlay, odIdle: !st.odPlay, odBtn: st.odPlay ? 'Zastavit' : 'Přehrát',
-      odToggle: () => this.setState(s => (s.odPlay ? { odPlay: false, odT: 0 } : { odPlay: true, odT: 0, odSel: 0 }), () => this.startLoop()),
+      odToggle: () => this.setState(s => (s.odPlay ? { odPlay: false } : s.odT > 0 ? { odPlay: true } : { odPlay: true, odT: 0, odSel: 0 }), () => this.startLoop()),
       ro, roPhases, roBtns, roRef: this.roRef,
       roInfo: { name: T(RO_PH[rs.k]), text: T(RO_TXT[ax][rs.k]) }, roAxInfo: { name: RO_AX[ax][0], text: T(RO_AX[ax][1]) },
       roPlaying: st.roOn, roPaused: !st.roOn, roAria: st.roOn ? 'Pozastavit' : 'Spustit', roToggle: () => this.setState(s => ({ roOn: !s.roOn }), () => this.startLoop()),
@@ -660,7 +658,7 @@ class Component extends DCLogic {
       maMatInfo: { name: MA_MAT[st.maMat][0], text: T(MA_MAT[st.maMat][1]) }, maKindInfo: { name: MA_KIND[st.maKind][0], text: T(MA_KIND[st.maKind][1]) },
       maIsPlastisol: !latex, maIsLatex: latex, maIsHot: hot, maLiqName: latex ? 'latex' : 'plastisol', maFormSw: fm,
       maPlay: st.maPlay, maIdle: !st.maPlay, maBtn: st.maPlay ? 'Zastavit' : 'Přehrát',
-      maToggle: () => this.setState(s => (s.maPlay ? { maPlay: false, maT: 0, maDone: false } : { maPlay: true, maT: 0, maDone: false }), () => this.startLoop()),
+      maToggle: () => this.setState(s => (s.maPlay ? { maPlay: false } : s.maDone || s.maT === 0 ? { maPlay: true, maT: 0, maDone: false } : { maPlay: true }), () => this.startLoop()),
     };
   }
 }

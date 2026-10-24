@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lisování a přetlačování | STT</title>
+<meta name="description" content="Lisování a přetlačování reaktoplastů: viskozita ve vyhřáté formě, doba tečení, animace lisování a přetlačování v řezu, zálisky, materiály a srovnání se vstřikováním reaktoplastů.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-24">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e59a62; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Ostatní technologie</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:10px">Ostatní technologie</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 24px">Lisování a&nbsp;přetlačování</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Lisování a&nbsp;přetlačování zpracovávají hlavně reaktoplasty, dále pryž a&nbsp;termoplasty vyztužené dlouhými vlákny.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Forma je trvale vyhřátá. Materiál v&nbsp;ní nejdřív změkne a&nbsp;teče, pak se za tepla a&nbsp;tlaku vytvrdí — zesíťuje. Výrobek se vyjímá horký. Ztuhl chemickou reakcí, ne ochlazením.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Při vstřikování termoplastů je forma temperovaná na&nbsp;nižší teplotu a&nbsp;výrobek v&nbsp;ní ztuhne ochlazením.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 8px;max-width:820px;text-wrap:pretty">Vytvrzení reaktoplastů bez tlaku popisuje sekce Odlévání do forem na stránce Odlévání a&nbsp;máčení plastů.</p>
+    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:24px">
+      <a href="odlevani-maceni.html#odlevani" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Vytvrzení bez tlaku: Odlévání do forem</a>
+      <a href="../zaklady/rozdeleni-struktura.html" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Reaktoplasty a&nbsp;síťování: Rozdělení a&nbsp;struktura</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <a href="#lisovani" style="display:flex;flex-direction:column;gap:8px;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;color:#eaf2fa" style-hover="border-color:#e59a62">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px">Lisování ↓</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Dávka se vloží do&nbsp;otevřené vyhřáté dutiny a&nbsp;rozteče se tlakem uzavírané formy.</div>
+      </a>
+      <a href="#pretlacovani" style="display:flex;flex-direction:column;gap:8px;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;color:#eaf2fa" style-hover="border-color:#e59a62">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px">Přetlačování ↓</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Dávka změkne v&nbsp;přetlačovací komoře a&nbsp;píst ji vtlačí vtokem do&nbsp;uzavřené formy.</div>
+      </a>
+    </div>
+    <div style="background:#0a0e15;border:1px solid #263040;border-radius:16px;padding:16px 20px;margin-top:18px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:6px">Pojmy</div>
+      <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">Přetlačování plastů se nezaměňuje s&nbsp;protlačováním kovů z&nbsp;kapitoly Tváření. U&nbsp;plastů jde o&nbsp;vtlačení změklé hmoty z&nbsp;komory do&nbsp;uzavřené formy.</div>
+    </div>
+
+    <h2 id="viskozita" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 12px;scroll-margin-top:90px">Viskozita reaktoplastu ve&nbsp;vyhřáté formě</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Po vložení do&nbsp;vyhřáté formy viskozita reaktoplastu klesá — materiál měkne. Po dosažení minima převáží síťování a&nbsp;viskozita prudce roste až do&nbsp;ztuhnutí.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Dutina se musí zaplnit během doby tečení. Později materiál už neteče a&nbsp;výrobek zůstane nedolisovaný.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="margin-bottom:14px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní graf</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Viskozita × čas</div>
+        <div style="font-size:14px;color:#8296a8;margin-top:4px">Kvalitativní průběh bez stupnic. Klikni na&nbsp;oblast grafu.</div>
+      </div>
+      <svg viewBox="0 0 1100 340" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <g onClick="{{ vB0.click }}" style="cursor:pointer"><rect x="110" y="20" width="279" height="316" fill="{{ vB0.fill }}"></rect><text x="249.5" y="322" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="17" font-weight="600" fill="{{ vB0.col }}">měknutí</text></g>
+        <g onClick="{{ vB1.click }}" style="cursor:pointer"><rect x="389" y="20" width="446.4" height="316" fill="{{ vB1.fill }}"></rect><text x="612.2" y="322" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="17" font-weight="600" fill="{{ vB1.col }}">tečení</text></g>
+        <g onClick="{{ vB2.click }}" style="cursor:pointer"><rect x="835.4" y="20" width="204.6" height="316" fill="{{ vB2.fill }}"></rect><text x="937.7" y="322" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="17" font-weight="600" fill="{{ vB2.col }}">vytvrzování</text></g>
+        <path d="M389 20 V290 M835 20 V290" fill="none" stroke="#263040" stroke-width="1.5" stroke-dasharray="6 6" pointer-events="none"></path>
+        <path d="M110 290 V30 M104 40 L110 28 L116 40 M110 290 H1066 M1056 284 L1068 290 L1056 296" fill="none" stroke="#8296a8" stroke-width="2" stroke-linejoin="round" pointer-events="none"></path>
+        <text x="74" y="160" transform="rotate(-90 74 160)" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" fill="#aebfcf" pointer-events="none">viskozita</text>
+        <text x="1062" y="276" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="16" fill="#aebfcf" pointer-events="none">čas</text>
+        <path d="{{ vCurve }}" fill="none" stroke="#eaf2fa" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"></path>
+        <path d="M398 238 L389 244 L398 250 M389 244 H835 M826 238 L835 244 L826 250" fill="none" stroke="#6cc4ba" stroke-width="2" stroke-linejoin="round" pointer-events="none"></path>
+        <text x="612" y="230" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="16" font-weight="600" fill="#6cc4ba" pointer-events="none">doba tečení</text>
+      </svg>
+      <div style="background:#0a0e15;border:1px solid {{ vInfo.border }};border-radius:14px;padding:14px 18px;margin-top:14px;min-height:82px;box-sizing:border-box">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ vInfo.color }};margin-bottom:4px">{{ vInfo.name }}</div>
+        <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ vInfo.text }}</div>
+      </div>
+    </div>
+
+    <h2 id="lisovani" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 12px;scroll-margin-top:90px">Lisování</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Odvážená dávka — prášek, granulát nebo předlisovaná tableta, často předehřátá — se vloží do&nbsp;otevřené vyhřáté dutiny. Forma se uzavře, materiál změkne, tlakem se rozteče a&nbsp;vyplní dutinu. Přebytek vyteče do&nbsp;dělicí roviny jako výronek.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Pod tlakem se materiál vytvrdí. Forma se otevře a&nbsp;vyhazovač výrobek vysune.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Postup lisování</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Forma v&nbsp;řezu. Přehraj postup, nebo klikni na&nbsp;krok, na&nbsp;část schématu nebo na&nbsp;její popisek.</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <sc-for list="{{ zalBtns }}" as="b" hint-placeholder-count="2">
+            <button onClick="{{ b.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+          <button onClick="{{ lisToggle }}" aria-label="{{ lisBtn }}" title="{{ lisBtn }}" style="width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+            <sc-if value="{{ lisIdle }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+            <sc-if value="{{ lisPlaying }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
+          </button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <sc-for list="{{ lisSteps }}" as="f" hint-placeholder-count="6">
+          <button onClick="{{ f.onClick }}" style="padding:7px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ f.bg }};color:{{ f.color }};border:1px solid {{ f.border }}">{{ f.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start">
+        <div>
+          <svg viewBox="0 0 860 440" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <path d="{{ lisG.lower }}" fill-rule="evenodd" fill="#39424e" stroke="{{ lisS.lower }}" stroke-width="{{ lisW.lower }}" stroke-linejoin="round" onClick="{{ lisClick.lower }}" style="cursor:pointer"></path>
+            <path d="{{ lisG.ej }}" transform="{{ lis.ejTr }}" fill="#b3a6e6" stroke="{{ lisS.ej }}" stroke-width="{{ lisW.ej }}" stroke-linejoin="round" onClick="{{ lisClick.ej }}" style="cursor:pointer"></path>
+            <path d="{{ lis.charge }}" fill="{{ lis.col }}" stroke="{{ lisS.charge }}" stroke-width="{{ lisW.charge }}" stroke-linejoin="round" onClick="{{ lisClick.charge }}" style="cursor:pointer"></path>
+            <path d="{{ lis.flash }}" fill="{{ lis.col }}" opacity="{{ lis.flashOp }}" stroke="{{ lisS.flash }}" stroke-width="{{ lisW.flash }}" onClick="{{ lisClick.flash }}" style="cursor:pointer"></path>
+            <sc-if value="{{ zal }}" hint-placeholder-val="{{ false }}">
+              <path d="M455 268 H465 V300 H455 Z" transform="{{ lis.ghostTr }}" fill="none" stroke="#cfc6b8" stroke-width="1.5" stroke-dasharray="4 4" opacity="{{ lis.ghostOp }}" pointer-events="none"></path>
+              <path d="M455 268 H465 V300 H455 Z" transform="{{ lis.insTr }}" fill="#cfc6b8" stroke="{{ lisS.ins }}" stroke-width="{{ lisW.ins }}" onClick="{{ lisClick.ins }}" style="cursor:pointer"></path>
+            </sc-if>
+            <path d="{{ lisG.heatLo }}" fill="#ef8f73" stroke="{{ lisS.heat }}" stroke-width="{{ lisW.heat }}" onClick="{{ lisClick.heat }}" style="cursor:pointer"></path>
+            <g transform="{{ lis.upTr }}">
+              <path d="{{ lisG.upper }}" fill-rule="evenodd" fill="#39424e" stroke="{{ lisS.upper }}" stroke-width="{{ lisW.upper }}" stroke-linejoin="round" onClick="{{ lisClick.upper }}" style="cursor:pointer"></path>
+              <path d="{{ lisG.heatUp }}" fill="#ef8f73" stroke="{{ lisS.heat }}" stroke-width="{{ lisW.heat }}" onClick="{{ lisClick.heat }}" style="cursor:pointer"></path>
+            </g>
+            <path d="M216 250 H194 M201 245 L194 250 L201 255 M624 250 H646 M639 245 L646 250 L639 255" fill="none" stroke="#6cc4ba" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="{{ lis.airOp }}" pointer-events="none"></path>
+            <path d="M200 260 H680" fill="none" stroke="{{ lisS.plane }}" stroke-width="{{ lisW.plane }}" stroke-dasharray="8 6" pointer-events="none"></path>
+            <g onClick="{{ lisClick.plane }}" style="cursor:pointer">
+              <rect x="200" y="254" width="20" height="12" fill="transparent"></rect>
+              <rect x="620" y="254" width="60" height="12" fill="transparent"></rect>
+            </g>
+            <path d="{{ lis.leads }}" fill="none" stroke="#8296a8" stroke-width="1.3" pointer-events="none"></path>
+            <g onClick="{{ lisClick.upper }}" style="cursor:pointer"><rect x="20" y="150" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ lisL.upper.col }}" stroke-width="{{ lisL.upper.sw }}"></rect><text x="105" y="171" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ lisL.upper.col }}" pointer-events="none">horní díl formy</text></g>
+            <g onClick="{{ lisClick.heat }}" style="cursor:pointer"><rect x="20" y="270" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ lisL.heat.col }}" stroke-width="{{ lisL.heat.sw }}"></rect><text x="105" y="291" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ lisL.heat.col }}" pointer-events="none">topná tělesa</text></g>
+            <g onClick="{{ lisClick.lower }}" style="cursor:pointer"><rect x="20" y="340" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ lisL.lower.col }}" stroke-width="{{ lisL.lower.sw }}"></rect><text x="105" y="361" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ lisL.lower.col }}" pointer-events="none">dolní díl formy</text></g>
+            <g onClick="{{ lisClick.charge }}" style="cursor:pointer"><rect x="680" y="180" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ lisL.charge.col }}" stroke-width="{{ lisL.charge.sw }}"></rect><text x="765" y="201" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ lisL.charge.col }}" pointer-events="none">dávka</text></g>
+            <g onClick="{{ lisClick.plane }}" style="cursor:pointer"><rect x="680" y="244" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ lisL.plane.col }}" stroke-width="{{ lisL.plane.sw }}"></rect><text x="765" y="265" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ lisL.plane.col }}" pointer-events="none">dělicí rovina</text></g>
+            <g onClick="{{ lisClick.flash }}" style="cursor:pointer"><rect x="680" y="290" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ lisL.flash.col }}" stroke-width="{{ lisL.flash.sw }}"></rect><text x="765" y="311" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ lisL.flash.col }}" pointer-events="none">výronek</text></g>
+            <sc-if value="{{ zal }}" hint-placeholder-val="{{ false }}">
+              <g onClick="{{ lisClick.ins }}" style="cursor:pointer"><rect x="680" y="334" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ lisL.ins.col }}" stroke-width="{{ lisL.ins.sw }}"></rect><text x="765" y="355" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ lisL.ins.col }}" pointer-events="none">zálisek</text></g>
+            </sc-if>
+            <g onClick="{{ lisClick.ej }}" style="cursor:pointer"><rect x="680" y="384" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ lisL.ej.col }}" stroke-width="{{ lisL.ej.sw }}"></rect><text x="765" y="405" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ lisL.ej.col }}" pointer-events="none">vyhazovač</text></g>
+          </svg>
+          <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#e59a62"></span>dávka a&nbsp;změklý reaktoplast</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#8fb4d6"></span>vytvrzený reaktoplast</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#39424e;border:1px solid #a9bccd;box-sizing:border-box"></span>forma</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:#ef8f73"></span>topná tělesa</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#b3a6e6"></span>vyhazovač</span>
+            <sc-if value="{{ zal }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#cfc6b8"></span>zálisek</span></sc-if>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:0;border-top:3px solid #6cc4ba"></span>unikající vzduch</span>
+          </div>
+        </div>
+        <div style="background:#0a0e15;border:1px solid #232c39;border-radius:14px;padding:14px 16px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:8px">Viskozita ve&nbsp;formě</div>
+          <svg viewBox="0 0 300 170" style="width:100%;display:block">
+            <sc-for list="{{ lisMini.bands }}" as="b" hint-placeholder-count="3"><rect x="{{ b.x }}" y="10" width="{{ b.w }}" height="130" fill="{{ b.fill }}"></rect></sc-for>
+            <path d="M30 140 V12 M30 140 H292" fill="none" stroke="#8296a8" stroke-width="1.5"></path>
+            <path d="{{ mCurve }}" fill="none" stroke="#eaf2fa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="{{ lisMini.x }}" cy="{{ lisMini.y }}" r="6.5" fill="#e59a62" stroke="#0a0e15" stroke-width="2"></circle>
+            <text x="18" y="76" transform="rotate(-90 18 76)" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#8296a8">viskozita</text>
+            <text x="292" y="160" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#8296a8">čas</text>
+          </svg>
+          <div style="font-size:14.5px;color:#eaf2fa;margin-top:8px">Oblast: <span style="font-weight:600;color:#e59a62">{{ lisMini.name }}</span></div>
+        </div>
+      </div>
+      <div style="background:#0a0e15;border:1px solid {{ lisInfo.border }};border-radius:14px;padding:14px 18px;margin-top:14px;min-height:82px;box-sizing:border-box">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ lisInfo.color }};margin-bottom:4px">{{ lisInfo.name }}</div>
+        <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ lisInfo.text }}</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:12px">Typy forem</div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+          <div>
+            <div style="font-weight:600;font-size:15px;color:#6cc4ba;margin-bottom:4px">Přetoková forma</div>
+            <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Dávka má malý přebytek. Přebytek vyteče do&nbsp;dělicí roviny jako výronek, který se odstraňuje.</div>
+          </div>
+          <div>
+            <div style="font-weight:600;font-size:15px;color:#6cc4ba;margin-bottom:4px">Uzavřená forma</div>
+            <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Dávka je přesně odvážená. Výrobek je bez výronku a&nbsp;hutnější.</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:12px">Vlákna</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Materiál při lisování teče jen na&nbsp;krátkou vzdálenost. Vlákna se proto málo lámou a&nbsp;málo orientují. Lisováním se vyrábějí i&nbsp;díly z&nbsp;rohoží vyztužených skelnými vlákny (SMC).</div>
+      </div>
+    </div>
+
+    <h2 id="pretlacovani" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 12px;scroll-margin-top:90px">Přetlačování</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Forma je uzavřená. Dávka se vloží do&nbsp;samostatné přetlačovací komory, tam změkne a&nbsp;píst ji vtlačí vtokovými kanály do&nbsp;dutiny.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Při průchodu úzkým vtokem se hmota třením dál prohřeje. V&nbsp;dutině se proto vytvrdí rychleji a&nbsp;rovnoměrněji.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">V&nbsp;komoře zůstane zbytek (talířek) a&nbsp;ve&nbsp;vtocích ztuhlý vtok. Obojí je vytvrzený reaktoplast a&nbsp;je to odpad.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Postup přetlačování</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Forma v&nbsp;řezu. Přehraj postup, nebo klikni na&nbsp;krok, na&nbsp;část schématu nebo na&nbsp;její popisek.</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <sc-for list="{{ zalBtns }}" as="b" hint-placeholder-count="2">
+            <button onClick="{{ b.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+          <button onClick="{{ preToggle }}" aria-label="{{ preBtn }}" title="{{ preBtn }}" style="width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+            <sc-if value="{{ preIdle }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+            <sc-if value="{{ prePlaying }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
+          </button>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <sc-for list="{{ preSteps }}" as="f" hint-placeholder-count="5">
+          <button onClick="{{ f.onClick }}" style="padding:7px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ f.bg }};color:{{ f.color }};border:1px solid {{ f.border }}">{{ f.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:18px;align-items:start">
+        <div>
+          <svg viewBox="0 0 860 460" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <path d="{{ preG.lower }}" fill-rule="evenodd" fill="#39424e" stroke="#a9bccd" stroke-width="1.5" stroke-linejoin="round" pointer-events="none"></path>
+            <path d="{{ preG.heatLo }}" fill="#ef8f73" pointer-events="none"></path>
+            <path d="{{ preG.ej }}" transform="{{ pre.ejTr }}" fill="#b3a6e6" stroke="{{ preS.ej }}" stroke-width="{{ preW.ej }}" stroke-linejoin="round" onClick="{{ preClick.ej }}" style="cursor:pointer"></path>
+            <path d="{{ pre.cav }}" fill="{{ pre.col }}" pointer-events="none"></path>
+            <path d="M335 290 H505 V320 H335 Z" fill="transparent" stroke="{{ preS.cav }}" stroke-width="{{ preW.cav }}" onClick="{{ preClick.cav }}" style="cursor:pointer"></path>
+            <sc-if value="{{ zal }}" hint-placeholder-val="{{ false }}">
+              <path d="M470 296 H478 V320 H470 Z" transform="{{ pre.insTr }}" fill="#cfc6b8" stroke="{{ preS.ins }}" stroke-width="{{ preW.ins }}" onClick="{{ preClick.ins }}" style="cursor:pointer"></path>
+            </sc-if>
+            <g transform="{{ pre.upTr }}">
+              <path d="{{ preG.upper }}" fill-rule="evenodd" fill="#39424e" stroke="#a9bccd" stroke-width="1.5" stroke-linejoin="round" pointer-events="none"></path>
+              <path d="{{ preG.heatUp }}" fill="#ef8f73" pointer-events="none"></path>
+              <path d="M370 110 H382 V230 H414 V242 H370 Z M426 242 V230 H458 V110 H470 V242 Z" fill="#4a5a6e" stroke="{{ preS.pot }}" stroke-width="{{ preW.pot }}" stroke-linejoin="round" onClick="{{ preClick.pot }}" style="cursor:pointer"></path>
+            </g>
+            <path d="{{ pre.potMat }}" fill="{{ pre.col }}" opacity="{{ pre.tabOp }}" pointer-events="none"></path>
+            <path d="{{ pre.sprue }}" fill="{{ pre.col }}" pointer-events="none"></path>
+            <path d="{{ pre.vtok }}" fill="transparent" stroke="{{ preS.vtok }}" stroke-width="{{ preW.vtok }}" onClick="{{ preClick.vtok }}" style="cursor:pointer"></path>
+            <path d="{{ pre.cull }}" fill="transparent" stroke="{{ preS.cull }}" stroke-width="{{ preW.cull }}" onClick="{{ preClick.cull }}" style="cursor:pointer"></path>
+            <path d="{{ pre.piston }}" fill="#8296a8" stroke="{{ preS.piston }}" stroke-width="{{ preW.piston }}" onClick="{{ preClick.piston }}" style="cursor:pointer"></path>
+            <path d="M190 290 H640" fill="none" stroke="{{ preS.plane }}" stroke-width="{{ preW.plane }}" stroke-dasharray="8 6" pointer-events="none"></path>
+            <g onClick="{{ preClick.plane }}" style="cursor:pointer">
+              <rect x="190" y="284" width="30" height="12" fill="transparent"></rect>
+              <rect x="620" y="284" width="20" height="12" fill="transparent"></rect>
+            </g>
+            <path d="{{ pre.leads }}" fill="none" stroke="#8296a8" stroke-width="1.3" pointer-events="none"></path>
+            <g onClick="{{ preClick.piston }}" style="cursor:pointer"><rect x="20" y="54" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ preL.piston.col }}" stroke-width="{{ preL.piston.sw }}"></rect><text x="105" y="75" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ preL.piston.col }}" pointer-events="none">píst</text></g>
+            <g onClick="{{ preClick.pot }}" style="cursor:pointer"><rect x="20" y="134" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ preL.pot.col }}" stroke-width="{{ preL.pot.sw }}"></rect><text x="105" y="155" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ preL.pot.col }}" pointer-events="none">přetlačovací komora</text></g>
+            <g onClick="{{ preClick.cull }}" style="cursor:pointer"><rect x="20" y="210" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ preL.cull.col }}" stroke-width="{{ preL.cull.sw }}"></rect><text x="105" y="231" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ preL.cull.col }}" pointer-events="none">zbytek (talířek)</text></g>
+            <g onClick="{{ preClick.plane }}" style="cursor:pointer"><rect x="20" y="274" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ preL.plane.col }}" stroke-width="{{ preL.plane.sw }}"></rect><text x="105" y="295" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ preL.plane.col }}" pointer-events="none">dělicí rovina</text></g>
+            <g onClick="{{ preClick.vtok }}" style="cursor:pointer"><rect x="660" y="234" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ preL.vtok.col }}" stroke-width="{{ preL.vtok.sw }}"></rect><text x="745" y="255" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ preL.vtok.col }}" pointer-events="none">vtok</text></g>
+            <g onClick="{{ preClick.cav }}" style="cursor:pointer"><rect x="660" y="289" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ preL.cav.col }}" stroke-width="{{ preL.cav.sw }}"></rect><text x="745" y="310" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ preL.cav.col }}" pointer-events="none">dutina</text></g>
+            <sc-if value="{{ zal }}" hint-placeholder-val="{{ false }}">
+              <g onClick="{{ preClick.ins }}" style="cursor:pointer"><rect x="660" y="329" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ preL.ins.col }}" stroke-width="{{ preL.ins.sw }}"></rect><text x="745" y="350" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ preL.ins.col }}" pointer-events="none">zálisek</text></g>
+            </sc-if>
+            <g onClick="{{ preClick.ej }}" style="cursor:pointer"><rect x="660" y="402" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ preL.ej.col }}" stroke-width="{{ preL.ej.sw }}"></rect><text x="745" y="423" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ preL.ej.col }}" pointer-events="none">vyhazovač</text></g>
+          </svg>
+          <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#e59a62"></span>dávka a&nbsp;změklý reaktoplast</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#8fb4d6"></span>vytvrzený reaktoplast</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#39424e;border:1px solid #a9bccd;box-sizing:border-box"></span>forma</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;background:#ef8f73"></span>topná tělesa</span>
+            <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#b3a6e6"></span>vyhazovač</span>
+            <sc-if value="{{ zal }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#cfc6b8"></span>zálisek</span></sc-if>
+          </div>
+        </div>
+        <div style="background:#0a0e15;border:1px solid #232c39;border-radius:14px;padding:14px 16px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:8px">Viskozita ve&nbsp;formě</div>
+          <svg viewBox="0 0 300 170" style="width:100%;display:block">
+            <sc-for list="{{ preMini.bands }}" as="b" hint-placeholder-count="3"><rect x="{{ b.x }}" y="10" width="{{ b.w }}" height="130" fill="{{ b.fill }}"></rect></sc-for>
+            <path d="M30 140 V12 M30 140 H292" fill="none" stroke="#8296a8" stroke-width="1.5"></path>
+            <path d="{{ mCurve }}" fill="none" stroke="#eaf2fa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="{{ preMini.x }}" cy="{{ preMini.y }}" r="6.5" fill="#e59a62" stroke="#0a0e15" stroke-width="2"></circle>
+            <text x="18" y="76" transform="rotate(-90 18 76)" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#8296a8">viskozita</text>
+            <text x="292" y="160" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#8296a8">čas</text>
+          </svg>
+          <div style="font-size:14.5px;color:#eaf2fa;margin-top:8px">Oblast: <span style="font-weight:600;color:#e59a62">{{ preMini.name }}</span></div>
+        </div>
+      </div>
+      <div style="background:#0a0e15;border:1px solid {{ preInfo.border }};border-radius:14px;padding:14px 18px;margin-top:14px;min-height:82px;box-sizing:border-box">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ preInfo.color }};margin-bottom:4px">{{ preInfo.name }}</div>
+        <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ preInfo.text }}</div>
+      </div>
+    </div>
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:40px 0 14px">Zálisky</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Lisování se záliskem</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Forma se uzavírá na&nbsp;ještě tuhou dávku. Dávka tlačí do&nbsp;zálisku a&nbsp;zálisek se vychýlí nebo ohne.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Přetlačování se záliskem</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Hmota přitéká už změklá a&nbsp;zálisek obtéká. Zálisek zůstane na&nbsp;místě.</div>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:24px 0 0;max-width:820px;text-wrap:pretty">Proto se přetlačováním zapouzdřuje elektronika — integrované obvody, cívky, konektory. Epoxidová hmota se vtlačí kolem jemných vývodů.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 16px">Materiály a&nbsp;výrobky</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Fenoplasty (PF)</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Tmavé, tepelně odolné, elektroizolační. Rukojeti a&nbsp;úchyty nádobí, součásti elektrotechniky.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Aminoplasty (MF, UF)</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Světlé a&nbsp;dobře barvitelné. Vypínače a&nbsp;zásuvky, melaminové nádobí.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Nenasycené polyestery s&nbsp;vlákny (BMC, SMC)</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Kryty, skříně rozvaděčů, plošné díly vozidel.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Epoxidové hmoty</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Zapouzdření elektroniky přetlačováním.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Pryž</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Těsnění, manžety, pryžokovové díly. Místo vytvrzení probíhá vulkanizace.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Termoplasty s&nbsp;dlouhými vlákny</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Lisují se z&nbsp;předehřátých polotovarů do&nbsp;chlazené formy. Jde o&nbsp;výjimku — výrobek tuhne ochlazením.</div>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:24px 0 14px;max-width:820px;text-wrap:pretty">Vytvrzený reaktoplast nelze roztavit a&nbsp;znovu zpracovat. Výronky a&nbsp;vtoky se jen drtí a&nbsp;používají jako plnivo.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 8px;max-width:820px;text-wrap:pretty">Velkosériovou alternativou lisování a&nbsp;přetlačování je vstřikování reaktoplastů.</p>
+    <a href="../vstrikovani-vytlacovani/specialni-vstrikovani.html" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Vstřikování reaktoplastů: Speciální vstřikování</a>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 16px">Srovnání</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:15px;line-height:1.5">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa;width:22%"></th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700"><a href="#lisovani" style="color:#eaf2fa" style-hover="color:#e59a62">Lisování ↑</a></th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700"><a href="#pretlacovani" style="color:#eaf2fa" style-hover="color:#e59a62">Přetlačování ↑</a></th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700"><a href="../vstrikovani-vytlacovani/specialni-vstrikovani.html" style="color:#eaf2fa" style-hover="color:#e59a62">Vstřikování reaktoplastů →</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Kde materiál měkne</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">přímo v&nbsp;dutině</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">v&nbsp;přetlačovací komoře</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">ve&nbsp;vstřikovací jednotce</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Forma při plnění</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">otevřená</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">uzavřená</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">uzavřená</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Odpad</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">výronek</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">zbytek a&nbsp;vtok</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vtoky</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Zálisky</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">jen robustní</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">i&nbsp;jemné</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">i&nbsp;jemné</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Složitost tvaru a&nbsp;tenké otvory</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">jednodušší tvary</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">složitější tvary</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">složité tvary</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Výronek</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">ano (u&nbsp;přetokové formy)</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">minimální</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">minimální</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Cena formy</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nejlevnější</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">dražší</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nejdražší</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Sériovost</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">malé a&nbsp;střední série</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">střední série</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">velké série</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Typické výrobky</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">rukojeti nádobí, díly z&nbsp;SMC</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">zapouzdřená elektronika, díly se&nbsp;zálisky</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">elektrotechnické díly ve&nbsp;velkých sériích</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const f1 = n => Math.round(n * 10) / 10;
+const T = s => s.replace(/~/g, '\u00a0');
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const ease = u => (u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2);
+const lerp = (a, b, u) => a + (b - a) * u;
+const hexRgb = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(a, b, u) { const A = hexRgb(a), B = hexRgb(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * u).toString(16).padStart(2, '0')).join(''); }
+const R = (x0, y0, x1, y1, dx = 0, dy = 0) => 'M' + f1(x0 + dx) + ' ' + f1(y0 + dy) + ' H' + f1(x1 + dx) + ' V' + f1(y1 + dy) + ' H' + f1(x0 + dx) + ' Z';
+const CIRC = (cx, cy, r) => 'M' + f1(cx - r) + ' ' + f1(cy) + ' a' + r + ' ' + r + ' 0 1 0 ' + 2 * r + ' 0 a' + r + ' ' + r + ' 0 1 0 ' + -2 * r + ' 0 Z';
+const circles = (pts, r) => pts.map(c => CIRC(c[0], c[1], r)).join(' ');
+const L = (x0, y0, x1, y1) => 'M' + f1(x0) + ' ' + f1(y0) + ' L' + f1(x1) + ' ' + f1(y1);
+const MELT = '#e59a62', SOLID = '#8fb4d6', HL = '#e59a62', LBL = '#a9bccd', SEL = '#eaf2fa';
+const pill = on => ({ bg: on ? '#6cc4ba' : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? '#6cc4ba' : '#263040' });
+const stepPill = on => ({ bg: on ? '#6cc4ba' : '#0a0e15', color: on ? '#0d121a' : '#aebfcf', border: on ? '#6cc4ba' : '#232c39' });
+const stepAt = (t, D) => { let k = 0, tt = t; while (k < D.length - 1 && tt >= D[k]) { tt -= D[k]; k++; } return { k, p: clamp(tt / D[k]) }; };
+const ends = D => D.map((_, i) => D.slice(0, i + 1).reduce((a, b) => a + b, 0));
+
+/* viskozita */
+const VIS = u => Math.min(1, 0.75 * Math.exp(-u / 0.14) + 0.06 + 0.95 * Math.exp((u - 0.95) / 0.07));
+const V_END = (() => { let u = 0; while (u < 1 && VIS(u) < 1) u += 0.002; return u; })();
+function curve(X, Y) { const pts = []; for (let u = 0; u < V_END; u += 0.01) pts.push(f1(X(u)) + ' ' + f1(Y(VIS(u)))); pts.push(f1(X(V_END)) + ' ' + f1(Y(1))); return 'M' + pts.join(' L'); }
+const VB = [0, 0.3, 0.78, 1];
+const VX = u => 110 + u * 930, VY = v => 290 - v * 240;
+const MX = u => 30 + u * 255, MY = v => 140 - v * 115;
+const V_CURVE = curve(VX, VY), M_CURVE = curve(MX, MY);
+const region = u => (u < VB[1] ? 0 : u < VB[2] ? 1 : 2);
+const V_REG = [
+  ['Měknutí', 'Materiál přebírá teplo od~stěn formy a~měkne. Viskozita klesá.'],
+  ['Tečení', 'Viskozita je nízká. Materiál teče a~tlakem vyplňuje dutinu. Tato oblast je doba tečení — v~ní se dutina musí zaplnit.'],
+  ['Vytvrzování', 'Síťování převáží a~viskozita prudce roste. Materiál přestane téct a~ztuhne. Část dutiny, která se nezaplnila během doby tečení, zůstane prázdná — výrobek je nedolisovaný.'],
+];
+function mini(u) {
+  const r = region(u);
+  return {
+    bands: [0, 1, 2].map(i => ({ x: f1(MX(VB[i])), w: f1(MX(VB[i + 1]) - MX(VB[i])), fill: i === r ? mix('#0a0e15', HL, 0.2) : '#0d121a' })),
+    x: f1(MX(u)), y: f1(MY(VIS(u))), name: V_REG[r][0],
+  };
+}
+
+/* lisování */
+const L_D = [2.2, 3.6, 2.2, 2.8, 3.4, 2.2], L_END = ends(L_D), L_TOT = L_END[5];
+const LIS_G = {
+  lower: 'M220 260 H300 V300 H412 V380 H220 Z M428 380 V300 H540 V260 H620 V380 Z ' + circles([[260, 320], [580, 320], [350, 345], [490, 345]], 10),
+  upper: 'M220 140 H620 V260 H220 Z ' + circles([[270, 200], [370, 200], [470, 200], [570, 200]], 10),
+  heatLo: circles([[260, 320], [580, 320], [350, 345], [490, 345]], 8),
+  heatUp: circles([[270, 200], [370, 200], [470, 200], [570, 200]], 8),
+  ej: 'M413 300 H427 V392 H460 V404 H380 V392 H413 Z',
+};
+const TAB = { off: { x0: 345, x1: 495, y0: 228 }, on: { x0: 335, x1: 445, y0: 202 } };
+const LIS_STEPS = [
+  ['Vložení dávky', 'Odvážená dávka — prášek, granulát nebo předlisovaná tableta — se vloží do~otevřené vyhřáté dutiny. Tableta bývá předehřátá.', 'Odvážená dávka se vloží do~otevřené vyhřáté dutiny. Zálisek je předem nasazený v~dutině.'],
+  ['Uzavírání', 'Horní díl formy sjíždí dolů a~tlačí na~dávku. Dávka měkne, tlakem se rozteče a~vyplní dutinu. Vzduch uniká dělicí rovinou.', 'Horní díl formy dosedne na~dávku, která je ještě tuhá. Tuhá dávka se při stlačení roztlačuje do~stran a~tlačí do~zálisku — zálisek se vychýlí. Vzduch uniká dělicí rovinou.'],
+  ['Odvzdušnění', 'Forma se krátce pootevře a~znovu uzavře. Unikne zbylý vzduch a~plyny, které vznikají při vytvrzování — u~fenoplastů a~aminoplastů hlavně vodní pára. Jinak by ve~výrobku zůstaly bubliny a~puchýře.'],
+  ['Vytvrzení pod tlakem', 'Forma zůstává uzavřená pod tlakem. Materiál síťuje a~ztuhne. Přebytek ztuhne v~dělicí rovině jako výronek.'],
+  ['Otevření a~vyhození', 'Forma se otevře a~vyhazovač vysune výrobek. Výrobek je horký — ztuhl síťováním, ne ochlazením.', 'Forma se otevře a~vyhazovač vysune výrobek. Výrobek je horký — ztuhl síťováním, ne ochlazením. Zálisek zůstal vychýlený.'],
+  ['Odstranění výronku', 'Výronek se z~výrobku odstraní. Vytvrzený výronek nelze roztavit a~znovu zpracovat.'],
+];
+const LIS_PARTS = {
+  upper: ['Horní díl formy', 'Pohyblivá část formy. Při uzavírání tlačí na~dávku a~udržuje tlak během vytvrzení.'],
+  lower: ['Dolní díl formy', 'Pevná část formy s~dutinou. Tvar dutiny určuje tvar výrobku.'],
+  heat: ['Topná tělesa', 'Trvale vyhřívají oba díly formy. Teplo přechází do~dávky, ta měkne a~pak se vytvrzuje.'],
+  charge: ['Dávka', 'Odvážené množství materiálu — prášek, granulát nebo předlisovaná tableta. V~přetokové formě má dávka malý přebytek. Po vytvrzení z~ní vzniká výrobek.'],
+  plane: ['Dělicí rovina', 'Rovina, ve~které se stýkají oba díly formy. Uniká jí vzduch a~přebytek materiálu, který vytvoří výronek.'],
+  flash: ['Výronek', 'Tenká vrstva přebytečného materiálu vytečená do~dělicí roviny. Ztuhne spolu s~výrobkem a~pak se odstraní.'],
+  ej: ['Vyhazovač', 'Po otevření formy vysune výrobek z~dutiny dolního dílu.'],
+  ins: ['Zálisek', 'Kovová součást vložená do~formy před lisováním. Forma se uzavírá na~ještě tuhou dávku, ta do~zálisku tlačí a~zálisek se vychýlí nebo ohne.'],
+};
+function lisState(t, zal) {
+  const { k, p } = stepAt(t, L_D);
+  const tb = zal ? TAB.on : TAB.off, tw = tb.x1 - tb.x0, A = tw * (300 - tb.y0), cTy = tb.y0 - 260;
+  let ty = -150, s = 0, drop = 0, ej = 0, fOut = 0, fOp = 1, air = 0, u = 0;
+  if (k === 0) drop = -80 * (1 - ease(clamp(p / 0.6)));
+  else if (k === 1) { if (p < 0.35) ty = lerp(-150, cTy, ease(p / 0.35)); else { s = (p - 0.35) / 0.65; ty = lerp(cTy, -4, s); } air = clamp((p - 0.3) * 5); u = 0.45 * p; }
+  else if (k === 2) { s = 1; ty = -4 - 16 * Math.sin(Math.PI * p); air = 1; u = 0.45 + 0.17 * p; }
+  else if (k === 3) { s = 1; ty = -4; air = 1 - clamp(p * 4); u = 0.62 + 0.33 * p; }
+  else if (k === 4) { s = 1; ty = lerp(-4, -150, ease(clamp(p / 0.45))); ej = 40 * ease(clamp((p - 0.5) / 0.4)); u = 0.95; }
+  else { s = 1; ty = -150; ej = 40; fOut = 30 * ease(p); fOp = 1 - ease(p); u = 0.95; }
+  const pb = lerp(tb.y0, 256, s), h = 300 - pb, wc = Math.min(A / h, 240);
+  const cx = zal ? lerp((tb.x0 + tb.x1) / 2, 420, clamp((wc - tw) / (240 - tw))) : 420;
+  const fw = Math.max(0, A - 240 * h) / 8, dy = drop - ej, right = cx + wc / 2;
+  const ang = zal ? 22 * clamp((right - 452) / (540 - 452)) : 0, ar = ang * Math.PI / 180;
+  const col = k < 3 ? MELT : k === 3 ? mix(MELT, SOLID, p) : SOLID;
+  return {
+    k, p, u, ty, ej, ang, col, fw, fOut, fOp, air,
+    charge: R(cx - wc / 2, pb + dy, right, 300 + dy),
+    flash: fw > 0.3 ? R(300 - fw - fOut, 256 - ej, 300 - fOut, 260 - ej) + ' ' + R(540 + fOut, 256 - ej, 540 + fw + fOut, 260 - ej) : '',
+    chargeAnchor: [right, (pb + 300) / 2 + dy],
+    insTop: [460 + 5 * Math.cos(ar) + 32 * Math.sin(ar), 300 - ej + 5 * Math.sin(ar) - 32 * Math.cos(ar)],
+  };
+}
+
+/* přetlačování */
+const P_D = [2.2, 2.6, 3.8, 2.6, 5.4], P_END = ends(P_D), P_TOT = P_END[4];
+const PRE_G = {
+  lower: 'M220 290 H335 V320 H352 V400 H220 Z M368 400 V320 H505 V290 H620 V400 Z ' + circles([[265, 345], [575, 345], [440, 365]], 10),
+  heatLo: circles([[265, 345], [575, 345], [440, 365]], 8),
+  upper: 'M220 110 H370 V242 H414 V290 H220 Z M426 290 V242 H470 V110 H620 V290 Z ' + circles([[265, 170], [575, 170], [300, 250], [540, 250]], 10),
+  heatUp: circles([[265, 170], [575, 170], [300, 250], [540, 250]], 8),
+  ej: 'M353 320 H367 V412 H400 V424 H320 V412 H353 Z',
+};
+const PRE_STEPS = [
+  ['Vložení dávky do~komory', 'Forma je uzavřená. Dávka se vloží do~přetlačovací komory.', 'Forma je uzavřená a~zálisek je předem uložený v~dutině. Dávka se vloží do~přetlačovací komory.'],
+  ['Měknutí v~komoře', 'Píst dosedne na~dávku. Dávka přebírá teplo od~stěn komory a~měkne.'],
+  ['Vtlačení pístem', 'Píst vtlačí změklou hmotu vtokem do~dutiny. Při průchodu úzkým vtokem se hmota třením dál prohřeje.', 'Píst vtlačí změklou hmotu vtokem do~dutiny. Hmota přitéká už změklá a~zálisek obtéká. Zálisek zůstane na~místě.'],
+  ['Vytvrzení', 'Prohřátá hmota se v~dutině vytvrdí rychleji a~rovnoměrněji. Vytvrdí se i~zbytek v~komoře a~hmota ve~vtoku.'],
+  ['Otevření a~vyjmutí', 'Forma se otevře. Zbytek se vtokem se zvedne s~horním dílem a~vtok se odlomí u~dutiny. Vyhazovač vysune výrobek. Zbytek se vtokem se vyjme z~komory — jsou z~vytvrzeného reaktoplastu a~jsou odpad.'],
+];
+const PRE_PARTS = {
+  pot: ['Přetlačovací komora', 'Samostatná vyhřátá komora nad dutinou. Dávka v~ní změkne dřív, než vteče do~dutiny.'],
+  piston: ['Píst', 'Tlačí změklou hmotu z~komory přes vtok do~dutiny.'],
+  vtok: ['Vtok', 'Úzký kanál mezi komorou a~dutinou. Hmota se v~něm třením dál prohřeje. Po vytvrzení v~něm zůstane ztuhlý vtok — odpad.'],
+  cav: ['Dutina', 'Prostor uzavřené formy, který dává tvar výrobku. Hmota do~něj vtéká až po~uzavření formy.'],
+  plane: ['Dělicí rovina', 'Rovina, ve~které se stýkají díly formy. Forma je při plnění uzavřená, výronek je minimální.'],
+  ins: ['Zálisek', 'Kovová součást uložená v~dutině. Hmota přitéká už změklá a~zálisek obtéká — zálisek zůstane na~místě.'],
+  cull: ['Zbytek (talířek)', 'Hmota, která zůstane v~komoře pod pístem. Vytvrdí se a~je to odpad.'],
+  ej: ['Vyhazovač', 'Po otevření formy vysune výrobek z~dutiny dolního dílu.'],
+};
+function preState(t) {
+  const { k, p } = stepAt(t, P_D);
+  let pb = 60, dyTab = 0, tabOp = 1, ty = 0, ej = 0, wx = 0, wy = 0, u = 0, pu = 0;
+  if (k === 0) { dyTab = -35 * (1 - ease(clamp(p / 0.7))); tabOp = clamp(p / 0.3); }
+  else if (k === 1) { pb = lerp(60, 145, ease(clamp(p / 0.7))); u = 0.3 * p; }
+  else if (k === 2) { pb = lerp(145, 222, ease(p)); u = 0.3 + 0.38 * p; }
+  else if (k === 3) { pb = 222; u = 0.68 + 0.27 * p; }
+  else { pb = 222; u = 0.95; ty = -200 * ease(clamp(p / 0.25)); ej = 40 * ease(clamp((p - 0.3) / 0.2)); const q1 = ease(clamp((p - 0.55) / 0.18)), q2 = ease(clamp((p - 0.75) / 0.25)); pu = -120 * q1; wx = 150 * q2; wy = lerp(ty + pu, 0, q2); }
+  const V = 76 * (Math.max(pb, 145) - 145), sl = Math.min(V, 720) / 12, cw = clamp((V - 720) / 30, 0, 170);
+  const col = k < 3 ? MELT : k === 3 ? mix(MELT, SOLID, p) : SOLID, wdy = wy, py = ty + pu;
+  return {
+    k, p, u, pb, ty, py, ej, wx, wdy, col, tabOp,
+    potMat: k < 4 ? R(382, Math.max(pb, 145), 458, 230, 0, dyTab) : R(382, 222, 458, 230, wx, wdy),
+    sprue: sl > 0.3 ? R(414, 230, 426, 230 + sl, wx, wdy) : '',
+    cav: cw > 0.3 ? R(420 - cw / 2, 290, 420 + cw / 2, 320, 0, -ej) : '',
+    vtok: R(414, 230, 426, 290, wx, wdy), cull: R(382, 222, 458, 230, wx, wdy),
+    piston: R(384, pb - 130 + py, 456, pb + py),
+  };
+}
+
+const lab = (on, lead) => ({ col: on ? HL : LBL, sw: on ? 3 : 1.2, lead });
+
+class Component extends DCLogic {
+  state = { vSel: null, zal: false, lisT: 0, lisPlay: false, lisSel: null, preT: 0, prePlay: false, preSel: null };
+  _raf = null; _last = null;
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+  startLoop() { if (!this._raf) { this._last = null; this._raf = requestAnimationFrame(this.tick); } }
+  tick = now => {
+    const dt = this._last == null ? 0 : Math.min(0.05, (now - this._last) / 1000);
+    this._last = now;
+    const st = this.state, upd = {};
+    let active = false;
+    if (st.lisPlay) { const t = st.lisT + dt; if (t >= L_TOT) { upd.lisT = L_TOT; upd.lisPlay = false; } else { upd.lisT = t; active = true; } }
+    if (st.prePlay) { const t = st.preT + dt; if (t >= P_TOT) { upd.preT = P_TOT; upd.prePlay = false; } else { upd.preT = t; active = true; } }
+    if (Object.keys(upd).length) this.setState(upd);
+    this._raf = active ? requestAnimationFrame(this.tick) : null;
+  };
+  renderVals() {
+    const st = this.state, zal = st.zal;
+    /* viskozita */
+    const vBands = [0, 1, 2].map(i => {
+      const on = st.vSel === i;
+      return { fill: on ? mix('#0a0e15', HL, 0.16) : '#0d121a', col: on ? HL : LBL, click: () => this.setState(s => ({ vSel: s.vSel === i ? null : i })) };
+    });
+    const vInfo = st.vSel != null ? { name: V_REG[st.vSel][0], text: T(V_REG[st.vSel][1]), color: HL, border: HL } : { name: 'Tři oblasti průběhu', text: T('Klikni na~oblast grafu — měknutí, tečení nebo vytvrzování.'), color: '#eaf2fa', border: '#232c39' };
+    const setZal = v => this.setState({ zal: v, lisT: 0, lisPlay: false, preT: 0, prePlay: false });
+    const zalBtns = [[false, 'Bez zálisku'], [true, 'Se záliskem']].map(([v, l]) => Object.assign({ label: l, onClick: () => setZal(v) }, pill(zal === v)));
+    /* lisování */
+    const ls = lisState(st.lisT, zal), lStarted = st.lisPlay || st.lisT > 0, lsel = st.lisSel;
+    const lisPick = key => () => this.setState(s => ({ lisSel: s.lisSel === key ? null : key }));
+    const lisClick = {}; Object.keys(LIS_PARTS).forEach(key => { lisClick[key] = lisPick(key); });
+    const lisS = {}, lisW = {};
+    Object.keys(LIS_PARTS).forEach(key => {
+      const on = lsel === key, base = key === 'upper' || key === 'lower' ? LBL : 'none';
+      lisS[key] = on ? SEL : base; lisW[key] = on ? 3 : key === 'upper' || key === 'lower' ? 1.5 : 0;
+    });
+    lisS.plane = lsel === 'plane' ? HL : '#6b7d90'; lisW.plane = lsel === 'plane' ? 3 : 1.5;
+    const ins = ls.insTop, ca = ls.chargeAnchor;
+    const lisL = {
+      upper: lab(lsel === 'upper', L(190, 166, 220, 220 + ls.ty)),
+      heat: lab(lsel === 'heat', L(190, 286, 252, 320) + ' ' + L(190, 286, 262, 200 + ls.ty)),
+      lower: lab(lsel === 'lower', L(190, 356, 220, 356)),
+      charge: lab(lsel === 'charge', L(680, 196, ca[0] - 6, ca[1])),
+      plane: lab(lsel === 'plane', ''),
+      flash: lab(lsel === 'flash', L(680, 306, 540 + ls.fw + ls.fOut - 4, 258 - ls.ej)),
+      ins: lab(lsel === 'ins', zal ? L(680, 350, ins[0], ins[1] + 4) : ''),
+      ej: lab(lsel === 'ej', L(680, 400, 460, 398 - ls.ej)),
+    };
+    const lis = {
+      charge: ls.charge, flash: ls.flash, col: ls.col, flashOp: f1(ls.fOp * 100) / 100, airOp: f1(ls.air * 100) / 100,
+      upTr: 'translate(0 ' + f1(ls.ty) + ')', ejTr: 'translate(0 ' + f1(-ls.ej) + ')',
+      insTr: 'translate(0 ' + f1(-ls.ej) + ') rotate(' + f1(ls.ang) + ' 460 300)', ghostTr: 'translate(0 ' + f1(-ls.ej) + ')', ghostOp: ls.ang > 1 ? 1 : 0,
+      leads: Object.values(lisL).map(l => l.lead).join(' '),
+    };
+    const lisSteps = LIS_STEPS.map((s, i) => Object.assign({ label: T(s[0]), onClick: () => this.setState({ lisPlay: false, lisT: L_END[i] - 0.001, lisSel: null }) }, stepPill(lStarted && ls.k === i)));
+    let lisInfo;
+    if (lsel) lisInfo = { name: LIS_PARTS[lsel][0], text: T(LIS_PARTS[lsel][1]), color: HL, border: HL };
+    else if (lStarted) { const s = LIS_STEPS[ls.k]; lisInfo = { name: T(s[0]), text: T(zal && s[2] ? s[2] : s[1]), color: HL, border: HL }; }
+    else lisInfo = { name: 'Postup lisování', text: T('Spusť animaci tlačítkem ▶, nebo klikni na~krok, na~část schématu nebo na~její popisek.'), color: '#eaf2fa', border: '#232c39' };
+    /* přetlačování */
+    const ps = preState(st.preT), pStarted = st.prePlay || st.preT > 0, psel = st.preSel;
+    const prePick = key => () => this.setState(s => ({ preSel: s.preSel === key ? null : key }));
+    const preClick = {}, preS = {}, preW = {};
+    Object.keys(PRE_PARTS).forEach(key => { preClick[key] = prePick(key); const on = psel === key; preS[key] = on ? SEL : 'none'; preW[key] = on ? 3 : 0; });
+    preS.pot = psel === 'pot' ? SEL : LBL; preW.pot = psel === 'pot' ? 3 : 1.5;
+    preS.plane = psel === 'plane' ? HL : '#6b7d90'; preW.plane = psel === 'plane' ? 3 : 1.5;
+    const preL = {
+      piston: lab(psel === 'piston', L(190, 70, 384, ps.pb - 20 + ps.py)),
+      pot: lab(psel === 'pot', L(190, 150, 370, 200 + ps.ty * 0.85)),
+      cull: lab(psel === 'cull', L(190, 226, 382 + ps.wx, 226 + ps.wdy)),
+      plane: lab(psel === 'plane', ''),
+      vtok: lab(psel === 'vtok', L(660, 250, 426 + ps.wx, 262 + ps.wdy)),
+      cav: lab(psel === 'cav', L(660, 305, 505, 305)),
+      ins: lab(psel === 'ins', zal ? L(660, 345, 478, 308 - ps.ej) : ''),
+      ej: lab(psel === 'ej', L(660, 418, 400, 418 - ps.ej)),
+    };
+    const pre = {
+      potMat: ps.potMat, sprue: ps.sprue, cav: ps.cav, vtok: ps.vtok, cull: ps.cull, piston: ps.piston, col: ps.col, tabOp: f1(ps.tabOp * 100) / 100,
+      upTr: 'translate(0 ' + f1(ps.ty) + ')', ejTr: 'translate(0 ' + f1(-ps.ej) + ')', insTr: 'translate(0 ' + f1(-ps.ej) + ')',
+      leads: Object.values(preL).map(l => l.lead).join(' '),
+    };
+    const preSteps = PRE_STEPS.map((s, i) => Object.assign({ label: T(s[0]), onClick: () => this.setState({ prePlay: false, preT: P_END[i] - 0.001, preSel: null }) }, stepPill(pStarted && ps.k === i)));
+    let preInfo;
+    if (psel) preInfo = { name: PRE_PARTS[psel][0], text: T(PRE_PARTS[psel][1]), color: HL, border: HL };
+    else if (pStarted) { const s = PRE_STEPS[ps.k]; preInfo = { name: T(s[0]), text: T(zal && s[2] ? s[2] : s[1]), color: HL, border: HL }; }
+    else preInfo = { name: 'Postup přetlačování', text: T('Spusť animaci tlačítkem ▶, nebo klikni na~krok, na~část schématu nebo na~její popisek.'), color: '#eaf2fa', border: '#232c39' };
+    return {
+      vB0: vBands[0], vB1: vBands[1], vB2: vBands[2], vCurve: V_CURVE, vInfo, mCurve: M_CURVE, zal, zalBtns,
+      lisG: LIS_G, lis, lisS, lisW, lisClick, lisL, lisSteps, lisInfo, lisMini: mini(lStarted ? ls.u : 0),
+      lisPlaying: st.lisPlay, lisIdle: !st.lisPlay, lisBtn: st.lisPlay ? 'Zastavit' : 'Přehrát',
+      lisToggle: () => this.setState(s => (s.lisPlay ? { lisPlay: false } : s.lisT >= L_TOT ? { lisPlay: true, lisT: 0, lisSel: null } : { lisPlay: true, lisSel: null }), () => this.startLoop()),
+      preG: PRE_G, pre, preS, preW, preClick, preL, preSteps, preInfo, preMini: mini(pStarted ? ps.u : 0),
+      prePlaying: st.prePlay, preIdle: !st.prePlay, preBtn: st.prePlay ? 'Zastavit' : 'Přehrát',
+      preToggle: () => this.setState(s => (s.prePlay ? { prePlay: false } : s.preT >= P_TOT ? { prePlay: true, preT: 0, preSel: null } : { prePlay: true, preSel: null }), () => this.startLoop()),
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

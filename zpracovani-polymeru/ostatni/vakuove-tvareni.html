@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vakuové tváření | STT</title>
+<meta name="description" content="Vakuové tváření termoplastů: postup od upnutí desky po ořez, negativní × pozitivní forma a předtažení, ohřev podle termomechanické křivky, paměťový efekt a srovnání s vyfukováním a vstřikováním.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="../../support.js"></script>
+</head>
+<body data-first-seen="2026-10-24">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e59a62; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Ostatní technologie</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:10px">Ostatní technologie</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 24px">Vakuové tváření</h1>
+
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Polotovarem je deska nebo fólie z&nbsp;termoplastu, vyrobená vytlačováním nebo kalandrováním.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Deska se upne do rámu a&nbsp;ohřeje do vysokoelastického stavu. Vzduch mezi deskou a&nbsp;tvarovou formou se odsaje a&nbsp;desku k&nbsp;formě přitlačí atmosférický tlak. Na&nbsp;formě deska ochladne a&nbsp;tvar si podrží.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Tváří se ve&nbsp;vysokoelastickém stavu, ne v&nbsp;tavenině. Materiál se protahuje jako pryž a&nbsp;neteče.</p>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <a href="../vstrikovani-vytlacovani/vytlacovani.html" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Výroba desek a&nbsp;fólií: Vytlačování</a>
+      <a href="kalandrovani.html" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Výroba fólií a&nbsp;desek válcováním: Kalandrování</a>
+    </div>
+
+    <h2 id="postup" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 12px;scroll-margin-top:90px">Postup</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Postup má pět kroků. Odsávací otvory jsou v&nbsp;nejhlubších místech a&nbsp;v&nbsp;rozích formy — tam deska dosedne naposled.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Postup vakuového tváření</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Forma v&nbsp;řezu. Přehraj postup, nebo klikni na&nbsp;krok, na&nbsp;část schématu nebo na&nbsp;její popisek.</div>
+        </div>
+        <button onClick="{{ poToggle }}" aria-label="{{ poBtn }}" title="{{ poBtn }}" style="width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+          <sc-if value="{{ poIdle }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+          <sc-if value="{{ poPlaying }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
+        </button>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <sc-for list="{{ poSteps }}" as="f" hint-placeholder-count="5">
+          <button onClick="{{ f.onClick }}" style="padding:7px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:{{ f.bg }};color:{{ f.color }};border:1px solid {{ f.border }}">{{ f.label }}</button>
+        </sc-for>
+      </div>
+      <svg viewBox="0 0 1100 440" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <g opacity="{{ po.rayOp }}" pointer-events="none">
+          <path d="M385 84 V170 M470 84 V170 M550 84 V170 M630 84 V170 M715 84 V170" fill="none" stroke="#ef8f73" stroke-width="2" stroke-dasharray="6 8"></path>
+        </g>
+        <g onClick="{{ poClick.heater }}" style="cursor:pointer">
+          <rect x="330" y="40" width="440" height="22" rx="6" fill="#1a2230" stroke="{{ poS.heater }}" stroke-width="{{ poW.heater }}"></rect>
+          <path d="M345 66 H385 V74 H345 Z M399 66 H439 V74 H399 Z M453 66 H493 V74 H453 Z M507 66 H547 V74 H507 Z M561 66 H601 V74 H561 Z M615 66 H655 V74 H615 Z M669 66 H709 V74 H669 Z M723 66 H763 V74 H723 Z" fill="{{ po.heatCol }}"></path>
+        </g>
+        <g transform="{{ po.moldTr }}">
+          <path d="M350 204 H395 L407 316 H693 L705 204 H750 V350 H350 Z M406 316 H414 V324 H686 V316 H694 V324 H750 V332 H406 Z" fill-rule="evenodd" fill="#39424e" stroke="{{ poS.mold }}" stroke-width="{{ poW.mold }}" stroke-linejoin="round" onClick="{{ poClick.mold }}" style="cursor:pointer"></path>
+          <path d="M406 316 H414 V324 H686 V316 H694 V324 H750 V332 H406 Z" fill="#0a0e15" stroke="{{ poS.holes }}" stroke-width="{{ poW.holes }}" onClick="{{ poClick.holes }}" style="cursor:pointer"></path>
+          <g onClick="{{ poClick.pump }}" style="cursor:pointer">
+            <path d="M750 328 H878" fill="none" stroke="#4a5a6e" stroke-width="8"></path>
+            <circle cx="900" cy="328" r="22" fill="#1a2230" stroke="{{ poS.pump }}" stroke-width="{{ poW.pump }}"></circle>
+          </g>
+          <path d="M891 315 L913 328 L891 341 Z" fill="none" stroke="#a9bccd" stroke-width="1.8" stroke-linejoin="round" pointer-events="none"></path>
+          <g opacity="{{ po.airOp }}" pointer-events="none">
+            <path d="M410 316 V328 H866 M690 316 V328" fill="none" stroke="#6cc4ba" stroke-width="3" stroke-dasharray="10 8" stroke-dashoffset="{{ po.dash }}"></path>
+            <path d="M864 321 L876 328 L864 335 Z" fill="#6cc4ba"></path>
+          </g>
+        </g>
+        <path d="{{ po.sheetHl }}" fill="none" stroke="#eaf2fa" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="{{ po.sheetHlOp }}" pointer-events="none"></path>
+        <path d="{{ po.wasteHl }}" fill="none" stroke="#eaf2fa" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="{{ po.wasteHlOp }}" pointer-events="none"></path>
+        <path d="{{ po.wasteL }}" fill="none" stroke="{{ po.col }}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="{{ po.op }}" onClick="{{ po.wasteClick }}" style="cursor:pointer"></path>
+        <path d="{{ po.wasteR }}" fill="none" stroke="{{ po.col }}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="{{ po.op }}" onClick="{{ po.wasteClick }}" style="cursor:pointer"></path>
+        <path d="{{ po.product }}" fill="none" stroke="{{ po.col }}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="{{ po.op }}" onClick="{{ poClick.sheet }}" style="cursor:pointer"></path>
+        <g onClick="{{ poClick.frame }}" style="cursor:pointer">
+          <g transform="{{ po.jawTr }}">
+            <rect x="270" y="182" width="60" height="14" rx="3" fill="#4a5a6e" stroke="{{ poS.frame }}" stroke-width="{{ poW.frame }}"></rect>
+            <rect x="770" y="182" width="60" height="14" rx="3" fill="#4a5a6e" stroke="{{ poS.frame }}" stroke-width="{{ poW.frame }}"></rect>
+          </g>
+          <rect x="270" y="204" width="60" height="14" rx="3" fill="#4a5a6e" stroke="{{ poS.frame }}" stroke-width="{{ poW.frame }}"></rect>
+          <rect x="770" y="204" width="60" height="14" rx="3" fill="#4a5a6e" stroke="{{ poS.frame }}" stroke-width="{{ poW.frame }}"></rect>
+        </g>
+        <path d="{{ po.leads }}" fill="none" stroke="#8296a8" stroke-width="1.3" pointer-events="none"></path>
+        <path d="{{ po.wasteLead }}" fill="none" stroke="#8296a8" stroke-width="1.3" pointer-events="none"></path>
+        <g onClick="{{ poClick.heater }}" style="cursor:pointer"><rect x="30" y="35" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ poL.heater }}" stroke-width="{{ poLw.heater }}"></rect><text x="115" y="56" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ poL.heater }}" pointer-events="none">zářiče</text></g>
+        <g onClick="{{ poClick.sheet }}" style="cursor:pointer"><rect x="30" y="120" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ poL.sheet }}" stroke-width="{{ poLw.sheet }}"></rect><text x="115" y="141" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ poL.sheet }}" pointer-events="none">deska</text></g>
+        <g onClick="{{ poClick.frame }}" style="cursor:pointer"><rect x="30" y="195" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ poL.frame }}" stroke-width="{{ poLw.frame }}"></rect><text x="115" y="216" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ poL.frame }}" pointer-events="none">rám</text></g>
+        <g onClick="{{ poClick.mold }}" style="cursor:pointer"><rect x="30" y="274" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ poL.mold }}" stroke-width="{{ poLw.mold }}"></rect><text x="115" y="295" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ poL.mold }}" pointer-events="none">forma</text></g>
+        <g onClick="{{ poClick.holes }}" style="cursor:pointer"><rect x="30" y="354" width="170" height="32" rx="8" fill="#0d121a" stroke="{{ poL.holes }}" stroke-width="{{ poLw.holes }}"></rect><text x="115" y="375" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ poL.holes }}" pointer-events="none">odsávací otvory</text></g>
+        <g onClick="{{ poClick.waste }}" style="cursor:pointer"><rect x="940" y="234" width="140" height="32" rx="8" fill="#0d121a" stroke="{{ poL.waste }}" stroke-width="{{ poLw.waste }}"></rect><text x="1010" y="255" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ poL.waste }}" pointer-events="none">odpad z&nbsp;ořezu</text></g>
+        <g onClick="{{ poClick.pump }}" style="cursor:pointer"><rect x="940" y="344" width="140" height="32" rx="8" fill="#0d121a" stroke="{{ poL.pump }}" stroke-width="{{ poLw.pump }}"></rect><text x="1010" y="365" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ poL.pump }}" pointer-events="none">vývěva</text></g>
+      </svg>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#e59a62"></span>ohřátá deska</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#8fb4d6"></span>ztuhlý výrobek</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#39424e;border:1px solid #a9bccd;box-sizing:border-box"></span>forma</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:0;border-top:3px dashed #6cc4ba"></span>odsávaný vzduch</span>
+      </div>
+      <div style="background:#0a0e15;border:1px solid {{ poInfo.border }};border-radius:14px;padding:14px 18px;margin-top:14px;min-height:82px;box-sizing:border-box">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ poInfo.color }};margin-bottom:4px">{{ poInfo.name }}</div>
+        <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ poInfo.text }}</div>
+      </div>
+    </div>
+
+    <h2 id="formy" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 12px;scroll-margin-top:90px">Negativní × pozitivní forma</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Deska se protahuje na&nbsp;větší plochu, materiálu nepřibývá, proto stěna slábne — čím hlubší výrobek, tím víc.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">V&nbsp;místě, kde se deska formy dotkne nejdřív, se ochladí a&nbsp;přestane se protahovat. Zbytek desky se dál ztenčuje.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Tloušťka stěny podle typu formy</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Fáze tvarování v&nbsp;řezu. Tloušťku stěny ukazuje šířka čáry.</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <sc-for list="{{ foMoldBtns }}" as="b" hint-placeholder-count="2">
+            <button onClick="{{ b.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+          <span style="width:1px;height:28px;background:#263040"></span>
+          <sc-for list="{{ foPreBtns }}" as="b" hint-placeholder-count="2">
+            <button onClick="{{ b.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+          <button onClick="{{ foToggle }}" aria-label="{{ foBtn }}" title="{{ foBtn }}" style="width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+            <sc-if value="{{ foIdle }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+            <sc-if value="{{ foPlaying }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
+          </button>
+        </div>
+      </div>
+      <svg viewBox="0 0 1100 440" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <sc-if value="{{ foHasPlug }}" hint-placeholder-val="{{ false }}">
+          <g transform="{{ fo.plugTr }}" pointer-events="none">
+            <path d="M550 -400 V-90" fill="none" stroke="#8296a8" stroke-width="5"></path>
+            <rect x="455" y="-90" width="190" height="90" rx="10" fill="#4a5a6e" stroke="#a9bccd" stroke-width="1.5"></rect>
+          </g>
+        </sc-if>
+        <g transform="{{ fo.moldTr }}" pointer-events="none">
+          <sc-if value="{{ foNeg }}" hint-placeholder-val="{{ true }}">
+            <path d="M350 244 H395 L407 356 H693 L705 244 H750 V390 H350 Z M406 356 H414 V364 H686 V356 H694 V364 H750 V372 H406 Z" fill-rule="evenodd" fill="#39424e" stroke="#a9bccd" stroke-width="1.5" stroke-linejoin="round"></path>
+            <g opacity="{{ fo.airOp }}">
+              <path d="M410 356 V368 H790 M690 356 V368" fill="none" stroke="#6cc4ba" stroke-width="3" stroke-dasharray="10 8" stroke-dashoffset="{{ fo.dash }}"></path>
+              <path d="M788 361 L800 368 L788 375 Z" fill="#6cc4ba"></path>
+            </g>
+          </sc-if>
+          <sc-if value="{{ foPos }}" hint-placeholder-val="{{ false }}">
+            <path d="M340 244 H410 L424 128 H676 L690 244 H760 V390 H340 Z M400 244 H408 V256 H692 V244 H700 V256 H760 V264 H400 Z" fill-rule="evenodd" fill="#39424e" stroke="#a9bccd" stroke-width="1.5" stroke-linejoin="round"></path>
+            <g opacity="{{ fo.airOp }}">
+              <path d="M404 244 V260 H800 M696 244 V260" fill="none" stroke="#6cc4ba" stroke-width="3" stroke-dasharray="10 8" stroke-dashoffset="{{ fo.dash }}"></path>
+              <path d="M798 253 L810 260 L798 267 Z" fill="#6cc4ba"></path>
+            </g>
+          </sc-if>
+        </g>
+        <g opacity="{{ fo.blowOp }}" pointer-events="none">
+          <path d="M470 340 V300 M550 340 V300 M630 340 V300" fill="none" stroke="#6cc4ba" stroke-width="3"></path>
+          <path d="M462 304 L470 290 L478 304 Z M542 304 L550 290 L558 304 Z M622 304 L630 290 L638 304 Z" fill="#6cc4ba"></path>
+        </g>
+        <sc-for list="{{ foSegs }}" as="s" hint-placeholder-count="81">
+          <path d="{{ s.d }}" fill="none" stroke="#e59a62" stroke-width="{{ s.w }}" stroke-linecap="round" pointer-events="none"></path>
+        </sc-for>
+        <g pointer-events="none">
+          <rect x="270" y="222" width="60" height="14" rx="3" fill="#4a5a6e" stroke="#a9bccd" stroke-width="1.2"></rect>
+          <rect x="770" y="222" width="60" height="14" rx="3" fill="#4a5a6e" stroke="#a9bccd" stroke-width="1.2"></rect>
+          <rect x="270" y="244" width="60" height="14" rx="3" fill="#4a5a6e" stroke="#a9bccd" stroke-width="1.2"></rect>
+          <rect x="770" y="244" width="60" height="14" rx="3" fill="#4a5a6e" stroke="#a9bccd" stroke-width="1.2"></rect>
+        </g>
+        <sc-if value="{{ foShowThin }}" hint-placeholder-val="{{ true }}">
+          <path d="{{ fo.thinRing }}" fill="none" stroke="#eaf2fa" stroke-width="2" opacity="{{ fo.ringOp }}" pointer-events="none"></path>
+          <path d="{{ fo.thinLead }}" fill="none" stroke="#8296a8" stroke-width="1.3" pointer-events="none"></path>
+          <g onClick="{{ foThinClick }}" style="cursor:pointer"><rect x="40" y="280" width="160" height="32" rx="8" fill="#0d121a" stroke="{{ fo.thinCol }}" stroke-width="{{ fo.thinW }}"></rect><text x="120" y="301" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ fo.thinCol }}" pointer-events="none">nejtenčí místo</text></g>
+          <g onClick="{{ foThinClick }}" style="cursor:pointer"><rect x="900" y="280" width="160" height="32" rx="8" fill="#0d121a" stroke="{{ fo.thinCol }}" stroke-width="{{ fo.thinW }}"></rect><text x="980" y="301" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ fo.thinCol }}" pointer-events="none">nejtenčí místo</text></g>
+        </sc-if>
+      </svg>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:11px;border-radius:6px;background:#e59a62"></span>silná stěna</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:4px;border-radius:2px;background:#e59a62"></span>tenká stěna</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#39424e;border:1px solid #a9bccd;box-sizing:border-box"></span>forma</span>
+        <sc-if value="{{ foHasPlug }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#4a5a6e;border:1px solid #a9bccd;box-sizing:border-box"></span>razník</span></sc-if>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:0;border-top:3px dashed #6cc4ba"></span>{{ foAirName }}</span>
+      </div>
+      <div style="background:#0a0e15;border:1px solid #e59a62;border-radius:14px;padding:14px 18px;margin-top:14px;min-height:82px;box-sizing:border-box">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#e59a62;margin-bottom:4px">{{ foInfo.name }}</div>
+        <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ foInfo.text }}</div>
+        <sc-if value="{{ foThinSel }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty;margin-top:8px;padding-top:8px;border-top:1px solid #232c39"><span style="font-weight:600;color:#e59a62">Nejtenčí místo: </span>{{ foThinText }}</div>
+        </sc-if>
+      </div>
+    </div>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;margin-top:24px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Úkosy</div>
+      <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty;max-width:820px">Výrobek se při chladnutí smršťuje. Z&nbsp;negativní formy se smršťuje od&nbsp;stěn dutiny a&nbsp;uvolní se snáz. Na&nbsp;pozitivní formu se smrští — „obejme ji“ — proto potřebuje větší úkos.</div>
+    </div>
+
+    <h2 id="ohrev" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 12px;scroll-margin-top:90px">Ohřev a&nbsp;termomechanická křivka</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Deska se ohřívá zářiči z&nbsp;jedné strany, u&nbsp;silných desek z&nbsp;obou stran. Tvarovat se dá jen ve&nbsp;vysokoelastické oblasti termomechanické křivky.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Amorfní plasty (PS, ABS, PMMA, PC, PET v&nbsp;amorfní formě) mají široké vysokoelastické pásmo a&nbsp;tvarují se snadno. Částečně krystalické plasty (PP, PE) mají úzké okno a&nbsp;ohřev se musí řídit přesněji.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní graf</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Termomechanická křivka amorfního termoplastu</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Zjednodušený průběh bez stupnic. Vyber stav desky, nebo klikni na&nbsp;oblast křivky.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px">
+        <sc-for list="{{ ohBtns }}" as="b" hint-placeholder-count="3">
+          <button onClick="{{ b.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:18px;align-items:start">
+        <div>
+          <svg viewBox="0 0 640 340" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <g onClick="{{ ohB.glass.onClick }}" style="cursor:pointer">
+              <rect x="60" y="20" width="155" height="280" fill="{{ ohB.glass.fill }}" stroke="{{ ohB.glass.stroke }}" stroke-width="{{ ohB.glass.sw }}"></rect>
+              <text x="137.5" y="48" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ ohB.glass.tc }}" pointer-events="none">sklovitá</text>
+            </g>
+            <g onClick="{{ ohB.rubber.onClick }}" style="cursor:pointer">
+              <rect x="215" y="20" width="225" height="280" fill="{{ ohB.rubber.fill }}" stroke="{{ ohB.rubber.stroke }}" stroke-width="{{ ohB.rubber.sw }}"></rect>
+              <text x="327.5" y="48" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ ohB.rubber.tc }}" pointer-events="none">vysokoelastická</text>
+            </g>
+            <g onClick="{{ ohB.flow.onClick }}" style="cursor:pointer">
+              <rect x="440" y="20" width="150" height="280" fill="{{ ohB.flow.fill }}" stroke="{{ ohB.flow.stroke }}" stroke-width="{{ ohB.flow.sw }}"></rect>
+              <text x="515" y="48" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="{{ ohB.flow.tc }}" pointer-events="none">viskózní tok</text>
+            </g>
+            <path d="M60 300 H604 M60 300 V16" fill="none" stroke="#a9bccd" stroke-width="1.8" pointer-events="none"></path>
+            <path d="M598 294 L610 300 L598 306 Z M54 22 L60 10 L66 22 Z" fill="#a9bccd" pointer-events="none"></path>
+            <text x="604" y="324" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8" pointer-events="none">teplota</text>
+            <text x="40" y="160" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8296a8" transform="rotate(-90 40 160)" pointer-events="none">deformace</text>
+            <path d="{{ ohCurve }}" fill="none" stroke="#eaf2fa" stroke-width="3" stroke-linecap="round" pointer-events="none"></path>
+            <path d="{{ oh.markLine }}" fill="none" stroke="#e59a62" stroke-width="1.5" stroke-dasharray="5 5" pointer-events="none"></path>
+            <circle cx="{{ oh.mx }}" cy="{{ oh.my }}" r="9" fill="#e59a62" stroke="#0a0e15" stroke-width="3" pointer-events="none"></circle>
+          </svg>
+          <div style="background:#0a0e15;border:1px solid {{ ohReg.border }};border-radius:14px;padding:14px 18px;margin-top:14px;min-height:82px;box-sizing:border-box">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ ohReg.color }};margin-bottom:4px">{{ ohReg.name }}</div>
+            <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ ohReg.text }}</div>
+          </div>
+        </div>
+        <div style="background:#0a0e15;border:1px solid #e59a62;border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:12px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba">Výsledek na&nbsp;výrobku</div>
+          <svg viewBox="0 0 400 250" style="width:100%;display:block;background:#0d121a;border-radius:10px">
+            <path d="M60 110 H110 L116 200 H284 L290 110 H340 V230 H60 Z" fill="#39424e" stroke="#a9bccd" stroke-width="1.5" stroke-linejoin="round"></path>
+            <sc-for list="{{ ohRes }}" as="s" hint-placeholder-count="3">
+              <path d="{{ s.d }}" fill="none" stroke="#8fb4d6" stroke-width="{{ s.w }}" stroke-linecap="round" stroke-linejoin="round"></path>
+            </sc-for>
+          </svg>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#e59a62;margin-bottom:4px">{{ ohInfo.name }}</div>
+            <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ ohInfo.text }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="../zaklady/termomechanicka-krivka.html" style="display:inline-flex;margin-top:18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Oblasti křivky a&nbsp;přechodové teploty: Termomechanická křivka</a>
+
+    <h2 id="pamet" style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 12px;scroll-margin-top:90px">Paměťový efekt</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 4px;max-width:820px;text-wrap:pretty">Výrobek se ochladil pod&nbsp;teplotu skelného přechodu dřív, než se protažené molekuly stačily vrátit. Jejich orientace v&nbsp;něm „zamrzla“.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:20px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#6cc4ba;margin-bottom:4px">Interaktivní animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Ohřev hotového výrobku</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Výrobek v&nbsp;řezu. Tloušťku stěny ukazuje šířka čáry.</div>
+        </div>
+        <button onClick="{{ paToggle }}" aria-label="{{ paBtn }}" title="{{ paBtn }}" style="width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;padding:0;border-radius:50%;cursor:pointer;background:#e59a62;border:1px solid #e59a62">
+          <sc-if value="{{ paIdle }}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4 2.5 L13.5 8 L4 13.5 Z" fill="#080b12"></path></svg></sc-if>
+          <sc-if value="{{ paPlaying }}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.5 2.5 H6.5 V13.5 H3.5 Z M9.5 2.5 H12.5 V13.5 H9.5 Z" fill="#080b12"></path></svg></sc-if>
+        </button>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <sc-for list="{{ paSteps }}" as="f" hint-placeholder-count="3">
+          <div style="padding:7px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;background:{{ f.bg }};color:{{ f.color }};border:1px solid {{ f.border }}">{{ f.label }}</div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:14px;align-items:start">
+      <svg viewBox="0 0 1100 260" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <rect x="300" y="16" width="500" height="228" rx="18" fill="#2a1612" stroke="#ef8f73" stroke-width="2" opacity="{{ pa.ovenOp }}"></rect>
+        <g onClick="{{ paPlateClick }}" style="cursor:pointer">
+          <rect x="383.34" y="144.25" width="333.32" height="11.5" rx="5.75" fill="transparent" stroke="{{ pa.plateS }}" stroke-width="{{ pa.plateW }}" stroke-dasharray="7 6"></rect>
+          <text x="374" y="155" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="15" fill="{{ pa.plateS }}">výchozí deska</text>
+        </g>
+        <sc-for list="{{ paSegs }}" as="s" hint-placeholder-count="61">
+          <path d="{{ s.d }}" fill="none" stroke="{{ pa.col }}" stroke-width="{{ s.w }}" stroke-linecap="round" pointer-events="none"></path>
+        </sc-for>
+      </svg>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div onClick="{{ paM0.onClick }}" style="cursor:pointer;padding:6px 12px;border-radius:12px;background:{{ paM0.bg }};border:1px solid {{ paM0.border }}">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;color:#eaf2fa">Hotový výrobek</div>
+          <svg viewBox="0 0 200 48" style="width:100%;height:28px;display:block">
+            <path d="M10 24 L22 16 L34 32 L46 16 L58 32 L70 16 L82 32 L94 16 L106 32 L118 16 L130 24" fill="none" stroke="#8fb4d6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            <rect x="156" y="22" width="22" height="18" rx="3" fill="#a9bccd"></rect>
+            <path d="M161 22 V16 A6 6 0 0 1 173 16 V22" fill="none" stroke="#a9bccd" stroke-width="2.5"></path>
+          </svg>
+          <div style="font-size:13.5px;line-height:1.45;color:#aebfcf;text-wrap:pretty">natažená, zamrzlá pod&nbsp;teplotou skelného přechodu</div>
+        </div>
+        <div onClick="{{ paM1.onClick }}" style="cursor:pointer;padding:6px 12px;border-radius:12px;background:{{ paM1.bg }};border:1px solid {{ paM1.border }}">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;color:#eaf2fa">Ohřev</div>
+          <svg viewBox="0 0 200 48" style="width:100%;height:28px;display:block">
+            <path d="M10 24 L22 16 L34 32 L46 16 L58 32 L70 16 L82 32 L94 16 L106 32 L118 16 L130 24" fill="none" stroke="#e59a62" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>
+            <rect x="156" y="22" width="22" height="18" rx="3" fill="#a9bccd"></rect>
+            <path d="M161 22 V10 A6 6 0 0 1 173 10 V15" fill="none" stroke="#a9bccd" stroke-width="2.5"></path>
+          </svg>
+          <div style="font-size:13.5px;line-height:1.45;color:#aebfcf;text-wrap:pretty">úseky molekul se znovu pohybují</div>
+        </div>
+        <div onClick="{{ paM2.onClick }}" style="cursor:pointer;padding:6px 12px;border-radius:12px;background:{{ paM2.bg }};border:1px solid {{ paM2.border }}">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:14px;color:#eaf2fa">Smrštění</div>
+          <svg viewBox="0 0 200 48" style="width:100%;height:28px;display:block">
+            <path d="M14 32 C14 10 40 10 38 26 C36 40 22 34 28 22 C34 10 58 10 56 26 C54 40 40 34 46 22 C52 10 76 10 74 26 C72 40 58 34 64 22 C70 12 92 14 96 28" fill="none" stroke="#e59a62" stroke-width="2.5" stroke-linecap="round"></path>
+          </svg>
+          <div style="font-size:13.5px;line-height:1.45;color:#aebfcf;text-wrap:pretty">stočená, jako ve&nbsp;výchozí desce</div>
+        </div>
+      </div>
+      </div>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#8fb4d6"></span>ztuhlý výrobek</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#e59a62"></span>ohřátý výrobek</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:12px;border-radius:3px;background:#2a1612;border:1px solid #ef8f73;box-sizing:border-box"></span>ohřev</span>
+      </div>
+      <div style="background:#0a0e15;border:1px solid {{ paInfo.border }};border-radius:14px;padding:14px 18px;margin-top:14px;min-height:82px;box-sizing:border-box">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:{{ paInfo.color }};margin-bottom:4px">{{ paInfo.name }}</div>
+        <div style="font-size:15px;line-height:1.6;color:#eaf2fa;text-wrap:pretty">{{ paInfo.text }}</div>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:16px 0 0;max-width:820px;text-wrap:pretty">Vstřikovaný díl se při stejném ohřevu nesmrští — v&nbsp;tavenině se molekuly vůči sobě posunuly a&nbsp;tvar je trvalý.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:24px 0 14px;max-width:820px;text-wrap:pretty">Vakuově tvarované výrobky proto nesnášejí vyšší teploty — deformují se. Stejný jev se využívá u&nbsp;smršťovacích fólií a&nbsp;bužírek.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 8px;max-width:820px;text-wrap:pretty">Preforma PET lahve se také dlouží nad&nbsp;teplotou skelného přechodu, ale pod&nbsp;teplotou tání. Dloužením se zpevní.</p>
+    <a href="../vstrikovani-vytlacovani/vyfukovani.html" style="display:inline-flex;font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;color:#6cc4ba">→ Dloužení preformy PET: Vyfukování</a>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 16px">Formy a&nbsp;varianty</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Formy</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Tlak na&nbsp;formu je malý, proto jsou formy levné. Pro prototypy a&nbsp;malé série se vyrábějí ze&nbsp;dřeva, sádry nebo pryskyřice, pro velké série z&nbsp;hliníku s&nbsp;temperací.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Přetlakové tváření</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Desku na&nbsp;formu tlačí stlačený vzduch shora. Větší síla vytvaruje ostřejší detaily a&nbsp;ostřejší hrany.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Ořez a&nbsp;odpad</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Okraj upnutý v&nbsp;rámu je odpad. Ořezává se výsekem, u&nbsp;velkých dílů frézováním. Odpad se drtí a&nbsp;vrací do&nbsp;výroby.</div>
+        <a href="../zaklady/priprava-materialu.html#recyklat" style="display:inline-flex;margin-top:10px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#6cc4ba">→ Recyklát: Příprava materiálu</a>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Linky z&nbsp;role</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Tenká fólie se odvíjí z&nbsp;role, tvaruje a&nbsp;vysekává v&nbsp;jednom cyklu. Takto se vyrábějí kelímky, vaničky a&nbsp;blistry.</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 16px">Výrobky</h2>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <span style="padding:8px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;font-size:15px;color:#eaf2fa">blistry a&nbsp;obaly</span>
+      <span style="padding:8px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;font-size:15px;color:#eaf2fa">kelímky a&nbsp;vaničky</span>
+      <span style="padding:8px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;font-size:15px;color:#eaf2fa">vnitřní vany ledniček</span>
+      <span style="padding:8px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;font-size:15px;color:#eaf2fa">sprchové vaničky a&nbsp;vany</span>
+      <span style="padding:8px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;font-size:15px;color:#eaf2fa">kryty strojů</span>
+      <span style="padding:8px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;font-size:15px;color:#eaf2fa">díly interiérů vozidel</span>
+      <span style="padding:8px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;font-size:15px;color:#eaf2fa">poutače a&nbsp;reklamní tabule</span>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:64px 0 16px">Srovnání</h2>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:15px;line-height:1.5">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa;width:20%"></th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Vakuové tváření</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700"><a href="../vstrikovani-vytlacovani/vyfukovani.html" style="color:#eaf2fa" style-hover="color:#e59a62">Vyfukování →</a></th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700"><a href="../vstrikovani-vytlacovani/vstrikovani.html" style="color:#eaf2fa" style-hover="color:#e59a62">Vstřikování →</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Polotovar</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">deska</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">předlisek nebo preforma</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">granulát</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Stav materiálu při tvarování</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vysokoelastický stav</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">předlisek v&nbsp;tavenině, preforma nad&nbsp;teplotou skelného přechodu</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">tavenina</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Tlak</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">atmosférický tlak</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">stlačený vzduch</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vysoký tlak</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Forma (cena)</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">levná jednodílná forma</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">střední</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">drahá dvoudílná forma</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Přesně tvarovaný povrch</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">jen jedna strana</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">vnější povrch</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">oba povrchy</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Tloušťka stěny</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nerovnoměrná</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nerovnoměrná</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">předepsaná</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Žebra a&nbsp;otvory</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nelze (otvory jen dodatečně ořezem)</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">nelze</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">lze</td></tr>
+        <tr><td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#6cc4ba">Typické výrobky</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">blistry, kelímky, vnitřní vany ledniček, kryty strojů</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">kanystry, lahve, nádrže</td><td style="padding:14px 18px;border-top:1px solid #232c39;color:#eaf2fa">kryty, pouzdra, víčka, ozubená kola, díly automobilů</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const f1 = n => Math.round(n * 10) / 10;
+const T = s => s.replace(/~/g, '\u00a0');
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const ease = u => (u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2);
+const lerp = (a, b, u) => a + (b - a) * u;
+const hexRgb = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(a, b, u) { const A = hexRgb(a), B = hexRgb(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * u).toString(16).padStart(2, '0')).join(''); }
+const PT = p => f1(p[0]) + ' ' + f1(p[1]);
+const PL = pts => (pts.length ? 'M' + pts.map(PT).join(' L') : '');
+const MELT = '#e59a62', SOLID = '#8fb4d6', HL = '#e59a62', LBL = '#a9bccd';
+const pill = on => ({ bg: on ? '#6cc4ba' : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? '#6cc4ba' : '#263040' });
+const stepPill = on => ({ bg: on ? '#6cc4ba' : '#0a0e15', color: on ? '#0d121a' : '#aebfcf', border: on ? '#6cc4ba' : '#232c39' });
+
+/* geometrie desky: pět úseků se stejným počtem bodů ve všech tvarech */
+function cumLen(p) { const c = [0]; for (let i = 1; i < p.length; i++) c.push(c[i - 1] + Math.hypot(p[i][0] - p[i - 1][0], p[i][1] - p[i - 1][1])); return c; }
+function at(p, c, s) { let i = 1; while (i < p.length - 1 && c[i] < s) i++; const u = clamp((s - c[i - 1]) / ((c[i] - c[i - 1]) || 1)); return [lerp(p[i - 1][0], p[i][0], u), lerp(p[i - 1][1], p[i][1], u)]; }
+function range(p, a, b, n) { const c = cumLen(p), L = c[c.length - 1], out = []; for (let j = 0; j < n; j++) out.push(at(p, c, L * lerp(a, b, j / (n - 1)))); return out; }
+const CNT = [12, 14, 30, 14, 12];
+const bySecs = secs => secs.reduce((o, s, k) => o.concat(range(s, 0, 1, CNT[k])), []);
+const byFrac = (poly, fr) => CNT.reduce((o, n, k) => o.concat(range(poly, fr[k], fr[k + 1], n)), []);
+const META = CNT.reduce((o, n, k) => o.concat(Array.from({ length: n }, (_, j) => ({ k, t: j / (n - 1) }))), []);
+const NP = META.length;
+const SAG = 14;
+const sagY = (x, Y, s) => (x <= 330 || x >= 770 ? Y : Y + s * Math.sin(Math.PI * (x - 330) / 440));
+const negF = Y => bySecs([[[290, Y], [399, Y]], [[399, Y], [411, Y + 112]], [[411, Y + 112], [689, Y + 112]], [[689, Y + 112], [701, Y]], [[701, Y], [810, Y]]]);
+const NEG_XS = [290, 399, 466.7, 633.3, 701, 810];
+const negA = (Y, s) => bySecs(NEG_XS.slice(0, 5).map((x0, k) => { const p = []; for (let j = 0; j <= 20; j++) { const x = lerp(x0, NEG_XS[k + 1], j / 20); p.push([x, sagY(x, Y, s)]); } return p; }));
+const negPlug = (Y, pb) => bySecs([[[290, Y], [399, Y]], [[399, Y], [455, pb]], [[455, pb], [645, pb]], [[645, pb], [701, Y]], [[701, Y], [810, Y]]]);
+const posF = Y => bySecs([[[290, Y], [406, Y]], [[406, Y], [420, Y - 116]], [[420, Y - 116], [680, Y - 116]], [[680, Y - 116], [694, Y]], [[694, Y], [810, Y]]]);
+const POS_SPLIT = 116 / (116 + 116.8);
+const posTent = (Y, yT) => { const P = [lerp(290, 420, POS_SPLIT), lerp(Y, yT, POS_SPLIT)], Q = [lerp(810, 680, POS_SPLIT), lerp(Y, yT, POS_SPLIT)]; return bySecs([[[290, Y], P], [P, [420, yT]], [[420, yT], [680, yT]], [[680, yT], Q], [Q, [810, Y]]]); };
+const POS_FR = (() => { const L = [116, 116.8, 260, 116.8, 116], S = L.reduce((a, b) => a + b); let acc = 0; return [0].concat(L.map(l => (acc += l) / S)); })();
+const posBubble = (Y, bh) => { const p = []; for (let i = 0; i <= 104; i++) { const x = 290 + 5 * i; let y = Y; if (x > 330 && x < 770) { const s = Math.sin(Math.PI * (x - 330) / 440); y = Y - bh * (bh > 0 ? Math.sqrt(s) : s); } p.push([x, y]); } return byFrac(p, POS_FR); };
+const pw = Math.pow;
+const TAU_NEG = META.map(({ k, t }) => (k === 0 || k === 4 ? 0 : k === 1 ? 0.05 + 0.9 * pw(t, 1.2) : k === 3 ? 0.05 + 0.9 * pw(1 - t, 1.2) : 0.6 + 0.4 * pw(Math.abs(t - 0.5) * 2, 2)));
+const TAU_NEGP = META.map(({ k, t }) => (k === 0 || k === 4 ? 0 : k === 1 ? 0.15 + 0.8 * pw(t, 1.2) : k === 3 ? 0.15 + 0.8 * pw(1 - t, 1.2) : 0.15 + 0.85 * pw(Math.abs(t - 0.5) * 2, 2)));
+const TAU_POS = META.map(({ k, t }) => (k === 2 ? 0 : 0.1 + 0.9 * pw(k === 0 || k === 3 ? t : 1 - t, 1.3)));
+const morph = (A, F, tau, u) => F.map((f, i) => { const e = ease(clamp(u / Math.max(tau[i], 0.08))); return [lerp(A[i][0], f[0], e), lerp(A[i][1], f[1], e)]; });
+const thick = (tg, K, q) => tg.map(t => (q >= t ? 1 - K * t : 1 - K * q));
+const segs = (pts, h) => { const out = []; for (let i = 0; i < pts.length - 1; i++) out.push({ d: 'M' + PT(pts[i]) + ' L' + PT(pts[i + 1]), w: f1(2.5 + 9 * (h[i] + h[i + 1]) / 2) }); return out; };
+const RING = p => 'M' + f1(p[0] - 14) + ' ' + f1(p[1]) + ' a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0 Z';
+const I_L = 10, I_R = 71;
+
+/* Postup */
+const PY = 200, P_F = negF(PY), P_A = negA(PY, SAG);
+const PO_D = [2.4, 3.4, 4.2, 3, 4.4], PO_TOT = PO_D.reduce((a, b) => a + b);
+const PO_STEPS = [
+  ['Upnutí desky', 'Deska se upne po~obvodu do~rámu. Rám drží okraj desky po~celou dobu tváření.'],
+  ['Ohřev', 'Zářiče nad deskou ohřívají desku do~vysokoelastického stavu. Ohřátá deska změkne a~vlastní tíhou se mírně prověsí.'],
+  ['Tvarování', 'Forma se přisune k~desce. Vývěva odsaje vzduch mezi deskou a~formou a~atmosférický tlak přitlačí desku na~formu. Deska dosedne nejdřív na~horní okraje dutiny, naposled do~rohů dna.'],
+  ['Chlazení na~formě', 'Deska odevzdává teplo formě a~chladne. Pod~teplotou skelného přechodu ztuhne a~tvar si podrží.'],
+  ['Vyjmutí a~ořez okraje', 'Forma odjede, rám se otevře a~výrobek se vyjme. Okraj upnutý v~rámu se odřízne jako odpad.'],
+];
+const PO_PARTS = {
+  heater: ['Zářiče', 'Ohřívají desku sáláním shora. Silné desky se ohřívají zářiči z~obou stran.'],
+  sheet: ['Deska', 'Polotovar z~termoplastu, vyrobený vytlačováním nebo kalandrováním. Při tvarování se protahuje a~ztenčuje.'],
+  frame: ['Rám', 'Drží okraj desky po~celém obvodu. Upnutý okraj se netvaruje a~po~tváření se odřízne.'],
+  mold: ['Forma', 'Určuje tvar výrobku. Deska se k~ní přitlačí atmosférickým tlakem a~na~ní ochladne.'],
+  holes: ['Odsávací otvory', 'Jsou v~nejhlubších místech a~v~rozích formy. Deska do~těchto míst dosedne naposled, proto se odtud vzduch odsává až do~konce tvarování.'],
+  pump: ['Vývěva', 'Odsává vzduch z~prostoru mezi deskou a~formou. Desku pak k~formě přitlačí atmosférický tlak zvenku.'],
+  waste: ['Odpad z~ořezu', 'Okraj desky upnutý v~rámu. Odřízne se od~výrobku, podrtí se a~vrátí do~výroby.'],
+};
+function poFrame(step, p) {
+  const r = { jaw: 0, op: 1, heat: 0, col: SOLID, DY: 80, air: 0, trim: 0 };
+  let sag = 0, q = 0;
+  if (step === 0) { r.op = clamp(p / 0.3); r.jaw = 40 * (1 - ease(clamp((p - 0.35) / 0.5))); }
+  else if (step === 1) { r.heat = clamp(p / 0.15); r.col = mix(SOLID, MELT, ease(p)); sag = SAG * ease(p); }
+  else if (step === 2) { r.col = MELT; sag = SAG; r.heat = 1 - clamp(p / 0.15); r.DY = 80 * (1 - ease(clamp(p / 0.35))); q = clamp((p - 0.35) / 0.6); r.air = q > 0 ? 1 : 0; }
+  else if (step === 3) { q = 1; r.DY = 0; r.col = mix(MELT, SOLID, ease(p)); }
+  else { q = 1; r.DY = 80 * ease(clamp(p / 0.35)); r.jaw = 40 * ease(clamp((p - 0.35) / 0.2)); r.trim = ease(clamp((p - 0.55) / 0.45)); }
+  r.pts = q > 0 ? morph(P_A, P_F, TAU_NEG, q) : negA(PY, sag);
+  return r;
+}
+
+/* Negativní × pozitivní forma */
+const FY = 240, FO_DUR = 7;
+const F_NEG = negF(FY), F_POS = posF(FY), A_NEG = negA(FY, SAG), B_PLUG = negPlug(FY, FY + 108), B_TENT = posTent(FY, FY - 116), B_BUB = posBubble(FY, 175);
+const TG_NEGP = TAU_NEGP.map((t, i) => (META[i].k === 0 || META[i].k === 4 ? 0 : 0.4 + 0.6 * t));
+const TG_POS = TAU_POS.map(t => 0.4 + 0.6 * t), TG_POSP = TAU_POS.map(t => 0.6 + 0.4 * t);
+function foFrame(mold, pre, q) {
+  const r = { DY: 0, plug: null, air: 0, blow: 0 };
+  if (mold === 'neg' && !pre) { r.pts = morph(A_NEG, F_NEG, TAU_NEG, q); r.h = thick(TAU_NEG, 0.78, q); r.air = q > 0 && q < 1 ? 1 : 0; }
+  else if (mold === 'neg') {
+    if (q < 0.4) { const pb = lerp(FY - 40, FY + 104, ease(q / 0.4)); r.plug = pb; r.pts = pb + 4 > FY + SAG ? negPlug(FY, pb + 4) : A_NEG; }
+    else { r.plug = FY + 104; r.pts = morph(B_PLUG, F_NEG, TAU_NEGP, (q - 0.4) / 0.6); r.air = q < 1 ? 1 : 0; }
+    r.h = thick(TG_NEGP, 0.3, q);
+  } else if (!pre) {
+    if (q < 0.4) { r.DY = 150 * (1 - ease(q / 0.4)); r.pts = posTent(FY, Math.min(FY + SAG, FY - 116 + r.DY)); }
+    else { r.pts = morph(B_TENT, F_POS, TAU_POS, (q - 0.4) / 0.6); r.air = q < 1 ? 1 : 0; }
+    r.h = thick(TG_POS, 0.78, q);
+  } else {
+    if (q < 0.35) { r.DY = 150; r.pts = posBubble(FY, lerp(-SAG, 175, ease(q / 0.35))); r.blow = 1; }
+    else if (q < 0.6) { r.DY = 150 * (1 - ease((q - 0.35) / 0.25)); r.pts = B_BUB; }
+    else { r.pts = morph(B_BUB, F_POS, TAU_POS, (q - 0.6) / 0.4); r.air = q < 1 ? 1 : 0; }
+    r.h = thick(TG_POSP, 0.3, q);
+  }
+  return r;
+}
+const FO_TXT = {
+  'neg-0': ['Negativní forma · bez předtažení', 'Deska se nejdřív dotkne horních okrajů dutiny, tam se ochladí a~dál se neprotahuje. Zbytek desky se ztenčuje, nejtenčí jsou rohy dna. Přesně tvarovaný je vnější povrch výrobku.'],
+  'neg-1': ['Negativní forma · s~předtažením', 'Razník předtáhne desku do~hloubky dřív, než se deska dotkne stěn dutiny. Materiál se rozloží do~hloubky a~stěna je rovnoměrnější. Přesně tvarovaný je vnější povrch výrobku.'],
+  'pos-0': ['Pozitivní forma · bez předtažení', 'Deska se nejdřív dotkne vrcholu formy, tam je stěna nejsilnější. Nejtenčí jsou stěny a~rohy u~základny. Přesně tvarovaný je vnitřní povrch výrobku. Mezi formou a~rámem mohou vzniknout přehyby.'],
+  'pos-1': ['Pozitivní forma · s~předtažením', 'Deska se nejdřív předfoukne vzduchem do~bubliny, pak do~bubliny vyjede forma. Deska se předem protáhne celá, proto vyjde stěna rovnoměrnější. Přesně tvarovaný je vnitřní povrch výrobku. Mezi formou a~rámem mohou vzniknout přehyby.'],
+};
+const FO_THIN = {
+  neg: 'rohy dna. Deska do~nich dosedne naposled, proto se protahuje nejdéle.',
+  pos: 'stěny a~rohy u~základny. Deska do~nich dosedne naposled, proto se protahuje nejdéle.',
+};
+
+/* Termomechanická křivka */
+const ss = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
+const ohY = x => 285 - 100 * ss(185, 250, x) - 18 * clamp((x - 250) / 190) - 150 * pw(clamp((x - 440) / 150), 2);
+const OH_CURVE = (() => { const p = []; for (let x = 60; x <= 590; x += 5) p.push([x, ohY(x)]); return PL(p); })();
+const OH_REG = [
+  ['glass', 'Sklovitá oblast', 'Pod~teplotou skelného přechodu. Molekuly se nemohou přeskupovat, deska je tuhá a~deformuje se jen málo.'],
+  ['rubber', 'Vysokoelastická oblast', 'Nad~teplotou skelného přechodu se pohybují úseky molekul. Deska se dá velmi protáhnout a~po~ochlazení si tvar podrží. V~této oblasti se vakuově tváří.'],
+  ['flow', 'Viskózní tok', 'Molekuly se posouvají vůči sobě a~materiál teče. Deska se pod~vlastní tíhou silně prověsí a~místy ztenčí.'],
+];
+const OH_ST = {
+  under: ['Málo prohřátá', 222, 'Deska je ve~sklovité oblasti nebo jen těsně nad ní. Je tuhá, nedosedne do~rohů a~hrany zůstanou zaoblené. Ve~výrobku zůstane velké pnutí.',
+    [{ d: 'M40 106 H112 C118 150 126 184 162 188 H238 C274 184 282 150 288 106 H360', w: 7 }]],
+  ok: ['Správně prohřátá', 330, 'Deska je ve~vysokoelastické oblasti. Dá se velmi protáhnout a~kopíruje formu.',
+    [{ d: 'M40 106 H113 L119 196 H281 L287 106 H360', w: 5 }]],
+  over: ['Přehřátá', 450, 'Deska se blíží viskóznímu toku. Silně se prověsí, místy se ztenčí až protrhne.',
+    [{ d: 'M40 106 H113', w: 6 }, { d: 'M113 106 L119 196 H150', w: 2.5 }, { d: 'M174 196 H281 L287 106 H360', w: 2.5 }]],
+};
+
+/* Paměťový efekt */
+const MY = 60, M_F = negF(MY), M_H = thick(TAU_NEG, 0.78, 1), M_A = negA(MY + 90, 0);
+const PA_D = [2.2, 2.8, 3.8], PA_TOT = PA_D.reduce((a, b) => a + b);
+const PA_STEPS = [
+  ['Hotový výrobek', 'Protažené molekuly jsou ve~výrobku zmrazené v~orientovaném stavu. Pod~teplotou skelného přechodu se nemohou pohybovat.'],
+  ['Ohřev nad~teplotu skelného přechodu', 'Nad~teplotou skelného přechodu se úseky molekul znovu pohybují. Orientované molekuly se začnou vracet do~stočeného tvaru.'],
+  ['Smrštění', 'Výrobek se smrští zpět do~ploché desky. Stěna se přitom znovu zesílí.'],
+];
+function paFrame(t) {
+  let k = 0, tt = t;
+  while (k < 2 && tt >= PA_D[k]) { tt -= PA_D[k]; k++; }
+  const u = clamp(tt / PA_D[k]);
+  const heat = k === 0 ? 0 : k === 1 ? ease(u) : 1, sh = k === 2 ? ease(u) : 0;
+  const pts = [], h = [];
+  for (let i = I_L; i <= I_R; i++) { pts.push([lerp(M_F[i][0], M_A[i][0], sh), lerp(M_F[i][1], M_A[i][1], sh)]); h.push(lerp(M_H[i], 1, sh)); }
+  return { k, heat, pts, h };
+}
+
+class Component extends DCLogic {
+  state = { poStep: 0, poPlay: false, poT: 0, poPart: null, poInfo: 'step', foMold: 'neg', foPre: false, foPlay: false, foT: 0, foThin: false, ohState: 'ok', ohRegion: null, paPlay: false, paT: 0, paDone: false, paPart: null };
+  _raf = null; _last = null;
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+  startLoop() { if (!this._raf) { this._last = null; this._raf = requestAnimationFrame(this.tick); } }
+  tick = now => {
+    const dt = this._last == null ? 0 : Math.min(0.05, (now - this._last) / 1000);
+    this._last = now;
+    const st = this.state, upd = {};
+    let active = false;
+    if (st.poPlay) { const t = st.poT + dt; if (t >= PO_TOT) { upd.poPlay = false; upd.poStep = 4; upd.poT = 0; } else { upd.poT = t; active = true; } }
+    if (st.foPlay) { const t = st.foT + dt; if (t >= FO_DUR) { upd.foPlay = false; upd.foT = 0; } else { upd.foT = t; active = true; } }
+    if (st.paPlay) { const t = st.paT + dt; if (t >= PA_TOT) { upd.paPlay = false; upd.paDone = true; upd.paT = PA_TOT; } else { upd.paT = t; active = true; } }
+    if (Object.keys(upd).length) this.setState(upd);
+    this._raf = active ? requestAnimationFrame(this.tick) : null;
+  };
+  foSet(o) { this.setState(Object.assign({ foPlay: false, foT: 0, foThin: false }, o)); }
+  renderVals() {
+    const st = this.state;
+    /* postup */
+    let step = st.poStep, p = 1;
+    if (st.poPlay || st.poT > 0) { let tt = st.poT; step = 0; while (step < 4 && tt >= PO_D[step]) { tt -= PO_D[step]; step++; } p = clamp(tt / PO_D[step]); }
+    const r = poFrame(step, p), pts = r.pts, sel = st.poPart, DY = r.DY, w = r.trim;
+    const dL = [-60 * w, 70 * w], dR = [60 * w, 70 * w];
+    const wL = pts.slice(0, I_L + 1).map(q => [q[0] + dL[0], q[1] + dL[1]]), wR = pts.slice(I_R).map(q => [q[0] + dR[0], q[1] + dR[1]]);
+    const prod = PL(pts.slice(I_L, I_R + 1));
+    const wasteOn = w > 0.5;
+    const sp = pts[13];
+    const leads = ['M200 51 H330', 'M200 136 L' + f1(sp[0]) + ' ' + f1(sp[1] - 4), 'M200 211 H270', 'M200 290 L350 ' + f1(250 + DY), 'M200 370 L406 ' + f1(328 + DY), 'M940 360 L922 ' + f1(328 + DY)].join(' ');
+    const wEnd = wR[wR.length - 1];
+    const po = {
+      rayOp: f1(r.heat * 80) / 100, heatCol: mix('#4a3a34', '#ef8f73', r.heat),
+      moldTr: 'translate(0 ' + f1(DY) + ')', jawTr: 'translate(0 ' + f1(-r.jaw) + ')',
+      airOp: r.air, dash: f1(-(st.poT * 36) % 18),
+      col: r.col, op: f1(r.op * 100) / 100,
+      wasteL: PL(wL), wasteR: PL(wR), product: prod,
+      sheetHl: sel === 'sheet' ? (wasteOn ? prod : PL(pts)) : '', sheetHlOp: sel === 'sheet' ? 1 : 0,
+      wasteHl: sel === 'waste' && wasteOn ? PL(wL) + ' ' + PL(wR) : '', wasteHlOp: sel === 'waste' && wasteOn ? 1 : 0,
+      wasteClick: () => this.setState({ poPart: wasteOn ? 'waste' : 'sheet', poInfo: 'part' }),
+      leads, wasteLead: w > 0 ? 'M940 250 L' + f1(wEnd[0] + 2) + ' ' + f1(wEnd[1]) : '',
+    };
+    const poClick = {}, poS = {}, poW = {}, poL = {}, poLw = {};
+    Object.keys(PO_PARTS).forEach(k => {
+      const on = sel === k;
+      poClick[k] = () => this.setState(k === 'waste' ? { poPart: k, poInfo: 'part', poPlay: false, poT: 0, poStep: 4 } : { poPart: k, poInfo: 'part' });
+      poS[k] = on ? HL : LBL; poW[k] = on ? 2.5 : 1.2; poL[k] = on ? HL : LBL; poLw[k] = on ? 3 : 1.2;
+    });
+    const poSteps = PO_STEPS.map((s, i) => Object.assign({ label: T(s[0]), onClick: () => this.setState({ poStep: i, poPlay: false, poT: 0, poInfo: 'step' }) }, stepPill(i === step)));
+    const poInfo = st.poInfo === 'part' && sel ? { name: T(PO_PARTS[sel][0]), text: T(PO_PARTS[sel][1]), color: HL, border: HL } : { name: T(PO_STEPS[step][0]), text: T(PO_STEPS[step][1]), color: HL, border: HL };
+    /* formy */
+    const fq = st.foPlay || st.foT > 0 ? clamp(st.foT / FO_DUR) : 1;
+    const fr = foFrame(st.foMold, st.foPre, fq);
+    const fKey = st.foMold + '-' + (st.foPre ? 1 : 0);
+    let iMin = 0; for (let i = 1; i < NP / 2; i++) if (fr.h[i] < fr.h[iMin] - 1e-6) iMin = i;
+    const F = st.foMold === 'neg' ? F_NEG : F_POS, pa = F[iMin], pb = F[NP - 1 - iMin];
+    const showThin = fq >= 1;
+    const fo = {
+      moldTr: 'translate(0 ' + f1(fr.DY) + ')', plugTr: 'translate(0 ' + f1(fr.plug == null ? 0 : fr.plug) + ')',
+      airOp: fr.air, blowOp: fr.blow, dash: f1(-(st.foT * 36) % 18),
+      thinRing: RING(pa) + ' ' + RING(pb), ringOp: st.foThin ? 1 : 0,
+      thinLead: 'M200 296 L' + f1(pa[0] - 6) + ' ' + f1(pa[1] + 4) + ' M900 296 L' + f1(pb[0] + 6) + ' ' + f1(pb[1] + 4),
+      thinCol: st.foThin ? HL : LBL, thinW: st.foThin ? 3 : 1.2,
+    };
+    /* termomechanická křivka */
+    const os = OH_ST[st.ohState], mx = os[1], my = ohY(mx);
+    const ohB = {};
+    OH_REG.forEach(([key]) => {
+      const on = st.ohRegion === key;
+      ohB[key] = { fill: on ? mix('#0a0e15', HL, 0.16) : key === 'rubber' ? '#101823' : '#0c121b', stroke: on ? HL : '#232c39', sw: on ? 2 : 1, tc: on ? HL : LBL, onClick: () => this.setState(s => ({ ohRegion: s.ohRegion === key ? null : key })) };
+    });
+    const reg = OH_REG.find(rg => rg[0] === st.ohRegion);
+    const ohReg = reg ? { name: reg[1], text: T(reg[2]), color: HL, border: HL } : { name: 'Oblasti křivky', text: T('Klikni na~oblast křivky.'), color: '#eaf2fa', border: '#232c39' };
+    /* paměť */
+    const pf = paFrame(st.paPlay || st.paT > 0 ? st.paT : 0);
+    const paIdle = !st.paPlay && !st.paDone && st.paT === 0;
+    const paSteps = PA_STEPS.map((s, i) => Object.assign({ label: T(s[0]) }, stepPill(!paIdle && i === pf.k)));
+    const paPart = st.paPart;
+    const paMk = typeof paPart === 'number' ? paPart : paIdle ? -1 : pf.k;
+    const paInfo = paPart === 'plate' ? { name: 'Výchozí deska', text: T('Z~této desky výrobek vznikl. Po~ohřevu nad teplotu skelného přechodu se do~ní vrátí — tvar, rozměr i~tloušťka.'), color: HL, border: HL }
+      : typeof paPart === 'number' ? { name: T(PA_STEPS[paPart][0]), text: T(PA_STEPS[paPart][1]), color: HL, border: HL }
+      : paIdle ? { name: 'Paměťový efekt', text: T('Spusť animaci tlačítkem ▶.'), color: '#eaf2fa', border: '#232c39' } : { name: T(PA_STEPS[pf.k][0]), text: T(PA_STEPS[pf.k][1]), color: HL, border: HL };
+    const paM = k => ({ bg: paMk === k ? '#1d1510' : '#0a0e15', border: paMk === k ? HL : '#232c39', onClick: () => this.setState({ paPart: k }) });
+    return {
+      po, poClick, poS, poW, poL, poLw, poSteps, poInfo,
+      poPlaying: st.poPlay, poIdle: !st.poPlay, poBtn: st.poPlay ? 'Zastavit' : 'Přehrát',
+      poToggle: () => this.setState(s => (s.poPlay ? { poPlay: false } : { poPlay: true, poInfo: 'step' }), () => this.startLoop()),
+      fo, foSegs: segs(fr.pts, fr.h), foHasPlug: fr.plug != null, foNeg: st.foMold === 'neg', foPos: st.foMold === 'pos',
+      foShowThin: showThin, foThinSel: showThin && st.foThin, foThinText: T(FO_THIN[st.foMold]),
+      foThinClick: () => this.setState(s => ({ foThin: !s.foThin })),
+      foInfo: { name: T(FO_TXT[fKey][0]), text: T(FO_TXT[fKey][1]) },
+      foAirName: st.foMold === 'pos' && st.foPre ? 'proudění vzduchu' : 'odsávaný vzduch',
+      foMoldBtns: [['neg', 'Negativní forma'], ['pos', 'Pozitivní forma']].map(([k, l]) => Object.assign({ label: l, onClick: () => this.foSet({ foMold: k }) }, pill(st.foMold === k))),
+      foPreBtns: [[false, 'Bez předtažení'], [true, 'S předtažením']].map(([k, l]) => Object.assign({ label: l, onClick: () => this.foSet({ foPre: k }) }, pill(st.foPre === k))),
+      foPlaying: st.foPlay, foIdle: !st.foPlay, foBtn: st.foPlay ? 'Zastavit' : 'Přehrát',
+      foToggle: () => this.setState(s => (s.foPlay ? { foPlay: false } : { foPlay: true }), () => this.startLoop()),
+      ohB, ohCurve: OH_CURVE, ohReg, ohRes: os[3],
+      oh: { mx, my: f1(my), markLine: 'M' + mx + ' ' + f1(my + 9) + ' V300' },
+      ohInfo: { name: os[0], text: T(os[2]) },
+      ohBtns: [['under', 'Málo prohřátá'], ['ok', 'Správně prohřátá'], ['over', 'Přehřátá']].map(([k, l]) => Object.assign({ label: l, onClick: () => this.setState({ ohState: k }) }, pill(st.ohState === k))),
+      paSegs: segs(pf.pts, pf.h), pa: { col: mix(SOLID, MELT, pf.heat * 0.85), ovenOp: f1(pf.heat * 100) / 100, plateS: paPart === 'plate' ? HL : '#8296a8', plateW: paPart === 'plate' ? 3 : 2 },
+      paPlateClick: () => this.setState({ paPart: 'plate' }), paM0: paM(0), paM1: paM(1), paM2: paM(2),
+      paSteps, paInfo, paPlaying: st.paPlay, paIdle: !st.paPlay, paBtn: st.paPlay ? 'Zastavit' : 'Přehrát',
+      paToggle: () => this.setState(s => (s.paPlay ? { paPlay: false } : s.paDone || s.paT === 0 ? { paPlay: true, paT: 0, paDone: false, paPart: null } : { paPlay: true, paPart: null }), () => this.startLoop()),
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>
