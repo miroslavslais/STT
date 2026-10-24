@@ -135,7 +135,7 @@ function Scene() {
   ];
 
   const metals = [
-    { s: 'Fe', name: 'Železo α', part: 'Konstrukční oceli' },
+    { s: 'Fe', sub: 'α', name: 'Železo modifikace alfa', part: 'Konstrukční oceli' },
     { s: 'W',  name: 'Wolfram',  part: 'Žhavicí vlákna a nástroje' },
     { s: 'Cr', name: 'Chrom',    part: 'Tvrdé pochromování' },
     { s: 'Mo', name: 'Molybden', part: 'Legura žárupevných ocelí' },
@@ -194,7 +194,7 @@ function Scene() {
                   background: 'rgba(120,180,230,0.05)', border: '1px solid rgba(120,180,230,0.16)',
                   opacity: o, transform: `translateY(${(1 - o) * 14}px)`, textAlign: 'left' }}>
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
-                    <span style={{ fontFamily: sans, fontSize: 44, fontWeight: 600, color: '#eaf2fa', lineHeight: 1 }}>{m.s}</span>
+                    <span style={{ fontFamily: sans, fontSize: 44, fontWeight: 600, color: '#eaf2fa', lineHeight: 1 }}>{m.s}{m.sub && <sub style={{ fontSize: 24, verticalAlign: 'sub' }}>{m.sub}</sub>}</span>
                     <span style={{ fontFamily: mono, fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#7fb4d6' }}>{m.name}</span>
                   </div>
                   <div style={{ height: 1, background: 'rgba(120,180,230,0.16)', margin: '14px 0 12px' }} />
