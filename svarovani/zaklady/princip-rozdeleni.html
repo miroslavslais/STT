@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Princip svařování a rozdělení metod | STT</title>
+<meta name="description" content="Princip svařování: kovová vazba, proč se dva kusy samy nespojí, tavné × tlakové svařování, zdroje tepla, ochrana svarové lázně a přehled metod s označením ISO 4063.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-11-03">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e08cc4; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Základy svařování</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:10px">Základy svařování</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 12px">Princip svařování a&nbsp;rozdělení metod</h1>
+    <p style="font-size:18px;line-height:1.6;color:#aebfcf;margin:0;max-width:820px;text-wrap:pretty">Svařování spojuje kovy nerozebíratelně. Stránka vysvětluje, proč a&nbsp;jak spoj vzniká a&nbsp;jak se metody dělí.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Co je svařování</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 22px;max-width:820px;text-wrap:pretty">Svařování vytváří nerozebíratelný spoj, ve&nbsp;kterém jsou spojované části drženy kovovou vazbou — stejnou jako uvnitř kovu.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Základní materiál</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Spojované díly.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Přídavný materiál</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Kov dodávaný do spoje (drát, elektroda, tyčinka).</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Svarový kov</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Ztuhlá směs roztaveného základního a&nbsp;přídavného materiálu.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Svar</div>
+          <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Místo spojení.</div>
+        </div>
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Svarový spoj</div>
+          <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Svar včetně přilehlých částí základního materiálu.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Proč se dva kusy samy nespojí</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Kovová vazba vznikne, jen když se atomy obou povrchů přiblíží na meziatomovou vzdálenost.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 14px;max-width:820px;text-wrap:pretty">Přiložením dvou kusů k&nbsp;sobě se to nestane. Povrchy se dotýkají jen na vrcholcích nerovností, mezi nimi je vzduch a&nbsp;povrch kryje vrstva oxidů a&nbsp;nečistot.</p>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Proto je nutné dodat teplo, tlak, nebo obojí.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #e59a62;border-radius:18px;padding:20px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#e59a62;margin-bottom:8px">Teplo</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Okraje se roztaví a&nbsp;slijí.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #8fb4d6;border-radius:18px;padding:20px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#8fb4d6;margin-bottom:8px">Tlak</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Nerovnosti se plasticky stlačí a&nbsp;oxidická vrstva se roztrhne.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #e08cc4;border-radius:18px;padding:20px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#e08cc4;margin-bottom:8px">Obojí</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Teplo a&nbsp;tlak působí současně.</div>
+      </div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin:24px 0 0;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:4px">Animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Styk dvou povrchů pod lupou</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <sc-for list="{{ modeButtons }}" as="m" hint-placeholder-count="3">
+            <button onClick="{{ m.onClick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ m.bg }};color:{{ m.color }};border:1px solid {{ m.border }}">{{ m.label }}</button>
+          </sc-for>
+          <button onClick="{{ replay }}" style="padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;background:#0d121a;color:#e08cc4;border:1px solid #e08cc4">Znovu</button>
+        </div>
+      </div>
+      <svg viewBox="0 0 900 440" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <path d="{{ an.left }}" fill="{{ an.blockFill }}"></path>
+        <path d="{{ an.right }}" fill="{{ an.blockFill }}"></path>
+        <sc-if value="{{ an.hasPool }}" hint-placeholder-val="{{ false }}">
+          <path d="{{ an.pool }}" fill="{{ an.poolFill }}" opacity="{{ an.poolOp }}"></path>
+        </sc-if>
+        <sc-for list="{{ an.atoms }}" as="a" hint-placeholder-count="0">
+          <circle cx="{{ a.cx }}" cy="{{ a.cy }}" r="4.5" fill="none" stroke="{{ a.c }}" stroke-width="1.5" opacity="{{ a.o }}"></circle>
+        </sc-for>
+        <sc-for list="{{ an.ox }}" as="o" hint-placeholder-count="0">
+          <line x1="{{ o.x1 }}" y1="{{ o.y1 }}" x2="{{ o.x2 }}" y2="{{ o.y2 }}" stroke="#c9b458" stroke-width="5" stroke-linecap="round" opacity="{{ o.o }}"></line>
+        </sc-for>
+        <sc-for list="{{ an.parts }}" as="q" hint-placeholder-count="0">
+          <circle cx="{{ q.cx }}" cy="{{ q.cy }}" r="5" fill="#c9b458" opacity="{{ q.o }}"></circle>
+        </sc-for>
+        <sc-for list="{{ an.contacts }}" as="c" hint-placeholder-count="0">
+          <circle cx="{{ c.cx }}" cy="{{ c.cy }}" r="10" fill="none" stroke="#e08cc4" stroke-width="2"></circle>
+        </sc-for>
+        <sc-for list="{{ an.arrows }}" as="w" hint-placeholder-count="0">
+          <path d="{{ w.d }}" fill="#eaf2fa"></path>
+        </sc-for>
+        <sc-for list="{{ an.lines }}" as="l" hint-placeholder-count="0">
+          <line x1="{{ l.x1 }}" y1="{{ l.y1 }}" x2="{{ l.x2 }}" y2="{{ l.y2 }}" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+        </sc-for>
+        <sc-for list="{{ an.labels }}" as="lb" hint-placeholder-count="0">
+          <g onClick="{{ lb.click }}" style="cursor:pointer">
+            <rect x="{{ lb.x }}" y="{{ lb.y }}" width="{{ lb.w }}" height="28" rx="8" fill="#0d121a" stroke="{{ lb.stroke }}" stroke-width="{{ lb.sw }}"></rect>
+            <sc-if value="{{ lb.t1 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#e08cc4">Vazba nevznikne.</text></sc-if>
+            <sc-if value="{{ lb.t2 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">vrcholek nerovnosti</text></sc-if>
+            <sc-if value="{{ lb.t3 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">vzduch</text></sc-if>
+            <sc-if value="{{ lb.t4 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">oxidická vrstva</text></sc-if>
+            <sc-if value="{{ lb.t5 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#e08cc4">Tavné svařování.</text></sc-if>
+            <sc-if value="{{ lb.t6 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">oxidy na hladině</text></sc-if>
+            <sc-if value="{{ lb.t7 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">svarový kov</text></sc-if>
+            <sc-if value="{{ lb.t8 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">základní materiál</text></sc-if>
+            <sc-if value="{{ lb.t9 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#e08cc4">Tlakové svařování.</text></sc-if>
+            <sc-if value="{{ lb.t10 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">stlačené vrcholky</text></sc-if>
+            <sc-if value="{{ lb.t11 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">kovový styk</text></sc-if>
+            <sc-if value="{{ lb.t12 }}"><text x="{{ lb.tx }}" y="{{ lb.ty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">popraskané oxidy</text></sc-if>
+          </g>
+        </sc-for>
+      </svg>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#39424e"></span>základní materiál</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:22px;height:5px;border-radius:3px;background:#c9b458"></span>oxidická vrstva</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:12px;height:12px;border-radius:50%;border:1.5px solid #8296a8;box-sizing:border-box"></span>atomy kovu</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#e59a62"></span>svarová lázeň</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#55657a"></span>svarový kov</span>
+      </div>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:52px;text-wrap:pretty">{{ anText }}</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Tavné × tlakové svařování</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #e59a62;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#e59a62;margin-bottom:10px">Tavné svařování</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Okraje základního materiálu se roztaví a&nbsp;vznikne svarová lázeň. Po&nbsp;ztuhnutí lázně vznikne svarový kov. Obvykle se přidává přídavný materiál. Tlak se nepoužívá.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #8fb4d6;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#8fb4d6;margin-bottom:10px">Tlakové svařování</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Rozhodující je tlak. Materiál se většinou neroztaví — je v&nbsp;plastickém stavu nebo i&nbsp;studený. Přídavný materiál se zpravidla nepoužívá.</div>
+      </div>
+    </div>
+    <div style="background:#131a24;border-radius:16px;padding:18px 22px;margin:18px 0 0;max-width:900px;box-sizing:border-box">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#eaf2fa;margin-bottom:6px">Výjimka: odporové svařování</div>
+      <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Mezi plechy vznikne malé roztavené místo — svarová čočka. Odporové svařování přesto patří mezi tlakové metody, protože spoj vzniká pod tlakem elektrod.</div>
+    </div>
+    <table style="width:100%;border-collapse:separate;border-spacing:0;background:#0d121a;border:1px solid #263040;border-radius:16px;overflow:hidden;font-size:15px;line-height:1.5;margin-top:24px">
+      <thead>
+        <tr style="background:#131a24;text-align:left">
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa;width:22%"></th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#e59a62;width:39%">Tavné</th>
+          <th style="padding:14px 18px;font-family:'Quicksand',sans-serif;font-weight:700;color:#8fb4d6;width:39%">Tlakové</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#eaf2fa">Zdroj energie</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">teplo — elektrický oblouk, plamen, chemická reakce</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">tlak; teplo z&nbsp;elektrického odporu, tření nebo ohřevu v&nbsp;peci; svařování výbuchem bez ohřevu</td>
+        </tr>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#eaf2fa">Stav materiálu ve&nbsp;spoji</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">roztavený — svarová lázeň</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">plastický nebo studený; u&nbsp;odporového svařování malé roztavené místo (svarová čočka)</td>
+        </tr>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#eaf2fa">Přídavný materiál</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">obvykle ano</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">zpravidla ne</td>
+        </tr>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#eaf2fa">Tlak</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">ne</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">ano, rozhodující</td>
+        </tr>
+        <tr>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;font-weight:600;color:#eaf2fa">Typické metody</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">obalená elektroda, MIG/MAG, TIG, pod tavidlem, plamenem, aluminotermické</td>
+          <td style="padding:14px 18px;border-top:1px solid #232c39;color:#aebfcf">odporové, třením, FSW, výbuchem, difúzní</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Zdroje tepla</h2>
+    <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:52px;height:52px;border-radius:14px;background:#2e1a29;display:flex;align-items:center;justify-content:center">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e08cc4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2H14V10H10Z"></path><path d="M12 10L10 13H14L12 16"></path><path d="M3 19H21"></path></svg>
+        </div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa">Elektrický oblouk</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Výboj mezi elektrodou a&nbsp;materiálem.</div>
+        <div style="margin-top:auto;font-size:13px;font-weight:600;color:#e08cc4">obloukové metody</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:52px;height:52px;border-radius:14px;background:#2e1a29;display:flex;align-items:center;justify-content:center">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e08cc4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3C15 7 17 9.5 17 13A5 5 0 0 1 7 13C7 11 8 9.5 9 8.5C9 10.5 10 11.5 11 11.5C11 8.5 11 6 12 3Z"></path></svg>
+        </div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa">Plamen</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Hoření směsi kyslíku a&nbsp;acetylenu.</div>
+        <div style="margin-top:auto;font-size:13px;font-weight:600;color:#e08cc4">svařování plamenem</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:52px;height:52px;border-radius:14px;background:#2e1a29;display:flex;align-items:center;justify-content:center">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e08cc4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2V8"></path><path d="M12 16V22"></path><rect x="3" y="9" width="12" height="3"></rect><rect x="9" y="12" width="12" height="3"></rect></svg>
+        </div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa">Elektrický odpor</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Teplo vzniká průchodem proudu stykem dílů.</div>
+        <div style="margin-top:auto;font-size:13px;font-weight:600;color:#e08cc4">odporové svařování</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:52px;height:52px;border-radius:14px;background:#2e1a29;display:flex;align-items:center;justify-content:center">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e08cc4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12A8 8 0 1 1 17 5.8"></path><path d="M17.5 2V6.2H13.3"></path></svg>
+        </div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa">Tření</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Teplo vzniká třením dílů nebo nástroje o&nbsp;materiál.</div>
+        <div style="margin-top:auto;font-size:13px;font-weight:600;color:#e08cc4">svařování třením</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:12px">
+        <div style="width:52px;height:52px;border-radius:14px;background:#2e1a29;display:flex;align-items:center;justify-content:center">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e08cc4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H15"></path><path d="M10 3V9L5 18A2 2 0 0 0 7 21H17A2 2 0 0 0 19 18L14 9V3"></path><path d="M7.5 15H16.5"></path></svg>
+        </div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa">Chemická reakce</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Reakce oxidu železa s&nbsp;hliníkem.</div>
+        <div style="margin-top:auto;font-size:13px;font-weight:600;color:#e08cc4">aluminotermické svařování</div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#8296a8;margin:16px 0 0;max-width:820px;text-wrap:pretty">Svařování laserem a&nbsp;elektronovým paprskem je popsáno v&nbsp;kapitole o&nbsp;nekonvenčních metodách obrábění.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Ochrana svarové lázně</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Roztavený kov reaguje se vzduchem. Kyslík a&nbsp;dusík způsobují póry a&nbsp;křehkost svaru.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Struska</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Vzniká z&nbsp;obalu elektrody, z&nbsp;tavidla nebo při aluminotermické reakci.</div>
+        <div style="margin-top:auto;font-size:14px;color:#8296a8">Metody: obalená elektroda, pod tavidlem, aluminotermické</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Ochranný plyn</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.55;color:#aebfcf">
+          <div><span style="color:#eaf2fa;font-weight:600">inertní</span> — nereaguje s&nbsp;lázní, např. argon</div>
+          <div><span style="color:#eaf2fa;font-weight:600">aktivní</span> — obsahuje CO₂ nebo kyslík</div>
+        </div>
+        <div style="margin-top:auto;font-size:14px;color:#8296a8">Metody: MIG/MAG, TIG</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Vakuum</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Spoj vzniká bez přístupu vzduchu.</div>
+        <div style="margin-top:auto;font-size:14px;color:#8296a8">Metody: difúzní</div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:16px 0 0;max-width:820px;text-wrap:pretty">Tlakové metody, při kterých se materiál netaví, ochranu lázně většinou nepotřebují.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Přehled metod</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Metody se dělí na tavné a&nbsp;tlakové. Číslo u&nbsp;metody je její označení podle ISO 4063.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:4px">Interaktivní schéma</div>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Rozdělení metod svařování</div>
+      <div style="font-size:14px;color:#8296a8;margin:4px 0 20px">Klikni na&nbsp;metodu ve&nbsp;stromu.</div>
+      <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:28px;align-items:start">
+        <div>
+          <div style="display:flex;justify-content:center">
+            <div style="padding:10px 26px;border-radius:999px;background:#2e1a29;border:1px solid #e08cc4;font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#e08cc4">Svařování</div>
+          </div>
+          <div style="width:2px;height:18px;background:#39424e;margin:0 auto"></div>
+          <div style="height:18px;margin:0 25%;border:2px solid #39424e;border-bottom:none;border-radius:8px 8px 0 0"></div>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px">
+            <div>
+              <div style="padding:10px 16px;border-radius:12px;background:#2e1f17;border:1px solid #e59a62;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#e59a62;text-align:center">Tavné</div>
+              <div style="margin-left:20px;border-left:2px solid #39424e;padding-top:8px;display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ tavne }}" as="t" hint-placeholder-count="6">
+                  <div style="display:flex;align-items:center">
+                    <span style="width:14px;height:2px;background:#39424e;flex:none"></span>
+                    <button onClick="{{ t.onClick }}" style="flex:1;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 14px;border-radius:10px;cursor:pointer;text-align:left;font-family:'IBM Plex Sans',sans-serif;font-size:14.5px;font-weight:500;background:{{ t.bg }};color:{{ t.color }};border:1px solid {{ t.border }}">
+                      <span>{{ t.name }}</span>
+                      <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;opacity:0.85">{{ t.num }}</span>
+                    </button>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div>
+              <div style="padding:10px 16px;border-radius:12px;background:#17222e;border:1px solid #8fb4d6;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16.5px;color:#8fb4d6;text-align:center">Tlakové</div>
+              <div style="margin-left:20px;border-left:2px solid #39424e;padding-top:8px;display:flex;flex-direction:column;gap:8px">
+                <sc-for list="{{ tlakove }}" as="t" hint-placeholder-count="5">
+                  <div style="display:flex;align-items:center">
+                    <span style="width:14px;height:2px;background:#39424e;flex:none"></span>
+                    <button onClick="{{ t.onClick }}" style="flex:1;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 14px;border-radius:10px;cursor:pointer;text-align:left;font-family:'IBM Plex Sans',sans-serif;font-size:14.5px;font-weight:500;background:{{ t.bg }};color:{{ t.color }};border:1px solid {{ t.border }}">
+                      <span>{{ t.name }}</span>
+                      <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;opacity:0.85">{{ t.num }}</span>
+                    </button>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#0a0e15;border:1px solid #232c39;border-top:4px solid {{ sel.color }};border-radius:16px;padding:20px 22px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:{{ sel.color }};margin-bottom:6px">{{ sel.group }}</div>
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+            <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">{{ sel.name }}</div>
+            <sc-if value="{{ sel.hasNum }}" hint-placeholder-val="{{ true }}">
+              <span style="padding:2px 10px;border-radius:999px;background:#131a24;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#eaf2fa">{{ sel.num }}</span>
+            </sc-if>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.55">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#8296a8;margin-bottom:2px">Princip</div>
+              <div style="color:#eaf2fa;text-wrap:pretty">{{ sel.princip }}</div>
+            </div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#8296a8;margin-bottom:2px">Zdroj tepla</div>
+              <div style="color:#eaf2fa">{{ sel.zdroj }}</div>
+            </div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#8296a8;margin-bottom:2px">Ochrana lázně</div>
+              <div style="color:#eaf2fa">{{ sel.ochrana }}</div>
+            </div>
+            <div>
+              <div style="font-size:13px;font-weight:600;color:#8296a8;margin-bottom:2px">Stránka</div>
+              <a href="{{ sel.href }}" style="font-family:'Quicksand',sans-serif;font-weight:600;color:#e08cc4">→ {{ sel.name }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:16px;margin-top:18px;overflow:hidden">
+      <button onClick="{{ toggleIso }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 22px;background:#0d121a;border:none;cursor:pointer;text-align:left;color:#eaf2fa">
+        <span style="display:flex;flex-direction:column;gap:3px">
+          <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px">Číselné označení metod (ISO 4063)</span>
+          <span style="font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:#8296a8">pro informaci — stejná čísla najdeš na&nbsp;výkresech a&nbsp;v&nbsp;dokumentaci svařování</span>
+        </span>
+        <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#e08cc4">{{ isoSign }}</span>
+      </button>
+      <sc-if value="{{ isoOpen }}" hint-placeholder-val="{{ false }}">
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.45">
+          <thead>
+            <tr style="background:#131a24;text-align:left">
+              <th style="padding:12px 22px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa;width:110px">Číslo</th>
+              <th style="padding:12px 22px;font-family:'Quicksand',sans-serif;font-weight:700;color:#eaf2fa">Metoda</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">111</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Ruční obloukové svařování obalenou elektrodou</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">121</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Svařování pod tavidlem drátovou elektrodou</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">131</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Svařování tavící se elektrodou v&nbsp;inertním plynu (MIG)</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">135</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Svařování tavící se elektrodou v&nbsp;aktivním plynu (MAG)</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">141</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Svařování wolframovou elektrodou v&nbsp;inertním plynu (TIG)</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">311</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Kyslíko-acetylenové svařování</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">21</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Bodové odporové svařování</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">22</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Švové odporové svařování</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">23</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Výstupkové svařování</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">24</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Odtavovací stykové svařování</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">25</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Stlačovací stykové svařování</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">42</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Svařování třením</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">441</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Svařování výbuchem</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">45</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Difúzní svařování</td></tr>
+            <tr><td style="padding:10px 22px;border-top:1px solid #232c39;font-family:'IBM Plex Mono',monospace;color:#e08cc4">71</td><td style="padding:10px 22px;border-top:1px solid #232c39;color:#eaf2fa">Aluminotermické svařování</td></tr>
+          </tbody>
+        </table>
+      </sc-if>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const f1 = n => Math.round(n * 10) / 10;
+const clamp01 = v => Math.max(0, Math.min(1, v));
+const ease = u => u < 0.5 ? 2 * u * u : 1 - 2 * (1 - u) * (1 - u);
+const lerp = (a, b, u) => a + (b - a) * u;
+const hexRgb = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(a, b, u) {
+  const A = hexRgb(a), B = hexRgb(b);
+  return 'rgb(' + A.map((v, i) => Math.round(v + (B[i] - v) * u)).join(',') + ')';
+}
+
+/* Styk povrchů pod lupou */
+const YS = Array.from({ length: 17 }, (_, i) => 60 + 20 * i);
+const PA = [6, 22, 8, 28, 4, 18, 10, 26, 6, 14, 24, 8, 20, 4, 27, 12, 6];
+const PB = [10, 4, 18, 26, 24, 8, 14, 28, 6, 20, 4, 16, 8, 22, 27, 6, 12];
+const FL = y => 350 + 15 * (y - 60) / 320;
+const FR = y => 900 - FL(y);
+const COL = { metal: '#39424e', hot: '#5a4238', molten: '#e59a62', weld: '#55657a', atom: '#8296a8', weldAtom: '#a9bccd', accent: '#e08cc4' };
+const DUR = { none: 2.2, heat: 4.8, press: 3.6 };
+const MODES = [['none', 'Bez zásahu'], ['heat', 'Teplo'], ['press', 'Tlak']];
+const LABELS = {
+  none: [
+    { k: 'cap', cap: true, t: 1, text: 'Vazba nevznikne.', say: 'Bez dodaného tepla nebo tlaku se atomy obou povrchů na meziatomovou vzdálenost nepřiblíží a\u00a0kovová vazba se nevytvoří.' },
+    { k: 'vrch', t: 2, text: 'vrcholek nerovnosti', x: 600, y: 106, line: [451, 120, 600, 120], say: 'Povrchy se dotýkají jen na vrcholcích nerovností, skutečná plocha dotyku je malá.' },
+    { k: 'vzd', t: 3, text: 'vzduch', x: 600, y: 206, line: [450, 220, 600, 220], say: 'Mezi vrcholky zůstává vzduch, který povrchy od sebe odděluje.' },
+    { k: 'ox', t: 4, text: 'oxidická vrstva', rx: 290, y: 246, line: [447, 260, 290, 260], say: 'Vrstva oxidů a\u00a0nečistot zůstává mezi povrchy i\u00a0v\u00a0místech dotyku a\u00a0brání přímému styku atomů kovu.' },
+  ],
+  heat: [
+    { k: 'cap', cap: true, t: 5, text: 'Tavné svařování.', say: 'Spoj vzniká roztavením okrajů do společné lázně a\u00a0jejím ztuhnutím, tlak se nepoužívá.' },
+    { k: 'hl', t: 6, text: 'oxidy na hladině', x: 600, y: 14, line: [476, 55, 600, 28], say: 'Oxidy se z\u00a0roztaveného kovu dostanou na hladinu lázně a\u00a0ve spoji nezůstanou.' },
+    { k: 'sk', t: 7, text: 'svarový kov', x: 600, y: 226, line: [450, 240, 600, 240], say: 'Lázeň ztuhla ve svarový kov, který je s\u00a0oběma díly spojen kovovou vazbou.' },
+    { k: 'zm', t: 8, text: 'základní materiál', x: 90, y: 150, say: 'Okraje základního materiálu se roztavily, zbytek dílu zůstal v\u00a0tuhém stavu.' },
+  ],
+  press: [
+    { k: 'cap', cap: true, t: 9, text: 'Tlakové svařování.', say: 'Spoj vzniká plastickou deformací povrchů pod tlakem, materiál se většinou neroztaví.' },
+    { k: 'vr', t: 10, text: 'stlačené vrcholky', x: 600, y: 106, line: [450, 120, 600, 120], say: 'Vrcholky nerovností se plasticky deformují a\u00a0povrchy se přiblíží po celé ploše.' },
+    { k: 'st', t: 11, text: 'kovový styk', x: 600, y: 181, line: [452, 195, 600, 195], say: 'Mezi úlomky oxidů se čisté kovové povrchy dotknou a\u00a0atomy vytvoří kovovou vazbu.' },
+    { k: 'ox', t: 12, text: 'popraskané oxidy', rx: 330, y: 248, line: [446, 262, 330, 262], say: 'Oxidická vrstva se při deformaci roztrhne na úlomky.' },
+  ],
+};
+const lw = t => Math.round(t.length * 7.8 + 24);
+const pts = (xs) => xs.map((x, i) => 'L' + f1(x) + ' ' + YS[i]).join(' ');
+function oxSegs(xs, f, shift, o) {
+  const out = [];
+  if (o < 0.01) return out;
+  for (let i = 0; i < 16; i++) {
+    const x1 = xs[i], y1 = YS[i], x2 = xs[i + 1], y2 = YS[i + 1];
+    const cx = lerp((x1 + x2) / 2, x2, shift), cy = lerp((y1 + y2) / 2, y2, shift);
+    const hx = (x2 - x1) / 2 * f, hy = (y2 - y1) / 2 * f;
+    out.push({ x1: f1(cx - hx), y1: f1(cy - hy), x2: f1(cx + hx), y2: f1(cy + hy), o: Math.round(o * 100) / 100 });
+  }
+  return out;
+}
+function blockAtoms(xl, xr) {
+  const out = [];
+  for (let i = 1; i < 16; i++) {
+    out.push({ cx: f1(xl[i] - 14), cy: YS[i], c: COL.atom, o: 1 });
+    out.push({ cx: f1(xr[i] + 14), cy: YS[i], c: COL.atom, o: 1 });
+    if (i < 15) {
+      out.push({ cx: f1((xl[i] + xl[i + 1]) / 2 - 30), cy: YS[i] + 10, c: COL.atom, o: 1 });
+      out.push({ cx: f1((xr[i] + xr[i + 1]) / 2 + 30), cy: YS[i] + 10, c: COL.atom, o: 1 });
+    }
+  }
+  return out;
+}
+const arrowR = (x1, x2, y) => 'M' + x1 + ' ' + (y - 4) + ' H' + (x2 - 12) + ' V' + (y - 10) + ' L' + x2 + ' ' + y + ' L' + (x2 - 12) + ' ' + (y + 10) + ' V' + (y + 4) + ' H' + x1 + ' Z';
+const arrowL = (x1, x2, y) => 'M' + x1 + ' ' + (y - 4) + ' H' + (x2 + 12) + ' V' + (y - 10) + ' L' + x2 + ' ' + y + ' L' + (x2 + 12) + ' ' + (y + 10) + ' V' + (y + 4) + ' H' + x1 + ' Z';
+
+function scene(mode, p) {
+  let xl, xr, blockFill = COL.metal, hasPool = false, pool = '', poolFill = COL.molten, poolOp = 0;
+  let ox = [], parts = [], extraAtoms = [], arrows = [], contacts = [];
+  if (mode === 'none') {
+    const s = 43 * ease(p);
+    xl = PA.map(a => 380 + a + s);
+    xr = PB.map(b => 520 - b - s);
+    ox = oxSegs(xl, 1, 0, 1).concat(oxSegs(xr, 1, 0, 1));
+    if (p >= 1) contacts = [3, 7, 14].map(i => ({ cx: f1((xl[i] + xr[i]) / 2), cy: YS[i] }));
+  } else if (mode === 'heat') {
+    const a = ease(clamp01(p / 0.25)), m = ease(clamp01((p - 0.2) / 0.3)), r = ease(clamp01((p - 0.4) / 0.35)), k = ease(clamp01((p - 0.75) / 0.25));
+    const s = 30 * a;
+    xl = PA.map((v, i) => lerp(380 + v + s, FL(YS[i]), m));
+    xr = PB.map((v, i) => lerp(520 - v - s, FR(YS[i]), m));
+    blockFill = mix(COL.metal, COL.hot, m * (1 - k));
+    if (m > 0) {
+      hasPool = true;
+      const right = xr.map((x, i) => f1(x) + ' ' + YS[i]).reverse();
+      pool = 'M' + xl.map((x, i) => f1(x) + ' ' + YS[i]).join(' L') + ' L' + right.join(' L') + ' Z';
+      poolFill = mix(COL.molten, COL.weld, k);
+      poolOp = Math.round(m * 100) / 100;
+      const src = [];
+      for (let i = 1; i < 16; i += 2) src.push([380 + PA[i] + 30, YS[i]]);
+      for (let i = 2; i < 15; i += 2) src.push([520 - PB[i] - 30, YS[i]]);
+      parts = src.map((q, j) => ({ cx: f1(lerp(q[0], 394 + j * 8, r)), cy: f1(lerp(q[1], 60, r)), o: Math.round(m * 100) / 100 }));
+    }
+    ox = oxSegs(xl, 1, 0, 1 - m).concat(oxSegs(xr, 1, 0, 1 - m));
+    if (k > 0) {
+      for (let y = 76; y <= 364; y += 16) {
+        const x0 = FL(y) + 14, x1 = FR(y) - 14, n = Math.floor((x1 - x0) / 16), st = (x0 + x1) / 2 - n * 8;
+        for (let j = 0; j <= n; j++) extraAtoms.push({ cx: f1(st + j * 16), cy: y, c: COL.weldAtom, o: Math.round(k * 100) / 100 });
+      }
+    }
+  } else {
+    const p1 = ease(clamp01(p / 0.4)), q = ease(clamp01((p - 0.4) / 0.6));
+    const s = 43 * p1 + 23 * q;
+    xl = PA.map(a => Math.min(380 + a + s, 450));
+    xr = PB.map(b => Math.max(520 - b - s, 450));
+    const f = 1 - 0.75 * q;
+    ox = oxSegs(xl, f, 0, 1).concat(oxSegs(xr, f, 0, 1));
+    arrows = [arrowR(24, 104, 150), arrowR(24, 104, 290), arrowL(876, 796, 150), arrowL(876, 796, 290)].map(d => ({ d }));
+  }
+  return {
+    left: 'M-10 60 ' + pts(xl) + ' L-10 380 Z',
+    right: 'M910 60 ' + pts(xr) + ' L910 380 Z',
+    blockFill, hasPool, pool, poolFill, poolOp,
+    atoms: blockAtoms(xl, xr).concat(extraAtoms),
+    ox, parts, contacts, arrows,
+  };
+}
+
+/* Strom metod */
+const METHODS = [
+  { id: '111', g: 'tavne', name: 'Obalená elektroda', num: '111', princip: 'Oblouk hoří mezi obalenou elektrodou a\u00a0materiálem, elektroda se odtavuje.', zdroj: 'oblouk', ochrana: 'plyny a\u00a0struska z\u00a0obalu', href: '../tavne/obalena-elektroda.html' },
+  { id: '131', g: 'tavne', name: 'MIG/MAG', num: '131/135', princip: 'Oblouk hoří mezi plynule podávaným drátem a\u00a0materiálem.', zdroj: 'oblouk', ochrana: 'ochranný plyn — inertní (MIG) nebo aktivní (MAG)', href: '../tavne/mig-mag.html' },
+  { id: '141', g: 'tavne', name: 'TIG', num: '141', princip: 'Oblouk hoří mezi netavící se wolframovou elektrodou a\u00a0materiálem, přídavný drát se přidává zvlášť.', zdroj: 'oblouk', ochrana: 'inertní plyn', href: '../tavne/tig.html' },
+  { id: '121', g: 'tavne', name: 'Pod tavidlem', num: '121', princip: 'Oblouk hoří pod vrstvou zrnitého tavidla.', zdroj: 'oblouk', ochrana: 'tavidlo a\u00a0struska', href: '../tavne/pod-tavidlem.html' },
+  { id: '311', g: 'tavne', name: 'Plamenem', num: '311', princip: 'Okraje taví plamen kyslíku a\u00a0acetylenu, přídavný drát se přidává zvlášť.', zdroj: 'plamen', ochrana: 'plyny plamene', href: '../tavne/plamen.html' },
+  { id: '71', g: 'tavne', name: 'Aluminotermické', num: '71', princip: 'Tekutá ocel z\u00a0reakce oxidu železa s\u00a0hliníkem se vlije do formy kolem spoje.', zdroj: 'chemická reakce', ochrana: 'struska', href: '../tavne/aluminotermicke.html' },
+  { id: '21', g: 'tlakove', name: 'Odporové', num: '21 až 25', princip: 'Proud procházející stykem dílů je ohřeje, elektrody je stlačí.', zdroj: 'elektrický odpor', ochrana: 'není potřeba', href: '../tlakove/odporove.html' },
+  { id: '42', g: 'tlakove', name: 'Třením', num: '42', princip: 'Rotující díl se tře o\u00a0pevný, ohřeje se do plastického stavu a\u00a0pak se přitlačí.', zdroj: 'tření', ochrana: 'není potřeba', href: '../tlakove/trenim.html' },
+  { id: 'fsw', g: 'tlakove', name: 'FSW — třecí svařování promíšením', num: '', princip: 'Rotující nástroj s\u00a0trnem projíždí spojem, materiál ohřeje třením a\u00a0promíchá, aniž by se roztavil.', zdroj: 'tření', ochrana: 'není potřeba', href: '../tlakove/trenim.html' },
+  { id: '441', g: 'tlakove', name: 'Výbuchem', num: '441', princip: 'Výbuch nálože vrhne jeden plech na druhý a\u00a0spoj vznikne nárazem.', zdroj: 'výbuch (bez ohřevu)', ochrana: 'není potřeba', href: '../tlakove/ostatni-tlakove.html' },
+  { id: '45', g: 'tlakove', name: 'Difúzní', num: '45', princip: 'Díly se stlačí za vysoké teploty pod teplotou tání a\u00a0atomy přejdou přes rozhraní.', zdroj: 'ohřev v\u00a0peci', ochrana: 'vakuum nebo ochranná atmosféra', href: '../tlakove/ostatni-tlakove.html' },
+];
+const GROUP = { tavne: { label: 'Tavné svařování', color: '#e59a62', bg: '#2e1f17' }, tlakove: { label: 'Tlakové svařování', color: '#8fb4d6', bg: '#17222e' } };
+
+class Component extends DCLogic {
+  state = { mode: 'none', p: 0, sel: null, method: '111', isoOpen: false };
+  _raf = null;
+  _last = null;
+  componentDidMount() { this.play('none'); }
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+  play(mode) {
+    this.setState({ mode, p: 0, sel: null });
+    if (!this._raf) { this._last = null; this._raf = requestAnimationFrame(this.tick); }
+  }
+  tick = (now) => {
+    const dt = this._last == null ? 0 : Math.min(0.05, (now - this._last) / 1000);
+    this._last = now;
+    const p = Math.min(1, this.state.p + dt / DUR[this.state.mode]);
+    this.setState({ p });
+    this._raf = p < 1 ? requestAnimationFrame(this.tick) : null;
+  };
+  renderVals() {
+    const st = this.state;
+    const btn = on => ({ bg: on ? COL.accent : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? COL.accent : '#263040' });
+    const modeButtons = MODES.map(([k, label]) => Object.assign({ label, onClick: () => this.play(k) }, btn(st.mode === k)));
+    const an = scene(st.mode, st.p);
+    const done = st.p >= 1;
+    const defs = done ? LABELS[st.mode] : [];
+    an.labels = defs.map(l => {
+      const w = lw(l.text), on = st.sel === l.k;
+      const x = l.cap ? 450 - w / 2 : (l.rx != null ? l.rx - w : l.x), y = l.cap ? 396 : l.y;
+      const o = { x: f1(x), y, w, tx: f1(x + w / 2), ty: y + 19, stroke: on ? COL.accent : '#4a5768', sw: on ? 2.5 : 1.5 };
+      for (let i = 1; i <= 12; i++) o['t' + i] = l.t === i;
+      return Object.assign(o, { click: () => this.setState(s => ({ sel: s.sel === l.k ? null : l.k })) });
+    });
+    an.lines = defs.filter(l => l.line).map(l => ({ x1: l.line[0], y1: l.line[1], x2: l.line[2], y2: l.line[3] }));
+    const selDef = defs.find(l => l.k === st.sel);
+    const anText = selDef ? selDef.say : 'Klikni na\u00a0popisek ve\u00a0schématu.';
+
+    const leaf = m => {
+      const on = st.method === m.id, G = GROUP[m.g];
+      return { name: m.name, num: m.num, onClick: () => this.setState({ method: m.id }), bg: on ? G.bg : '#0a0e15', color: on ? G.color : '#eaf2fa', border: on ? G.color : '#263040' };
+    };
+    const M = METHODS.find(m => m.id === st.method) || METHODS[0];
+    const sel = { name: M.name, num: M.num, hasNum: !!M.num, princip: M.princip, zdroj: M.zdroj, ochrana: M.ochrana, href: M.href, group: GROUP[M.g].label, color: GROUP[M.g].color };
+
+    return {
+      modeButtons, replay: () => this.play(st.mode), an, anText,
+      tavne: METHODS.filter(m => m.g === 'tavne').map(leaf),
+      tlakove: METHODS.filter(m => m.g === 'tlakove').map(leaf),
+      sel,
+      isoOpen: st.isoOpen, isoSign: st.isoOpen ? '−' : '+',
+      toggleIso: () => this.setState(s => ({ isoOpen: !s.isoOpen })),
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

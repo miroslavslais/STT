@@ -89,11 +89,11 @@ function Scene() {
           {/* půda */}
           <rect x={0} y={GROUND_Y} width={1920} height={1080 - GROUND_Y} fill="url(#soil)" />
           <line x1={0} y1={GROUND_Y} x2={1920} y2={GROUND_Y} stroke="oklch(0.42 0.02 250)" strokeWidth={1.5} />
-          <text x={40} y={GROUND_Y - 16} fontFamily={mono} fontSize={19} fill={MUTE}>Povrch terénu</text>
+          <text x={40} y={GROUND_Y - 16} fontFamily={mono} fontSize={24} fill={MUTE}>Povrch terénu</text>
 
           {/* potrubí */}
           <rect x={PIPE_X0} y={PIPE_TOP} width={PIPE_X1 - PIPE_X0} height={PIPE_BOT - PIPE_TOP} fill="url(#steel)" />
-          <text x={PIPE_X0} y={PIPE_TOP - 18} fontFamily={mono} fontSize={19} fill={MUTE}>Uložené potrubí</text>
+          <text x={PIPE_X0} y={PIPE_TOP - 18} fontFamily={mono} fontSize={24} fill={MUTE}>Uložené potrubí</text>
 
           {/* přízračné jamky — jak by potrubí korodovalo bez ochrany */}
           <g opacity={ghostP}>
@@ -113,14 +113,14 @@ function Scene() {
               ))}
             </g>
           ) : null}
-          <text x={ANODE_CX} y={ANODE_TOP + ANODE_H0 + 34} textAnchor="middle" fontFamily={mono} fontSize={16}
+          <text x={ANODE_CX} y={ANODE_TOP + ANODE_H0 + 38} textAnchor="middle" fontFamily={mono} fontSize={22}
             fill={MUTE} opacity={anodeAppear}>obětovaná anoda (Zn/Mg)</text>
 
           {/* vodič + tok elektronů (anoda → potrubí) */}
           {wireOn > 0.001 ? (
             <g opacity={wireOn}>
               <path d={P_WIRE} fill="none" stroke={CURR} strokeWidth={3} strokeDasharray="10 9" strokeDashoffset={wireOff} strokeLinecap="round" />
-              <text x={ANODE_CX + 20} y={PIPE_TOP - 100} fontFamily={mono} fontSize={15} fill={CURR}>e⁻</text>
+              <text x={ANODE_CX + 20} y={PIPE_TOP - 100} fontFamily={mono} fontSize={22} fill={CURR}>e⁻</text>
             </g>
           ) : null}
 
@@ -134,11 +134,11 @@ function Scene() {
           <g opacity={protectOn}>
             <circle cx={900} cy={PIPE_BOT + 10} r={12} fill="none" stroke={GOOD} strokeWidth={2.5} />
             <path d={`M894 ${PIPE_BOT + 10} l4 5 l9 -10`} stroke={GOOD} strokeWidth={2.2} fill="none" strokeLinecap="round" strokeLinejoin="round" />
-            <text x={924} y={PIPE_BOT + 16} fontFamily={mono} fontSize={15} fill={GOOD}>katoda — chráněno</text>
+            <text x={924} y={PIPE_BOT + 18} fontFamily={mono} fontSize={22} fill={GOOD}>katoda — chráněno</text>
           </g>
 
           {replaceOp > 0.001 ? (
-            <text x={ANODE_CX} y={anodeTopY - 16} textAnchor="middle" fontFamily={mono} fontSize={15}
+            <text x={ANODE_CX} y={anodeTopY - 16} textAnchor="middle" fontFamily={mono} fontSize={22}
               fill={WARM} opacity={replaceOp}>anoda spotřebována — vyměnit</text>
           ) : null}
         </g>
@@ -162,7 +162,7 @@ function Scene() {
         return (
           <div key={i} style={{ position: 'absolute', left: '50%', bottom: 88,
             transform: `translate(-50%, ${(1 - o) * 10}px)`, opacity: o, textAlign: 'center', width: 1200 }}>
-            <div style={{ fontFamily: mono, fontSize: 16, letterSpacing: '0.24em', color: GOOD, marginBottom: 12 }}>{s.n}</div>
+            <div style={{ fontFamily: mono, fontSize: 20, letterSpacing: '0.24em', color: GOOD, marginBottom: 12 }}>{s.n}</div>
             <div style={{ fontFamily: sans, fontSize: 33, fontWeight: 500, color: '#eaf2fa', letterSpacing: '-0.005em' }}>{s.txt}</div>
           </div>
         );

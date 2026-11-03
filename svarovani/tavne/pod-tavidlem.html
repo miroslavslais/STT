@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Svařování pod tavidlem (121) | STT</title>
+<meta name="description" content="Svařování pod tavidlem (121): princip, řez svařovací hlavou, tavidla, jeden drát × tandem, vliv parametrů na tvar svaru, srovnání s MIG/MAG, výhody, nevýhody a použití.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma kapitoly Svařování (záměrně jen tmavé — promítání ve výuce) */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#e08cc4;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:96px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+h3{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #6b3d5c}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.card p{font-size:15px;line-height:1.6;color:var(--muted);margin:0}
+.card p+p{margin-top:10px}
+.key{background:var(--deep);border:1px solid var(--line2);border-top:4px solid var(--acc);border-radius:16px;padding:20px 24px;margin:6px 0 18px}
+.key h3{font-size:20px}
+.key p{font-size:16px;line-height:1.65;color:var(--fg);margin:0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin-bottom:18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{overflow-x:auto;border-radius:14px}
+.svgbox svg{display:block;width:100%;min-width:640px;background:var(--deep)}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+.sliders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:16px}
+.sl{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px}
+.sl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.sl-name{font-family:var(--f-disp);font-weight:700;font-size:16px}
+.sl-val{font-size:14.5px;font-weight:600;color:var(--acc)}
+.sl input{width:100%;accent-color:var(--acc);cursor:pointer}
+.note{font-size:14px;color:var(--dim);margin:10px 0 0}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow-x:auto}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:14px 20px;color:var(--muted);border-top:1px solid var(--line2);min-width:200px}
+td.k{color:var(--fg);font-weight:600}
+th+th,td+td{border-left:1px solid var(--line2)}
+td ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+</style>
+</head>
+<body data-first-seen="2026-11-03">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na&nbsp;Tavné svařování</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Tavné svařování</div>
+  <h1>Svařování pod tavidlem (121)</h1>
+  <p class="lead">Mechanizovaná oblouková metoda pro dlouhé svary silných dílů. Oblouk hoří skrytý pod vrstvou zrnitého tavidla.</p>
+
+  <h2>Princip</h2>
+  <p class="t">Oblouk hoří mezi plynule podávaným drátem a&nbsp;svařovaným materiálem. Na&nbsp;spoj se před obloukem sype vrstva zrnitého tavidla. Oblouk hoří pod ní, v&nbsp;dutině vyplněné parami a&nbsp;roztaveným tavidlem.</p>
+  <p class="t">Roztavené tavidlo chrání lázeň před vzduchem a&nbsp;po ztuhnutí vytvoří na&nbsp;svaru vrstvu strusky. Neroztavené tavidlo se za&nbsp;obloukem odsaje a&nbsp;použije znovu.</p>
+  <div class="key">
+    <h3>Proč má metoda tak velký výkon</h3>
+    <p>Tavidlo oblouk uzavře. Teplo se neztrácí sáláním do&nbsp;okolí a&nbsp;kov neodlétá jako rozstřik. Lze proto svařovat větším proudem a&nbsp;silnějším drátem než u&nbsp;<a class="link" href="mig-mag.html">MIG/MAG</a> — roste výkon odtavení i&nbsp;závar.</p>
+  </div>
+  <p class="t">Svařuje se mechanizovaně. Svařovací hlava jede po&nbsp;dílu na&nbsp;vozíku (traktoru) nebo na&nbsp;portálu, u&nbsp;obvodových svarů se otáčí díl. Svařuje se <a class="link" href="oblouk-zdroje.html">nepřímou polaritou</a>, případně střídavým proudem.</p>
+
+  <h2>Svařovací hlava a&nbsp;řez svarem</h2>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní schéma</div>
+        <div class="panel-t">Podélný řez při svařování pod tavidlem</div>
+        <div class="panel-s" style="margin-bottom:0">Hlava jede doprava. Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
+      </div>
+      <div class="btns">
+        <button class="btn" id="vCut" aria-pressed="true">Řez</button>
+        <button class="btn" id="vOut" aria-pressed="false">Pohled zvenku</button>
+      </div>
+    </div>
+    <div class="svgbox"><svg id="svgA" viewBox="0 0 1000 440" role="img" aria-label="Podélný řez při svařování pod tavidlem"></svg></div>
+    <p class="info" id="infoA"></p>
+  </div>
+
+  <h2>Tavidlo</h2>
+  <p class="t">Tavidlo chrání lázeň před vzduchem, stabilizuje oblouk, odebírá z&nbsp;lázně kyslík a&nbsp;nečistoty a&nbsp;může svarový kov legovat. Struska zpomaluje chladnutí svaru a&nbsp;vyhlazuje povrch housenky.</p>
+  <div class="card">
+    <h3>Tavená × aglomerovaná tavidla</h3>
+    <p><b style="color:var(--fg)">Tavená</b> tavidla vznikají roztavením surovin v&nbsp;peci a&nbsp;rozdrcením ztuhlé skloviny. Zrna jsou sklovitá a&nbsp;vlhkost téměř nepřijímají. Legovat svarový kov mohou jen omezeně.</p>
+    <p><b style="color:var(--fg)">Aglomerovaná</b> tavidla jsou práškové suroviny spojené pojivem do&nbsp;zrn a&nbsp;vypálené. Stejným způsobem vzniká <a class="link" href="obalena-elektroda.html">obal elektrody</a> pro svařování obalenou elektrodou (111). Tato tavidla mohou obsahovat dezoxidační a&nbsp;legující přísady. Ze&nbsp;vzduchu ale přijímají vlhkost.</p>
+    <p>Vlhké tavidlo vnáší do&nbsp;svaru vodík — vznikají póry a&nbsp;<a class="link" href="../zaklady/metalurgie-svaru.html">trhliny</a>. Tavidlo se proto skladuje v&nbsp;suchu a&nbsp;před svařováním se suší.</p>
+  </div>
+
+  <h2>Jeden drát × tandem</h2>
+  <p class="t">Výkon se dá zvýšit dalším drátem. Dráty jdou za&nbsp;sebou ve&nbsp;směru svařování, každý má vlastní zdroj a&nbsp;průvlak a&nbsp;všechny hoří pod společnou vrstvou tavidla.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní schéma</div>
+        <div class="panel-t">Počet drátů a&nbsp;tvar lázně</div>
+        <div class="panel-s" style="margin-bottom:0">Hlava jede doprava. Přepni počet drátů a&nbsp;klikni na&nbsp;popisek.</div>
+      </div>
+      <div class="btns">
+        <button class="btn" id="m1" aria-pressed="true">Jeden drát</button>
+        <button class="btn" id="m2" aria-pressed="false">Tandem — dva dráty</button>
+      </div>
+    </div>
+    <div class="svgbox"><svg id="svgB" viewBox="0 0 1000 300" role="img" aria-label="Svařování jedním drátem a tandemem"></svg></div>
+    <p class="info" id="infoB"></p>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>Více drátů</h3><p>Při ještě větších nárocích na&nbsp;výkon se za&nbsp;sebou řadí i&nbsp;více drátů. Princip zůstává stejný: první drát vytvoří závar, další doplňují svarový kov.</p></div>
+    <div class="card"><h3>Kovový prášek</h3><p>Do úkosu se před tavidlo nasype kovový prášek. Oblouk ho roztaví spolu s&nbsp;drátem — přibude svarový kov bez zvýšení proudu.</p></div>
+  </div>
+
+  <h2>Parametry a&nbsp;tvar svaru</h2>
+  <p class="t">Tvar svaru v&nbsp;příčném řezu určuje hlavně svařovací proud, napětí oblouku a&nbsp;rychlost svařování.</p>
+  <div class="panel">
+    <div class="panel-k">Interaktivní schéma</div>
+    <div class="panel-t">Příčný řez svarem</div>
+    <div class="panel-s">Nastav parametry posuvníky. Klikni na&nbsp;popisek kóty.</div>
+    <div class="sliders">
+      <div class="sl"><div class="sl-top"><span class="sl-name">Proud</span><span class="sl-val" id="vI"></span></div><input type="range" id="sI" min="0" max="2" step="1" value="1" aria-label="Proud"></div>
+      <div class="sl"><div class="sl-top"><span class="sl-name">Napětí</span><span class="sl-val" id="vU"></span></div><input type="range" id="sU" min="0" max="2" step="1" value="1" aria-label="Napětí"></div>
+      <div class="sl"><div class="sl-top"><span class="sl-name">Rychlost svařování</span><span class="sl-val" id="vV"></span></div><input type="range" id="sV" min="0" max="2" step="1" value="1" aria-label="Rychlost svařování"></div>
+    </div>
+    <div class="svgbox"><svg id="svgC" viewBox="0 0 1000 300" role="img" aria-label="Příčný řez svarem"></svg></div>
+    <p class="info" id="infoC"></p>
+    <p class="note">Schéma ukazuje jen směr změn, ne skutečné rozměry svaru.</p>
+  </div>
+
+  <h2>Srovnání s&nbsp;MIG/MAG</h2>
+  <p class="t">Obě metody používají plynule podávaný drát. Liší se ochranou lázně, a&nbsp;proto i&nbsp;výkonem, polohami a&nbsp;způsobem svařování.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Hledisko</th><th>Pod tavidlem (121)</th><th><a class="link" href="mig-mag.html">MIG/MAG (131/135)</a></th></tr></thead>
+    <tbody>
+      <tr><td class="k">Ochrana lázně</td><td>tavidlo a&nbsp;struska</td><td>ochranný plyn</td></tr>
+      <tr><td class="k">Oblouk</td><td>skrytý pod tavidlem, není vidět</td><td>viditelný, svářeč potřebuje kuklu</td></tr>
+      <tr><td class="k">Výkon odtavení</td><td>velký</td><td>střední</td></tr>
+      <tr><td class="k">Závar</td><td>hluboký</td><td>střední</td></tr>
+      <tr><td class="k">Rozstřik</td><td>žádný</td><td>malý až velký podle přenosu kovu</td></tr>
+      <tr><td class="k">Polohy svařování</td><td>jen vodorovné</td><td>všechny</td></tr>
+      <tr><td class="k">Tloušťka materiálu</td><td>střední a&nbsp;velká</td><td>malá až velká</td></tr>
+      <tr><td class="k">Způsob svařování</td><td>mechanizovaný</td><td>ruční, mechanizovaný i&nbsp;robotizovaný</td></tr>
+      <tr><td class="k">Citlivost na&nbsp;průvan</td><td>malá</td><td>velká</td></tr>
+      <tr><td class="k">Struska</td><td>souvislá vrstva, odstraňuje se</td><td>málo strusky</td></tr>
+      <tr><td class="k">Vnesené teplo a&nbsp;TOO</td><td>velké teplo, široká TOO</td><td>menší teplo, užší TOO</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Výhody, nevýhody a&nbsp;použití</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Výhody</th><th>Nevýhody</th><th>Použití</th></tr></thead>
+    <tbody><tr>
+      <td><ul><li>velký výkon odtavení a&nbsp;vysoká produktivita</li><li>hluboký závar — silné díly na&nbsp;menší počet vrstev</li><li>rovnoměrný a&nbsp;kvalitní svar díky mechanizaci</li><li>bez rozstřiku a&nbsp;bez viditelného záření oblouku</li><li>málo dýmu</li><li>neroztavené tavidlo se použije znovu</li></ul></td>
+      <td><ul><li>jen vodorovné polohy</li><li>oblouk ani lázeň nejsou vidět — hlava se musí přesně vést po&nbsp;spoji</li><li>velké vnesené teplo — široká <a class="link" href="../zaklady/metalurgie-svaru.html">TOO</a> a&nbsp;hrubé zrno</li><li>nevhodné pro tenké plechy</li><li>tavidlo se musí skladovat v&nbsp;suchu a&nbsp;sušit</li><li>strusku je nutné odstranit, u&nbsp;vícevrstvých svarů po&nbsp;každé vrstvě</li><li>drahé zařízení — vyplatí se u&nbsp;dlouhých přímých a&nbsp;obvodových svarů</li></ul></td>
+      <td><ul><li>tlakové nádoby a&nbsp;kotle</li><li>lodní trupy a&nbsp;paluby</li><li>svařované nosníky a&nbsp;mostní konstrukce</li><li>podélně a&nbsp;spirálově svařované trubky velkých průměrů</li><li>tubusy věží větrných elektráren</li></ul></td>
+    </tr></tbody>
+  </table></div>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#e08cc4';
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const lw=txt=>Math.round(txt.length*7.8+24);
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json').then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* popisek s klikací oblastí a vodicí čarou; side: 'l' vlevo, 'r' vpravo, 'b' dole */
+function label(svg,leadG,txt,x,y,side,tx,ty,onPick){
+  const w=lw(txt);
+  const sx=side==='l'?x+w:side==='r'?x:x+w/2, sy=side==='b'?y:y+14;
+  const line=el(leadG,'line',{x1:sx,y1:sy,x2:f(tx),y2:f(ty)});
+  const g=el(svg,'g',{class:'lbl',tabindex:0,role:'button'});
+  el(g,'rect',{x,y,width:w,height:28,rx:8});
+  const t=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});t.textContent=txt;
+  g.addEventListener('click',onPick);
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();onPick();}});
+  return {g,line};
+}
+function fluxPattern(svg,id){
+  const d=el(svg,'defs',{});
+  const p=el(d,'pattern',{id,width:10,height:10,patternUnits:'userSpaceOnUse'});
+  el(p,'rect',{width:10,height:10,fill:'#7d6f55'});
+  el(p,'circle',{cx:3,cy:3,r:1.7,fill:'#a8987a'});
+  el(p,'circle',{cx:8,cy:7.5,r:1.5,fill:'#5f5442'});
+  el(p,'circle',{cx:7.5,cy:2,r:1,fill:'#94856a'});
+}
+
+/* ---------- PRVEK A — podélný řez ---------- */
+(function(){
+  const svg=document.getElementById('svgA'), info=document.getElementById('infoA');
+  const bCut=document.getElementById('vCut'), bOut=document.getElementById('vOut');
+  fluxPattern(svg,'fluxA');
+  const parts={}, add=(k,e)=>{(parts[k]=parts[k]||[]).push(e);return e;};
+  const cutOnly=[];
+  el(svg,'rect',{x:60,y:330,width:880,height:60,fill:'#45505e'});                                   // základní materiál
+  cutOnly.push(add('sv',el(svg,'path',{d:'M60 330 L444 330 Q450 350 472 357 L60 357 Z',fill:'#6c7a8a'}))); // svar pod povrchem
+  add('sv',el(svg,'path',{d:'M60 322 L436 322 Q446 324 450 330 L60 330 Z',fill:'#6c7a8a'}));         // převýšení svaru
+  cutOnly.push(add('la',el(svg,'path',{d:'M440 330 Q500 392 560 330 Z',fill:'#e59a62'})));          // lázeň
+  add('st',el(svg,'path',{d:'M60 308 L420 308 Q440 312 450 330 L436 322 L60 322 Z',fill:'#4a3628'})); // struska
+  add('ta',el(svg,'path',{d:'M270 308 C290 282 318 264 352 263 L600 262 C632 264 650 292 664 330 L450 330 L420 308 Z',fill:'url(#fluxA)'})); // tavidlo
+  cutOnly.push(add('rt',el(svg,'path',{d:'M450 330 A50 44 0 0 1 550 330 Z',fill:'#b8652e'})));      // roztavené tavidlo
+  cutOnly.push(el(svg,'path',{d:'M466 330 A34 34 0 0 1 534 330 Z',fill:'#140d0a'}));                 // dutina
+  const glow=el(svg,'path',{d:'M494 300 L506 300 L534 330 L466 330 Z',fill:'#7fb8ff',opacity:.25});cutOnly.push(glow);
+  const arc=add('ob',el(svg,'path',{d:'M497 302 L503 302 L524 330 L476 330 Z',fill:'#cfe6ff',opacity:.9}));cutOnly.push(arc);
+  cutOnly.push(add('dr',el(svg,'line',{x1:500,y1:258,x2:500,y2:302,stroke:'#b7c2cf','stroke-width':6})));
+  add('dr',el(svg,'line',{x1:500,y1:40,x2:500,y2:262,stroke:'#b7c2cf','stroke-width':6}));
+  add('kp',el(svg,'rect',{x:490,y:150,width:20,height:108,fill:'#b87333'}));                        // kontaktní průvlak
+  add('kl',el(svg,'circle',{cx:482,cy:90,r:14,fill:'#5c6878'}));
+  add('kl',el(svg,'circle',{cx:518,cy:90,r:14,fill:'#5c6878'}));
+  add('za',el(svg,'path',{d:'M640 60 L760 60 L712 140 L688 140 Z',fill:'#2b333f'}));                // zásobník
+  el(svg,'path',{d:'M652 70 L748 70 L708 134 L692 134 Z',fill:'url(#fluxA)'});
+  add('za',el(svg,'path',{d:'M688 140 L712 140 L600 256 L576 256 Z',fill:'#2b333f'}));              // přívodní trubka
+  add('od',el(svg,'rect',{x:222,y:200,width:30,height:80,fill:'#2b333f'}));                         // odsávání
+  add('od',el(svg,'path',{d:'M216 280 L258 280 L264 292 L210 292 Z',fill:'#2b333f'}));
+  const INFO={
+    kl:'Podávací kladky — plynule posouvají drát z'+NB+'cívky do'+NB+'oblouku.',
+    dr:'Drát — elektroda i'+NB+'přídavný materiál. Odtavuje se a'+NB+'kladky ho plynule dopodávají.',
+    kp:'Kontaktní průvlak — přivádí do'+NB+'drátu svařovací proud těsně nad tavidlem.',
+    od:'Odsávání — neroztavené tavidlo za'+NB+'obloukem se odsaje, přesítuje a'+NB+'vrací do'+NB+'zásobníku.',
+    st:'Struska — ztuhlé roztavené tavidlo. Chrání chladnoucí svar před vzduchem, zpomaluje jeho chladnutí a'+NB+'po vychladnutí se odstraní.',
+    sv:'Svar — ztuhlý svarový kov pod vrstvou strusky.',
+    la:'Svarová lázeň — roztavený drát a'+NB+'základní materiál pod obloukem.',
+    za:'Zásobník tavidla — tavidlo z'+NB+'něj samospádem teče trubkou na'+NB+'spoj před oblouk.',
+    ta:'Tavidlo — zrnitá vrstva nasypaná na'+NB+'spoj před obloukem. Zakrývá oblouk i'+NB+'lázeň.',
+    rt:'Roztavené tavidlo — vytvoří kolem oblouku dutinu, chrání lázeň před vzduchem a'+NB+'po ztuhnutí tvoří strusku.',
+    ob:'Oblouk — hoří v'+NB+'dutině pod tavidlem mezi koncem drátu a'+NB+'lázní. Zvenku není vidět.',
+  };
+  const NAMES={kl:'podávací kladky',dr:'drát (elektroda)',kp:'kontaktní průvlak',od:'odsávání tavidla',st:'struska',sv:'svar',la:'svarová lázeň',za:'zásobník tavidla',ta:'tavidlo',rt:'roztavené tavidlo',ob:'oblouk'};
+  const POS={kl:[40,76,'l',468,90],dr:[40,126,'l',497,130],kp:[40,176,'l',490,204],od:[40,226,'l',222,240],st:[40,282,'l',150,314],
+             sv:[150,404,'b',190,326],la:[440,404,'b',500,352],
+             za:[800,62,'r',748,80],ta:[800,196,'r',628,292],rt:[800,246,'r',544,316],ob:[800,296,'r',514,318]};
+  const CUTLBL=['la','rt','ob'];
+  const HINT='Klikni na'+NB+'popisek ve'+NB+'schématu.';
+  const OUT='Zvenku je vidět jen vrstva tavidla, struska a'+NB+'drát. Oblouk ani lázeň vidět nejsou — svářeč se nemusí chránit před zářením oblouku, ale nevidí do'+NB+'lázně.';
+  const leadG=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5});
+  let sel=null, view='cut'; const L={};
+  Object.keys(POS).forEach(k=>{const [x,y,s,tx,ty]=POS[k];L[k]=label(svg,leadG,NAMES[k],x,y,s,tx,ty,()=>{sel=sel===k?null:k;render();});});
+  function render(){
+    const cut=view==='cut';
+    cutOnly.forEach(e=>e.style.display=cut?'':'none');
+    CUTLBL.forEach(k=>{L[k].g.style.display=cut?'':'none';L[k].line.style.display=cut?'':'none';});
+    if(!cut&&CUTLBL.includes(sel))sel=null;
+    Object.keys(L).forEach(k=>L[k].g.classList.toggle('on',sel===k));
+    Object.keys(parts).forEach(k=>parts[k].forEach(e=>{
+      if(e.tagName==='line')e.setAttribute('stroke',sel===k?ACC:'#b7c2cf');
+      else{e.setAttribute('stroke',sel===k?ACC:'none');e.setAttribute('stroke-width',2.5);}
+    }));
+    bCut.setAttribute('aria-pressed',cut);bOut.setAttribute('aria-pressed',!cut);
+    info.textContent=sel?INFO[sel]:(cut?HINT:OUT);
+  }
+  bCut.onclick=()=>{view='cut';render();};
+  bOut.onclick=()=>{view='out';render();};
+  render();
+  if(!reduce)(function anim(t){arc.setAttribute('opacity',f(.8+.14*Math.sin(t/27)*Math.sin(t/43)));glow.setAttribute('opacity',f(.2+.1*Math.sin(t/31)));requestAnimationFrame(anim);})(0);
+})();
+
+/* ---------- PRVEK B — jeden drát × tandem ---------- */
+(function(){
+  const svg=document.getElementById('svgB'), info=document.getElementById('infoB');
+  const b1=document.getElementById('m1'), b2=document.getElementById('m2');
+  const G={
+    one:{wires:[520],
+      pool:'M460 200 Q520 262 580 200 Z',
+      pen:'M40 200 L464 200 Q470 220 492 227 L40 227 Z',
+      cap:'M40 192 L456 192 Q466 194 470 200 L40 200 Z',
+      slag:'M40 178 L440 178 Q460 182 470 200 L456 192 L40 192 Z',
+      mound:'M250 178 C270 152 300 136 330 135 L640 134 C672 136 690 162 704 200 L470 200 L440 178 Z',
+      lbl:{w1:['drát',760,40,'r',523,60],ta:['tavidlo',40,100,'l',300,150],la:['lázeň',490,264,'b',520,226]},
+      info:{w1:'Jeden drát — jeden oblouk a'+NB+'jedna lázeň. Základní uspořádání.',ta:'Tavidlo — zakrývá oblouk i'+NB+'lázeň.',la:'Lázeň — roztavený kov pod obloukem.'},
+      hint:'Jeden drát: kratší lázeň, menší množství svarového kovu.'},
+    two:{wires:[470,560],
+      pool:'M400 200 C420 236 470 246 520 250 C560 252 590 236 604 200 Z',
+      pen:'M40 200 L404 200 Q412 230 440 240 L40 240 Z',
+      cap:'M40 188 L398 188 Q408 191 412 200 L40 200 Z',
+      slag:'M40 172 L384 172 Q404 176 412 200 L398 188 L40 188 Z',
+      mound:'M210 172 C232 150 270 136 310 135 L650 134 C680 136 698 162 712 200 L412 200 L384 172 Z',
+      lbl:{w1:['první drát',760,40,'r',563,60],w2:['druhý drát',40,40,'l',467,60],ta:['tavidlo',40,100,'l',300,150],la:['společná lázeň',450,264,'b',510,246]},
+      info:{w1:'První (vedoucí) drát — nataví základní materiál a'+NB+'vytvoří závar.',w2:'Druhý drát — hoří do'+NB+'téže lázně, doplní svarový kov a'+NB+'vyrovná tvar housenky.',ta:'Tavidlo — zakrývá oba oblouky společně.',la:'Společná lázeň — oba oblouky taví jednu delší lázeň. Za'+NB+'stejnou dobu se do'+NB+'ní odtaví víc kovu, proto lze svařovat rychleji nebo vyplnit úkos menším počtem vrstev.'},
+      hint:'Tandem: delší a'+NB+'hlubší lázeň, víc svarového kovu za'+NB+'stejnou dobu.'}
+  };
+  let mode='one', sel=null; const arcs=[];
+  function build(){
+    svg.innerHTML=''; arcs.length=0;
+    const g=G[mode], parts={}, add=(k,e)=>{(parts[k]=parts[k]||[]).push(e);return e;};
+    fluxPattern(svg,'fluxB');
+    el(svg,'rect',{x:40,y:200,width:920,height:60,fill:'#45505e'});
+    el(svg,'path',{d:g.pen,fill:'#6c7a8a'});
+    el(svg,'path',{d:g.cap,fill:'#6c7a8a'});
+    add('la',el(svg,'path',{d:g.pool,fill:'#e59a62'}));
+    el(svg,'path',{d:g.slag,fill:'#4a3628'});
+    add('ta',el(svg,'path',{d:g.mound,fill:'url(#fluxB)'}));
+    g.wires.forEach((x,i)=>{
+      const key=g.wires.length===2&&i===0?'w2':'w1';
+      el(svg,'path',{d:`M${x-42} 200 A42 38 0 0 1 ${x+42} 200 Z`,fill:'#b8652e'});
+      el(svg,'path',{d:`M${x-30} 200 A30 30 0 0 1 ${x+30} 200 Z`,fill:'#140d0a'});
+      arcs.push(el(svg,'path',{d:`M${x-3} 176 L${x+3} 176 L${x+18} 200 L${x-18} 200 Z`,fill:'#cfe6ff',opacity:.9}));
+      add(key,el(svg,'line',{x1:x,y1:30,x2:x,y2:176,stroke:'#b7c2cf','stroke-width':5}));
+      add(key,el(svg,'rect',{x:x-10,y:60,width:20,height:68,fill:'#b87333'}));
+    });
+    const leadG=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5}); const L={};
+    Object.keys(g.lbl).forEach(k=>{const [t,x,y,s,tx,ty]=g.lbl[k];L[k]=label(svg,leadG,t,x,y,s,tx,ty,()=>{sel=sel===k?null:k;paint();});});
+    function paint(){
+      Object.keys(L).forEach(k=>L[k].g.classList.toggle('on',sel===k));
+      Object.keys(parts).forEach(k=>parts[k].forEach(e=>{
+        if(e.tagName==='line')e.setAttribute('stroke',sel===k?ACC:'#b7c2cf');
+        else{e.setAttribute('stroke',sel===k?ACC:'none');e.setAttribute('stroke-width',2.5);}
+      }));
+      info.textContent=sel?g.info[sel]:g.hint;
+    }
+    paint();
+    b1.setAttribute('aria-pressed',mode==='one');b2.setAttribute('aria-pressed',mode==='two');
+  }
+  b1.onclick=()=>{mode='one';sel=null;build();};
+  b2.onclick=()=>{mode='two';sel=null;build();};
+  build();
+  if(!reduce)(function anim(t){arcs.forEach((a,i)=>a.setAttribute('opacity',f(.8+.14*Math.sin(t/27+i)*Math.sin(t/43))));requestAnimationFrame(anim);})(0);
+})();
+
+/* ---------- PRVEK C — parametry a tvar svaru ---------- */
+(function(){
+  const svg=document.getElementById('svgC'), info=document.getElementById('infoC');
+  const sI=document.getElementById('sI'), sU=document.getElementById('sU'), sV=document.getElementById('sV');
+  const vI=document.getElementById('vI'), vU=document.getElementById('vU'), vV=document.getElementById('vV');
+  const WORD_M=['malý','střední','velký'], WORD_N=['malé','střední','velké'], WORD_F=['malá','střední','velká'];
+  const Y0=140, XC=500;
+  el(svg,'rect',{x:200,y:Y0,width:600,height:120,fill:'#45505e'});
+  el(svg,'line',{x1:XC,y1:Y0,x2:XC,y2:Y0+120,stroke:'#2b333f','stroke-width':2,'stroke-dasharray':'6 5'});
+  const weld=el(svg,'path',{fill:'#6c7a8a'});
+  const dimG=el(svg,'g',{fill:'none','stroke-width':1.5});
+  const D={sir:el(dimG,'path',{}),pre:el(dimG,'path',{}),zav:el(dimG,'path',{})};
+  const ext=el(svg,'path',{fill:'none',stroke:'#4a5768','stroke-width':1.2,'stroke-dasharray':'4 4'});
+  const leadG=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5});
+  const TXT={
+    sir:'Šířka housenky — roste hlavně s'+NB+'napětím (delší oblouk).',
+    pre:'Převýšení — výška housenky nad povrchem materiálu. S'+NB+'vyšším napětím je housenka plošší.',
+    zav:'Závar — hloubka natavení základního materiálu. Řídí ho hlavně proud.'
+  };
+  const RULE={
+    I:'Větší proud roztaví víc drátu i'+NB+'základního materiálu — roste hlavně závar, housenka je vyšší.',
+    U:'Vyšší napětí znamená delší oblouk. Teplo se rozloží do'+NB+'šířky — housenka je širší a'+NB+'plošší, závar se mírně zmenší.',
+    V:'Rychlejší posuv dodá na'+NB+'každý úsek svaru méně tepla i'+NB+'kovu — zmenší se závar, šířka i'+NB+'převýšení.'
+  };
+  let sel=null, last=null; const L={};
+  L.sir=label(svg,leadG,'šířka',466,18,'b',XC,60,()=>pick('sir'));
+  L.pre=label(svg,leadG,'převýšení',840,70,'r',600,130,()=>pick('pre'));
+  L.zav=label(svg,leadG,'závar',840,190,'r',600,170,()=>pick('zav'));
+  // vodicí čáry popisků 'šířka' začínají u spodní hrany popisku
+  L.sir.line.setAttribute('y1',46);
+  function pick(k){sel=sel===k?null:k;last=null;draw();}
+  function draw(){
+    const I=+sI.value, U=+sU.value, V=+sV.value;
+    vI.textContent=WORD_M[I]; vU.textContent=WORD_N[U]; vV.textContent=WORD_F[V];
+    const w=80+24*I+40*U-20*V, p=Math.max(6,26+20*I-4*U-7*V), h=Math.max(2,10+4*I-3*U-2.5*V);
+    const xl=XC-w/2, xr=XC+w/2, top=Y0-h;
+    weld.setAttribute('d',`M${f(xl)} ${Y0} Q${XC} ${f(Y0-2*h)} ${f(xr)} ${Y0} C${f(xr)} ${f(Y0+p*.9)} ${f(XC+w*.18)} ${f(Y0+p)} ${XC} ${f(Y0+p)} C${f(XC-w*.18)} ${f(Y0+p)} ${f(xl)} ${f(Y0+p*.9)} ${f(xl)} ${Y0} Z`);
+    const yw=top-22, xd=xr+28;
+    D.sir.setAttribute('d',`M${f(xl)} ${f(yw)} L${f(xr)} ${f(yw)} M${f(xl)} ${f(yw-7)} L${f(xl)} ${f(yw+7)} M${f(xr)} ${f(yw-7)} L${f(xr)} ${f(yw+7)}`);
+    D.pre.setAttribute('d',`M${f(xd)} ${f(top)} L${f(xd)} ${Y0} M${f(xd-7)} ${f(top)} L${f(xd+7)} ${f(top)} M${f(xd-7)} ${Y0} L${f(xd+7)} ${Y0}`);
+    D.zav.setAttribute('d',`M${f(xd)} ${Y0} L${f(xd)} ${f(Y0+p)} M${f(xd-7)} ${f(Y0+p)} L${f(xd+7)} ${f(Y0+p)}`);
+    ext.setAttribute('d',`M${f(xl)} ${f(Y0-4)} L${f(xl)} ${f(yw-9)} M${f(xr)} ${f(Y0-4)} L${f(xr)} ${f(yw-9)} M${XC} ${f(top)} L${f(xd+9)} ${f(top)} M${XC} ${f(Y0+p)} L${f(xd+9)} ${f(Y0+p)} M${f(xr)} ${Y0} L${f(xd+9)} ${Y0}`);
+    L.sir.line.setAttribute('x2',XC);L.sir.line.setAttribute('y2',f(yw));
+    L.pre.line.setAttribute('x2',f(xd));L.pre.line.setAttribute('y2',f(Y0-h/2));
+    L.zav.line.setAttribute('x2',f(xd));L.zav.line.setAttribute('y2',f(Y0+p/2));
+    Object.keys(D).forEach(k=>{D[k].setAttribute('stroke',sel===k?ACC:'#aebfcf');D[k].setAttribute('stroke-width',sel===k?2.5:1.5);L[k].g.classList.toggle('on',sel===k);});
+    info.textContent=last?RULE[last]:(sel?TXT[sel]:'Posuň některý parametr nebo klikni na'+NB+'popisek kóty.');
+  }
+  [[sI,'I'],[sU,'U'],[sV,'V']].forEach(([s,k])=>s.addEventListener('input',()=>{last=k;draw();}));
+  draw();
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

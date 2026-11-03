@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-11-03">
+<x-dc>
+<helmet>
+  <title>Svařování MIG/MAG (131/135) | STT</title>
+  <meta name="description" content="Svařování MIG/MAG (131/135): princip, svařovací souprava a klikací řez hořákem, parametry svařování, interaktivní mapa přenosu kovu s pulzním režimem, ochranné plyny, sklon hořáku, výhody, nevýhody, použití a typické vady.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e08cc4; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Tavné svařování</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:10px">Tavné svařování</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 12px">Svařování v&nbsp;ochranném plynu tavicí se elektrodou — MIG/MAG (131/135)</h1>
+    <p style="font-size:18px;line-height:1.6;color:#aebfcf;margin:0;max-width:820px;text-wrap:pretty">Nejrozšířenější metoda v&nbsp;dílnách i&nbsp;ve&nbsp;výrobě: drát se podává sám a&nbsp;ochranu dodává plyn z&nbsp;láhve.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Princip</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Oblouk hoří mezi plynule podávaným drátem a&nbsp;svařovaným materiálem. Drát je zároveň elektroda i&nbsp;přídavný materiál. Svarovou lázeň chrání plyn, který proudí z&nbsp;hubice hořáku.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin-bottom:4px">MIG (131)</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#e08cc4;margin-bottom:10px">inertní plyn</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Argon, helium. Plyn nereaguje s&nbsp;lázní.</div>
+        <div style="font-size:15px;line-height:1.6;color:#eaf2fa;margin-top:6px;text-wrap:pretty">Hliník, měď a&nbsp;jejich slitiny.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin-bottom:4px">MAG (135)</div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#e08cc4;margin-bottom:10px">aktivní plyn</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Oxid uhličitý nebo směs argonu s&nbsp;oxidem uhličitým či kyslíkem.</div>
+        <div style="font-size:15px;line-height:1.6;color:#eaf2fa;margin-top:6px;text-wrap:pretty">Oceli.</div>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:20px 0 0;max-width:820px;text-wrap:pretty">Drát podává podavač stálou rychlostí, proto se používá zdroj s&nbsp;plochou charakteristikou — délku oblouku udržuje <a href="oblouk-zdroje.html" style="color:#e08cc4;border-bottom:1px solid #6b3d5c">samoregulace</a>. Svařuje se nepřímou polaritou (drát na&nbsp;kladném pólu).</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 20px">Svařovací souprava a&nbsp;hořák</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px">
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:18px 20px">
+        <div style="flex:none;width:34px;height:34px;border-radius:50%;background:#2a1a26;color:#e08cc4;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px">1</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:4px">Zdroj</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Invertor nebo usměrňovač s&nbsp;plochou charakteristikou.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:18px 20px">
+        <div style="flex:none;width:34px;height:34px;border-radius:50%;background:#2a1a26;color:#e08cc4;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px">2</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:4px">Podavač drátu</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Cívka s&nbsp;drátem a&nbsp;kladky, které drát tlačí.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:18px 20px">
+        <div style="flex:none;width:34px;height:34px;border-radius:50%;background:#2a1a26;color:#e08cc4;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px">3</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:4px">Kabelový svazek</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Proud, plyn, drát a&nbsp;ovládání v&nbsp;jednom.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:18px 20px">
+        <div style="flex:none;width:34px;height:34px;border-radius:50%;background:#2a1a26;color:#e08cc4;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px">4</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;line-height:1.35;color:#eaf2fa;margin-bottom:4px;text-wrap:pretty">Láhev s&nbsp;plynem, redukční ventil a&nbsp;průtokoměr</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Sníží tlak plynu a&nbsp;nastaví jeho průtok.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:18px 20px">
+        <div style="flex:none;width:34px;height:34px;border-radius:50%;background:#2a1a26;color:#e08cc4;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px">5</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:4px">Hořák</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Přivádí k&nbsp;oblouku drát, proud i&nbsp;plyn.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:18px 20px">
+        <div style="flex:none;width:34px;height:34px;border-radius:50%;background:#2a1a26;color:#e08cc4;display:flex;align-items:center;justify-content:center;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px">6</div>
+        <div style="padding-top:5px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-bottom:4px">Zemnicí kabel</div>
+          <div style="font-size:14.5px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Uzavírá proudový obvod přes svařovaný díl.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;box-shadow:0 1px 3px rgba(0,0,0,0.3);margin-top:20px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:4px">Interaktivní schéma</div>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Řez hořákem</div>
+      <div style="font-size:14px;color:#8296a8;margin:4px 0 14px;text-wrap:pretty">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
+      <svg viewBox="0 0 1000 420" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <defs>
+          <linearGradient id="arc-m" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"></stop><stop offset="1" stop-color="#a8d4ff"></stop></linearGradient>
+          <radialGradient id="gas-m" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#9fc3e6" stop-opacity="0.28"></stop><stop offset="1" stop-color="#9fc3e6" stop-opacity="0"></stop></radialGradient>
+        </defs>
+        <ellipse cx="616" cy="300" rx="64" ry="36" fill="url(#gas-m)"></ellipse>
+        <path d="M338 88 C280 76 150 70 0 112" fill="none" stroke="{{ hA.ks }}" stroke-width="24"></path>
+        <path d="M338 88 C280 76 150 70 0 112" fill="none" stroke="#2b333f" stroke-width="16"></path>
+        <g transform="translate(471.5 116.8) rotate(12)">
+          <rect x="-140" y="-20" width="146" height="40" rx="10" fill="#2b333f" stroke="#4a5768" stroke-width="1.5"></rect>
+          <path d="M-46 20 Q-40 38 -24 36 L-22 20 Z" fill="#5b6676" stroke="{{ hA.sp }}" stroke-width="2.5"></path>
+        </g>
+        <g transform="translate(620 322) rotate(-30)">
+          <path d="M0 -172 L0 -200 Q0 -232 -26 -252" fill="none" stroke="#2b333f" stroke-width="24"></path>
+          <path d="M-30 -176 L-15 -176 L-15 -168 L-22 -168 L-22 -48 L-27 -48 Z" fill="#8b96a3" stroke="{{ hA.ph }}" stroke-width="2.5"></path>
+          <path d="M30 -176 L15 -176 L15 -168 L22 -168 L22 -48 L27 -48 Z" fill="#8b96a3" stroke="{{ hA.ph }}" stroke-width="2.5"></path>
+          <path d="M-15 -176 L-2 -176 L-2 -130 L-15 -130 Z M2 -176 L15 -176 L15 -130 L2 -130 Z" fill="#5b6676" stroke="{{ hA.rp }}" stroke-width="2.5"></path>
+          <path d="M-7 -130 L-2 -130 L-2 -54 L-7 -54 Z M2 -130 L7 -130 L7 -54 L2 -54 Z" fill="#c07a4a" stroke="{{ hA.kp }}" stroke-width="2.5"></path>
+          <rect x="-2" y="-176" width="4" height="160" fill="#c9d1db" stroke="{{ hA.dr }}" stroke-width="2"></rect>
+          <g ref="{{ rA.gas }}" fill="none" stroke="{{ gasCol }}" stroke-width="{{ gasW }}" stroke-dasharray="6 8" stroke-linecap="round" opacity="0.85">
+            <path d="M-11 -128 L-11 -56 Q-12 -34 -40 -26"></path>
+            <path d="M-17 -128 L-17 -56 Q-20 -38 -58 -36"></path>
+            <path d="M11 -128 L11 -56 Q12 -20 30 16"></path>
+            <path d="M17 -128 L17 -56 Q22 -18 48 26"></path>
+          </g>
+          <g stroke="{{ dimCol }}" stroke-width="{{ dimW }}" fill="none">
+            <path d="M8 -54 L46 -54 M4 -16 L46 -16" stroke-dasharray="3 3"></path>
+            <path d="M40 -54 L40 -16 M35 -50 L40 -54 L45 -50 M35 -20 L40 -16 L45 -20"></path>
+          </g>
+        </g>
+        <g ref="{{ rA.arc }}">
+          <path d="M604 304 L620 310 L642 322 L598 322 Z" fill="#7fb8ff" opacity="0.25"></path>
+          <path d="M610 307 L614 309 L632 322 L608 322 Z" fill="url(#arc-m)" opacity="0.9"></path>
+        </g>
+        <rect x="0" y="322" width="1000" height="58" fill="#45505e"></rect>
+        <path d="M588 322 Q620 346 654 322 Z" fill="#e59a62" stroke="{{ hA.sl }}" stroke-width="2.5"></path>
+        <line x1="{{ leadA.x1 }}" y1="{{ leadA.y1 }}" x2="{{ leadA.x2 }}" y2="{{ leadA.y2 }}" stroke="#e08cc4" stroke-width="1.5" opacity="{{ leadA.op }}"></line>
+        <g onClick="{{ cA.ks }}" style="cursor:pointer">
+          <rect x="40" y="170" width="156" height="30" rx="8" fill="#0d121a" stroke="{{ lA.ks.stroke }}" stroke-width="{{ lA.ks.sw }}"></rect>
+          <text x="118" y="190" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">kabelový svazek</text>
+        </g>
+        <g onClick="{{ cA.sp }}" style="cursor:pointer">
+          <rect x="320" y="196" width="80" height="30" rx="8" fill="#0d121a" stroke="{{ lA.sp.stroke }}" stroke-width="{{ lA.sp.sw }}"></rect>
+          <text x="360" y="216" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">spoušť</text>
+        </g>
+        <g onClick="{{ cA.rp }}" style="cursor:pointer">
+          <rect x="770" y="55" width="180" height="30" rx="8" fill="#0d121a" stroke="{{ lA.rp.stroke }}" stroke-width="{{ lA.rp.sw }}"></rect>
+          <text x="860" y="75" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">rozdělovač plynu</text>
+        </g>
+        <g onClick="{{ cA.ph }}" style="cursor:pointer">
+          <rect x="770" y="97" width="180" height="30" rx="8" fill="#0d121a" stroke="{{ lA.ph.stroke }}" stroke-width="{{ lA.ph.sw }}"></rect>
+          <text x="860" y="117" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">plynová hubice</text>
+        </g>
+        <g onClick="{{ cA.kp }}" style="cursor:pointer">
+          <rect x="770" y="139" width="180" height="30" rx="8" fill="#0d121a" stroke="{{ lA.kp.stroke }}" stroke-width="{{ lA.kp.sw }}"></rect>
+          <text x="860" y="159" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">kontaktní průvlak</text>
+        </g>
+        <g onClick="{{ cA.vd }}" style="cursor:pointer">
+          <rect x="770" y="181" width="180" height="30" rx="8" fill="#0d121a" stroke="{{ lA.vd.stroke }}" stroke-width="{{ lA.vd.sw }}"></rect>
+          <text x="860" y="201" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">výlet drátu</text>
+        </g>
+        <g onClick="{{ cA.dr }}" style="cursor:pointer">
+          <rect x="770" y="223" width="180" height="30" rx="8" fill="#0d121a" stroke="{{ lA.dr.stroke }}" stroke-width="{{ lA.dr.sw }}"></rect>
+          <text x="860" y="243" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">drát</text>
+        </g>
+        <g onClick="{{ cA.op }}" style="cursor:pointer">
+          <rect x="770" y="265" width="180" height="30" rx="8" fill="#0d121a" stroke="{{ lA.op.stroke }}" stroke-width="{{ lA.op.sw }}"></rect>
+          <text x="860" y="285" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">ochranný plyn</text>
+        </g>
+        <g onClick="{{ cA.sl }}" style="cursor:pointer">
+          <rect x="560" y="388" width="130" height="28" rx="8" fill="#0d121a" stroke="{{ lA.sl.stroke }}" stroke-width="{{ lA.sl.sw }}"></rect>
+          <text x="625" y="407" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">svarová lázeň</text>
+        </g>
+      </svg>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:26px;text-wrap:pretty">{{ infoA }}</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 20px">Parametry svařování</h2>
+    <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;line-height:1.3;color:#eaf2fa;margin-bottom:8px">Rychlost podávání drátu</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Určuje proud: víc drátu za sekundu = větší proud (samoregulace).</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;line-height:1.3;color:#eaf2fa;margin-bottom:8px">Napětí</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Určuje délku oblouku; musí odpovídat rychlosti drátu.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;line-height:1.3;color:#eaf2fa;margin-bottom:8px">Výlet drátu</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Drží se co nejstálejší.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;line-height:1.3;color:#eaf2fa;margin-bottom:8px">Rychlost svařování</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Rychlejší posuv = menší a&nbsp;užší housenka.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;line-height:1.3;color:#eaf2fa;margin-bottom:8px">Průtok plynu</div>
+        <div style="font-size:14.5px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Malý průtok neochrání lázeň, příliš velký strhává vzduch (víry) — v&nbsp;obou případech póry.</div>
+      </div>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:18px 0 0;max-width:820px;text-wrap:pretty">Souvislost rychlosti drátu a&nbsp;napětí ukazuje mapa v&nbsp;další sekci.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Přenos kovu v&nbsp;oblouku</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Podle proudu, napětí a&nbsp;plynu přechází kov z&nbsp;drátu do&nbsp;lázně různým způsobem.</p>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:4px">Interaktivní mapa · animace</div>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Mapa přenosu kovu</div>
+      <div style="font-size:14px;color:#8296a8;margin:4px 0 16px;text-wrap:pretty">Nastav bod posuvníky nebo ho přetáhni myší. Vpravo je konec drátu při zvolených parametrech.</div>
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:22px;align-items:end;margin-bottom:16px">
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#eaf2fa">rychlost drátu
+          <input type="range" min="90" max="590" step="1" value="{{ px }}" onChange="{{ onX }}" style="width:100%;accent-color:#e08cc4;cursor:pointer">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;color:#eaf2fa">napětí
+          <input type="range" min="50" max="390" step="1" value="{{ vv }}" onChange="{{ onV }}" style="width:100%;accent-color:#e08cc4;cursor:pointer">
+        </label>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="display:flex;gap:6px">
+            <sc-for list="{{ gasBtns }}" as="b" hint-placeholder-count="2">
+              <button type="button" onClick="{{ b.pick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+            </sc-for>
+          </div>
+          <button type="button" onClick="{{ pulseBtn.toggle }}" title="{{ pulseBtn.title }}" aria-disabled="{{ pulseBtn.dis }}" style="display:flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;background:#0d121a;border:1px solid #263040;color:{{ pulseBtn.color }};cursor:{{ pulseBtn.cursor }}">
+            <span style="position:relative;width:36px;height:20px;border-radius:999px;background:{{ pulseBtn.track }};transition:background 0.2s">
+              <span style="position:absolute;top:3px;left:{{ pulseBtn.knob }};width:14px;height:14px;border-radius:50%;background:#eaf2fa;transition:left 0.2s"></span>
+            </span>
+            pulzní režim
+          </button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,64fr) minmax(0,36fr);gap:18px">
+        <svg ref="{{ mapRef }}" onPointerDown="{{ onMapDown }}" viewBox="0 0 640 460" style="width:100%;display:block;background:#0a0e15;border-radius:14px;touch-action:none;cursor:crosshair;user-select:none">
+          <defs>
+            <clipPath id="map-clip"><rect x="80" y="40" width="520" height="360"></rect></clipPath>
+            <pattern id="co2-hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#e08cc4" fill-opacity="0.12"></rect><line x1="0" y1="0" x2="0" y2="10" stroke="#e08cc4" stroke-width="3" stroke-opacity="0.55"></line></pattern>
+          </defs>
+          <g clip-path="url(#map-clip)">
+            <polygon points="80,330 260,233.08 260,313.08 80,410" fill="#e08cc4" fill-opacity="{{ mo.sc }}"></polygon>
+            <polygon points="260,233.08 390,163.08 390,243.08 260,313.08" fill="#e08cc4" fill-opacity="{{ mo.glob }}"></polygon>
+            <polygon points="390,163.08 600,50 600,130 390,243.08" fill="#e08cc4" fill-opacity="{{ mo.spray }}"></polygon>
+            <polygon points="390,163.08 600,50 600,130 390,243.08" fill="url(#co2-hatch)" opacity="{{ mo.co2 }}"></polygon>
+            <polygon points="160,286.92 390,163.08 390,243.08 160,366.92" fill="#7fb8ff" fill-opacity="{{ mo.pulse }}" stroke="#7fb8ff" stroke-opacity="{{ mo.pulseLine }}" stroke-width="1.5"></polygon>
+            <path d="M80 330 L600 50 M80 410 L600 130" stroke="#e08cc4" stroke-opacity="0.5" stroke-width="1.5" stroke-dasharray="6 5" fill="none"></path>
+            <path d="M260 233.08 L260 313.08 M390 163.08 L390 243.08" stroke="#e08cc4" stroke-opacity="0.5" stroke-width="1.5" fill="none"></path>
+          </g>
+          <text x="170" y="347" transform="rotate(-28.3 170 347)" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="{{ mt.sc }}">zkratový</text>
+          <text x="325" y="262" transform="rotate(-28.3 325 262)" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="{{ mt.glob }}">přechodový</text>
+          <text x="495" y="171" transform="rotate(-28.3 495 171)" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="{{ mt.right }}">{{ rightLabel }}</text>
+          <sc-if value="{{ st.pulse }}">
+            <text x="275" y="251" transform="rotate(-28.3 275 251)" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="{{ mt.pulse }}">pulzní přenos</text>
+          </sc-if>
+          <text x="210" y="140" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="{{ mt.long }}">příliš dlouhý oblouk</text>
+          <text x="400" y="370" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="{{ mt.short }}">příliš krátký oblouk — drát naráží do&nbsp;lázně</text>
+          <path d="M80 400 L608 400 M600 395 L608 400 L600 405 M80 400 L80 32 M75 40 L80 32 L85 40" stroke="#8296a8" stroke-width="1.5" fill="none"></path>
+          <text x="604" y="424" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#aebfcf">rychlost drátu / proud</text>
+          <text x="80" y="22" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#aebfcf">napětí</text>
+          <path d="{{ crossD }}" stroke="#4a5768" stroke-width="1" stroke-dasharray="4 4" fill="none"></path>
+          <circle cx="{{ px }}" cy="{{ py }}" r="9" fill="#e08cc4" stroke="#eaf2fa" stroke-width="2" style="cursor:grab"></circle>
+        </svg>
+        <svg viewBox="0 0 360 460" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+          <defs>
+            <linearGradient id="arc-t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"></stop><stop offset="1" stop-color="#a8d4ff"></stop></linearGradient>
+          </defs>
+          <path ref="{{ rB.wire }}" d="M172 0 L188 0 L188 352 L172 352 Z" fill="#c9d1db"></path>
+          <path ref="{{ rB.arcO }}" d="" fill="#7fb8ff"></path>
+          <path ref="{{ rB.arcI }}" d="" fill="url(#arc-t)"></path>
+          <rect x="0" y="400" width="360" height="60" fill="#45505e"></rect>
+          <path d="M110 400 Q180 428 250 400 Z" fill="#e59a62"></path>
+          <circle ref="{{ rB.drop }}" cx="180" cy="356" r="3" fill="#ff9d4d"></circle>
+          <path ref="{{ rB.br }}" d="" fill="#ff9d4d"></path>
+          <g ref="{{ rB.fall }}"></g>
+          <g ref="{{ rB.sp }}"></g>
+        </svg>
+      </div>
+      <div style="margin-top:16px;min-height:78px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#e08cc4;margin-bottom:4px">{{ reg.name }}</div>
+        <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:0;max-width:900px;text-wrap:pretty">{{ reg.txt }}</p>
+      </div>
+      <sc-if value="{{ st.pulse }}">
+        <div style="margin-top:18px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin-bottom:8px">Průběh proudu v&nbsp;pulzním režimu</div>
+          <svg viewBox="0 0 1000 200" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <path d="M60 176 L60 20 M55 28 L60 20 L65 28 M60 176 L690 176 M682 171 L690 176 L682 181" stroke="#8296a8" stroke-width="1.5" fill="none"></path>
+            <text x="60" y="14" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#aebfcf">proud</text>
+            <text x="690" y="196" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#aebfcf">čas</text>
+            <path d="M60 140 H80 M120 140 H280 M320 140 H480 M520 140 H660" stroke="{{ hG.base.c }}" stroke-width="{{ hG.base.w }}" fill="none"></path>
+            <path d="M80 140 V50 H120 V140 M280 140 V50 H320 V140 M480 140 V50 H520 V140" stroke="{{ hG.pulse.c }}" stroke-width="{{ hG.pulse.w }}" fill="none"></path>
+            <path d="M120 18 C124 24 126 27 126 30 A6 6 0 0 1 114 30 C114 27 116 24 120 18 Z" fill="#ff9d4d"></path>
+            <path d="M320 18 C324 24 326 27 326 30 A6 6 0 0 1 314 30 C314 27 316 24 320 18 Z" fill="#ff9d4d"></path>
+            <path d="M520 18 C524 24 526 27 526 30 A6 6 0 0 1 514 30 C514 27 516 24 520 18 Z" fill="#ff9d4d"></path>
+            <line ref="{{ rB.now }}" x1="60" y1="40" x2="60" y2="176" stroke="#eaf2fa" stroke-width="1.5" stroke-dasharray="5 4"></line>
+            <text ref="{{ rB.nowT }}" x="60" y="190" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#eaf2fa">teď</text>
+            <g onClick="{{ cG.pulse }}" style="cursor:pointer">
+              <rect x="710" y="36" width="260" height="30" rx="8" fill="#0d121a" stroke="{{ lG.pulse.stroke }}" stroke-width="{{ lG.pulse.sw }}"></rect>
+              <text x="840" y="56" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">pulzní proud — oddělí kapku</text>
+            </g>
+            <g onClick="{{ cG.base }}" style="cursor:pointer">
+              <rect x="710" y="125" width="260" height="30" rx="8" fill="#0d121a" stroke="{{ lG.base.stroke }}" stroke-width="{{ lG.base.sw }}"></rect>
+              <text x="840" y="145" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">základní proud — udržuje oblouk</text>
+            </g>
+          </svg>
+          <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:12px 0 0;min-height:26px;text-wrap:pretty">{{ infoG }}</p>
+        </div>
+      </sc-if>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:16px 0 0;max-width:820px;text-wrap:pretty">Pulzní přenos umožňuje <a href="oblouk-zdroje.html" style="color:#e08cc4;border-bottom:1px solid #6b3d5c">řízení invertorového zdroje</a>.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 20px">Ochranné plyny</h2>
+    <div style="border:1px solid #263040;border-radius:18px;overflow:hidden;background:#0d121a">
+      <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.6fr) minmax(0,1.5fr) minmax(0,1.8fr);background:#0a0e15;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa">
+        <div style="padding:12px 20px">Plyn</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39">Druh</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39">Použití</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39">Vliv na&nbsp;svar</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.6fr) minmax(0,1.5fr) minmax(0,1.8fr);border-top:1px solid #232c39;font-size:15px;line-height:1.55;color:#aebfcf">
+        <div style="padding:12px 20px;font-weight:600;color:#eaf2fa">argon</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39">inertní</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">MIG hliníku a&nbsp;mědi, základ směsí</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">klidný oblouk, úzký „prstovitý“ závar</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.6fr) minmax(0,1.5fr) minmax(0,1.8fr);border-top:1px solid #232c39;font-size:15px;line-height:1.55;color:#aebfcf">
+        <div style="padding:12px 20px;font-weight:600;color:#eaf2fa">helium</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39">inertní</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">příměs k&nbsp;argonu u&nbsp;silných dílů z&nbsp;hliníku a&nbsp;mědi</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">teplejší oblouk, širší závar; drahé</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.6fr) minmax(0,1.5fr) minmax(0,1.8fr);border-top:1px solid #232c39;font-size:15px;line-height:1.55;color:#aebfcf">
+        <div style="padding:12px 20px;font-weight:600;color:#eaf2fa">oxid uhličitý (CO₂)</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39">aktivní</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">MAG nelegovaných ocelí</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">levný, široký a&nbsp;hluboký závar, více rozstřiku, sprchový přenos nevznikne</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.6fr) minmax(0,1.5fr) minmax(0,1.8fr);border-top:1px solid #232c39;font-size:15px;line-height:1.55;color:#aebfcf">
+        <div style="padding:12px 20px;font-weight:600;color:#eaf2fa">argon + oxid uhličitý</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39">aktivní</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">MAG ocelí — nejběžnější</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">méně rozstřiku, umožní sprchový i&nbsp;pulzní přenos</div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,0.6fr) minmax(0,1.5fr) minmax(0,1.8fr);border-top:1px solid #232c39;font-size:15px;line-height:1.55;color:#aebfcf">
+        <div style="padding:12px 20px;font-weight:600;color:#eaf2fa;text-wrap:pretty">argon + malé množství kyslíku nebo CO₂</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39">aktivní</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">korozivzdorné oceli</div>
+        <div style="padding:12px 20px;border-left:1px solid #232c39;text-wrap:pretty">stabilní oblouk, hladký povrch svaru</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px">
+        <svg viewBox="0 0 300 200" style="width:100%;display:block;background:#0a0e15;border-radius:12px">
+          <rect x="20" y="80" width="260" height="110" fill="#45505e"></rect>
+          <path d="M95 80 Q150 58 205 80 C200 96 182 102 162 102 C159 130 155 152 150 155 C145 152 141 130 138 102 C118 102 100 96 95 80 Z" fill="#6c7a8a"></path>
+        </svg>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin:12px 0 2px">argon</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#aebfcf">úzký hluboký „prst“ uprostřed mělčího závaru</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px">
+        <svg viewBox="0 0 300 200" style="width:100%;display:block;background:#0a0e15;border-radius:12px">
+          <rect x="20" y="80" width="260" height="110" fill="#45505e"></rect>
+          <path d="M80 80 Q150 56 220 80 C214 125 186 150 150 150 C114 150 86 125 80 80 Z" fill="#6c7a8a"></path>
+        </svg>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin:12px 0 2px">CO₂</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#aebfcf">široký a&nbsp;hluboký závar</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px">
+        <svg viewBox="0 0 300 200" style="width:100%;display:block;background:#0a0e15;border-radius:12px">
+          <rect x="20" y="80" width="260" height="110" fill="#45505e"></rect>
+          <path d="M88 80 Q150 57 212 80 C208 110 182 128 150 130 C118 128 92 110 88 80 Z" fill="#6c7a8a"></path>
+        </svg>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin:12px 0 2px">Ar + CO₂</div>
+        <div style="font-size:14.5px;line-height:1.55;color:#aebfcf">tvar závaru mezi argonem a&nbsp;CO₂</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 20px">Sklon hořáku — svařování vpřed a&nbsp;vzad</h2>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:4px">Interaktivní schéma</div>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Svařování vpřed, kolmo a&nbsp;vzad</div>
+      <div style="font-size:14px;color:#8296a8;margin:4px 0 14px;text-wrap:pretty">Přepni sklon hořáku.</div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px">
+        <sc-for list="{{ tiltBtns }}" as="b" hint-placeholder-count="3">
+          <button type="button" onClick="{{ b.pick }}" style="padding:9px 16px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+        <div>
+          <svg viewBox="0 0 480 360" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <rect x="0" y="260" width="480" height="60" fill="#45505e"></rect>
+            <path d="M30 260 Q30 248 42 248 L226 248 Q236 252 240 260 Z" fill="#6c7a8a"></path>
+            <path d="M212 260 Q240 274 264 260 Z" fill="#e59a62"></path>
+            <g style="transform:{{ tilt.tf }};transition:transform 0.5s ease">
+              <rect x="-9" y="-300" width="18" height="192" fill="#2b333f"></rect>
+              <path d="M-18 -112 L18 -112 L15 -30 L-15 -30 Z" fill="#8b96a3"></path>
+              <rect x="-2" y="-30" width="4" height="20" fill="#c9d1db"></rect>
+              <path d="M-3 -10 L3 -10 L11 0 L-11 0 Z" fill="#cfe6ff" opacity="0.9"></path>
+            </g>
+            <path d="M290 344 L410 344 M400 338 L410 344 L400 350" stroke="#e08cc4" stroke-width="2" fill="none"></path>
+            <text x="350" y="334" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#aebfcf">směr svařování</text>
+          </svg>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin:14px 0 0">Bokorys</div>
+        </div>
+        <div>
+          <svg viewBox="0 0 480 360" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <rect x="30" y="170" width="420" height="150" fill="#45505e"></rect>
+            <path d="{{ tilt.beadD }}" fill="#6c7a8a" style="transition:d 0.5s ease"></path>
+          </svg>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;margin:14px 0 0">Příčný řez housenkou</div>
+        </div>
+      </div>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:16px 0 0;min-height:26px;text-wrap:pretty">{{ tilt.txt }}</p>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 20px">Výhody, nevýhody, použití a&nbsp;typické vady</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #263040;border-radius:18px;overflow:hidden;background:#0d121a">
+      <div style="padding:12px 20px;background:#0a0e15;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa">Výhody</div>
+      <div style="padding:12px 20px;background:#0a0e15;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;border-left:1px solid #232c39">Nevýhody</div>
+      <div style="padding:12px 20px;background:#0a0e15;font-family:'Quicksand',sans-serif;font-weight:700;font-size:16px;color:#eaf2fa;border-left:1px solid #232c39">Použití</div>
+      <div style="padding:16px 20px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55;color:#aebfcf;border-top:1px solid #232c39">
+        <div>vysoká produktivita</div>
+        <div>drát se nemění jako elektroda</div>
+        <div>málo strusky</div>
+        <div>všechny polohy</div>
+        <div>snadná mechanizace a&nbsp;robotizace</div>
+      </div>
+      <div style="padding:16px 20px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55;color:#aebfcf;border-top:1px solid #232c39;border-left:1px solid #232c39">
+        <div>citlivost na&nbsp;průvan (venku plyn odfoukne)</div>
+        <div>dražší a&nbsp;složitější zařízení</div>
+        <div>láhev s&nbsp;plynem</div>
+        <div>hořák je větší než držák elektrody</div>
+      </div>
+      <div style="padding:16px 20px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55;color:#aebfcf;border-top:1px solid #232c39;border-left:1px solid #232c39">
+        <div>ocelové konstrukce</div>
+        <div>karoserie a&nbsp;strojírenská výroba</div>
+        <div>sériová a&nbsp;robotizovaná výroba</div>
+        <div>hliníkové konstrukce (MIG)</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:36px 0 14px">Typické vady</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <a href="../zaklady/vady-svaru.html" style="display:block;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 22px;color:#eaf2fa" style-hover="border-color:#e08cc4">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px">Studené spoje →</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Zkratový přenos s&nbsp;malým napětím na&nbsp;silném materiálu.</div>
+      </a>
+      <a href="../zaklady/vady-svaru.html" style="display:block;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 22px;color:#eaf2fa" style-hover="border-color:#e08cc4">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px">Póry →</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Průvan, špatný průtok plynu, nečistoty.</div>
+      </a>
+      <a href="../zaklady/vady-svaru.html" style="display:block;background:#0d121a;border:1px solid #263040;border-radius:18px;padding:20px 22px;color:#eaf2fa" style-hover="border-color:#e08cc4">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px">Rozstřik →</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Přechodový přenos, čistý CO₂, špatně zvolené napětí.</div>
+      </a>
+    </div>
+    <div style="background:#0a0e15;border:1px solid #232c39;border-top:4px solid #e08cc4;border-radius:16px;padding:20px 24px;margin-top:18px">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa;margin-bottom:8px">Plněný (trubičkový) drát — 136 / 138</div>
+      <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:0;text-wrap:pretty">Drát je trubička naplněná tavidlem (136) nebo kovovým práškem (138). Má vyšší výkon odtavení, tavidlo vytváří strusku a&nbsp;zlepšuje ochranu. Existují i&nbsp;plněné dráty pro práci venku bez ochranného plynu.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const NB = '\u00a0';
+const ACC = '#e08cc4';
+const SVGNS = 'http://www.w3.org/2000/svg';
+const f1 = v => (+v).toFixed(1);
+const lab = on => ({ stroke: on ? ACC : '#4a5768', sw: on ? 2.5 : 1.5 });
+const btnSt = on => ({ bg: on ? ACC : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? ACC : '#263040' });
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+/* Prvek A — řez hořákem */
+const INFO_A = {
+  sp: 'Spoušť — spouští podávání drátu, proud a' + NB + 'plyn.',
+  ks: 'Kabelový svazek — přivádí proud, plyn a' + NB + 'drát od podavače.',
+  rp: 'Rozdělovač plynu — rovnoměrně rozvede plyn do hubice.',
+  kp: 'Kontaktní průvlak — měděná trubička, ve' + NB + 'které drát klouže a' + NB + 'přebírá proud.',
+  ph: 'Plynová hubice — usměrní ochranný plyn kolem oblouku.',
+  dr: 'Drát — elektroda i' + NB + 'přídavný materiál, odtavuje se.',
+  vd: 'Výlet drátu — vzdálenost od konce průvlaku k' + NB + 'oblouku; delší výlet drát víc ohřeje odporem, proud klesne a' + NB + 'ochrana plynem se zhorší.',
+  op: 'Ochranný plyn — vytlačí vzduch z' + NB + 'okolí oblouku a' + NB + 'lázně.',
+  sl: 'Svarová lázeň — roztavený kov pod obloukem.',
+};
+const HINT_A = 'Klikni na' + NB + 'popisek ve' + NB + 'schématu.';
+const LEAD_A = {
+  ks: [118, 170, 167, 90], sp: [360, 196, 432, 139],
+  rp: [770, 70, 552, 188], ph: [770, 112, 590, 212], kp: [770, 154, 578, 240],
+  vd: [770, 196, 637, 272], dr: [770, 238, 601, 289], op: [770, 280, 635, 294], sl: [625, 388, 620, 334],
+};
+
+/* Prvek B — mapa přenosu */
+const YC = x => 370 - 280 * (x - 80) / 520;
+const regionOf = (x, y, gas, pulse) => {
+  const d = y - YC(x);
+  if (d < -40) return 'long';
+  if (d > 40) return 'short';
+  if (pulse && gas === 'mix' && x >= 160 && x <= 390) return 'pulse';
+  if (x < 260) return 'sc';
+  if (x < 390) return 'glob';
+  return gas === 'mix' ? 'spray' : 'co2';
+};
+const REG = {
+  sc: { name: 'Zkratový přenos', txt: 'Malý proud a' + NB + 'napětí. Málo tepla — tenké plechy a' + NB + 'svařování v' + NB + 'polohách. Při malém napětí hrozí studené spoje.' },
+  glob: { name: 'Přechodový (kapkový) přenos', txt: 'Hrubé kapky padají nepravidelně, vzniká rozstřik. Této oblasti se svářeči vyhýbají.' },
+  spray: { name: 'Sprchový přenos', txt: 'Velký proud, jemné kapky bez zkratů, klidný oblouk a' + NB + 'hluboký závar. Jen se směsí s' + NB + 'převahou argonu, silné plechy, vodorovná poloha.' },
+  co2: { name: 'Přechodový přenos — hrubé kapky, velký rozstřik', txt: 'S' + NB + 'čistým oxidem uhličitým sprchový přenos nevznikne — kapky jsou velké a' + NB + 'hodně rozstřikují.' },
+  pulse: { name: 'Pulzní přenos', txt: 'Invertor střídá základní a' + NB + 'pulzní proud. Každý pulz oddělí jednu kapku — málo rozstřiku i' + NB + 'při malém průměrném proudu, vhodné pro tenké plechy, polohy i' + NB + 'hliník.' },
+  long: { name: 'Příliš dlouhý oblouk', txt: 'Napětí je na' + NB + 'tuto rychlost drátu příliš velké — oblouk je dlouhý, neklidný, ochrana lázně se zhorší.' },
+  short: { name: 'Příliš krátký oblouk', txt: 'Napětí je na' + NB + 'tuto rychlost drátu příliš malé — drát naráží do lázně, oblouk škube.' },
+};
+const INFO_G = {
+  base: 'Základní proud — nízký proud mezi pulzy, udržuje slabý oblouk.',
+  pulse: 'Pulzní proud — krátký vysoký proud, každý pulz oddělí jednu kapku.',
+};
+const HINT_G = 'Klikni na' + NB + 'popisek u' + NB + 'grafu.';
+const R_B = ['wire', 'arcO', 'arcI', 'drop', 'br', 'fall', 'sp', 'now', 'nowT'];
+
+/* Prvek C — sklon hořáku */
+const TILT = {
+  push: { label: 'Vpřed', a: -25, w: 90, h: 14, d: 24, txt: 'Svařování vpřed (tlačení) — hořák skloněný tak, že míří ve' + NB + 'směru svařování: širší a' + NB + 'nižší housenka, menší závar; svářeč lépe vidí spoj.' },
+  perp: { label: 'Kolmo', a: 0, w: 75, h: 22, d: 40, txt: 'Kolmo — střední tvar housenky i' + NB + 'závaru.' },
+  pull: { label: 'Vzad', a: 25, w: 60, h: 32, d: 58, txt: 'Svařování vzad (tažení) — hořák míří proti směru svařování k' + NB + 'hotovému svaru: užší a' + NB + 'vyšší housenka, větší závar.' },
+};
+const TILT_KEYS = ['push', 'perp', 'pull'];
+
+class Component extends DCLogic {
+  state = { selA: null, x: 170, y: 322, gas: 'mix', pulse: false, selG: null, tilt: 'push' };
+  RA = {};
+  RB = {};
+  rA = { gas: el => { this.RA.gas = el; }, arc: el => { this.RA.arc = el; } };
+  rB = R_B.reduce((o, k) => { o[k] = el => { this.RB[k] = el; }; return o; }, {});
+  mapRef = el => { this.mapEl = el; };
+  onMapDown = e => { this.drag = true; this.moveTo(e); };
+
+  moveTo(e) {
+    const s = this.mapEl; if (!s) return;
+    const m = s.getScreenCTM(); if (!m) return;
+    const p = s.createSVGPoint(); p.x = e.clientX; p.y = e.clientY;
+    const q = p.matrixTransform(m.inverse());
+    this.setState({ x: Math.round(clamp(q.x, 90, 590)), y: Math.round(clamp(q.y, 50, 390)) });
+  }
+
+  componentDidMount() {
+    this.tA = 0; this.tB = 0; this.mode = null; this.age = 0; this.per = 1; this.side = 1;
+    this.spAcc = 0; this.stAcc = 0; this.prevPh = 0; this.flash = 0;
+    const mk = (g, n, r) => { const out = []; if (!g) return out; for (let i = 0; i < n; i++) { const c = document.createElementNS(SVGNS, 'circle'); c.setAttribute('r', r); c.setAttribute('fill', '#ff9d4d'); c.setAttribute('opacity', '0'); g.appendChild(c); out.push({ c, on: false }); } return out; };
+    this.falls = mk(this.RB.fall, 14, 4);
+    this.sparks = mk(this.RB.sp, 40, 1.8);
+    this.onMove = e => { if (this.drag) this.moveTo(e); };
+    this.onUp = () => { this.drag = false; };
+    window.addEventListener('pointermove', this.onMove);
+    window.addEventListener('pointerup', this.onUp);
+    let last = 0;
+    const tick = now => {
+      const dt = last ? Math.min(0.05, (now - last) / 1000) : 0; last = now;
+      this.tA += dt;
+      this.drawA();
+      this.drawB(dt);
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  componentWillUnmount() {
+    cancelAnimationFrame(this.raf);
+    window.removeEventListener('pointermove', this.onMove);
+    window.removeEventListener('pointerup', this.onUp);
+  }
+
+  drawA() {
+    const A = this.RA, t = this.tA;
+    if (A.gas) A.gas.setAttribute('stroke-dashoffset', f1(-(t * 28) % 14));
+    if (A.arc) A.arc.setAttribute('opacity', f1(0.85 + 0.15 * Math.sin(t * 37) * Math.sin(t * 23)));
+  }
+
+  newCycle(m) {
+    const r = Math.random();
+    this.per = m === 'glob' ? 0.9 + r * 0.6 : m === 'long' ? 0.8 + r * 0.4 : 0.7 + r * 0.4;
+    this.side = Math.random() < 0.5 ? -1 : 1;
+  }
+  fall(x, y, r, vx, vy, quiet) {
+    const p = this.falls.find(q => !q.on); if (!p) return;
+    Object.assign(p, { on: true, x, y, r, vx, vy, quiet });
+    p.c.setAttribute('r', f1(r));
+  }
+  spark(x, y, n) {
+    for (let i = 0; i < n; i++) {
+      const s = this.sparks.find(q => !q.on); if (!s) return;
+      Object.assign(s, { on: true, x, y, vx: (Math.random() * 2 - 1) * 220, vy: -(80 + Math.random() * 200), life: 0.4 + Math.random() * 0.3 });
+    }
+  }
+  sparkRate(dt, rate, x, y) {
+    this.spAcc += dt * rate;
+    while (this.spAcc >= 1) { this.spAcc -= 1; this.spark(x, y, 1); }
+  }
+
+  drawB(dt) {
+    const B = this.RB; if (!B.wire) return;
+    const st = this.state, rnd = Math.random;
+    const m = regionOf(st.x, st.y, st.gas, st.pulse);
+    if (m !== this.mode) {
+      this.mode = m; this.age = 0; this.spAcc = 0; this.stAcc = 0; this.prevPh = 0; this.flash = 0;
+      this.newCycle(m);
+      this.falls.concat(this.sparks).forEach(p => { p.on = false; p.c.setAttribute('opacity', '0'); });
+    }
+    this.tB += dt;
+    const t = this.tB;
+    let tip = 300, taper = false, drop = null, bridge = null, arc = null;
+    if (m === 'sc') {
+      const ph = (t % 0.4) / 0.4;
+      if (ph < 0.6) { const k = ph / 0.6; tip = 352 + 14 * k; const r = 3 + 8 * k; drop = { x: 180, y: tip + r * 0.8, r }; arc = { xb: 180, wt: 5, wb: 22, op: 0.85 }; }
+      else if (ph < 0.85) { tip = 366; bridge = 11 - 8 * (ph - 0.6) / 0.25; }
+      else { tip = 352; drop = { x: 180, y: 354, r: 3 }; arc = { xb: 180, wt: 7, wb: 30, op: 1 }; }
+      if (this.prevPh < 0.85 && ph >= 0.85 && rnd() < 0.35) this.spark(180, 392, 1 + Math.floor(rnd() * 2));
+      this.prevPh = ph;
+    } else if (m === 'glob' || m === 'long' || m === 'co2') {
+      const long = m === 'long', co2 = m === 'co2';
+      tip = long ? 215 : 290;
+      this.age += dt;
+      const k = Math.min(1, this.age / this.per);
+      const rMax = co2 ? 16 : long ? 15 : 18;
+      const r = 5 + (rMax - 5) * k;
+      const dx = co2 ? this.side * r * 0.75 : 6 * Math.sin(t * 5) * k;
+      drop = { x: 180 + dx, y: tip + (co2 ? r * 0.1 : r * 0.85), r };
+      const wander = long ? 30 * Math.sin(t * 3.1) + 14 * Math.sin(t * 7.3) : co2 ? 16 * Math.sin(t * 9) + 8 * Math.sin(t * 23) : 5 * Math.sin(t * 6);
+      const fl = 1 + 0.15 * Math.sin(t * 41) * Math.sin(t * 17);
+      if (this.flash > 0) this.flash -= dt;
+      arc = this.flash > 0 ? null : { xb: 180 + wander, wt: 7, wb: (long ? 40 : 30) * fl, op: 0.85 };
+      if (k >= 1) {
+        this.fall(drop.x, drop.y, r, co2 ? this.side * (140 + rnd() * 80) : long ? rnd() * 60 - 30 : rnd() * 30 - 15, co2 ? -(20 + rnd() * 40) : 20, false);
+        if (m === 'glob' && rnd() < 0.3) this.flash = 0.08;
+        this.age = 0; this.newCycle(m);
+      }
+      if (co2) this.sparkRate(dt, 22, 180 + wander, 392);
+      else if (long) this.sparkRate(dt, 4, 180 + wander, 392);
+    } else if (m === 'spray') {
+      tip = 318; taper = true;
+      arc = { xb: 180, wt: 5, wb: 64 * (1 + 0.05 * Math.sin(t * 37)), op: 0.9, bell: true };
+      this.stAcc += dt;
+      while (this.stAcc > 0.03) { this.stAcc -= 0.03; this.fall(180 + rnd() * 2 - 1, tip + 3, 2.4, 0, 520, true); }
+    } else if (m === 'pulse') {
+      const P = 0.6, ph = (t % P) / P;
+      tip = 316;
+      const inP = ph >= 0.1 && ph < 0.3;
+      const r = inP ? 3 + 5 * (ph - 0.1) / 0.2 : 2 + (ph >= 0.3 ? (ph - 0.3) / 0.8 : (ph + 0.7) / 0.8);
+      drop = { x: 180, y: tip + r * 0.8, r };
+      arc = inP ? { xb: 180, wt: 6, wb: 52, op: 0.95, bell: true } : { xb: 180, wt: 3, wb: 16, op: 0.35 };
+      if (this.prevPh < 0.3 && ph >= 0.3) this.fall(180, tip + 6.4, 8, 0, 300, true);
+      this.prevPh = ph;
+      if (B.now) {
+        const x = f1(60 + ((t % (3 * P)) / (3 * P)) * 600);
+        B.now.setAttribute('x1', x); B.now.setAttribute('x2', x);
+        if (B.nowT) B.nowT.setAttribute('x', x);
+      }
+    } else {
+      const ph = (t % 0.22) / 0.22;
+      tip = 380 + 26 * ph;
+      arc = tip < 398 && rnd() > 0.25 ? { xb: 180 + rnd() * 10 - 5, wt: 5, wb: 18, op: 0.9 } : null;
+      if (this.prevPh > ph) this.spark(180, 396, 2 + Math.floor(rnd() * 3));
+      this.prevPh = ph;
+    }
+
+    B.wire.setAttribute('d', taper
+      ? 'M172 0 L188 0 L188 ' + f1(tip - 16) + ' L183 ' + f1(tip) + ' L177 ' + f1(tip) + ' L172 ' + f1(tip - 16) + ' Z'
+      : 'M172 0 L188 0 L188 ' + f1(tip) + ' L172 ' + f1(tip) + ' Z');
+    const arcD = (wt, wb, xb, bell) => {
+      const ym = f1((tip + 400) / 2);
+      return bell
+        ? 'M' + f1(180 - wt) + ' ' + f1(tip) + ' L' + f1(180 + wt) + ' ' + f1(tip) + ' Q' + f1(xb + wb * 0.35) + ' ' + ym + ' ' + f1(xb + wb) + ' 400 L' + f1(xb - wb) + ' 400 Q' + f1(xb - wb * 0.35) + ' ' + ym + ' ' + f1(180 - wt) + ' ' + f1(tip) + ' Z'
+        : 'M' + f1(180 - wt) + ' ' + f1(tip) + ' L' + f1(180 + wt) + ' ' + f1(tip) + ' L' + f1(xb + wb) + ' 400 L' + f1(xb - wb) + ' 400 Z';
+    };
+    if (arc) {
+      B.arcI.setAttribute('d', arcD(arc.wt, arc.wb, arc.xb, arc.bell)); B.arcI.setAttribute('opacity', f1(arc.op * 0.9));
+      B.arcO.setAttribute('d', arcD(arc.wt * 1.7, arc.wb * 1.6, arc.xb, arc.bell)); B.arcO.setAttribute('opacity', f1(arc.op * 0.28));
+    } else { B.arcI.setAttribute('opacity', '0'); B.arcO.setAttribute('opacity', '0'); }
+    if (drop) { B.drop.setAttribute('cx', f1(drop.x)); B.drop.setAttribute('cy', f1(drop.y)); B.drop.setAttribute('r', f1(drop.r)); B.drop.setAttribute('opacity', '1'); }
+    else B.drop.setAttribute('opacity', '0');
+    B.br.setAttribute('d', bridge === null ? '' : 'M172 ' + f1(tip) + ' L188 ' + f1(tip) + ' Q' + f1(180 + bridge) + ' 383 196 400 L164 400 Q' + f1(180 - bridge) + ' 383 172 ' + f1(tip) + ' Z');
+
+    this.falls.forEach(p => {
+      if (!p.on) return;
+      p.vy += 900 * dt; p.x += p.vx * dt; p.y += p.vy * dt;
+      if (p.y + p.r * 0.5 >= 400 || p.x < -20 || p.x > 380) {
+        p.on = false; p.c.setAttribute('opacity', '0');
+        if (!p.quiet && p.x > 110 && p.x < 250) this.spark(p.x, 396, m === 'co2' ? 4 : 2);
+        return;
+      }
+      p.c.setAttribute('cx', f1(p.x)); p.c.setAttribute('cy', f1(p.y)); p.c.setAttribute('opacity', '1');
+    });
+    this.sparks.forEach(p => {
+      if (!p.on) return;
+      p.life -= dt; p.vy += 600 * dt; p.x += p.vx * dt; p.y += p.vy * dt;
+      if (p.life <= 0 || p.y > 402) { p.on = false; p.c.setAttribute('opacity', '0'); return; }
+      p.c.setAttribute('cx', f1(p.x)); p.c.setAttribute('cy', f1(p.y)); p.c.setAttribute('opacity', f1(Math.min(1, p.life * 4)));
+    });
+  }
+
+  renderVals() {
+    const st = this.state;
+    const lA = {}, cA = {}, hA = {};
+    Object.keys(INFO_A).forEach(k => {
+      lA[k] = lab(st.selA === k);
+      hA[k] = st.selA === k ? ACC : 'none';
+      cA[k] = () => this.setState(x => ({ selA: x.selA === k ? null : k }));
+    });
+    const L = st.selA ? LEAD_A[st.selA] : [0, 0, 0, 0];
+    const leadA = { x1: L[0], y1: L[1], x2: L[2], y2: L[3], op: st.selA ? 1 : 0 };
+
+    const reg = regionOf(st.x, st.y, st.gas, st.pulse);
+    const mix = st.gas === 'mix';
+    const on = k => reg === k;
+    const mo = {
+      sc: on('sc') ? 0.4 : 0.14, glob: on('glob') ? 0.4 : 0.14,
+      spray: mix ? (on('spray') ? 0.4 : 0.14) : 0, co2: mix ? 0 : (on('co2') ? 1 : 0.5),
+      pulse: st.pulse ? (on('pulse') ? 0.42 : 0.22) : 0, pulseLine: st.pulse ? 0.8 : 0,
+    };
+    const tc = k => (on(k) ? '#eaf2fa' : '#8296a8');
+    const mt = { sc: tc('sc'), glob: tc('glob'), right: (on('spray') || on('co2')) ? '#eaf2fa' : '#8296a8', pulse: tc('pulse'), long: on('long') ? ACC : '#8296a8', short: on('short') ? ACC : '#8296a8' };
+    const gasBtns = [['co2', 'CO₂'], ['mix', 'Ar + CO₂']].map(([k, label]) => Object.assign(btnSt(st.gas === k), {
+      label, pick: () => this.setState(k === 'co2' ? { gas: 'co2', pulse: false, selG: null } : { gas: 'mix' }),
+    }));
+    const dis = !mix;
+    const pulseBtn = {
+      dis: dis ? 'true' : 'false',
+      title: dis ? 'Pulzní přenos vyžaduje směs s' + NB + 'převahou argonu.' : '',
+      color: dis ? '#5b6676' : '#eaf2fa', cursor: dis ? 'not-allowed' : 'pointer',
+      track: st.pulse ? ACC : '#263040', knob: st.pulse ? '19px' : '3px',
+      toggle: () => { if (!dis) this.setState(x => ({ pulse: !x.pulse, selG: null })); },
+    };
+    const lG = {}, cG = {}, hG = {};
+    ['base', 'pulse'].forEach(k => {
+      lG[k] = lab(st.selG === k);
+      hG[k] = { c: st.selG === k ? ACC : '#9fc3e6', w: st.selG === k ? 4 : 2.5 };
+      cG[k] = () => this.setState(x => ({ selG: x.selG === k ? null : k }));
+    });
+
+    const tl = TILT[st.tilt];
+    const tilt = {
+      tf: 'translate(240px, 260px) rotate(' + tl.a + 'deg)', txt: tl.txt,
+      beadD: 'M' + (240 - tl.w) + ' 170 Q240 ' + (170 - 2 * tl.h) + ' ' + (240 + tl.w) + ' 170 Q240 ' + (170 + 2 * tl.d) + ' ' + (240 - tl.w) + ' 170 Z',
+    };
+    const tiltBtns = TILT_KEYS.map(k => Object.assign(btnSt(st.tilt === k), { label: TILT[k].label, pick: () => this.setState({ tilt: k }) }));
+
+    return {
+      rA: this.rA, rB: this.rB, lA, cA, hA, leadA,
+      infoA: (st.selA && INFO_A[st.selA]) || HINT_A,
+      gasCol: st.selA === 'op' ? ACC : '#9fc3e6', gasW: st.selA === 'op' ? 2.6 : 1.8,
+      dimCol: st.selA === 'vd' ? ACC : '#8296a8', dimW: st.selA === 'vd' ? 2.2 : 1.2,
+      st, px: st.x, py: st.y, vv: 440 - st.y,
+      crossD: 'M' + st.x + ' ' + st.y + ' L' + st.x + ' 400 M' + st.x + ' ' + st.y + ' L80 ' + st.y,
+      onX: e => this.setState({ x: +e.target.value }),
+      onV: e => this.setState({ y: 440 - +e.target.value }),
+      mapRef: this.mapRef, onMapDown: this.onMapDown,
+      mo, mt, rightLabel: mix ? 'sprchový' : 'hrubé kapky',
+      reg: REG[reg], gasBtns, pulseBtn,
+      lG, cG, hG, infoG: (st.selG && INFO_G[st.selG]) || HINT_G,
+      tilt, tiltBtns,
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

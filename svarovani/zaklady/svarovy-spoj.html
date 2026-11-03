@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Svarový spoj, druhy svarů a svarové plochy | STT</title>
+<meta name="description" content="Svarový spoj: části svaru, druhy svarových spojů, tupý × koutový svar, tvary úkosů I, V, Y, X, U, ½V a K, příprava svarových ploch a vícevrstvý svar.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body data-first-seen="2026-11-03">
+<x-dc>
+<helmet>
+  <script defer="" src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; background: #080b12; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: #e08cc4; }
+  </style>
+  <script>
+    document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
+    document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
+  </script>
+</helmet>
+<div class="site-nav-toggle" style="position:fixed;top:24px;right:24px;z-index:1000;width:220px;background:#0d121a;border:1px solid #263040;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow:hidden;max-height:48px;transition:max-height 0.22s ease">
+  <div style="height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer">
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+    <span style="width:20px;height:2px;background:#a9bccd;border-radius:1px"></span>
+  </div>
+  <div style="display:flex;flex-direction:column;border-top:1px solid #232c39">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+      <a href="{{ n.href }}" style="padding:12px 18px;font-family:'Quicksand',sans-serif;font-weight:600;font-size:14px;color:#eaf2fa" style-hover="background:#080b12">{{ n.title }}</a>
+    </sc-for>
+  </div>
+</div>
+<a href="index.html" style="position:fixed;top:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#0d121a;border:1px solid #263040;box-shadow:0 2px 10px rgba(0,0,0,0.3);color:#eaf2fa;font-family:'Quicksand',sans-serif;font-size:14px;font-weight:600">← Zpět na&nbsp;Základy svařování</a>
+
+<div style="min-height:100vh;background:#080b12;font-family:'IBM Plex Sans',sans-serif;padding:96px 48px 80px;box-sizing:border-box;color:#eaf2fa">
+  <div style="max-width:1180px;margin:0 auto">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:10px">Základy svařování</div>
+    <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#eaf2fa;margin:0 0 12px">Svarový spoj, druhy svarů a&nbsp;svarové plochy</h1>
+    <p style="font-size:18px;line-height:1.6;color:#aebfcf;margin:0;max-width:820px;text-wrap:pretty">Jak jsou díly vůči sobě uspořádány, jaký svar je spojuje a&nbsp;jak se připraví plochy, aby se spoj provařil.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Části svaru</h2>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:4px">Schéma</div>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Řez tupým svarem s&nbsp;úkosem V</div>
+      <div style="font-size:14px;color:#8296a8;margin:4px 0 14px">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
+      <svg viewBox="0 0 900 380" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <path d="M40 150 L360 150 L432 270 L40 270 Z" fill="{{ s1.zmFill }}"></path>
+        <path d="M860 150 L540 150 L468 270 L860 270 Z" fill="{{ s1.zmFill }}"></path>
+        <path d="M360 150 Q450 116 540 150 L468 270 Q450 286 432 270 Z" fill="{{ s1.skFill }}"></path>
+        <sc-if value="{{ s1.pre }}" hint-placeholder-val="{{ false }}">
+          <path d="M360 150 Q450 116 540 150 Z" fill="#e08cc4" opacity="0.75"></path>
+        </sc-if>
+        <sc-if value="{{ s1.lic }}" hint-placeholder-val="{{ false }}">
+          <path d="M360 150 Q450 116 540 150" fill="none" stroke="#e08cc4" stroke-width="5" stroke-linecap="round"></path>
+        </sc-if>
+        <sc-if value="{{ s1.rub }}" hint-placeholder-val="{{ false }}">
+          <path d="M432 270 Q450 286 468 270" fill="none" stroke="#e08cc4" stroke-width="5" stroke-linecap="round"></path>
+        </sc-if>
+        <sc-if value="{{ s1.kor }}" hint-placeholder-val="{{ false }}">
+          <circle cx="450" cy="262" r="16" fill="none" stroke="#e08cc4" stroke-width="3"></circle>
+        </sc-if>
+        <path d="M360 150 L432 270" fill="none" stroke="{{ s1.hzCol }}" stroke-width="{{ s1.hzW }}" pointer-events="none"></path>
+        <path d="M540 150 L468 270" fill="none" stroke="{{ s1.hzCol }}" stroke-width="{{ s1.hzW }}" pointer-events="none"></path>
+        <path d="M380 150 L440 250 L440 270" fill="none" stroke="{{ s1.puCol }}" stroke-width="{{ s1.puW }}" stroke-dasharray="6 5" pointer-events="none"></path>
+        <path d="M520 150 L460 250 L460 270" fill="none" stroke="{{ s1.puCol }}" stroke-width="{{ s1.puW }}" stroke-dasharray="6 5" pointer-events="none"></path>
+        <line x1="405" y1="137" x2="300" y2="74" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+        <line x1="368" y1="163" x2="290" y2="126" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+        <line x1="511" y1="165" x2="600" y2="120" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+        <line x1="490" y1="145" x2="600" y2="74" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+        <line x1="480" y1="200" x2="600" y2="200" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+        <line x1="458" y1="266" x2="600" y2="314" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+        <line x1="450" y1="277" x2="380" y2="334" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+        <g onClick="{{ s1.c.lic }}" style="cursor:pointer">
+          <rect x="206" y="60" width="94" height="28" rx="8" fill="#0d121a" stroke="{{ s1.l.lic.stroke }}" stroke-width="{{ s1.l.lic.sw }}"></rect>
+          <text x="253" y="79" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">líc svaru</text>
+        </g>
+        <g onClick="{{ s1.c.pre }}" style="cursor:pointer">
+          <rect x="600" y="60" width="141" height="28" rx="8" fill="#0d121a" stroke="{{ s1.l.pre.stroke }}" stroke-width="{{ s1.l.pre.sw }}"></rect>
+          <text x="670.5" y="79" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">převýšení líce</text>
+        </g>
+        <g onClick="{{ s1.c.sk }}" style="cursor:pointer">
+          <rect x="600" y="186" width="110" height="28" rx="8" fill="#0d121a" stroke="{{ s1.l.sk.stroke }}" stroke-width="{{ s1.l.sk.sw }}"></rect>
+          <text x="655" y="205" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">svarový kov</text>
+        </g>
+        <g onClick="{{ s1.c.kor }}" style="cursor:pointer">
+          <rect x="600" y="300" width="110" height="28" rx="8" fill="#0d121a" stroke="{{ s1.l.kor.stroke }}" stroke-width="{{ s1.l.kor.sw }}"></rect>
+          <text x="655" y="319" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">kořen svaru</text>
+        </g>
+        <g onClick="{{ s1.c.rub }}" style="cursor:pointer">
+          <rect x="286" y="320" width="94" height="28" rx="8" fill="#0d121a" stroke="{{ s1.l.rub.stroke }}" stroke-width="{{ s1.l.rub.sw }}"></rect>
+          <text x="333" y="339" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">rub svaru</text>
+        </g>
+        <g onClick="{{ s1.c.zm }}" style="cursor:pointer">
+          <rect x="90" y="196" width="157" height="28" rx="8" fill="#0d121a" stroke="{{ s1.l.zm.stroke }}" stroke-width="{{ s1.l.zm.sw }}"></rect>
+          <text x="168.5" y="215" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">základní materiál</text>
+        </g>
+        <g onClick="{{ s1.c.hz }}" style="cursor:pointer">
+          <rect x="150" y="112" width="140" height="28" rx="8" fill="#0d121a" stroke="{{ s1.l.hz.stroke }}" stroke-width="{{ s1.l.hz.sw }}"></rect>
+          <text x="220" y="131" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">hranice ztavení</text>
+        </g>
+        <g onClick="{{ s1.c.pu }}" style="cursor:pointer">
+          <rect x="600" y="106" width="118" height="28" rx="8" fill="#0d121a" stroke="{{ s1.l.pu.stroke }}" stroke-width="{{ s1.l.pu.sw }}"></rect>
+          <text x="659" y="125" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">původní úkos</text>
+        </g>
+      </svg>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:26px;text-wrap:pretty">{{ s1.text }}</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Housenka</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Svarový kov nanesený jedním průchodem.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Vrstva</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Jedna nebo více housenek vedle sebe ve&nbsp;stejné výšce.</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Druhy svarových spojů</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Svarový spoj se pojmenovává podle vzájemné polohy spojovaných dílů.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+        <svg viewBox="{{ iso.vb }}" style="width:100%;height:170px;display:block;background:#0a0e15;border-radius:12px">
+          <sc-for list="{{ iso.j1 }}" as="f" hint-placeholder-count="10"><path d="{{ f.d }}" fill="{{ f.fill }}" stroke="#0a0e15" stroke-width="0.04" stroke-linejoin="round"></path></sc-for>
+        </svg>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Tupý spoj</div>
+          <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Díly leží v&nbsp;jedné rovině čelo proti čelu.</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Typický svar: <span style="color:#e08cc4;font-weight:600">tupý</span></div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+        <svg viewBox="{{ iso.vb }}" style="width:100%;height:170px;display:block;background:#0a0e15;border-radius:12px">
+          <sc-for list="{{ iso.j2 }}" as="f" hint-placeholder-count="10"><path d="{{ f.d }}" fill="{{ f.fill }}" stroke="#0a0e15" stroke-width="0.04" stroke-linejoin="round"></path></sc-for>
+        </svg>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">T-spoj</div>
+          <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Jeden díl stojí kolmo na&nbsp;druhém.</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Typický svar: <span style="color:#e08cc4;font-weight:600">koutový z&nbsp;jedné nebo obou stran</span></div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+        <svg viewBox="{{ iso.vb }}" style="width:100%;height:170px;display:block;background:#0a0e15;border-radius:12px">
+          <sc-for list="{{ iso.j3 }}" as="f" hint-placeholder-count="10"><path d="{{ f.d }}" fill="{{ f.fill }}" stroke="#0a0e15" stroke-width="0.04" stroke-linejoin="round"></path></sc-for>
+        </svg>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Rohový spoj</div>
+          <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Díly se stýkají hranami v&nbsp;rohu.</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Typický svar: <span style="color:#e08cc4;font-weight:600">koutový nebo tupý</span></div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+        <svg viewBox="{{ iso.vb }}" style="width:100%;height:170px;display:block;background:#0a0e15;border-radius:12px">
+          <sc-for list="{{ iso.j4 }}" as="f" hint-placeholder-count="8"><path d="{{ f.d }}" fill="{{ f.fill }}" stroke="#0a0e15" stroke-width="0.04" stroke-linejoin="round"></path></sc-for>
+        </svg>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Přeplátovaný spoj</div>
+          <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Díly se překrývají.</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Typický svar: <span style="color:#e08cc4;font-weight:600">koutový na&nbsp;hraně horního dílu</span></div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+        <svg viewBox="{{ iso.vb }}" style="width:100%;height:170px;display:block;background:#0a0e15;border-radius:12px">
+          <sc-for list="{{ iso.j5 }}" as="f" hint-placeholder-count="18"><path d="{{ f.d }}" fill="{{ f.fill }}" stroke="#0a0e15" stroke-width="0.04" stroke-linejoin="round"></path></sc-for>
+        </svg>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Křížový spoj</div>
+          <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Dva díly kolmo z&nbsp;obou stran třetího.</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Typický svar: <span style="color:#e08cc4;font-weight:600">koutové</span></div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+        <svg viewBox="{{ iso.vb }}" style="width:100%;height:170px;display:block;background:#0a0e15;border-radius:12px">
+          <sc-for list="{{ iso.j6 }}" as="f" hint-placeholder-count="16"><path d="{{ f.d }}" fill="{{ f.fill }}" stroke="#0a0e15" stroke-width="0.04" stroke-linejoin="round"></path></sc-for>
+        </svg>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Lemový spoj</div>
+          <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Ohnuté okraje tenkých plechů se roztaví bez přídavného materiálu.</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Typický svar: <span style="color:#e08cc4;font-weight:600">lemový</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Spoj × svar</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Svarový spoj popisuje uspořádání dílů, svar popisuje tvar svarového kovu. Rozlišují se dva základní svary.</p>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Tupý svar</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Vyplňuje mezeru mezi plochami dílů.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Koutový svar</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Leží v&nbsp;rohu mezi dvěma plochami.</div>
+      </div>
+    </div>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin-top:18px;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <svg viewBox="0 0 900 320" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <path d="M75 220 H375 V270 H75 Z" fill="#39424e"></path>
+        <path d="M205 60 H245 V220 H205 Z" fill="#39424e"></path>
+        <path d="M245 220 L285 220 L245 180 Z" fill="#e08cc4"></path>
+        <path d="M205 220 L165 220 L205 180 Z" fill="#e08cc4"></path>
+        <path d="M525 220 H825 V270 H525 Z" fill="#39424e"></path>
+        <path d="M653 180 L697 180 L707 220 L643 220 Z" fill="#e08cc4"></path>
+        <path d="M655 60 L695 60 L695 185 L680 215 L670 215 L655 185 Z" fill="#39424e"></path>
+        <text x="450" y="178" text-anchor="middle" font-family="Quicksand, sans-serif" font-size="30" font-weight="700" fill="#8296a8">×</text>
+        <text x="225" y="302" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="#eaf2fa">dva koutové svary</text>
+        <text x="675" y="302" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" fill="#eaf2fa">tupý svar, úkos K</text>
+      </svg>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin-top:14px;text-align:center">Stejný spoj, různé svary.</div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#aebfcf;margin:16px 0 0;max-width:820px;text-wrap:pretty">Bodové a&nbsp;švové svary vznikají <a href="../tlakove/odporove.html" style="color:#e08cc4;font-weight:600">odporovým svařováním</a>.</p>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 12px">Svarové plochy a&nbsp;úkosy</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 20px;max-width:820px;text-wrap:pretty">Plochy dílů, které se svaří, se u&nbsp;silnějších dílů upravují do&nbsp;úkosu, aby se provařila celá tloušťka.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Úhel rozevření</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Úhel mezi oběma zkosenými plochami.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Otupení</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Neupravená část plochy u&nbsp;kořene.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Mezera v&nbsp;kořeni</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Vzdálenost mezi díly v&nbsp;kořeni.</div>
+      </div>
+    </div>
+
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;margin-top:24px;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:4px">Interaktivní schéma</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Tvary úkosů</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Vyber tvar a&nbsp;klikni na&nbsp;kótu ve&nbsp;schématu.</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <sc-for list="{{ shapeButtons }}" as="b" hint-placeholder-count="7">
+            <button onClick="{{ b.onClick }}" style="min-width:46px;padding:9px 14px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:15px;cursor:pointer;background:{{ b.bg }};color:{{ b.color }};border:1px solid {{ b.border }}">{{ b.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:24px;align-items:start">
+        <div>
+          <svg viewBox="0 0 900 330" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+            <path d="{{ g.left }}" fill="#39424e"></path>
+            <path d="{{ g.right }}" fill="#39424e"></path>
+            <sc-if value="{{ g.hasAngle }}" hint-placeholder-val="{{ true }}">
+              <path d="{{ g.arc }}" fill="none" stroke="{{ g.aCol }}" stroke-width="2"></path>
+              <line x1="{{ g.aLx }}" y1="{{ g.aLy }}" x2="{{ g.aTx }}" y2="68" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+              <g onClick="{{ pick.uhel }}" style="cursor:pointer">
+                <rect x="{{ g.aRx }}" y="40" width="133" height="28" rx="8" fill="#0d121a" stroke="{{ g.aLab.stroke }}" stroke-width="{{ g.aLab.sw }}"></rect>
+                <text x="{{ g.aTx }}" y="59" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">úhel rozevření</text>
+              </g>
+            </sc-if>
+            <sc-if value="{{ g.hasRoot }}" hint-placeholder-val="{{ true }}">
+              <sc-for list="{{ g.roots }}" as="r" hint-placeholder-count="2">
+                <line x1="{{ r.x }}" y1="{{ r.y1 }}" x2="{{ r.x }}" y2="{{ r.y2 }}" stroke="{{ g.rCol }}" stroke-width="4" stroke-linecap="round"></line>
+              </sc-for>
+              <line x1="{{ g.rLx }}" y1="{{ g.rLy }}" x2="600" y2="294" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+              <g onClick="{{ pick.otup }}" style="cursor:pointer">
+                <rect x="600" y="280" width="79" height="28" rx="8" fill="#0d121a" stroke="{{ g.rLab.stroke }}" stroke-width="{{ g.rLab.sw }}"></rect>
+                <text x="639.5" y="299" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">otupení</text>
+              </g>
+            </sc-if>
+            <line x1="440" y1="{{ g.gy1 }}" x2="440" y2="{{ g.gy2 }}" stroke="{{ g.gCol }}" stroke-width="1.5"></line>
+            <line x1="460" y1="{{ g.gy1 }}" x2="460" y2="{{ g.gy2 }}" stroke="{{ g.gCol }}" stroke-width="1.5"></line>
+            <line x1="414" y1="{{ g.gd }}" x2="431" y2="{{ g.gd }}" stroke="{{ g.gCol }}" stroke-width="1.5"></line>
+            <line x1="469" y1="{{ g.gd }}" x2="486" y2="{{ g.gd }}" stroke="{{ g.gCol }}" stroke-width="1.5"></line>
+            <path d="{{ g.arrR }}" fill="{{ g.gCol }}"></path>
+            <path d="{{ g.arrL }}" fill="{{ g.gCol }}"></path>
+            <g onClick="{{ pick.mez }}" style="cursor:pointer">
+              <rect x="379.5" y="{{ g.gly }}" width="141" height="28" rx="8" fill="#0d121a" stroke="{{ g.gLab.stroke }}" stroke-width="{{ g.gLab.sw }}"></rect>
+              <text x="450" y="{{ g.gty }}" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">mezera v kořeni</text>
+            </g>
+          </svg>
+          <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:26px;text-wrap:pretty">{{ s4Text }}</p>
+        </div>
+        <div style="background:#0a0e15;border:1px solid #232c39;border-top:4px solid #e08cc4;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:16px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">{{ info.title }}</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#8296a8;margin-bottom:4px">Kdy použít</div>
+            <div style="font-size:15px;line-height:1.55;color:#eaf2fa;text-wrap:pretty">{{ info.text }}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <sc-for list="{{ info.ind }}" as="i" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-size:13px;font-weight:600;color:#8296a8">{{ i.label }}</div>
+                <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px">
+                  <sc-for list="{{ i.segs }}" as="s" hint-placeholder-count="3">
+                    <span style="height:8px;border-radius:4px;background:{{ s.bg }}"></span>
+                  </sc-for>
+                </div>
+                <div style="font-size:14.5px;color:#eaf2fa">{{ i.val }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Příprava svarových ploch</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Výroba úkosu</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.55;color:#aebfcf">
+          <div><span style="color:#eaf2fa;font-weight:600">obrábění</span> — hoblování, frézování, soustružení</div>
+          <div><span style="color:#eaf2fa;font-weight:600">řezání</span> — plamenem nebo plazmou</div>
+          <div><span style="color:#eaf2fa;font-weight:600">broušení</span></div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Čištění před svařováním</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Okuje, rez, barva, mastnota a&nbsp;vlhkost se musí odstranit, jinak způsobí póry a&nbsp;vady svaru.</div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:26px;color:#eaf2fa;margin:56px 0 16px">Koutový a&nbsp;vícevrstvý svar</h2>
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:0 0 14px">Rozměry koutového svaru</h3>
+    <div style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:18px;align-items:start">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+        <div style="font-size:14px;color:#8296a8;margin:0 0 14px">Klikni na&nbsp;kótu ve&nbsp;schématu.</div>
+        <svg viewBox="0 0 700 340" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+          <path d="M100 250 H640 V300 H100 Z" fill="#39424e"></path>
+          <path d="M300 40 H350 V250 H300 Z" fill="#39424e"></path>
+          <path d="M350 250 L470 250 L350 130 Z" fill="#55657a"></path>
+          <line x1="300" y1="130" x2="270" y2="130" stroke="{{ s6.zCol }}" stroke-width="1.5"></line>
+          <line x1="300" y1="250" x2="270" y2="250" stroke="{{ s6.zCol }}" stroke-width="1.5"></line>
+          <line x1="300" y1="130" x2="350" y2="130" stroke="{{ s6.zCol }}" stroke-width="1.2" stroke-dasharray="4 4"></line>
+          <line x1="278" y1="139" x2="278" y2="241" stroke="{{ s6.zCol }}" stroke-width="1.5"></line>
+          <path d="M278 130 L274 139 L282 139 Z" fill="{{ s6.zCol }}"></path>
+          <path d="M278 250 L274 241 L282 241 Z" fill="{{ s6.zCol }}"></path>
+          <line x1="356" y1="244" x2="404" y2="196" stroke="{{ s6.aCol }}" stroke-width="2"></line>
+          <path d="M410 190 L406.5 199.2 L400.8 193.6 Z" fill="{{ s6.aCol }}"></path>
+          <path d="M350 250 L359.2 246.5 L353.6 240.8 Z" fill="{{ s6.aCol }}"></path>
+          <g onClick="{{ s6.cz }}" transform="rotate(-90 262 190)" style="cursor:pointer">
+            <rect x="248" y="178" width="28" height="24" rx="7" fill="#0d121a" stroke="{{ s6.zLab.stroke }}" stroke-width="{{ s6.zLab.sw }}"></rect>
+            <text x="262" y="195" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" font-style="italic" fill="#eaf2fa">z</text>
+          </g>
+          <g onClick="{{ s6.ca }}" transform="rotate(-45 368 208)" style="cursor:pointer">
+            <rect x="356" y="197" width="24" height="22" rx="6" fill="#0d121a" stroke="{{ s6.aLab.stroke }}" stroke-width="{{ s6.aLab.sw }}"></rect>
+            <text x="368" y="213" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="15" font-weight="600" font-style="italic" fill="#eaf2fa">a</text>
+          </g>
+        </svg>
+        <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:26px;text-wrap:pretty">{{ s6.text }}</p>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-top:4px solid #e08cc4;border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa">Vztah <i>a</i> a&nbsp;<i>z</i></div>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:28px;color:#e08cc4"><i>a</i> ≈ 0,7 · <i>z</i></div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Rovnoramenný svar: <i>a</i> = <i>z</i> · cos 45°.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:36px 0 14px">Tvar koutového svaru</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+        <svg viewBox="0 0 260 190" style="width:100%;display:block;background:#0a0e15;border-radius:12px">
+          <path d="M50 20 H80 V140 H50 Z" fill="#39424e"></path>
+          <path d="M50 140 H240 V170 H50 Z" fill="#39424e"></path>
+          <path d="M80 140 L160 140 L80 60 Z" fill="#e08cc4"></path>
+        </svg>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa">Plochý</div>
+          <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Povrch svaru je rovný, průřez odpovídá trojúhelníku svaru.</div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+        <svg viewBox="0 0 260 190" style="width:100%;display:block;background:#0a0e15;border-radius:12px">
+          <path d="M50 20 H80 V140 H50 Z" fill="#39424e"></path>
+          <path d="M50 140 H240 V170 H50 Z" fill="#39424e"></path>
+          <path d="M80 140 L160 140 Q142 78 80 60 Z" fill="#e08cc4"></path>
+        </svg>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa">Vypouklý</div>
+          <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Povrch je vyklenutý ven, svar má zbytečný nadbytek kovu.</div>
+        </div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:16px 16px 20px;display:flex;flex-direction:column;gap:12px">
+        <svg viewBox="0 0 260 190" style="width:100%;display:block;background:#0a0e15;border-radius:12px">
+          <path d="M50 20 H80 V140 H50 Z" fill="#39424e"></path>
+          <path d="M50 140 H240 V170 H50 Z" fill="#39424e"></path>
+          <path d="M80 140 L160 140 Q102 118 80 60 Z" fill="#e08cc4"></path>
+        </svg>
+        <div style="padding:0 8px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:18px;color:#eaf2fa">Vydutý</div>
+          <div style="font-size:15px;line-height:1.55;color:#aebfcf;text-wrap:pretty">Povrch je prohnutý dovnitř, svar plynule přechází do&nbsp;základního materiálu.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:36px 0 14px">Skládání vrstev</h3>
+    <div style="background:#0d121a;border:1px solid #263040;border-radius:20px;padding:24px 26px;box-shadow:0 1px 3px rgba(0,0,0,0.3)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:#e08cc4;margin-bottom:4px">Animace</div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa">Vícevrstvý svar v&nbsp;úkosu V</div>
+          <div style="font-size:14px;color:#8296a8;margin-top:4px">Po&nbsp;dokončení klikni na&nbsp;vrstvu nebo popisek.</div>
+        </div>
+        <button onClick="{{ play }}" style="padding:9px 18px;border-radius:999px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;background:#0d121a;color:#e08cc4;border:1px solid #e08cc4">{{ playLabel }}</button>
+      </div>
+      <svg viewBox="0 0 900 340" style="width:100%;display:block;background:#0a0e15;border-radius:14px">
+        <path d="M40 120 L368.4 120 L440 244 L440 260 L40 260 Z" fill="#39424e"></path>
+        <path d="M860 120 L531.6 120 L460 244 L460 260 L860 260 Z" fill="#39424e"></path>
+        <path d="M438 260 Q450 272 462 260 L473.2 228 Q450 218 426.8 228 Z" fill="{{ L.b0.fill }}" stroke="{{ L.b0.stroke }}" stroke-width="1.5" opacity="{{ L.b0.o }}" onClick="{{ L.ck.kor }}" style="cursor:pointer"></path>
+        <path d="M426.8 228 L473.2 228 L490.6 198 Q450 188 409.4 198 Z" fill="{{ L.b1.fill }}" stroke="{{ L.b1.stroke }}" stroke-width="1.5" opacity="{{ L.b1.o }}" onClick="{{ L.ck.vyp }}" style="cursor:pointer"></path>
+        <path d="M409.4 198 L490.6 198 L507.9 168 Q450 158 392.1 168 Z" fill="{{ L.b2.fill }}" stroke="{{ L.b2.stroke }}" stroke-width="1.5" opacity="{{ L.b2.o }}" onClick="{{ L.ck.vyp }}" style="cursor:pointer"></path>
+        <path d="M392.1 168 L507.9 168 L525.2 138 Q450 128 374.8 138 Z" fill="{{ L.b3.fill }}" stroke="{{ L.b3.stroke }}" stroke-width="1.5" opacity="{{ L.b3.o }}" onClick="{{ L.ck.vyp }}" style="cursor:pointer"></path>
+        <path d="M374.8 138 L452 138 L452 116 Q420 98 362.4 120 Z" fill="{{ L.b4.fill }}" stroke="{{ L.b4.stroke }}" stroke-width="1.5" opacity="{{ L.b4.o }}" onClick="{{ L.ck.kry }}" style="cursor:pointer"></path>
+        <path d="M448 138 L525.2 138 L537.6 120 Q480 98 448 116 Z" fill="{{ L.b5.fill }}" stroke="{{ L.b5.stroke }}" stroke-width="1.5" opacity="{{ L.b5.o }}" onClick="{{ L.ck.kry }}" style="cursor:pointer"></path>
+        <sc-if value="{{ L.done }}" hint-placeholder-val="{{ false }}">
+          <line x1="500" y1="114" x2="600" y2="96" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+          <line x1="490" y1="183" x2="600" y2="170" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+          <line x1="455" y1="250" x2="600" y2="250" stroke="#8296a8" stroke-width="1.5" pointer-events="none"></line>
+          <g onClick="{{ L.ck.kry }}" style="cursor:pointer">
+            <rect x="600" y="82" width="102" height="28" rx="8" fill="#0d121a" stroke="{{ L.lab.kry.stroke }}" stroke-width="{{ L.lab.kry.sw }}"></rect>
+            <text x="651" y="101" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">krycí vrstva</text>
+          </g>
+          <g onClick="{{ L.ck.vyp }}" style="cursor:pointer">
+            <rect x="600" y="156" width="133" height="28" rx="8" fill="#0d121a" stroke="{{ L.lab.vyp.stroke }}" stroke-width="{{ L.lab.vyp.sw }}"></rect>
+            <text x="666.5" y="175" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">výplňové vrstvy</text>
+          </g>
+          <g onClick="{{ L.ck.kor }}" style="cursor:pointer">
+            <rect x="600" y="236" width="133" height="28" rx="8" fill="#0d121a" stroke="{{ L.lab.kor.stroke }}" stroke-width="{{ L.lab.kor.sw }}"></rect>
+            <text x="666.5" y="255" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#eaf2fa">kořenová vrstva</text>
+          </g>
+        </sc-if>
+      </svg>
+      <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:#aebfcf">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#39424e"></span>základní materiál</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#e59a62"></span>svarová lázeň</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:4px;background:#55657a"></span>svarový kov</span>
+      </div>
+      <p style="font-size:15.5px;line-height:1.65;color:#eaf2fa;margin:14px 0 0;min-height:26px;text-wrap:pretty">{{ L.text }}</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px">
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Podložka kořene</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Pásek pod kořenem, který zabrání propadnutí lázně.</div>
+      </div>
+      <div style="background:#0d121a;border:1px solid #263040;border-radius:18px;padding:22px 24px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:19px;color:#eaf2fa;margin-bottom:8px">Podvaření kořene</div>
+        <div style="font-size:15px;line-height:1.6;color:#aebfcf;text-wrap:pretty">Kořen se z&nbsp;rubu vybrousí a&nbsp;zavaří.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const NB = '\u00a0';
+const ACC = '#e08cc4', LINE = '#a9bccd';
+const lab = on => ({ stroke: on ? ACC : '#4a5768', sw: on ? 2.5 : 1.5 });
+const clamp01 = v => Math.max(0, Math.min(1, v));
+const hexRgb = c => [1, 3, 5].map(i => parseInt(c.slice(i, i + 2), 16));
+function mix(a, b, u) {
+  const A = hexRgb(a), B = hexRgb(b);
+  return 'rgb(' + A.map((v, i) => Math.round(v + (B[i] - v) * u)).join(',') + ')';
+}
+
+/* Sekce 1 */
+const S1 = {
+  lic: 'Líc svaru — povrch svaru na' + NB + 'straně, ze které se svařovalo.',
+  rub: 'Rub svaru — opačná strana svaru.',
+  kor: 'Kořen svaru — nejhlubší místo svaru, kde se díly stýkají.',
+  pre: 'Převýšení líce — část svarového kovu nad povrchem desek.',
+  sk: 'Svarový kov — ztuhlá směs přídavného materiálu a' + NB + 'natavených okrajů základního materiálu. Oba se v' + NB + 'lázni promísí, přídavný materiál už ve' + NB + 'svaru samostatně není.',
+  zm: 'Základní materiál — spojované díly.',
+  hz: 'Hranice ztavení — kam až se roztavil základní materiál. Leží za' + NB + 'původním úkosem.',
+  pu: 'Původní úkos — tvar ploch před svařením. Kov mezi úkosem a' + NB + 'hranicí ztavení pochází z' + NB + 'roztaveného základního materiálu.',
+};
+
+/* Izometrické obrázky spojů */
+const L_DEPTH = 5;
+const LIGHT = (() => { const v = [0.35, 0.55, 0.85], n = Math.hypot(...v); return v.map(x => x / n); })();
+const MAT = { p: ['#232a33', '#6a7686'], w: ['#7a3f66', '#f6c2e3'] };
+function prism(poly, m) {
+  const cx = poly.reduce((s, p) => s + p[0], 0) / poly.length, cz = poly.reduce((s, p) => s + p[1], 0) / poly.length;
+  const faces = [];
+  for (let i = 0; i < poly.length; i++) {
+    const a = poly[i], b = poly[(i + 1) % poly.length];
+    let nx = b[1] - a[1], nz = -(b[0] - a[0]);
+    const len = Math.hypot(nx, nz); nx /= len; nz /= len;
+    if (nx * (a[0] - cx) + nz * (a[1] - cz) < 0) { nx = -nx; nz = -nz; }
+    if (nx + nz > 0.01) faces.push({ pts: [[a[0], 0, a[1]], [b[0], 0, b[1]], [b[0], L_DEPTH, b[1]], [a[0], L_DEPTH, a[1]]], n: [nx, 0, nz], m });
+  }
+  faces.push({ pts: poly.map(p => [p[0], L_DEPTH, p[1]]), n: [0, 1, 0], m });
+  return faces;
+}
+const box = (x0, x1, z0, z1) => [[x0, z0], [x1, z0], [x1, z1], [x0, z1]];
+const JOINTS = [
+  [prism(box(-4, -0.2, 0, 1), 'p'), prism([[-0.2, 0], [0.2, 0], [0.2, 1], [0.12, 1.15], [-0.12, 1.15], [-0.2, 1]], 'w'), prism(box(0.2, 4, 0, 1), 'p')],
+  [prism(box(-4, 4, 0, 1), 'p'), prism([[-0.5, 1], [-1.3, 1], [-0.5, 1.8]], 'w'), prism(box(-0.5, 0.5, 1, 4), 'p'), prism([[0.5, 1], [1.3, 1], [0.5, 1.8]], 'w')],
+  [prism(box(3, 4, 0, 3), 'p'), prism(box(-1, 3, 3, 4), 'p'), prism([[3, 3], [4, 3], [4, 3.6], [3.6, 4], [3, 4]], 'w')],
+  [prism(box(-1.5, 4, 0, 1), 'p'), prism(box(-4, 1.5, 1, 2), 'p'), prism([[1.5, 1], [2.3, 1], [1.5, 1.8]], 'w')],
+  [prism([[-0.5, 2], [-1.3, 2], [-0.5, 1.2]], 'w'), prism(box(-0.5, 0.5, -0.5, 2), 'p'), prism([[0.5, 2], [1.3, 2], [0.5, 1.2]], 'w'), prism(box(-4, 4, 2, 3), 'p'), prism([[-0.5, 3], [-1.3, 3], [-0.5, 3.8]], 'w'), prism(box(-0.5, 0.5, 3, 5.5), 'p'), prism([[0.5, 3], [1.3, 3], [0.5, 3.8]], 'w')],
+  [prism(box(-4, -0.35, 0, 0.35), 'p'), prism(box(0.35, 4, 0, 0.35), 'p'), prism(box(-0.35, 0, 0, 1.3), 'p'), prism(box(0, 0.35, 0, 1.3), 'p'), prism([[-0.4, 1.3], [0.4, 1.3], [0.3, 1.65], [0, 1.75], [-0.3, 1.65]], 'w')],
+].map(j => j.flat());
+const ISO = (() => {
+  const pr = p => [(p[0] - p[1]) * 0.866, (p[0] + p[1]) * 0.5 - p[2]];
+  const projected = JOINTS.map(fs => fs.map(f => ({ f, q: f.pts.map(pr) })));
+  const bounds = projected.map(fs => {
+    const all = fs.flatMap(o => o.q);
+    return [Math.min(...all.map(p => p[0])), Math.max(...all.map(p => p[0])), Math.min(...all.map(p => p[1])), Math.max(...all.map(p => p[1]))];
+  });
+  const pad = 0.6;
+  const W = Math.max(...bounds.map(b => b[1] - b[0])) + 2 * pad, H = Math.max(...bounds.map(b => b[3] - b[2])) + 2 * pad;
+  const out = { vb: '0 0 ' + W.toFixed(2) + ' ' + H.toFixed(2) };
+  projected.forEach((fs, k) => {
+    const b = bounds[k], ox = (W - (b[1] - b[0])) / 2 - b[0], oy = (H - (b[3] - b[2])) / 2 - b[2];
+    out['j' + (k + 1)] = fs.map(({ f, q }) => {
+      const t = clamp01(0.35 + 0.65 * (f.n[0] * LIGHT[0] + f.n[1] * LIGHT[1] + f.n[2] * LIGHT[2]));
+      return { d: 'M' + q.map(p => (p[0] + ox).toFixed(3) + ' ' + (p[1] + oy).toFixed(3)).join(' L') + ' Z', fill: mix(MAT[f.m][0], MAT[f.m][1], t) };
+    });
+  });
+  return out;
+})();
+
+/* Sekce 4 — úkosy */
+const PARAM = {
+  uhel: 'Úhel rozevření — úhel mezi oběma zkosenými plochami.',
+  otup: 'Otupení — neupravená část plochy u' + NB + 'kořene.',
+  mez: 'Mezera v' + NB + 'kořeni — vzdálenost mezi díly v' + NB + 'kořeni.',
+};
+const LV = { objem: 'Objem svarového kovu', prip: 'Náročnost přípravy', def: 'Úhlová deformace' };
+const SHAPES = [
+  { k: 'I', left: 'M30 145 L440 145 L440 195 L30 195 Z', right: 'M870 145 L460 145 L460 195 L870 195 Z', y1: 195, angle: null, roots: null,
+    text: 'Hrany se neupravují. Tenké plechy do' + NB + '4' + NB + 'mm, mezera v' + NB + 'kořeni 0,5 až 2' + NB + 'mm.', ind: [[1, 'malý'], [1, 'snadná'], [1, 'malá']] },
+  { k: 'V', left: 'M30 100 L368.4 100 L440 224 L440 240 L30 240 Z', right: 'M870 100 L531.6 100 L460 224 L460 240 L870 240 Z', y1: 240,
+    angle: { arc: 'M395 146 A110 110 0 0 1 505 146', lx: 450, ly: 131.3, tx: 450 }, roots: [[440, 224, 240], [460, 224, 240]], rl: [461, 232],
+    text: 'Zkosení obou dílů z' + NB + 'jedné strany. Tloušťky 4 až 25' + NB + 'mm, úhel rozevření 60 až 90°.', ind: [[3, 'velký'], [1, 'snadná'], [3, 'velká (svar je nesymetrický)']] },
+  { k: 'Y', left: 'M30 100 L382.3 100 L440 200 L440 240 L30 240 Z', right: 'M870 100 L517.7 100 L460 200 L460 240 L870 240 Z', y1: 240,
+    angle: { arc: 'M405 139.4 A90 90 0 0 1 495 139.4', lx: 450, ly: 127.3, tx: 450 }, roots: [[440, 200, 240], [460, 200, 240]], rl: [461, 220],
+    text: 'Jako V s' + NB + 'větším otupením, kořen se snáz provaří bez propadnutí.', ind: [[2, 'střední'], [1, 'snadná'], [3, 'velká']] },
+  { k: 'X', left: 'M30 100 L404.2 100 L440 162 L440 178 L404.2 240 L30 240 Z', right: 'M870 100 L495.8 100 L460 162 L460 178 L495.8 240 L870 240 Z', y1: 240,
+    angle: { arc: 'M420 127.3 A60 60 0 0 1 480 127.3', lx: 450, ly: 119.3, tx: 450 }, roots: [[440, 162, 178], [460, 162, 178]], rl: [461, 170],
+    text: 'Oboustranné V, svařuje se střídavě z' + NB + 'obou stran, nutný přístup z' + NB + 'obou stran. Tloušťky 8 až 40' + NB + 'mm.', ind: [[2, 'menší než u' + NB + 'V'], [2, 'střední'], [1, 'malá']] },
+  { k: 'U', left: 'M30 100 L390 100 L406 202 A22 22 0 0 0 428 224 L440 224 L440 240 L30 240 Z', right: 'M870 100 L510 100 L494 202 A22 22 0 0 1 472 224 L460 224 L460 240 L870 240 Z', y1: 240,
+    angle: { arc: 'M394.7 130 A356.3 356.3 0 0 1 505.3 130', lx: 450, ly: 125.7, tx: 450 }, roots: [[440, 224, 240], [460, 224, 240]], rl: [461, 232],
+    text: 'Zaoblené dno úkosu, úkos se obrábí. Tloušťky nad 25' + NB + 'mm.', ind: [[1, 'nejmenší u' + NB + 'silných dílů'], [3, 'náročná'], [2, 'střední']] },
+  { k: '½V', left: 'M30 100 L316 100 L440 224 L440 240 L30 240 Z', right: 'M870 100 L460 100 L460 240 L870 240 Z', y1: 240,
+    angle: { arc: 'M382.2 166.2 A110 110 0 0 1 460 134', lx: 417.9, ly: 142.4, tx: 420 }, roots: [[440, 224, 240]], rl: [441, 232],
+    text: 'Úkos jen na' + NB + 'jednom dílu. Používá se u' + NB + 'tupých spojů a' + NB + 'hlavně u' + NB + 'T-spojů a' + NB + 'rohových spojů s' + NB + 'přístupem z' + NB + 'jedné strany.', ind: [[2, 'střední'], [1, 'snadná'], [3, 'velká']] },
+  { k: 'K', left: 'M30 100 L378 100 L440 162 L440 178 L378 240 L30 240 Z', right: 'M870 100 L460 100 L460 240 L870 240 Z', y1: 240,
+    angle: { arc: 'M417.6 139.6 A60 60 0 0 1 460 122', lx: 437, ly: 126.6, tx: 440 }, roots: [[440, 162, 178]], rl: [441, 170],
+    text: 'Oboustranný ½V na' + NB + 'jednom dílu. Používá se u' + NB + 'tupých spojů a' + NB + 'hlavně u' + NB + 'T-spojů silných dílů s' + NB + 'přístupem z' + NB + 'obou stran.', ind: [[2, 'menší'], [2, 'střední'], [1, 'malá']] },
+];
+
+/* Sekce 6 */
+const S6 = {
+  z: 'Rameno z — odvěsna trojúhelníku svaru.',
+  a: 'Účinná tloušťka a — výška trojúhelníku k' + NB + 'přeponě, vede z' + NB + 'kořene.',
+};
+const LAYER = {
+  kor: 'Kořenová vrstva — provaří kořen spoje.',
+  vyp: 'Výplňové vrstvy — vyplní úkos.',
+  kry: 'Krycí vrstva — vytvoří líc svaru.',
+};
+const BEAD_GROUP = ['kor', 'vyp', 'vyp', 'vyp', 'kry', 'kry'];
+const DUR = 6;
+
+class Component extends DCLogic {
+  state = { s1: null, shape: 'V', s4: null, s6: null, p: 0, played: false, layer: null };
+  _raf = null;
+  _last = null;
+  componentWillUnmount() { if (this._raf) cancelAnimationFrame(this._raf); }
+  play() {
+    this.setState({ p: 0, played: true, layer: null });
+    if (!this._raf) { this._last = null; this._raf = requestAnimationFrame(this.tick); }
+  }
+  tick = (now) => {
+    const dt = this._last == null ? 0 : Math.min(0.05, (now - this._last) / 1000);
+    this._last = now;
+    const p = Math.min(1, this.state.p + dt / DUR);
+    this.setState({ p });
+    this._raf = p < 1 ? requestAnimationFrame(this.tick) : null;
+  };
+  renderVals() {
+    const st = this.state;
+    const tog = (key, v) => () => this.setState(s => ({ [key]: s[key] === v ? null : v }));
+
+    const s1l = {}, s1c = {};
+    Object.keys(S1).forEach(k => { s1l[k] = lab(st.s1 === k); s1c[k] = tog('s1', k); });
+    const s1 = {
+      l: s1l, c: s1c,
+      zmFill: st.s1 === 'zm' ? '#6b4a61' : '#39424e',
+      skFill: st.s1 === 'sk' ? '#a8618f' : '#55657a',
+      hzCol: st.s1 === 'hz' ? ACC : LINE, hzW: st.s1 === 'hz' ? 3.5 : 2,
+      puCol: st.s1 === 'pu' ? ACC : LINE, puW: st.s1 === 'pu' ? 3 : 1.5,
+      pre: st.s1 === 'pre', lic: st.s1 === 'lic', rub: st.s1 === 'rub', kor: st.s1 === 'kor',
+      text: st.s1 ? S1[st.s1] : 'Klikni na' + NB + 'popisek ve' + NB + 'schématu.',
+    };
+
+    const S = SHAPES.find(x => x.k === st.shape);
+    const shapeButtons = SHAPES.map(x => {
+      const on = x.k === st.shape;
+      return { label: x.k, onClick: () => this.setState({ shape: x.k, s4: null }), bg: on ? ACC : '#0d121a', color: on ? '#0d121a' : '#eaf2fa', border: on ? ACC : '#263040' };
+    });
+    const col = k => st.s4 === k ? ACC : LINE;
+    const gd = S.y1 + 22;
+    const g = {
+      left: S.left, right: S.right,
+      hasAngle: !!S.angle, hasRoot: !!S.roots,
+      arc: S.angle ? S.angle.arc : '', aLx: S.angle ? S.angle.lx : 0, aLy: S.angle ? S.angle.ly : 0,
+      aTx: S.angle ? S.angle.tx : 0, aRx: S.angle ? S.angle.tx - 66.5 : 0, aCol: col('uhel'), aLab: lab(st.s4 === 'uhel'),
+      roots: (S.roots || []).map(r => ({ x: r[0], y1: r[1], y2: r[2] })), rCol: col('otup'), rLab: lab(st.s4 === 'otup'),
+      rLx: S.rl ? S.rl[0] : 0, rLy: S.rl ? S.rl[1] : 0,
+      gy1: S.y1 + 2, gy2: S.y1 + 28, gd, gCol: col('mez'), gLab: lab(st.s4 === 'mez'),
+      arrR: 'M440 ' + gd + ' L431 ' + (gd - 4) + ' L431 ' + (gd + 4) + ' Z',
+      arrL: 'M460 ' + gd + ' L469 ' + (gd - 4) + ' L469 ' + (gd + 4) + ' Z',
+      gly: S.y1 + 40, gty: S.y1 + 59,
+    };
+    const pick = { uhel: tog('s4', 'uhel'), otup: tog('s4', 'otup'), mez: tog('s4', 'mez') };
+    const s4Text = st.s4 ? PARAM[st.s4] : 'Klikni na' + NB + 'kótu ve' + NB + 'schématu.';
+    const info = {
+      title: 'Úkos ' + S.k, text: S.text,
+      ind: [LV.objem, LV.prip, LV.def].map((label, i) => ({
+        label, val: S.ind[i][1],
+        segs: [1, 2, 3].map(n => ({ bg: n <= S.ind[i][0] ? ACC : '#263040' })),
+      })),
+    };
+
+    const s6 = {
+      zCol: st.s6 === 'z' ? ACC : LINE, aCol: st.s6 === 'a' ? ACC : LINE,
+      zLab: lab(st.s6 === 'z'), aLab: lab(st.s6 === 'a'),
+      cz: tog('s6', 'z'), ca: tog('s6', 'a'),
+      text: st.s6 ? S6[st.s6] : 'Klikni na' + NB + 'kótu ve' + NB + 'schématu.',
+    };
+
+    const done = st.played && st.p >= 1;
+    const u = st.p * 6.6;
+    const L = { done, ck: {}, lab: {} };
+    Object.keys(LAYER).forEach(k => {
+      L.ck[k] = done ? tog('layer', k) : null;
+      L.lab[k] = lab(st.layer === k);
+    });
+    BEAD_GROUP.forEach((grp, i) => {
+      const o = st.played ? clamp01((u - i) / 0.4) : 0;
+      const cool = clamp01((u - i - 0.4) / 0.8);
+      const on = done && st.layer === grp;
+      L['b' + i] = {
+        o: Math.round(o * 100) / 100,
+        fill: on ? '#a8618f' : mix('#e59a62', '#55657a', cool),
+        stroke: on ? ACC : '#0a0e15',
+      };
+    });
+    L.text = done ? (st.layer ? LAYER[st.layer] : 'Klikni na' + NB + 'vrstvu nebo popisek.') : (st.played ? 'Housenky se kladou postupně od' + NB + 'kořene k' + NB + 'líci.' : 'Spusť animaci tlačítkem Přehrát.');
+
+    return {
+      s1, iso: ISO, shapeButtons, g, pick, s4Text, info, s6, L,
+      play: () => this.play(), playLabel: st.played ? 'Znovu' : 'Přehrát',
+    };
+  }
+}
+(function () {
+  const P = '../../';
+  const FALLBACK_NAV = [
+    { title: 'Domů', href: '../../index.html' },
+    { title: 'Vnitřní stavba kovů a\u00a0TZ', href: '../../vnitrni-stavba-kovu-a-tz/index.html?view=home' },
+    { title: 'Koroze', href: '../../koroze/index.html' },
+    { title: 'Tváření', href: '../../tvareni-za-tepla/index.html' },
+    { title: 'Prášková metalurgie', href: '../../praskova-metalurgie/index.html' },
+    { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
+    { title: 'Odlévání', href: '../../odlevani/index.html' },
+    { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'O projektu', href: '../../o-projektu.html' },
+    { title: 'Novinky', href: '../../novinky.html' },
+  ];
+  const rv = Component.prototype.renderVals;
+  Component.prototype.renderVals = function () {
+    const base = rv ? (rv.call(this) || {}) : {};
+    const n = this.state && this.state.__nav;
+    const navItems = n ? n.map(i => ({ title: i.title, href: P + i.href })) : FALLBACK_NAV;
+    return Object.assign({}, base, { navItems });
+  };
+  const cdm = Component.prototype.componentDidMount;
+  Component.prototype.componentDidMount = function () {
+    if (cdm) cdm.call(this);
+    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+  };
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

@@ -45,9 +45,9 @@ function pieceAt(t) {
 }
 
 // ── right detail geometry ──
-const DX0 = 1000, DW = 760;
+const DX0 = 960, DW = 620;
 const BASE_FLAT = 760, FILM_MAX = 120;
-const STEEL_BOT = 960;
+const STEEL_BOT = 900;
 
 function Scene() {
   const t = useTime();
@@ -111,8 +111,8 @@ function Scene() {
           {/* fluidizing tank */}
           <rect x={TANK_X0} y={TANK_TOP} width={TANK_W} height={TANK_BOT - TANK_TOP} fill="url(#powderGrad)" stroke="oklch(0.4 0.03 240)" strokeWidth={2} rx={6} />
           <rect x={TANK_X0 - 8} y={PLATE_Y} width={TANK_W + 16} height={16} fill="oklch(0.32 0.02 240)" rx={3} />
-          <text x={TANK_CX} y={PLATE_Y + 58} textAnchor="middle" fontFamily={mono} fontSize={14.5} fill={MUTE}>Fluidní vana (plastový prášek + vzduch)</text>
-          <text x={TANK_CX} y={PLATE_Y + 80} textAnchor="middle" fontFamily={mono} fontSize={13} fill={MUTE} opacity={0.75}>porézní přepážka přivádí vzduch zdola</text>
+          <text x={TANK_CX} y={PLATE_Y + 50} textAnchor="middle" fontFamily={mono} fontSize={22} fill={MUTE}>Fluidní vana (plastový prášek + vzduch)</text>
+          <text x={TANK_CX} y={PLATE_Y + 78} textAnchor="middle" fontFamily={mono} fontSize={20} fill={MUTE} opacity={0.75}>porézní přepážka přivádí vzduch zdola</text>
 
           {/* air jets */}
           {Array.from({ length: 6 }).map((_, i) => {
@@ -131,7 +131,7 @@ function Scene() {
 
           {/* finish stand */}
           <line x1={FINISH_X} y1={RAIL_Y} x2={FINISH_X} y2={ABOVE_Y - 40} stroke={MUTE} strokeWidth={3} opacity={fade(t, 13.6, 14.2, 400, 401)} />
-          <text x={FINISH_X} y={ABOVE_Y + 130} textAnchor="middle" fontFamily={mono} fontSize={14.5} fill={MUTE} opacity={fade(t, 13.8, 14.4, 400, 401)}>dohřev — vrstva se vyhladí a vytvrdí</text>
+          <text x={900} y={ABOVE_Y + 130} textAnchor="end" fontFamily={mono} fontSize={22} fill={MUTE} opacity={fade(t, 13.8, 14.4, 400, 401)}><tspan x={900}>dohřev — vrstva se</tspan><tspan x={900} dy={28}>vyhladí a vytvrdí</tspan></text>
 
           {/* hook + piece */}
           <g>
@@ -144,8 +144,8 @@ function Scene() {
         </g>
 
         {/* divider */}
-        <line x1={920} y1={140} x2={920} y2={960} stroke={MUTE} strokeWidth={1} opacity={0.25 * appear} />
-        <text x={DX0 + DW / 2} y={140} textAnchor="middle" fontFamily={mono} fontSize={19} fill={MUTE} opacity={appear}>Detail povrchu (řez, zvětšeno)</text>
+        <line x1={920} y1={140} x2={920} y2={900} stroke={MUTE} strokeWidth={1} opacity={0.25 * appear} />
+        <text x={DX0 + DW / 2} y={140} textAnchor="middle" fontFamily={mono} fontSize={24} fill={MUTE} opacity={appear}>Detail povrchu (řez, zvětšeno)</text>
 
         {/* moisture/chemicals blocked */}
         <g opacity={atmosOn}>
@@ -157,7 +157,7 @@ function Scene() {
             <g key={i}>
               <line x1={a.x} y1={210} x2={a.x} y2={filmTop - 18} stroke="oklch(0.7 0.1 220)" strokeWidth={2.5} strokeDasharray="6 6" opacity={0.75} />
               <path d={`M${a.x - 8} ${filmTop - 28} L${a.x} ${filmTop - 14} L${a.x + 8} ${filmTop - 28}`} fill="none" stroke="oklch(0.7 0.1 220)" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
-              <text x={a.x} y={194} textAnchor="middle" fontFamily={mono} fontSize={15} fill="oklch(0.75 0.1 220)">{a.label}</text>
+              <text x={a.x} y={192} textAnchor="middle" fontFamily={mono} fontSize={22} fill="oklch(0.75 0.1 220)">{a.label}</text>
             </g>
           ))}
         </g>
@@ -174,8 +174,8 @@ function Scene() {
 
         {progFilm > 0.05 ? (
           <>
-            <text x={DX0 + DW + 24} y={BASE_FLAT + (STEEL_BOT - BASE_FLAT) / 2} fontFamily={mono} fontSize={15} fill={MUTE}>kovový základ</text>
-            <text x={DX0 + DW + 24} y={(filmTop + BASE_FLAT) / 2 + 5} fontFamily={mono} fontSize={15} fill={PLASTIC} opacity={progFilm}>plastová vrstva</text>
+            <text x={DX0 + DW + 20} y={BASE_FLAT + (STEEL_BOT - BASE_FLAT) / 2} dominantBaseline="central" fontFamily={mono} fontSize={22} fill={MUTE}>kovový základ</text>
+            <text x={DX0 + DW + 20} y={(filmTop + BASE_FLAT) / 2} dominantBaseline="central" fontFamily={mono} fontSize={22} fill={PLASTIC} opacity={progFilm}>plastová vrstva</text>
           </>
         ) : null}
       </svg>
@@ -189,10 +189,10 @@ function Scene() {
         const o = fade(t, s.a, s.b, s.c, s.d);
         if (o < 0.001) return null;
         return (
-          <div key={i} style={{ position: 'absolute', left: '50%', bottom: 60,
+          <div key={i} style={{ position: 'absolute', left: '50%', bottom: 30,
             transform: `translate(-50%, ${(1 - o) * 10}px)`, opacity: o, textAlign: 'center', width: 1400 }}>
-            <div style={{ fontFamily: mono, fontSize: 16, letterSpacing: '0.24em', color: ACC, marginBottom: 12 }}>{s.n}</div>
-            <div style={{ fontFamily: sans, fontSize: 28, fontWeight: 500, color: '#eaf2fa', letterSpacing: '-0.005em', lineHeight: 1.35 }}>{s.txt}</div>
+            <div style={{ fontFamily: mono, fontSize: 20, letterSpacing: '0.24em', color: ACC, marginBottom: 12 }}>{s.n}</div>
+            <div style={{ fontFamily: sans, fontSize: 34, fontWeight: 500, color: '#eaf2fa', letterSpacing: '-0.005em', lineHeight: 1.35 }}>{s.txt}</div>
           </div>
         );
       })}

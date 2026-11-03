@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aluminotermické svařování (71) | STT</title>
+<meta name="description" content="Aluminotermické svařování (71): princip reakce, animovaný postup svařování kolejnic, použití, výhody a nevýhody.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma kapitoly Svařování (záměrně jen tmavé — promítání ve výuce) */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#e08cc4;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:96px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+h3{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #6b3d5c}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--muted)}
+.eq{font-family:var(--f-disp);font-weight:700;font-size:20px;color:var(--fg);background:var(--deep);border:1px solid var(--line2);border-top:4px solid var(--acc);border-radius:14px;padding:14px 18px;margin:4px 0 18px;text-align:center;max-width:820px;box-sizing:border-box}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin-bottom:18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{overflow-x:auto;border-radius:14px}
+.svgbox svg{display:block;width:100%;min-width:640px;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:4px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+</style>
+</head>
+<body data-first-seen="2026-11-03">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na&nbsp;Tavné svařování</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Tavné svařování</div>
+  <h1>Aluminotermické svařování (71)</h1>
+  <p class="lead">Teplo dodává chemická reakce hliníku s&nbsp;oxidem železa. Vzniklá tekutá ocel se odlije do&nbsp;formy kolem spoje.</p>
+
+  <h2>Princip</h2>
+  <p class="t">Termitová směs obsahuje práškový hliník a&nbsp;oxid železa. Po zapálení hliník odebere oxidu železa kyslík:</p>
+  <div class="eq">Fe₂O₃ + 2&nbsp;Al → 2&nbsp;Fe + Al₂O₃ + teplo</div>
+  <p class="t">Reakce uvolní tolik tepla, že železo i&nbsp;oxid hlinitý jsou tekuté. Lehčí oxid hlinitý plave navrch jako struska. Přísady ve&nbsp;směsi dolegují železo na&nbsp;ocel podobného složení, jako má svařovaný díl.</p>
+  <p class="t">Tekutá ocel se vypustí do&nbsp;formy, nataví konce dílů a&nbsp;po ztuhnutí je spojí. Svar tedy vzniká podobně jako <a class="link" href="../../odlevani/index.html">odlitek</a>.</p>
+
+  <h2>Svařování kolejnic</h2>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Postup svařování krok za&nbsp;krokem</div>
+        <div class="panel-s" style="margin-bottom:0">Podélný řez spojem. Vyber krok a&nbsp;klikni na&nbsp;popisek.</div>
+      </div>
+      <div class="btns" id="steps"></div>
+    </div>
+    <div class="svgbox"><svg id="svgA" viewBox="0 0 1000 440" role="img" aria-label="Postup aluminotermického svařování kolejnic"></svg></div>
+    <div class="step"><div class="step-t" id="stT"></div><p id="stP"></p></div>
+    <p class="info" id="infoA"></p>
+  </div>
+
+  <h2>Použití, výhody a&nbsp;nevýhody</h2>
+  <div class="grid">
+    <div class="card"><h3>Použití</h3><ul><li>kolejnice železnic a&nbsp;tramvají — svařuje se přímo na&nbsp;trati</li></ul></div>
+    <div class="card"><h3>Výhody</h3><ul><li>nepotřebuje elektrický proud ani velké zařízení</li><li>celý průřez se svaří najednou</li><li>rychlé a&nbsp;proveditelné v&nbsp;terénu</li></ul></div>
+    <div class="card"><h3>Nevýhody</h3><ul><li>na&nbsp;každý svar nová forma a&nbsp;dávka směsi</li><li>svar má litou strukturu — horší vlastnosti než válcovaná kolejnice</li><li>vyžaduje přesné nastavení mezery a&nbsp;suchou směs</li></ul></div>
+  </div>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#e08cc4';
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const lw=txt=>Math.round(txt.length*7.8+24);
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json').then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- PRVEK A — postup svařování ---------- */
+const svg=document.getElementById('svgA'), info=document.getElementById('infoA');
+const stT=document.getElementById('stT'), stP=document.getElementById('stP'), stepsBox=document.getElementById('steps');
+const STEPS=[
+  ['Příprava','Konce kolejnic se vyrovnají a'+NB+'nastaví s'+NB+'mezerou. Kolem mezery se nasadí písková forma. Její dutina dá svaru tvar.'],
+  ['Předehřev','Hořák ohřeje konce kolejnic ve'+NB+'formě. Ohřáté konce se od'+NB+'tekuté oceli spolehlivě nataví a'+NB+'svar chladne pomaleji.'],
+  ['Reakce','Termitová směs v'+NB+'kelímku se zapálí. Reakce proběhne celým objemem směsi. Tekutá ocel klesne ke dnu, struska plave navrch.'],
+  ['Odlití','Tekutá ocel vyteče dnem kelímku a'+NB+'vtokem plní formu. Nataví konce kolejnic a'+NB+'vyplní mezeru. Struska vyteče až nakonec a'+NB+'odvede se mimo svar.'],
+  ['Dokončení','Po ztuhnutí se forma odstraní. Přebytečný kov nad hlavou kolejnice se odstraní a'+NB+'hlava se zbrousí do'+NB+'roviny s'+NB+'kolejnicí.'],
+];
+// geometrie: kolejnice y 280–370, mezera x 470–530, límec svaru x 450–550, y 270–380
+const defs=el(svg,'defs',{});
+const pat=el(defs,'pattern',{id:'termit',width:8,height:8,patternUnits:'userSpaceOnUse'});
+el(pat,'rect',{width:8,height:8,fill:'#5c5a58'});el(pat,'circle',{cx:2,cy:2,r:1.3,fill:'#8d8a86'});el(pat,'circle',{cx:6,cy:6,r:1.1,fill:'#3f3d3b'});
+const sand=el(defs,'pattern',{id:'sand',width:10,height:10,patternUnits:'userSpaceOnUse'});
+el(sand,'rect',{width:10,height:10,fill:'#8a7556'});el(sand,'circle',{cx:3,cy:4,r:1,fill:'#a8936f'});el(sand,'circle',{cx:8,cy:8,r:1,fill:'#6f5d43'});
+const clip=el(defs,'clipPath',{id:'fillClip'}); const clipR=el(clip,'rect',{x:440,y:380,width:120,height:0});
+const parts={}, add=(k,e)=>{(parts[k]=parts[k]||[]).push(e);return e;};
+// kolejnice
+['M80 280 L470 280 L470 370 L80 370 Z','M530 280 L920 280 L920 370 L530 370 Z'].forEach(d=>add('ko',el(svg,'path',{d,fill:'#45505e'})));
+const railLines=el(svg,'g',{stroke:'#2f3843','stroke-width':2});
+[[80,470],[530,920]].forEach(([a,b])=>{el(railLines,'line',{x1:a,y1:310,x2:b,y2:310});el(railLines,'line',{x1:a,y1:352,x2:b,y2:352});});
+// ohřáté konce
+const hotG=el(svg,'g',{});
+const hotL=el(hotG,'rect',{x:440,y:280,width:30,height:90,fill:'#e0603a',opacity:.0});
+const hotR=el(hotG,'rect',{x:530,y:280,width:30,height:90,fill:'#e0603a',opacity:.0});
+// mezera (dutina formy) a svar
+const CAV='M450 270 L550 270 L550 280 L530 280 L530 370 L550 370 L550 380 L450 380 L450 370 L470 370 L470 280 L450 280 Z';
+const gap=add('me',el(svg,'path',{d:'M470 280 L530 280 L530 370 L470 370 Z',fill:'#140f0c'}));
+const weldMolten=el(svg,'g',{'clip-path':'url(#fillClip)'});
+add('sv',el(weldMolten,'path',{d:CAV,fill:'#f08a3c'}));
+add('sv',el(weldMolten,'rect',{x:492,y:230,width:16,height:40,fill:'#f08a3c'}));
+const weldSolid=el(svg,'g',{});
+add('sv',el(weldSolid,'path',{d:CAV,fill:'#6c7a8a'}));
+const riser=add('sv',el(weldSolid,'rect',{x:492,y:230,width:16,height:40,fill:'#6c7a8a'}));
+const cutLine=el(svg,'line',{x1:430,y1:280,x2:570,y2:280,stroke:'#ffe08a','stroke-width':2,'stroke-dasharray':'6 4'});
+// forma
+const mold=el(svg,'g',{});
+['M410 230 L492 230 L492 270 L450 270 L450 280 L410 280 Z','M508 230 L590 230 L590 280 L550 280 L550 270 L508 270 Z','M410 370 L450 370 L450 380 L550 380 L550 370 L590 370 L590 410 L410 410 Z']
+  .forEach(d=>add('fo',el(mold,'path',{d,fill:'url(#sand)'})));
+// kelímek
+const cru=el(svg,'g',{});
+const glow=el(cru,'ellipse',{cx:500,cy:120,rx:100,ry:85,fill:'#ff9a3c',opacity:0});
+add('ke',el(cru,'path',{d:'M430 60 L570 60 L540 190 L506 190 L506 212 L494 212 L494 190 L460 190 Z',fill:'#3a3330'}));
+const charge=add('ts',el(cru,'path',{d:'M447 74 L553 74 L530 178 L470 178 Z',fill:'url(#termit)'}));
+const steelIn=add('oc',el(cru,'path',{fill:'#f08a3c'}));
+const slagIn=add('st',el(cru,'path',{fill:'#f2e2a0'}));
+const spark=el(cru,'g',{opacity:0});
+[[0,-18],[13,-13],[-13,-13],[18,0],[-18,0]].forEach(([dx,dy])=>el(spark,'line',{x1:500,y1:70,x2:500+dx,y2:70+dy,stroke:'#fff3b0','stroke-width':2.5}));
+// proud oceli
+const stream=el(svg,'rect',{x:496,y:212,width:8,height:18,fill:'#f08a3c',opacity:0});
+// hořák pro předehřev
+const torch=el(svg,'g',{});
+add('ho',el(torch,'path',{d:'M640 150 L560 214 L552 206 L630 140 Z',fill:'#b87333'}));
+add('ho',el(torch,'rect',{x:620,y:110,width:110,height:26,rx:8,fill:'#2b333f',transform:'rotate(-38 640 140)'}));
+const tflame=el(torch,'path',{d:'M554 212 Q530 232 508 236 Q526 222 550 206 Z',fill:'#4f7fe8',opacity:.8});
+// popisky
+const INFO={
+  ko:'Kolejnice — konce se svařují v'+NB+'celém průřezu: hlava, stojina i'+NB+'pata.',
+  me:'Mezera — přesně nastavená vzdálenost konců. Vyplní ji tekutá ocel.',
+  fo:'Forma — písková, ze'+NB+'dvou polovin. Dutina kolem mezery dá svaru tvar s'+NB+'límcem přes konce kolejnic.',
+  vt:'Vtok — kanál, kterým tekutá ocel vtéká do'+NB+'dutiny formy.',
+  ho:'Hořák — předehřívá konce kolejnic plamenem přímo ve'+NB+'formě.',
+  ke:'Kelímek — žáruvzdorná nádoba se směsí. Dnem s'+NB+'uzávěrem vypouští tekutou ocel do'+NB+'formy.',
+  ts:'Termitová směs — práškový hliník, oxid železa a'+NB+'legující přísady.',
+  oc:'Tekutá ocel — produkt reakce. Je těžší než struska, proto klesá ke'+NB+'dnu kelímku.',
+  st:'Struska — oxid hlinitý z'+NB+'reakce. Je lehčí, plave navrch a'+NB+'do'+NB+'svaru se nedostane.',
+  sv:'Svar — ztuhlá ocel v'+NB+'mezeře a'+NB+'límec kolem konců kolejnic.',
+};
+const NAMES={ko:'kolejnice',me:'mezera',fo:'forma',vt:'vtok',ho:'hořák',ke:'kelímek',ts:'termitová směs',oc:'tekutá ocel',st:'struska',sv:'svar'};
+const POS={ko:[60,404,'b',200,370],me:[620,404,'b',520,360],sv:[620,404,'b',520,360],fo:[40,224,'l',410,250],vt:[40,180,'l',492,242],
+           ho:[780,60,'r',700,100],ke:[40,40,'l',440,80],ts:[780,120,'r',540,120],oc:[780,170,'r',528,165],st:[780,120,'r',540,126]};
+// které popisky jsou vidět v jednotlivých krocích
+const SHOW=[['ko','me','fo','vt','ke','ts'],['ko','me','fo','vt','ho','ke','ts'],['ko','me','fo','ke','oc','st'],['ko','sv','fo','vt','ke','st'],['ko','sv']];
+const leadG=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5});
+const L={}; let sel=null, step=0, t0=0;
+Object.keys(POS).forEach(k=>{
+  const [x,y,side,tx,ty]=POS[k], txt=NAMES[k], w=lw(txt);
+  const sx=side==='l'?x+w:side==='r'?x:x+w/2, sy=side==='b'?y:y+14;
+  const line=el(leadG,'line',{x1:sx,y1:sy,x2:tx,y2:ty});
+  const g=el(svg,'g',{class:'lbl',tabindex:0,role:'button'});
+  el(g,'rect',{x,y,width:w,height:28,rx:8});
+  const te=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});te.textContent=txt;
+  const pick=()=>{sel=sel===k?null:k;paint();};
+  g.addEventListener('click',pick);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick();}});
+  L[k]={g,line};
+});
+// vtok nemá vlastní tvar ve forma-skupině, zvýrazní se obrys kanálu
+const vtOut=add('vt',el(svg,'rect',{x:492,y:230,width:16,height:40,fill:'none'}));
+const btns=STEPS.map((s,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=(i+1)+'. '+s[0];b.onclick=()=>go(i);stepsBox.appendChild(b);return b;});
+function go(i){step=i;t0=performance.now();if(sel&&!SHOW[i].includes(sel))sel=null;
+  btns.forEach((b,j)=>b.setAttribute('aria-pressed',j===i));stT.textContent=(i+1)+'. '+STEPS[i][0];stP.textContent=STEPS[i][1];paint();}
+function paint(){
+  Object.keys(L).forEach(k=>{const on=SHOW[step].includes(k);L[k].g.style.display=on?'':'none';L[k].line.style.display=on?'':'none';L[k].g.classList.toggle('on',sel===k);});
+  Object.keys(parts).forEach(k=>parts[k].forEach(e=>{e.setAttribute('stroke',sel===k?ACC:'none');e.setAttribute('stroke-width',2.5);}));
+  info.textContent=sel?INFO[sel]:'Klikni na'+NB+'popisek ve'+NB+'schématu.';
+}
+function frame(now){
+  const t=(now-t0)/1000, s=step;
+  mold.style.display=s<4?'':'none';
+  cru.style.display=s<4?'':'none';
+  torch.style.display=s===1?'':'none';
+  gap.style.display=s<3?'':'none';
+  charge.style.display=s<2?'':'none';
+  // ohřev konců
+  const heat=s===1?Math.min(1,t/1.5)*.55:s===2?.45:0;
+  hotL.setAttribute('opacity',f(heat));hotR.setAttribute('opacity',f(heat));
+  tflame.setAttribute('opacity',reduce?.8:f(.65+.25*Math.sin(now/40)));
+  // reakce v kelímku
+  const XL=y=>447+(y-74)*0.2212, XR=y=>553-(y-74)*0.2212;
+  const band=(a,b)=>`M${f(XL(a))} ${f(a)} L${f(XR(a))} ${f(a)} L${f(XR(b))} ${f(b)} L${f(XL(b))} ${f(b)} Z`;
+  if(s===2){
+    const u=reduce?1:Math.min(1,t/1.6);
+    spark.setAttribute('opacity',u<.3?1:0);
+    glow.setAttribute('opacity',f(.15+.15*Math.sin(now/90)));
+    charge.style.display=u<.3?'':'none';
+    steelIn.setAttribute('d',band(120,178));
+    slagIn.setAttribute('d',band(74,120));
+    stream.setAttribute('opacity',0);
+  }else if(s===3){
+    const u=reduce?1:Math.min(1,t/2.4);
+    spark.setAttribute('opacity',0);glow.setAttribute('opacity',f(.1*(1-u)));
+    const ys=120+58*u; // hladina oceli klesá, struska klesá s ní
+    steelIn.setAttribute('d',u<1?band(ys,178):'');
+    slagIn.setAttribute('d',band(Math.max(74,ys-46),ys));
+    stream.setAttribute('opacity',u<1?1:0);
+    clipR.setAttribute('y',f(380-150*u));clipR.setAttribute('height',f(150*u));
+  }else{spark.setAttribute('opacity',0);glow.setAttribute('opacity',0);steelIn.setAttribute('d','');slagIn.setAttribute('d','');stream.setAttribute('opacity',0);}
+  if(s<3){clipR.setAttribute('height',0);}
+  weldSolid.style.display=s===4?'':'none';
+  weldMolten.style.display=s===3?'':'none';
+  cutLine.style.display=s===4?'':'none';
+  requestAnimationFrame(frame);
+}
+go(0);requestAnimationFrame(frame);
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

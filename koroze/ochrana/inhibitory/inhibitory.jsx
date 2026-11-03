@@ -84,13 +84,13 @@ function Scene() {
           {/* nadoba s elektrolytem */}
           <rect x={TX0} y={TY0} width={TX1 - TX0} height={TY1 - TY0} rx={10}
             fill="oklch(0.4 0.09 195 / 0.16)" stroke="oklch(0.55 0.03 250 / 0.6)" strokeWidth={2.5} />
-          <text x={(TX0 + TX1) / 2} y={TY0 - 20} textAnchor="middle" fontFamily={mono} fontSize={19}
+          <text x={(TX0 + TX1) / 2} y={TY0 - 20} textAnchor="middle" fontFamily={mono} fontSize={24}
             fill={ACID} letterSpacing="0.1em">agresivní elektrolyt</text>
 
           {/* kovový vzorek */}
           <rect x={CX0} y={CY0} width={CX1 - CX0} height={CY1 - CY0} fill="url(#steel)"
             stroke="oklch(0.72 0.02 250 / 0.7)" strokeWidth={2} />
-          <text x={(CX0 + CX1) / 2} y={CY1 + 34} textAnchor="middle" fontFamily={mono} fontSize={16}
+          <text x={(CX0 + CX1) / 2} y={CY1 + 38} textAnchor="middle" fontFamily={mono} fontSize={22}
             fill={MUTE}>kovový vzorek</text>
 
           {/* ionty útočící na povrch */}
@@ -136,7 +136,7 @@ function Scene() {
               fill="none" stroke={INHIB} strokeWidth={4} opacity={filmP} filter="url(#glow)" />
           ) : null}
           {filmP > 0.3 ? (
-            <text x={(CX0 + CX1) / 2} y={CY0 - 22} textAnchor="middle" fontFamily={mono} fontSize={15}
+            <text x={(CX0 + CX1) / 2} y={CY0 - 22} textAnchor="middle" fontFamily={mono} fontSize={22}
               fill={INHIB} opacity={filmP}>ochranná vrstva</text>
           ) : null}
         </g>
@@ -160,7 +160,7 @@ function Scene() {
         return (
           <div key={i} style={{ position: 'absolute', left: '50%', bottom: 88,
             transform: `translate(-50%, ${(1 - o) * 10}px)`, opacity: o, textAlign: 'center', width: 1200 }}>
-            <div style={{ fontFamily: mono, fontSize: 16, letterSpacing: '0.24em', color: INHIB, marginBottom: 12 }}>{s.n}</div>
+            <div style={{ fontFamily: mono, fontSize: 20, letterSpacing: '0.24em', color: INHIB, marginBottom: 12 }}>{s.n}</div>
             <div style={{ fontFamily: sans, fontSize: 33, fontWeight: 500, color: '#eaf2fa', letterSpacing: '-0.005em' }}>{s.txt}</div>
           </div>
         );

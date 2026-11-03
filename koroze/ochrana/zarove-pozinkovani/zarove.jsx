@@ -51,10 +51,10 @@ function pieceAt(t) {
 }
 
 // ── right detail geometry ──
-const DX0 = 1000, DW = 760;
+const DX0 = 960, DW = 620;
 const ZN_TOP_FLAT = 700, ALLOY_THICK = 46, ZN_THICK = 64;
 const STEEL_FLAT = ZN_TOP_FLAT + ALLOY_THICK + ZN_THICK; // = 810, undamaged steel surface
-const STEEL_BOT = 960;
+const STEEL_BOT = 900;
 const NX = DX0 + DW / 2, SIGMA = 95, STEEL_DIMPLE = 34;
 
 function notchFactor(x, notchProg) {
@@ -173,7 +173,7 @@ function Scene() {
             <g key={i}>
               <rect x={tk.x0} y={TANK_TOP} width={TANK_W} height={TANK_BOT - TANK_TOP} fill={`url(#${tk.grad})`} stroke="oklch(0.4 0.03 240)" strokeWidth={2} rx={6} />
               <rect x={tk.x0 - 8} y={TANK_BOT} width={TANK_W + 16} height={14} fill="oklch(0.32 0.02 240)" rx={3} />
-              <text x={tk.x0 + TANK_W / 2} y={TANK_BOT + 42} textAnchor="middle" fontFamily={mono} fontSize={14.5} fill={MUTE}>{tk.label}</text>
+              <text x={tk.x0 + TANK_W / 2} y={TANK_BOT + 46} textAnchor="middle" fontFamily={mono} fontSize={22} fill={MUTE}>{tk.label}</text>
               {tk.active > 0.02 ? Array.from({ length: 7 }).map((_, bi) => {
                 const bx = tk.x0 + 18 + ((TANK_W - 36) * ((bi * 37) % 100)) / 100;
                 const rise = ((t * (i === 2 ? 90 : 55) + bi * 27) % 130);
@@ -205,8 +205,8 @@ function Scene() {
         </g>
 
         {/* divider */}
-        <line x1={920} y1={140} x2={920} y2={960} stroke={MUTE} strokeWidth={1} opacity={0.25 * appear} />
-        <text x={NX} y={140} textAnchor="middle" fontFamily={mono} fontSize={19} fill={MUTE} opacity={appear}>Detail povrchu (řez, zvětšeno)</text>
+        <line x1={920} y1={140} x2={920} y2={900} stroke={MUTE} strokeWidth={1} opacity={0.25 * appear} />
+        <text x={NX} y={140} textAnchor="middle" fontFamily={mono} fontSize={24} fill={MUTE} opacity={appear}>Detail povrchu (řez, zvětšeno)</text>
 
         {/* atmosphere */}
         <g opacity={atmosOn}>
@@ -219,7 +219,7 @@ function Scene() {
             <g key={i}>
               <line x1={a.x} y1={230} x2={a.x} y2={ZN_TOP_FLAT - 20} stroke="oklch(0.7 0.1 220)" strokeWidth={2.5} strokeDasharray="6 6" opacity={0.75} />
               <path d={`M${a.x - 8} ${ZN_TOP_FLAT - 30} L${a.x} ${ZN_TOP_FLAT - 16} L${a.x + 8} ${ZN_TOP_FLAT - 30}`} fill="none" stroke="oklch(0.7 0.1 220)" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
-              <text x={a.x} y={214} textAnchor="middle" fontFamily={mono} fontSize={15} fill="oklch(0.75 0.1 220)">{a.label}</text>
+              <text x={a.x} y={212} textAnchor="middle" fontFamily={mono} fontSize={22} fill="oklch(0.75 0.1 220)">{a.label}</text>
             </g>
           ))}
         </g>
@@ -236,16 +236,16 @@ function Scene() {
 
         {progZn > 0.05 ? (
           <>
-            <text x={DX0 + DW + 24} y={STEEL_FLAT + (STEEL_BOT - STEEL_FLAT) / 2} fontFamily={mono} fontSize={15} fill={MUTE}>ocelový základ</text>
-            <text x={DX0 + DW + 24} y={(alloyTop(DX0 + DW - 40) + steelTop(DX0 + DW - 40)) / 2 + 5} fontFamily={mono} fontSize={15} fill={ALLOY} opacity={progAlloy}>slitinové vrstvy Fe–Zn</text>
-            <text x={DX0 + DW + 24} y={(zincTop(DX0 + DW - 40) + alloyTop(DX0 + DW - 40)) / 2 + 5} fontFamily={mono} fontSize={15} fill="oklch(0.6 0.02 250)" opacity={progZn}>čistý zinek</text>
+            <text x={DX0 + DW + 20} y={STEEL_FLAT + (STEEL_BOT - STEEL_FLAT) / 2} dominantBaseline="central" fontFamily={mono} fontSize={22} fill={MUTE}>ocelový základ</text>
+            <text x={DX0 + DW + 20} y={(alloyTop(DX0 + DW - 40) + steelTop(DX0 + DW - 40)) / 2} dominantBaseline="central" fontFamily={mono} fontSize={22} fill={ALLOY} opacity={progAlloy}>slitinové vrstvy Fe–Zn</text>
+            <text x={DX0 + DW + 20} y={(zincTop(DX0 + DW - 40) + alloyTop(DX0 + DW - 40)) / 2} dominantBaseline="central" fontFamily={mono} fontSize={22} fill="oklch(0.6 0.02 250)" opacity={progZn}>čistý zinek</text>
           </>
         ) : null}
 
         {notchProg > 0.3 ? (
           <g opacity={notchProg}>
             <path d={`M${NX + 60} ${ZN_TOP_FLAT - 20} L${NX + 12} ${steelTop(NX) - 6}`} stroke={ACC} strokeWidth={1.6} strokeDasharray="4 5" opacity={0.7} />
-            <text x={NX + 66} y={ZN_TOP_FLAT - 24} fontFamily={mono} fontSize={15} fill={ACC}>poškozené místo (bez zinku)</text>
+            <text x={NX + 66} y={ZN_TOP_FLAT - 28} fontFamily={mono} fontSize={22} fill={ACC}>poškozené místo (bez zinku)</text>
           </g>
         ) : null}
 
@@ -261,10 +261,10 @@ function Scene() {
         const o = fade(t, s.a, s.b, s.c, s.d);
         if (o < 0.001) return null;
         return (
-          <div key={i} style={{ position: 'absolute', left: '50%', bottom: 60,
+          <div key={i} style={{ position: 'absolute', left: '50%', bottom: 30,
             transform: `translate(-50%, ${(1 - o) * 10}px)`, opacity: o, textAlign: 'center', width: 1400 }}>
-            <div style={{ fontFamily: mono, fontSize: 16, letterSpacing: '0.24em', color: ACC, marginBottom: 12 }}>{s.n}</div>
-            <div style={{ fontFamily: sans, fontSize: 28, fontWeight: 500, color: '#eaf2fa', letterSpacing: '-0.005em', lineHeight: 1.35 }}>{s.txt}</div>
+            <div style={{ fontFamily: mono, fontSize: 20, letterSpacing: '0.24em', color: ACC, marginBottom: 12 }}>{s.n}</div>
+            <div style={{ fontFamily: sans, fontSize: 34, fontWeight: 500, color: '#eaf2fa', letterSpacing: '-0.005em', lineHeight: 1.35 }}>{s.txt}</div>
           </div>
         );
       })}

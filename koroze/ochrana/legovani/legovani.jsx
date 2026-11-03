@@ -86,8 +86,8 @@ function Scene() {
           {/* panely */}
           <rect x={LX0} y={PY0} width={LX1 - LX0} height={PY1 - PY0} fill="url(#steel)" stroke="oklch(0.55 0.03 250 / 0.6)" strokeWidth={2} />
           <rect x={RX0} y={PY0} width={RX1 - RX0} height={PY1 - PY0} fill="url(#steel)" stroke="oklch(0.55 0.03 250 / 0.6)" strokeWidth={2} />
-          <text x={(LX0 + LX1) / 2} y={PY0 - 20} textAnchor="middle" fontFamily={mono} fontSize={19} fill={MUTE} letterSpacing="0.08em">uhlíková ocel (Fe)</text>
-          <text x={(RX0 + RX1) / 2} y={PY0 - 20} textAnchor="middle" fontFamily={mono} fontSize={19} fill={MUTE} letterSpacing="0.08em">korozivzdorná ocel (Fe · Cr · Ni)</text>
+          <text x={(LX0 + LX1) / 2} y={PY0 - 20} textAnchor="middle" fontFamily={mono} fontSize={24} fill={MUTE} letterSpacing="0.08em">uhlíková ocel (Fe)</text>
+          <text x={(RX0 + RX1) / 2} y={PY0 - 20} textAnchor="middle" fontFamily={mono} fontSize={24} fill={MUTE} letterSpacing="0.08em">korozivzdorná ocel (Fe · Cr · Ni)</text>
           <text x={(LX1 + RX0) / 2} y={(PY0 + PY1) / 2} textAnchor="middle" fontFamily={mono} fontSize={22} fontWeight="600" fill="#5a6b7a">VS</text>
 
           {/* atomová mřížka */}
@@ -130,7 +130,7 @@ function Scene() {
             <rect x={RX0} y={PY0} width={RX1 - RX0} height={10} fill={ALLOY} opacity={passiveRight} filter="url(#glow)" />
           ) : null}
           {passiveRight > 0.4 ? (
-            <text x={(RX0 + RX1) / 2} y={PY0 + 34} textAnchor="middle" fontFamily={mono} fontSize={14}
+            <text x={(RX0 + RX1) / 2} y={PY0 + 40} textAnchor="middle" fontFamily={mono} fontSize={22}
               fill={ALLOY} opacity={passiveRight}>pasivní vrstva</text>
           ) : null}
         </g>
@@ -154,7 +154,7 @@ function Scene() {
         return (
           <div key={i} style={{ position: 'absolute', left: '50%', bottom: 88,
             transform: `translate(-50%, ${(1 - o) * 10}px)`, opacity: o, textAlign: 'center', width: 1300 }}>
-            <div style={{ fontFamily: mono, fontSize: 16, letterSpacing: '0.24em', color: ALLOY, marginBottom: 12 }}>{s.n}</div>
+            <div style={{ fontFamily: mono, fontSize: 20, letterSpacing: '0.24em', color: ALLOY, marginBottom: 12 }}>{s.n}</div>
             <div style={{ fontFamily: sans, fontSize: 33, fontWeight: 500, color: '#eaf2fa', letterSpacing: '-0.005em' }}>{s.txt}</div>
           </div>
         );

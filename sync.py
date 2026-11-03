@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-sync.py — synchronizace exportu z Claude Design do repozitáře STT
+sync.py — synchronizace webu STT do repozitáře
 
-Použití:
-    python sync.py export.zip                # normální běh
+Zdroj pravdy je od 11/2026 složka D:\\Claude\\STT\\web (rovnou HTML).
+
+Použití (spouštět ve složce repozitáře):
+    python sync.py                           # normální běh, zdroj = D:\\Claude\\STT\\web
+    python sync.py --dry-run                 # jen ukáže, co by udělal
+    python sync.py export.zip                # starý způsob: ZIP z Claude Design
     python sync.py export.zip --dry-run      # jen ukáže, co by udělal
     python sync.py export.zip --baseline     # PRVNÍ běh: založí manifest bez badgů
     python sync.py export/ --repo ../STT     # zdroj i cíl lze určit ručně
@@ -50,6 +54,7 @@ except ImportError:
 # Konfigurace
 # ──────────────────────────────────────────────────────────────────────
 
+DEFAULT_SOURCE = r"D:\Claude\STT\web"
 MANIFEST_NAME = "pages.json"
 LAST_UPDATE_NAME = "last-update.json"
 LAST_UPDATE_TZ = "Europe/Prague"
@@ -734,7 +739,8 @@ def main() -> int:
         description="Synchronizace exportu z Claude Design do repozitáře STT.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    p.add_argument("source", help="ZIP z Claude Design nebo rozbalená složka")
+    p.add_argument("source", nargs="?", default=DEFAULT_SOURCE,
+                   help=f"složka webu nebo ZIP (výchozí: {DEFAULT_SOURCE})")
     p.add_argument("--repo", default=".", help="cílový repozitář (výchozí: aktuální složka)")
     p.add_argument("--dry-run", action="store_true", help="jen ukázat, nic nezapisovat")
     p.add_argument("--baseline", action="store_true",

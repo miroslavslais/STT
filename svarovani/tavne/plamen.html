@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Svařování plamenem (311) | STT</title>
+<meta name="description" content="Svařování plamenem (311): princip, souprava pro svařování, rovnotlaký a injektorový hořák, části plamene, druhy plamene podle poměru plynů, zapálení a zhasnutí plamene, dvoustupňové hoření, výhody, nevýhody a použití.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma kapitoly Svařování (záměrně jen tmavé — promítání ve výuce) */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#e08cc4;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:96px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+h3{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #6b3d5c}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.card p{font-size:15px;line-height:1.6;color:var(--muted);margin:0}
+.card p+p{margin-top:10px}
+.eq{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--fg);background:var(--deep);border:1px solid var(--line2);border-radius:12px;padding:12px 16px;margin:4px 0 12px;text-align:center}
+.key{background:var(--deep);border:1px solid var(--line2);border-top:4px solid var(--acc);border-radius:16px;padding:20px 24px;margin:18px 0 0}
+.key h3{font-size:20px}
+.key p{font-size:16px;line-height:1.65;color:var(--fg);margin:0}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin-bottom:18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.svgbox{overflow-x:auto;border-radius:14px}
+.svgbox svg{display:block;width:100%;min-width:640px;background:var(--deep)}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+.sl{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-bottom:16px}
+.sl-ends{display:flex;justify-content:space-between;font-size:14px;color:var(--dim);margin-top:6px}
+.sl input{width:100%;accent-color:var(--acc);cursor:pointer}
+.ftype{display:grid;grid-template-columns:180px 1fr;gap:8px 18px;background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:16px 20px;margin-top:14px;font-size:15px;line-height:1.55}
+.ftype .k{color:var(--dim)}
+.ftype .v{color:var(--fg)}
+.ftype .name{font-family:var(--f-disp);font-weight:700;font-size:19px;color:var(--acc)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow-x:auto}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:16px 20px;color:var(--muted);border-top:1px solid var(--line2);min-width:200px}
+th+th,td+td{border-left:1px solid var(--line2)}
+td ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.card ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.6;color:var(--muted)}
+.card ol li::marker{color:var(--acc);font-weight:600}
+</style>
+</head>
+<body data-first-seen="2026-11-03">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na&nbsp;Tavné svařování</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Tavné svařování</div>
+  <h1>Svařování plamenem (311)</h1>
+  <p class="lead">Svarové plochy a&nbsp;přídavný drát taví plamen, který vzniká hořením acetylenu s&nbsp;kyslíkem.</p>
+
+  <h2>Princip</h2>
+  <p class="t">Kyslík a&nbsp;acetylen se smísí v&nbsp;hořáku a&nbsp;hoří na&nbsp;ústí hubice. Plamen nataví svarové plochy do&nbsp;společné lázně. Přídavný drát přidává svářeč zvlášť, nezávisle na&nbsp;plameni — podobně jako u&nbsp;<a class="link" href="tig.html">TIG</a>.</p>
+  <p class="t">Lázeň chrání samotný plamen: jeho zplodiny odebírají kyslík a&nbsp;vytlačují vzduch. U&nbsp;litiny, mosazi a&nbsp;hliníku se navíc používá tavidlo, které rozpouští oxidy na&nbsp;povrchu.</p>
+  <p class="t">Plamen předává teplo z&nbsp;velké plochy. Ohřeje se proto široké okolí svaru, <a class="link" href="../zaklady/metalurgie-svaru.html">TOO</a> je široká a&nbsp;díl se více <a class="link" href="../zaklady/pnuti-deformace.html">deformuje</a> než při svařování obloukem.</p>
+
+  <h2>Souprava pro svařování plamenem</h2>
+  <div class="panel">
+    <div class="panel-k">Interaktivní schéma</div>
+    <div class="panel-t">Lahve, ventily, hadice a&nbsp;hořák</div>
+    <div class="panel-s">Klikni na&nbsp;popisek ve&nbsp;schématu.</div>
+    <div class="svgbox"><svg id="svgA" viewBox="0 0 1000 470" role="img" aria-label="Souprava pro svařování plamenem"></svg></div>
+    <p class="info" id="infoA"></p>
+  </div>
+  <div class="card">
+    <h3>Rovnotlaký × injektorový hořák</h3>
+    <p><b style="color:var(--fg)">Rovnotlaký</b> hořák dostává kyslík i&nbsp;acetylen s&nbsp;přibližně stejným tlakem. Plyny se jen smísí ve&nbsp;směšovači. Dnes se používá převážně tento typ.</p>
+    <p><b style="color:var(--fg)">Injektorový</b> hořák má ve&nbsp;směšovači injektor. Kyslík proudí jeho tryskou velkou rychlostí a&nbsp;přisává acetylen, takže hořák pracuje i&nbsp;s&nbsp;nízkým tlakem acetylenu.</p>
+  </div>
+
+  <h2>Plamen</h2>
+  <p class="t">Druh plamene určuje poměr kyslíku a&nbsp;acetylenu, který svářeč nastaví ventilky na&nbsp;hořáku. Poměr se pozná podle tvaru a&nbsp;barvy plamene.</p>
+  <div class="panel">
+    <div class="panel-k">Interaktivní schéma</div>
+    <div class="panel-t">Složení a&nbsp;vzhled plamene</div>
+    <div class="panel-s">Posuvníkem měň poměr plynů. Klikni na&nbsp;popisek části plamene.</div>
+    <div class="sl">
+      <input type="range" id="sMix" min="0" max="100" step="1" value="50" aria-label="Poměr kyslíku a acetylenu">
+      <div class="sl-ends"><span>přebytek acetylenu</span><span>rovnováha</span><span>přebytek kyslíku</span></div>
+    </div>
+    <div class="svgbox"><svg id="svgB" viewBox="0 0 1000 300" role="img" aria-label="Plamen kyslíku a acetylenu"></svg></div>
+    <div class="ftype">
+      <div class="k">Druh plamene</div><div class="v name" id="fName"></div>
+      <div class="k">Poměr C₂H₂&nbsp;:&nbsp;O₂</div><div class="v" id="fRatio"></div>
+      <div class="k">Vzhled</div><div class="v" id="fLook"></div>
+      <div class="k">Účinek na&nbsp;lázeň</div><div class="v" id="fEff"></div>
+      <div class="k">Použití</div><div class="v" id="fUse"></div>
+    </div>
+    <p class="info" id="infoB"></p>
+  </div>
+
+  <h2>Zapálení a&nbsp;zhasnutí plamene</h2>
+  <p class="t">Pořadí ventilů při zapalování závisí na&nbsp;typu hořáku. Zhasíná se u&nbsp;obou typů stejně.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Zapálení — rovnotlaký hořák</h3>
+      <ol>
+        <li>Otevřít lahvové ventily a&nbsp;redukčními ventily nastavit pracovní tlak.</li>
+        <li>Na&nbsp;hořáku otevřít acetylenový ventilek a&nbsp;acetylen zapálit.</li>
+        <li>Otevřít kyslíkový ventilek.</li>
+        <li>Seřídit plamen: přidávat kyslík, dokud není kužel ostře ohraničený — plamen je neutrální.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>Zapálení — injektorový hořák</h3>
+      <ol>
+        <li>Ověřit sání injektoru: při otevřeném kyslíku a&nbsp;odpojené acetylenové hadici musí hořák přisávat vzduch. Hořák bez sání se nepoužívá.</li>
+        <li>Otevřít lahvové ventily a&nbsp;redukčními ventily nastavit pracovní tlak.</li>
+        <li>Na&nbsp;hořáku nepatrně otevřít kyslíkový ventilek.</li>
+        <li>Otevřít acetylenový ventilek a&nbsp;směs zapálit.</li>
+        <li>Seřídit plamen: ubírat acetylen, dokud není kužel ostře ohraničený — plamen je neutrální.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>Zhasnutí — oba typy</h3>
+      <ol>
+        <li>Zavřít acetylenový ventilek na&nbsp;hořáku — plamen zhasne.</li>
+        <li>Zavřít kyslíkový ventilek.</li>
+        <li>Po skončení práce zavřít lahvové ventily, z&nbsp;redukčních ventilů vypustit plyn a&nbsp;povolit jejich regulační šrouby.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="key">
+    <h3>Proč se pořadí liší</h3>
+    <p>Injektor přisaje acetylen jen tehdy, když jím proudí kyslík — proto se u&nbsp;injektorového hořáku otevírá kyslík jako první. U&nbsp;rovnotlakého hořáku přichází acetylen pod vlastním tlakem a&nbsp;zapálí se samotný. Při zhasínání se u&nbsp;obou typů zavírá nejdřív acetylen: plamen ihned zhasne a&nbsp;kyslík vyfouká zbytek směsi z&nbsp;hořáku.</p>
+  </div>
+
+  <h2>Hoření ve&nbsp;dvou stupních</h2>
+  <p class="t">Acetylen v&nbsp;plamenu neshoří najednou. Kyslík z&nbsp;lahve stačí jen na&nbsp;první stupeň hoření, zbytek kyslíku plamen odebírá z&nbsp;okolního vzduchu.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>1. stupeň — na&nbsp;špičce kužele</h3>
+      <div class="eq">C₂H₂ + O₂ → 2&nbsp;CO + H₂</div>
+      <p>Hoří s&nbsp;kyslíkem z&nbsp;lahve. Vzniká oxid uhelnatý a&nbsp;vodík. Obě látky odebírají kyslík — v&nbsp;závoji proto lázeň neoxiduje.</p>
+    </div>
+    <div class="card">
+      <h3>2. stupeň — ve&nbsp;chvostu</h3>
+      <div class="eq">2&nbsp;CO + H₂ + 1,5&nbsp;O₂ → 2&nbsp;CO₂ + H₂O</div>
+      <p>CO a&nbsp;H₂ dohořívají s&nbsp;kyslíkem ze&nbsp;vzduchu. Chvost odstiňuje lázeň od&nbsp;vzduchu a&nbsp;předehřívá materiál kolem svaru.</p>
+    </div>
+  </div>
+  <div class="key">
+    <h3>Proč na&nbsp;poměru plynů záleží</h3>
+    <p>Neutrální plamen má přibližně tolik kyslíku, kolik spotřebuje první stupeň hoření. Přebytek acetylenu se v&nbsp;prvním stupni nespálí a&nbsp;uhlík z&nbsp;něj přechází do&nbsp;lázně. Přebytek kyslíku zůstane volný a&nbsp;oxiduje lázeň.</p>
+  </div>
+
+  <h2>Výhody, nevýhody a&nbsp;použití</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Výhody</th><th>Nevýhody</th><th>Použití</th></tr></thead>
+    <tbody><tr>
+      <td><ul><li>jednoduché, levné a&nbsp;přenosné zařízení</li><li>nepotřebuje elektrický proud</li><li>teplo a&nbsp;přídavný materiál se řídí nezávisle</li><li>jedním zařízením lze svařovat, pájet i&nbsp;ohřívat</li><li>dobře ovladatelná lázeň u&nbsp;tenkých plechů a&nbsp;trubek</li></ul></td>
+      <td><ul><li>malá koncentrace tepla — pomalé svařování a&nbsp;malá produktivita</li><li>široká TOO a&nbsp;velké deformace</li><li>nevhodné pro silné díly</li><li>manipulace s&nbsp;tlakovými lahvemi a&nbsp;hořlavým plynem</li><li>náročné na&nbsp;zručnost svářeče</li></ul></td>
+      <td><ul><li>opravy a&nbsp;údržba</li><li>tenkostěnná potrubí (instalace, topení)</li><li>tenké plechy</li><li>opravy šedé litiny</li><li>mosaz</li><li>ohřev při rovnání a&nbsp;předehřevu</li></ul></td>
+    </tr></tbody>
+  </table></div>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#e08cc4';
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const lw=txt=>Math.round(txt.length*7.8+24);
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json').then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* popisek s klikací oblastí a vodicí čarou; side: 'l' vlevo, 'r' vpravo, 't' nad cílem, 'b' pod cílem */
+function label(svg,leadG,txt,x,y,side,tx,ty,onPick){
+  const w=lw(txt);
+  const sx=side==='l'?x+w:side==='r'?x:x+w/2, sy=side==='t'?y+28:side==='b'?y:y+14;
+  const line=el(leadG,'line',{x1:f(sx),y1:sy,x2:f(tx),y2:f(ty)});
+  const g=el(svg,'g',{class:'lbl',tabindex:0,role:'button'});
+  el(g,'rect',{x,y,width:w,height:28,rx:8});
+  const t=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});t.textContent=txt;
+  g.addEventListener('click',onPick);
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();onPick();}});
+  return {g,line};
+}
+
+/* ---------- PRVEK A — souprava ---------- */
+(function(){
+  const svg=document.getElementById('svgA'), info=document.getElementById('infoA');
+  const parts={}, add=(k,e)=>{(parts[k]=parts[k]||[]).push(e);return e;};
+  // hadice (pod lahvemi a hořákem)
+  add('ha',el(svg,'path',{d:'M157 110 C220 110 200 340 420 340 S560 302 604 302',fill:'none',stroke:'#3d7be0','stroke-width':7,'stroke-linecap':'round'}));
+  add('ha',el(svg,'path',{d:'M307 110 C370 110 340 372 470 360 S572 318 604 318',fill:'none',stroke:'#d0453a','stroke-width':7,'stroke-linecap':'round'}));
+  // lahve
+  [[80,'ok','#e9eef3'],[230,'ac','#7a2e22']].forEach(([x,k,neck])=>{
+    add(k,el(svg,'path',{d:`M${x} 190 Q${x} 150 ${x+35} 150 Q${x+70} 150 ${x+70} 190 L${x+70} 400 Q${x+70} 408 ${x+62} 408 L${x+8} 408 Q${x} 408 ${x} 400 Z`,fill:'#3a4554'}));
+    add(k,el(svg,'path',{d:`M${x+6} 182 Q${x+8} 156 ${x+35} 156 Q${x+62} 156 ${x+64} 182 Z`,fill:neck}));
+    el(svg,'rect',{x:x+27,y:130,width:16,height:22,fill:'#5c6878'});                                  // lahvový ventil
+  });
+  // redukční ventily s manometry
+  [[115,'rv'],[265,'rv']].forEach(([cx])=>{
+    add('rv',el(svg,'circle',{cx,cy:110,r:17,fill:'#8a96a6'}));
+    add('rv',el(svg,'circle',{cx:cx-22,cy:78,r:13,fill:'#d8dee6'}));
+    add('rv',el(svg,'circle',{cx:cx+22,cy:78,r:13,fill:'#d8dee6'}));
+    el(svg,'line',{x1:cx-22,y1:78,x2:cx-27,y2:71,stroke:'#231d16','stroke-width':2});
+    el(svg,'line',{x1:cx+22,y1:78,x2:cx+28,y2:74,stroke:'#231d16','stroke-width':2});
+  });
+  // pojistky proti zpětnému šlehnutí
+  add('po',el(svg,'rect',{x:131,y:104,width:26,height:12,rx:3,fill:'#c9a227'}));
+  add('po',el(svg,'rect',{x:281,y:104,width:26,height:12,rx:3,fill:'#c9a227'}));
+  // hořák
+  add('vh',el(svg,'circle',{cx:616,cy:290,r:8,fill:'#3d7be0'}));
+  add('vh',el(svg,'circle',{cx:616,cy:330,r:8,fill:'#d0453a'}));
+  el(svg,'rect',{x:600,y:296,width:120,height:28,rx:8,fill:'#2b333f'});                               // rukojeť
+  add('in',el(svg,'rect',{x:720,y:300,width:40,height:20,rx:3,fill:'#9a7b3f'}));                      // směšovač
+  add('na',el(svg,'path',{d:'M760 310 L872 310 Q896 310 908 330 L924 356',fill:'none',stroke:'#b87333','stroke-width':12,'stroke-linecap':'butt'}));
+  add('hu',el(svg,'path',{d:'M918 352 L932 344 L946 372 L936 378 Z',fill:'#d39a5c'}));               // hubice, ústí kolem (941,375)
+  // malý plamen z hubice
+  el(svg,'path',{d:'M936 377 Q955 400 975 430 Q950 412 938 382 Z',fill:'#4f7fe8',opacity:.55});
+  el(svg,'path',{d:'M939 378 Q946 388 949 394 Q942 389 939 381 Z',fill:'#ffffff'});
+  const INFO={
+    ok:'Kyslíková lahev — kyslík je v'+NB+'ní stlačený. Hrdlo lahve je bílé.',
+    ac:'Acetylenová lahev — acetylen je rozpuštěný v'+NB+'acetonu, kterým je nasycená pórovitá hmota uvnitř lahve. Čistý stlačený acetylen by se mohl samovolně rozložit. Hrdlo lahve je kaštanové.',
+    rv:'Redukční ventil — snižuje tlak plynu z'+NB+'lahve na'+NB+'pracovní tlak a'+NB+'drží ho stálý i'+NB+'při poklesu tlaku v'+NB+'lahvi. Jeden manometr ukazuje tlak v'+NB+'lahvi, druhý pracovní tlak.',
+    po:'Pojistka proti zpětnému šlehnutí — zastaví plamen, který by šlehl hadicí zpět k'+NB+'lahvi, a'+NB+'zabrání zpětnému proudění plynu.',
+    ha:'Hadice — kyslíková je modrá, acetylenová červená. Spoje se upevňují páskovými sponami, ne drátem.',
+    vh:'Regulační ventilky — nastavují průtok kyslíku a'+NB+'acetylenu, a'+NB+'tím i'+NB+'druh plamene.',
+    in:'Směšovač — smísí kyslík s'+NB+'acetylenem. U'+NB+'injektorového hořáku je v'+NB+'něm injektor, který proudem kyslíku přisává acetylen.',
+    na:'Hořákový nástavec — trubice, kterou proudí směs plynů k'+NB+'hubici. Vyměňuje se podle tloušťky svařovaného materiálu.',
+    hu:'Hubice — z'+NB+'jejího ústí vystupuje směs plynů a'+NB+'hoří. Velikost ústí určuje výkon plamene.',
+  };
+  const POS={
+    rv:['redukční ventil',40,12,'t',93,66],
+    po:['pojistka proti zpětnému šlehnutí',236,12,'t',294,104],
+    ok:['kyslíková lahev',44,430,'b',115,380],
+    ac:['acetylenová lahev',196,430,'b',265,380],
+    ha:['hadice',390,236,'t',420,338],
+    vh:['regulační ventilky',520,200,'t',612,283],
+    in:['směšovač',700,150,'t',740,300],
+    na:['hořákový nástavec',800,236,'t',866,304],
+    hu:['hubice',820,426,'b',934,362],
+  };
+  const leadG=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5});
+  let sel=null; const L={};
+  Object.keys(POS).forEach(k=>{const [t,x,y,s,tx,ty]=POS[k];L[k]=label(svg,leadG,t,x,y,s,tx,ty,()=>{sel=sel===k?null:k;render();});});
+  const HOSE=new Map(parts.ha.map(e=>[e,e.getAttribute('stroke')]));
+  function render(){
+    Object.keys(L).forEach(k=>L[k].g.classList.toggle('on',sel===k));
+    Object.keys(parts).forEach(k=>parts[k].forEach(e=>{
+      if(k==='ha'||k==='na'){e.setAttribute('stroke',sel===k?ACC:(k==='ha'?HOSE.get(e):'#b87333'));}
+      else{e.setAttribute('stroke',sel===k?ACC:'none');e.setAttribute('stroke-width',2.5);}
+    }));
+    info.textContent=sel?INFO[sel]:'Klikni na'+NB+'popisek ve'+NB+'schématu.';
+  }
+  render();
+})();
+
+/* ---------- PRVEK B — plamen ---------- */
+(function(){
+  const svg=document.getElementById('svgB'), info=document.getElementById('infoB'), sMix=document.getElementById('sMix');
+  const fName=document.getElementById('fName'),fRatio=document.getElementById('fRatio'),fLook=document.getElementById('fLook'),fEff=document.getElementById('fEff'),fUse=document.getElementById('fUse');
+  const defs=el(svg,'defs',{});
+  const grad=el(defs,'linearGradient',{id:'envG',x1:0,y1:0,x2:1,y2:0});
+  const st0=el(grad,'stop',{offset:0}), st1=el(grad,'stop',{offset:1});
+  const X0=120, Y=150;
+  const env=el(svg,'path',{fill:'url(#envG)'});
+  const veil=el(svg,'path',{fill:'#f4f0e6',opacity:.5});
+  const cone=el(svg,'path',{});
+  const zone=el(svg,'ellipse',{rx:11,ry:7,fill:'none',stroke:'#ffe08a','stroke-width':2,'stroke-dasharray':'4 3'});
+  const tip=el(svg,'path',{d:'M30 128 L104 136 L120 142 L120 158 L104 164 L30 172 Z',fill:'#b87333'});
+  const leadG=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5});
+  const TYPES={
+    c:{name:'nauhličující (redukční)',ratio:'méně kyslíku než 1'+NB+':'+NB+'1 — přebytek acetylenu',look:'kužel obalený bělavým lemem, delší žlutooranžový chvost',eff:'uhlík přechází do'+NB+'lázně, ocel se nauhličuje a'+NB+'zkřehne',use:'šedá litina, hliník'},
+    n:{name:'neutrální',ratio:'1'+NB+':'+NB+'1 až 1,1',look:'ostře ohraničený oslnivě bílý kužel, modrý chvost',eff:'lázeň neoxiduje ani se nenauhličuje',use:'oceli, měď'},
+    o:{name:'oxidační',ratio:'více kyslíku než 1'+NB+':'+NB+'1,1 — přebytek kyslíku',look:'kratší špičatý modrofialový kužel, kratší chvost, plamen syčí',eff:'volný kyslík oxiduje lázeň — propal prvků, póry',use:'mosaz — oxidická vrstva omezí odpařování zinku'},
+  };
+  const INFO={
+    hu:'Hubice — z'+NB+'ústí vystupuje směs kyslíku a'+NB+'acetylenu.',
+    ja:'Kužel — směs plynů ohřátá na'+NB+'zápalnou teplotu. Na'+NB+'jeho špičce probíhá první stupeň hoření. Podle tvaru a'+NB+'barvy kužele se pozná druh plamene.',
+    zv:'Bělavý lem — obaluje kužel jen u'+NB+'nauhličujícího plamene. Tvoří ho acetylen, na'+NB+'který nezbyl kyslík z'+NB+'lahve. Čím delší lem, tím větší přebytek acetylenu.',
+    pp:'Závoj — pracovní oblast těsně před špičkou kužele. Plamen je zde nejteplejší a'+NB+'obsahuje CO a'+NB+'H₂, které odebírají kyslík. Tímto místem se taví svarová lázeň.',
+    ob:'Chvost — CO a'+NB+'H₂ zde dohořívají s'+NB+'kyslíkem ze'+NB+'vzduchu. Chvost odstiňuje lázeň od'+NB+'vzduchu a'+NB+'předehřívá materiál.',
+  };
+  let sel=null; const L={};
+  const pick=k=>()=>{sel=sel===k?null:k;draw();};
+  L.hu=label(svg,leadG,'hubice',40,250,'b',70,170,pick('hu'));
+  L.ja=label(svg,leadG,'kužel',140,20,'t',160,146,pick('ja'));
+  L.zv=label(svg,leadG,'bělavý lem',300,20,'t',0,0,pick('zv'));
+  L.pp=label(svg,leadG,'závoj',200,250,'b',0,0,pick('pp'));
+  L.ob=label(svg,leadG,'chvost',600,20,'t',0,0,pick('ob'));
+  const lerp=(a,b,u)=>a+(b-a)*u;
+  const hex=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));
+  const mix=(a,b,u)=>{const A=hex(a),B=hex(b);return 'rgb('+A.map((v,i)=>Math.round(lerp(v,B[i],u))).join(',')+')';};
+  function draw(){
+    const s=+sMix.value;
+    const type=s<40?'c':s<=60?'n':'o';
+    const Lc=s<=60?80:80-(s-60)/40*35;
+    const Lf=s<40?(40-s)/40*200:0;
+    const Le=s<40?560+(40-s)/40*180:s<=60?560:560-(s-60)/40*170;
+    const He=s<40?44+(40-s)/40*10:44;
+    // barvy: nauhličující žlutooranžová, neutrální modrá, oxidační modrofialová
+    let c0,c1;
+    if(s<=50){const u=Math.max(0,(s-20)/30);c0=mix('#e8a040','#4f7fe8',u);c1=mix('#f0c060','#e0904a',u);}
+    else{const u=Math.min(1,(s-50)/35);c0=mix('#4f7fe8','#7a6ae8',u);c1=mix('#e0904a','#9fb0ff',u);}
+    st0.setAttribute('stop-color',c0);st0.setAttribute('stop-opacity',.8);
+    st1.setAttribute('stop-color',c1);st1.setAttribute('stop-opacity',.3);
+    env.setAttribute('d',`M${X0} 140 C${f(X0+Le*.15)} ${f(Y-He)} ${f(X0+Le*.6)} ${f(Y-He*.8)} ${f(X0+Le)} ${Y} C${f(X0+Le*.6)} ${f(Y+He*.8)} ${f(X0+Le*.15)} ${f(Y+He)} ${X0} 160 Z`);
+    const Lv=Lc+Lf;
+    veil.setAttribute('d',Lf>0?`M${X0} 141 Q${f(X0+Lv*.4)} 132 ${f(X0+Lv)} ${Y} Q${f(X0+Lv*.4)} 168 ${X0} 159 Z`:'');
+    cone.setAttribute('d',`M${X0} 141 Q${f(X0+Lc*.6)} 141 ${f(X0+Lc)} ${Y} Q${f(X0+Lc*.6)} 159 ${X0} 159 Z`);
+    cone.setAttribute('fill',s<=60?'#ffffff':mix('#ffffff','#b8a8ff',Math.min(1,(s-60)/25)));
+    const zx=X0+Lc+13; zone.setAttribute('cx',f(zx));zone.setAttribute('cy',Y);
+    // vodicí čáry
+    L.ja.line.setAttribute('x2',f(X0+Lc*.45));L.ja.line.setAttribute('y2',144);
+    L.zv.line.setAttribute('x2',f(X0+Lc+Lf*.5));L.zv.line.setAttribute('y2',f(Y-12));
+    L.pp.line.setAttribute('x2',f(zx));L.pp.line.setAttribute('y2',Y+7);
+    L.ob.line.setAttribute('x2',f(X0+Le*.6));L.ob.line.setAttribute('y2',f(Y-He*.8+8));
+    const veilOn=Lf>0;
+    L.zv.g.style.display=veilOn?'':'none';L.zv.line.style.display=veilOn?'':'none';
+    if(!veilOn&&sel==='zv')sel=null;
+    // zvýraznění
+    const hi=(e,k)=>{e.setAttribute('stroke',sel===k?ACC:(k==='pp'?'#ffe08a':'none'));e.setAttribute('stroke-width',sel===k?2.5:2);};
+    hi(tip,'hu');hi(cone,'ja');hi(veil,'zv');hi(zone,'pp');hi(env,'ob');
+    Object.keys(L).forEach(k=>L[k].g.classList.toggle('on',sel===k));
+    const T=TYPES[type];
+    fName.textContent=T.name;fRatio.textContent=T.ratio;fLook.textContent=T.look;fEff.textContent=T.eff;fUse.textContent=T.use;
+    info.textContent=sel?INFO[sel]:'Klikni na'+NB+'popisek části plamene.';
+  }
+  sMix.addEventListener('input',draw);
+  draw();
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

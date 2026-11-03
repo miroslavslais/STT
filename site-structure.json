@@ -71,7 +71,8 @@
       {
         "id": "svarovani",
         "title": "Svařování",
-        "status": "coming-soon"
+        "href": "svarovani/index.html",
+        "status": "ready"
       },
       {
         "id": "tvareni",
@@ -210,9 +211,9 @@
       {
         "id": "za-studena",
         "title": "Tváření za studena",
-        "desc": "Stříhání, ohýbání, tažení a protlačování — technologie pod teplotou rekrystalizace.",
+        "desc": "Stříhání, ohýbání, tažení, protlačování a nekonvenční metody — technologie pod teplotou rekrystalizace.",
         "href": "tvareni-za-studena/index.html",
-        "badge": "6 kapitol · 2 interaktivní",
+        "badge": "7 kapitol · 3 interaktivní",
         "status": "ready"
       },
       {
@@ -737,6 +738,14 @@
         "status": "ready"
       },
       {
+        "id": "nekonvencni",
+        "title": "Nekonvenční metody tváření",
+        "desc": "Výbuch, výboj v kapalině, magnetický impulz, hydroforming, pryž, kovotlačení a inkrementální tváření.",
+        "href": "nekonvencni-metody.html",
+        "badge": "Interaktivní",
+        "status": "ready"
+      },
+      {
         "id": "srovnani",
         "title": "Za studena × za tepla",
         "desc": "Přesnost, drsnost, síla a ekonomika obou způsobů vedle sebe.",
@@ -1068,6 +1077,180 @@
         "status": "ready",
         "badge": "3 animace",
         "icon": "cast"
+      }
+    ]
+  },
+  "svarovani": {
+    "h1": "Svařování",
+    "cards": [
+      {
+        "id": "zaklady",
+        "title": "Základy svařování",
+        "desc": "Princip a rozdělení metod, svarový spoj, metalurgie svaru, pnutí a vady.",
+        "href": "zaklady/index.html",
+        "badge": "5 kapitol",
+        "status": "ready"
+      },
+      {
+        "id": "tavne",
+        "title": "Tavné svařování",
+        "desc": "Elektrický oblouk a obloukové metody, svařování plamenem.",
+        "href": "tavne/index.html",
+        "badge": "7 kapitol",
+        "status": "ready"
+      },
+      {
+        "id": "tlakove",
+        "title": "Tlakové svařování",
+        "desc": "Odporové svařování, svařování třením a další tlakové metody.",
+        "href": "tlakove/index.html",
+        "badge": "3 kapitoly",
+        "status": "ready"
+      },
+      {
+        "id": "pribuzne",
+        "title": "Příbuzné technologie",
+        "desc": "Pájení, navařování a žárové nástřiky.",
+        "href": "pribuzne/index.html",
+        "badge": "2 kapitoly",
+        "status": "ready"
+      }
+    ]
+  },
+  "svarovaniZaklady": {
+    "h1": "Základy svařování",
+    "cards": [
+      {
+        "title": "Princip svařování a rozdělení metod",
+        "desc": "Kovová vazba, tavné × tlakové svařování, zdroje tepla, ochrana svarové lázně a přehled metod.",
+        "href": "princip-rozdeleni.html",
+        "badge": "1 animace · 1 interaktivní",
+        "status": "ready",
+        "icon": "tree"
+      },
+      {
+        "title": "Svarový spoj, druhy svarů a svarové plochy",
+        "desc": "Části svaru, druhy svarových spojů, tupý × koutový svar, úkosy, příprava ploch a vícevrstvý svar.",
+        "href": "svarovy-spoj.html",
+        "badge": "1 animace · 1 interaktivní",
+        "status": "ready",
+        "icon": "joint"
+      },
+      {
+        "title": "Metalurgie svaru, TOO a svařitelnost",
+        "desc": "Struktura svarového kovu, pásma TOO, trhliny za studena, svařitelnost a uhlíkový ekvivalent.",
+        "href": "metalurgie-svaru.html",
+        "badge": "2 interaktivní",
+        "status": "ready",
+        "icon": "grains"
+      },
+      {
+        "title": "Pnutí a deformace při svařování",
+        "desc": "Tyč sevřená mezi stěnami, důsledky zbytkového pnutí, druhy deformací, opatření proti nim a rovnání plamenem.",
+        "href": "pnuti-deformace.html",
+        "badge": "1 animace · 1 interaktivní · 3D",
+        "status": "ready",
+        "icon": "bend"
+      },
+      {
+        "title": "Vady svarů",
+        "desc": "Rozdělení vad podle ČSN EN ISO 6520-1 a klikací řez svarem s vadami, jejich příčinami a prevencí.",
+        "href": "vady-svaru.html",
+        "badge": "1 interaktivní",
+        "status": "ready",
+        "icon": "defect"
+      }
+    ]
+  },
+  "svarovaniTavne": {
+    "h1": "Tavné svařování",
+    "cards": [
+      {
+        "title": "Elektrický oblouk a svařovací zdroje",
+        "desc": "Části oblouku a jeho zapálení, charakteristika oblouku a zdroje, pracovní bod, svařovací zdroje a polarita.",
+        "href": "oblouk-zdroje.html",
+        "badge": "1 animace · 1 interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Obalená elektroda (111)",
+        "desc": "Oblouk hoří mezi obalenou elektrodou a materiálem, elektroda se odtavuje.",
+        "href": "obalena-elektroda.html",
+        "badge": "2 animace · 2 interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "MIG/MAG (131/135)",
+        "desc": "Oblouk hoří mezi plynule podávaným drátem a materiálem.",
+        "href": "mig-mag.html",
+        "badge": "2 animace · 3 interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "TIG (141)",
+        "desc": "Oblouk hoří mezi netavící se wolframovou elektrodou a materiálem.",
+        "href": "tig.html",
+        "badge": "2 interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Pod tavidlem (121)",
+        "desc": "Oblouk hoří pod vrstvou zrnitého tavidla.",
+        "href": "pod-tavidlem.html",
+        "badge": "3 interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Plamenem (311)",
+        "desc": "Okraje taví plamen kyslíku a acetylenu.",
+        "href": "plamen.html",
+        "badge": "2 interaktivní",
+        "status": "ready"
+      },
+      {
+        "title": "Aluminotermické (71)",
+        "desc": "Tekutá ocel z reakce oxidu železa s hliníkem se vlije do formy kolem spoje.",
+        "href": "aluminotermicke.html",
+        "badge": "1 animace",
+        "status": "ready"
+      }
+    ]
+  },
+  "svarovaniTlakove": {
+    "h1": "Tlakové svařování",
+    "cards": [
+      {
+        "title": "Odporové svařování",
+        "desc": "Proud procházející stykem dílů je ohřeje, elektrody je stlačí.",
+        "href": "odporove.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Svařování třením",
+        "desc": "Svařování třením (42) a FSW — třecí svařování promíšením.",
+        "href": "trenim.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Ostatní tlakové metody",
+        "desc": "Svařování výbuchem (441) a difúzní svařování (45).",
+        "href": "ostatni-tlakove.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "svarovaniPribuzne": {
+    "h1": "Příbuzné technologie",
+    "cards": [
+      {
+        "title": "Pájení",
+        "desc": "",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Navařování a žárové nástřiky",
+        "desc": "",
+        "status": "coming-soon"
       }
     ]
   }

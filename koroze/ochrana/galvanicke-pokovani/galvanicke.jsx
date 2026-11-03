@@ -28,7 +28,7 @@ const TANK_X0 = 140, TANK_X1 = 820, TANK_TOP = 460, TANK_BOT = 880;
 const ANODE_X = 240, WORK_X = 640, WORK_Y = 640;
 
 // cross-section stack geometry
-const STACK_X = 1300, STACK_W = 260, STACK_BASE_Y = 900, BASE_H = 130;
+const STACK_X = 1100, STACK_W = 260, STACK_BASE_Y = 860, BASE_H = 130;
 const CU_MAX = 110, NI_MAX = 150, CR_MAX = 22;
 
 function stagePhase(t) {
@@ -92,15 +92,15 @@ function Scene() {
               <rect x={TANK_X0} y={TANK_TOP} width={TANK_X1 - TANK_X0} height={TANK_BOT - TANK_TOP} fill="url(#electrolyte)" stroke="oklch(0.4 0.04 235)" strokeWidth={2} rx={6} />
               {/* zdroj napětí */}
               <rect x={380} y={330} width={120} height={54} rx={8} fill="none" stroke={CURR} strokeWidth={2} />
-              <text x={440} y={362} textAnchor="middle" fontFamily={mono} fontSize={16} fill={CURR}>DC zdroj</text>
+              <text x={440} y={357} textAnchor="middle" fontFamily={mono} fontSize={22} dominantBaseline="central" fill={CURR}>DC zdroj</text>
               <path d={`M440 384 L440 420 L${ANODE_X} 420 L${ANODE_X} ${TANK_TOP}`} fill="none" stroke={CURR} strokeWidth={2.5} strokeDasharray="9 8" strokeDashoffset={wireOff} strokeLinecap="round" />
               <path d={`M440 384 L440 420 L${WORK_X} 420 L${WORK_X} ${TANK_TOP}`} fill="none" stroke={CURR} strokeWidth={2.5} strokeDasharray="9 8" strokeDashoffset={-wireOff} strokeLinecap="round" />
-              <text x={ANODE_X - 30} y={402} fontFamily={mono} fontSize={16} fontWeight={700} fill="#e5484d">+</text>
-              <text x={WORK_X + 14} y={402} fontFamily={mono} fontSize={16} fontWeight={700} fill="#fff">−</text>
+              <text x={ANODE_X - 30} y={404} fontFamily={mono} fontSize={22} fontWeight={700} fill="#e5484d">+</text>
+              <text x={WORK_X + 14} y={404} fontFamily={mono} fontSize={22} fontWeight={700} fill="#fff">−</text>
 
               {/* anoda */}
               <rect x={ANODE_X - 22} y={TANK_TOP + 20} width={44} height={TANK_BOT - TANK_TOP - 60} fill={anodeColor} rx={4} filter="url(#glow)" />
-              <text x={ANODE_X} y={TANK_BOT - 24} textAnchor="middle" fontFamily={mono} fontSize={15} fill={MUTE}>{anodeLabel}</text>
+              <text x={ANODE_X} y={TANK_BOT - 24} textAnchor="middle" fontFamily={mono} fontSize={22} fill={MUTE}>{anodeLabel}</text>
 
               {/* iontový proud anoda → díl */}
               {dipOn > 0.001 ? (
@@ -117,34 +117,34 @@ function Scene() {
                   <circle cx={36} cy={20} r={2.5} fill="none" stroke={workTint} strokeWidth={2} />
                 </g>
               ) : null}
-              <text x={WORK_X} y={WORK_Y + 56} textAnchor="middle" fontFamily={mono} fontSize={15} fill={MUTE}>díl — katoda</text>
+              <text x={WORK_X} y={WORK_Y + 60} textAnchor="middle" fontFamily={mono} fontSize={22} fill={MUTE}>díl — katoda</text>
             </g>
           ) : null}
 
           {/* ── right: zvětšený řez nabíhajícími vrstvami ── */}
-          <text x={STACK_X} y={STACK_BASE_Y - BASE_H - NI_MAX - CR_MAX - 130} fontFamily={mono} fontSize={19} fill={MUTE}>Detail vrstev (řez, zvětšeno)</text>
+          <text x={STACK_X} y={STACK_BASE_Y - BASE_H - NI_MAX - CR_MAX - 130} fontFamily={mono} fontSize={24} fill={MUTE}>Detail vrstev (řez, zvětšeno)</text>
 
           <rect x={STACK_X} y={STACK_BASE_Y - BASE_H} width={STACK_W} height={BASE_H} fill={BASE} stroke="oklch(0.3 0.02 250)" strokeWidth={1.5} />
-          <text x={STACK_X + STACK_W + 18} y={STACK_BASE_Y - BASE_H / 2 + 5} fontFamily={mono} fontSize={15} fill={MUTE}>základní kov (zinková slitina)</text>
+          <text x={STACK_X + STACK_W + 18} y={STACK_BASE_Y - BASE_H / 2} dominantBaseline="central" fontFamily={mono} fontSize={22} fill={MUTE}>základní kov (zinková slitina)</text>
 
           {cuH > 0.5 ? (
             <g>
               <rect x={STACK_X} y={cuY} width={STACK_W} height={cuH} fill={CU} />
-              <text x={STACK_X + STACK_W + 18} y={cuY + cuH / 2 + 5} fontFamily={mono} fontSize={15} fill={CU} opacity={progCu}>Cu — vyrovnání, lesk</text>
+              <text x={STACK_X + STACK_W + 18} y={cuY + cuH / 2} dominantBaseline="central" fontFamily={mono} fontSize={22} fill={CU} opacity={progCu}>Cu — vyrovnání, lesk</text>
             </g>
           ) : null}
 
           {niH > 0.5 ? (
             <g>
               <rect x={STACK_X} y={niY} width={STACK_W} height={niH} fill={NI} />
-              <text x={STACK_X + STACK_W + 18} y={niY + niH / 2 + 5} fontFamily={mono} fontSize={15} fill={NI} opacity={progNi}>Ni — tvrdost, bariéra</text>
+              <text x={STACK_X + STACK_W + 18} y={niY + niH / 2} dominantBaseline="central" fontFamily={mono} fontSize={22} fill={NI} opacity={progNi}>Ni — tvrdost, bariéra</text>
             </g>
           ) : null}
 
           {crH > 0.5 ? (
             <g filter="url(#glow)">
               <rect x={STACK_X} y={crY} width={STACK_W} height={crH} fill={CR} />
-              <text x={STACK_X + STACK_W + 18} y={crY + crH / 2 + 5} fontFamily={mono} fontSize={15} fill={CR} opacity={progCr}>Cr — 0,2–0,5 μm, zrcadlový lesk</text>
+              <text x={STACK_X + STACK_W + 18} y={crY + crH / 2} dominantBaseline="central" fontFamily={mono} fontSize={22} fill={CR} opacity={progCr}>Cr — 0,2–0,5 μm, zrcadlový lesk</text>
             </g>
           ) : null}
 
@@ -172,7 +172,7 @@ function Scene() {
         return (
           <div key={i} style={{ position: 'absolute', left: '50%', bottom: 88,
             transform: `translate(-50%, ${(1 - o) * 10}px)`, opacity: o, textAlign: 'center', width: 1300 }}>
-            <div style={{ fontFamily: mono, fontSize: 16, letterSpacing: '0.24em', color: CU, marginBottom: 12 }}>{s.n}</div>
+            <div style={{ fontFamily: mono, fontSize: 20, letterSpacing: '0.24em', color: CU, marginBottom: 12 }}>{s.n}</div>
             <div style={{ fontFamily: sans, fontSize: 32, fontWeight: 500, color: '#eaf2fa', letterSpacing: '-0.005em' }}>{s.txt}</div>
           </div>
         );
