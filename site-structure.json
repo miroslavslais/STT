@@ -111,6 +111,12 @@
         "href": "cnc-simulator/soustruzeni.html",
         "newWindow": true,
         "status": "ready"
+      },
+      {
+        "id": "technika-kolem-nas",
+        "title": "Technika kolem nás",
+        "href": "zajimavosti/index.html",
+        "status": "ready"
       }
     ]
   },
@@ -213,7 +219,7 @@
         "title": "Tváření za studena",
         "desc": "Stříhání, ohýbání, tažení, protlačování a nekonvenční metody — technologie pod teplotou rekrystalizace.",
         "href": "tvareni-za-studena/index.html",
-        "badge": "7 kapitol · 3 interaktivní",
+        "badge": "8 kapitol · 4 interaktivní",
         "status": "ready"
       },
       {
@@ -727,6 +733,14 @@
         "desc": "Průběh tažení, napjatost ve třech zónách, součinitel tažení a vícenásobné tažení.",
         "href": "Hluboke tazeni.html",
         "badge": "Animace",
+        "status": "ready"
+      },
+      {
+        "id": "protlacovani",
+        "title": "Protlačování",
+        "desc": "Napjatost při protlačování, dopředné, zpětné a stranové protlačování a jejich kombinace.",
+        "href": "protlacovani.html",
+        "badge": "Interaktivní",
         "status": "ready"
       },
       {

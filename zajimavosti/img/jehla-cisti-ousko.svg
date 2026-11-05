@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" role="img" aria-label="Kreslená šicí jehla s očima a rukama si nití čistí ouško">
+  <rect width="600" height="260" fill="#f6f1e8"/>
+  <!-- nit a ruce: ruce se střídavě pohybují nahoru a dolů, nit projíždí ouškem -->
+  <g>
+    <animateTransform attributeName="transform" type="translate" values="0 -14;0 14;0 -14" dur="0.8s" repeatCount="indefinite"/>
+    <path d="M490 52 V208" stroke="#b0561f" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="490" cy="52" r="9" fill="#cfd3d8" stroke="#6f7479" stroke-width="2"/>
+    <circle cx="490" cy="208" r="9" fill="#cfd3d8" stroke="#6f7479" stroke-width="2"/>
+  </g>
+  <!-- tělo jehly: hrot vlevo, ouško vpravo -->
+  <path d="M48 130 L170 110 H492 q32 0 32 20 q0 20 -32 20 H170 Z" fill="#cfd3d8" stroke="#6f7479" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M190 117 H470" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  <!-- ouško (otvor) -->
+  <ellipse cx="490" cy="130" rx="22" ry="6" fill="#f6f1e8" stroke="#6f7479" stroke-width="2"/>
+  <path d="M490 125 V135" stroke="#b0561f" stroke-width="3"/>
+
+  <!-- obličej -->
+  <g>
+    <circle cx="300" cy="100" r="20" fill="#fff" stroke="#231d16" stroke-width="2"/>
+    <circle cx="346" cy="100" r="20" fill="#fff" stroke="#231d16" stroke-width="2"/>
+    <!-- zorničky sledují ouško -->
+    <circle cx="308" cy="102" r="8" fill="#231d16"><animate attributeName="cx" values="308;311;308" dur="1.2s" repeatCount="indefinite"/></circle>
+    <circle cx="354" cy="102" r="8" fill="#231d16"><animate attributeName="cx" values="354;357;354" dur="1.2s" repeatCount="indefinite"/></circle>
+    <!-- mrknutí -->
+    <rect x="278" y="78" width="92" height="0" fill="#cfd3d8">
+      <animate attributeName="height" values="0;0;44;0;0" keyTimes="0;0.9;0.94;0.98;1" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <path d="M312 134 q11 9 22 0" fill="none" stroke="#231d16" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- paže od těla k rukám (konce se hýbou s rukama) -->
+  <path d="M410 110 Q440 60 490 52" fill="none" stroke="#6f7479" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="d" values="M410 110 Q440 50 490 38;M410 110 Q440 74 490 66;M410 110 Q440 50 490 38" dur="0.8s" repeatCount="indefinite"/>
+  </path>
+  <path d="M410 150 Q440 200 490 208" fill="none" stroke="#6f7479" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="d" values="M410 150 Q440 186 490 194;M410 150 Q440 214 490 222;M410 150 Q440 186 490 194" dur="0.8s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- jiskřičky čistoty -->
+  <g fill="#e0a12a">
+    <path d="M540 92 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3z"><animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/></path>
+    <path d="M548 156 l2 6 l6 2 l-6 2 l-2 6 l-2 -6 l-6 -2 l6 -2z"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.8s" repeatCount="indefinite"/></path>
+    <path d="M444 112 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2z"><animate attributeName="opacity" values="0;1;0" dur="1.6s" begin="0.4s" repeatCount="indefinite"/></path>
+  </g>
+</svg>

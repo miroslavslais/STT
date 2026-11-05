@@ -28,15 +28,15 @@
   "index": {
     "badge": false,
     "category": "",
-    "content_hash": "804486c02242875f6a5e271636060463b6c96657fb5817dffdd3ad6a9ff95d66",
+    "content_hash": "770da7f51d05c2d152b181a6a403490c07cac82c4527720eae321a6b7d892b35",
     "file": "index.html",
     "first_seen": "2026-08-09",
     "hash_version": 2,
-    "last_changed": "2026-10-11",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Přibyla karta CNC simulátor – frézování v G-kódu.",
     "title": "Interaktivní výuka STT",
-    "written_hash": "804486c02242875f6a5e271636060463b6c96657fb5817dffdd3ad6a9ff95d66"
+    "written_hash": "770da7f51d05c2d152b181a6a403490c07cac82c4527720eae321a6b7d892b35"
   },
   "koroze/bludne-proudy/koroze-bludnymi-proudy": {
     "badge": false,
@@ -93,15 +93,15 @@
   "koroze/index": {
     "badge": false,
     "category": "koroze",
-    "content_hash": "a1ba4c83af67524b21d2b8fe0b92313dc09827578ea990ad46978cf666343324",
+    "content_hash": "74f2e522103320667554b0f22d893d35fd020743d048ec0fe6f6211acfa18f0e",
     "file": "koroze/index.html",
     "first_seen": "2026-08-09",
     "hash_version": 2,
-    "last_changed": "2026-10-11",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Štítky kapitol sjednoceny na Výklad · Schéma · Animace · Interaktivní.",
     "title": "Koroze kovů",
-    "written_hash": "a1ba4c83af67524b21d2b8fe0b92313dc09827578ea990ad46978cf666343324"
+    "written_hash": "74f2e522103320667554b0f22d893d35fd020743d048ec0fe6f6211acfa18f0e"
   },
   "koroze/koroze-pod-napetim/koroze-pod-napetim": {
     "badge": false,
@@ -327,15 +327,15 @@
   "odlevani/index": {
     "badge": true,
     "category": "odlevani",
-    "content_hash": "3e8ed90065dd105c827ec86eb4c2a128bb78eaf628d35cdbd630ba3a6535f771",
+    "content_hash": "b7a13de2a40d5807853792dedeca0eee5045d8c41ec07e7b805c49101dc0dbf9",
     "file": "odlevani/index.html",
     "first_seen": "2026-09-20",
     "hash_version": 2,
-    "last_changed": "2026-10-11",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Nový rozcestník kapitoly odlévání se čtyřmi skupinami.",
     "title": "Odlévání",
-    "written_hash": "a958f21db5e817a37f784eb9dff71d06835c91fad616d0b0f197528a314b0443"
+    "written_hash": "d96705f201f95da1728e505c01b09483866f99a03d47f47ad2ab6c3d6713d229"
   },
   "odlevani/specialni/index": {
     "badge": true,
@@ -561,15 +561,15 @@
   "praskova-metalurgie/index": {
     "badge": true,
     "category": "praskova-metalurgie",
-    "content_hash": "33bbf35a30a0e8f9ee01186dcb5528696010ea27af9fa01d8e8ec1842822b887",
+    "content_hash": "a8935136b57e9df21b720f3f2a96daec99bd09910d53877d93da2c50930a4ad2",
     "file": "praskova-metalurgie/index.html",
     "first_seen": "2026-08-31",
     "hash_version": 2,
-    "last_changed": "2026-11-03",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Rozcestník kapitoly — úvodní stránka a pět kroků postupu výroby.",
     "title": "Prášková metalurgie",
-    "written_hash": "333a76802051ca05ee855c3be446c920ba2d8f042d500e8341f3e9f9eee875da"
+    "written_hash": "f5eaffea58728cf0499f5d1c238b5e8a5cd51c26ea63d72239761dc37405f38f"
   },
   "praskova-metalurgie/kovove-prasky-vyroba-a-vlastnosti": {
     "badge": true,
@@ -613,15 +613,15 @@
   "svarovani/index": {
     "badge": true,
     "category": "svarovani",
-    "content_hash": "8fe6be3a133bf609f9dfbc687dea3e4ba77163c6c19dd4968a8c1519b0ee250b",
+    "content_hash": "34bcd06bcbb02d9661609f76b29ba0ff8f07959937258426ef1e6f3cada55a2f",
     "file": "svarovani/index.html",
     "first_seen": "2026-11-03",
     "hash_version": 2,
-    "last_changed": "2026-11-03",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Rozcestník nové kapitoly se skupinami Základy svařování, Tavné svařování, Tlakové svařování a Příbuzné technologie.",
     "title": "Svařování",
-    "written_hash": "95f01e868fa1db0319bd9e955ae3f495812ed9e4633b7007e2416f6f4235cffa"
+    "written_hash": "df26a43a1af21a0dd1399a19a4ee9fdaf9341217674d684d939ba5e549f555ed"
   },
   "svarovani/pribuzne/index": {
     "badge": true,
@@ -899,15 +899,15 @@
   "tvareni-za-tepla/index": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "cf407dffdcacbcebc7d38587db9e8140032418f4da01c0de966c185cb21f8cc8",
+    "content_hash": "281fe448b6f25ffefe122bbd1f0608a28b3b5a3d09a3a9402addf4aa5a6afda0",
     "file": "tvareni-za-tepla/index.html",
     "first_seen": "2026-08-09",
     "hash_version": 2,
-    "last_changed": "2026-10-11",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Přibyla karta Tváření za studena.",
     "title": "Rozdělení tváření",
-    "written_hash": "cf407dffdcacbcebc7d38587db9e8140032418f4da01c0de966c185cb21f8cc8"
+    "written_hash": "281fe448b6f25ffefe122bbd1f0608a28b3b5a3d09a3a9402addf4aa5a6afda0"
   },
   "tvareni-za-tepla/kovani/buchar-a-lis": {
     "badge": false,
@@ -1120,15 +1120,15 @@
   "tvareni-za-tepla/tvareni-za-studena/index": {
     "badge": false,
     "category": "tvareni-za-tepla",
-    "content_hash": "ed03133398e7a2bd97f8c931d4b166950c3ebd714a0ed3635cd3c50e98fd6fd5",
+    "content_hash": "33339929d71d3253135f11a5a4397c97fcc216d02292b44ad1910c4e497e49c7",
     "file": "tvareni-za-tepla/tvareni-za-studena/index.html",
     "first_seen": "2026-08-09",
     "hash_version": 2,
-    "last_changed": "2026-11-03",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Rozcestník nové sekce o tváření pod teplotou rekrystalizace.",
     "title": "Tváření za studena",
-    "written_hash": "ed03133398e7a2bd97f8c931d4b166950c3ebd714a0ed3635cd3c50e98fd6fd5"
+    "written_hash": "33339929d71d3253135f11a5a4397c97fcc216d02292b44ad1910c4e497e49c7"
   },
   "tvareni-za-tepla/tvareni-za-studena/nekonvencni-metody": {
     "badge": true,
@@ -1155,6 +1155,19 @@
     "note": "Interaktivní animace posunu neutrální osy, minimálního poloměru ohybu a výpočet rozvinuté délky.",
     "title": "Ohýbání",
     "written_hash": "d01f0540b630c1c235f5a45d1327119ee2f36b18a125bd7511f5fee46255ded2"
+  },
+  "tvareni-za-tepla/tvareni-za-studena/protlacovani": {
+    "badge": true,
+    "category": "tvareni-za-tepla",
+    "content_hash": "7d5a8e6e77b5b875bf9898a847cd6373c81f9af6fde017bc6856ee692dd61995",
+    "file": "tvareni-za-tepla/tvareni-za-studena/protlacovani.html",
+    "first_seen": "2026-11-05",
+    "hash_version": 2,
+    "last_changed": "2026-11-05",
+    "locked": false,
+    "note": "Napjatost a podmínky procesu, dopředné, zpětné a stranové protlačování s klikacími schématy začátku a konce, kombinované protlačování.",
+    "title": "Protlačování",
+    "written_hash": "d3dd72e773122b946522d7cd58ddf151f5ba9b6776764a563d6c10bbaedcb2cf"
   },
   "tvareni-za-tepla/tvareni-za-studena/srovnani-za-studena-a-za-tepla": {
     "badge": true,
@@ -1432,15 +1445,15 @@
   "vnitrni-stavba-kovu-a-tz/index": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "4cbae83cdeb47aee62705e9a188817b31078fdd79475ca86e002e290bc935c5f",
+    "content_hash": "b622473ca965c9350edccf66f4b1d968026b95634423aa8c3b5082f79a20affd",
     "file": "vnitrni-stavba-kovu-a-tz/index.html",
     "first_seen": "2026-08-09",
     "hash_version": 2,
-    "last_changed": "2026-10-11",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Zadání AI kvízu sjednoceno na metalografii a eutektoidní obsah uhlíku 0,765 %.",
     "title": "Vnitřní stavba kovů a TZ",
-    "written_hash": "4cbae83cdeb47aee62705e9a188817b31078fdd79475ca86e002e290bc935c5f"
+    "written_hash": "b622473ca965c9350edccf66f4b1d968026b95634423aa8c3b5082f79a20affd"
   },
   "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/bodove-poruchy-mrizky": {
     "badge": false,
@@ -1676,6 +1689,58 @@
     "title": "Žíhání",
     "written_hash": "387c9a1813eb93697da6972327ed31547f1cc424b70b77a19453d677da630cef"
   },
+  "zajimavosti/index": {
+    "badge": true,
+    "category": "zajimavosti",
+    "content_hash": "559841bf01491f0a50e8765ebd1e8625896088fca3b42fd7e786620c0a436abe",
+    "file": "zajimavosti/index.html",
+    "first_seen": "2026-11-05",
+    "hash_version": 2,
+    "last_changed": "2026-11-05",
+    "locked": false,
+    "note": "Nový výtah z článku Co je to svařování? (MM Průmyslové spektrum) s odkazy na stránky o metodách svařování.",
+    "title": "Technika kolem nás",
+    "written_hash": "9ca5dad7079653e304f1c81a32857a95a3f7fce3f03ebe72a60d1a1a5ac37f06"
+  },
+  "zajimavosti/jehla": {
+    "badge": true,
+    "category": "zajimavosti",
+    "content_hash": "287568e17b0a1cb970754a6aa4c7f42685d28943cee358efac7c1a2bc56586fb",
+    "file": "zajimavosti/jehla.html",
+    "first_seen": "2026-11-05",
+    "hash_version": 2,
+    "last_changed": "2026-11-05",
+    "locked": false,
+    "note": "Výroba šicí jehly krok za krokem — od tažení drátu přes ražení oček po kalení, leštění a pokovení.",
+    "title": "Jak se vyrábí šicí jehla",
+    "written_hash": "56530aa6c3750386e4888f9b9208cc4adf552ab8e22b6aa0bbe75d76a77ef20a"
+  },
+  "zajimavosti/socha-svobody": {
+    "badge": true,
+    "category": "zajimavosti",
+    "content_hash": "dd367b881e80b2264685667ff7f9f8c16d1efef4168963f627c64efe523d5344",
+    "file": "zajimavosti/socha-svobody.html",
+    "first_seen": "2026-11-05",
+    "hash_version": 2,
+    "last_changed": "2026-11-05",
+    "locked": false,
+    "note": "Galvanická koroze mezi měděným pláštěm a železnou kostrou, schéma spoje ve třech obdobích a oprava s nerezovou ocelí 316L a teflonem.",
+    "title": "Proč rezavěla Socha Svobody",
+    "written_hash": "539acbdb5939910cd460125f0e72303875535bfa1fb59b9b7b11d412e1d5903b"
+  },
+  "zajimavosti/tatra-polygon": {
+    "badge": true,
+    "category": "zajimavosti",
+    "content_hash": "531faf93f7e228a1001b41bb796e798336374941220a085bb9571495419c0a71",
+    "file": "zajimavosti/tatra-polygon.html",
+    "first_seen": "2026-11-05",
+    "hash_version": 2,
+    "last_changed": "2026-11-05",
+    "locked": false,
+    "note": "Video z polygonu v Kopřivnici a výtah, co se na speciálních vozovkách, svazích a brodech zkouší.",
+    "title": "Zkušební polygon Tatra",
+    "written_hash": "d058fbb8201c75d072b22514ec67b9d8d0324012b4e9c54250d1319b9636d869"
+  },
   "znaceni-oceli/csn-en": {
     "badge": true,
     "category": "znaceni-oceli",
@@ -1692,15 +1757,15 @@
   "znaceni-oceli/index": {
     "badge": true,
     "category": "znaceni-oceli",
-    "content_hash": "2d8096f7d71e8c7ad412b729f5d8208f5b80d727cfe2599b34821b0dfc72b8ca",
+    "content_hash": "f09d848beb96f8d78f0fbe9958234326cc31e21463a1438699e9451f0782cbef",
     "file": "znaceni-oceli/index.html",
     "first_seen": "2026-09-20",
     "hash_version": 2,
-    "last_changed": "2026-10-11",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Nový rozcestník kapitoly značení ocelí dle EN.",
     "title": "Značení ocelí",
-    "written_hash": "5d5de7f8bc00a3eb0fe541caf09a3bcc392c996f4c7806154d21e9d8e096dd0b"
+    "written_hash": "204823a29e9bb26b5afbc5cd6833d3aa18960bf69304336ba9cf30926a168465"
   },
   "znaceni-oceli/podle-pouziti": {
     "badge": true,
@@ -1744,15 +1809,15 @@
   "zpracovani-polymeru/index": {
     "badge": true,
     "category": "zpracovani-polymeru",
-    "content_hash": "29667a0924e27ea1b5cc81a3b1f8c1769372eebd776d1ef405d567e21b33a92a",
+    "content_hash": "736cb3c9b8691267b65858cc39842e78f176a34fc03e25c6cac184d65a546501",
     "file": "zpracovani-polymeru/index.html",
     "first_seen": "2026-10-11",
     "hash_version": 2,
-    "last_changed": "2026-10-24",
+    "last_changed": "2026-11-05",
     "locked": false,
     "note": "Rozcestník nové kapitoly se skupinami Základy polymerů, Vstřikování, vytlačování, vyfukování a Ostatní technologie.",
     "title": "Zpracování polymerů",
-    "written_hash": "6c2a3583fee16752d91b7b8d11b4d43f6c9c6636f50bed127f2fdb1ed1536b18"
+    "written_hash": "4f276cd7216c89ef5af1518dd7b592a0c12c583c326e191df41a5ba7f8dd1422"
   },
   "zpracovani-polymeru/ostatni/index": {
     "badge": true,

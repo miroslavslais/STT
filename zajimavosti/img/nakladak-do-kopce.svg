@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" role="img" aria-label="Kreslený nákladní automobil naložený kamením se s námahou šplhá do kopce">
+  <rect width="600" height="260" fill="#f6f1e8"/>
+  <!-- obloha: mraky jedou pomalu dozadu -->
+  <g fill="#fff" opacity="0.9">
+    <g><animateTransform attributeName="transform" type="translate" from="0 0" to="-640 0" dur="40s" repeatCount="indefinite"/>
+      <ellipse cx="520" cy="46" rx="34" ry="12"/><ellipse cx="545" cy="38" rx="22" ry="12"/>
+      <ellipse cx="1160" cy="46" rx="34" ry="12"/><ellipse cx="1185" cy="38" rx="22" ry="12"/>
+      <ellipse cx="260" cy="30" rx="26" ry="9"/><ellipse cx="900" cy="30" rx="26" ry="9"/>
+    </g>
+  </g>
+  <!-- svah a auto jsou natočené o 12° -->
+  <g transform="rotate(-12 300 200)">
+    <rect x="-200" y="200" width="1000" height="200" fill="#c9b48e"/>
+    <rect x="-200" y="200" width="1000" height="6" fill="#a8916a"/>
+    <!-- kamínky na cestě ubíhají dozadu = auto jede -->
+    <g fill="#a8916a">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-120 0" dur="2.4s" repeatCount="indefinite"/>
+      <circle cx="40" cy="214" r="3"/><circle cx="160" cy="220" r="2.5"/><circle cx="280" cy="214" r="3"/><circle cx="400" cy="220" r="2.5"/>
+      <circle cx="520" cy="214" r="3"/><circle cx="640" cy="220" r="2.5"/><circle cx="760" cy="214" r="3"/>
+      <circle cx="100" cy="230" r="2"/><circle cx="220" cy="236" r="2"/><circle cx="340" cy="230" r="2"/><circle cx="460" cy="236" r="2"/><circle cx="580" cy="230" r="2"/><circle cx="700" cy="236" r="2"/>
+    </g>
+
+    <!-- celé auto stojí na povrchu svahu (kola se ho dotýkají) -->
+    <g transform="translate(0 -13)">
+    <!-- kola se otáčejí pomalu -->
+    <g fill="#3a3530">
+      <g transform="translate(232 196)"><circle r="17"/><circle r="7" fill="#8a8072"/><path d="M0 -15V15M-15 0H15" stroke="#5c5346" stroke-width="3"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.6s" repeatCount="indefinite"/></path></g>
+      <g transform="translate(274 196)"><circle r="17"/><circle r="7" fill="#8a8072"/><path d="M0 -15V15M-15 0H15" stroke="#5c5346" stroke-width="3"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.6s" repeatCount="indefinite"/></path></g>
+      <g transform="translate(398 196)"><circle r="17"/><circle r="7" fill="#8a8072"/><path d="M0 -15V15M-15 0H15" stroke="#5c5346" stroke-width="3"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.6s" repeatCount="indefinite"/></path></g>
+    </g>
+
+    <!-- karoserie pruží na kolech -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 2.5;0 0;0 1.5;0 0" dur="0.9s" repeatCount="indefinite"/>
+      <rect x="208" y="176" width="222" height="10" rx="2" fill="#5c5346"/>
+      <!-- korba s kamením -->
+      <path d="M206 132 h152 l-6 44 h-140 z" fill="#b0561f" stroke="#7a3a14" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M222 140v30M246 140v30M270 140v30M294 140v30M318 140v30M342 140v30" stroke="#93461a" stroke-width="2"/>
+      <g stroke="#6f6a62" stroke-width="1.5">
+        <circle cx="222" cy="126" r="11" fill="#9a958c"/><circle cx="246" cy="120" r="14" fill="#8a857c"/><circle cx="272" cy="112" r="16" fill="#a29d94"/>
+        <circle cx="298" cy="118" r="13" fill="#8f8a81"/><circle cx="322" cy="124" r="12" fill="#9a958c"/><circle cx="344" cy="128" r="9" fill="#857f76"/>
+        <circle cx="258" cy="98" r="10" fill="#958f86"/><circle cx="284" cy="94" r="9" fill="#8a857c"/><circle cx="308" cy="104" r="8" fill="#a29d94"/>
+        <circle cx="270" cy="80" r="8" fill="#9a958c"/>
+      </g>
+      <!-- kabina s obličejem -->
+      <path d="M366 112 h40 q18 0 24 18 l6 46 h-70 z" fill="#d2722f" stroke="#7a3a14" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M376 120 h28 q10 0 13 10 l3 14 h-44 z" fill="#e8f1f6" stroke="#7a3a14" stroke-width="1.5"/>
+      <!-- přimhouřené oči námahou -->
+      <path d="M384 129 l7 4 l-7 4" fill="none" stroke="#231d16" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M408 129 l-7 4 l7 4" fill="none" stroke="#231d16" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- zaťaté zuby -->
+      <rect x="410" y="152" width="22" height="9" rx="3" fill="#fff" stroke="#231d16" stroke-width="1.6"/>
+      <path d="M417 152v9M424 152v9" stroke="#231d16" stroke-width="1.2"/>
+      <!-- výfuk -->
+      <rect x="360" y="86" width="7" height="30" rx="2" fill="#5c5346"/>
+    </g>
+
+    <!-- kapky potu padají z kabiny -->
+    <path d="M440 118 q4 6 0 9 q-4 -3 0 -9z" fill="#5aa9d6">
+      <animate attributeName="opacity" values="0;1;1;0" dur="1.8s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;6 10;10 24" dur="1.8s" repeatCount="indefinite"/>
+    </path>
+    <path d="M434 104 q3 5 0 7 q-3 -2 0 -7z" fill="#5aa9d6">
+      <animate attributeName="opacity" values="0;0;1;0" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;5 8;9 20" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- obláčky z výfuku -->
+    <g fill="#8a8072">
+      <circle cx="363" cy="80" r="6"><animate attributeName="cy" values="80;40" dur="2s" repeatCount="indefinite"/><animate attributeName="cx" values="363;340" dur="2s" repeatCount="indefinite"/><animate attributeName="r" values="5;14" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0" dur="2s" repeatCount="indefinite"/></circle>
+      <circle cx="363" cy="80" r="6"><animate attributeName="cy" values="80;40" dur="2s" begin="0.7s" repeatCount="indefinite"/><animate attributeName="cx" values="363;340" dur="2s" begin="0.7s" repeatCount="indefinite"/><animate attributeName="r" values="5;14" dur="2s" begin="0.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0" dur="2s" begin="0.7s" repeatCount="indefinite"/></circle>
+      <circle cx="363" cy="80" r="6"><animate attributeName="cy" values="80;40" dur="2s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="cx" values="363;340" dur="2s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="r" values="5;14" dur="2s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0" dur="2s" begin="1.4s" repeatCount="indefinite"/></circle>
+    </g>
+    </g>
+  </g>
+  <!-- bublina „Uf…“ -->
+  <g>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.1;0.6;0.7;1" dur="4s" repeatCount="indefinite"/>
+    <path d="M478 20 h86 q10 0 10 10 v26 q0 10 -10 10 h-56 l-14 14 l2 -14 h-18 q-10 0 -10 -10 v-26 q0 -10 10 -10z" fill="#fff" stroke="#231d16" stroke-width="2"/>
+    <text x="521" y="50" text-anchor="middle" font-family="Quicksand, sans-serif" font-weight="700" font-size="22" fill="#231d16">Uf…</text>
+  </g>
+</svg>

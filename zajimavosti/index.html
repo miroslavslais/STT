@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technika kolem nás | STT</title>
+<meta name="description" content="Technika kolem nás: výrobní postupy věcí z běžného života a souhrny článků z oboru s vazbou na kapitoly STT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Sekce Technika kolem nás — světlé téma hlavní stránky; obsah karet se načítá z data.json */
+:root{
+  --bg:#fbf8f3; --card:#fff; --deep:#f6f1e8; --line:#e5ded2; --line2:#eee5d8;
+  --fg:#231d16; --muted:#6b6255; --dim:#8a8072; --acc:#b0561f;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+}
+html,body{margin:0;background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:24px;right:24px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,.08);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#5c5346;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:24px;left:24px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.back:hover{color:var(--acc)}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1080px;margin:0 auto}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:44px;line-height:1.15;margin:0 0 14px}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0 0 36px;max-width:760px}
+.filters{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.frow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.flbl{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);width:84px}
+.btn{padding:7px 14px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:#fff;border-color:var(--acc)}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(3,1fr)}
+.card{display:flex;flex-direction:column;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 26px 22px;box-shadow:0 1px 3px rgba(35,29,22,.06);scroll-margin-top:96px;transition:box-shadow .15s}
+.card.hit{box-shadow:0 0 0 3px var(--acc)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{padding:4px 10px;border-radius:999px;font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:var(--deep);color:var(--dim)}
+.tag.typ{background:#f8ddc9;color:#8a3f12}
+.tag.typ.clanek{background:#d4ecf7;color:#1d5a7a}
+.tag.typ.video{background:#e8e9ff;color:#3d3580}
+.ctitle{font-family:var(--f-disp);font-weight:700;font-size:21px;line-height:1.3}
+.ctitle a:hover{color:var(--acc)}
+.perex{font-size:15px;line-height:1.6;color:var(--muted);margin:0}
+.srcl{font-size:13.5px;line-height:1.5;color:var(--dim)}
+.srcl a{border-bottom:1px solid var(--line)}
+.go{margin-top:auto;font-family:var(--f-disp);font-weight:600;font-size:14.5px;color:var(--acc)}
+.empty{font-size:16px;color:var(--dim)}
+.fig{margin:0}
+.fig img{display:block;width:100%;border-radius:14px;border:1px solid var(--line2)}
+.fig figcaption{font-size:12.5px;color:var(--dim);margin-top:6px}
+.body{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px;line-height:1.55;color:var(--muted)}
+.rel{font-size:13.5px;line-height:1.6;color:var(--dim)}
+.rel a{color:var(--acc);border-bottom:1px solid #e3c2ab}
+</style>
+</head>
+<body data-first-seen="2026-11-05">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="../index.html">← Zpět na&nbsp;Interaktivní výuku STT</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Interaktivní výuka STT</div>
+  <h1>Technika kolem nás</h1>
+  <p class="lead">Výrobní postupy věcí z&nbsp;běžného života a&nbsp;souhrny článků z&nbsp;oboru. U&nbsp;každé položky jsou uvedené kapitoly, se kterými souvisí.</p>
+  <div class="filters">
+    <div class="frow" id="fTyp"><span class="flbl">Typ</span></div>
+    <div class="frow" id="fKap"><span class="flbl">Kapitola</span></div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty" hidden></p>
+</div></main>
+
+<script>
+(function(){
+/* ---------- navigace ---------- */
+const P='../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json').then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- karty z data.json ---------- */
+const grid=document.getElementById('grid'), empty=document.getElementById('empty');
+const fTyp=document.getElementById('fTyp'), fKap=document.getElementById('fKap');
+const mk=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
+const fmt=iso=>{const d=new Date(iso);return isNaN(d)?iso:d.toLocaleDateString('cs-CZ');};
+let data=null, typ='', kap='';
+
+function filterBtns(box,items,getSel,setSel){
+  box.querySelectorAll('.btn').forEach(b=>b.remove());
+  items.forEach(([v,t])=>{const b=mk('button','btn',t);b.type='button';b.setAttribute('aria-pressed',getSel()===v);
+    b.onclick=()=>{setSel(v);render();};box.appendChild(b);});
+}
+function render(){
+  const items=data.polozky;
+  const typy=[...new Set(items.map(i=>i.typ))], kaps=[...new Set(items.flatMap(i=>i.kapitoly||[]))];
+  filterBtns(fTyp,[['','Vše']].concat(typy.map(t=>[t,data.typy[t]||t])),()=>typ,v=>typ=v);
+  filterBtns(fKap,[['','Vše']].concat(kaps.map(k=>[k,(data.kapitoly[k]||{}).title||k])),()=>kap,v=>kap=v);
+  grid.innerHTML='';
+  const list=items.filter(i=>(!typ||i.typ===typ)&&(!kap||(i.kapitoly||[]).includes(kap)));
+  list.forEach(i=>{
+    const c=mk('article','card');c.id=i.id;
+    const tags=mk('div','tags');
+    tags.appendChild(mk('span','tag typ '+i.typ,data.typy[i.typ]||i.typ));
+    (i.kapitoly||[]).forEach(k=>{const kk=data.kapitoly[k];if(kk){const a=mk('a','tag',kk.title);a.href=P+kk.href;tags.appendChild(a);}});
+    c.appendChild(tags);
+    if(i.obrazek){const fg=mk('figure','fig');const im=mk('img');im.src=P+i.obrazek;im.alt=i.obrazekPopis||'';im.loading='lazy';fg.appendChild(im);
+      if(i.obrazekPopis)fg.appendChild(mk('figcaption',null,i.obrazekPopis));c.appendChild(fg);}
+    const t=mk('div','ctitle');
+    const href=i.stranka?P+i.stranka:(i.zdroj&&i.zdroj.url);
+    if(href){const a=mk('a',null,i.titulek);a.href=href;if(!i.stranka){a.target='_blank';a.rel='noopener';}t.appendChild(a);}else t.textContent=i.titulek;
+    c.appendChild(t);
+    c.appendChild(mk('p','perex',i.perex));
+    if(i.body&&i.body.length){const ul=mk('ul','body');i.body.forEach(b=>ul.appendChild(mk('li',null,b)));c.appendChild(ul);}
+    if(i.zdroj){const s=mk('div','srcl','Zdroj: ');const a=mk('a',null,i.zdroj.nazev);a.href=i.zdroj.url;a.target='_blank';a.rel='noopener';s.appendChild(a);
+      if(i.zdroj.datum)s.appendChild(document.createTextNode(', '+fmt(i.zdroj.datum)));c.appendChild(s);}
+    if(i.souvisi&&i.souvisi.length){const r=mk('div','rel','Na webu: ');i.souvisi.forEach((s,n)=>{if(n)r.appendChild(document.createTextNode(' · '));const a=mk('a',null,s.title);a.href=P+s.href;r.appendChild(a);});c.appendChild(r);}
+    if(href){const g=mk('a','go',i.stranka?'Číst dál →':'Přečíst článek →');g.href=href;if(!i.stranka){g.target='_blank';g.rel='noopener';}c.appendChild(g);}
+    grid.appendChild(c);
+  });
+  empty.hidden=list.length>0;
+  if(!list.length)empty.textContent='Pro zvolený filtr tu zatím nic není.';
+}
+function showHash(){
+  const id=decodeURIComponent(location.hash.slice(1));if(!id)return;
+  const c=document.getElementById(id);if(!c)return;
+  c.classList.add('hit');c.scrollIntoView({block:'start'});
+  setTimeout(()=>c.classList.remove('hit'),2500);
+}
+fetch('data.json').then(r=>r.json()).then(d=>{data=d;render();showHash();})
+  .catch(()=>{empty.hidden=false;empty.textContent='Seznam se nepodařilo načíst.';});
+window.addEventListener('hashchange',showHash);
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

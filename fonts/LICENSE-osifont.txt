@@ -1,0 +1,4 @@
+osifont-lgpl3fe.woff
+Zdroj: https://github.com/hikikomori82/osifont
+Licence: GNU LGPL v3 s výjimkou pro fonty (font exception).
+Písmo podle ISO 3098 (technické písmo).

@@ -4,32 +4,50 @@ const SANS = "'IBM Plex Sans', system-ui, sans-serif";
 const HEAD = "'Quicksand', system-ui, sans-serif";
 const ACC = '#7ba3cc', WARM = '#eda962', RED = '#e0655a', GREEN = '#57b98a';
 
-const CX = 420, TOP = 150, T = 14, PRM = 77, DIE = 90, MAXD = 210, R0 = 212;
+const CX = 420, TOP = 150, T = 14, PRM = 77, DIE = 86, MAXD = 210, R0 = 226;
+// nástroj: PUN = poloviční šířka tažníku, RM = zaoblení tažnice, RP = zaoblení tažníku
+const PUN = 70, RM = 40, RP = 28;
+const XD = DIE + RM, YD = TOP + T + RM;   // střed zaoblení tažnice (vzdálenost od osy, y)
 
 function flangeR(depth) {
   const h = depth * MAXD;
-  return Math.max(DIE + 8, Math.sqrt(Math.max(0, R0 * R0 - 2 * PRM * h)));
+  return Math.max(XD, Math.sqrt(Math.max(0, R0 * R0 - 2 * PRM * h)));
+}
+
+// Střednice plechu: příruba → oblouk po zaoblení tažnice → volná stěna (společná tečna) → oblouk po zaoblení tažníku → dno.
+function geometry(depth) {
+  const ym = TOP + T / 2 + depth * MAXD;
+  const yf = ym - T / 2;                       // čelo tažníku
+  const xp = PUN - RP, yp = yf - RP;           // střed zaoblení tažníku
+  const a = RM + T / 2, b = RP + T / 2;
+  const Dx = xp - XD, Dy = yp - YD;
+  const R = Math.hypot(Dx, Dy);
+  let al = Math.atan2(Dx, Dy) + Math.acos(Math.max(-1, Math.min(1, -(a + b) / R)));
+  al = Math.max(0, Math.min(Math.PI / 2, al));
+  const sa = Math.sin(al), ca = Math.cos(al);
+  return {
+    ym, yf, xp, yp, a, b,
+    td: [XD - a * sa, YD - a * ca],            // konec styku s tažnicí
+    tp: [xp + b * sa, yp + b * ca]             // začátek styku s tažníkem
+  };
 }
 
 function segments(depth) {
-  const ym = TOP + T / 2 + depth * MAXD;
-  const k = Math.min(1, depth * 5);
-  const r1 = 22 * k, rd = 26 * k;
-  const yTop = TOP + T / 2;
-  const wallTop = yTop + rd;
-  const wallBot = Math.max(wallTop, ym - r1);
+  const g = geometry(depth);
   const Rf = flangeR(depth);
+  const yTop = TOP + T / 2;
   const out = { bottom: [], wall: [], flange: [] };
   [-1, 1].forEach(s => {
-    out.bottom.push(
-      'M' + CX + ' ' + ym +
-      ' L' + (CX + s * (PRM - r1)) + ' ' + ym +
-      ' Q' + (CX + s * PRM) + ' ' + ym + ' ' + (CX + s * PRM) + ' ' + (ym - r1));
-    out.wall.push('M' + (CX + s * PRM) + ' ' + wallTop + ' L' + (CX + s * PRM) + ' ' + wallBot);
+    const X = (x) => CX + s * x;
     out.flange.push(
-      'M' + (CX + s * PRM) + ' ' + wallTop +
-      ' Q' + (CX + s * PRM) + ' ' + yTop + ' ' + (CX + s * (PRM + rd)) + ' ' + yTop +
-      ' L' + (CX + s * Math.max(PRM + rd, Rf)) + ' ' + yTop);
+      'M' + X(g.td[0]) + ' ' + g.td[1] +
+      ' A' + g.a + ' ' + g.a + ' 0 0 ' + (s > 0 ? 1 : 0) + ' ' + X(XD) + ' ' + yTop +
+      ' L' + X(Math.max(XD, Rf)) + ' ' + yTop);
+    out.wall.push('M' + X(g.td[0]) + ' ' + g.td[1] + ' L' + X(g.tp[0]) + ' ' + g.tp[1]);
+    out.bottom.push(
+      'M' + CX + ' ' + g.ym +
+      ' L' + X(g.xp) + ' ' + g.ym +
+      ' A' + g.b + ' ' + g.b + ' 0 0 ' + (s > 0 ? 0 : 1) + ' ' + X(g.tp[0]) + ' ' + g.tp[1]);
   });
   return out;
 }
@@ -47,7 +65,7 @@ function Arrow({ x1, y1, x2, y2, color, w }) {
 
 function Diagram({ depth, strain, thick, flow }) {
   const seg = segments(depth);
-  const ym = TOP + T / 2 + depth * MAXD;
+  const ym = TOP + T / 2 + depth * MAXD, yf = ym - T / 2;
   const Rf = flangeR(depth);
   const wBottom = T, wWall = T * (1 - 0.24 * depth), wFlange = T * (1 + 0.15 * depth);
   const cB = strain ? GREEN : '#c6d3de';
@@ -55,24 +73,46 @@ function Diagram({ depth, strain, thick, flow }) {
   const cF = strain ? RED : '#c6d3de';
   return (
     <svg viewBox="0 0 840 520" width="100%" style={{ display: 'block' }}>
-      {/* tažnice */}
+      {/* tažnice — vstupní hrana zaoblená poloměrem RM */}
+      {[-1, 1].map(s => {
+        const X = (x) => CX + s * x, sw = s > 0 ? 1 : 0, yb = TOP + T + 300;
+        return (
+          <path key={s} d={'M' + X(DIE) + ' ' + yb + ' L' + X(DIE) + ' ' + YD +
+            ' A' + RM + ' ' + RM + ' 0 0 ' + sw + ' ' + X(XD) + ' ' + (TOP + T) +
+            ' L' + X(CX - 10) + ' ' + (TOP + T) + ' L' + X(CX - 10) + ' ' + yb + ' Z'}
+            fill="#39434f" stroke="#5a6570" strokeWidth={1.6} strokeLinejoin="round" />
+        );
+      })}
       {[-1, 1].map(s => (
-        <rect key={s} x={s < 0 ? 10 : CX + DIE} y={TOP + T} width={CX - DIE - 10} height={300} rx={6}
-          fill="#39434f" stroke="#5a6570" strokeWidth={1.6} />
+        <path key={'rm' + s} d={'M' + (CX + s * DIE + s * 3) + ' ' + YD +
+          ' A' + (RM - 3) + ' ' + (RM - 3) + ' 0 0 ' + (s > 0 ? 1 : 0) + ' ' + (CX + s * XD) + ' ' + (TOP + T + 3)}
+          fill="none" stroke={ACC} strokeWidth={5} strokeLinecap="round" />
       ))}
       <text x={26} y={TOP + T + 30} fontFamily={SANS} fontSize={14} fill="#93a2b2">tažnice</text>
+      <line x1={274} y1={288} x2={CX - XD + (RM - 3) * 0.7071} y2={YD - (RM - 3) * 0.7071} stroke={ACC} strokeWidth={1.2} />
+      <text x={270} y={306} textAnchor="end" fontFamily={SANS} fontSize={14} fill={ACC}>zaoblení tažnice</text>
+      <text x={270} y={324} textAnchor="end" fontFamily={SANS} fontSize={12.5} fill="#8296a8">střižnice má ostrou hranu</text>
 
-      {/* přidržovač */}
+      {/* přidržovač — dosedá na přírubu za zaoblením tažnice */}
       {[-1, 1].map(s => (
-        <rect key={s} x={s < 0 ? 10 : CX + DIE + 6} y={TOP - 30} width={CX - DIE - 16} height={28} rx={5}
+        <rect key={s} x={s < 0 ? 10 : CX + XD + 4} y={TOP - 30} width={CX - XD - 14} height={28} rx={5}
           fill="#4a5563" stroke="#6d7986" strokeWidth={1.4} />
       ))}
       <text x={26} y={TOP - 40} fontFamily={SANS} fontSize={14} fill="#93a2b2">přidržovač</text>
 
-      {/* tažník */}
-      <rect x={CX - PRM + T / 2} y={ym - T / 2 - 320} width={2 * (PRM - T / 2)} height={320} rx={10}
-        fill="#4a5563" stroke="#6d7986" strokeWidth={1.6} />
-      <text x={CX} y={Math.max(24, ym - T / 2 - 296)} textAnchor="middle" fontFamily={SANS} fontSize={14} fill="#c4d2de">tažník</text>
+      {/* tažník — hrana čela zaoblená poloměrem RP */}
+      <path d={'M' + (CX - PUN) + ' ' + (yf - 320) + ' L' + (CX + PUN) + ' ' + (yf - 320) +
+        ' L' + (CX + PUN) + ' ' + (yf - RP) + ' A' + RP + ' ' + RP + ' 0 0 1 ' + (CX + PUN - RP) + ' ' + yf +
+        ' L' + (CX - PUN + RP) + ' ' + yf + ' A' + RP + ' ' + RP + ' 0 0 1 ' + (CX - PUN) + ' ' + (yf - RP) + ' Z'}
+        fill="#4a5563" stroke="#6d7986" strokeWidth={1.6} strokeLinejoin="round" />
+      {[-1, 1].map(s => (
+        <path key={'rp' + s} d={'M' + (CX + s * (PUN - 3)) + ' ' + (yf - RP) +
+          ' A' + (RP - 3) + ' ' + (RP - 3) + ' 0 0 ' + (s > 0 ? 1 : 0) + ' ' + (CX + s * (PUN - RP)) + ' ' + (yf - 3)}
+          fill="none" stroke={ACC} strokeWidth={5} strokeLinecap="round" />
+      ))}
+      <text x={CX} y={Math.max(24, yf - 296)} textAnchor="middle" fontFamily={SANS} fontSize={14} fill="#c4d2de">tažník</text>
+      <line x1={CX + 44} y1={yf - 36} x2={CX + PUN - RP + (RP - 3) * 0.7071} y2={yf - RP + (RP - 3) * 0.7071} stroke={ACC} strokeWidth={1.2} />
+      <text x={CX} y={yf - 40} textAnchor="middle" fontFamily={SANS} fontSize={13} fill={ACC}>zaoblení tažníku</text>
 
       {/* plech */}
       {seg.flange.map((d, i) => <path key={'f' + i} d={d} fill="none" stroke={cF} strokeWidth={wFlange} strokeLinecap="butt" />)}

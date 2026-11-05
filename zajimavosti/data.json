@@ -1,0 +1,120 @@
+{
+  "kapitoly": {
+    "koroze": {
+      "title": "Koroze",
+      "href": "koroze/index.html"
+    },
+    "odlevani": {
+      "title": "Odlévání",
+      "href": "odlevani/index.html"
+    },
+    "plasty": {
+      "title": "Zpracování polymerů",
+      "href": "zpracovani-polymeru/index.html"
+    },
+    "praskova-metalurgie": {
+      "title": "Prášková metalurgie",
+      "href": "praskova-metalurgie/index.html"
+    },
+    "svarovani": {
+      "title": "Svařování",
+      "href": "svarovani/index.html"
+    },
+    "tvareni": {
+      "title": "Tváření",
+      "href": "tvareni-za-tepla/index.html"
+    },
+    "vnitrni-stavba": {
+      "title": "Vnitřní stavba kovů a TZ",
+      "href": "vnitrni-stavba-kovu-a-tz/index.html"
+    },
+    "znaceni-oceli": {
+      "title": "Značení ocelí",
+      "href": "znaceni-oceli/index.html"
+    }
+  },
+  "typy": {
+    "zajimavost": "Zajímavost",
+    "clanek": "Z článku",
+    "video": "Video"
+  },
+  "polozky": [
+    {
+      "id": "socha-svobody",
+      "typ": "zajimavost",
+      "titulek": "Proč rezavěla Socha Svobody",
+      "perex": "Měděný plášť a železná kostra tvořily ve vlhkém vzduchu galvanický článek. Železo se téměř sto let rozpouštělo, měď zůstala skoro beze změny.",
+      "kapitoly": [
+        "koroze"
+      ],
+      "stranka": "zajimavosti/socha-svobody.html",
+      "obrazek": "zajimavosti/img/socha-svobody-koroze.svg",
+      "obrazekPopis": "Spoj plášť — spona — žebro kolem roku 1980 (vlastní schéma)",
+      "pridano": "2026-11-05"
+    },
+    {
+      "id": "tatra-polygon",
+      "typ": "video",
+      "titulek": "Zkušební polygon Tatra",
+      "perex": "Video z polygonu v Kopřivnici: 60 ha, 22 km speciálních vozovek a přes 60 překážek. Na stránce je i výtah, co se na polygonu zkouší a proč.",
+      "kapitoly": [],
+      "stranka": "zajimavosti/tatra-polygon.html",
+      "zdroj": {
+        "nazev": "TATRA TRUCKS a.s. (YouTube)",
+        "url": "https://youtu.be/d7irAPAlOwQ"
+      },
+      "pridano": "2026-11-03",
+      "obrazek": "zajimavosti/img/nakladak-do-kopce.svg"
+    },
+    {
+      "id": "svarovani-prehled",
+      "typ": "clanek",
+      "titulek": "Co je to svařování?",
+      "perex": "Přehledový článek firmy Fronius: princip svařování a srovnání tří nejrozšířenějších obloukových metod — použití, materiály a výhody.",
+      "body": [
+        "Svařování trvale spojuje díly teplem, tlakem nebo obojím. U tavných metod se základní materiál v místě spoje roztaví.",
+        "Obalená elektroda (111) — jednoduché a levné vybavení, málo citlivá na vítr a počasí. Ocelové konstrukce, potrubí, opravy strojů, i svařování pod vodou.",
+        "MIG/MAG (131/135) — odtavuje se drát v ochranném plynu, inertním (MIG) nebo aktivním (MAG). Rychlé, s velkým odtavným výkonem, snadno se naučí.",
+        "TIG (141) — netavící se elektroda v inertním plynu, přídavný drát se obvykle přidává ručně. Svar bez rozstřiku ve všech polohách, vyžaduje zručnost."
+      ],
+      "obrazek": "zajimavosti/img/svarovani-metody.svg",
+      "obrazekPopis": "Obalená elektroda · MIG/MAG · TIG (vlastní schéma)",
+      "souvisi": [
+        {
+          "title": "Obalená elektroda",
+          "href": "svarovani/tavne/obalena-elektroda.html"
+        },
+        {
+          "title": "MIG/MAG",
+          "href": "svarovani/tavne/mig-mag.html"
+        },
+        {
+          "title": "TIG",
+          "href": "svarovani/tavne/tig.html"
+        }
+      ],
+      "kapitoly": [
+        "svarovani"
+      ],
+      "zdroj": {
+        "nazev": "MM Průmyslové spektrum",
+        "url": "https://www.mmspektrum.com/clanek/co-je-to-svarovani",
+        "datum": "2026-10-01"
+      },
+      "pridano": "2026-11-03"
+    },
+    {
+      "id": "jehla",
+      "typ": "zajimavost",
+      "titulek": "Jak se vyrábí šicí jehla",
+      "perex": "Z jednoho přířezu drátu vznikají dvě jehly najednou. Hroty se brousí na obou koncích, ouška se razí a děrují uprostřed a teprve potom se přířez rozdělí.",
+      "kapitoly": [
+        "tvareni",
+        "vnitrni-stavba"
+      ],
+      "stranka": "zajimavosti/jehla.html",
+      "pridano": "2026-11-03",
+      "obrazek": "zajimavosti/img/jehla-cisti-ousko.svg"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" role="img" aria-label="Schematické znázornění tří obloukových metod svařování: obalená elektroda, MIG/MAG a TIG">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff6d6"/>
+      <stop offset="0.35" stop-color="#f6c75a" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#f6c75a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="240" fill="#f6f1e8"/>
+  <!-- dělicí linky panelů -->
+  <path d="M200 24v196M400 24v196" stroke="#e5ded2" stroke-width="1.5"/>
+  <!-- základní materiál a svarová housenka (stejná ve všech panelech) -->
+  <g id="plate">
+    <rect x="16" y="196" width="168" height="24" rx="3" fill="#b4b8bd" stroke="#7d8288" stroke-width="1.5"/>
+    <path d="M70 196 q30 -14 60 0 z" fill="#9c8a72" stroke="#6f5f4a" stroke-width="1.2"/>
+  </g>
+  <use href="#plate" x="200"/>
+  <use href="#plate" x="400"/>
+
+  <!-- 1 · obalená elektroda: držák, jádro a obal elektrody, oblouk -->
+  <g transform="rotate(-18 100 186)">
+    <rect x="86" y="36" width="28" height="22" rx="5" fill="#5c5346"/>
+    <rect x="93" y="58" width="14" height="112" rx="3" fill="#e8d6b0" stroke="#a78d5e" stroke-width="1.2"/>
+    <rect x="98" y="58" width="4" height="118" fill="#6f7479"/>
+  </g>
+  <circle cx="112" cy="186" r="26" fill="url(#g)"/>
+  <path d="M110 178 l-4 6 l6 2 l-4 7" fill="none" stroke="#d9772a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="132" cy="172" r="2.2" fill="#d9772a"/><circle cx="90" cy="168" r="1.8" fill="#d9772a"/>
+
+  <!-- 2 · MIG/MAG: hubice hořáku, drát, ochranný plyn, oblouk -->
+  <path d="M276 40 h48 v70 l-8 40 h-32 l-8 -40 z" fill="#7d8288" stroke="#5c5346" stroke-width="1.5" stroke-linejoin="round"/>
+  <rect x="290" y="150" width="20" height="10" fill="#c58b45"/>
+  <rect x="298.5" y="160" width="3" height="20" fill="#a9adb2"/>
+  <path d="M286 162 q-16 18 -18 30 M314 162 q16 18 18 30 M292 166 q-8 14 -8 26 M308 166 q8 14 8 26" fill="none" stroke="#7fb3d4" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+  <circle cx="300" cy="186" r="24" fill="url(#g)"/>
+  <path d="M300 180 l-3 5 l5 2 l-3 6" fill="none" stroke="#d9772a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 3 · TIG: hořák s keramickou hubicí, wolframová elektroda, přídavný drát, oblouk -->
+  <path d="M474 40 h44 v66 l-6 34 h-32 l-6 -34 z" fill="#7d8288" stroke="#5c5346" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M480 140 h32 l-5 16 h-22 z" fill="#efe3cf" stroke="#a78d5e" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M494 156 h4 v20 l-2 5 l-2 -5 z" fill="#4d5258"/>
+  <path d="M488 160 q-10 16 -12 30 M504 160 q10 16 12 30" fill="none" stroke="#7fb3d4" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+  <path d="M586 120 L522 190" stroke="#a9adb2" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="500" cy="188" r="22" fill="url(#g)"/>
+  <path d="M496 182 l2 5 l-3 2 l2 5" fill="none" stroke="#d9772a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
