@@ -33,6 +33,10 @@
       "href": "zpracovani-polymeru/index.html"
     },
     {
+      "title": "Svařování",
+      "href": "svarovani/index.html"
+    },
+    {
       "title": "O projektu",
       "href": "o-projektu.html"
     },
@@ -435,7 +439,7 @@
       {
         "id": "ochrana",
         "title": "Protikorozní ochrana",
-        "desc": "Povlaky, inhibitory, katodová ochrana a legování.",
+        "desc": "Povlaky, metalizování, inhibitory, katodová ochrana a legování.",
         "href": "ochrana/Protikorozni ochrana.html",
         "badge": "Schéma"
       }
@@ -487,6 +491,11 @@
         "title": "Galvanické pokovení",
         "desc": "Elektrolytické nanesení tenkých kovových vrstev (Cu–Ni–Cr) — lesk, tvrdost a odolnost povrchu.",
         "href": "galvanicke-pokovani/Galvanicke pokovani.html"
+      },
+      {
+        "title": "Metalizování",
+        "desc": "Stříkání roztaveného zinku nebo hliníku na otryskaný povrch — i velké konstrukce přímo na místě.",
+        "href": "metalizovani/index.html"
       }
     ]
   },
@@ -722,7 +731,7 @@
       {
         "id": "ohybani",
         "title": "Ohýbání",
-        "desc": "Neutrální osa, minimální poloměr ohybu a výpočet rozvinuté délky.",
+        "desc": "Neutrální osa, minimální poloměr ohybu, výpočet rozvinuté délky a rovnání ohybem.",
         "href": "Ohybani.html",
         "badge": "Animace",
         "status": "ready"
@@ -738,9 +747,9 @@
       {
         "id": "protlacovani",
         "title": "Protlačování",
-        "desc": "Napjatost při protlačování, dopředné, zpětné a stranové protlačování a jejich kombinace.",
+        "desc": "Napjatost při protlačování, dopředné, zpětné a stranové protlačování, jejich kombinace a 3D model výroby pouzdra zapalovací svíčky.",
         "href": "protlacovani.html",
-        "badge": "Interaktivní",
+        "badge": "Interaktivní · 3D",
         "status": "ready"
       },
       {
@@ -1237,19 +1246,22 @@
         "title": "Odporové svařování",
         "desc": "Proud procházející stykem dílů je ohřeje, elektrody je stlačí.",
         "href": "odporove.html",
-        "status": "coming-soon"
+        "badge": "1 animace · 1 interaktivní",
+        "status": "ready"
       },
       {
         "title": "Svařování třením",
         "desc": "Svařování třením (42) a FSW — třecí svařování promíšením.",
         "href": "trenim.html",
-        "status": "coming-soon"
+        "badge": "2 animace",
+        "status": "ready"
       },
       {
         "title": "Ostatní tlakové metody",
         "desc": "Svařování výbuchem (441) a difúzní svařování (45).",
         "href": "ostatni-tlakove.html",
-        "status": "coming-soon"
+        "badge": "2 animace · 1 interaktivní",
+        "status": "ready"
       }
     ]
   },
@@ -1258,13 +1270,17 @@
     "cards": [
       {
         "title": "Pájení",
-        "desc": "",
-        "status": "coming-soon"
+        "desc": "Roztavená pájka vzlíná do spáry, základní materiál se nenataví.",
+        "href": "pajeni.html",
+        "badge": "2 animace · 1 interaktivní",
+        "status": "ready"
       },
       {
         "title": "Navařování a žárové nástřiky",
-        "desc": "",
-        "status": "coming-soon"
+        "desc": "Vrstva jiného materiálu na povrchu dílu — návarem nebo nástřikem.",
+        "href": "navarovani-nastriky.html",
+        "badge": "1 animace · 1 interaktivní",
+        "status": "ready"
       }
     ]
   }

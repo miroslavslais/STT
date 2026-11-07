@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" role="img" aria-label="Svařování ventilu třením ve třech fázích: přiblížení, tření s ohřevem a vznikem výronku, kování po zastavení otáčení">
+  <defs>
+    <!-- dřík nesmí přesáhnout styčnou plochu: materiál za ní odchází do výronku -->
+    <clipPath id="zaStykem"><rect x="0" y="0" width="300" height="260"/></clipPath>
+    <clipPath id="drik"><rect x="40" y="118" width="260" height="24" rx="3"/></clipPath>
+  </defs>
+  <rect width="600" height="260" fill="#f6f1e8"/>
+  <!-- fáze -->
+  <g font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#b0561f" text-anchor="middle">
+    <text x="300" y="36" opacity="0">1. přiblížení<animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.11;0.12;0.99;1" dur="6s" repeatCount="indefinite"/></text>
+    <text x="300" y="36" opacity="0">2. tření: ohřev a výronek<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.11;0.12;0.6;0.61;1" dur="6s" repeatCount="indefinite"/></text>
+    <text x="300" y="36" opacity="0">3. kování: otáčení stojí<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6;0.61;0.92;0.93;1" dur="6s" repeatCount="indefinite"/></text>
+  </g>
+  <!-- talířek ventilu (stojí) -->
+  <path d="M300 118 H350 L460 66 H478 V194 H460 L350 142 H300 z" fill="#b8bec5" stroke="#5f656b" stroke-width="2" stroke-linejoin="round"/>
+  <!-- otáčení: zadní polovina elipsy -->
+  <path d="M150 158 A12 28 0 0 1 150 102" fill="none" stroke="#b0561f" stroke-width="2" stroke-dasharray="4 4" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.7;0;0;0.7" keyTimes="0;0.6;0.61;0.99;1" dur="6s" repeatCount="indefinite"/>
+  </path>
+  <!-- dřík: přiblíží se, při tření se posouvá o délku propalu, při kování ještě o kus -->
+  <g clip-path="url(#zaStykem)">
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="-14 0;0 0;6 0;9 0;9 0;-14 0" keyTimes="0;0.12;0.6;0.75;0.93;1" dur="6s" repeatCount="indefinite"/>
+      <rect x="40" y="118" width="260" height="24" rx="3" fill="#8f969d" stroke="#4d5258" stroke-width="2"/>
+      <g clip-path="url(#drik)" stroke="#c9ced3" stroke-width="3">
+        <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.6;0.61;0.99;1" dur="6s" repeatCount="indefinite"/>
+        <g><animateTransform attributeName="transform" type="translate" from="0 0" to="0 16" dur="0.25s" repeatCount="indefinite"/>
+          <path d="M40 104 l260 0 M40 120 l260 0 M40 136 l260 0 M40 152 l260 0"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <!-- ohřev styku -->
+  <circle cx="300" cy="130" r="18" fill="#f2a04a" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.6;0.35;0.2;0" keyTimes="0;0.12;0.55;0.75;0.93;1" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  <!-- výronek (límec) na obou stranách styku -->
+  <g fill="#9c8a72" stroke="#5c4632" stroke-width="1.2">
+    <ellipse cx="300" cy="117" rx="0" ry="0">
+      <animate attributeName="rx" values="0;0;8;11;11;0" keyTimes="0;0.12;0.6;0.75;0.93;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="0;0;5;7;7;0" keyTimes="0;0.12;0.6;0.75;0.93;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="118;118;113;111;111;118" keyTimes="0;0.12;0.6;0.75;0.93;1" dur="6s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="300" cy="143" rx="0" ry="0">
+      <animate attributeName="rx" values="0;0;8;11;11;0" keyTimes="0;0.12;0.6;0.75;0.93;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="ry" values="0;0;5;7;7;0" keyTimes="0;0.12;0.6;0.75;0.93;1" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="142;142;147;149;149;142" keyTimes="0;0.12;0.6;0.75;0.93;1" dur="6s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+  <!-- otáčení: přední polovina elipsy se šipkou -->
+  <g>
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.6;0.61;0.99;1" dur="6s" repeatCount="indefinite"/>
+    <path d="M150 102 A12 28 0 0 1 150 158" fill="none" stroke="#b0561f" stroke-width="2.5"/>
+    <path d="M157 152 L150 158 L157 164" fill="none" stroke="#b0561f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="170" y="96" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8a8072">dřík se otáčí</text>
+  </g>
+  <!-- síla: osová při tření, větší kovací při kování -->
+  <g>
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.6;0.61;0.99;1" dur="6s" repeatCount="indefinite"/>
+    <path d="M30 200 H120 M108 192 L120 200 L108 208" fill="none" stroke="#b0561f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="130" y="205" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8a8072">osová síla</text>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6;0.61;0.92;0.93;1" dur="6s" repeatCount="indefinite"/>
+    <path d="M30 200 H120 M106 190 L120 200 L106 210" fill="none" stroke="#b0561f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="134" y="205" font-family="IBM Plex Sans, sans-serif" font-size="14" font-weight="600" fill="#8a8072">kovací síla</text>
+  </g>
+  <text x="400" y="226" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#8a8072">talířek stojí</text>
+</svg>

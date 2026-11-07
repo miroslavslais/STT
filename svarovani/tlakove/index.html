@@ -76,7 +76,7 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const CARDS = [{"title":"Odporové svařování","desc":"Proud procházející stykem dílů je ohřeje, elektrody je stlačí.","href":"odporove.html","status":"coming-soon"},{"title":"Svařování třením","desc":"Svařování třením (42) a\u00a0FSW — třecí svařování promíšením.","href":"trenim.html","status":"coming-soon"},{"title":"Ostatní tlakové metody","desc":"Svařování výbuchem (441) a\u00a0difúzní svařování (45).","href":"ostatni-tlakove.html","status":"coming-soon"}];
+const CARDS = [{"title":"Odporové svařování","desc":"Proud procházející stykem dílů je ohřeje, elektrody je stlačí.","href":"odporove.html","badge":"1 animace · 1 interaktivní","status":"ready"},{"title":"Svařování třením","desc":"Svařování třením (42) a\u00a0FSW — třecí svařování promíšením.","href":"trenim.html","badge":"2 animace","status":"ready"},{"title":"Ostatní tlakové metody","desc":"Svařování výbuchem (441) a\u00a0difúzní svařování (45).","href":"ostatni-tlakove.html","badge":"2 animace · 1 interaktivní","status":"ready"}];
 class Component extends DCLogic {
   state = { structure: null };
   componentDidMount() {
@@ -103,6 +103,7 @@ class Component extends DCLogic {
     { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
     { title: 'Odlévání', href: '../../odlevani/index.html' },
     { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'Svařování', href: '../../svarovani/index.html' },
     { title: 'O projektu', href: '../../o-projektu.html' },
     { title: 'Novinky', href: '../../novinky.html' },
   ];

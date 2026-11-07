@@ -12,6 +12,7 @@
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/inhibitory/Inhibitory%20koroze.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/katodova-ochrana/Katodova%20ochrana.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/legovani/Legovani.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/metalizovani/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/zarove-pozinkovani/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/ochrana/Protikorozni%20ochrana.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/koroze/rychlost-koroze/Rychlost%20koroze%20a%20PB%20pravidlo.html</loc><changefreq>monthly</changefreq></url>
@@ -139,6 +140,8 @@
   <url><loc>https://miroslavslais.github.io/STT/zpracovani-polymeru/ostatni/vakuove-tvareni.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/pribuzne/index.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/svarovani/pribuzne/pajeni.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/svarovani/pribuzne/navarovani-nastriky.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/tavne/aluminotermicke.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/tavne/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/tavne/mig-mag.html</loc><changefreq>monthly</changefreq></url>
@@ -148,6 +151,9 @@
   <url><loc>https://miroslavslais.github.io/STT/svarovani/tavne/pod-tavidlem.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/tavne/tig.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/tlakove/index.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/svarovani/tlakove/odporove.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/svarovani/tlakove/trenim.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/svarovani/tlakove/ostatni-tlakove.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/zaklady/index.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/zaklady/metalurgie-svaru.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/svarovani/zaklady/pnuti-deformace.html</loc><changefreq>monthly</changefreq></url>
@@ -158,4 +164,8 @@
   <url><loc>https://miroslavslais.github.io/STT/zajimavosti/jehla.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/zajimavosti/tatra-polygon.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://miroslavslais.github.io/STT/zajimavosti/socha-svobody.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/zajimavosti/plechovka.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/zajimavosti/plavene-sklo.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/zajimavosti/ventil.html</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://miroslavslais.github.io/STT/zajimavosti/alobal.html</loc><changefreq>monthly</changefreq></url>
 </urlset>

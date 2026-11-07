@@ -87,7 +87,7 @@ h1{font-family:var(--f-disp);font-weight:700;font-size:44px;line-height:1.15;mar
 (function(){
 /* ---------- navigace ---------- */
 const P='../';
-const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
 const navList=document.getElementById('navList');
 const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
 fillNav(NAV);

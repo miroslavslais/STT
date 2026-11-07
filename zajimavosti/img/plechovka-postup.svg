@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" role="img" aria-label="Postup tvarování těla plechovky: přířez, kalíšek, přetažení na menší průměr a tři stupně ztenčení stěny. Výška roste, stěna se ztenčuje, dno zůstává silné">
+  <rect width="600" height="260" fill="#f6f1e8"/>
+  <!-- skupiny strojů -->
+  <path d="M6 34 V40 H208 V34" fill="none" stroke="#8a8072" stroke-width="1.5"/>
+  <text x="107" y="28" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#8a8072">lis: vystřižení a tažení</text>
+  <path d="M226 34 V40 H542 V34" fill="none" stroke="#8a8072" stroke-width="1.5"/>
+  <text x="384" y="28" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#8a8072">jeden zdvih trnu</text>
+  <path d="M0 232 H600" stroke="#d6cbb8" stroke-width="1"/>
+  <!-- tvary se objevují postupně; řez stěnou, tloušťky zvětšené; dno se neztenčuje -->
+  <g><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.00;0.05;0.92;1" dur="7s" repeatCount="indefinite"/>
+    <rect x="6" y="227" width="92" height="5" rx="1" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+  </g>
+  <g><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.12;0.17;0.92;1" dur="7s" repeatCount="indefinite"/>
+    <path d="M104 212 H118 M112 207 L118 212 L112 217" fill="none" stroke="#b0561f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="124" y="188" width="5" height="44" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <rect x="203" y="188" width="5" height="44" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <rect x="124" y="227" width="84" height="5" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+  </g>
+  <g><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.24;0.29;0.92;1" dur="7s" repeatCount="indefinite"/>
+    <path d="M214 212 H220 M214 207 L220 212 L214 217" fill="none" stroke="#b0561f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="226" y="148" width="5" height="84" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <rect x="281" y="148" width="5" height="84" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <rect x="226" y="227" width="60" height="5" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+  </g>
+  <g><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.36;0.41;0.92;1" dur="7s" repeatCount="indefinite"/>
+    <path d="M292 212 H302 M296 207 L302 212 L296 217" fill="none" stroke="#b0561f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="308" y="132" width="4" height="100" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <rect x="364" y="132" width="4" height="100" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <rect x="308" y="227" width="60" height="5" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+  </g>
+  <g><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.48;0.53;0.92;1" dur="7s" repeatCount="indefinite"/>
+    <path d="M374 212 H384 M378 207 L384 212 L378 217" fill="none" stroke="#b0561f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="390" y="108" width="3" height="124" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <rect x="447" y="108" width="3" height="124" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <rect x="390" y="227" width="60" height="5" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+  </g>
+  <g><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.60;0.65;0.92;1" dur="7s" repeatCount="indefinite"/>
+    <path d="M456 212 H476 M470 207 L476 212 L470 217" fill="none" stroke="#b0561f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="482" y="48" width="2" height="184" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <rect x="540" y="48" width="2" height="184" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+    <path d="M482 232 H490 Q512 206 534 232 H542 V227 H532 Q512 201 492 227 H482 z" fill="#d9dde2" stroke="#8a9096" stroke-width="1"/>
+  </g>
+  <text x="52" y="252" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#5c5346">přířez</text>
+  <text x="166" y="252" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#5c5346">kalíšek</text>
+  <text x="256" y="252" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#5c5346">přetažení</text>
+  <text x="338" y="252" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#5c5346">1. ztenčení</text>
+  <text x="420" y="252" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#5c5346">2. ztenčení</text>
+  <text x="512" y="252" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="#5c5346">3. ztenčení</text>
+</svg>

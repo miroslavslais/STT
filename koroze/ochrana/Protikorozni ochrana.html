@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Protikorozní ochrana | STT</title>
-<meta name="description" content="Přehled ochrany kovů: žárové zinkování, poplastování, katodová ochrana, legování, inhibitory a galvanické pokovení.">
+<meta name="description" content="Přehled ochrany kovů: žárové zinkování, poplastování, katodová ochrana, legování, inhibitory, galvanické pokovení a metalizování.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
@@ -54,7 +54,7 @@
     <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em;color:oklch(0.72 0.16 35);text-transform:uppercase;margin-bottom:10px">Koroze kovů</div>
     <h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:32px;line-height:1.2;margin:0 0 28px;letter-spacing:-0.01em">Protikorozní ochrana</h1>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px">
-      <sc-for list="{{ protections }}" as="p" hint-placeholder-count="4">
+      <sc-for list="{{ protections }}" as="p" hint-placeholder-count="7">
         <div style="background:rgba(120,180,230,0.05);border:1px solid rgba(120,180,230,0.16);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:12px">
           <div style="width:44px;height:44px;border-radius:12px;background:rgba(239,140,92,0.14);display:flex;align-items:center;justify-content:center" dangerouslySetInnerHTML="{{ p.icon }}"></div>
           <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:17.5px;color:#eaf2fa">{{ p.name }}</div>
@@ -78,6 +78,7 @@ const ICONS = {
   'Galvanické pokovení': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="14" width="16" height="4" fill="oklch(0.55 0.02 60)"/><rect x="4" y="11" width="16" height="3" fill="oklch(0.62 0.15 40)"/><rect x="4" y="8.5" width="16" height="2.2" fill="oklch(0.72 0.02 250)"/><rect x="4" y="7" width="16" height="1.3" fill="oklch(0.94 0.01 250)"/></svg>',
   'Inhibitory koroze': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="none" stroke="oklch(0.65 0.12 165)" stroke-width="1.6"/><circle cx="12" cy="12" r="2" fill="oklch(0.65 0.12 165)"/></svg>',
   'Katodová ochrana': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="6" width="6" height="12" rx="1" fill="oklch(0.65 0.12 165)"/><rect x="14" y="6" width="6" height="12" rx="1" fill="oklch(0.55 0.02 60)"/><path d="M10 9h4M10 15h4" stroke="oklch(0.72 0.16 35)" stroke-width="1.6"/></svg>',
+  'Metalizování': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="3" height="14" fill="oklch(0.55 0.02 60)"/><rect x="6" y="5" width="1.6" height="14" fill="oklch(0.85 0.015 250)"/><path d="M21 12H14" stroke="oklch(0.72 0.02 250)" stroke-width="2.4"/><circle cx="11.5" cy="12" r="1.1" fill="oklch(0.72 0.16 35)"/><circle cx="10" cy="9.5" r="0.9" fill="oklch(0.72 0.16 35)"/><circle cx="10" cy="14.5" r="0.9" fill="oklch(0.72 0.16 35)"/></svg>',
   'Legování': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="10" r="3" fill="oklch(0.55 0.02 60)"/><circle cx="15" cy="14" r="3" fill="oklch(0.65 0.12 165)"/></svg>',
 };
 
@@ -103,6 +104,7 @@ class Component extends DCLogic {
     { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
     { title: 'Odlévání', href: '../../odlevani/index.html' },
     { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'Svařování', href: '../../svarovani/index.html' },
     { title: 'O projektu', href: '../../o-projektu.html' },
     { title: 'Novinky', href: '../../novinky.html' },
   ];

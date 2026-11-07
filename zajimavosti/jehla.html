@@ -82,7 +82,7 @@ p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-widt
   <div class="panel">
     <div class="panel-k">Schéma</div>
     <div class="panel-t">Přířez krok za&nbsp;krokem</div>
-    <div class="panel-s">Pohled shora na&nbsp;přířez. Vyber krok výroby.</div>
+    <div class="panel-s">Pohled shora na&nbsp;přířez. Nástroje jsou vyznačené čárkovaně v&nbsp;místě, kde působí. Vyber krok výroby.</div>
     <div class="btns" id="steps"></div>
     <div class="svgbox"><svg id="svgJ" viewBox="0 0 1000 300" role="img" aria-label="Tvar přířezu v jednotlivých krocích výroby jehly"></svg></div>
     <div class="step">
@@ -105,7 +105,7 @@ p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-widt
 
   <h2>Zdroje</h2>
   <ol class="src">
-    <li><a href="https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Needle" target="_blank" rel="noopener">Encyclopædia Britannica (1911): Needle</a> — ražení a&nbsp;děrování oček, dělení dvojitých přířezů, omílání.</li>
+    <li><a href="https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Needle" target="_blank" rel="noopener">Encyclopædia Britannica (1911): Needle</a> — pořadí operací: dělení a&nbsp;rovnání v&nbsp;žáru, broušení hrotů, ražení a&nbsp;děrování oček, zbroušení spoje a&nbsp;rozlomení, kalení v&nbsp;oleji, popouštění, čištění oček, omílání a&nbsp;leštění.</li>
     <li><a href="https://en.wikipedia.org/wiki/Sewing_needle" target="_blank" rel="noopener">Wikipedia: Sewing needle</a> — materiál a&nbsp;pokovení.</li>
     <li><a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/6770243" target="_blank" rel="noopener">Patent US&nbsp;6770243</a> — obsah uhlíku v&nbsp;oceli na&nbsp;jehly.</li>
     <li><a href="https://patents.justia.com/patent/4037641" target="_blank" rel="noopener">Patent US&nbsp;4037641 (Singer)</a> — výroba strojních jehel lisováním za&nbsp;studena.</li>
@@ -123,7 +123,7 @@ const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e
 
 /* ---------- navigace ---------- */
 const P='../';
-const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
 const navList=document.getElementById('navList');
 const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
 fillNav(NAV);
@@ -132,15 +132,15 @@ try{fetch(P+'site-structure.json').then(r=>r.json()).then(s=>{if(s&&s.nav)fillNa
 /* ---------- kroky výroby ---------- */
 const STEPS=[
   ['Tažení drátu','Ocel se dodává ve'+NB+'svitku. Drát se táhne průvlakem na'+NB+'požadovaný průměr. Tažením za'+NB+'studena se drát zpevní a'+NB+'získá přesný rozměr a'+NB+'hladký povrch.'],
-  ['Rovnání a'+NB+'dělení','Drát ze'+NB+'svitku se narovná a'+NB+'rozdělí na'+NB+'přířezy. Délka přířezu odpovídá délce dvou jehel.'],
+  ['Dělení a'+NB+'rovnání','Drát se nastříhá na'+NB+'přířezy o'+NB+'délce dvou jehel. Svazky přířezů se ohřejí do'+NB+'červeného žáru a'+NB+'rovnají se válením.'],
   ['Broušení hrotů','Oba konce přířezu se brousí do'+NB+'špičky. Z'+NB+'každého konce vznikne hrot jedné jehly.'],
   ['Ražení oček','Párové raznice vylisují uprostřed přířezu otisky dvou oček. Materiál se v'+NB+'místě ražení zploští a'+NB+'rozšíří. Současně vznikne drážka, do'+NB+'které se při šití uloží nit.'],
   ['Děrování','Průstřižníky prorazí obě očka. Přířez tvoří dvě jehly spojené hlavičkami.'],
-  ['Rozdělení','Přířez se rozlomí na'+NB+'dvě samostatné jehly. Dříve se přířezy navlékaly očky na'+NB+'dva drátky a'+NB+'upnuly do'+NB+'rámu. Spoj mezi hlavičkami se zbrousil a'+NB+'přířezy se rozlomily.'],
-  ['Odstranění výronku','Kolem oček a'+NB+'na'+NB+'hlavičce zůstane po ražení přebytečný materiál — výronek. Odstřihne se nebo odbrousí a'+NB+'hlavička se zaoblí.'],
-  ['Kalení','Do'+NB+'této chvíle je ocel měkká a'+NB+'dá se tvářet. Jehly se ohřejí na'+NB+'kalicí teplotu a'+NB+'rychle se ochladí. Ocel získá vysokou tvrdost, ale je křehká.'],
-  ['Popouštění','Ohřevem na'+NB+'popouštěcí teplotu klesne křehkost. Jehla zůstane tvrdá, je pružná a'+NB+'při ohybu se nezlomí.'],
-  ['Omílání a'+NB+'leštění','Jehly se omílají s'+NB+'brusivem a'+NB+'olejem. Povrch se očistí, vyhladí a'+NB+'vyleští. Ouška se vyhladí, aby neřezala nit. V'+NB+'19.'+NB+'století trvalo omílání přibližně týden. Ve'+NB+'starších postupech se hroty po'+NB+'vyleštění ještě dokončovaly na'+NB+'brusném kameni. Některé továrny brousily hroty až po'+NB+'kalení.'],
+  ['Zbroušení spoje a'+NB+'rozlomení','Spoj mezi hlavičkami se zbrousí na'+NB+'brusném kotouči a'+NB+'přířez se rozlomí na'+NB+'dvě jehly. Dříve se přířezy navlékaly očky na'+NB+'dva drátky, spoj se zapiloval a'+NB+'přířezy se rozlomily.'],
+  ['Zabroušení hlaviček','Hlavičky se po'+NB+'rozlomení zabrousí do'+NB+'hladka a'+NB+'zaoblí.'],
+  ['Kalení','Do'+NB+'této chvíle je ocel měkká a'+NB+'dá se tvářet. Jehly se ohřejí do'+NB+'červeného žáru a'+NB+'ponoří se do'+NB+'studeného oleje. Ocel získá vysokou tvrdost, ale je křehká.'],
+  ['Popouštění','Jehly se na'+NB+'pohyblivém pásu mírně ohřejí plynovými hořáky. Popouštěním klesne křehkost. Jehla zůstane tvrdá, je pružná a'+NB+'při ohybu se nezlomí.'],
+  ['Omílání a'+NB+'leštění','Ouška se vyčistí drátěným kartáčem, aby neřezala nit. Jehly se omílají s'+NB+'brusivem a'+NB+'olejem, povrch se očistí a'+NB+'vyhladí. Nakonec se vyleští mezi otáčejícími se koženými válci. V'+NB+'19.'+NB+'století trvalo omílání přibližně týden. Ve'+NB+'starších postupech se hroty po'+NB+'vyleštění ještě dokončovaly na'+NB+'brusném kameni. Některé továrny brousily hroty až po'+NB+'kalení.'],
   ['Pokovení a'+NB+'kontrola','Jehly se obvykle niklují. Vrstva chrání ocel před korozí. Dražší jehly mají zlacené ouško nebo pokovení zlatem či platinou. Nakonec se jehly zkontrolují a'+NB+'zabalí.']
 ];
 
@@ -209,20 +209,21 @@ function draw(i){
     });
   });
   if(s.cut&&!s.tips){[X0,X1].forEach(x=>el(G.top,'line',{x1:x,y1:Y-28,x2:x,y2:Y+28,stroke:'#b0561f','stroke-width':2,'stroke-dasharray':'5 4'}));}
-  if(s.wheel){ // brusný kotouč nad levým hrotem
-    el(G.tool,'circle',{cx:X0+TIP/2,cy:Y-R-62,r:60,fill:'#d9cbb5',stroke:'#8a7458','stroke-width':1.5});
-    el(G.tool,'circle',{cx:X0+TIP/2,cy:Y-R-62,r:10,fill:'#8a7458'});
+  if(s.wheel){ // brusné kotouče u obou hrotů (pohled shora: čelo kotouče podél kužele hrotu)
+    const ang=Math.atan2(R,TIP)*180/Math.PI;
+    [[X0+TIP/2,-ang],[X1-TIP/2,ang]].forEach(([mx,a])=>{
+      const g=el(G.top,'g',{transform:'rotate('+f(a)+' '+f(mx)+' '+f(Y-R/2)+')'});
+      el(g,'rect',{x:f(mx-48),y:f(Y-R/2-30),width:96,height:28,rx:3,fill:'#d9cbb5',stroke:'#8a7458','stroke-width':1.5,'stroke-dasharray':'6 4',opacity:.85});
+    });
   }
-  if(s.dies){ // horní a dolní raznice nad zónou ražení
-    el(G.tool,'rect',{x:EA,y:60,width:EB-EA,height:Y-HE-60-6,rx:4,fill:'#cbb9a0',stroke:'#8a7458','stroke-width':1.5});
-    el(G.tool,'rect',{x:EA,y:Y+HE+6,width:EB-EA,height:240-(Y+HE+6),rx:4,fill:'#cbb9a0',stroke:'#8a7458','stroke-width':1.5});
+  if(s.dies){ // raznice: průmět na místo ražení
+    el(G.top,'rect',{x:EA-6,y:Y-HE-8,width:EB-EA+12,height:2*HE+16,rx:4,fill:'#cbb9a0','fill-opacity':.4,stroke:'#8a7458','stroke-width':1.5,'stroke-dasharray':'6 4'});
   }
-  if(s.punch){ // průstřižníky nad očky
-    EYE.forEach(cx=>el(G.tool,'rect',{x:cx-ERX+4,y:70,width:2*ERX-8,height:Y-HE-70-6,rx:3,fill:'#cbb9a0',stroke:'#8a7458','stroke-width':1.5}));
+  if(s.punch){ // průstřižníky: průmět na místo oček
+    EYE.forEach(cx=>el(G.top,'ellipse',{cx,cy:Y,rx:ERX+4,ry:ERY+4,fill:'#cbb9a0','fill-opacity':.55,stroke:'#8a7458','stroke-width':1.5,'stroke-dasharray':'5 3'}));
   }
-  if(s.bath){ // kalicí lázeň pod jehlami
-    el(G.tool,'rect',{x:X0-GAP-20,y:200,width:X1-X0+2*GAP+40,height:70,rx:10,fill:'#efe0b8',stroke:'#c4a96a','stroke-width':1.5});
-    [200,350,500,650,800].forEach((x,k)=>el(G.tool,'path',{d:'M'+x+' 182 v12 M'+(x-6)+' 188 l6 6 l6 -6',fill:'none',stroke:'#c4a96a','stroke-width':2,'stroke-linecap':'round','stroke-linejoin':'round'}));
+  if(s.bath){ // jehly ponořené ve studeném oleji (pohled shora přes hladinu)
+    el(G.top,'rect',{x:X0-GAP-24,y:Y-46,width:X1-X0+2*GAP+48,height:92,rx:12,fill:'#e8c96a','fill-opacity':.35,stroke:'#c4a96a','stroke-width':1.5});
   }
 }
 

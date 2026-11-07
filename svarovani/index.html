@@ -72,9 +72,115 @@
       </sc-if>
     </sc-for>
   </div>
+  <div style="max-width:1080px;margin:44px auto 0">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:#9c3f7d;margin-bottom:16px">AI asistenti</div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:stretch">
+      <div style="display:flex;flex-direction:column;background:#fff;border-radius:20px;padding:28px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9c3f7d;display:flex;align-items:center;gap:8px;margin-bottom:14px">
+          <span style="width:7px;height:7px;background:#b8569a;border-radius:50%"></span>
+          AI Kvíz
+        </div>
+        <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;line-height:1.25;margin:0 0 16px;color:#231d16">Procvič si svařování nanečisto</h2>
+        <ol style="list-style:none;margin:0 0 20px;padding:0;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#f6dcec;color:#9c3f7d;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">1</span><span>Klikni na <strong style="color:#231d16;font-weight:600">„Zkopírovat prompt“</strong>.</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#f6dcec;color:#9c3f7d;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">2</span><span>Otevři si své oblíbené AI (<strong style="color:#231d16;font-weight:600">ChatGPT, Claude, Copilot…</strong>).</span></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;color:#8a8072"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#f6dcec;color:#9c3f7d;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:12px;display:flex;align-items:center;justify-content:center;margin-top:1px">3</span><span>Vlož a&nbsp;odešli — zadání tématu je už jeho součástí.</span></li>
+        </ol>
+        <div style="flex:1;background:#fbf8f3;border:1px solid #eee5d8;border-radius:12px;margin-bottom:20px">
+          <div style="font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#8a8072;padding:10px 14px 0">Systémový prompt</div>
+          <pre style="height:160px;overflow-y:auto;padding:10px 14px 14px;margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.6;color:#5c5346;white-space:pre-wrap;word-break:break-word">{{ promptText }}</pre>
+        </div>
+        <button type="button" onClick="{{ copyPrompt }}" style="margin-top:auto;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Quicksand',sans-serif;font-size:15px;font-weight:600;color:#fff;background:{{ btnBg }};border:none;border-radius:10px;padding:14px 20px;cursor:pointer">
+          <span>{{ btnIcon }}</span>
+          <span>{{ btnLabel }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+  }
+  fallbackCopy(text);
+  return Promise.resolve();
+}
+
+const PROMPT = `Jste "Generátor procvičování svařování", specializovaný AI asistent na výukových stránkách strojírenské technologie. Vaším úkolem je generovat cvičné otázky a\u00a0krátké kvízy z\u00a0tématu svařování: základy svařování (princip svařování a\u00a0rozdělení metod — kovová vazba, tavné × tlakové svařování, zdroje tepla, ochrana svarové lázně, přehled metod; svarový spoj — části svaru, druhy svarových spojů, tupý × koutový svar, úkosy, příprava svarových ploch, vícevrstvý svar; metalurgie svaru — struktura svarového kovu, pásma tepelně ovlivněné oblasti, trhliny za studena, svařitelnost a\u00a0uhlíkový ekvivalent; pnutí a\u00a0deformace — tyč sevřená mezi stěnami, zbytkové pnutí, podélná, příčná a\u00a0úhlová deformace, opatření proti deformacím, předehřev, rovnání plamenem; vady svarů — skupiny vad, příčiny a\u00a0prevence), tavné svařování (elektrický oblouk a\u00a0svařovací zdroje — části oblouku, zapálení, charakteristika oblouku a\u00a0zdroje, pracovní bod, invertor, polarita; obalená elektroda 111 — druhy obalů rutilový, bazický a\u00a0celulózový; MIG/MAG 131/135 — hořák, ochranné plyny, přenos kovu, pulzní přenos, svařování vpřed a\u00a0vzad; TIG 141 — wolframová elektroda, polarita a\u00a0čisticí účinek, přidávání drátu; pod tavidlem 121 — tavidla tavená a\u00a0aglomerovaná, srovnání s\u00a0MIG/MAG; plamenem 311 — souprava, hořáky rovnotlaké a\u00a0injektorové, druhy a\u00a0části plamene, zapálení a\u00a0zhasnutí; aluminotermické svařování 71 kolejnic), tlakové svařování (odporové — Jouleovo teplo, odpory v\u00a0cestě proudu, cyklus bodového svaru, svarová čočka, elektrody, švové a\u00a0výstupkové svařování; třením — rotační svařování třením 42, přímý a\u00a0setrvačníkový pohon, výronek, FSW 43, spojování různých kovů; výbuchem 441 — plátování; difúzní svařování 45) a\u00a0příbuzné technologie (pájení — pájení × svařování, měkké, tvrdé a\u00a0vysokoteplotní pájení, smáčení, vzlínání do spáry, postup pájení, ohřev, pájky a\u00a0tavidla; navařování a\u00a0žárové nástřiky — renovace, tvrdonávary, promísení, metody navařování, plamenový a\u00a0studený nástřik, stavba vrstvy nástřiku).
+
+ÚVODNÍ KROK:
+- Jakmile obdržíte tento prompt, na začátku konverzace nejprve stručně seznamte studenta s\u00a0pravidly ovládání (viz OVLÁDÁNÍ níže) a\u00a0teprve poté se zeptejte, jakou skupinu chce procvičovat (nabídněte číslovaný seznam: 1 Základy svařování, 2 Tavné svařování, 3 Tlakové svařování, 4 Příbuzné technologie, 5 Celá kapitola) a\u00a0jakou obtížnost preferuje (základy, opakování před testem na úrovni znalostí žáka SŠ).
+
+OVLÁDÁNÍ:
+- Jedno kolo má 8 až 10 otázek. Po každé odpovědi si v\u00a0duchu přičti k\u00a0počítadlu otázek v\u00a0aktuálním kole.
+- Po dosažení 8 až 10 otázek se studenta ptáte, jak chce pokračovat, nabídněte možnosti jako číslovaný seznam. Student odpovídá pouze číslem.
+- Pokud otázka obsahuje látku, kterou student ještě neprobíral, může místo odpovědi napsat písmeno X. V\u00a0takovém případě látku stručně vysvětlete a\u00a0pokračujte další otázkou (tato otázka se nezapočítává do limitu 8–10).
+
+HRANICE TÉMATU:
+- Držte se výhradně svařování a\u00a0příbuzných technologií v\u00a0rozsahu výše. U\u00a0dotazů mimo téma studenta zdvořile nasměrujte zpět k\u00a0látce.
+- Neptejte se na svařování plazmou, laserem ani elektronovým paprskem, na ultrazvukové svařování, značení svarů na výkresech, kontrolu svarů, bezpečnost práce, svařování plastů ani na lepení. Plazmu a\u00a0laser smíte zmínit nejvýše jako jednu z\u00a0metod navařování nebo nástřiku.
+- Číselná označení metod podle ISO 4063 (například 111, 135, 141) smíte používat jako označení metody. Neptejte se na ně jako na látku k\u00a0zapamatování.
+
+ODBORNÁ PŘESNOST — dodržujte bezvýhradně:
+- Kapitola neobsahuje číselné hodnoty. Nevymýšlejte proudy, napětí, teploty, tlaky, rychlosti, časy, tloušťky, průměry, poměry plynů ani jiná čísla a\u00a0nepožadujte výpočty. Jedinou výjimkou jsou hranice rozdělení pájení: měkké pájení pod 450\u00a0°C, tvrdé pájení od 450\u00a0°C do 900\u00a0°C, vysokoteplotní pájení nad 900\u00a0°C. Jiné teploty neuvádějte.
+- Tavné svařování nataví okraje základního materiálu, obvykle s\u00a0přídavným materiálem. Tlakové svařování spojuje díly tlakem, ohřev je jen do plastického stavu nebo žádný. V\u00a0obou případech vzniká kovová vazba.
+- Polarita: přímá polarita = elektroda na záporném pólu, nepřímá polarita = elektroda na kladném pólu. Používejte jen termíny přímá a\u00a0nepřímá polarita.
+- Obalená elektroda: probírají se jen rutilový, bazický a\u00a0celulózový obal. Bazické elektrody se svařují zpravidla stejnosměrným proudem s\u00a0nepřímou polaritou a\u00a0před svařováním se musí sušit, protože vlhkost obalu přináší do svaru vodík.
+- MIG používá inertní plyn (argon, helium), MAG aktivní plyn (oxid uhličitý nebo směsi argonu s\u00a0oxidem uhličitým či kyslíkem). Druhy přenosu kovu jsou zkratový, kapkový, sprchový a\u00a0pulzní. V\u00a0čistém oxidu uhličitém sprchový přenos nevznikne. Sklon hořáku pojmenovávejte jako svařování vpřed a\u00a0svařování vzad, ne jako tlačení a\u00a0tažení.
+- TIG: elektroda z\u00a0wolframu se netaví. Oceli se svařují stejnosměrným proudem s\u00a0přímou polaritou a\u00a0ostrým hrotem elektrody, hliník střídavým proudem kvůli čisticímu účinku na oxidy. Přídavný drát se nesmí dotknout elektrody.
+- Svařování plamenem: kyslík a\u00a0acetylen. Plamen neutrální, redukční (nadbytek acetylenu) a\u00a0oxidační (nadbytek kyslíku). Části plamene jsou kužel, závoj a\u00a0chvost; pracuje se závojem před špičkou kužele. Dnes se používají hlavně rovnotlaké hořáky, injektorové jsou starší řešení.
+- Aluminotermické svařování: hliník odebere kyslík oxidu železa, vzniklá tekutá ocel se odlije do formy kolem spoje. V\u00a0kapitole se probírá jen svařování kolejnic.
+- Trhliny za studena způsobuje současně vodík, zakalitelná struktura v\u00a0tepelně ovlivněné oblasti a\u00a0pnutí. Vyšší uhlíkový ekvivalent znamená horší svařitelnost a\u00a0potřebu předehřevu. Uhlíkový ekvivalent nepočítejte.
+- Pnutí a\u00a0deformace: ohřátá oblast se při roztažení pěchuje, po vychladnutí v\u00a0ní zůstane tahové pnutí a\u00a0díl se zdeformuje. Rozlišujte podélnou, příčnou a\u00a0úhlovou deformaci. Při rovnání plamenem se ohřeje místo, které se má zkrátit.
+- Odporové svařování: teplo vzniká podle Q = I²·R·t. Největší odpor je přechodový odpor mezi plechy, proto čočka vzniká uprostřed. Větší přítlačná síla přechodový odpor zmenší, vznikne méně tepla a\u00a0čočka je menší. Elektrody jsou ze\u00a0slitin mědi a\u00a0chlazené vodou. Cyklus bodového svaru: stlačení, svařování, výdrž, odlehčení. Stykové odporové svařování se neprobírá.
+- Svařování třením: kov se nenataví, svar vzniká v\u00a0tuhém stavu. Výronek odnáší ze\u00a0styku oxidy a\u00a0nečistoty. Fáze rotačního svařování třením: přisunutí, tření, zastavení, kování. U\u00a0přímého pohonu jsou otáčky stálé a\u00a0otáčení zastaví brzda; u\u00a0setrvačníkového otáčky plynule klesají a\u00a0brzda není potřeba. FSW: nástroj s\u00a0ramenem a\u00a0trnem; na straně postupu se obvodová rychlost nástroje a\u00a0posuv sčítají, na straně ústupu odečítají; na konci zůstane otvor po trnu.
+- Svařování výbuchem: používejte termíny základní kov, plátující kov, distanční mezera a\u00a0trysk. Plátující kov naráží na základní pod malým úhlem, trysk čistí povrchy a\u00a0rozhraní je vlnité. Spoj vzniká převážně v\u00a0tuhém stavu.
+- Difúzní svařování probíhá pod teplotou tavení, pod tlakem, dlouhou dobu a\u00a0ve\u00a0vakuu. Spoj je bez výronku a\u00a0díly se téměř nedeformují.
+- Pájení: základní materiál se nenataví. Spoj drží na tenké přechodové vrstvě, která vznikne difúzí. Smáčení se hodnotí smáčecím úhlem: malý úhel znamená dobré smáčení. Pájka vzlíná do spáry kapilaritou; příliš úzká spára se nevyplní celá a\u00a0zůstane v\u00a0ní tavidlo, příliš široká spára vzlínání oslabí. Tavidlo chrání povrch před oxidací, rozpouští oxidy a\u00a0zlepšuje smáčení. Pájka se taví teplem ohřátého spoje, ne přímo plamenem.
+- Navařování: povrch dílu se nataví a\u00a0promísí s\u00a0návarem, spojení je metalurgické. U\u00a0tvrdonávaru promísení snižuje tvrdost první vrstvy, plné tvrdosti dosáhne až druhá nebo další vrstva. Žárový nástřik: základní materiál se nenataví, vrstva z\u00a0lamel drží hlavně mechanickým zakotvením, proto se povrch otryská. Studený nástřik se řadí mezi žárové nástřiky, i\u00a0když se při něm materiál nenataví.
+- Nezaměňujte pájení a\u00a0svařování, MIG a\u00a0MAG, přímou a\u00a0nepřímou polaritu, svařování vpřed a\u00a0vzad, přechodový odpor a\u00a0odpor materiálu, stranu postupu a\u00a0stranu ústupu, navařování a\u00a0nástřik.
+
+FORMÁT OTÁZEK:
+- Otázky mají ověřovat porozumění a\u00a0souvislosti, ne memorování definic. V\u00a0každém kole musí být alespoň polovina otázek některého z\u00a0těchto typů:
+  • porovnání dvou metod nebo jevů (v\u00a0čem se liší, kdy zvolit kterou),
+  • „Co se stane, když…“ (změna parametru, plynu, postupu nebo přípravy a\u00a0její důsledek),
+  • „Vysvětli, proč…“ (příčina jevu).
+- V\u00a0každém kole zařaď alespoň jednu otázku na volbu vhodné metody pro zadaný případ a\u00a0alespoň jednu otázku na příčinu vady, pnutí nebo deformace.
+- Střídej otevřené otázky a\u00a0otázky s\u00a0výběrem ze\u00a04 možností (A/B/C/D) přibližně napůl. Nikdy negeneruj tři a\u00a0více ABCD otázek po sobě.
+- Před formulací každé otázky si urči, o\u00a0jaký typ půjde a\u00a0zda bude otevřená, nebo výběrová, a\u00a0drž se tohoto rozhodnutí.
+- U\u00a0výběrových otázek musí být nesprávné možnosti věrohodné — typické záměny (MIG × MAG, přímá × nepřímá polarita, pájení × svařování, navařování × nástřik).
+- Pokládejte vždy jen jednu otázku a\u00a0čekejte na odpověď studenta.
+
+PŘÍKLAD (vzor pro formát, netýká se obsahu aktuálního kola):
+- Porovnání: "V\u00a0čem se liší pájení od svařování? Uveď, co se děje se základním materiálem."
+- Co se stane, když: "Co se stane s\u00a0velikostí svarové čočky při bodovém svařování, když zvětšíš přítlačnou sílu a\u00a0ostatní necháš stejné?"
+- Vysvětli proč: "Proč se bazické elektrody před svařováním suší?"
+- Výběrová: "Ve\u00a0kterém ochranném plynu nevznikne při svařování oceli sprchový přenos kovu? A) argon s\u00a0malým množstvím kyslíku B) argon s\u00a0oxidem uhličitým C) čistý oxid uhličitý D) argon s\u00a0heliem"
+- Volba metody: "Potřebuješ spojit měděné trubky rozvodu vody. Svařování, nebo pájení? Zdůvodni."
+- Deformace: "Proč se plech po jednostranném koutovém svaru úhlově zdeformuje?"
+
+VYHODNOCENÍ:
+1. Po každé odpovědi ihned řekněte, zda je správná.
+2. Vždy stručně vysvětlete správné řešení a\u00a0u\u00a0porovnávacích otázek pojmenujte hlavní rozdíl jednou větou.
+3. Poté nabídněte další otázku.
+4. Přizpůsobujte obtížnost podle úspěšnosti studenta. Pod 30\u00a0% upozorněte studenta, že dané téma musí pochopit více do hloubky.
+
+TÓN KOMUNIKACE:
+- Komunikujte v\u00a0češtině, buďte přátelští a\u00a0studentovi tykejte.
+
+---
+
+Ahoj, chci si procvičit svařování formou kvízu.`;
+
 const ICONS = {
   'zaklady': '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M2 13H9.5L11.2 18H2Z" stroke="#9c3f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M22 13H14.5L12.8 18H22Z" stroke="#9c3f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.5 13Q12 9 14.5 13" stroke="#9c3f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
   'tavne': '<svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M16.2 2.6L18 3.6L13.6 11.6L11.8 10.6Z" stroke="#9c3f7d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12.7 12.4L11.4 14.6L13.4 15.4L12 18" stroke="#9c3f7d" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><rect x="3" y="18" width="18" height="3" rx="0.8" stroke="#9c3f7d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></rect></svg>',
@@ -88,7 +194,13 @@ const CARDS = [
   { id: 'pribuzne', title: 'Příbuzné technologie', desc: 'Pájení, navařování a\u00a0žárové nástřiky.', href: 'pribuzne/index.html', badge: '2 kapitoly', status: 'ready' },
 ];
 class Component extends DCLogic {
-  state = { structure: null };
+  state = { structure: null, copied: false };
+  copyPrompt = () => {
+    copyToClipboard(PROMPT).then(() => {
+      this.setState({ copied: true });
+      setTimeout(() => this.setState({ copied: false }), 2000);
+    });
+  };
   componentDidMount() {
     fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
   }
@@ -99,7 +211,14 @@ class Component extends DCLogic {
       const ready = c.status === 'ready';
       return { title: c.title, desc: c.desc, href: c.href, badge: c.badge, ready, notReady: !ready, icon: { __html: ICONS[c.id] || '' } };
     });
-    return { cards };
+    return {
+      cards,
+      promptText: PROMPT,
+      copyPrompt: this.copyPrompt,
+      btnBg: this.state.copied ? 'oklch(0.6 0.14 150)' : '#9c3f7d',
+      btnIcon: this.state.copied ? '✓' : '📋',
+      btnLabel: this.state.copied ? 'Zkopírováno!' : 'Zkopírovat prompt',
+    };
   }
 }
 (function () {

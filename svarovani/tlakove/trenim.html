@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Svařování třením | STT</title>
+<meta name="description" content="Svařování třením: rotační svařování třením (42) s animovaným cyklem, přímý a setrvačníkový pohon, FSW (43) s animací nástroje, spojování různých kovů, použití.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma kapitoly Svařování (záměrně jen tmavé — promítání ve výuce) */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#e08cc4;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:96px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+h3{font-family:var(--f-disp);font-weight:700;font-size:20px;margin:24px 0 12px}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #6b3d5c}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.grid2{display:grid;gap:18px;grid-template-columns:1fr 1fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.ct{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.card p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+.card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--muted)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin-bottom:18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{overflow-x:auto;border-radius:14px}
+.svgbox svg{display:block;width:100%;min-width:640px;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:4px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+.band{cursor:pointer}
+.band text{fill:var(--muted);font:600 13px var(--f-body)}
+.band.on text{fill:var(--acc)}
+</style>
+</head>
+<body data-first-seen="2026-11-07">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na&nbsp;Tlakové svařování</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Tlakové svařování</div>
+  <h1>Svařování třením</h1>
+  <p class="lead">Teplo vzniká třením. Kov se ohřeje do&nbsp;plastického stavu, ale nenataví se. Spoj vzniká v&nbsp;tuhém stavu působením tlaku.</p>
+
+  <h2>Princip</h2>
+  <p class="t">Tření mění mechanickou práci na&nbsp;teplo. Styčné plochy se ohřejí do&nbsp;plastického stavu. Tlak přiblíží čisté kovové povrchy natolik, že mezi nimi vznikne <a class="link" href="../zaklady/princip-rozdeleni.html">kovová vazba</a>. Svar tedy vzniká v&nbsp;tuhém stavu.</p>
+  <p class="t">Teplota je nižší než při tavném svařování. Nevzniká licí struktura svarového kovu a&nbsp;tepelně ovlivněná oblast je užší.</p>
+  <p class="t">Stránka popisuje dvě metody: rotační svařování třením (42), kde se o&nbsp;sebe třou samotné díly, a&nbsp;svařování třením promícháním (43), kde teplo vytváří otáčející se nástroj.</p>
+
+  <h2>Rotační svařování třením (42)</h2>
+  <p class="t">Jeden díl se otáčí, druhý stojí. Osová síla je přitlačí čely k&nbsp;sobě. Díly se spojují natupo a&nbsp;rotující díl musí být rotačně souměrný — tyč nebo trubka.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Cyklus svařování třením</div>
+        <div class="panel-s" style="margin-bottom:0">Průběh pro přímý pohon. Vyber fázi a&nbsp;klikni na&nbsp;popisek ve&nbsp;schématu nebo v&nbsp;grafu.</div>
+      </div>
+      <div class="btns" id="stepsT"></div>
+    </div>
+    <div class="svgbox"><svg id="svgT" viewBox="0 0 1000 420" role="img" aria-label="Cyklus rotačního svařování třením: schéma dílů a graf otáček, síly a zkrácení v čase"></svg></div>
+    <div class="step"><div class="step-t" id="stTT"></div><p id="stPT"></p></div>
+    <p class="info" id="infoT"></p>
+  </div>
+  <h3>Pohon rotujícího dílu</h3>
+  <div class="grid2">
+    <div class="card"><div class="ct">Přímý pohon</div><p>Motor otáčí vřetenem stálými otáčkami po&nbsp;celou dobu tření. Na&nbsp;konci tření vřeteno zastaví brzda a&nbsp;nastoupí kovací síla.</p></div>
+    <div class="card"><div class="ct">Setrvačníkový pohon</div><p>Motor roztočí setrvačník spojený s&nbsp;vřetenem a&nbsp;odpojí se. Teplo vzniká jen z&nbsp;energie setrvačníku. Otáčky během tření plynule klesají až do&nbsp;zastavení, brzda není potřeba.</p></div>
+  </div>
+
+  <h2>Svařování třením promícháním — FSW (43)</h2>
+  <p class="t">FSW (friction stir welding) spojuje hlavně desky natupo. Desky se nepohybují. Teplo vytváří otáčející se nástroj, který se posouvá podél spoje.</p>
+  <p class="t">Nástroj má širší rameno a&nbsp;z něj vystupující trn. Je z&nbsp;materiálu tvrdšího a&nbsp;za tepla pevnějšího, než jsou svařované desky, a&nbsp;s deskami se nespojí. Desky musí být pevně upnuté — nástroj na&nbsp;ně působí velkou silou shora i&nbsp;ve směru posuvu.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Postup svařování FSW</div>
+        <div class="panel-s" style="margin-bottom:0">Nahoře pohled shora, dole řez podél spoje. Vyber krok a&nbsp;klikni na&nbsp;popisek.</div>
+      </div>
+      <div class="btns" id="stepsF"></div>
+    </div>
+    <div class="svgbox"><svg id="svgF" viewBox="0 0 1000 510" role="img" aria-label="Postup svařování FSW: pohled shora a řez podél spoje"></svg></div>
+    <div class="step"><div class="step-t" id="stTF"></div><p id="stPF"></p></div>
+    <p class="info" id="infoF"></p>
+  </div>
+
+  <h2>Spojování různých materiálů</h2>
+  <p class="t">Při tavném svařování dvou různých kovů se kovy promísí v&nbsp;tavenině. Při tuhnutí v&nbsp;ní mohou vzniknout křehké intermetalické fáze. Při svařování třením se kov nenataví a&nbsp;ohřev je krátký, proto vzniká křehkých fází méně.</p>
+  <p class="t">Třením se proto spojují kombinace, které se tavně svařují obtížně nebo vůbec.</p>
+  <div class="grid">
+    <div class="card"><div class="ct">Ventil motoru</div><p>Talířek z&nbsp;oceli odolné vysokým teplotám, dřík z&nbsp;oceli odolné opotřebení. Podrobně v&nbsp;zajímavosti <a class="link" href="../../zajimavosti/ventil.html">Ventil motoru ze&nbsp;dvou ocelí</a>.</p></div>
+    <div class="card"><div class="ct">Vrták</div><p>Řezná část z&nbsp;rychlořezné oceli, stopka z&nbsp;levnější konstrukční oceli. Drahý materiál je jen tam, kde řeže.</p></div>
+    <div class="card"><div class="ct">Měď a&nbsp;hliník</div><p>Přechodové kusy pro elektrické vodiče. Tavně se tato dvojice svařuje obtížně, třením se spojí.</p></div>
+    <div class="card"><div class="ct">Slitiny hliníku</div><p>FSW spojuje i&nbsp;slitiny hliníku, které při tavném svařování praskají během tuhnutí.</p></div>
+  </div>
+
+  <h2>Použití, výhody a&nbsp;nevýhody</h2>
+  <div class="grid">
+    <div class="card"><div class="ct">Použití</div><ul><li>ventily motorů a&nbsp;vrtáky — 42</li><li>hřídele, poloosy a&nbsp;pístnice — 42</li><li>hliníkové panely lodí a&nbsp;železničních vozů — FSW</li><li>nádrže raket — FSW</li></ul></div>
+    <div class="card"><div class="ct">Výhody</div><ul><li>kov se nenataví — nevznikají póry ani trhliny při tuhnutí</li><li>spojí i&nbsp;různé kovy</li><li>bez přídavného materiálu, plynu i&nbsp;tavidla</li><li>užší tepelně ovlivněná oblast</li><li>stroj řídí otáčky, sílu a&nbsp;dráhu — svary mají stálou kvalitu</li></ul></div>
+    <div class="card"><div class="ct">Nevýhody</div><ul><li>42: rotující díl musí být rotačně souměrný</li><li>42: výronek se musí odstranit</li><li>FSW: velké síly — tuhý stroj a&nbsp;pevné upnutí</li><li>FSW: na&nbsp;konci svaru zůstane otvor po&nbsp;trnu</li><li>drahé stroje — vyplatí se hlavně v&nbsp;sériové výrobě</li></ul></div>
+  </div>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#e08cc4';
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const lw=txt=>Math.round(txt.length*7.8+24);
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const key=(g,fn)=>{g.addEventListener('click',fn);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+const hex=c=>[1,3,5].map(i=>parseInt(c.substr(i,2),16));
+const mix=(a,b,t)=>{const A=hex(a),B=hex(b);return 'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*t)).join(',')+')';};
+const SH1='#6c7a8a', SH2='#5d6a79', HOT='#f08a3c', SOLID='#8a98a8', STEEL='#3a4350', TOOL='#9aa3ad', WHITE='#eaf2fa';
+
+/* společné: díly ke zvýraznění, popisky s odkazovou čarou, kroky */
+function kit(svg,info,stepsBox,stT,stP,STEPS,SHOW,INFO,defInfo){
+  const parts={}, L={}, k={sel:null,step:0,t0:0,onGo:null};
+  const leadG=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5});
+  k.add=(id,e,mode)=>{e.__m=mode||'fill';e.__s=e.getAttribute('stroke');e.__w=+(e.getAttribute('stroke-width')||0);(parts[id]=parts[id]||[]).push(e);return e;};
+  // anchor: 'b' dolní střed, 't' horní střed, 'r' pravý střed
+  k.label=(id,txt,x,y,anchor,target)=>{const w=lw(txt);
+    const ax=anchor==='r'?x+w:x+w/2, ay=anchor==='b'?y+28:anchor==='t'?y:y+14;
+    const line=el(leadG,'line',{x1:ax,y1:ay,x2:ax,y2:ay});
+    const g=el(svg,'g',{class:'lbl',tabindex:0,role:'button'});el(g,'rect',{x,y,width:w,height:28,rx:8});
+    const t=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});t.textContent=txt;
+    key(g,()=>{k.sel=k.sel===id?null:id;k.paint();});L[id]={g,line,target};};
+  k.leaders=()=>Object.keys(L).forEach(id=>{const [x,y]=L[id].target();L[id].line.setAttribute('x2',f(x));L[id].line.setAttribute('y2',f(y));});
+  k.paint=()=>{
+    Object.keys(L).forEach(id=>{const on=SHOW[k.step].includes(id);L[id].g.style.display=on?'':'none';L[id].line.style.display=on?'':'none';L[id].g.classList.toggle('on',k.sel===id);});
+    Object.keys(parts).forEach(id=>parts[id].forEach(e=>{const s=k.sel===id;
+      if(e.__m==='stroke'){e.setAttribute('stroke',s?ACC:e.__s);e.setAttribute('stroke-width',s?e.__w+2:e.__w);}
+      else if(e.__m==='head'){e.setAttribute('fill',s?ACC:WHITE);}
+      else{e.setAttribute('stroke',s?ACC:'none');e.setAttribute('stroke-width',2.5);}}));
+    info.textContent=k.sel?INFO[k.sel]:defInfo;};
+  const btns=STEPS.map((s,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=(i+1)+'. '+s[0];b.onclick=()=>k.go(i);stepsBox.appendChild(b);return b;});
+  k.go=i=>{k.step=i;k.t0=performance.now();if(k.sel&&!SHOW[i].includes(k.sel))k.sel=null;
+    btns.forEach((b,j)=>b.setAttribute('aria-pressed',j===i));if(k.onGo)k.onGo(i);
+    stT.textContent=(i+1)+'. '+STEPS[i][0];stP.textContent=STEPS[i][1];k.paint();};
+  return k;
+}
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json').then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- PRVEK A — cyklus rotačního svařování třením (42) ---------- */
+(function(){
+const svg=document.getElementById('svgT');
+const STEPS=[
+  ['Přisunutí','Rotující díl se roztočí na'+NB+'pracovní otáčky. Stojící díl se k'+NB+'němu přisune, až se čela dotknou.'],
+  ['Tření','Osová síla přitlačí čela k'+NB+'sobě. Tření je ohřeje do'+NB+'plastického stavu, kov se nenataví. Zplastizovaný kov se vytlačuje do'+NB+'stran jako výronek a'+NB+'díly se zkracují.'],
+  ['Zastavení','Brzda zastaví otáčení. Osová síla vzroste na'+NB+'kovací sílu.'],
+  ['Kování','Kovací síla stlačí ohřáté konce. Výronek se zvětší a'+NB+'odnese ze'+NB+'styku oxidy a'+NB+'nečistoty. Čisté povrchy se spojí kovovou vazbou a'+NB+'spoj chladne pod tlakem.'],
+];
+const PNAMES=['přisunutí','tření','zastavení','kování'];
+const PH=[[600,670],[670,790],[790,850],[850,940]], DUR=[1.4,2.2,1,1.6];
+// průběhy v grafu: otáčky n (y 50–140), síla F (y 170–260), zkrácení Δl (y 290–380)
+const NP=[[600,140],[630,70],[790,70],[820,140],[940,140]];
+const FP=[[600,260],[670,260],[685,215],[790,215],[820,180],[940,180]];
+const DP=[[600,380],[685,380],[790,348],[850,342],[880,308],[940,304]];
+const at=(pts,x)=>{for(let i=0;i<pts.length-1;i++){const [x0,y0]=pts[i],[x1,y1]=pts[i+1];if(x<=x1)return y0+(y1-y0)*Math.max(0,x-x0)/(x1-x0);}return pts[pts.length-1][1];};
+const pathOf=pts=>'M'+pts.map(p=>p.join(' ')).join(' L');
+const INFO={
+  sk:'Sklíčidlo — upíná rotující díl a'+NB+'přenáší na'+NB+'něj otáčky vřetena.',
+  ot:'Otáčení — u'+NB+'přímého pohonu jsou otáčky během tření stálé. Na'+NB+'konci tření je zastaví brzda.',
+  os:'Osová síla — přitlačuje stojící díl k'+NB+'rotujícímu. Při tření je menší, při kování vzroste na'+NB+'kovací sílu.',
+  rd:'Rotující díl — musí být rotačně souměrný, například tyč nebo trubka.',
+  vr:'Výronek — zplastizovaný kov vytlačený ze'+NB+'styku do'+NB+'stran. Odnáší oxidy a'+NB+'nečistoty, proto se spojí čisté kovové povrchy. Po svaření se obvykle odstraní obráběním.',
+  sd:'Stojící díl — neotáčí se. Nemusí být rotačně souměrný, může to být například deska.',
+  up:'Upínač — drží stojící díl proti otáčení a'+NB+'přenáší na'+NB+'něj osovou sílu.',
+  n:'Otáčky n — rostou při roztočení, během tření jsou stálé a'+NB+'při zastavení klesnou k'+NB+'nule.',
+  F:'Osová síla F — při tření je menší, při zastavení vzroste a'+NB+'během kování zůstává velká.',
+  dl:'Zkrácení Δl — o'+NB+'kolik se díly zkrátí vytlačením kovu do'+NB+'výronku. Při tření roste pomalu, při kování rychle.',
+};
+const ALL=['sk','ot','os','rd','sd','up','n','F','dl'];
+const SHOW=[ALL,ALL.concat('vr'),ALL.concat('vr'),ALL.concat('vr')];
+const k=kit(svg,document.getElementById('infoT'),document.getElementById('stepsT'),document.getElementById('stTT'),document.getElementById('stPT'),
+  STEPS,SHOW,INFO,'Klikni na'+NB+'popisek ve'+NB+'schématu nebo v'+NB+'grafu.');
+const defs=el(svg,'defs',{});
+const clipR=el(el(defs,'clipPath',{id:'revT'}),'rect',{x:596,y:40,width:0,height:350});
+const hg=el(defs,'linearGradient',{id:'heatT'});
+el(hg,'stop',{offset:0,'stop-color':HOT,'stop-opacity':0});el(hg,'stop',{offset:.5,'stop-color':HOT,'stop-opacity':.95});el(hg,'stop',{offset:1,'stop-color':HOT,'stop-opacity':0});
+// fázové pásy grafu (klikací)
+const bands=PH.map(([a,b],i)=>{const g=el(svg,'g',{class:'band',tabindex:0,role:'button'});
+  const r=el(g,'rect',{x:a,y:44,width:b-a,height:372,fill:ACC,'fill-opacity':0});
+  const t=el(g,'text',{x:(a+b)/2,y:404,'text-anchor':'middle'});t.textContent=PNAMES[i];
+  key(g,()=>k.go(i));return {g,r};});
+k.onGo=i=>bands.forEach((b,j)=>{b.r.setAttribute('fill-opacity',j===i?.08:0);b.g.classList.toggle('on',j===i);});
+const sep=el(svg,'g',{stroke:'#2f3a48','stroke-width':1,'stroke-dasharray':'4 5'});
+[670,790,850].forEach(x=>el(sep,'line',{x1:x,y1:44,x2:x,y2:388}));
+const ax=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5});
+[[50,140],[170,260],[290,380]].forEach(([a,b])=>{el(ax,'line',{x1:600,y1:a,x2:600,y2:b});el(ax,'line',{x1:600,y1:b,x2:944,y2:b});
+  el(svg,'path',{d:'M944 '+(b-5)+' L954 '+b+' L944 '+(b+5)+' Z',fill:'#8296a8'});});
+const cv=el(svg,'g',{'clip-path':'url(#revT)'});
+k.add('n',el(cv,'path',{d:pathOf(NP),fill:'none',stroke:'#7fb2ff','stroke-width':3,'stroke-linejoin':'round'}),'stroke');
+k.add('F',el(cv,'path',{d:pathOf(FP),fill:'none',stroke:'#ffd166','stroke-width':3,'stroke-linejoin':'round'}),'stroke');
+k.add('dl',el(cv,'path',{d:pathOf(DP),fill:'none',stroke:'#8fe3b0','stroke-width':3,'stroke-linejoin':'round'}),'stroke');
+const cursor=el(svg,'line',{x1:600,y1:44,x2:600,y2:388,stroke:ACC,'stroke-width':2});
+// schéma: osa dílů y 230, čela se stýkají v x 280; rotující díl x 100–280, stojící díl 150 dlouhý
+const X0=280;
+k.add('sk',el(svg,'rect',{x:40,y:160,width:60,height:140,fill:STEEL}));
+k.add('rd',el(svg,'rect',{x:100,y:190,width:180,height:80,fill:SH1}));
+const sd=k.add('sd',el(svg,'rect',{x:X0+30,y:190,width:150,height:80,fill:SH2}));
+const glow=el(svg,'rect',{x:X0-40,y:190,width:80,height:80,fill:'url(#heatT)',opacity:0});
+const flT=k.add('vr',el(svg,'path',{d:'',fill:SOLID})), flB=k.add('vr',el(svg,'path',{d:'',fill:SOLID}));
+const cg=el(svg,'g',{});
+k.add('up',el(cg,'rect',{x:420,y:160,width:60,height:140,fill:STEEL}));
+k.add('os',el(cg,'line',{x1:470,y1:135,x2:436,y2:135,stroke:WHITE,'stroke-width':3}),'stroke');
+k.add('os',el(cg,'path',{d:'M438 128 L424 135 L438 142 Z',fill:WHITE}),'head');
+const rot=el(svg,'g',{});
+k.add('ot',el(rot,'path',{d:'M204 230 A14 52 0 1 1 190 178',fill:'none',stroke:WHITE,'stroke-width':2.5}),'stroke');
+k.add('ot',el(rot,'path',{d:'M184 171 L197 178 L184 185 Z',fill:WHITE}),'head');
+// stav animace sdílený s odkazovými čarami
+let g=30,s=0,h=0,w=4;
+k.label('sk','sklíčidlo',30,60,'b',()=>[70,160]);
+k.label('ot','otáčení',150,60,'b',()=>[190,176]);
+k.label('os','osová síla',380,60,'b',()=>[453+g-s,135]);
+k.label('rd','rotující díl',120,330,'t',()=>[179,270]);
+k.label('vr','výronek',250,330,'t',()=>[X0,270+Math.max(h,2)]);
+k.label('sd','stojící díl',340,330,'t',()=>[X0+g+(150-s)/2,270]);
+k.label('up','upínač',460,330,'t',()=>[450+g-s,300]);
+k.label('n','n',556,67,'r',()=>[615,105]);
+k.label('F','F',556,187,'r',()=>[680,230]);
+k.label('dl','Δl',556,307,'r',()=>[745,361.7]);
+const flash=(y,dir)=>{const t=y-dir*h, m=y-dir*h*.55;
+  return 'M'+f(X0-w)+' '+y+' C'+f(X0-w)+' '+f(t)+' '+f(X0-2)+' '+f(t)+' '+X0+' '+f(m)+' C'+f(X0+2)+' '+f(t)+' '+f(X0+w)+' '+f(t)+' '+f(X0+w)+' '+y+' Z';};
+function frame(now){
+  const p=reduce?1:Math.max(0,Math.min(1,(now-k.t0)/1000/DUR[k.step])), u=k.step+p;
+  const i=Math.min(3,Math.floor(u)), x=u>=4?PH[3][1]:PH[i][0]+(PH[i][1]-PH[i][0])*(u-i);
+  g=x<660?30*(660-x)/60:0;
+  s=(380-at(DP,x))*.5;
+  h=s*.8; w=4+s*.55;
+  const heat=x<670?0:x<790?(x-670)/120:x<850?1:1-.45*(x-850)/90;
+  const nf=(140-at(NP,x))/70;
+  sd.setAttribute('x',f(X0+g));sd.setAttribute('width',f(150-s));
+  cg.setAttribute('transform','translate('+f(g-s)+' 0)');
+  glow.setAttribute('opacity',f(heat));
+  const show=s>.3?'':'none';flT.style.display=show;flB.style.display=show;
+  flT.setAttribute('d',flash(190,1));flB.setAttribute('d',flash(270,-1));
+  const fc=mix(SOLID,HOT,Math.min(1,heat*.8));flT.setAttribute('fill',fc);flB.setAttribute('fill',fc);
+  rot.setAttribute('opacity',f(nf));
+  cursor.setAttribute('x1',f(x));cursor.setAttribute('x2',f(x));
+  clipR.setAttribute('width',f(x-596));
+  k.leaders();
+  requestAnimationFrame(frame);
+}
+k.go(0);requestAnimationFrame(frame);
+})();
+
+/* ---------- PRVEK B — postup FSW (43) ---------- */
+(function(){
+const svg=document.getElementById('svgF');
+const STEPS=[
+  ['Zanoření','Rotující nástroj se tlačí do'+NB+'spoje dvou desek uložených natupo. Trn se zanoří do'+NB+'materiálu, až rameno dosedne na'+NB+'povrch desek.'],
+  ['Ohřev','Nástroj se otáčí na'+NB+'místě. Tření ramene a'+NB+'trnu ohřeje materiál do'+NB+'plastického stavu. Kov se nenataví.'],
+  ['Posuv','Nástroj se posouvá podél spoje. Zplastizovaný materiál obou desek obtéká trn, promíchá se a'+NB+'za trnem vytvoří svar. Rameno drží materiál shora a'+NB+'na'+NB+'povrchu zanechává obloukové stopy.'],
+  ['Vysunutí','Na konci spoje se nástroj vysune. V'+NB+'místě trnu zůstane otvor. Svar se proto často ukončuje na'+NB+'přídavném plechu, který se pak odřízne.'],
+];
+const DUR=[1.4,1.4,4,1.2];
+const INFO={
+  sp:'Strana postupu — obvodová rychlost nástroje tu má stejný směr jako posuv a'+NB+'obě rychlosti se sčítají.',
+  su:'Strana ústupu — obvodová rychlost nástroje tu má opačný směr než posuv a'+NB+'rychlosti se odečítají.',
+  ra:'Rameno — širší čelo nástroje. Třením o'+NB+'povrch desek vytváří většinu tepla a'+NB+'shora drží zplastizovaný materiál ve'+NB+'spoji.',
+  tr:'Trn — výstupek na'+NB+'čele nástroje. Zanoří se téměř přes celou tloušťku desek a'+NB+'promíchává zplastizovaný materiál obou desek.',
+  sv:'Svar — promíchaný materiál obou desek. Na'+NB+'povrchu zůstávají obloukové stopy po'+NB+'ramenu.',
+  ot:'Otvor po'+NB+'trnu — zůstane po'+NB+'vysunutí nástroje na'+NB+'konci svaru.',
+  sm:'Směr posuvu — nástroj se posouvá podél spoje, desky stojí pevně upnuté.',
+};
+const SHOW=[['sp','su','ra','tr','sm'],['sp','su','ra','tr','sm'],['sp','su','ra','tr','sv','sm'],['sp','su','ra','tr','sv','ot','sm']];
+const k=kit(svg,document.getElementById('infoF'),document.getElementById('stepsF'),document.getElementById('stTF'),document.getElementById('stPF'),
+  STEPS,SHOW,INFO,'Klikni na'+NB+'popisek ve'+NB+'schématu.');
+const defs=el(svg,'defs',{});
+const rg=el(defs,'radialGradient',{id:'heatF'});
+el(rg,'stop',{offset:0,'stop-color':HOT,'stop-opacity':.95});el(rg,'stop',{offset:1,'stop-color':HOT,'stop-opacity':0});
+// pohled shora: horní deska y 80–180, dolní 180–280, spoj y 180; nástroj z X1 do X2, rameno r 40, trn r 13
+const X1=170, X2=830, RS=40, RP=13, TRACK='#7d8a99', RIP='#56636f';
+k.add('sp',el(svg,'rect',{x:60,y:80,width:880,height:100,fill:SH1}));
+k.add('su',el(svg,'rect',{x:60,y:180,width:880,height:100,fill:SH2}));
+el(svg,'line',{x1:60,y1:180,x2:940,y2:180,stroke:'#2a323d','stroke-width':2});
+const trk=el(svg,'g',{});
+const tPath=k.add('sv',el(trk,'path',{d:'',fill:TRACK,opacity:0}));
+const rip=el(trk,'path',{d:'',fill:'none',stroke:RIP,'stroke-width':1.5});
+const hole=k.add('ot',el(svg,'circle',{cx:X2,cy:180,r:RP,fill:'#140f0c',opacity:0}));
+const glowT=el(svg,'circle',{cx:X1,cy:180,r:62,fill:'url(#heatF)',opacity:0});
+const toolT=el(svg,'g',{});
+k.add('ra',el(toolT,'circle',{cx:0,cy:0,r:RS,fill:TOOL}));
+const spin=el(toolT,'g',{stroke:'#6f7882','stroke-width':3});
+el(spin,'line',{x1:-34,y1:0,x2:34,y2:0});el(spin,'line',{x1:0,y1:-34,x2:0,y2:34});
+k.add('tr',el(toolT,'circle',{cx:0,cy:0,r:RP,fill:'none',stroke:'#2b333f','stroke-width':2,'stroke-dasharray':'4 3'}),'stroke');
+el(toolT,'path',{d:'M-30 -38 A49 49 0 0 1 30 -38',fill:'none',stroke:WHITE,'stroke-width':2});
+el(toolT,'path',{d:'M26 -45 L37 -34 L22 -31 Z',fill:WHITE});
+// šipka posuvu
+k.add('sm',el(svg,'line',{x1:440,y1:314,x2:566,y2:314,stroke:WHITE,'stroke-width':3}),'stroke');
+k.add('sm',el(svg,'path',{d:'M564 307 L578 314 L564 321 Z',fill:WHITE}),'head');
+// řez podél spoje: deska y 440–480, rameno y 430–440, trn y 440–472, dřík y 370–430
+k.add('sp',el(svg,'rect',{x:60,y:440,width:880,height:40,fill:SH1}));
+const zS=k.add('sv',el(svg,'rect',{x:X1-RP,y:440,width:0,height:32,fill:TRACK}));
+const hS=k.add('ot',el(svg,'rect',{x:X2-RP,y:440,width:2*RP,height:32,fill:'#140f0c',opacity:0}));
+const glowS=el(svg,'ellipse',{cx:X1,cy:446,rx:66,ry:34,fill:'url(#heatF)',opacity:0});
+const toolS=el(svg,'g',{});
+el(toolS,'rect',{x:-20,y:370,width:40,height:60,fill:TOOL});
+k.add('ra',el(toolS,'rect',{x:-RS,y:430,width:2*RS,height:10,fill:TOOL}));
+k.add('tr',el(toolS,'rect',{x:-RP,y:440,width:2*RP,height:32,fill:'#b8c0c8'}));
+// stav animace sdílený s odkazovými čarami
+let tx=X1;
+k.label('sp','strana postupu',60,36,'b',()=>[126,110]);
+k.label('ra','rameno',400,36,'b',()=>[tx,180-RS]);
+k.label('tr','trn',520,36,'b',()=>[tx,180-RP]);
+k.label('ot','otvor po trnu',760,36,'b',()=>[X2,180-RP]);
+k.label('su','strana ústupu',60,300,'t',()=>[126,250]);
+k.label('sm','směr posuvu',590,300,'r',()=>[700,314]);
+k.label('sv','svar',760,300,'t',()=>[(X1+tx)/2,180+RS-6]);
+let ang=0, last=performance.now();
+function frame(now){
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  const st=k.step, p=reduce?1:Math.max(0,Math.min(1,(now-k.t0)/1000/DUR[st]));
+  tx=st<2?X1:st===2?X1+(X2-X1)*p:X2;
+  const dy=st===0?-45*(1-p):st===3?-45*p:0;
+  const heat=st===0?.3*p:st===1?.3+.6*p:st===2?.9:.9*(1-p);
+  const lift=st===3?p:0;
+  if(!reduce&&!(st===3&&p>=1))ang=(ang+dt*540)%360;
+  toolT.setAttribute('transform','translate('+f(tx)+' 180)');toolT.setAttribute('opacity',f(1-lift));
+  spin.setAttribute('transform','rotate('+f(ang)+')');
+  toolS.setAttribute('transform','translate('+f(tx)+' '+f(dy)+')');
+  glowT.setAttribute('cx',f(tx));glowT.setAttribute('opacity',f(heat));
+  glowS.setAttribute('cx',f(tx));glowS.setAttribute('opacity',f(heat));
+  const foot=st===0?Math.max(0,(p-.6)/.4):1;
+  tPath.setAttribute('opacity',f(foot));
+  tPath.setAttribute('d','M'+X1+' '+(180-RS)+' L'+f(tx)+' '+(180-RS)+' A'+RS+' '+RS+' 0 0 1 '+f(tx)+' '+(180+RS)+' L'+X1+' '+(180+RS)+' A'+RS+' '+RS+' 0 0 1 '+X1+' '+(180-RS)+' Z');
+  let d='';for(let xi=X1+14;xi<=tx-RS*.2;xi+=14)d+='M'+xi+' '+(180-RS)+' A'+RS+' '+RS+' 0 0 0 '+xi+' '+(180+RS)+' ';
+  rip.setAttribute('d',d);
+  zS.setAttribute('width',f(foot>0?tx-X1+RP:0));
+  hole.setAttribute('opacity',f(lift));hS.setAttribute('opacity',f(lift));
+  k.leaders();
+  requestAnimationFrame(frame);
+}
+k.go(0);requestAnimationFrame(frame);
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

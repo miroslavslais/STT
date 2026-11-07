@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" role="img" aria-label="Dvě hliníkové fólie leží na sobě a projdou válci najednou. Za válci jsou tenčí, jedou rychleji a oddělí se: vnější strany lesklé, vnitřní matné">
+  <defs>
+    <clipPath id="pred"><rect x="20" y="118" width="280" height="24"/></clipPath>
+    <clipPath id="za"><rect x="300" y="124" width="80" height="12"/></clipPath>
+  </defs>
+  <rect width="600" height="260" fill="#f6f1e8"/>
+  <!-- před válci: dvě fólie na sobě (bez mezery), každá tloušťky 10 -->
+  <rect x="20" y="120" width="280" height="10" fill="#cdd2d7"/>
+  <rect x="20" y="130" width="280" height="10" fill="#cdd2d7"/>
+  <path d="M20 130 H300" stroke="#8f969d" stroke-width="1.2" stroke-dasharray="2 2"/>
+  <path d="M20 120.8 H300 M20 139.2 H300" stroke="#ffffff" stroke-width="1.6"/>
+  <!-- za válci: každá fólie tloušťky 4, společně do x = 380, pak se oddělí -->
+  <path d="M300 128 H380 L560 68" fill="none" stroke="#cdd2d7" stroke-width="4"/>
+  <path d="M300 132 H380 L560 192" fill="none" stroke="#cdd2d7" stroke-width="4"/>
+  <path d="M300 126.6 H379.6 L559.6 66.6" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <path d="M300 133.4 H379.6 L559.6 193.4" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+  <path d="M300 130 H380 M380 130 L560 70 M380 130 L560 190" fill="none" stroke="#8f969d" stroke-width="1.2" stroke-dasharray="2 2"/>
+  <!-- pohyb: za válci je fólie tenčí, a proto jede rychleji (stálý objem) -->
+  <g clip-path="url(#pred)" stroke="#9aa0a6" stroke-width="2">
+    <g><animateTransform attributeName="transform" type="translate" from="0 0" to="40 0" dur="1.2s" repeatCount="indefinite"/>
+      <path d="M-20 125 h8 M20 125 h8 M60 125 h8 M100 125 h8 M140 125 h8 M180 125 h8 M220 125 h8 M260 125 h8 M-20 135 h8 M20 135 h8 M60 135 h8 M100 135 h8 M140 135 h8 M180 135 h8 M220 135 h8 M260 135 h8"/>
+    </g>
+  </g>
+  <g clip-path="url(#za)" stroke="#9aa0a6" stroke-width="1.6">
+    <g><animateTransform attributeName="transform" type="translate" from="0 0" to="40 0" dur="0.48s" repeatCount="indefinite"/>
+      <path d="M260 128 h8 M300 128 h8 M340 128 h8 M380 128 h8 M260 132 h8 M300 132 h8 M340 132 h8 M380 132 h8"/>
+    </g>
+  </g>
+  <!-- válce: mezera mezi nimi = tloušťka obou fólií za válci -->
+  <g>
+    <circle cx="300" cy="68" r="58" fill="#c3c9cf" stroke="#5f656b" stroke-width="2"/>
+    <circle cx="300" cy="192" r="58" fill="#c3c9cf" stroke="#5f656b" stroke-width="2"/>
+    <g stroke="#8f969d" stroke-width="3" stroke-linecap="round">
+      <path d="M300 30 V106 M262 68 H338"><animateTransform attributeName="transform" type="rotate" from="0 300 68" to="-360 300 68" dur="3s" repeatCount="indefinite"/></path>
+      <path d="M300 154 V230 M262 192 H338"><animateTransform attributeName="transform" type="rotate" from="0 300 192" to="360 300 192" dur="3s" repeatCount="indefinite"/></path>
+    </g>
+    <circle cx="300" cy="68" r="8" fill="#5f656b"/><circle cx="300" cy="192" r="8" fill="#5f656b"/>
+  </g>
+  <!-- popisky -->
+  <text x="430" y="62" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#5c5346">lesklá</text>
+  <text x="470" y="128" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#5c5346">matné</text>
+  <text x="430" y="212" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#5c5346">lesklá</text>
+  <text x="60" y="108" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#8a8072">dvě fólie na sobě</text>
+</svg>

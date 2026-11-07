@@ -76,7 +76,7 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const CARDS = [{"title":"Pájení","desc":"","status":"coming-soon"},{"title":"Navařování a\u00a0žárové nástřiky","desc":"","status":"coming-soon"}];
+const CARDS = [{"title":"Pájení","desc":"Roztavená pájka vzlíná do spáry, základní materiál se nenataví.","href":"pajeni.html","badge":"2 animace · 1 interaktivní","status":"ready"},{"title":"Navařování a\u00a0žárové nástřiky","desc":"Vrstva jiného materiálu na povrchu dílu — návarem nebo nástřikem.","href":"navarovani-nastriky.html","badge":"1 animace · 1 interaktivní","status":"ready"}];
 class Component extends DCLogic {
   state = { structure: null };
   componentDidMount() {
@@ -103,6 +103,7 @@ class Component extends DCLogic {
     { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
     { title: 'Odlévání', href: '../../odlevani/index.html' },
     { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'Svařování', href: '../../svarovani/index.html' },
     { title: 'O projektu', href: '../../o-projektu.html' },
     { title: 'Novinky', href: '../../novinky.html' },
   ];

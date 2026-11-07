@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Protlačování | STT</title>
-<meta name="description" content="Protlačování za studena: napjatost a podmínky procesu, dopředné, zpětné a stranové protlačování s klikacími schématy a kombinované protlačování.">
+<meta name="description" content="Protlačování za studena: napjatost a podmínky procesu, dopředné, zpětné a stranové protlačování s klikacími schématy, kombinované protlačování a 3D model dvou postupů výroby pouzdra zapalovací svíčky.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
@@ -125,6 +125,23 @@
       <div style="background:#0d121a;padding:13px 12px;font-size:14px;line-height:1.45;color:#eaf2fa">Kombinované</div>
       <div style="background:#0d121a;padding:13px 12px;font-size:14px;line-height:1.45;color:#c4d2de">současně ve více směrech</div>
       <div style="background:#0d121a;padding:13px 12px;font-size:14px;line-height:1.45;color:#c4d2de">dutina na jedné straně, dřík na druhé</div>
+    </div>
+
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;color:#eaf2fa;margin:34px 0 10px">Postup výroby: pouzdro zapalovací svíčky</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px;max-width:820px;text-wrap:pretty">Pouzdro zapalovací svíčky vzniká z&nbsp;přířezu drátu v&nbsp;několika operacích za sebou. Každá operace probíhá v&nbsp;samostatném nástroji a&nbsp;mění tvar výlisku jen o&nbsp;jeden krok. Materiál se přitom přemísťuje, neodebírá. Model ukazuje dva postupy, které se liší vznikem šestihranu:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 18px">
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:18px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:6px">Postup 1 — ostřižení nákružku</div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Šest operací. Pěchováním vznikne kruhový nákružek a&nbsp;ostřihovací střižnice z&nbsp;něj odstřihne šestihran. Odpadem je kroužek.</div>
+      </div>
+      <div style="background:rgba(120,150,180,0.05);border:1px solid rgba(150,180,210,0.16);border-radius:16px;padding:18px 20px">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:15.5px;color:#eaf2fa;margin-bottom:6px">Postup 2 — pěchování šestihranu</div>
+        <div style="font-size:14.5px;line-height:1.65;color:#c4d2de">Pět operací. Šestihran se napěchuje přímo do šestihranné dutiny nástroje, kolem něj se nic neostřihuje.</div>
+      </div>
+    </div>
+    <p style="font-size:14.5px;line-height:1.7;color:#8296a8;margin:0 0 14px">Přepínačem vyber postup, tlačítkem Další projdeš operace jednu po druhé. Řez ukáže dutinu výlisku. Model je zjednodušený — ukazuje změnu tvaru, ne skutečné rozměry.</p>
+    <div style="position:relative;height:560px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 18px">
+      <x-import component-from-global-scope="PouzdroSvicky3D" from="./pouzdro-svicky-3d.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
     </div>
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">

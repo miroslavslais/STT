@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 260" role="img" aria-label="Roztavené sklo teče na hladinu roztaveného cínu v uzavřené lázni s ochrannou atmosférou dusíku a vodíku. Horní válečky řídí šířku a tloušťku, odtahové válce pás odvádějí do chladicí pece">
+  <defs>
+    <linearGradient id="tep" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#f2a04a"/><stop offset="0.45" stop-color="#f3c98a"/><stop offset="1" stop-color="#c7e6e8"/>
+    </linearGradient>
+    <clipPath id="pas"><path d="M96 150 q30 -10 70 -2 H600 V164 H96 z"/></clipPath>
+  </defs>
+  <rect width="600" height="260" fill="#f6f1e8"/>
+  <!-- pec a hubice -->
+  <rect x="0" y="40" width="96" height="104" fill="#8a6b4f" stroke="#5c4632" stroke-width="2"/>
+  <path d="M60 116 H118 L112 134 H66 z" fill="#a9876a" stroke="#5c4632" stroke-width="2" stroke-linejoin="round"/>
+  <!-- proud skla -->
+  <path d="M100 134 q4 8 6 16" stroke="#f2a04a" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- cínová lázeň (končí u x = 500); sklo plave, ale část jeho tloušťky je pod úrovní hladiny cínu -->
+  <rect x="84" y="159" width="416" height="65" fill="#b9c0c7"/>
+  <rect x="84" y="159" width="416" height="3" fill="#dfe4e8"/>
+  <path d="M84 150 V232 H500 V150" fill="none" stroke="#5c5346" stroke-width="3"/>
+  <!-- zakrytí lázně: uvnitř ochranná atmosféra -->
+  <path d="M96 70 H500 V150" fill="none" stroke="#5c5346" stroke-width="3"/>
+  <rect x="97" y="72" width="401" height="76" fill="#e7eef3" opacity="0.55"/>
+  <text x="470" y="92" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#3e4246">N₂ + H₂</text>
+  <!-- pás skla -->
+  <path d="M96 150 q30 -10 70 -2 H600 V164 H96 z" fill="url(#tep)"/>
+  <g clip-path="url(#pas)" stroke="#ffffff" stroke-width="2" opacity="0.7">
+    <g><animateTransform attributeName="transform" type="translate" from="0 0" to="60 0" dur="1.6s" repeatCount="indefinite"/>
+      <path d="M40 156 h22 M100 156 h22 M160 156 h22 M220 156 h22 M280 156 h22 M340 156 h22 M400 156 h22 M460 156 h22 M520 156 h22 M580 156 h22"/>
+    </g>
+  </g>
+  <!-- horní válečky: dotýkají se pásu shora -->
+  <g>
+    <path d="M250 70 V134 M360 70 V134" stroke="#5c5346" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="250" cy="141" r="8" fill="#8f969d" stroke="#4d5258" stroke-width="2"/>
+    <circle cx="360" cy="142" r="8" fill="#8f969d" stroke="#4d5258" stroke-width="2"/>
+    <path d="M250 134 V148" stroke="#c9ced3" stroke-width="2"><animateTransform attributeName="transform" type="rotate" from="0 250 141" to="-360 250 141" dur="1.2s" repeatCount="indefinite"/></path>
+    <path d="M360 135 V149" stroke="#c9ced3" stroke-width="2"><animateTransform attributeName="transform" type="rotate" from="0 360 142" to="-360 360 142" dur="1.2s" repeatCount="indefinite"/></path>
+  </g>
+  <!-- odtahové válce za lázní: pás leží na nich -->
+  <g>
+    <circle cx="530" cy="174" r="10" fill="#8f969d" stroke="#4d5258" stroke-width="2"/>
+    <circle cx="570" cy="174" r="10" fill="#8f969d" stroke="#4d5258" stroke-width="2"/>
+    <path d="M530 165 V183" stroke="#c9ced3" stroke-width="2"><animateTransform attributeName="transform" type="rotate" from="0 530 174" to="360 530 174" dur="1.2s" repeatCount="indefinite"/></path>
+    <path d="M570 165 V183" stroke="#c9ced3" stroke-width="2"><animateTransform attributeName="transform" type="rotate" from="0 570 174" to="360 570 174" dur="1.2s" repeatCount="indefinite"/></path>
+  </g>
+  <!-- popisky -->
+  <text x="305" y="62" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#5c5346">horní válečky</text>
+  <text x="550" y="206" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#5c5346">odtahové</text>
+  <text x="550" y="221" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#5c5346">válce</text>
+  <text x="430" y="140" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#5c5346">sklo</text>
+  <text x="596" y="140" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="12" fill="#8a8072">→ chladicí pec</text>
+  <text x="300" y="204" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="14" fill="#3e4246">roztavený cín</text>
+  <text x="96" y="252" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#b0561f">1 100 °C</text>
+  <path d="M160 247 H420 M408 240 L420 247 L408 254" fill="none" stroke="#8a8072" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="430" y="252" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#3a8a96">600 °C</text>
+</svg>

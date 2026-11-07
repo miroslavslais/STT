@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ohýbání | STT</title>
-<meta name="description" content="Ohýbání za studena: posun neutrální osy, minimální poloměr ohybu a výpočet rozvinuté délky.">
+<meta name="description" content="Ohýbání za studena: posun neutrální osy, minimální poloměr ohybu, výpočet rozvinuté délky a rovnání ohybem.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script src="./support.js"></script>
 </head>
@@ -174,6 +174,19 @@
     <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Odpružení</div>
     <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Část deformace v&nbsp;ohybu zůstává pružná, takže se díl po odlehčení částečně vrátí a&nbsp;skutečný úhel je větší než úhel nástroje. Kompenzuje se přeohnutím, kalibrací dna nebo ohybníkem s&nbsp;vytlačovacím žebrem. Odpružení roste s&nbsp;mezí kluzu materiálu i&nbsp;s&nbsp;poměrem R/t. Podrobně je popsané ve&nbsp;<a href="../vady/Odpruzeni.html" style="color:#7ba3cc;text-decoration:underline;text-underline-offset:3px">Vadách při tváření</a>.</p>
 
+    <h2 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:20px;color:#eaf2fa;margin:26px 0 10px">Rovnání ohybem</h2>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Rovnání využívá stejný děj jako ohýbání — plastickou deformaci za mezí kluzu. Zakřivený nebo zvlněný polotovar se ohne na opačnou stranu, než je jeho odchylka. Ohyb musí přejít přes rovný stav o&nbsp;velikost odpružení. Po odlehčení se materiál pružně vrátí do přímky.</p>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin:22px 0 8px">Válcová rovnačka</h3>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Plechy, pásy a&nbsp;dráty ze&nbsp;svitku se rovnají průchodem mezi dvěma řadami válců. Válce horní řady jsou posunuté proti spodním a&nbsp;zatlačují pás mezi ně. Pás se proto střídavě ohýbá na jednu a&nbsp;na druhou stranu. Přítlak horních válců ve&nbsp;směru průchodu klesá. První ohyby překročí mez kluzu a&nbsp;přepíšou původní zvlnění — každé místo pásu dostane stejný ohyb bez ohledu na to, jak bylo zakřivené na vstupu. Další ohyby jsou postupně menší a&nbsp;poslední zůstávají v&nbsp;pružné oblasti. Pás vystupuje rovný.</p>
+    <div style="position:relative;height:500px;background:#080b12;border:1px solid rgba(150,180,210,0.16);border-radius:16px;overflow:hidden;margin:0 0 18px">
+      <x-import component-from-global-scope="RovnaniValcove" from="./rovnani.jsx" style="position:absolute;inset:0" hint-size="100%,100%"></x-import>
+    </div>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 18px">Při rozevřených válcích se pás neohýbá a&nbsp;zvlnění projde rovnačkou beze změny. Rovnací účinek vzniká jen z&nbsp;plastického ohybu.</p>
+
+    <h3 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:17px;color:#eaf2fa;margin:22px 0 8px">Rovnání tyčí a&nbsp;hřídelí na lisu</h3>
+    <p style="font-size:16.5px;line-height:1.7;color:#aebfcf;margin:0 0 26px">Krátké tyče a&nbsp;hřídele se rovnají jednotlivými ohyby. Tyč leží na dvou podpěrách a&nbsp;trn lisu ji v&nbsp;místě největšího průhybu ohne na opačnou stranu. Po odlehčení se přímost zkontroluje a&nbsp;ohyb se podle potřeby opakuje s&nbsp;menším zdvihem.</p>
+
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
       <a href="../vady/Odpruzeni.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Odpružení →</a>
       <a href="../vady/Povrchove vady a pnuti.html" style="padding:12px 18px;border-radius:12px;background:rgba(120,150,180,0.06);border:1px solid rgba(150,180,210,0.16);font-size:14.5px;color:#c4d2de">Souvisí: Povrchové vady a&nbsp;pnutí →</a>
@@ -205,6 +218,7 @@ class Component extends DCLogic {
     { title: 'Značení ocelí', href: '../../znaceni-oceli/index.html' },
     { title: 'Odlévání', href: '../../odlevani/index.html' },
     { title: 'Zpracování polymerů', href: '../../zpracovani-polymeru/index.html' },
+    { title: 'Svařování', href: '../../svarovani/index.html' },
     { title: 'O projektu', href: '../../o-projektu.html' },
     { title: 'Novinky', href: '../../novinky.html' },
   ];

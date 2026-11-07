@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ostatní tlakové metody | STT</title>
+<meta name="description" content="Svařování výbuchem (441) s animací a detailem vlnitého rozhraní, difúzní svařování (45) s animací difúze, podmínky, použití, výhody a nevýhody.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma kapitoly Svařování (záměrně jen tmavé — promítání ve výuce) */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#e08cc4;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:96px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+h3{font-family:var(--f-disp);font-weight:700;font-size:20px;margin:24px 0 12px}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #6b3d5c}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.ct{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.card p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+.card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--muted)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin-bottom:18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{overflow-x:auto;border-radius:14px}
+.svgbox svg{display:block;width:100%;min-width:640px;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:4px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+</style>
+</head>
+<body data-first-seen="2026-11-07">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na&nbsp;Tlakové svařování</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Tlakové svařování</div>
+  <h1>Ostatní tlakové metody</h1>
+  <p class="lead">Svařování výbuchem (441) a&nbsp;difúzní svařování (45). Obě metody spojují kovy převážně v&nbsp;tuhém stavu. Liší se zdrojem energie i&nbsp;dobou, po&nbsp;kterou spoj vzniká.</p>
+
+  <h2>Svařování výbuchem (441)</h2>
+  <p class="t">Energii dodává výbušnina. Nejčastěji se tak plátuje — na&nbsp;tlustší desku ze&nbsp;základního kovu se navaří tenčí vrstva plátujícího kovu.</p>
+  <p class="t">Plátující kov leží rovnoběžně nad základním kovem, oddělený distanční mezerou. Na&nbsp;plátujícím kovu je vrstva výbušniny. Detonace postupuje náloží od&nbsp;jednoho okraje k&nbsp;druhému. Tlak plynů vrhá plátující kov dolů a&nbsp;ten naráží na&nbsp;základní kov postupně, pod malým úhlem.</p>
+  <p class="t">V&nbsp;místě nárazu vznikne velký tlak. Z&nbsp;povrchů obou kovů se odtrhne tenká vrstva a&nbsp;vystříkne před místo nárazu jako trysk. Trysk odnese oxidy a&nbsp;nečistoty. Čisté povrchy se pod tlakem spojí kovovou vazbou. Spoj vzniká převážně v&nbsp;tuhém stavu, natavená zůstanou jen malá místa uvnitř vln.</p>
+  <p class="t">Kvůli výbušnině se svařuje na&nbsp;odlehlých střelištích nebo ve&nbsp;zvláštních komorách.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Plátování výbuchem</div>
+        <div class="panel-s" style="margin-bottom:0">Řez deskami. Vyber krok a&nbsp;klikni na&nbsp;popisek.</div>
+      </div>
+      <div class="btns" id="stepsV"></div>
+    </div>
+    <div class="svgbox"><svg id="svgV" viewBox="0 0 1000 410" role="img" aria-label="Plátování výbuchem: řez deskami během detonace"></svg></div>
+    <div class="step"><div class="step-t" id="stTV"></div><p id="stPV"></p></div>
+    <p class="info" id="infoV"></p>
+  </div>
+  <div class="panel">
+    <div class="panel-k">Interaktivní</div>
+    <div class="panel-t">Detail vlnitého rozhraní</div>
+    <div class="panel-s">Řez spojem ve&nbsp;velkém zvětšení. Klikni na&nbsp;popisek.</div>
+    <div class="svgbox"><svg id="svgW" viewBox="0 0 1000 360" role="img" aria-label="Detail vlnitého rozhraní po svařování výbuchem"></svg></div>
+    <p class="info" id="infoW"></p>
+  </div>
+
+  <h2>Difúzní svařování (45)</h2>
+  <p class="t">Díly se k&nbsp;sobě přitlačí a&nbsp;drží na&nbsp;vysoké teplotě pod teplotou tavení. Atomy přecházejí přes rozhraní difúzí a&nbsp;spojí díly kovovou vazbou. Svařuje se ve&nbsp;vakuové peci s&nbsp;lisem.</p>
+  <p class="t">Spoj vzniká bez výronku a&nbsp;díly se téměř nedeformují. Spojit lze i&nbsp;velké plochy a&nbsp;plochy uvnitř dílu, například vrstvy tenkých plechů.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Vznik difúzního spoje</div>
+        <div class="panel-s" style="margin-bottom:0">Atomy u&nbsp;rozhraní, zjednodušeně. Vyber krok a&nbsp;klikni na&nbsp;popisek.</div>
+      </div>
+      <div class="btns" id="stepsD"></div>
+    </div>
+    <div class="svgbox"><svg id="svgD" viewBox="0 0 1000 370" role="img" aria-label="Vznik difúzního spoje: atomy přecházejí přes rozhraní a dutiny se uzavírají"></svg></div>
+    <div class="step"><div class="step-t" id="stTD"></div><p id="stPD"></p></div>
+    <p class="info" id="infoD"></p>
+  </div>
+  <h3>Podmínky difúzního spoje</h3>
+  <div class="grid">
+    <div class="card"><div class="ct">Teplota</div><p>Vysoká, ale pod teplotou tavení. S&nbsp;rostoucí teplotou difúze zrychluje a&nbsp;materiál snáz teče.</p></div>
+    <div class="card"><div class="ct">Tlak</div><p>Stlačí mikronerovnosti a&nbsp;zvětší plochu dotyku. Je tak malý, že se díly jako celek nedeformují.</p></div>
+    <div class="card"><div class="ct">Čas</div><p>Difúze je pomalá. Díly se drží na&nbsp;teplotě a&nbsp;pod tlakem mnohem déle než u&nbsp;ostatních tlakových metod.</p></div>
+    <div class="card"><div class="ct">Vakuum</div><p>Povrchy za&nbsp;vysoké teploty neoxidují. Vrstva oxidů by difúzi bránila.</p></div>
+    <div class="card"><div class="ct">Povrch</div><p>Rovný a&nbsp;čistý — broušený nebo lapovaný a&nbsp;odmaštěný. Menší nerovnosti zanechají méně dutin.</p></div>
+  </div>
+
+  <h2>Použití, výhody a&nbsp;nevýhody</h2>
+  <div class="grid">
+    <div class="card"><div class="ct">Použití</div><ul><li>441: plátované desky pro chemická zařízení a&nbsp;tlakové nádoby</li><li>441: přechodové kusy hliník–ocel pro stavbu lodí</li><li>45: díly letadel a&nbsp;leteckých motorů z&nbsp;titanu</li><li>45: deskové výměníky tepla z&nbsp;vrstev plechů</li></ul></div>
+    <div class="card"><div class="ct">Výhody</div><ul><li>spojí i&nbsp;kovy, které se tavně svařit nedají</li><li>bez přídavného materiálu</li><li>441: velká plocha se spojí najednou</li><li>45: bez výronku, díly se téměř nedeformují</li></ul></div>
+    <div class="card"><div class="ct">Nevýhody</div><ul><li>441: hlavně rovné desky a&nbsp;jednoduché tvary</li><li>441: hluk a&nbsp;otřesy</li><li>45: dlouhá doba svařování</li><li>45: drahá vakuová pec s&nbsp;lisem</li><li>45: náročná příprava povrchu</li></ul></div>
+  </div>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#e08cc4';
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const lw=txt=>Math.round(txt.length*7.8+24);
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const key=(g,fn)=>{g.addEventListener('click',fn);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+const BASE='#5d6a79', CLAD='#b87333', WHITE='#eaf2fa';
+
+/* společné: díly ke zvýraznění, popisky s odkazovou čarou, kroky (bez kroků pro statické schéma) */
+function kit(svg,info,SHOW,INFO,defInfo){
+  const parts={}, L={}, k={sel:null,step:0,t0:0};
+  let leadG=null; // vrstva odkazových čar vzniká s prvním popiskem, aby ležela nad schématem
+  k.add=(id,e,mode)=>{e.__m=mode||'fill';e.__s=e.getAttribute('stroke');e.__w=+(e.getAttribute('stroke-width')||0);(parts[id]=parts[id]||[]).push(e);return e;};
+  // anchor: 'b' dolní střed, 't' horní střed, 'r' pravý střed, 'l' levý střed
+  k.label=(id,txt,x,y,anchor,target)=>{const w=lw(txt);
+    const ax=anchor==='r'?x+w:anchor==='l'?x:x+w/2, ay=anchor==='b'?y+28:anchor==='t'?y:y+14;
+    if(!leadG)leadG=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5});
+    const line=el(leadG,'line',{x1:ax,y1:ay,x2:ax,y2:ay});
+    const g=el(svg,'g',{class:'lbl',tabindex:0,role:'button'});el(g,'rect',{x,y,width:w,height:28,rx:8});
+    const t=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});t.textContent=txt;
+    key(g,()=>{k.sel=k.sel===id?null:id;k.paint();});L[id]={g,line,target};};
+  k.leaders=()=>Object.keys(L).forEach(id=>{const [x,y]=L[id].target();L[id].line.setAttribute('x2',f(x));L[id].line.setAttribute('y2',f(y));});
+  k.paint=()=>{
+    Object.keys(L).forEach(id=>{const on=SHOW[k.step].includes(id);L[id].g.style.display=on?'':'none';L[id].line.style.display=on?'':'none';L[id].g.classList.toggle('on',k.sel===id);});
+    Object.keys(parts).forEach(id=>parts[id].forEach(e=>{const s=k.sel===id;
+      if(e.__m==='stroke'){e.setAttribute('stroke',s?ACC:e.__s);e.setAttribute('stroke-width',s?e.__w+2:e.__w);}
+      else if(e.__m==='head'){e.setAttribute('fill',s?ACC:WHITE);}
+      else{e.setAttribute('stroke',s?ACC:'none');e.setAttribute('stroke-width',2.5);}}));
+    info.textContent=k.sel?INFO[k.sel]:defInfo;};
+  k.steps=(stepsBox,stT,stP,STEPS)=>{
+    const btns=STEPS.map((s,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=(i+1)+'. '+s[0];b.onclick=()=>k.go(i);stepsBox.appendChild(b);return b;});
+    k.go=i=>{k.step=i;k.t0=performance.now();if(k.sel&&!SHOW[i].includes(k.sel))k.sel=null;
+      btns.forEach((b,j)=>b.setAttribute('aria-pressed',j===i));
+      stT.textContent=(i+1)+'. '+STEPS[i][0];stP.textContent=STEPS[i][1];k.paint();};};
+  return k;
+}
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json').then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- PRVEK A — plátování výbuchem ---------- */
+(function(){
+const svg=document.getElementById('svgV');
+const STEPS=[
+  ['Uspořádání','Plátující kov leží rovnoběžně nad základním kovem, oddělený distanční mezerou. Na'+NB+'něm je vrstva výbušniny, na'+NB+'okraji rozbuška.'],
+  ['Detonace','Detonace postupuje náloží. Tlak plynů vrhá plátující kov dolů a'+NB+'ten naráží na'+NB+'základní kov pod malým úhlem. Trysk před místem nárazu čistí povrchy, za'+NB+'ním vzniká spoj.'],
+  ['Hotový spoj','Základní a'+NB+'plátující kov jsou spojené po'+NB+'celé ploše. Rozhraní má vlnitý tvar. Plátovaná deska se pak rovná a'+NB+'dokončuje.'],
+];
+const DUR=[.1,3.4,.1];
+const INFO={
+  ro:'Rozbuška — iniciuje detonaci na'+NB+'jednom okraji nálože.',
+  vy:'Výbušnina — vrstva rozložená rovnoměrně po'+NB+'celém plátujícím kovu. Detonace jí postupuje od'+NB+'rozbušky k'+NB+'protějšímu okraji.',
+  pd:'Plátující kov — tenčí deska z'+NB+'kovu, který má tvořit povrch výsledné desky, například z'+NB+'korozivzdorného materiálu.',
+  me:'Distanční mezera — prostor mezi plátujícím a'+NB+'základním kovem. Plátující kov v'+NB+'ní nabere rychlost a'+NB+'narazí šikmo.',
+  zd:'Základní kov — tlustší nosná deska, obvykle z'+NB+'konstrukční oceli. Leží na'+NB+'pevném podkladu.',
+  cd:'Čelo detonace — místo, kde právě probíhá výbuch. Tlak plynů za'+NB+'ním vrhá plátující kov dolů.',
+  mn:'Místo nárazu — plátující kov tu dopadá na'+NB+'základní kov pod malým úhlem. Posouvá se stejnou rychlostí jako čelo detonace.',
+  pk:'Trysk — tenká vrstva povrchu obou kovů vystříkne před místo nárazu a'+NB+'odnese oxidy a'+NB+'nečistoty.',
+  vr:'Vlnité rozhraní — typický tvar spoje po'+NB+'svařování výbuchem. Podrobně v'+NB+'detailu pod animací.',
+};
+const SHOW=[['ro','vy','pd','me','zd'],['vy','pd','me','zd','cd','mn','pk','vr'],['pd','zd','vr']];
+const k=kit(svg,document.getElementById('infoV'),SHOW,INFO,'Klikni na'+NB+'popisek ve'+NB+'schématu.');
+k.steps(document.getElementById('stepsV'),document.getElementById('stTV'),document.getElementById('stPV'),STEPS);
+// geometrie: desky x 60–820; základní kov y 270–330; plátující kov tloušťky 20, nahoře y 220–240, po dopadu 250–270;
+// distanční mezera y 240–270; výbušnina y 180–220; místo nárazu zaostává za čelem detonace o LAG
+const X0=60, X1=820, LAG=140;
+const yTop=(x,xd)=>{const xc=xd-LAG;return x<=xc?250:x>=xd?220:250-30*(x-xc)/LAG;};
+const defs=el(svg,'defs',{});
+const rg=el(defs,'radialGradient',{id:'boom'});
+el(rg,'stop',{offset:0,'stop-color':'#ffd166','stop-opacity':.95});el(rg,'stop',{offset:1,'stop-color':'#f08a3c','stop-opacity':0});
+k.add('zd',el(svg,'rect',{x:X0,y:270,width:X1-X0,height:60,fill:BASE}));
+const gas=el(svg,'rect',{x:X0,y:150,width:0,height:100,fill:'#6b5f55',opacity:.35});
+const boom=el(svg,'circle',{cx:X0,cy:200,r:60,fill:'url(#boom)',opacity:0});
+const gap=k.add('me',el(svg,'path',{d:'',fill:'#141a22'}));
+const plate=k.add('pd',el(svg,'path',{d:'',fill:CLAD}));
+const expl=k.add('vy',el(svg,'rect',{x:X0,y:180,width:X1-X0,height:40,fill:'#a89060'}));
+const det=el(svg,'ellipse',{cx:X0,cy:200,rx:7,ry:24,fill:'#fff3b0',opacity:0});
+const ro=k.add('ro',el(svg,'rect',{x:44,y:186,width:16,height:28,rx:3,fill:'#d9534f'}));
+const jet=k.add('pk',el(svg,'path',{d:'',fill:'#ffe08a'}));
+const wave=k.add('vr',el(svg,'path',{d:'',fill:'none',stroke:'#2a2f36','stroke-width':2.5}),'stroke');
+let xd=X0;
+const xc=()=>xd-LAG;
+k.label('pd','plátující kov',150,40,'b',()=>[200,yTop(200,xd)]);
+k.label('cd','čelo detonace',380,40,'b',()=>[Math.min(xd,X1),178]);
+k.label('pk','trysk',540,40,'b',()=>[Math.min(X1,Math.max(X0,xc()+28)),266]);
+k.label('mn','místo nárazu',680,40,'b',()=>[Math.min(X1,Math.max(X0,xc())),270]);
+k.label('ro','rozbuška',30,40,'b',()=>[52,186]);
+k.label('vy','výbušnina',840,186,'l',()=>[805,200]);
+k.label('me','distanční mezera',840,241,'l',()=>[805,255]);
+k.label('zd','základní kov',840,286,'l',()=>[805,300]);
+k.label('vr','vlnité rozhraní',300,372,'t',()=>[Math.max(X0+10,Math.min(370,xc()-10)),270]);
+function frame(now){
+  const st=k.step, p=reduce?1:Math.max(0,Math.min(1,(now-k.t0)/1000/DUR[st]));
+  xd=st===0?X0:st===1?X0+(X1+LAG-X0)*p:X1+LAG;
+  let top='',bot='';
+  for(let x=X0;x<=X1;x+=4){const y=yTop(x,xd);top+=(x===X0?'M':' L')+x+' '+f(y);bot=' L'+x+' '+f(y+20)+bot;}
+  plate.setAttribute('d',top+bot+' Z');
+  // distanční mezera mezi spodkem plátujícího kovu a základním kovem
+  let gd='';const gx0=Math.max(X0,xc());
+  if(gx0<X1){gd='M'+f(gx0)+' 270';for(let x=Math.ceil(gx0/4)*4;x<=X1;x+=4)gd+=' L'+x+' '+f(yTop(x,xd)+20);gd+=' L'+X1+' 270 Z';}
+  gap.setAttribute('d',gd);
+  const ex=Math.min(Math.max(xd,X0),X1);
+  expl.setAttribute('x',f(ex));expl.setAttribute('width',f(X1-ex));
+  gas.setAttribute('width',f(Math.max(0,ex-X0)));gas.setAttribute('opacity',st===1?.35:0);
+  const live=xd>X0&&xd<X1;
+  det.setAttribute('cx',f(xd));det.setAttribute('opacity',live?1:0);
+  boom.setAttribute('cx',f(xd));boom.setAttribute('opacity',live?.9:0);
+  ro.setAttribute('opacity',st===0?1:0);
+  const c=xc();
+  jet.setAttribute('d',c>X0&&c<X1-10?'M'+f(c)+' 270 L'+f(c+36)+' 262 L'+f(c+36)+' 269 Z':'');
+  let wd='';const we=Math.min(c,X1);
+  if(we>X0){wd='M'+X0+' 270';for(let x=X0+3;x<=we;x+=3)wd+=' L'+x+' '+f(270+3*Math.sin(2*Math.PI*(x-X0)/22));}
+  wave.setAttribute('d',wd);
+  k.leaders();
+  requestAnimationFrame(frame);
+}
+k.go(0);requestAnimationFrame(frame);
+})();
+
+/* ---------- PRVEK B — detail vlnitého rozhraní ---------- */
+(function(){
+const svg=document.getElementById('svgW');
+const INFO={
+  pm:'Plátující kov — kov, který tvoří povrch plátované desky.',
+  zm:'Základní kov — kov nosné části plátované desky.',
+  vl:'Vlna — rozhraní se při nárazu zvlní. Vlny zvětšují plochu spoje a'+NB+'materiály do'+NB+'sebe mechanicky zapadají.',
+  nm:'Natavená místa — malé objemy kovu ve'+NB+'vírech na'+NB+'hřebenech vln se krátce nataví a'+NB+'rychle ztuhnou. Mezi různými kovy v'+NB+'nich mohou vzniknout křehké fáze, proto mají zůstat malá.',
+  ss:'Směr svařování — vlny se naklánějí ve'+NB+'směru, kterým postupovala detonace.',
+};
+const k=kit(svg,document.getElementById('infoW'),[['pm','zm','vl','nm','ss']],INFO,'Klikni na'+NB+'popisek ve'+NB+'schématu.');
+// rozhraní jako protáhlá trochoida: x = t + C·sin(K·t), y = Y0 + A·cos(K·t); smyčky na hřebenech = víry
+const Y0=170, A=30, WL=150, K=2*Math.PI/WL, C=1.7/K, XA=40, XB=960;
+const pt=t=>[t+C*Math.sin(K*t), Y0+A*Math.cos(K*t)];
+const clip=el(el(svg,'defs',{}),'clipPath',{id:'clipW'});el(clip,'rect',{x:XA,y:40,width:XB-XA,height:260});
+let d='';for(let t=XA-WL;t<=XB+WL;t+=1.5){const [x,y]=pt(t);d+=(t===XA-WL?'M':' L')+f(x)+' '+f(y);}
+const gW=el(svg,'g',{'clip-path':'url(#clipW)'});
+k.add('zm',el(gW,'rect',{x:XA,y:40,width:XB-XA,height:260,fill:BASE}));
+k.add('pm',el(gW,'path',{d:d+' L'+(XB+WL)+' 0 L'+(XA-WL)+' 0 Z',fill:CLAD,'fill-rule':'evenodd'}));
+k.add('vl',el(gW,'path',{d,fill:'none',stroke:'#2a2f36','stroke-width':2}),'stroke');
+const POCK=[];for(let t=WL/2;t<XB;t+=WL)if(t>XA+20&&t<XB-20)POCK.push(t);
+POCK.forEach(t=>k.add('nm',el(svg,'ellipse',{cx:f(t),cy:f(Y0-A*.82),rx:6,ry:5,fill:'#e8b04a'})));
+k.add('ss',el(svg,'line',{x1:520,y1:330,x2:666,y2:330,stroke:WHITE,'stroke-width':3}),'stroke');
+k.add('ss',el(svg,'path',{d:'M664 323 L678 330 L664 337 Z',fill:WHITE}),'head');
+const tv=WL*1.25, pv=pt(tv);
+k.label('pm','plátující kov',60,60,'r',()=>[230,80]);
+k.label('zm','základní kov',60,250,'r',()=>[240,250]);
+k.label('vl','vlna',420,60,'b',()=>pv);
+k.label('nm','natavená místa',560,60,'b',()=>[POCK[3],Y0-A*.82-5]);
+k.label('ss','směr svařování',700,316,'l',()=>[682,330]);
+k.leaders();k.paint();
+})();
+
+/* ---------- PRVEK C — vznik difúzního spoje ---------- */
+(function(){
+const svg=document.getElementById('svgD');
+const STEPS=[
+  ['Dotyk','Díly se přitlačí k'+NB+'sobě. Povrchy se dotýkají jen na'+NB+'vrcholcích mikronerovností, mezi nimi zůstávají dutiny.'],
+  ['Stlačení nerovností','Za vysoké teploty a'+NB+'tlaku se vrcholky nerovností plasticky deformují. Plocha dotyku roste, dutiny se zmenšují.'],
+  ['Difúze','Atomy přecházejí přes rozhraní z'+NB+'jednoho dílu do'+NB+'druhého. Difúzí se uzavírají i'+NB+'zbylé dutiny.'],
+  ['Hotový spoj','Původní rozhraní zaniklo. V'+NB+'jeho okolí jsou atomy obou dílů promísené a'+NB+'díly spojuje kovová vazba.'],
+];
+const DUR=[.8,2,3.5,.8];
+const INFO={
+  hd:'Horní díl — krystalová mřížka prvního dílu, zjednodušeně.',
+  dd:'Dolní díl — krystalová mřížka druhého dílu. Díly mohou být ze'+NB+'stejného i'+NB+'z'+NB+'různých kovů.',
+  ro:'Rozhraní — původní styčná plocha dílů. Difúzí postupně zaniká.',
+  du:'Dutina — místo, kde se povrchy kvůli mikronerovnostem nedotýkají. Tlak a'+NB+'difúze ji postupně uzavřou.',
+  pa:'Přecházející atom — difúzí přechází přes rozhraní do'+NB+'druhého dílu. S'+NB+'rostoucí teplotou difúze zrychluje.',
+};
+const SHOW=[['hd','ro','du','dd'],['hd','ro','du','dd'],['hd','ro','du','dd','pa'],['hd','dd','pa']];
+const k=kit(svg,document.getElementById('infoD'),SHOW,INFO,'Klikni na'+NB+'popisek ve'+NB+'schématu.');
+k.steps(document.getElementById('stepsD'),document.getElementById('stTD'),document.getElementById('stPD'),STEPS);
+// mřížka: sloupce x 230–930 po 20; horní díl řádky y 50–170, dolní 210–330; rozhraní y 190
+const UP='#c98a52', LO='#8fa6bf', XS=[], YU=[50,70,90,110,130,150,170], YL=[210,230,250,270,290,310,330];
+for(let x=230;x<=930;x+=20)XS.push(x);
+const gU=el(svg,'g',{}), gL=el(svg,'g',{});
+const atoms=[];
+XS.forEach(x=>{YU.forEach(y=>atoms.push({x,y,c:UP,e:el(gU,'circle',{cx:x,cy:y,r:6,fill:UP}),side:'u'}));
+               YL.forEach(y=>atoms.push({x,y,c:LO,e:el(gL,'circle',{cx:x,cy:y,r:6,fill:LO}),side:'l'}));});
+k.add('hd',el(svg,'rect',{x:220,y:40,width:720,height:140,fill:'none'}));
+k.add('dd',el(svg,'rect',{x:220,y:200,width:720,height:140,fill:'none'}));
+// dvojice atomů, které si přes rozhraní vymění místo (pevné pseudonáhodné pořadí)
+let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+const pairs=[];
+XS.forEach(x=>{if(rnd()<.55){const iu=YU.length-1-Math.floor(rnd()*3), il=Math.floor(rnd()*3);
+  const a=atoms.find(o=>o.x===x&&o.y===YU[iu]), b=atoms.find(o=>o.x===x&&o.y===YL[il]);
+  pairs.push({a,b,th:rnd()*.75});}});
+const iface=k.add('ro',el(svg,'line',{x1:220,y1:190,x2:940,y2:190,stroke:'#eaf2fa','stroke-width':1.5,'stroke-dasharray':'6 5'}),'stroke');
+const VX=[300,450,610,760,890];
+const voids=VX.map(x=>k.add('du',el(svg,'ellipse',{cx:x,cy:190,rx:40,ry:11,fill:'#05070b'})));
+const lead=pairs.reduce((m,q)=>q.th<m.th?q:m,pairs[0]);
+let leadPos=[lead.a.x,lead.a.y];
+k.add('pa',lead.a.e);
+k.label('hd','horní díl',20,96,'r',()=>[226,110]);
+k.label('ro','rozhraní',20,176,'r',()=>[226,190]);
+k.label('du','dutina',20,226,'r',()=>[VX[0]-30,194]);
+k.label('dd','dolní díl',20,276,'r',()=>[226,290]);
+k.label('pa','přecházející atom',20,326,'r',()=>[leadPos[0]-7,leadPos[1]]);
+function frame(now){
+  const st=k.step, p=reduce?1:Math.max(0,Math.min(1,(now-k.t0)/1000/DUR[st]));
+  const vs=st===0?1:st===1?1-.6*p:st===2?.4*(1-p):0;
+  const df=st<2?0:st===2?p:1;
+  const io=st<2?1:st===2?1-.8*p:0;
+  voids.forEach(v=>{v.setAttribute('rx',f(40*vs));v.setAttribute('ry',f(11*Math.max(.3,vs)));v.style.display=vs>.01?'':'none';});
+  iface.setAttribute('opacity',f(io));
+  pairs.forEach(q=>{const t=Math.max(0,Math.min(1,(df-q.th)/.25)), s=t*t*(3-2*t), bend=Math.sin(Math.PI*s)*7;
+    q.a.e.setAttribute('cx',f(q.a.x+bend));q.a.e.setAttribute('cy',f(q.a.y+(q.b.y-q.a.y)*s));
+    q.b.e.setAttribute('cx',f(q.b.x-bend));q.b.e.setAttribute('cy',f(q.b.y+(q.a.y-q.b.y)*s));
+    if(q===lead)leadPos=[q.a.x+bend,q.a.y+(q.b.y-q.a.y)*s];});
+  k.leaders();
+  requestAnimationFrame(frame);
+}
+k.go(0);requestAnimationFrame(frame);
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

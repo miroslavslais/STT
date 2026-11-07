@@ -40,6 +40,62 @@
   },
   "polozky": [
     {
+      "id": "plechovka",
+      "typ": "zajimavost",
+      "titulek": "Jak se vyrábí plechovka na nápoje",
+      "perex": "Tělo plechovky je z jednoho kusu hliníku bez svaru. Kalíšek se přetáhne na menší průměr a protlačí třemi kroužky, stěna se ztenčí až na 0,1 mm a plechovka se prodlouží.",
+      "kapitoly": [
+        "tvareni"
+      ],
+      "stranka": "zajimavosti/plechovka.html",
+      "obrazek": "zajimavosti/img/plechovka-postup.svg",
+      "obrazekPopis": "Od přířezu přes kalíšek a přetažení ke třem stupňům ztenčení stěny (vlastní schéma)",
+      "pridano": "2026-11-05"
+    },
+    {
+      "id": "plavene-sklo",
+      "typ": "zajimavost",
+      "titulek": "Jak vzniká plavené sklo",
+      "perex": "Roztavené sklo teče na hladinu roztaveného cínu, rozlije se a vytvoří dokonale rovný pás. Tak vzniká sklo do oken.",
+      "kapitoly": [],
+      "stranka": "zajimavosti/plavene-sklo.html",
+      "obrazek": "zajimavosti/img/sklo-plavani.svg",
+      "obrazekPopis": "Sklo plave na roztaveném cínu (vlastní schéma)",
+      "pridano": "2026-11-05"
+    },
+    {
+      "id": "ventil",
+      "typ": "zajimavost",
+      "titulek": "Ventil motoru ze dvou ocelí",
+      "perex": "Talířek z žárupevné oceli, dřík z oceli odolné opotřebení. Oba díly spojí svařování třením, při kterém se kov nenataví.",
+      "kapitoly": [
+        "svarovani"
+      ],
+      "stranka": "zajimavosti/ventil.html",
+      "obrazek": "zajimavosti/img/ventil-treni.svg",
+      "obrazekPopis": "Svařování třením ve třech fázích (vlastní schéma)",
+      "souvisi": [
+        {
+          "title": "Svařování třením",
+          "href": "svarovani/tlakove/trenim.html"
+        }
+      ],
+      "pridano": "2026-11-05"
+    },
+    {
+      "id": "alobal",
+      "typ": "zajimavost",
+      "titulek": "Proč má alobal lesklou a matnou stranu",
+      "perex": "Alobal je tak tenký, že se v posledním průchodu válcuje ve dvou vrstvách najednou. Lesklé jsou strany od válců, matné strany od druhé fólie.",
+      "kapitoly": [
+        "tvareni"
+      ],
+      "stranka": "zajimavosti/alobal.html",
+      "obrazek": "zajimavosti/img/alobal-valcovani.svg",
+      "obrazekPopis": "Válcování dvou fólií najednou (vlastní schéma)",
+      "pridano": "2026-11-05"
+    },
+    {
       "id": "socha-svobody",
       "typ": "zajimavost",
       "titulek": "Proč rezavěla Socha Svobody",

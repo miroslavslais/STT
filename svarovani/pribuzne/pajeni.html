@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pájení | STT</title>
+<meta name="description" content="Pájení: rozdíly proti svařování, měkké, tvrdé a vysokoteplotní pájení, smáčení a vzlínání pájky do spáry, postup pájení, způsoby ohřevu, pájky, tavidla a použití.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma kapitoly Svařování (záměrně jen tmavé — promítání ve výuce) */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#e08cc4;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:calc(16px + env(safe-area-inset-top,0px));left:max(16px,env(safe-area-inset-left,0px));z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:96px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+h3{font-family:var(--f-disp);font-weight:700;font-size:20px;margin:24px 0 12px}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.note{font-size:14px;color:var(--dim);margin:10px 0 0}
+.link{color:var(--acc);border-bottom:1px solid #6b3d5c}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.ct{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.card p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+.card ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--muted)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin-bottom:18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{overflow-x:auto;border-radius:14px}
+.svgbox svg{display:block;width:100%;min-width:640px;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:4px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow-x:auto}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:14px 20px;color:var(--muted);border-top:1px solid var(--line2);min-width:180px}
+td.k{color:var(--fg);font-weight:600}
+th+th,td+td{border-left:1px solid var(--line2)}
+</style>
+</head>
+<body data-first-seen="2026-11-07">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na&nbsp;Příbuzné technologie</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Příbuzné technologie</div>
+  <h1>Pájení</h1>
+  <p class="lead">Pájení spojuje kovové díly roztavenou pájkou. Základní materiál se nenataví. Pájka vzlíná do&nbsp;spáry mezi díly, smáčí jejich povrch a&nbsp;po ztuhnutí je spojí.</p>
+
+  <h2>Pájení × svařování</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Hledisko</th><th>Pájení</th><th><a class="link" href="../zaklady/princip-rozdeleni.html">Svařování</a></th></tr></thead>
+    <tbody>
+      <tr><td class="k">Základní materiál</td><td>nenataví se</td><td>nataví se (tavné) nebo se ohřeje do&nbsp;plastického stavu (tlakové)</td></tr>
+      <tr><td class="k">Přídavný materiál</td><td>pájka s&nbsp;nižší teplotou tání než základní materiál, vždy nutná</td><td>podobného složení jako základní materiál, u&nbsp;některých metod se nepoužívá</td></tr>
+      <tr><td class="k">Vznik spoje</td><td>pájka smáčí povrch a&nbsp;difúzí se s&nbsp;ním prolne v&nbsp;tenké přechodové vrstvě</td><td>kov obou dílů se promísí ve&nbsp;svarové lázni nebo se spojí tlakem</td></tr>
+      <tr><td class="k">Pracovní teplota</td><td>nižší — pod teplotou tání základního materiálu</td><td>vyšší — na&nbsp;teplotě tání nebo blízko ní</td></tr>
+      <tr><td class="k">Spára</td><td>úzká, pájka do&nbsp;ní vzlíná kapilaritou</td><td>mezera nebo úkos, který vyplní svarový kov</td></tr>
+      <tr><td class="k">Různé kovy</td><td>spojí snadno</td><td>jen některé kombinace</td></tr>
+      <tr><td class="k">Pevnost spoje</td><td>obvykle nižší než u&nbsp;svaru</td><td>blízká základnímu materiálu</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Měkké, tvrdé a&nbsp;vysokoteplotní pájení</h2>
+  <p class="t">Pájení se dělí podle pracovní teploty. Pracovní teplota je vždy nad teplotou tání pájky a&nbsp;pod teplotou tání základního materiálu.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Hledisko</th><th>Měkké</th><th>Tvrdé</th><th>Vysokoteplotní</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Pracovní teplota</td><td>pod 450&nbsp;°C</td><td>450&nbsp;°C až 900&nbsp;°C</td><td>nad 900&nbsp;°C</td></tr>
+      <tr><td class="k">Ohřev</td><td>páječka, plamen</td><td>plamen, indukce, pec</td><td>pec</td></tr>
+      <tr><td class="k">Tavidlo</td><td>ano</td><td>ano</td><td>obvykle ne — vakuum nebo ochranná atmosféra</td></tr>
+      <tr><td class="k">Pevnost spoje</td><td>malá</td><td>velká</td><td>velká</td></tr>
+      <tr><td class="k">Použití</td><td>elektronika, klempířské práce, rozvody vody</td><td>nástroje s&nbsp;plátky slinutého karbidu, chladicí okruhy, rámy kol</td><td>díly leteckých motorů, výměníky tepla</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Hranice 900&nbsp;°C pro vysokoteplotní pájení se uvádí v&nbsp;české odborné literatuře. Hranice 450&nbsp;°C mezi měkkým a&nbsp;tvrdým pájením platí obecně.</p>
+
+  <h2>Smáčení</h2>
+  <p class="t">Roztavená pájka se po&nbsp;čistém kovovém povrchu rozteče a&nbsp;přilne k&nbsp;němu — smáčí ho. Na&nbsp;rozhraní pájky a&nbsp;základního materiálu vznikne difúzí tenká přechodová vrstva. Na&nbsp;ní pájený spoj drží.</p>
+  <p class="t">Mírou smáčení je smáčecí úhel. Oxidy a&nbsp;mastnota oddělují pájku od&nbsp;kovu. Pájka se na&nbsp;nich stáhne do&nbsp;kapky a&nbsp;spoj nevznikne.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Kapka pájky na&nbsp;povrchu</div>
+        <div class="panel-s" style="margin-bottom:0">Přepni povrch a&nbsp;klikni na&nbsp;popisek.</div>
+      </div>
+      <div class="btns" id="stepsS"></div>
+    </div>
+    <div class="svgbox"><svg id="svgS" viewBox="0 0 1000 360" role="img" aria-label="Kapka pájky na čistém a zoxidovaném povrchu se smáčecím úhlem"></svg></div>
+    <div class="step"><div class="step-t" id="stTS"></div><p id="stPS"></p></div>
+    <p class="info" id="infoS"></p>
+  </div>
+
+  <h2>Vzlínání do&nbsp;spáry</h2>
+  <p class="t">Pájka se do&nbsp;spáry nedostane tlakem ani vlastní tíhou, ale kapilaritou. Smáčené stěny táhnou tekutou pájku do&nbsp;úzké mezery. Čím užší spára, tím větší je kapilární síla. Příliš úzká spára ale klade toku velký odpor a&nbsp;tavidlo ani plyny z&nbsp;ní nestihnou uniknout.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Šířka spáry a&nbsp;vyplnění pájkou</div>
+        <div class="panel-s" style="margin-bottom:0">Řez spárou mezi dvěma díly. Vyber šířku spáry a&nbsp;klikni na&nbsp;popisek.</div>
+      </div>
+      <div class="btns" id="stepsK"></div>
+    </div>
+    <div class="svgbox"><svg id="svgK" viewBox="0 0 1000 380" role="img" aria-label="Vzlínání pájky do úzké, správné a široké spáry"></svg></div>
+    <div class="step"><div class="step-t" id="stTK"></div><p id="stPK"></p></div>
+    <p class="info" id="infoK"></p>
+  </div>
+
+  <h2>Postup pájení</h2>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Pájení přeplátovaného spoje plamenem</div>
+        <div class="panel-s" style="margin-bottom:0">Řez spojem. Vyber krok a&nbsp;klikni na&nbsp;popisek.</div>
+      </div>
+      <div class="btns" id="stepsP"></div>
+    </div>
+    <div class="svgbox"><svg id="svgP" viewBox="0 0 1000 340" role="img" aria-label="Postup pájení přeplátovaného spoje: očištění, tavidlo, ohřev, přísun pájky, chladnutí"></svg></div>
+    <div class="step"><div class="step-t" id="stTP"></div><p id="stPP"></p></div>
+    <p class="info" id="infoP"></p>
+  </div>
+
+  <h2>Způsoby ohřevu</h2>
+  <div class="grid">
+    <div class="card"><div class="ct">Páječka</div><p>Elektricky ohřívaný měděný hrot předá teplo do&nbsp;spoje dotykem. Pro měkké pájení malých dílů, elektroniky a&nbsp;tenkých plechů.</p></div>
+    <div class="card"><div class="ct">Plamen</div><p>Ruční hořák ohřeje celou oblast spoje. Pro měkké i&nbsp;tvrdé pájení, typicky trubky. Hořák a&nbsp;plyny jsou stejné jako u&nbsp;<a class="link" href="../tavne/plamen.html">svařování plamenem</a> nebo jednodušší.</p></div>
+    <div class="card"><div class="ct">Indukce</div><p>Střídavé magnetické pole cívky vyvolá v&nbsp;dílu vířivé proudy, které ohřejí jen místo spoje. Rychlé a&nbsp;opakovatelné, pro sériovou výrobu.</p></div>
+    <div class="card"><div class="ct">Pec</div><p>Ohřeje celé díly a&nbsp;zapájí mnoho spojů najednou. Pracuje s&nbsp;ochrannou atmosférou nebo ve&nbsp;vakuu, proto se v&nbsp;ní pájí vysokoteplotně.</p></div>
+  </div>
+
+  <h2>Pájky</h2>
+  <p class="t">Pájka má nižší teplotu tání než spojované díly. Dodává se jako drát, tyčinka, fólie, pasta nebo tvarovaný kroužek.</p>
+  <div class="grid">
+    <div class="card"><div class="ct">Měkké pájky</div><p>Cín a&nbsp;jeho slitiny. Dříve slitiny cínu s&nbsp;olovem, dnes převažují bezolovnaté pájky — cín se&nbsp;stříbrem a&nbsp;mědí. Olovo je zdraví škodlivé.</p></div>
+    <div class="card"><div class="ct">Tvrdé pájky</div><p>Měď, mosaz a&nbsp;slitiny se&nbsp;stříbrem. Stříbrné pájky mají mezi tvrdými pájkami nižší teplotu tání a&nbsp;dobře tečou do&nbsp;spáry.</p></div>
+    <div class="card"><div class="ct">Vysokoteplotní pájky</div><p>Slitiny niklu. Spoje snesou vysoké provozní teploty a&nbsp;odolávají korozi.</p></div>
+  </div>
+
+  <h2>Tavidla</h2>
+  <p class="t">Tavidlo se nanáší na&nbsp;spoj před ohřevem. Plní tři úkoly: chrání povrch při ohřevu před oxidací, rozpouští zbylé oxidy a&nbsp;zlepšuje smáčení.</p>
+  <div class="grid">
+    <div class="card"><div class="ct">Pro měkké pájení</div><p>Kalafuna pro elektroniku — její zbytky jsou málo agresivní. Tavidla s&nbsp;chloridy pro plechy a&nbsp;trubky — účinná, ale zbytky způsobují korozi.</p></div>
+    <div class="card"><div class="ct">Pro tvrdé pájení</div><p>Borax a&nbsp;tavidla s&nbsp;fluoridy. Účinkují až za&nbsp;vysoké teploty, kdy roztají.</p></div>
+    <div class="card"><div class="ct">Zbytky tavidla</div><p>Po pájení se zbytky odstraní omytím nebo mechanicky. Ve&nbsp;spoji by poutaly vlhkost a&nbsp;způsobily korozi.</p></div>
+  </div>
+
+  <h2>Použití, výhody a&nbsp;nevýhody</h2>
+  <div class="grid">
+    <div class="card"><div class="ct">Použití</div><ul><li>elektronika — měkké</li><li>rozvody vody, plynu a&nbsp;topení z&nbsp;měděných trubek — měkké i&nbsp;tvrdé</li><li>chladicí a&nbsp;klimatizační okruhy — tvrdé</li><li>plátky slinutého karbidu na&nbsp;tělesech nožů — tvrdé</li><li>výměníky tepla a&nbsp;díly leteckých motorů — vysokoteplotní</li></ul></div>
+    <div class="card"><div class="ct">Výhody</div><ul><li>základní materiál se nenataví — malá deformace a&nbsp;malá změna struktury</li><li>spojí i&nbsp;různé kovy</li><li>spojí tenké díly a&nbsp;v&nbsp;peci mnoho spojů najednou</li><li>spoj je těsný</li><li>měkký spoj lze ohřátím rozpojit</li></ul></div>
+    <div class="card"><div class="ct">Nevýhody</div><ul><li>nižší pevnost než svar, hlavně u&nbsp;měkkého pájení</li><li>potřebuje čisté povrchy a&nbsp;úzkou, rovnoměrnou spáru</li><li>spoj nesnese teploty blízké teplotě tání pájky</li><li>zbytky tavidla mohou způsobit korozi</li></ul></div>
+  </div>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#e08cc4';
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const lw=txt=>Math.round(txt.length*7.8+24);
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const key=(g,fn)=>{g.addEventListener('click',fn);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+const hex=c=>[1,3,5].map(i=>parseInt(c.substr(i,2),16));
+const mix=(a,b,t)=>{const A=hex(a),B=hex(b);return 'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*t)).join(',')+')';};
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const ease=t=>t*t*(3-2*t);
+const BASE='#6c7a8a', BASE2='#5d6a79', SOLDER='#c9ccd2', MOLTEN='#eef1f4', OXIDE='#5a3f2c', WHITE='#eaf2fa';
+
+/* společné: díly ke zvýraznění, popisky s odkazovou čarou, kroky nebo přepínané stavy */
+function kit(svg,info,SHOW,INFO,defInfo){
+  const parts={}, L={}, k={sel:null,step:0,t0:0};
+  let leadG=null; // vrstva odkazových čar vzniká s prvním popiskem, aby ležela nad schématem
+  k.add=(id,e,mode)=>{e.__m=mode||'fill';e.__s=e.getAttribute('stroke');e.__w=+(e.getAttribute('stroke-width')||0);(parts[id]=parts[id]||[]).push(e);return e;};
+  // anchor: 'b' dolní střed, 't' horní střed, 'r' pravý střed, 'l' levý střed
+  k.label=(id,txt,x,y,anchor,target)=>{const w=lw(txt);
+    const ax=anchor==='r'?x+w:anchor==='l'?x:x+w/2, ay=anchor==='b'?y+28:anchor==='t'?y:y+14;
+    if(!leadG)leadG=el(svg,'g',{stroke:'#8296a8','stroke-width':1.5});
+    const line=el(leadG,'line',{x1:ax,y1:ay,x2:ax,y2:ay});
+    const g=el(svg,'g',{class:'lbl',tabindex:0,role:'button'});el(g,'rect',{x,y,width:w,height:28,rx:8});
+    const t=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});t.textContent=txt;
+    key(g,()=>{k.sel=k.sel===id?null:id;k.paint();});L[id]={g,line,target};};
+  k.leaders=()=>Object.keys(L).forEach(id=>{const [x,y]=L[id].target();L[id].line.setAttribute('x2',f(x));L[id].line.setAttribute('y2',f(y));});
+  k.paint=()=>{
+    Object.keys(L).forEach(id=>{const on=SHOW[k.step].includes(id);L[id].g.style.display=on?'':'none';L[id].line.style.display=on?'':'none';L[id].g.classList.toggle('on',k.sel===id);});
+    Object.keys(parts).forEach(id=>parts[id].forEach(e=>{const s=k.sel===id;
+      if(e.__m==='stroke'){e.setAttribute('stroke',s?ACC:e.__s);e.setAttribute('stroke-width',s?e.__w+2:e.__w);}
+      else{e.setAttribute('stroke',s?ACC:'none');e.setAttribute('stroke-width',2.5);}}));
+    info.textContent=k.sel?INFO[k.sel]:defInfo;};
+  // numbered: kroky postupu „1. …“; bez čísla: přepínané stavy
+  k.steps=(stepsBox,stT,stP,STEPS,numbered)=>{
+    const name=i=>(numbered?(i+1)+'. ':'')+STEPS[i][0];
+    const btns=STEPS.map((s,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=name(i);b.onclick=()=>k.go(i);stepsBox.appendChild(b);return b;});
+    k.go=i=>{k.step=i;k.t0=performance.now();if(k.sel&&!SHOW[i].includes(k.sel))k.sel=null;
+      btns.forEach((b,j)=>b.setAttribute('aria-pressed',j===i));
+      stT.textContent=name(i);stP.textContent=STEPS[i][1];k.paint();};};
+  k.prog=(now,dur)=>reduce?1:clamp((now-k.t0)/1000/dur,0,1);
+  return k;
+}
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json').then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- PRVEK A — smáčení ---------- */
+(function(){
+const svg=document.getElementById('svgS');
+const STEPS=[
+  ['Čistý povrch s'+NB+'tavidlem','Tavidlo odstranilo oxidy. Pájka se dotýká čistého kovu, rozteče se a'+NB+'smáčecí úhel je malý.'],
+  ['Zoxidovaný povrch','Oxidy oddělují pájku od'+NB+'kovu. Pájka se stáhne do'+NB+'kapky, smáčecí úhel je velký a'+NB+'spoj nevznikne.'],
+];
+// tvar kapky: kulový vrchlík s polovinou šířky dotyku a a smáčecím úhlem th (ve stupních)
+const ST=[{a:200,th:22,ox:0},{a:62,th:130,ox:1}];
+const INFO={
+  kp:'Kapka pájky — roztavená pájka. Na'+NB+'čistém povrchu se rozteče, na'+NB+'zoxidovaném zůstane stažená do'+NB+'kapky.',
+  su:'Smáčecí úhel — úhel mezi povrchem základního materiálu a'+NB+'tečnou k'+NB+'okraji kapky. Malý úhel znamená dobré smáčení, velký úhel znamená, že pájka povrch nesmáčí.',
+  zm:'Základní materiál — spojovaný díl. Při pájení se nenataví.',
+  vo:'Vrstva oxidů — brání přímému styku pájky s'+NB+'kovem. Pájka na'+NB+'ní nesmáčí a'+NB+'spoj nevznikne.',
+  pv:'Přechodová vrstva — tenká vrstva, kde se atomy pájky a'+NB+'základního materiálu prolnou difúzí. Na'+NB+'ní drží pájený spoj.',
+};
+const SHOW=[['kp','su','zm','pv'],['kp','su','zm','vo']];
+const k=kit(svg,document.getElementById('infoS'),SHOW,INFO,'Klikni na'+NB+'popisek ve'+NB+'schématu.');
+k.steps(document.getElementById('stepsS'),document.getElementById('stTS'),document.getElementById('stPS'),STEPS,false);
+// geometrie: deska x 100–900, y 260–320; vrstva oxidů y 252–260; střed kapky x 500
+const CX=500;
+k.add('zm',el(svg,'rect',{x:100,y:260,width:800,height:60,fill:BASE}));
+const ox=k.add('vo',el(svg,'rect',{x:100,y:252,width:800,height:8,fill:OXIDE,opacity:0}));
+const pv=k.add('pv',el(svg,'rect',{x:CX-200,y:260,width:400,height:5,fill:'#d9a050'}));
+const drop=k.add('kp',el(svg,'path',{d:'',fill:SOLDER}));
+const surf=el(svg,'line',{stroke:'#8296a8','stroke-width':1.5,'stroke-dasharray':'5 4'});
+const tang=k.add('su',el(svg,'line',{stroke:'#ffd166','stroke-width':2.5}),'stroke');
+const arc=k.add('su',el(svg,'path',{d:'',fill:'none',stroke:'#ffd166','stroke-width':2.5}),'stroke');
+let a=200,th=22,o=0,y0=260,h=0;
+const contact=()=>[CX+a,y0];
+k.label('kp','kapka pájky',430,40,'b',()=>[CX,y0-h+10]);
+k.label('su','smáčecí úhel',780,110,'b',()=>{const ph=Math.PI-th*Math.PI/180,m=(Math.PI+ph)/2,[x0]=contact();return [x0+46*Math.cos(m),y0-46*Math.sin(m)];});
+k.label('zm','základní materiál',120,326,'t',()=>[200,320]);
+k.label('vo','vrstva oxidů',60,180,'b',()=>[160,255]);
+k.label('pv','přechodová vrstva',60,180,'b',()=>[CX-a+30,262]);
+let from=ST[0];
+const oldGo=k.go;k.go=i=>{from={a,th,ox:o};oldGo(i);};
+function frame(now){
+  const t=ease(k.prog(now,1)), to=ST[k.step];
+  a=from.a+(to.a-from.a)*t; th=from.th+(to.th-from.th)*t; o=from.ox+(to.ox-from.ox)*t;
+  y0=260-8*o;
+  const r=th*Math.PI/180, R=a/Math.sin(r); h=R*(1-Math.cos(r));
+  drop.setAttribute('d','M'+f(CX-a)+' '+f(y0)+' A'+f(R)+' '+f(R)+' 0 '+(th>90?1:0)+' 1 '+f(CX+a)+' '+f(y0)+' Z');
+  ox.setAttribute('opacity',f(o));
+  pv.setAttribute('x',f(CX-a));pv.setAttribute('width',f(2*a));pv.setAttribute('opacity',f(1-o));
+  const [x0]=contact(), ph=Math.PI-r;
+  surf.setAttribute('x1',f(x0-90));surf.setAttribute('y1',f(y0));surf.setAttribute('x2',f(x0+40));surf.setAttribute('y2',f(y0));
+  tang.setAttribute('x1',f(x0));tang.setAttribute('y1',f(y0));tang.setAttribute('x2',f(x0+90*Math.cos(ph)));tang.setAttribute('y2',f(y0-90*Math.sin(ph)));
+  let d='';for(let i=0;i<=24;i++){const al=Math.PI+(ph-Math.PI)*i/24;d+=(i?' L':'M')+f(x0+46*Math.cos(al))+' '+f(y0-46*Math.sin(al));}
+  arc.setAttribute('d',d);
+  k.leaders();
+  requestAnimationFrame(frame);
+}
+k.go(0);requestAnimationFrame(frame);
+})();
+
+/* ---------- PRVEK B — vzlínání do spáry ---------- */
+(function(){
+const svg=document.getElementById('svgK');
+const STEPS=[
+  ['Úzká spára','Kapilární síla je velká, ale tok pájky brzdí velký odpor. Tavidlo a'+NB+'plyny nestihnou uniknout. Spára se nevyplní celá a'+NB+'zůstanou v'+NB+'ní dutiny.'],
+  ['Správná spára','Kapilární síla stačí na'+NB+'vyplnění celé spáry a'+NB+'tavidlo z'+NB+'ní stihne vytéct. Spoj je plný a'+NB+'pevný.'],
+  ['Široká spára','Kapilární síla je malá. Pájka vzlíná jen málo, spára zůstane z'+NB+'velké části prázdná a'+NB+'spoj je slabý.'],
+];
+// šířka spáry G a výška vyplnění HF (spára sahá od y 300 nahoru k y 60)
+const G=[10,24,64], HF=[170,240,80];
+const INFO={
+  zm:'Základní materiál — stěny spáry. Pájka je smáčí, a'+NB+'proto se po'+NB+'nich táhne vzhůru.',
+  sp:'Spára — mezera mezi díly. Její šířka rozhoduje o'+NB+'tom, zda ji pájka vyplní.',
+  ps:'Pájka ve'+NB+'spáře — vzlíná kapilaritou. Hladina je u'+NB+'stěn výš než uprostřed, protože pájka stěny smáčí.',
+  zp:'Zásoba pájky — roztavená pájka u'+NB+'okraje spáry. Z'+NB+'ní pájka do'+NB+'spáry vzlíná.',
+  ut:'Uzavřené tavidlo — v'+NB+'příliš úzké spáře nestihne tavidlo ani plyn uniknout a'+NB+'zůstane ve'+NB+'spoji jako dutina.',
+};
+const SHOW=[['zm','sp','ps','zp','ut'],['zm','sp','ps','zp'],['zm','sp','ps','zp']];
+const k=kit(svg,document.getElementById('infoK'),SHOW,INFO,'Klikni na'+NB+'popisek ve'+NB+'schématu.');
+k.steps(document.getElementById('stepsK'),document.getElementById('stTK'),document.getElementById('stPK'),STEPS,false);
+const CX=500, YB=300, YT=60, PW=160;
+const lp=k.add('zm',el(svg,'rect',{x:0,y:YT,width:PW,height:YB-YT,fill:BASE}));
+const rp=k.add('zm',el(svg,'rect',{x:0,y:YT,width:PW,height:YB-YT,fill:BASE2}));
+const gapR=k.add('sp',el(svg,'rect',{x:CX,y:YT,width:0,height:YB-YT,fill:'#141a22'}));
+const fill=k.add('ps',el(svg,'path',{d:'',fill:MOLTEN}));
+const voids=[270,225,190].map(y=>k.add('ut',el(svg,'ellipse',{cx:CX,cy:y,rx:3.5,ry:10,fill:'#6b5a3a',opacity:0})));
+k.add('zp',el(svg,'rect',{x:360,y:300,width:280,height:22,rx:11,fill:MOLTEN}));
+let g=G[1],H=0,from=G[1];
+k.label('zm','základní materiál',60,90,'r',()=>[CX-g/2-80,120]);
+k.label('sp','spára',CX-31,16,'b',()=>[CX,YT]);
+k.label('ps','pájka ve spáře',700,150,'l',()=>[CX+g/2,YB-Math.max(6,H/2)]);
+k.label('zp','zásoba pájky',700,297,'l',()=>[630,311]);
+k.label('ut','uzavřené tavidlo',40,230,'r',()=>[CX-4,270]);
+const oldGo=k.go;k.go=i=>{from=g;oldGo(i);};
+function frame(now){
+  const st=k.step, tg=ease(k.prog(now,.4)), tf=ease(k.prog(now,2.6));
+  g=from+(G[st]-from)*tg;
+  H=HF[st]*tf;
+  lp.setAttribute('x',f(CX-g/2-PW));rp.setAttribute('x',f(CX+g/2));
+  gapR.setAttribute('x',f(CX-g/2));gapR.setAttribute('width',f(g));
+  const yl=YB-H, dip=Math.min(g*.35,12)*Math.min(1,H/20);
+  fill.setAttribute('d',H>.5?'M'+f(CX-g/2)+' '+YB+' L'+f(CX-g/2)+' '+f(yl)+' Q'+CX+' '+f(yl+2*dip)+' '+f(CX+g/2)+' '+f(yl)+' L'+f(CX+g/2)+' '+YB+' Z':'');
+  voids.forEach(v=>{const y=+v.getAttribute('cy');v.setAttribute('opacity',st===0&&y>yl+8?1:0);});
+  k.leaders();
+  requestAnimationFrame(frame);
+}
+k.go(1);requestAnimationFrame(frame);
+})();
+
+/* ---------- PRVEK C — postup pájení ---------- */
+(function(){
+const svg=document.getElementById('svgP');
+const STEPS=[
+  ['Očištění','Povrchy ve'+NB+'spoji se zbaví mastnoty a'+NB+'oxidů — mechanicky nebo chemicky. Pájka smáčí jen čistý kov.'],
+  ['Tavidlo','Na spoj se nanese tavidlo. Při ohřevu chrání povrch před novou oxidací a'+NB+'rozpouští zbylé oxidy.'],
+  ['Ohřev','Spoj se ohřeje na'+NB+'pracovní teplotu — nad teplotu tání pájky, ale pod teplotu tání základního materiálu. Tavidlo roztaje a'+NB+'začne působit.'],
+  ['Přísun pájky','Pájka se přiloží k'+NB+'okraji spáry. Taví se teplem ohřátého spoje, ne přímo plamenem. Kapilarita ji vtáhne do'+NB+'celé spáry a'+NB+'na'+NB+'okrajích vytvoří zaoblený přechod.'],
+  ['Chladnutí','Spoj chladne bez pohybu dílů, aby pájka ztuhla bez trhlin. Zbytky tavidla se odstraní.'],
+];
+const DUR=[1.4,1.2,1.6,2.6,1.6];
+const INFO={
+  zm:'Základní materiál — spojované díly, zde přeplátované plechy. Nenataví se.',
+  vo:'Vrstva oxidů — vzniká na'+NB+'kovu stykem se'+NB+'vzduchem. Pájka na'+NB+'ní nesmáčí, proto se musí odstranit.',
+  sp:'Spára — úzká mezera mezi díly v'+NB+'místě přeplátování. Pájka ji vyplní kapilaritou.',
+  tv:'Tavidlo — chrání povrch při ohřevu před oxidací, rozpouští oxidy a'+NB+'zlepšuje smáčení.',
+  pl:'Plamen — ohřívá celou oblast spoje, ne samotnou pájku.',
+  dp:'Drát pájky — přikládá se k'+NB+'okraji spáry a'+NB+'taví se teplem ohřátého spoje.',
+  pa:'Pájka — vyplní spáru a'+NB+'na'+NB+'okrajích vytvoří zaoblený přechod. Po ztuhnutí spojuje díly.',
+  zt:'Zbytky tavidla — po'+NB+'pájení se odstraní, jinak by způsobily korozi.',
+};
+const SHOW=[['zm','vo','sp'],['zm','sp','tv'],['zm','sp','tv','pl'],['zm','sp','tv','pl','dp','pa'],['zm','sp','pa','zt']];
+const k=kit(svg,document.getElementById('infoP'),SHOW,INFO,'Klikni na'+NB+'popisek ve'+NB+'schématu.');
+k.steps(document.getElementById('stepsP'),document.getElementById('stTP'),document.getElementById('stPP'),STEPS,true);
+// geometrie: dolní plech x 120–620, y 220–244; horní plech x 380–880, y 190–214; spára y 214–220 v přeplátování x 380–620
+const defs=el(svg,'defs',{});
+const rg=el(defs,'radialGradient',{id:'heatP'});
+el(rg,'stop',{offset:0,'stop-color':'#f08a3c','stop-opacity':.85});el(rg,'stop',{offset:1,'stop-color':'#f08a3c','stop-opacity':0});
+const glow=el(svg,'ellipse',{cx:500,cy:214,rx:230,ry:70,fill:'url(#heatP)',opacity:0});
+k.add('zm',el(svg,'rect',{x:120,y:220,width:500,height:24,fill:BASE}));
+k.add('zm',el(svg,'rect',{x:380,y:190,width:500,height:24,fill:BASE2}));
+k.add('sp',el(svg,'rect',{x:380,y:214,width:240,height:6,fill:'#141a22'}));
+const oxG=el(svg,'g',{});
+k.add('vo',el(oxG,'rect',{x:300,y:217,width:320,height:3,fill:OXIDE}));
+k.add('vo',el(oxG,'rect',{x:380,y:214,width:320,height:3,fill:OXIDE}));
+const sGap=k.add('pa',el(svg,'rect',{x:380,y:214,width:0,height:6,fill:MOLTEN}));
+const sL=k.add('pa',el(svg,'path',{d:'M380 200 Q382 219 358 220 L380 220 Z',fill:MOLTEN,opacity:0}));
+const sR=k.add('pa',el(svg,'path',{d:'M620 236 Q622 216 644 214 L620 214 Z',fill:MOLTEN,opacity:0}));
+const flux=k.add('tv',el(svg,'rect',{x:340,y:182,width:320,height:44,rx:10,fill:'#c8d77a',opacity:0}));
+const resG=el(svg,'g',{opacity:0});
+k.add('zt',el(resG,'ellipse',{cx:350,cy:219,rx:12,ry:4,fill:'#8a6a3a'}));
+k.add('zt',el(resG,'ellipse',{cx:652,cy:212,rx:12,ry:4,fill:'#8a6a3a'}));
+const torch=el(svg,'g',{opacity:0});
+el(torch,'rect',{x:488,y:40,width:24,height:70,rx:4,fill:'#b87333'});
+const flame=k.add('pl',el(torch,'path',{d:'M492 110 L508 110 L500 178 Z',fill:'#4f7fe8'}));
+const wire=k.add('dp',el(svg,'line',{x1:250,y1:70,x2:372,y2:206,stroke:'#d7dbe0','stroke-width':5,'stroke-linecap':'round',opacity:0}),'stroke');
+let fp=0;
+k.label('zm','základní materiál',120,290,'t',()=>[200,244]);
+k.label('vo','vrstva oxidů',60,20,'b',()=>[330,218]);
+k.label('dp','drát pájky',200,20,'b',()=>[262,84]);
+k.label('pl','plamen',560,20,'b',()=>[504,130]);
+k.label('tv','tavidlo',720,120,'l',()=>[655,196]);
+k.label('sp','spára',720,236,'l',()=>[612,217]);
+k.label('pa','pájka',720,286,'l',()=>[380+Math.max(10,240*fp*.5),217]);
+k.label('zt','zbytky tavidla',740,60,'b',()=>[652,210]);
+function frame(now){
+  const st=k.step, p=ease(k.prog(now,DUR[st]));
+  oxG.setAttribute('opacity',f(st===0?1-p:0));
+  const fl=st===0?0:st===1?.45*p:st===2?.45-.2*p:st===3?.25:.25*(1-p);
+  flux.setAttribute('opacity',f(fl));
+  resG.setAttribute('opacity',f(st===4?p:0));
+  const heat=st<2?0:st===2?p:st===3?1:1-p;
+  glow.setAttribute('opacity',f(heat*.9));
+  torch.setAttribute('opacity',f(st===2?p:st===3?1:0));
+  flame.setAttribute('opacity',f(reduce?1:.75+.25*Math.sin(now/45)));
+  fp=st<3?0:st===3?p:1;
+  sGap.setAttribute('width',f(240*fp));
+  sL.setAttribute('opacity',fp>.05?1:0);sR.setAttribute('opacity',fp>.97?1:0);
+  const col=st===4?mix(MOLTEN,SOLDER,p):MOLTEN;
+  sGap.setAttribute('fill',col);sL.setAttribute('fill',col);sR.setAttribute('fill',col);
+  wire.setAttribute('opacity',st===3?1:0);
+  const back=40*p, L=Math.hypot(122,136), ux=122/L, uy=136/L;
+  wire.setAttribute('x2',f(372-ux*back));wire.setAttribute('y2',f(206-uy*back));
+  k.leaders();
+  requestAnimationFrame(frame);
+}
+k.go(0);requestAnimationFrame(frame);
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>
