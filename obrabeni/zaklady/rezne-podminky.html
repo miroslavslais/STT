@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Řezné podmínky a síly | STT</title>
+<meta name="description" content="Řezné podmínky a síly: řezná rychlost a otáčky, posuv a hloubka řezu, průřez třísky, složky řezné síly Fc, Ff a Fp, řezný výkon, příkon, krouticí moment a strojní čas s řešeným příkladem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma (záměrně jen tmavé — promítání ve výuce), akcent kapitoly Obrábění */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#93b5d3;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg);margin:0}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:16px;right:16px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:38px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #3f5568}
+.grid3{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.ct{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.card p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+.card ul{margin:12px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--muted)}
+.card ul a{color:var(--fg);border-bottom:1px solid #3f5568}
+.card ul a:hover{color:var(--acc)}
+.top-cut{border-top:4px solid #f2a65a}
+.top-feed{border-top:4px solid #6fc3a0}
+.top-res{border-top:4px solid var(--acc)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin:6px 0 18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{border-radius:14px;overflow:hidden}
+.svgbox svg{display:block;width:100%;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.step p+p{margin-top:4px}
+.step b{font-weight:600}
+.k-cut{color:#f2a65a}
+.k-feed{color:#6fc3a0}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15.5px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:900px}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:12px 20px;color:var(--muted);border-top:1px solid var(--line2)}
+td.k{color:var(--fg);font-weight:600}
+th+th,td+td{border-left:1px solid var(--line2)}
+.grid2{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.pict{display:block;width:100%;background:var(--deep);border-radius:12px;margin:0 0 14px}
+.eq{font-family:var(--f-disp);font-weight:700;font-size:20px;color:var(--fg);background:var(--deep);border:1px solid var(--line2);border-top:4px solid var(--acc);border-radius:14px;padding:14px 18px;margin:18px 0;text-align:center;max-width:820px;box-sizing:border-box}
+.sliders{display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;margin:0 0 14px}
+.sl{display:grid;grid-template-columns:150px 1fr 54px;align-items:center;gap:12px;font-size:15px;color:var(--fg)}
+.sl-t{font-weight:600}
+.sl-v{font-family:var(--f-disp);font-weight:700;color:var(--acc);text-align:right}
+.sl input{accent-color:var(--acc);width:100%}
+.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+.mt-t{font-size:14px;color:var(--dim);margin-bottom:6px}
+.bar{height:10px;background:var(--deep);border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.bar-f{height:100%;background:var(--acc);border-radius:999px;transition:width .15s}
+.tbl{max-width:none}
+td{min-width:120px}
+.tscale{display:grid;grid-template-columns:150px minmax(0,1fr);grid-auto-rows:40px;max-width:820px;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:6px 0 10px}
+.tc{display:flex;align-items:center;justify-content:center;font-family:var(--f-disp);font-weight:700;font-size:15px;color:#231d16}
+.tz{grid-column:2;padding:12px 22px;border-left:5px solid;display:flex;flex-direction:column;justify-content:center;gap:4px;font-size:15.5px;line-height:1.55;color:var(--muted);background:var(--card)}
+.tz b{color:var(--fg);font-weight:600}
+.tz+.tz{border-top:1px solid var(--line2)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px}
+.top-pas{border-top:4px solid #c39bd3}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:disabled:hover{border-color:var(--line)}
+</style>
+</head>
+<body data-first-seen="2026-11-09">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na Základy obrábění</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Základy obrábění</div>
+  <h1>Řezné podmínky a&nbsp;síly</h1>
+  <p class="lead">Řezné podmínky jsou řezná rychlost, posuv a&nbsp;hloubka řezu. Určují, jak rychle se odebírá materiál, jak velkou silou obrobek působí na nástroj a&nbsp;jaký výkon musí dodat stroj. Stránka uvádí vztahy mezi nimi a&nbsp;řešený příklad strojního času.</p>
+
+  <h2>Řezná rychlost</h2>
+  <p class="t">Řezná rychlost v<sub>c</sub> je rychlost řezného pohybu v&nbsp;místě řezu. U&nbsp;soustružení je to obvodová rychlost obrobku na průměru, na kterém leží ostří. Za jednu otáčku urazí bod na obvodu dráhu π&nbsp;·&nbsp;D.</p>
+  <div class="eq">v<sub>c</sub> = π · D · n / 1&nbsp;000 &nbsp;[m/min] &nbsp;&nbsp; D [mm], n [ot/min]</div>
+  <p class="t">Řeznou rychlost volí technolog podle materiálu obrobku a&nbsp;materiálu nástroje, obvykle podle doporučení výrobce nástroje. Otáčky se z&nbsp;ní dopočítají:</p>
+  <div class="eq">n = 1&nbsp;000 · v<sub>c</sub> / (π · D) &nbsp;[ot/min]</div>
+  <p class="t">Při stálých otáčkách klesá řezná rychlost úměrně průměru. V&nbsp;ose obrobku je nulová. CNC soustruhy proto umějí udržovat konstantní řeznou rychlost: řídicí systém mění otáčky podle průměru, na kterém právě leží ostří. Se zmenšujícím se průměrem by otáčky rostly bez omezení, proto se vždy omezují nejvyššími dovolenými otáčkami.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Řezná rychlost na různých průměrech</div>
+        <div class="panel-s" style="margin-bottom:0">Čelní pohled na hřídel z&nbsp;řešeného příkladu. Všechny průměry se otáčejí se stejnými otáčkami n&nbsp;=&nbsp;3979&nbsp;ot/min. Vpravo je dráha bodu za jednu otáčku rozvinutá do přímky.</div>
+      </div>
+      <div class="btns"><button class="btn" id="vcBtn" aria-pressed="true">Zastavit</button></div>
+    </div>
+    <div class="svgbox"><svg id="svgV" viewBox="0 0 1000 340" role="img" aria-label="Otáčející se průměry 20, 15 a 10 mm s vektory obvodové rychlosti a rozvinutou dráhou bodu za jednu otáčku"></svg></div>
+    <div class="tbl" style="margin-top:14px"><table>
+      <thead><tr><th>Průměr</th><th>Dráha za jednu otáčku π&nbsp;·&nbsp;D</th><th>Řezná rychlost v<sub>c</sub></th></tr></thead>
+      <tbody>
+        <tr><td class="k"><span class="dot" style="background:#f2a65a"></span>Ø20&nbsp;mm</td><td>62,8&nbsp;mm</td><td>250&nbsp;m/min</td></tr>
+        <tr><td class="k"><span class="dot" style="background:#6fc3a0"></span>Ø15&nbsp;mm</td><td>47,1&nbsp;mm</td><td>187,5&nbsp;m/min</td></tr>
+        <tr><td class="k"><span class="dot" style="background:#93b5d3"></span>Ø10&nbsp;mm</td><td>31,4&nbsp;mm</td><td>125&nbsp;m/min</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <h2>Posuv a&nbsp;hloubka řezu</h2>
+  <div class="grid3">
+    <div class="card top-feed"><div class="ct">Posuv na otáčku f</div><p>Dráha nástroje ve&nbsp;směru posuvového pohybu za jednu otáčku obrobku. Jednotka mm/ot. U&nbsp;frézování se navíc zavádí posuv na zub.</p></div>
+    <div class="card top-feed"><div class="ct">Posuvová rychlost v<sub>f</sub></div><p>Rychlost posuvového pohybu. Je součinem posuvu na otáčku a&nbsp;otáček: v<sub>f</sub>&nbsp;=&nbsp;f&nbsp;·&nbsp;n. Jednotka mm/min.</p></div>
+    <div class="card top-cut"><div class="ct">Hloubka řezu a<sub>p</sub></div><p>Tloušťka vrstvy odebrané jedním průchodem nástroje, měřená kolmo k&nbsp;obrobené ploše. Při podélném soustružení z&nbsp;průměru D na průměr d za jeden průchod platí a<sub>p</sub>&nbsp;=&nbsp;(D&nbsp;−&nbsp;d)&nbsp;/&nbsp;2.</p></div>
+  </div>
+  <p class="t" style="margin-top:18px">Během jedné otáčky odebere nástroj vrstvu, jejíž průřez je obdélník a<sub>p</sub>&nbsp;×&nbsp;f. Je to průřez třísky A.</p>
+  <div class="eq">A = a<sub>p</sub> · f &nbsp;[mm²]</div>
+  <p class="t">Velký průřez třísky znamená velký objem materiálu odebraný za otáčku, ale také velkou řeznou sílu. Při hrubování se volí velká hloubka řezu a&nbsp;velký posuv. Při dokončování se volí malá hloubka řezu a&nbsp;malý posuv, protože posuv určuje vzdálenost stop, které ostří zanechá na obrobené ploše, a&nbsp;tím její drsnost.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Průřez třísky</div>
+        <div class="panel-s" style="margin-bottom:0">Podélné soustružení, pohled shora. Nástroj se posouvá doleva. Nastav hloubku řezu a&nbsp;posuv a&nbsp;klikni na popisek ve&nbsp;schématu.</div>
+      </div>
+    </div>
+    <div class="sliders">
+      <label class="sl"><span class="sl-t">Hloubka řezu a<sub>p</sub></span><input type="range" id="sAp" min="0" max="100" value="45"><span class="sl-v" id="vAp"></span></label>
+      <label class="sl"><span class="sl-t">Posuv f</span><input type="range" id="sF" min="0" max="100" value="45"><span class="sl-v" id="vF"></span></label>
+    </div>
+    <div class="svgbox"><svg id="svgA" viewBox="0 0 1000 360" role="img" aria-label="Pohled shora na podélné soustružení s vyznačeným průřezem třísky"></svg></div>
+    <div class="meters" style="grid-template-columns:repeat(2,1fr)">
+      <div><div class="mt-t">Průřez třísky A = a<sub>p</sub> · f</div><div class="bar"><div class="bar-f" id="mA"></div></div></div>
+      <div><div class="mt-t">Drsnost obrobené plochy (závisí na posuvu)</div><div class="bar"><div class="bar-f" id="mR"></div></div></div>
+    </div>
+    <p class="info" id="infoA"></p>
+  </div>
+
+  <h2>Složky řezné síly</h2>
+  <p class="t">Obrobek působí na nástroj výslednou silou F. Rozkládá se do tří navzájem kolmých složek. Jejich názvy odpovídají směrům pohybů podle ČSN ISO&nbsp;3002.</p>
+  <div class="grid3">
+    <div class="card top-cut"><div class="ct">Řezná síla F<sub>c</sub></div><p>Působí ve&nbsp;směru řezného pohybu. Je ze&nbsp;tří složek největší. Z&nbsp;ní se počítá řezný výkon a&nbsp;krouticí moment.</p></div>
+    <div class="card top-feed"><div class="ct">Posuvová síla F<sub>f</sub></div><p>Působí ve&nbsp;směru posuvového pohybu, proti posuvu nástroje. Zatěžuje posuvový mechanismus stroje.</p></div>
+    <div class="card top-pas"><div class="ct">Pasivní síla F<sub>p</sub></div><p>Působí kolmo k&nbsp;obrobené ploše a&nbsp;odtlačuje nástroj od obrobku. Nekoná práci, protože se nástroj v&nbsp;jejím směru nepohybuje. Ohýbá obrobek i&nbsp;nůž a&nbsp;zhoršuje přesnost průměru.</p></div>
+  </div>
+  <div class="eq">F = √(F<sub>c</sub>² + F<sub>f</sub>² + F<sub>p</sub>²)</div>
+  <p class="t">Při soustružení se pro odhad používá F<sub>p</sub>&nbsp;=&nbsp;(0,4 až 0,5)&nbsp;·&nbsp;F<sub>c</sub> a&nbsp;F<sub>f</sub>&nbsp;=&nbsp;(0,3 až 0,4)&nbsp;·&nbsp;F<sub>c</sub>. Velikost řezné síly roste s&nbsp;pevností obráběného materiálu a&nbsp;s&nbsp;průřezem třísky. Větší úhel čela γ ji zmenšuje, protože se materiál před čelem méně deformuje (<a class="link" href="tvorba-trisky.html">Tvorba třísky</a>). Opotřebený nástroj ji zvětšuje.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Rozklad řezné síly při podélném soustružení</div>
+        <div class="panel-s" style="margin-bottom:0">Síly, kterými obrobek působí na nástroj, ve&nbsp;dvou pohledech. Klikni na popisek ve&nbsp;schématu.</div>
+      </div>
+    </div>
+    <div class="svgbox"><svg id="svgF" viewBox="0 0 1000 440" role="img" aria-label="Složky řezné síly v pohledu ve směru osy obrobku a v pohledu shora"></svg></div>
+    <p class="info" id="infoF"></p>
+  </div>
+
+  <h2>Řezný výkon, příkon a&nbsp;krouticí moment</h2>
+  <p class="t">Výkon potřebný k&nbsp;řezání je součinem řezné síly a&nbsp;řezné rychlosti. Pasivní síla práci nekoná. Posuvová síla koná práci jen malou, protože posuvová rychlost je proti řezné rychlosti malá. Do řezného výkonu se proto nepočítá.</p>
+  <div class="eq">P<sub>c</sub> = F<sub>c</sub> · v<sub>c</sub> / 60&nbsp;000 &nbsp;[kW] &nbsp;&nbsp; F<sub>c</sub> [N], v<sub>c</sub> [m/min]</div>
+  <p class="t">Motor vřetena musí dodat víc, než je řezný výkon. Část výkonu se ztrácí třením v&nbsp;převodech a&nbsp;ložiscích. Ztráty zahrnuje účinnost stroje η.</p>
+  <div class="eq">P = P<sub>c</sub> / η &nbsp;[kW]</div>
+  <p class="t">Řezná síla působí na obvodu obrobku, na rameni D&nbsp;/&nbsp;2 od osy. Vřeteno musí přenést krouticí moment:</p>
+  <div class="eq">M<sub>k</sub> = F<sub>c</sub> · D / 2&nbsp;000 &nbsp;[N·m] &nbsp;&nbsp; F<sub>c</sub> [N], D [mm]</div>
+  <p class="t">Při stejné řezné rychlosti a&nbsp;stejném průřezu třísky je řezný výkon na všech průměrech stejný. Krouticí moment roste s&nbsp;průměrem. Velké průměry proto vyžadují velký moment při nízkých otáčkách, malé průměry vysoké otáčky.</p>
+
+  <h2>Strojní čas</h2>
+  <p class="t">Strojní čas t<sub>h</sub> je doba, po kterou nástroj koná posuvový pohyb. Nástroj urazí za minutu dráhu v<sub>f</sub>&nbsp;=&nbsp;f&nbsp;·&nbsp;n.</p>
+  <div class="eq">t<sub>h</sub> = L · i / (f · n) &nbsp;[min] &nbsp;&nbsp; L = l + l<sub>n</sub> + l<sub>p</sub></div>
+  <div class="grid4">
+    <div class="card"><div class="ct">Délka obrábění l</div><p>Délka obráběné plochy podle výkresu.</p></div>
+    <div class="card"><div class="ct">Náběh l<sub>n</sub></div><p>Nástroj začíná posuv před obrobkem, aby do materiálu vnikl už pracovním posuvem.</p></div>
+    <div class="card"><div class="ct">Přeběh l<sub>p</sub></div><p>Nástroj dojede za konec plochy, aby ji obrobil celou. U&nbsp;soustružení k&nbsp;osazení je přeběh nulový, nástroj by narazil do osazení.</p></div>
+    <div class="card"><div class="ct">Počet třísek i</div><p>Počet průchodů nástroje. i&nbsp;=&nbsp;(D&nbsp;−&nbsp;d)&nbsp;/&nbsp;(2&nbsp;·&nbsp;a<sub>p</sub>), zaokrouhleno nahoru na celé číslo.</p></div>
+  </div>
+
+  <h2>Řešený příklad</h2>
+  <p class="t">Hřídel podle výkresu se soustruží z&nbsp;tyče Ø20&nbsp;mm z&nbsp;oceli 11&nbsp;600. Úsek 1 je soustružení z&nbsp;Ø20 na Ø15&nbsp;mm v&nbsp;délce 30&nbsp;mm, úsek 2 soustružení z&nbsp;Ø15 na Ø10&nbsp;mm v&nbsp;délce 15&nbsp;mm. Sražení 1&nbsp;×&nbsp;45° a&nbsp;zaoblení R2 se do strojního času nezapočítávají.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Zadáno</th><th>Hodnota</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Řezná rychlost v<sub>c</sub></td><td>250&nbsp;m/min</td></tr>
+      <tr><td class="k">Posuv f</td><td>0,25&nbsp;mm/ot</td></tr>
+      <tr><td class="k">Hloubka řezu a<sub>p</sub></td><td>1,25&nbsp;mm</td></tr>
+      <tr><td class="k">Řezná síla F<sub>c</sub></td><td>835&nbsp;N (určená z&nbsp;měrné řezné síly oceli 11&nbsp;600 pro zadaný posuv a&nbsp;hloubku řezu)</td></tr>
+      <tr><td class="k">Účinnost stroje η</td><td>0,75</td></tr>
+      <tr><td class="k">Náběh l<sub>n</sub> / přeběh l<sub>p</sub></td><td>2&nbsp;mm / 0&nbsp;mm (oba úseky končí u&nbsp;osazení)</td></tr>
+      <tr><td class="k">Nejvyšší otáčky stroje n<sub>max</sub></td><td>5000&nbsp;ot/min</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="panel" style="margin-top:22px">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Výpočet krok za krokem</div>
+        <div class="panel-s" style="margin-bottom:0">Oranžově úsek 1, zeleně úsek 2. Klikni na kótu ve&nbsp;výkresu, tlačítkem odkrývej kroky výpočtu.</div>
+      </div>
+      <div class="btns"><button class="btn" id="exPrev">Předchozí krok</button><button class="btn" id="exNext">Další krok</button><button class="btn" id="exAll">Zobrazit vše</button></div>
+    </div>
+    <div class="svgbox"><svg id="svgD" viewBox="0 0 1000 310" role="img" aria-label="Výkres hřídele s průměry 20, 15 a 10 mm a délkami 15, 30 a 50 mm"></svg></div>
+    <p class="info" id="infoD"></p>
+    <div id="exSteps">
+      <div class="step"><div class="step-t">1. Počet třísek</div>
+        <p>i = (D − d) / (2 · a<sub>p</sub>)</p>
+        <p>Úsek 1: i<sub>1</sub> = (20 − 15) / (2 · 1,25) = <b>2</b></p>
+        <p>Úsek 2: i<sub>2</sub> = (15 − 10) / (2 · 1,25) = <b>2</b></p></div>
+      <div class="step"><div class="step-t">2. Otáčky pro úsek 1</div>
+        <p>n<sub>1</sub> = 1000 · v<sub>c</sub> / (π · D) = 1000 · 250 / (π · 20) = <b>3979&nbsp;ot/min</b></p>
+        <p>Otáčky jsou nižší než n<sub>max</sub>&nbsp;=&nbsp;5000&nbsp;ot/min, stroj je může nastavit.</p></div>
+      <div class="step"><div class="step-t">3. Otáčky pro úsek 2 — omezení otáček</div>
+        <p>n = 1000 · 250 / (π · 15) = 5305&nbsp;ot/min &gt; n<sub>max</sub>, proto <b>n<sub>2</sub>&nbsp;=&nbsp;5000&nbsp;ot/min</b>.</p>
+        <p>Skutečná řezná rychlost: v<sub>c</sub> = π · 15 · 5000 / 1000 = <b>235,6&nbsp;m/min</b>.</p>
+        <p>Nejvyšší otáčky omezuje konstrukce vřetena: ložiska, pohon a&nbsp;upínač jsou navrženy pro n<sub>max</sub>. S&nbsp;otáčkami roste odstředivá síla na čelisti sklíčidla. Ta působí proti upínací síle a&nbsp;upínací síla klesá. Při vyšších otáčkách by se obrobek mohl ve&nbsp;sklíčidle uvolnit. Řezná rychlost na úseku 2 je proto nižší než zvolená.</p></div>
+      <div class="step"><div class="step-t">4. Řezný výkon</div>
+        <p>Největší výkon je na úseku 1, kde je řezná rychlost plná.</p>
+        <p>P<sub>c</sub> = F<sub>c</sub> · v<sub>c</sub> / 60&nbsp;000 = 835 · 250 / 60&nbsp;000 = <b>3,48&nbsp;kW</b></p></div>
+      <div class="step"><div class="step-t">5. Příkon motoru</div>
+        <p>P = P<sub>c</sub> / η = 3,48 / 0,75 = <b>4,64&nbsp;kW</b></p></div>
+      <div class="step"><div class="step-t">6. Krouticí moment</div>
+        <p>Největší moment je na největším průměru, při první třísce úseku 1.</p>
+        <p>M<sub>k</sub> = F<sub>c</sub> · D / 2000 = 835 · 20 / 2000 = <b>8,35&nbsp;N·m</b></p></div>
+      <div class="step"><div class="step-t">7. Strojní čas úseku 1</div>
+        <p>L<sub>1</sub> = l + l<sub>n</sub> + l<sub>p</sub> = 30 + 2 + 0 = 32&nbsp;mm</p>
+        <p>t<sub>h1</sub> = L<sub>1</sub> · i<sub>1</sub> / (f · n<sub>1</sub>) = 32 · 2 / (0,25 · 3979) = 0,0643&nbsp;min = <b>3,86&nbsp;s</b></p></div>
+      <div class="step"><div class="step-t">8. Strojní čas úseku 2</div>
+        <p>L<sub>2</sub> = 15 + 2 + 0 = 17&nbsp;mm</p>
+        <p>t<sub>h2</sub> = L<sub>2</sub> · i<sub>2</sub> / (f · n<sub>2</sub>) = 17 · 2 / (0,25 · 5000) = 0,0272&nbsp;min = <b>1,63&nbsp;s</b></p></div>
+      <div class="step"><div class="step-t">9. Celkový strojní čas</div>
+        <p>t<sub>h</sub> = t<sub>h1</sub> + t<sub>h2</sub> = 3,86 + 1,63 = <b>5,49&nbsp;s</b></p>
+        <p>Otáčky jsou v&nbsp;každém úseku spočítané z&nbsp;výchozího průměru. Druhá tříska leží na menším průměru, při stálých otáčkách je na ní řezná rychlost nižší. Při konstantní řezné rychlosti by otáčky na druhé třísce vzrostly, nejvýš však na n<sub>max</sub>.</p></div>
+    </div>
+  </div>
+
+  <p class="t" style="margin-top:40px;font-size:14px;color:var(--dim)">Zdroj hodnot účinnosti stroje, náběhu, poměrů složek řezné síly a&nbsp;měrné řezné síly oceli 11&nbsp;600: <a class="link" href="https://www.sjf.tuke.sk/ktmappv/images/E_materialy/priklady_obrabanie.pdf" target="_blank" rel="noopener">Príklady z&nbsp;obrábania, SjF TU v&nbsp;Košiciach</a>.</p>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#93b5d3';
+const nb=s=>s.replace(/(^|[\s(„])([aikosuvzAIKOSUVZ]|[vzkVZK]e) /g,'$1$2'+NB);
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const key=(g,fn)=>{g.addEventListener('click',fn);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+const LEAD='#8296a8', TOOL='#d4b85a', WP='#3a4553', WPS='#5d6a79';
+const C_CUT='#f2a65a', C_FEED='#6fc3a0', C_PAS='#c39bd3';
+/* popisek: text 'F_c' = F s dolním indexem c */
+const label=(p,x,y,txt,fn)=>{const parts=txt.split('_');const w=Math.round(txt.replace('_','').length*7.8+24);
+  const g=el(p,'g',{class:'lbl',tabindex:0,role:'button'});el(g,'rect',{x,y,width:w,height:28,rx:8});
+  const t=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});t.appendChild(document.createTextNode(parts[0]));
+  if(parts[1]){const s=el(t,'tspan',{'font-size':11,dy:4});s.textContent=parts[1];}
+  key(g,fn);g.__w=w;return g;};
+const leader=(p,x1,y1,x2,y2)=>el(p,'line',{x1,y1,x2,y2,stroke:LEAD,'stroke-width':1.5,'pointer-events':'none'});
+const arrow=(p,x1,y1,x2,y2,c,w)=>{const g=el(p,'g',{'pointer-events':'none'});const L=Math.hypot(x2-x1,y2-y1),ux=(x2-x1)/L,uy=(y2-y1)/L,h=14;
+  const ln=el(g,'line',{x1,y1,x2:x2-ux*h,y2:y2-uy*h,stroke:c,'stroke-width':w,'stroke-linecap':'round'});
+  const hd=el(g,'polygon',{points:f(x2)+','+f(y2)+' '+f(x2-ux*h-uy*7)+','+f(y2-uy*h+ux*7)+' '+f(x2-ux*h+uy*7)+','+f(y2-uy*h-ux*7),fill:c});
+  g.__ln=ln;g.__hd=hd;return g;};
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v='+Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- ANIMACE — řezná rychlost na průměrech ---------- */
+(function(){
+const svg=document.getElementById('svgV'), btn=document.getElementById('vcBtn');
+const CX=190, CY=170, S=11, K=0.8, X0=470;
+const D=[[20,C_CUT],[15,C_FEED],[10,ACC]];
+D.forEach(([d,c])=>el(svg,'circle',{cx:CX,cy:CY,r:d/2*S,fill:WP,stroke:c,'stroke-width':2}));
+el(svg,'circle',{cx:CX,cy:CY,r:3,fill:'#eaf2fa'});
+const spoke=el(svg,'line',{x1:CX,y1:CY,x2:CX,y2:CY,stroke:'#eaf2fa','stroke-width':1.5,'stroke-dasharray':'5 4'});
+const AR=D.map(([d,c])=>({r:d/2*S,c,dot:el(svg,'circle',{r:6,fill:c}),a:arrow(svg,0,0,1,0,c,4)}));
+// rozvinutá dráha za jednu otáčku: délka úměrná π·D
+const LS=4.2, rows=D.map(([d,c],i)=>{const y=90+i*80, L=Math.PI*d*LS;
+  el(svg,'line',{x1:X0,y1:y,x2:X0+L,y2:y,stroke:c,'stroke-width':4,'stroke-linecap':'round','stroke-opacity':.45});
+  el(svg,'line',{x1:X0,y1:y-12,x2:X0,y2:y+12,stroke:'#eaf2fa','stroke-width':2});
+  el(svg,'line',{x1:X0+L,y1:y-12,x2:X0+L,y2:y+12,stroke:'#eaf2fa','stroke-width':2});
+  return {L,y,dot:el(svg,'circle',{cx:X0,cy:y,r:7,fill:c})};});
+let phi=-Math.PI/2, run=true, last=null;
+const setArrow=(g,x1,y1,x2,y2)=>{const L=Math.hypot(x2-x1,y2-y1),ux=(x2-x1)/L,uy=(y2-y1)/L,h=14;
+  g.__ln.setAttribute('x1',f(x1));g.__ln.setAttribute('y1',f(y1));g.__ln.setAttribute('x2',f(x2-ux*h));g.__ln.setAttribute('y2',f(y2-uy*h));
+  g.__hd.setAttribute('points',f(x2)+','+f(y2)+' '+f(x2-ux*h-uy*7)+','+f(y2-uy*h+ux*7)+' '+f(x2-ux*h+uy*7)+','+f(y2-uy*h-ux*7));};
+function draw(){
+  const c=Math.cos(phi), s=Math.sin(phi), R0=AR[0].r;
+  spoke.setAttribute('x2',f(CX+R0*c));spoke.setAttribute('y2',f(CY+R0*s));
+  AR.forEach(o=>{const x=CX+o.r*c, y=CY+o.r*s;o.dot.setAttribute('cx',f(x));o.dot.setAttribute('cy',f(y));
+    setArrow(o.a,x,y,x-s*o.r*K,y+c*o.r*K);});
+  const fr=(((phi+Math.PI/2)/(2*Math.PI))%1+1)%1;
+  rows.forEach(r=>r.dot.setAttribute('cx',f(X0+fr*r.L)));}
+function tick(t){if(last!=null&&run)phi+=(t-last)/1000*1.1;last=t;draw();requestAnimationFrame(tick);}
+requestAnimationFrame(tick);
+btn.onclick=()=>{run=!run;btn.textContent=run?'Zastavit':'Spustit';btn.setAttribute('aria-pressed',run);};
+})();
+
+/* ---------- INTERAKTIVNÍ — průřez třísky ---------- */
+(function(){
+const svg=document.getElementById('svgA'), info=document.getElementById('infoA');
+const sAp=document.getElementById('sAp'), sF=document.getElementById('sF');
+const TX=620, YO=250, TOP=30;
+const INFO={
+  ap:'Hloubka řezu ap je tloušťka odebírané vrstvy, měřená kolmo k obrobené ploše. Vrstva leží mezi původním povrchem a obrobenou plochou.',
+  f:'Posuv f je dráha nástroje ve směru posuvového pohybu za jednu otáčku obrobku. Určuje vzdálenost stop ostří na obrobené ploše.',
+  A:'Průřez třísky A je vrstva, kterou ostří odebere během jedné otáčky obrobku. Je to obdélník o stranách ap a f.',
+  vf:'Posuvový pohyb koná nástroj podél osy obrobku. Posuvová rychlost vf = f · n.'};
+let sel=null;
+const body=el(svg,'polygon',{fill:WP,stroke:WPS,'stroke-width':2});
+const layer=el(svg,'polygon',{fill:C_CUT,'fill-opacity':.22});
+const marks=el(svg,'g',{});
+const rect=el(svg,'rect',{fill:C_CUT,'fill-opacity':.75,stroke:C_CUT,'stroke-width':2});
+const tool=el(svg,'polygon',{fill:TOOL,stroke:'#3a3018','stroke-width':2});
+const dAp=el(svg,'g',{}), dF=el(svg,'g',{});
+const dl=(g)=>({a:el(g,'line',{stroke:'#eaf2fa','stroke-width':1.5}),b:el(g,'line',{stroke:'#eaf2fa','stroke-width':1.5}),c:el(g,'line',{stroke:'#eaf2fa','stroke-width':2})});
+const DA=dl(dAp), DF=dl(dF);
+const feed=arrow(svg,560,330,440,330,'#eaf2fa',4);
+const L={}, mk=(k,x,y,t)=>{L[k]=label(svg,x,y,t,()=>{sel=sel===k?null:k;paint();});};
+mk('ap',0,0,'a_p'); mk('f',0,0,'f'); mk('A',0,0,'A'); mk('vf',300,316,'posuvový pohyb');
+const lnAp=leader(svg,0,0,0,0), lnF=leader(svg,0,0,0,0), lnA=leader(svg,0,0,0,0);
+const set=(e,a)=>{for(const k in a)e.setAttribute(k,typeof a[k]==='number'?f(a[k]):a[k]);};
+const word=v=>v<34?'malá':v<67?'střední':'velká', wordF=v=>v<34?'malý':v<67?'střední':'velký';
+function geo(){
+  const ap=24+(+sAp.value)*0.9, fp=14+(+sF.value)*0.7, YM=YO-ap;
+  set(body,{points:[[40,TOP],[960,TOP],[960,YM],[TX,YM],[TX,YO],[40,YO]].map(q=>q.join(',')).join(' ')});
+  set(layer,{points:[[40,YM],[TX,YM],[TX,YO],[40,YO]].map(q=>q.join(',')).join(' ')});
+  set(rect,{x:TX-fp,y:YM,width:fp,height:ap});
+  // stopy ostří na obrobené ploše vpravo od nástroje, rozteč = posuv
+  marks.innerHTML='';for(let x=TX+fp;x<960;x+=fp)el(marks,'line',{x1:f(x),y1:f(YM-10),x2:f(x),y2:f(YM),stroke:'#8296a8','stroke-width':1.5});
+  set(tool,{points:[[TX,YM],[TX+70,YM+10],[TX+70,345],[TX,345]].map(q=>q.join(',')).join(' ')});
+  // kóta ap (vlevo od průřezu), kóta f (pod průřezem)
+  const xa=TX-fp-70;
+  set(DA.a,{x1:xa-8,y1:YM,x2:TX-fp,y2:YM});set(DA.b,{x1:xa-8,y1:YO,x2:TX-fp,y2:YO});set(DA.c,{x1:xa,y1:YM,x2:xa,y2:YO});
+  const yf=YO+28;
+  set(DF.a,{x1:TX-fp,y1:YO,x2:TX-fp,y2:yf+8});set(DF.b,{x1:TX,y1:YO,x2:TX,y2:yf+8});set(DF.c,{x1:TX-fp,y1:yf,x2:TX,y2:yf});
+  const Lap=L.ap, Lf=L.f, LA=L.A;
+  Lap.setAttribute('transform','translate('+f(xa-Lap.__w-14)+','+f(YO-ap/2-14)+')');
+  set(lnAp,{x1:xa-14,y1:YO-ap/2,x2:xa,y2:YO-ap/2});
+  Lf.setAttribute('transform','translate('+f(TX-fp-Lf.__w-30)+','+f(yf+16)+')');
+  set(lnF,{x1:TX-fp-30,y1:yf+30,x2:TX-fp/2,y2:yf});
+  LA.setAttribute('transform','translate('+f(TX-fp/2-LA.__w/2)+','+f(TOP+40)+')');
+  set(lnA,{x1:TX-fp/2,y1:TOP+68,x2:TX-fp/2,y2:YM+ap/2});
+  document.getElementById('vAp').textContent=word(+sAp.value);
+  document.getElementById('vF').textContent=wordF(+sF.value);
+  const amax=(24+90)*(14+70), a=ap*fp;
+  document.getElementById('mA').style.width=f(100*a/amax)+'%';
+  document.getElementById('mR').style.width=f(100*(fp*fp)/(84*84))+'%';
+  paint();}
+function paint(){
+  rect.setAttribute('fill-opacity',sel==='A'?.95:.6);rect.setAttribute('stroke',sel==='A'?ACC:C_CUT);rect.setAttribute('stroke-width',sel==='A'?4:2);
+  [DA.c,DA.a,DA.b].forEach(e=>{e.setAttribute('stroke',sel==='ap'?ACC:'#eaf2fa');});DA.c.setAttribute('stroke-width',sel==='ap'?4:2);
+  [DF.c,DF.a,DF.b].forEach(e=>{e.setAttribute('stroke',sel==='f'?ACC:'#eaf2fa');});DF.c.setAttribute('stroke-width',sel==='f'?4:2);
+  feed.__ln.setAttribute('stroke',sel==='vf'?ACC:'#eaf2fa');feed.__hd.setAttribute('fill',sel==='vf'?ACC:'#eaf2fa');
+  Object.keys(L).forEach(k=>L[k].classList.toggle('on',sel===k));
+  info.textContent=sel?nb(INFO[sel]):'Klikni na'+NB+'popisek ve'+NB+'schématu.';}
+sAp.oninput=geo;sF.oninput=geo;geo();
+})();
+
+/* ---------- INTERAKTIVNÍ — složky řezné síly ---------- */
+(function(){
+const svg=document.getElementById('svgF'), info=document.getElementById('infoF');
+const INFO={
+  fc:'Řezná síla Fc působí ve směru řezného pohybu, tečně k obrobku. Povrch obrobku se u ostří pohybuje dolů a tlačí nástroj dolů. Je ze složek největší.',
+  ff:'Posuvová síla Ff působí ve směru osy obrobku, proti posuvu nástroje. Nástroj vniká do materiálu a materiál ho tlačí zpět.',
+  fp:'Pasivní síla Fp působí kolmo k obrobené ploše, od osy obrobku. Odtlačuje nástroj, ohýbá obrobek i nůž a zhoršuje přesnost průměru.',
+  vc:'Řezný pohyb je otáčení obrobku. V místě ostří se povrch obrobku pohybuje dolů.',
+  vf:'Posuvový pohyb koná nástroj podél osy obrobku, směrem ke sklíčidlu.'};
+let sel=null;
+const t=(x,y,s)=>{const e=el(svg,'text',{x,y,fill:'#8296a8','font-size':14,'font-family':'IBM Plex Sans, sans-serif'});e.textContent=s;};
+t(40,428,'Pohled ve'+NB+'směru osy obrobku');t(500,428,'Pohled shora');
+el(svg,'line',{x1:470,y1:20,x2:470,y2:400,stroke:'#263040','stroke-width':1.5});
+// --- pohled ve směru osy: C=(200,230), R=120, obrobená plocha r=96
+const C=[200,230], R=120, r=96;
+el(svg,'circle',{cx:C[0],cy:C[1],r:R,fill:WP,stroke:WPS,'stroke-width':2});
+el(svg,'circle',{cx:C[0],cy:C[1],r:r,fill:'none',stroke:'#8296a8','stroke-width':1.5,'stroke-dasharray':'6 5'});
+el(svg,'circle',{cx:C[0],cy:C[1],r:3,fill:'#eaf2fa'});
+const T1=[C[0]+r,C[1]];
+el(svg,'polygon',{points:[T1,[440,230],[440,272],[306,272]].map(q=>q.join(',')).join(' '),fill:TOOL,stroke:'#3a3018','stroke-width':2});
+// řezný pohyb: oblouk po směru hodinových ručiček (u nástroje povrch klesá)
+const RA=152, th1=160*Math.PI/180, th2=110*Math.PI/180;
+const pA=th=>[C[0]+RA*Math.cos(th),C[1]-RA*Math.sin(th)];
+const a1=pA(th1), a2=pA(th2);
+const arc=el(svg,'path',{d:'M'+f(a1[0])+' '+f(a1[1])+' A'+RA+' '+RA+' 0 0 1 '+f(a2[0])+' '+f(a2[1]),fill:'none',stroke:'#eaf2fa','stroke-width':3});
+const dr=[Math.sin(th2),Math.cos(th2)], hp=[a2[0]+dr[0]*14,a2[1]+dr[1]*14];
+const arcH=el(svg,'polygon',{points:f(hp[0])+','+f(hp[1])+' '+f(a2[0]-dr[1]*7)+','+f(a2[1]+dr[0]*7)+' '+f(a2[0]+dr[1]*7)+','+f(a2[1]-dr[0]*7),fill:'#eaf2fa'});
+const FC=140, FP=63, FF=49;
+const A={fc:[arrow(svg,T1[0],T1[1],T1[0],T1[1]+FC,C_CUT,5)],fp:[arrow(svg,T1[0],T1[1],T1[0]+FP,T1[1],C_PAS,5)],ff:[]};
+// --- pohled shora: osa y=200, R=120 → původní povrch y=320, obrobená plocha y=296
+el(svg,'rect',{x:490,y:60,width:30,height:280,fill:'#4a5768'});
+el(svg,'polygon',{points:'520,80 760,80 760,104 960,104 960,296 760,296 760,320 520,320',fill:WP,stroke:WPS,'stroke-width':2});
+el(svg,'line',{x1:505,y1:200,x2:975,y2:200,stroke:'#8296a8','stroke-width':1,'stroke-dasharray':'14 5 3 5'});
+const T2=[760,296];
+el(svg,'polygon',{points:'760,296 822,306 822,410 760,410',fill:TOOL,stroke:'#3a3018','stroke-width':2});
+A.ff.push(arrow(svg,T2[0],T2[1],T2[0]+FF,T2[1],C_FEED,5));
+A.fp.push(arrow(svg,T2[0],T2[1],T2[0],T2[1]+FP,C_PAS,5));
+const feed=arrow(svg,740,395,640,395,'#eaf2fa',4);
+const L={};
+const mk=(k,id,x,y,txt,ld)=>{L[id]=label(svg,x,y,txt,()=>{sel=sel===k?null:k;paint();});L[id].__k=k;if(ld)leader(svg,...ld);};
+mk('vc','vc',20,40,'řezný pohyb',[75,68,f(pA(140*Math.PI/180)[0]),f(pA(140*Math.PI/180)[1])]);
+mk('fc','fc1',276,378,'F_c',null);
+mk('fp','fp1',372,186,'F_p',[372+20,214,T1[0]+FP-6,T1[1]-4]);
+mk('ff','ff2',840,246,'F_f',[860,274,T2[0]+FF-8,T2[1]-4]);
+mk('fp','fp2',690,330,'F_p',[730,344,T2[0]-4,T2[1]+48]);
+mk('vf','vf',500,381,'posuvový pohyb',null);
+const COL={fc:C_CUT,ff:C_FEED,fp:C_PAS};
+function paint(){
+  Object.keys(A).forEach(k=>A[k].forEach(g=>{g.__ln.setAttribute('stroke-width',sel===k?8:5);g.style.opacity=sel&&sel!==k&&sel in COL?.35:1;}));
+  arc.setAttribute('stroke',sel==='vc'?ACC:'#eaf2fa');arc.setAttribute('stroke-width',sel==='vc'?6:3);arcH.setAttribute('fill',sel==='vc'?ACC:'#eaf2fa');
+  feed.__ln.setAttribute('stroke',sel==='vf'?ACC:'#eaf2fa');feed.__hd.setAttribute('fill',sel==='vf'?ACC:'#eaf2fa');
+  Object.keys(L).forEach(id=>L[id].classList.toggle('on',sel===L[id].__k));
+  info.textContent=sel?nb(INFO[sel]):'Klikni na'+NB+'popisek ve'+NB+'schématu.';}
+paint();
+})();
+
+/* ---------- ŘEŠENÝ PŘÍKLAD — výkres a kroky ---------- */
+(function(){
+const svg=document.getElementById('svgD'), info=document.getElementById('infoD');
+// měřítko 8 px/mm, osa y=140, levý konec x=250
+const S=8, Y=140, X0=250, X1=X0+20*S, X2=X1+15*S, X3=X2+15*S;
+const INFO={
+  d20:'Ø20\u00a0mm je průměr výchozí tyče. Na délce 20\u00a0mm zůstává neobrobený.',
+  d15:'Ø15\u00a0mm vzniká v úseku 1 soustružením z Ø20 na délce 30\u00a0mm.',
+  d10:'Ø10\u00a0mm vzniká v úseku 2 soustružením z Ø15 na délce 15\u00a0mm.',
+  l15:'Délka 15\u00a0mm je délka obrábění v úseku 2.',
+  l30:'Délka 30\u00a0mm je délka obrábění v úseku 1. Úsek 1 začíná na konci tyče a končí u osazení Ø20.',
+  l50:'Celková délka hřídele 50\u00a0mm.'};
+let sel=null;
+// odebíraný materiál: úsek 1 (oranžově), úsek 2 (zeleně)
+[[X1,Y-10*S,X3-X1,C_CUT],[X1,Y+7.5*S,X3-X1,C_CUT],[X2,Y-7.5*S,X3-X2,C_FEED],[X2,Y+5*S,X3-X2,C_FEED]].forEach(([x,y,w,c])=>el(svg,'rect',{x,y,width:w,height:2.5*S,fill:c,'fill-opacity':.35}));
+const sec={
+  d20:el(svg,'rect',{x:X0,y:Y-10*S,width:X1-X0,height:20*S,fill:WP,stroke:WPS,'stroke-width':2}),
+  d15:el(svg,'rect',{x:X1,y:Y-7.5*S,width:X2-X1,height:15*S,fill:WP,stroke:WPS,'stroke-width':2}),
+  d10:el(svg,'rect',{x:X2,y:Y-5*S,width:X3-X2,height:10*S,fill:WP,stroke:WPS,'stroke-width':2})};
+el(svg,'line',{x1:X0-30,y1:Y,x2:X3+30,y2:Y,stroke:'#8296a8','stroke-width':1,'stroke-dasharray':'14 5 3 5'});
+// kóty délek
+const ext=(x,y1,y2)=>el(svg,'line',{x1:x,y1,x2:x,y2,stroke:'#8296a8','stroke-width':1});
+ext(X3,Y+5*S+4,296);ext(X2,Y+7.5*S+4,240);ext(X1,Y+10*S+4,270);ext(X0,Y+10*S+4,296);
+const dim=(x1,x2,y)=>el(svg,'line',{x1,y1:y,x2,y2:y,stroke:'#eaf2fa','stroke-width':1.5});
+const D={l15:dim(X2,X3,236),l30:dim(X1,X3,262),l50:dim(X0,X3,288)};
+const L={}, mk=(k,x,y,txt,ld)=>{L[k]=label(svg,x,y,txt,()=>{sel=sel===k?null:k;paint();});if(ld)leader(svg,...ld);};
+mk('l15',(X2+X3)/2-20,222,'15',null);
+mk('l30',(X1+X3)/2-20,248,'30',null);
+mk('l50',(X0+X3)/2-20,274,'50',null);
+mk('d20',130,126,'Ø20',[180,140,X0,Y-6*S]);
+mk('d15',X1+40,14,'Ø15',[X1+65,42,X1+80,Y-7.5*S]);
+mk('d10',X3+40,60,'Ø10',[X3+40,74,X3-10,Y-5*S]);
+const SEC={d20:'d20',d15:'d15',d10:'d10',l15:'d10',l30:['d15','d10'],l50:['d20','d15','d10']};
+function paint(){
+  const on=sel?[].concat(SEC[sel]):[];
+  Object.keys(sec).forEach(k=>{sec[k].setAttribute('stroke',on.includes(k)?ACC:WPS);sec[k].setAttribute('stroke-width',on.includes(k)?4:2);});
+  Object.keys(D).forEach(k=>{D[k].setAttribute('stroke',sel===k?ACC:'#eaf2fa');D[k].setAttribute('stroke-width',sel===k?4:1.5);});
+  Object.keys(L).forEach(k=>L[k].classList.toggle('on',sel===k));
+  info.textContent=sel?nb(INFO[sel]):'Klikni na'+NB+'kótu ve'+NB+'výkresu.';}
+paint();
+// kroky
+const steps=[...document.querySelectorAll('#exSteps .step')];
+let shown=1;
+const show=()=>{steps.forEach((s,i)=>s.style.display=i<shown?'':'none');
+  document.getElementById('exPrev').disabled=shown<=1;document.getElementById('exNext').disabled=shown>=steps.length;};
+document.getElementById('exNext').onclick=()=>{shown=Math.min(steps.length,shown+1);show();};
+document.getElementById('exPrev').onclick=()=>{shown=Math.max(1,shown-1);show();};
+document.getElementById('exAll').onclick=()=>{shown=steps.length;show();};
+show();
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

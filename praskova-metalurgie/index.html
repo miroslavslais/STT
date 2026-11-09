@@ -200,7 +200,7 @@ Ahoj, chci si procvičit práškovou metalurgii formou kvízu.`;
 class Component extends DCLogic {
   state = { structure: null, copied: false };
   componentDidMount() {
-    fetch('../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
+    fetch('../site-structure.json?v=' + Date.now()).then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
   }
   copyPrompt = () => {
     copyToClipboard(PM_PROMPT).then(() => {

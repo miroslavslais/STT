@@ -127,7 +127,7 @@ const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba
 const navList=document.getElementById('navList');
 const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
 fillNav(NAV);
-try{fetch(P+'site-structure.json').then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+try{fetch(P+'site-structure.json?v=' + Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
 
 })();
 </script>

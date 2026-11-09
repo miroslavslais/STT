@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tvorba třísky | STT</title>
+<meta name="description" content="Tvorba třísky: rovina a úhel střihu, primární, sekundární a terciární pásmo deformace, deformace zrn, tvářená, článkovitá a elementární tříska, teplo při obrábění, teplota ocelové třísky, tvary třísek a utvařeč.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma (záměrně jen tmavé — promítání ve výuce), akcent kapitoly Obrábění */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#93b5d3;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg);margin:0}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:16px;right:16px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:38px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #3f5568}
+.grid3{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.ct{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.card p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+.card ul{margin:12px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--muted)}
+.card ul a{color:var(--fg);border-bottom:1px solid #3f5568}
+.card ul a:hover{color:var(--acc)}
+.top-cut{border-top:4px solid #f2a65a}
+.top-feed{border-top:4px solid #6fc3a0}
+.top-res{border-top:4px solid var(--acc)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin:6px 0 18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{border-radius:14px;overflow:hidden}
+.svgbox svg{display:block;width:100%;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.step p+p{margin-top:4px}
+.step b{font-weight:600}
+.k-cut{color:#f2a65a}
+.k-feed{color:#6fc3a0}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15.5px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:900px}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:12px 20px;color:var(--muted);border-top:1px solid var(--line2)}
+td.k{color:var(--fg);font-weight:600}
+th+th,td+td{border-left:1px solid var(--line2)}
+.grid2{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.pict{display:block;width:100%;background:var(--deep);border-radius:12px;margin:0 0 14px}
+.eq{font-family:var(--f-disp);font-weight:700;font-size:20px;color:var(--fg);background:var(--deep);border:1px solid var(--line2);border-top:4px solid var(--acc);border-radius:14px;padding:14px 18px;margin:18px 0;text-align:center;max-width:820px;box-sizing:border-box}
+.sliders{display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;margin:0 0 14px}
+.sl{display:grid;grid-template-columns:150px 1fr 54px;align-items:center;gap:12px;font-size:15px;color:var(--fg)}
+.sl-t{font-weight:600}
+.sl-v{font-family:var(--f-disp);font-weight:700;color:var(--acc);text-align:right}
+.sl input{accent-color:var(--acc);width:100%}
+.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+.mt-t{font-size:14px;color:var(--dim);margin-bottom:6px}
+.bar{height:10px;background:var(--deep);border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.bar-f{height:100%;background:var(--acc);border-radius:999px;transition:width .15s}
+.tbl{max-width:none}
+td{min-width:120px}
+.tscale{display:grid;grid-template-columns:150px minmax(0,1fr);grid-auto-rows:40px;max-width:820px;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:6px 0 10px}
+.tc{display:flex;align-items:center;justify-content:center;font-family:var(--f-disp);font-weight:700;font-size:15px;color:#231d16}
+.tz{grid-column:2;padding:12px 22px;border-left:5px solid;display:flex;flex-direction:column;justify-content:center;gap:4px;font-size:15.5px;line-height:1.55;color:var(--muted);background:var(--card)}
+.tz b{color:var(--fg);font-weight:600}
+.tz+.tz{border-top:1px solid var(--line2)}
+</style>
+</head>
+<body data-first-seen="2026-11-09">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na Základy obrábění</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Základy obrábění</div>
+  <h1>Tvorba třísky</h1>
+  <p class="lead">Tříska vzniká plastickou deformací vrstvy materiálu před břitem a&nbsp;jejím oddělením od obrobku. Stránka popisuje, kde se materiál deformuje, jak se mění jeho struktura a&nbsp;jaké typy a&nbsp;tvary třísek vznikají.</p>
+
+  <h2>Rovina a&nbsp;úhel střihu</h2>
+  <p class="t">Břit vniká do materiálu a&nbsp;čelo na odebíranou vrstvu tlačí. Vrstva se před čelem pěchuje a&nbsp;v&nbsp;úzké oblasti mezi ostřím a&nbsp;povrchem obrobku se plasticky deformuje smykem. Tuto oblast nahrazuje zjednodušeně rovina střihu.</p>
+  <p class="t">Úhel mezi rovinou střihu a&nbsp;směrem řezného pohybu je úhel střihu Φ. Po průchodu rovinou střihu se materiál pohybuje po čele jako tříska.</p>
+  <p class="t">Tříska je tlustší a&nbsp;kratší než odebíraná vrstva. Poměr tloušťky třísky a&nbsp;tloušťky odebírané vrstvy je součinitel pěchování třísky. Čím je větší, tím víc se materiál deformoval a&nbsp;tím větší práci řezání spotřebovalo.</p>
+  <p class="t">Větší úhel čela γ vede k&nbsp;většímu úhlu střihu. Rovina střihu je kratší, materiál se deformuje méně, tříska se méně pěchuje a&nbsp;řezná síla klesá. Malý nebo záporný úhel čela má opačný účinek.</p>
+
+  <h2>Pásma plastické deformace</h2>
+  <p class="t">Materiál se při řezání plasticky deformuje ve&nbsp;třech pásmech. V&nbsp;každém z&nbsp;nich vzniká teplo.</p>
+  <div class="grid3">
+    <div class="card"><div class="ct">Primární pásmo</div><p>Pásmo střihu mezi ostřím a&nbsp;povrchem obrobku. Odebíraná vrstva se v&nbsp;něm mění v&nbsp;třísku.</p></div>
+    <div class="card"><div class="ct">Sekundární pásmo</div><p>Tenká vrstva třísky na styku s&nbsp;čelem. Tříska se tře o&nbsp;čelo a&nbsp;její spodní vrstva se dál deformuje.</p></div>
+    <div class="card"><div class="ct">Terciární pásmo</div><p>Povrchová vrstva obrobené plochy pod hřbetem. Hřbet se o&nbsp;ni tře, vrstva se deformuje a&nbsp;zpevňuje.</p></div>
+  </div>
+
+  <div class="panel" style="margin-top:22px">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Vznik třísky a&nbsp;deformace zrn</div>
+        <div class="panel-s" style="margin-bottom:0">Řez kolmo na ostří, nástroj stojí, obrobek se pohybuje. Vyber typ třísky a&nbsp;sadu popisků, pak klikni na popisek ve&nbsp;schématu.</div>
+      </div>
+      <div class="btns" id="tBtns"></div>
+    </div>
+    <div class="btns" style="align-items:center;margin-bottom:12px"><span style="font-size:14px;color:var(--dim);margin-right:4px">Popisky:</span><span class="btns" id="mBtnsT"></span></div>
+    <div class="svgbox"><svg id="svgT" viewBox="0 0 1000 440" role="img" aria-label="Schéma vzniku třísky se zrny materiálu a pásmy plastické deformace"></svg></div>
+    <div class="step"><div class="step-t" id="tT"></div><p id="tP"></p></div>
+    <p class="info" id="infoT"></p>
+  </div>
+
+  <h2>Zrna v&nbsp;třísce</h2>
+  <p class="t">Zrna obrobku jsou před řezem přibližně rovnoosá. Při průchodu primárním pásmem se protáhnou a&nbsp;natočí do směru smyku. V&nbsp;třísce jsou proto protažená šikmo k&nbsp;její ose.</p>
+  <p class="t">Ve&nbsp;vrstvě u&nbsp;čela se zrna deformují ještě v&nbsp;sekundárním pásmu. Jsou tu protažená téměř rovnoběžně s&nbsp;čelem.</p>
+  <p class="t">Strana třísky, která klouzala po čele, je hladká a&nbsp;lesklá. Volná strana je drsná, s&nbsp;jemnými příčnými výstupky. Materiál třísky je deformací zpevněný — je tvrdší a&nbsp;křehčí než výchozí materiál obrobku.</p>
+
+  <h2>Základní typy třísek</h2>
+  <div class="grid3">
+    <div class="card"><div class="ct">Tvářená</div><p>Souvislá stužka. Materiál se v&nbsp;rovině střihu plasticky deformuje, ale neporuší. Vzniká u&nbsp;tvárných materiálů, jako je ocel, hliník a&nbsp;měď.</p></div>
+    <div class="card"><div class="ct">Článkovitá</div><p>Tříska z&nbsp;článků, které drží pohromadě. Materiál se střídavě pěchuje a&nbsp;usmýkne v&nbsp;úzkém pásu. Volná strana je pilovitá.</p></div>
+    <div class="card"><div class="ct">Elementární</div><p>Oddělené částice. Materiál se v&nbsp;rovině střihu poruší dřív, než se výrazně zdeformuje, a&nbsp;vytrhává se. Vzniká u&nbsp;křehkých materiálů, jako je šedá litina. Obrobená plocha je drsnější.</p></div>
+  </div>
+  <p class="t" style="margin-top:18px">Typ třísky závisí na materiálu a&nbsp;na řezných podmínkách. Z&nbsp;téhož materiálu může při jiných podmínkách vzniknout jiný typ třísky.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Činitel</th><th>Směrem k&nbsp;tvářené třísce</th><th>Směrem k&nbsp;článkovité a&nbsp;elementární třísce</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Materiál obrobku</td><td>tvárný</td><td>méně tvárný až křehký</td></tr>
+      <tr><td class="k">Úhel čela γ</td><td>větší</td><td>menší</td></tr>
+      <tr><td class="k">Řezná rychlost</td><td>vyšší</td><td>nižší</td></tr>
+      <tr><td class="k">Tloušťka odebírané vrstvy</td><td>menší</td><td>větší</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Teplo při obrábění</h2>
+  <p class="t">Téměř všechna práce spotřebovaná na řezání se mění v&nbsp;teplo. Teplo vzniká ve&nbsp;všech třech pásmech:</p>
+  <div class="grid3">
+    <div class="card"><div class="ct">Primární pásmo</div><p>Plastická deformace při střihu. Největší zdroj tepla.</p></div>
+    <div class="card"><div class="ct">Sekundární pásmo</div><p>Tření třísky o&nbsp;čelo a&nbsp;deformace její spodní vrstvy.</p></div>
+    <div class="card"><div class="ct">Terciární pásmo</div><p>Tření hřbetu o&nbsp;obrobenou plochu.</p></div>
+  </div>
+  <p class="t" style="margin-top:18px">Největší část tepla odchází s&nbsp;třískou, menší část přechází do nástroje a&nbsp;do obrobku, zbytek odvede procesní kapalina a&nbsp;okolí. S&nbsp;rostoucí řeznou rychlostí odchází s&nbsp;třískou větší podíl tepla.</p>
+  <p class="t">Nejvyšší teplota je na čele nástroje v&nbsp;určité vzdálenosti od ostří, kde se tříska o&nbsp;čelo tře nejvíc. Teplota nástroje omezuje jeho trvanlivost.</p>
+
+  <h3 style="font-family:var(--f-disp);font-weight:700;font-size:20px;margin:28px 0 8px">Teplota třísky při obrábění oceli za sucha</h3>
+  <p class="t">Podle teploty třísky lze posoudit, zda jsou řezné podmínky zvolené správně. <b style="color:#3fb6e8;font-weight:700">Při obrábění oceli za sucha se tříska zbarví do modra kolem 300&nbsp;°C — modrá tříska odpovídá ideálnímu stavu.</b></p>
+  <p class="t">Barvy ve stupnici jen rozlišují teplotní pásma. Skutečné barvě třísky neodpovídají.</p>
+  <div class="tscale">
+    <div class="tc" style="grid-column:1;grid-row:1;background:#fbf6d0;color:#231d16">200&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:2;background:#f8efa4;color:#231d16">220&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:3;background:#f5e46a;color:#231d16">230&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:4;background:#f7c66b;color:#231d16">240&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:5;background:#f6c49f;color:#231d16">250&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:6;background:#e3958f;color:#231d16">260&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:7;background:#d76e6b;color:#231d16">270&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:8;background:#9b86b5;color:#231d16">280&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:9;background:#2f5a93;color:#eaf2fa">290&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:10;background:#8faed4;color:#231d16">300&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:11;background:#b7cbe3;color:#231d16">320&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:12;background:#dfe5ee;color:#231d16">340&nbsp;°C</div><div class="tc" style="grid-column:1;grid-row:13;background:#d9d9d9;color:#231d16">360&nbsp;°C</div>
+    <div class="tz" style="grid-row:1 / span 7;border-left-color:#f5e46a"><b>Teplota třísky je příliš nízká.</b><span>Řezné parametry lze zvýšit.</span></div>
+    <div class="tz" style="grid-row:8 / span 4;border-left-color:#6fc3a0"><b>Ideální stav.</b><span>Teplo vznikající při obrábění se dobře odvádí třískou.</span></div>
+    <div class="tz" style="grid-row:12 / span 2;border-left-color:#e5534b"><b>Teplota třísky je příliš vysoká.</b><span>Trvanlivost nástroje se výrazně zkracuje, nebo nástroj už dosáhl konce trvanlivosti. Náprava: snížit řeznou rychlost, případně vyměnit nástroj.</span></div>
+  </div>
+  <p class="t" style="color:var(--dim);font-size:15px">Stupnice platí jen pro obrábění oceli za sucha. Pro jiné materiály a při chlazení procesní kapalinou neplatí.</p>
+
+  <h2>Tvary třísek a&nbsp;utvařeč</h2>
+  <p class="t">Tvar třísky rozhoduje o&nbsp;tom, jak bezpečně a&nbsp;snadno se tříska odvádí z&nbsp;místa řezu.</p>
+  <div class="grid4">
+    <div class="card"><svg class="pict" id="sh1" viewBox="0 0 240 120" role="img" aria-label="Stužkovitá tříska"></svg><div class="ct">Stužkovitá</div><p>Dlouhá stužka. Namotává se na obrobek a&nbsp;nástroj, poškozuje obrobenou plochu a&nbsp;špatně se odstraňuje. Nežádoucí.</p></div>
+    <div class="card"><svg class="pict" id="sh2" viewBox="0 0 240 120" role="img" aria-label="Šroubovitá tříska"></svg><div class="ct">Šroubovitá</div><p>Tříska stočená do šroubovice. Krátká šroubovice se odvádí dobře, dlouhá se zamotává.</p></div>
+    <div class="card"><svg class="pict" id="sh3" viewBox="0 0 240 120" role="img" aria-label="Spirálová tříska"></svg><div class="ct">Spirálová</div><p>Plochá spirála. Je krátká a&nbsp;odvádí se dobře.</p></div>
+    <div class="card"><svg class="pict" id="sh4" viewBox="0 0 240 120" role="img" aria-label="Lámaná tříska"></svg><div class="ct">Lámaná</div><p>Krátké úseky. Odvádí se nejsnáz a&nbsp;je žádoucí.</p></div>
+  </div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card"><svg class="pict" id="utv" viewBox="0 0 400 200" role="img" aria-label="Utvařeč třísky na čele destičky"></svg><div class="ct">Utvařeč třísky</div><p>Drážka nebo stupeň na čele nástroje, na&nbsp;obrázku zeleně. Tříska do něj narazí a&nbsp;ohne se s&nbsp;malým poloměrem. Materiál třísky je deformací zpevněný a&nbsp;křehký, proto se při ohybu zlomí na krátké úseky.</p></div>
+    <div class="card"><div class="ct">Volba utvařeče</div><p>Utvařeč nemění typ třísky, mění její tvar. Tvářená tříska se v&nbsp;něm stočí a&nbsp;zlomí. Utvařeč musí odpovídat posuvu a&nbsp;hloubce řezu — při malé tloušťce třísky se tříska nezlomí, při velké se utvařeč přetěžuje.</p></div>
+  </div>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#93b5d3';
+const nb=s=>s.replace(/(^|[\s(„])([aikosuvzAIKOSUVZ]|[vzkVZK]e) /g,'$1$2'+NB);
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const lw=t=>Math.round(t.length*7.8+24);
+const key=(g,fn)=>{g.addEventListener('click',fn);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+const pts=a=>a.map(q=>f(q[0])+','+f(q[1])).join(' ');
+const TOOL='#d4b85a', LEAD='#8296a8', CHIP='#c08a50';
+const label=(p,x,y,txt,fn)=>{const w=lw(txt);const g=el(p,'g',{class:'lbl',tabindex:0,role:'button'});
+  el(g,'rect',{x,y,width:w,height:28,rx:8});const t=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});t.textContent=txt;key(g,fn);return g;};
+const leader=(p,x1,y1,x2,y2)=>el(p,'line',{x1,y1,x2,y2,stroke:LEAD,'stroke-width':1.5,'pointer-events':'none'});
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v='+Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- SCHÉMA — vznik třísky (statický stav, překresluje se při přepnutí) ---------- */
+(function(){
+const svg=document.getElementById('svgT'), info=document.getElementById('infoT'), R=Math.PI/180;
+// geometrie: špička T, odebíraná vrstva tloušťky H nad obrobenou plochou, úhel čela G, úhel střihu PHI
+const TX=600, TY=300, H=70, G=10*R, PHI=30*R, V=36;
+const U=[Math.sin(G),-Math.cos(G)], NO=[-Math.cos(G),-Math.sin(G)], KV=Math.sin(PHI)/Math.cos(PHI-G);
+const QX=TX-H/Math.tan(PHI), QY=TY-H, FY=TY-390*Math.tan(8*R);
+const TYPES=[
+  {k:'tv',name:'Tvářená',t:'Materiál se v rovině střihu plasticky deformuje a neporuší se. Zrna se v třísce rozpadají na protažené fragmenty, tříska je souvislá stužka s jemně zvlněnou volnou stranou.',Pm:14,amp:5},
+  {k:'cl',name:'Článkovitá',t:'Materiál se před čelem pěchuje a pak se usmýkne v úzkém pásu. Segmenty třísky drží pohromadě, volná strana je pilovitá.',Pm:34,amp:18},
+  {k:'el',name:'Elementární',t:'Křehký materiál se před čelem nedeformuje, ale vylamuje se po úlomcích z několika zrn. Úlomky se hromadí u čela, lom před nožem i obrobená plocha jsou drsné.',Pm:40,amp:8}];
+const INFO={
+  seg:'Segment třísky je úsek, který prošel rovinou střihu najednou. Na volné straně třísky tvoří výstupek.',
+  kl:'Kluzné roviny jsou pásy, ve kterých se materiál při průchodu rovinou střihu posunul. V třísce leží šikmo, souběžně s rovinou střihu.',
+  fr:'Fragmenty zrn vznikají z původních zrn. V rovině střihu se zrna protáhnou, natočí a rozdělí, u čela jsou protažená téměř rovnoběžně s ním.',
+  rs:'V rovině střihu se materiál mění v třísku. Úhel mezi rovinou střihu a směrem řezného pohybu je úhel střihu Φ.',
+  ob:'Obráběná plocha je povrch obrobku před řezem.',
+  pz:'Původní zrna materiálu jsou před řezem přibližně rovnoosá.',
+  pv:'Povrchová vrstva obrobené plochy se třením o hřbet a tlakem ostří deformuje a zpevňuje. Zrna v ní jsou protažená ve směru řezného pohybu.',
+  ag:'Aγ je čelo nástroje — plocha, po které odchází tříska.',
+  aa:'Aα je hřbet nástroje — plocha přivrácená k obrobené ploše.',
+  p1:'Primární pásmo (pásmo střihu) vede od ostří k povrchu obrobku. Materiál se v něm plasticky deformuje smykem a mění se v třísku. Vzniká tu většina tepla.',
+  p2:'Sekundární pásmo je tenká vrstva třísky na styku s čelem. Tříska se tře o čelo, spodní vrstva se dál deformuje a ohřívá.',
+  p3:'Terciární pásmo leží pod hřbetem v povrchové vrstvě obrobené plochy. Hřbet se o ni tře, vrstva se deformuje a zpevňuje.',
+  phi:'Úhel střihu Φ je úhel mezi rovinou střihu a směrem řezného pohybu. Větší úhel čela dává větší úhel střihu, kratší rovinu střihu a menší deformaci.',
+  tr:'Tříska je tlustší a kratší než odebíraná vrstva — materiál se v pásmu střihu pěchuje.',
+  vc:'Obrobek se vůči nástroji pohybuje ve směru šipky. Nástroj stojí.'};
+let ty=0, mode='s', sel=null;
+let sd=17;const rnd=()=>{sd=(sd*9301+49297)%233280;return sd/233280;};
+
+/* zrna: šestiúhelníková síť se společnými, náhodně posunutými vrcholy — zrna na sebe navazují bez mezer */
+const RR=11, HW=RR*Math.sqrt(3), NC=64, W=HW*NC, vmap=new Map(), cells=[];
+const vkey=(x,y)=>Math.round(x*2)+','+Math.round(y*2);
+const vert=(x,y)=>{const k=vkey(((x%W)+W)%W,y);if(!vmap.has(k))vmap.set(k,[(rnd()-.5)*RR*.55,(rnd()-.5)*RR*.55]);const j=vmap.get(k);return [x+j[0],y+j[1]];};
+for(let r=0;;r++){const cy=QY+RR*.75+r*RR*1.5;if(cy>470)break;
+  for(let c=0;c<NC;c++){const cx=c*HW+(r%2)*HW/2, vs=[];
+    for(let k=0;k<6;k++){const a=(30+60*k)*R;vs.push(vert(cx+RR*Math.cos(a),cy+RR*Math.sin(a)));}
+    const layer=cy<TY;cells.push({cx,cy,vs,layer,c:['#9aa5b1','#8f9aa7','#a4aebb','#949fab','#a0aab6'][Math.floor(rnd()*5)]});}}
+
+/* pohyb bodu materiálu; X je poloha bodu v obrobku (už posunutá o řezný pohyb) */
+// články složené z celých zrn: šířka článku v počtu řad zrn (vzor se opakuje)
+const SEGW={tv:[1],cl:[3,2,3,2,4,2,3,2],el:[2,1,2,1,1,2,1,1]};
+const segIdx=(m,T)=>{const w=SEGW[T.k],tot=w.reduce((a,b)=>a+b,0)*HW,q=Math.floor(m/tot);let r=m-q*tot,i=0;while(r>=w[i]*HW){r-=w[i]*HW;i++;}return q*w.length+i;};
+const segStart=(k,T)=>{const w=SEGW[T.k],n=w.length,q=Math.floor(k/n),i=((k%n)+n)%n;let a=q*w.reduce((x,y)=>x+y,0)*HW;for(let j=0;j<i;j++)a+=w[j]*HW;return a;};
+const segLen=(k,T)=>{const w=SEGW[T.k],n=w.length;return w[((k%n)+n)%n]*HW;};
+function mapP(X,y,layer,T,kf){
+  if(!layer){ // obrobek pod obrobenou plochou; odřízne se až za ostřím, povrchová vrstva se protáhne
+    if(X<TX)return [X,y];
+    const yy=Math.max(y,TY);let x=X;const d=yy-TY;x-=Math.min(X-TX,50)/50*16*Math.exp(-d/6);
+    return [x,yy];}
+  const yy=Math.min(y,TY-.5), xs=TX-(TY-yy)/Math.tan(PHI), s=X-xs;
+  if(s<=0)return [X,y];   // před rovinou střihu je materiál nedeformovaný a souvislý s obrobkem
+  const d=TY-yy, g=1-.55*Math.exp(-d/7);
+  let D, ox=0, oy=0;
+  if(T.k==='tv'){D=KV*s*g;const ph=(s/14)%1, b=T.amp*(d/H)*ph;ox+=NO[0]*b;oy+=NO[1]*b;}
+  else{
+    // m = souřadnice pevně svázaná s materiálem; článek prošel rovinou střihu najednou
+    const m=SH-s, k=kf!=null?kf:segIdx(m,T), m0=segStart(k,T), L=segLen(k,T), sl=m-m0, s0=s+sl;
+    if(T.k==='cl'){D=KV*(s0-L/2-.4*(sl-L/2))*g;const b=T.amp*(d/H)*(1-sl/L);ox+=NO[0]*b;oy+=NO[1]*b;}
+    else{const a=s0/40;D=KV*s0*1.25-KV*sl;ox+=NO[0]*a*7;oy+=NO[1]*a*7+a*a*1.1;}
+  }
+  return [xs+U[0]*D+ox, yy+U[1]*D+oy];
+}
+let SH=0;
+const segOf=(X,y,T)=>{const yy=Math.min(y,TY-.5), s=X-(TX-(TY-yy)/Math.tan(PHI));return s>0?segIdx(SH-s,T):null;};
+
+/* článkovitá tříska: články z celých zrn (2–4 řady), mezi nimi úzké pásy smyku */
+const QTx=QX-TX, QTy=QY-TY, KB=(QTx*U[0]+QTy*U[1])/(QTx*NO[0]+QTy*NO[1]); // sklon hranice článku v souřadnicích třísky
+const HC=112, TOOTH=16, GAP=3, ROWS=[3,2,3,2,4,2,3,2,3,4,2,3,2,3];
+const SEGA=[0];ROWS.forEach(n=>SEGA.push(SEGA[SEGA.length-1]+n*HW*.75));
+const segAt=(a,b)=>{let i=-1;for(let j=0;j<ROWS.length;j++)if(a>=SEGA[j]+KB*b)i=j;return i;};
+const toP=(a,b,i)=>{const w=SEGA[i+1]-SEGA[i], fr=Math.max(0,Math.min(1,(a-SEGA[i]-KB*b)/w)), bb=Math.max(0,b)+TOOTH*(Math.max(0,b)/HC)*fr, aa=a+i*GAP;
+  return [TX+U[0]*aa+NO[0]*bb, TY+U[1]*aa+NO[1]*bb];};
+const clCells=[];(function(){const vm=new Map();let z=29;const rr=()=>{z=(z*9301+49297)%233280;return z/233280;};
+  const vv=(x,y)=>{const k=Math.round(x*2)+','+Math.round(y*2);if(!vm.has(k))vm.set(k,[(rr()-.5)*RR*.55,(rr()-.5)*RR*.55]);const j=vm.get(k);return [x+j[0],y+j[1]];};
+  for(let r=0;;r++){const q=r*RR*1.5;if(q*1.15>HC+RR)break;
+    for(let c=-3;c<40;c++){const p=c*HW+(r%2)*HW/2, vs=[];for(let k=0;k<6;k++){const an=(30+60*k)*R;vs.push(vv(p+RR*Math.cos(an),q+RR*Math.sin(an)));}
+      const ac=p*.75, bc=q*1.15, i=segAt(ac,bc);if(i<0||i>=ROWS.length||bc>HC)continue;
+      clCells.push({i,vs:vs.map(v=>[v[0]*.75,v[1]*1.15]),col:['#9aa5b1','#8f9aa7','#a4aebb','#949fab','#a0aab6'][Math.floor(rr()*5)]});}}})();
+const CLB=ROWS.map((n,i)=>[toP(SEGA[i],0,i),toP(SEGA[i]+KB*(HC+TOOTH*.0),HC,i)]);
+const CLE=[];ROWS.forEach((n,i)=>{CLE.push(toP(SEGA[i]+KB*HC+.01,HC,i));CLE.push(toP(SEGA[i+1]+KB*HC-.01,HC,i));});
+/* elementární (vytrhávaná) tříska: úlomky z několika zrn vylomené přímo před čelem */
+const elFr=[];(function(){let z=53;const rr=()=>{z=(z*9301+49297)%233280;return z/233280;};
+  // úlomek = shluk 2–5 zrn; poloha v souřadnicích třísky (a podél čela, b od čela) a natočení
+  const FR=[[22,26,3,20],[48,62,4,-35],[60,18,2,50],[92,40,5,15],[137,75,4,-60],[128,22,3,80],[176,50,4,-20],[205,95,3,40],[236,35,5,-75],[262,78,3,10]];
+  const NB6=[[0,0],[1,0],[0,1],[-1,1],[1,-1],[-1,0]];
+  FR.forEach(([a,b,n,rot])=>{const ca=Math.cos(rot*R),sa=Math.sin(rot*R),C=[TX+U[0]*a+NO[0]*b,TY+U[1]*a+NO[1]*b],cells=[];
+    for(let j=0;j<n;j++){const [q,r]=NB6[j], cx=(q+r/2)*HW, cy=r*RR*1.5, vs=[];
+      for(let k=0;k<6;k++){const an=(30+60*k)*R, x=cx+RR*Math.cos(an)+(rr()-.5)*4, y=cy+RR*Math.sin(an)+(rr()-.5)*4;vs.push([C[0]+ca*x-sa*y,C[1]+sa*x+ca*y]);}
+      cells.push({vs,col:['#9aa5b1','#8f9aa7','#a4aebb','#949fab','#a0aab6'][Math.floor(rr()*5)]});}
+    elFr.push(cells);});})();
+/* vrstvy schématu */
+const gC=el(svg,'g',{}), gL=el(svg,'g',{});
+cells.forEach(c=>{c.e=el(gC,'polygon',{fill:c.c,stroke:'#2b333d','stroke-width':1.1,'stroke-linejoin':'round'});});
+const gEL=el(svg,'g',{});elFr.forEach(fr=>fr.forEach(c=>el(gEL,'polygon',{points:pts(c.vs),fill:c.col,stroke:'#2b333d','stroke-width':1.1,'stroke-linejoin':'round'})));
+const gCL=el(svg,'g',{});clCells.forEach(c=>{const ps=c.vs.map(v=>toP(v[0],v[1],c.i));if(ps.every(q=>q[1]<-20))return;el(gCL,'polygon',{points:pts(ps),fill:c.col,stroke:'#2b333d','stroke-width':1.1,'stroke-linejoin':'round'});});
+const lam=[];for(let i=0;i<90;i++)lam.push(el(gL,'polyline',{fill:'none',stroke:'#2b333d','stroke-width':.9,opacity:.6}));
+const edge=el(svg,'polyline',{fill:'none',stroke:'none','stroke-width':4,'stroke-linejoin':'round','pointer-events':'none'});
+const tool=el(svg,'polygon',{points:pts([[TX,TY],[TX+U[0]*300,TY+U[1]*300],[990,TY+U[1]*300],[990,FY]]),fill:'#e6d24a',stroke:'#3a3018','stroke-width':1.5});
+const rake=el(svg,'line',{x1:TX,y1:TY,x2:f(TX+U[0]*300),y2:f(TY+U[1]*300),stroke:'#3a3018','stroke-width':2});
+const flank=el(svg,'line',{x1:TX,y1:TY,x2:990,y2:f(FY),stroke:'#3a3018','stroke-width':2});
+const surfL=el(svg,'line',{x1:0,y1:QY,x2:f(QX),y2:QY,stroke:'none','stroke-width':4});
+const HI='#ff8a3d';
+const pvBand=el(svg,'polygon',{points:pts([[TX,TY],[990,TY],[990,TY+14],[TX,TY+14]]),fill:HI,'fill-opacity':0,'pointer-events':'none'});
+// pásma deformace (jen v režimu Pásma)
+const gZ=el(svg,'g',{});
+const zone=poly=>el(gZ,'polygon',{points:pts(poly),fill:HI,'fill-opacity':.4,stroke:HI,'stroke-opacity':.9,'stroke-width':1,'stroke-dasharray':'5 4','pointer-events':'none'});
+const sx=Math.cos(PHI),sy=Math.sin(PHI),nx=-sy,ny=-sx;
+const Z={p1:zone([[TX-nx*9,TY-ny*9],[QX-nx*9,QY-ny*9],[QX+nx*9,QY+ny*9],[TX+nx*9,TY+ny*9]]),
+  p2:zone([[TX,TY],[TX+U[0]*150,TY+U[1]*150],[TX+U[0]*150+NO[0]*12,TY+U[1]*150+NO[1]*12],[TX+NO[0]*12,TY+NO[1]*12]]),
+  p3:zone([[TX,TY],[TX+130,TY],[TX+130,TY+10],[TX,TY+10]])};
+const shear=el(svg,'line',{x1:TX,y1:TY,x2:f(QX),y2:f(QY),stroke:'#eaf2fa','stroke-width':1.5,'stroke-dasharray':'6 5'});
+const gA=el(svg,'g',{});
+el(gA,'line',{x1:TX,y1:TY,x2:TX-170,y2:TY,stroke:'#eaf2fa','stroke-width':1.5,'stroke-dasharray':'6 5'});
+const arc=el(gA,'path',{d:'M'+(TX-70)+' '+TY+' A70 70 0 0 1 '+f(TX-70*Math.cos(PHI))+' '+f(TY-70*Math.sin(PHI)),fill:'none',stroke:'#ffd27a','stroke-width':3});
+el(svg,'line',{x1:140,y1:418,x2:300,y2:418,stroke:'#eaf2fa','stroke-width':4,'stroke-linecap':'round'});
+const vcH=el(svg,'polygon',{points:'314,418 300,410 300,426',fill:'#eaf2fa'});
+
+/* popisky: dvě sady podle režimu */
+const LS={}, LP={}, gLS=el(svg,'g',{}), gLP=el(svg,'g',{});
+const mk=(set,grp,k,x,y,txt,l)=>{const ln=l?leader(grp,...l):null;set[k]=label(grp,x,y,txt,()=>{sel=sel===k?null:k;paint();});set[k].__ln=ln;};
+const mS=[(TX+QX)/2,(TY+QY)/2], mA=[TX-70*Math.cos(PHI/2),TY-70*Math.sin(PHI/2)];
+mk(LS,gLS,'seg',300,14,'segment třísky',[441,28,515,40]);
+mk(LS,gLS,'kl',300,64,'kluzné roviny',[433,78,545,92]);
+mk(LS,gLS,'fr',300,114,'fragmenty zrn',[433,128,548,165]);
+mk(LS,gLS,'rs',300,176,'rovina střihu',[409,198,mS[0]-6,mS[1]-4]);
+mk(LS,gLS,'ob',40,186,'obráběná plocha',[150,214,200,QY+2]);
+mk(LS,gLS,'pz',40,352,'původní zrno materiálu',[170,352,230,330]);
+mk(LS,gLS,'pv',640,352,'povrchová vrstva obrobené plochy',[700,352,700,TY+7]);
+mk(LS,gLS,'ag',690,136,'Aγ',[690,150,TX+U[0]*150,TY+U[1]*150]);
+mk(LS,gLS,'aa',840,296,'Aα',[860,296,820,TY+(820-TX)*(FY-TY)/(990-TX)+2]);
+mk(LP,gLP,'p1',230,150,'primární pásmo',[371,164,mS[0]-4,mS[1]-4]);
+mk(LP,gLP,'phi',230,318,'úhel střihu Φ',[350,318,mA[0],mA[1]+2]);
+mk(LP,gLP,'p2',700,150,'sekundární pásmo',[700,164,TX+U[0]*90+NO[0]*6,TY+U[1]*90+NO[1]*6]);
+mk(LP,gLP,'p3',720,330,'terciární pásmo',[720,344,TX+90,TY+5]);
+mk(LP,gLP,'tr',300,40,'tříska',[371,54,530,110]);
+const Lvc={};mk(Lvc,svg,'vc',330,404,'řezný pohyb',null);
+
+function paint(){
+  const st=mode==='s';
+  gLS.style.display=st?'':'none';gLP.style.display=st?'none':'';gZ.style.display=st?'none':'';gA.style.display=st?'none':'';
+  // elementární tříska nemá segmenty ani kluzné roviny — popisky skrýt
+  const el0=TYPES[ty].k==='el';['seg','kl'].forEach(k=>{LS[k].style.display=el0?'none':'';if(LS[k].__ln)LS[k].__ln.style.display=el0?'none':'';});
+  if(el0&&(sel==='seg'||sel==='kl'))sel=null;
+  if(sel&&!(sel==='vc'||(st?LS[sel]:LP[sel])))sel=null;
+  Object.keys(Z).forEach(k=>{Z[k].setAttribute('fill-opacity',sel===k?.85:.4);Z[k].setAttribute('stroke-opacity',sel===k?1:.9);Z[k].setAttribute('stroke-width',sel===k?2.5:1);});
+  arc.setAttribute('stroke',sel==='phi'?ACC:'#ffd27a');arc.setAttribute('stroke-width',sel==='phi'?6:3);
+  const sh=sel==='phi'||sel==='rs';shear.setAttribute('stroke',sh?ACC:'#eaf2fa');shear.setAttribute('stroke-width',sh?4:1.5);
+  rake.setAttribute('stroke',sel==='ag'?ACC:'#3a3018');rake.setAttribute('stroke-width',sel==='ag'?6:2);
+  flank.setAttribute('stroke',sel==='aa'?ACC:'#3a3018');flank.setAttribute('stroke-width',sel==='aa'?6:2);
+  surfL.setAttribute('stroke',sel==='ob'?ACC:'none');
+  pvBand.setAttribute('fill-opacity',sel==='pv'?.75:0);
+  edge.setAttribute('stroke',sel==='seg'||sel==='tr'?ACC:'none');
+  lam.forEach(l=>{l.setAttribute('stroke',sel==='kl'?ACC:'#2b333d');l.setAttribute('opacity',sel==='kl'?1:.6);});
+  vcH.setAttribute('fill',sel==='vc'?ACC:'#eaf2fa');
+  [LS,LP,Lvc].forEach(S=>Object.keys(S).forEach(k=>S[k].classList.toggle('on',sel===k)));
+  info.textContent=sel?nb(INFO[sel]):'Klikni na'+NB+'popisek ve'+NB+'schématu.';}
+
+const tBox=document.getElementById('tBtns'), mBox=document.getElementById('mBtnsT');
+const tB=TYPES.map((m,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=m.name;b.onclick=()=>{ty=i;sync();};tBox.appendChild(b);return b;});
+const mB=[['s','Struktura'],['p','Pásma deformace']].map(([k,n])=>{const b=document.createElement('button');b.className='btn';b.textContent=n;b.onclick=()=>{mode=k;sync();};mBox.appendChild(b);return [k,b];});
+function sync(){tB.forEach((b,j)=>b.setAttribute('aria-pressed',j===ty));mB.forEach(([k,b])=>b.setAttribute('aria-pressed',k===mode));
+  document.getElementById('tT').textContent=TYPES[ty].name+' tříska';document.getElementById('tP').textContent=nb(TYPES[ty].t);frame();paint();}
+
+function frame(){
+  const t=16, T=TYPES[ty], sh=V*t;SH=sh;
+  gCL.style.display=T.k==='cl'?'':'none';
+  gEL.style.display=T.k==='el'?'':'none';
+  cells.forEach(c=>{
+    const Xc=((c.cx+sh)%W+W)%W-260;
+    if(Xc<-40||Xc>1040){c.e.style.display='none';return;}
+    const kf=c.layer&&T.k!=='tv'?segOf(Xc,c.cy,T):null;
+    if(kf!=null&&T.k!=='tv'){c.e.style.display='none';return;}
+    // vytrhávaná tříska: zrna pod ostřím a těsně před ním jsou místy vylomená — drsný povrch
+    if(T.k==='el'&&!c.layer&&c.cy<TY+RR*1.6&&Xc>TX-30&&((c.cx*7919+c.cy*104729)%97)/97<.38){c.e.style.display='none';return;}
+    const P0=mapP(Xc,c.cy,c.layer,T,kf);
+    if(P0[1]<-40||P0[0]>1040){c.e.style.display='none';return;}
+    c.e.style.display='';
+    // u článkovité a elementární třísky zůstávají zrna před lomem celá a nedeformovaná
+    const ps=(T.k!=='tv'&&c.layer)?c.vs.map(v=>[Xc+(v[0]-c.cx),v[1]]):c.vs.map(v=>mapP(Xc+(v[0]-c.cx),v[1],c.layer,T,kf));
+    c.e.setAttribute('points',pts(ps));});
+  // kluzné roviny: materiálové čáry, které prošly rovinou střihu současně
+  // u článkovité třísky jen hranice článků (pásy intenzivního smyku)
+  const dS=6, ph=((sh%dS)+dS)%dS, kTop=segIdx(sh,T);
+  if(T.k==='cl'){ // hranice článků a pilovitá volná strana z předem sestavené třísky
+    lam.forEach((l,i)=>{if(i>=CLB.length){l.style.display='none';return;}l.style.display='';l.setAttribute('points',pts(CLB[i]));});
+    edge.setAttribute('points',pts(CLE));return;}
+  lam.forEach((l,i)=>{const s=ph+i*dS;
+    if(T.k==='el'||s<2){l.style.display='none';return;}
+    const q=[];for(let j=0;j<=10;j++){const y=QY+.5+j*(H-1)/10, xs=TX-(TY-y)/Math.tan(PHI);q.push(mapP(xs+s,y,true,T,null));}
+    if(q[0][1]<-20){l.style.display='none';return;}
+    l.style.display='';l.setAttribute('points',pts(q));});
+  // volná strana třísky (pro zvýraznění segmentů)
+  const e=[];for(let s=0;s<560;s+=3)e.push(mapP(QX+s,QY+.5,true,T,null));
+  edge.setAttribute('points',pts(e));}
+sync();
+})();
+
+/* ---------- tvary třísek a utvařeč (statické) ---------- */
+(function(){
+const C='#c08a50';
+const s1=document.getElementById('sh1');let d='M10 60';for(let x=10;x<=230;x+=4)d+=' L'+x+' '+f(60+22*Math.sin(x/18)+10*Math.sin(x/7));
+el(s1,'path',{d,fill:'none',stroke:C,'stroke-width':6,'stroke-linecap':'round','stroke-linejoin':'round'});
+const s2=document.getElementById('sh2');(function(){const A=[44,84],B=[196,38],dx=B[0]-A[0],dy=B[1]-A[1],Ln=Math.hypot(dx,dy),d=[dx/Ln,dy/Ln],n=[-d[1],d[0]],Rh=25,TM=2*Math.PI*4.5,N=420;
+  const P=i=>{const th=TM*i/N,a=Ln*i/N;return [A[0]+d[0]*a+n[0]*Rh*Math.cos(th)+d[0]*Rh*.62*Math.sin(th),A[1]+d[1]*a+n[1]*Rh*Math.cos(th)+d[1]*Rh*.62*Math.sin(th),Math.sin(th)];};
+  const segs=[];for(let i=0;i<N;i++){const p=P(i),q=P(i+1);segs.push({p,q,front:(p[2]+q[2])/2>0});}
+  [false,true].forEach(fr=>segs.filter(g=>g.front===fr).forEach(g=>el(s2,'line',{x1:f(g.p[0]),y1:f(g.p[1]),x2:f(g.q[0]),y2:f(g.q[1]),stroke:fr?C:'#8a6038','stroke-width':fr?7:4.5,'stroke-linecap':'round'})));})();
+const s3=document.getElementById('sh3');[60,180].forEach(cx=>{let p='';for(let a=0;a<6*Math.PI;a+=.15){const r=4+a*2.2;p+=(p?' L':'M')+f(cx+r*Math.cos(a))+' '+f(60+r*Math.sin(a));}el(s3,'path',{d:p,fill:'none',stroke:C,'stroke-width':4,'stroke-linecap':'round'});});
+const s4=document.getElementById('sh4');[[40,40],[110,70],[180,45],[70,90],[160,95]].forEach(([x,y],i)=>el(s4,'path',{d:'M'+(x-14)+' '+(y+8)+' Q'+x+' '+(y-22)+' '+(x+16)+' '+(y+6),fill:'none',stroke:C,'stroke-width':6,'stroke-linecap':'round',transform:'rotate('+(i*37)+' '+x+' '+y+')'}));
+// utvařeč: řez destičkou s drážkou na čele, tříska se o ni ohne
+const u=document.getElementById('utv');
+el(u,'polygon',{points:'60,190 60,80 120,88 132,100 170,104 196,84 360,84 360,190',fill:'#d4b85a'});
+el(u,'rect',{x:10,y:80,width:50,height:110,fill:'#5d6a79'});
+el(u,'rect',{x:10,y:60,width:50,height:20,fill:'#6f7c8b'});
+// utvařeč = drážka v noži (zeleně, jen v materiálu nože pod profilem drážky)
+el(u,'polygon',{points:'120,88 132,100 170,104 196,84 196,94 170,114 132,110 120,98',fill:'#6fc3a0'});
+// tříska leží v drážce nad jejím profilem, o zadní stěnu se ohne a u ní se láme
+el(u,'path',{d:'M62 73 L116 80 C124 82 128 88 134 91 C146 94 162 95 172 93 C182 90 188 84 192 77 C195 72 196 67 196 62',fill:'none',stroke:C,'stroke-width':13,'stroke-linecap':'round'});
+el(u,'path',{d:'M187 68 L195 64 L192 70 L204 66',fill:'none',stroke:'#eaf2fa','stroke-width':2,'stroke-linejoin':'round'});
+el(u,'path',{d:'M205 44 C211 32 205 20 191 16',fill:'none',stroke:C,'stroke-width':13,'stroke-linecap':'round'});
+[[220,24,240,30],[222,38,242,42],[218,12,236,16]].forEach(q=>el(u,'line',{x1:q[0],y1:q[1],x2:q[2],y2:q[3],stroke:'#8296a8','stroke-width':2,'stroke-linecap':'round'}));
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

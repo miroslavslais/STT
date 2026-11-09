@@ -20,7 +20,7 @@
     document.addEventListener('mouseover', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el) el.style.maxHeight = el.scrollHeight + 'px'; });
     document.addEventListener('mouseout', function(e){ var el = e.target.closest('.site-nav-toggle'); if (el && !el.contains(e.relatedTarget)) el.style.maxHeight = '48px'; });
     (function __navSync(){
-      fetch('../../site-structure.json').then(function(r){return r.json();}).then(function(s){
+      fetch('../../site-structure.json?v=' + Date.now()).then(function(r){return r.json();}).then(function(s){
         var links = document.querySelectorAll('.site-nav-toggle a');
         var SELF = 'tvareni-za-tepla/';
         s.nav.forEach(function(item, i){
@@ -227,7 +227,7 @@ class Component extends DCLogic {
   const cdm = Component.prototype.componentDidMount;
   Component.prototype.componentDidMount = function () {
     if (cdm) cdm.call(this);
-    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+    fetch(P + 'site-structure.json?v=' + Date.now()).then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
   };
 })();
 </script>

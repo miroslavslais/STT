@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Geometrie břitu | STT</title>
+<meta name="description" content="Geometrie břitu soustružnického nože: čelo, hřbet, ostří a špička, úhly α, β, γ a δ s interaktivním řezem břitem, úhel sklonu ostří λs, poloměr špičky rε a vliv úhlů na řezání.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma (záměrně jen tmavé — promítání ve výuce), akcent kapitoly Obrábění */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#93b5d3;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg);margin:0}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:16px;right:16px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:38px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #3f5568}
+.grid3{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.ct{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.card p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+.card ul{margin:12px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--muted)}
+.card ul a{color:var(--fg);border-bottom:1px solid #3f5568}
+.card ul a:hover{color:var(--acc)}
+.top-cut{border-top:4px solid #f2a65a}
+.top-feed{border-top:4px solid #6fc3a0}
+.top-res{border-top:4px solid var(--acc)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin:6px 0 18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{border-radius:14px;overflow:hidden}
+.svgbox svg{display:block;width:100%;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.step p+p{margin-top:4px}
+.step b{font-weight:600}
+.k-cut{color:#f2a65a}
+.k-feed{color:#6fc3a0}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15.5px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:900px}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:12px 20px;color:var(--muted);border-top:1px solid var(--line2)}
+td.k{color:var(--fg);font-weight:600}
+th+th,td+td{border-left:1px solid var(--line2)}
+.grid2{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.pict{display:block;width:100%;background:var(--deep);border-radius:12px;margin:0 0 14px}
+.eq{font-family:var(--f-disp);font-weight:700;font-size:20px;color:var(--fg);background:var(--deep);border:1px solid var(--line2);border-top:4px solid var(--acc);border-radius:14px;padding:14px 18px;margin:18px 0;text-align:center;max-width:820px;box-sizing:border-box}
+.sliders{display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;margin:0 0 14px}
+.sl{display:grid;grid-template-columns:150px 1fr 54px;align-items:center;gap:12px;font-size:15px;color:var(--fg)}
+.sl-t{font-weight:600}
+.sl-v{font-family:var(--f-disp);font-weight:700;color:var(--acc);text-align:right}
+.sl input{accent-color:var(--acc);width:100%}
+.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+.mt-t{font-size:14px;color:var(--dim);margin-bottom:6px}
+.bar{height:10px;background:var(--deep);border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.bar-f{height:100%;background:var(--acc);border-radius:999px;transition:width .15s}
+.tbl{max-width:none}
+td{min-width:120px}
+</style>
+</head>
+<body data-first-seen="2026-11-09">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na Základy obrábění</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Základy obrábění</div>
+  <h1>Geometrie břitu</h1>
+  <p class="lead">Tvar břitu určují plochy nástroje a&nbsp;úhly mezi nimi. Úhly rozhodují o&nbsp;řezném odporu, odvodu třísky, zahřívání a&nbsp;pevnosti břitu.</p>
+
+  <h2>Části nože</h2>
+  <p class="t">Soustružnický nůž se skládá z&nbsp;tělesa a&nbsp;řezné části. Břit je klínová část nástroje mezi čelem a&nbsp;hřbetem. Nůž má jeden břit, fréza nebo vrták jich mají více.</p>
+  <div class="panel">
+    <div class="panel-k">Interaktivní</div>
+    <div class="panel-t">Soustružnický nůž</div>
+    <div class="panel-s">Klikni na popisek ve&nbsp;schématu.</div>
+    <div class="svgbox"><svg id="svgN" viewBox="0 0 1000 380" role="img" aria-label="Části soustružnického nože"></svg></div>
+    <p class="info" id="infoN"></p>
+  </div>
+
+  <h2>Úhly α, β, γ a&nbsp;δ</h2>
+  <p class="t">Úhly se měří v&nbsp;řezu kolmém na hlavní ostří. Vztažnými směry jsou směr řezného pohybu a&nbsp;kolmice k&nbsp;němu vedená špičkou nože.</p>
+  <div class="grid4">
+    <div class="card"><div class="ct">α — úhel hřbetu</div><p>Mezi hřbetem a&nbsp;směrem řezného pohybu.</p></div>
+    <div class="card"><div class="ct">β — úhel břitu</div><p>Mezi čelem a&nbsp;hřbetem.</p></div>
+    <div class="card"><div class="ct">γ — úhel čela</div><p>Mezi čelem a&nbsp;kolmicí ke&nbsp;směru řezného pohybu.</p></div>
+    <div class="card"><div class="ct">δ — úhel řezu</div><p>Mezi čelem a&nbsp;směrem řezného pohybu. Platí δ = α + β.</p></div>
+  </div>
+  <div class="eq">α + β + γ = 90°</div>
+  <p class="t">Je-li úhel řezu δ menší než 90°, je úhel čela γ kladný. Je-li δ větší než 90°, je γ záporný.</p>
+
+  <div class="panel">
+    <div class="panel-k">Interaktivní</div>
+    <div class="panel-t">Řez břitem</div>
+    <div class="panel-s">Nastav úhel hřbetu a&nbsp;úhel čela, úhel břitu dopočítá vztah α + β + γ = 90°. Klikni na popisek úhlu ve&nbsp;schématu.</div>
+    <div class="sliders">
+      <label class="sl"><span class="sl-t">α — úhel hřbetu</span><input type="range" id="inA" min="3" max="20" step="1" value="8"><span class="sl-v" id="vA"></span></label>
+      <label class="sl"><span class="sl-t">γ — úhel čela</span><input type="range" id="inG" min="-10" max="40" step="1" value="10"><span class="sl-v" id="vG"></span></label>
+    </div>
+    <div class="svgbox"><svg id="svgU" viewBox="0 0 1000 440" role="img" aria-label="Řez břitem kolmo na hlavní ostří s úhly hřbetu, břitu, čela a řezu"></svg></div>
+    <div class="meters">
+      <div class="mt"><div class="mt-t">Pevnost břitu</div><div class="bar"><div class="bar-f" id="bB"></div></div></div>
+      <div class="mt"><div class="mt-t">Odvod třísky</div><div class="bar"><div class="bar-f" id="bG"></div></div></div>
+      <div class="mt"><div class="mt-t">Tření hřbetu a&nbsp;zahřívání</div><div class="bar"><div class="bar-f" id="bA"></div></div></div>
+    </div>
+    <div class="step"><p id="tA"></p><p id="tG"></p><p id="tD"></p></div>
+    <p class="info" id="infoU"></p>
+  </div>
+
+  <h2>Úhel sklonu ostří λs</h2>
+  <p class="t">Úhel sklonu ostří λs je sklon hlavního ostří vůči rovině kolmé ke&nbsp;směru řezného pohybu. Určuje, kterým směrem po čele odchází tříska, a&nbsp;kterým místem ostří vniká do materiálu.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Sklon hlavního ostří</div>
+        <div class="panel-s" style="margin-bottom:0">Pohled kolmo na hlavní hřbet, hlavní ostří kolmé k ose obrobku. Vyber sklon a klikni na popisek ve schématu.</div>
+      </div>
+      <div class="btns" id="lsBtns"></div>
+    </div>
+    <div class="svgbox"><svg id="svgL" viewBox="0 0 1000 380" role="img" aria-label="Sklon hlavního ostří vůči obrobené a obráběné ploše"></svg></div>
+    <div class="step"><div class="step-t" id="lsT"></div><p id="lsP"></p></div>
+    <p class="info" id="infoL"></p>
+  </div>
+  <p class="t" style="margin-top:18px">Záporný sklon ostří se proto volí pro hrubování a&nbsp;přerušovaný řez. Tříska odcházející k&nbsp;obrobené ploše ji ale může poškrábat.</p>
+
+  <h2>Poloměr špičky rε</h2>
+  <p class="t">Špička nože je zaoblená poloměrem rε. Na obrobené ploše zanechává řadu stop vzdálených od sebe o&nbsp;posuv. Mezi stopami zůstávají nerovnosti.</p>
+  <div class="grid2">
+    <div class="card"><svg class="pict" id="re1" viewBox="0 0 400 150" role="img" aria-label="Nerovnosti po noži s malým poloměrem špičky"></svg><div class="ct">Malý rε</div><p>Při stejném posuvu zůstávají vyšší nerovnosti. Špička je slabší a&nbsp;rychleji se opotřebí.</p></div>
+    <div class="card"><svg class="pict" id="re2" viewBox="0 0 400 150" role="img" aria-label="Nerovnosti po noži s velkým poloměrem špičky"></svg><div class="ct">Velký rε</div><p>Při stejném posuvu zůstávají nižší nerovnosti a&nbsp;špička je pevnější. Delší styk ostří zvětšuje radiální složku řezné síly a&nbsp;sklon ke&nbsp;chvění.</p></div>
+  </div>
+
+  <h2>Vliv úhlů na řezání</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Úhel</th><th>Co ovlivňuje</th><th>Větší úhel</th><th>Menší úhel</th><th>Volba</th></tr></thead>
+    <tbody>
+      <tr><td class="k">α — úhel hřbetu</td><td>tření mezi hlavním hřbetem a&nbsp;přechodovou plochou</td><td>menší tření, nůž se méně zahřívá</td><td>pro tvrdší materiály</td><td>3 až 20°, pro běžné obrábění 8 až 12°</td></tr>
+      <tr><td class="k">β — úhel břitu</td><td>odpor, který materiál klade vnikání nože</td><td>pevnější břit</td><td>lépe proniká do materiálu, rychle se zahřívá, není dost pevný a&nbsp;rychle se otupí</td><td>neuvádí se, vyplývá z&nbsp;α a&nbsp;γ</td></tr>
+      <tr><td class="k">γ — úhel čela</td><td>trvanlivost nástroje, řezný odpor, odvod třísky</td><td>lépe odvádí třísku, zeslabuje břit</td><td>pevnější břit</td><td>měkké materiály až 40°, pevné a&nbsp;tvrdé materiály jen několik stupňů, záporný u&nbsp;nožů ze&nbsp;SK pro nejpevnější a&nbsp;nejtvrdší materiály a&nbsp;přerušovaný řez</td></tr>
+      <tr><td class="k">δ — úhel řezu</td><td>znaménko úhlu čela</td><td>nad 90° je γ záporný</td><td>pod 90° je γ kladný</td><td>δ = α + β</td></tr>
+      <tr><td class="k">λs — sklon ostří</td><td>směr odchodu třísky, místo prvního styku</td><td>kladný: tříska od obrobené plochy</td><td>záporný: tříska k&nbsp;obrobené ploše, chráněná špička</td><td>záporný pro hrubování a&nbsp;přerušovaný řez</td></tr>
+      <tr><td class="k">rε — poloměr špičky</td><td>nerovnosti obrobené plochy, pevnost špičky</td><td>nižší nerovnosti, pevnější špička, větší sklon ke&nbsp;chvění</td><td>vyšší nerovnosti, slabší špička</td><td>podle požadované drsnosti a&nbsp;tuhosti soustavy</td></tr>
+    </tbody>
+  </table></div>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#93b5d3';
+const nb=s=>s.replace(/(^|[\s(„])([aikosuvzAIKOSUVZ]|[vzkVZK]e) /g,'$1$2'+NB);
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const lw=t=>Math.round(t.length*7.8+24);
+const key=(g,fn)=>{g.addEventListener('click',fn);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+const pts=a=>a.map(q=>f(q[0])+','+f(q[1])).join(' ');
+const METAL='#5d6a79', MACH='#8a98a8', TOOL='#d4b85a', LEAD='#8296a8', CHIP='#c08a50', DIM='#4a5768';
+const label=(p,x,y,txt,fn)=>{const w=lw(txt);const g=el(p,'g',{class:'lbl',tabindex:0,role:'button'});
+  const r=el(g,'rect',{x,y,width:w,height:28,rx:8});const t=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});t.textContent=txt;key(g,fn);g.__r=r;g.__t=t;return g;};
+const leader=(p,x1,y1,x2,y2)=>el(p,'line',{x1,y1,x2,y2,stroke:LEAD,'stroke-width':1.5,'pointer-events':'none'});
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v='+Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- PRVEK 1 — části nože (šikmý průmět) ---------- */
+(function(){
+const svg=document.getElementById('svgN'), info=document.getElementById('infoN');
+// půdorys nože (x vpravo, y do hloubky), výška z dolů; průmět sx = 220 + x − 0,9y, sy = 200 − 0,5y − z
+const Pj=(x,y,z)=>[220+x-0.9*y,200-0.5*y-z];
+const Z=-70, S=[80,20], A=[200,0], C=[95,80], E=[620,0], F=[620,80], K0=[300,0], K1=[300,80];
+const T=q=>Pj(q[0],q[1],0), B=q=>Pj(q[0],q[1],Z);
+const INFO={
+  teleso:'Těleso (stopka) slouží k upnutí nože do nožové hlavy. Na řezání se nepodílí.',
+  celo:'Čelo je plocha, po které odchází tříska.',
+  hhrbet:'Hlavní hřbet je plocha přivrácená k přechodové ploše na obrobku.',
+  vhrbet:'Vedlejší hřbet je plocha přivrácená k obrobené ploše.',
+  hostri:'Hlavní ostří je průsečnice čela a hlavního hřbetu. Odděluje většinu třísky.',
+  vostri:'Vedlejší ostří je průsečnice čela a vedlejšího hřbetu. Dotváří obrobenou plochu.',
+  spicka:'Špička je místo, kde se stýká hlavní a vedlejší ostří. Bývá zaoblená poloměrem rε.'};
+const Hn={}, L={};let s=null;
+const face=(k,poly,fill)=>{const e=el(svg,'polygon',{points:pts(poly),fill,stroke:'#3a3018','stroke-width':1.2,'stroke-linejoin':'round'});e.__b=fill;(Hn[k]=Hn[k]||[]).push(e);return e;};
+face('vhrbet',[T(C),T(S),B(S),B(C)],'#9a8440');
+face('hhrbet',[T(S),T(A),B(A),B(S)],'#a8903f');
+face('teleso',[T(A),T(E),B(E),B(A)],'#8c7a3e');
+face('teleso',[T(K0),T(E),T(F),T(K1)],'#c9ad55');
+face('celo',[T(S),T(A),T(K0),T(K1),T(C)],TOOL);
+const edge=(k,a,b)=>{const p=T(a),q=T(b);const e=el(svg,'line',{x1:f(p[0]),y1:f(p[1]),x2:f(q[0]),y2:f(q[1]),stroke:'#3a3018','stroke-width':3,'stroke-linecap':'round'});e.__s=1;Hn[k]=[e];};
+edge('hostri',S,A);edge('vostri',S,C);
+const sp=T(S);const spc=el(svg,'circle',{cx:f(sp[0]),cy:f(sp[1]),r:6,fill:'#3a3018'});spc.__b='#3a3018';Hn.spicka=[spc];
+const paint=()=>{Object.keys(Hn).forEach(k=>{const on=s===k;Hn[k].forEach(e=>{
+    if(e.__s){e.setAttribute('stroke',on?ACC:'#3a3018');e.setAttribute('stroke-width',on?6:3);}
+    else e.setAttribute('fill',on?ACC:e.__b);});L[k].classList.toggle('on',on);});
+  info.textContent=s?nb(INFO[s]):'Klikni na'+NB+'popisek ve'+NB+'schématu.';};
+const mk=(k,x,y,txt,lx1,ly1,lx2,ly2)=>{leader(svg,lx1,ly1,lx2,ly2);L[k]=label(svg,x,y,txt,()=>{s=s===k?null:k;paint();});};
+const mSA=[(T(S)[0]+T(A)[0])/2,(T(S)[1]+T(A)[1])/2], mSC=[(T(S)[0]+T(C)[0])/2,(T(S)[1]+T(C)[1])/2];
+mk('vostri',60,120,'vedlejší ostří',193,134,mSC[0],mSC[1]);
+mk('spicka',120,186,'špička',191,200,sp[0]-6,sp[1]+2);
+mk('vhrbet',60,262,'vedlejší hřbet',193,276,262,226);
+mk('hhrbet',230,320,'hlavní hřbet',300,320,340,240);
+mk('hostri',300,60,'hlavní ostří',355,88,355,mSA[1]+(355-mSA[0])*(T(A)[1]-T(S)[1])/(T(A)[0]-T(S)[0]));
+mk('celo',470,60,'čelo',496,88,470,186);
+mk('teleso',700,300,'těleso',735,300,720,240);
+paint();
+})();
+
+/* ---------- PRVEK 2 — řez břitem s posuvníky ---------- */
+(function(){
+const svg=document.getElementById('svgU'), info=document.getElementById('infoU');
+const inA=document.getElementById('inA'), inG=document.getElementById('inG');
+const TX=520, TY=280, H0=60, R=Math.PI/180;
+const g=el(svg,'g',{});
+const INFO={
+  a:'Úhel hřbetu α určuje velikost tření mezi hlavním hřbetem a přechodovou plochou. Čím je větší, tím méně se nůž zahřívá.',
+  b:'Úhel břitu β určuje odpor, který materiál klade vnikání nože. Menší β lépe proniká do materiálu, ale břit se rychle zahřívá, není dost pevný a rychle se otupí. Na nástrojích se zpravidla neuvádí, vyplývá z α a γ.',
+  g:'Úhel čela γ rozhoduje o trvanlivosti nástroje a o velikosti řezného odporu. Větší γ lépe odvádí třísku, ale zeslabuje břit.',
+  d:'Úhel řezu δ je součet α + β. Pod 90° je úhel čela kladný, nad 90° záporný.',
+  v:'Šipka ukazuje pohyb obrobku vůči nástroji. Směr řezného pohybu je ve schématu vodorovný, proto se α měří od vodorovné čáry a γ od svislé čáry vedené špičkou.'};
+let sel=null;const L={}, ARC={};
+const arcD=(r,a0,a1)=>{const x0=TX+r*Math.cos(a0*R),y0=TY+r*Math.sin(a0*R),x1=TX+r*Math.cos(a1*R),y1=TY+r*Math.sin(a1*R);
+  return 'M'+f(x0)+' '+f(y0)+' A'+r+' '+r+' 0 0 '+(a1>a0?1:0)+' '+f(x1)+' '+f(y1);};
+// statické prvky
+const wp=el(g,'polygon',{fill:METAL});
+el(g,'line',{x1:TX,y1:TY,x2:980,y2:TY,stroke:MACH,'stroke-width':4});
+const chip=el(g,'polygon',{fill:CHIP});
+const tool=el(g,'polygon',{fill:TOOL});
+el(g,'line',{x1:TX,y1:TY,x2:TX,y2:40,stroke:DIM,'stroke-width':1.5,'stroke-dasharray':'8 6'});
+el(g,'line',{x1:TX,y1:TY,x2:980,y2:TY,stroke:DIM,'stroke-width':1.5,'stroke-dasharray':'8 6'});
+// šipka směru řezného pohybu nástroje vůči obrobku
+el(g,'line',{x1:640,y1:370,x2:790,y2:370,stroke:'#eaf2fa','stroke-width':4,'stroke-linecap':'round'});
+el(g,'polygon',{points:'804,370 790,362 790,378',fill:'#eaf2fa'});
+const C={a:'#6fc3a0',b:'#eaf2fa',g:'#ffd27a',d:ACC};
+['d','a','b','g'].forEach(k=>{ARC[k]=el(g,'path',{fill:'none',stroke:C[k],'stroke-width':2.5});});
+const lines={};['a','b','g','d'].forEach(k=>{lines[k]=el(g,'line',{stroke:LEAD,'stroke-width':1.5,'pointer-events':'none'});});
+const lg=el(svg,'g',{});
+const tx={};
+function paint(){Object.keys(L).forEach(k=>{L[k].classList.toggle('on',sel===k);ARC[k].setAttribute('stroke-width',sel===k?5:2.5);});
+  info.textContent=sel?nb(INFO[sel]):'Klikni na'+NB+'popisek úhlu ve'+NB+'schématu.';}
+function draw(){
+  const a=+inA.value, gm=+inG.value, b=90-a-gm, d=a+b;
+  document.getElementById('vA').textContent=a+'°';document.getElementById('vG').textContent=gm+'°';
+  // čelo: směr od špičky nahoru odkloněný o γ; hřbet: směr vpravo zvednutý o α
+  const u=[Math.sin(gm*R),-Math.cos(gm*R)], ru=[TX+260*Math.tan(gm*R),TY-260];
+  const fl=[900,TY-380*Math.tan(a*R)];
+  tool.setAttribute('points',pts([[TX,TY],ru,[900,TY-260],fl]));
+  // tříska: rovina střihu od špičky k povrchu, tříska klouže po čele
+  const phi=(30+gm/2)*R, qx=TX-H0/Math.tan(phi), hc=H0*Math.cos(phi-gm*R)/Math.sin(phi), Lc=170;
+  const r2=[TX+u[0]*Lc,TY+u[1]*Lc], nO=[-Math.cos(gm*R),-Math.sin(gm*R)], r1=[r2[0]+nO[0]*hc,r2[1]+nO[1]*hc];
+  chip.setAttribute('points',pts([[qx,TY-H0],[TX,TY],r2,r1]));
+  wp.setAttribute('points',pts([[30,TY-H0],[qx,TY-H0],[TX,TY],[980,TY],[980,420],[30,420]]));
+  // oblouky (úhly v SVG: 0° = vpravo, −90° = nahoru)
+  const aR=-90+gm, aF=-a;
+  ARC.g.setAttribute('d',arcD(215,-90,aR));
+  ARC.b.setAttribute('d',arcD(60,aR,aF));
+  ARC.a.setAttribute('d',arcD(110,aF,0));
+  ARC.d.setAttribute('d',arcD(150,aR,0));
+  const mid=(r,a0,a1)=>{const m=(a0+a1)/2*R;return [TX+r*Math.cos(m),TY+r*Math.sin(m)];};
+  const pos={
+    g:{at:mid(215,-90,aR),x:330,y:70},
+    b:{at:mid(60,aR,aF),x:620,y:130},
+    a:{at:mid(110,aF,0),x:700,y:300},
+    d:{at:mid(150,aR,0),x:760,y:150}};
+  const T={a:'α = '+a+'°',b:'β = '+b+'°',g:'γ = '+gm+'°',d:'δ = '+d+'°'};
+  Object.keys(pos).forEach(k=>{const o=pos[k],w=lw(T[k]);
+    if(!L[k])L[k]=label(lg,o.x,o.y,T[k],()=>{sel=sel===k?null:k;paint();});
+    L[k].__r.setAttribute('width',w);L[k].__t.setAttribute('x',o.x+w/2);L[k].__t.textContent=T[k];
+    const lx=k==='g'?o.x+w:o.x, ly=o.y+14;
+    lines[k].setAttribute('x1',f(lx));lines[k].setAttribute('y1',ly);lines[k].setAttribute('x2',f(o.at[0]));lines[k].setAttribute('y2',f(o.at[1]));});
+  // ukazatele (bez čísel)
+  document.getElementById('bB').style.width=f((b-30)/(87-30)*90+10)+'%';
+  document.getElementById('bG').style.width=f((gm+10)/50*90+10)+'%';
+  document.getElementById('bA').style.width=f((20-a)/17*90+10)+'%';
+  // slovní vyhodnocení podle zadaných rozsahů
+  document.getElementById('tA').textContent=nb(a>=8&&a<=12?'α je v rozmezí 8 až 12°, které je optimální pro běžné obrábění.'
+    :a<8?'Malý úhel hřbetu — volí se pro tvrdší materiály. Hřbet se víc tře o přechodovou plochu a nůž se víc zahřívá.'
+    :'Velký úhel hřbetu — menší tření a menší zahřívání. Úhel břitu β se zmenšuje a břit slábne.');
+  document.getElementById('tG').textContent=nb(gm<0?'Záporný úhel čela — nože ze SK pro obrábění nejpevnějších a nejtvrdších materiálů a pro přerušovaný řez.'
+    :gm===0?'Nulový úhel čela — čelo je kolmé ke směru řezného pohybu.'
+    :gm>=35?'Velký úhel čela — tříska dobře odchází a řezný odpor je malý, břit je slabý. Pro soustružení měkkých materiálů se volí až 40°.'
+    :'Kladný úhel čela. Pro pevné a tvrdé materiály bývá jen několik stupňů, větší úhel čela lépe odvádí třísku a zeslabuje břit.');
+  document.getElementById('tD').textContent=nb('δ = α + β = '+d+'° — '+(d<90?'menší než 90°, úhel čela je kladný.':d>90?'větší než 90°, úhel čela je záporný.':'rovná se 90°, úhel čela je nulový.'));
+  paint();
+}
+const lv=label(lg,820,356,'řezný pohyb',()=>{sel=sel==='v'?null:'v';paint();});L.v=lv;ARC.v=el(g,'g',{});
+inA.addEventListener('input',draw);inG.addEventListener('input',draw);draw();
+})();
+
+/* ---------- PRVEK 3 — sklon ostří λs ---------- */
+(function(){
+const svg=document.getElementById('svgL'), info=document.getElementById('infoL'), R=Math.PI/180;
+// pohled kolmo na hlavní hřbet: vodorovně směr ostří (od osy obrobku ven), svisle směr řezného pohybu (materiál přichází shora)
+const TX=330, TY=210, XF=690;
+const MODES=[
+  {k:'p',name:'Kladný λs',l:12,t:'Špička je nejvyšším bodem ostří. Do materiálu vniká nejdřív špička. Tříska odchází směrem od obrobené plochy.'},
+  {k:'0',name:'Nulový λs',l:0,t:'Ostří leží v rovině kolmé ke směru řezného pohybu. Do materiálu vniká celé ostří najednou. Tříska odchází kolmo k ostří.'},
+  {k:'n',name:'Záporný λs',l:-12,t:'Špička je nejnižším bodem ostří. Do materiálu vniká nejdřív místo ostří vzdálené od špičky, špička je chráněna před rázy. Tříska odchází směrem k obrobené ploše.'}];
+const INFO={
+  oo:'Obrobená plocha vzniká za špičkou nože. Leží na straně špičky.',
+  oa:'Obráběná plocha je povrch obrobku před řezem. Leží na opačném konci hlavního ostří než špička.',
+  ostri:'Hlavní ostří vede od špičky k obráběné ploše. Jeho sklon vůči rovině kolmé ke směru řezného pohybu je úhel λs.',
+  spicka:'Špička leží na obrobené ploše a dotváří ji.',
+  triska:{p:'Tříska odchází po čele směrem od obrobené plochy.',0:'Tříska odchází po čele kolmo k ostří.',n:'Tříska odchází po čele směrem k obrobené ploše a může ji poškrábat.'},
+  ls:'Úhel sklonu ostří λs se měří mezi hlavním ostřím a rovinou kolmou ke směru řezného pohybu (čárkovaně). Kladný je, když je špička nejvyšším bodem ostří, záporný, když je nejnižším.',
+  vc:'Obrobek se vůči nástroji pohybuje ve směru šipky. Materiál přichází na ostří shora, proto do něj vniká nejdřív nejvýše položený bod ostří.'};
+let mode=0, sel=null;
+const btnBox=document.getElementById('lsBtns');
+const btns=MODES.map((m,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=m.name;b.onclick=()=>{mode=i;draw();};btnBox.appendChild(b);return b;});
+el(svg,'rect',{x:90,y:40,width:TX-90,height:300,fill:METAL});
+const layer=el(svg,'polygon',{fill:'#6f7c8b'});
+const tool=el(svg,'polygon',{fill:TOOL});
+el(svg,'line',{x1:TX,y1:40,x2:TX,y2:TY,stroke:'#4a5768','stroke-width':1.5,'stroke-dasharray':'6 5'});
+el(svg,'line',{x1:120,y1:TY,x2:900,y2:TY,stroke:'#4a5768','stroke-width':1.5,'stroke-dasharray':'8 6'});
+const H={};
+H.oo=el(svg,'line',{x1:TX,y1:TY,x2:TX,y2:340,stroke:'#c7d2dd','stroke-width':4});
+H.oa=el(svg,'line',{x1:XF,y1:40,stroke:'#c7d2dd','stroke-width':4,x2:XF});
+H.ostri=el(svg,'line',{x1:TX,y1:TY,stroke:'#3a3018','stroke-width':5,'stroke-linecap':'round'});
+H.ls=el(svg,'path',{fill:'none',stroke:'#ffd27a','stroke-width':3});
+const chipL=el(svg,'line',{stroke:CHIP,'stroke-width':5,'stroke-linecap':'round'}), chipH=el(svg,'polygon',{fill:CHIP});
+H.triska=chipL;
+el(svg,'line',{x1:790,y1:100,x2:790,y2:178,stroke:'#eaf2fa','stroke-width':4,'stroke-linecap':'round'});
+const vcH=el(svg,'polygon',{points:'790,192 782,178 798,178',fill:'#eaf2fa'});H.vc=vcH;
+H.spicka=el(svg,'circle',{cx:TX,cy:TY,r:8,fill:'#3a3018'});
+Object.values(H).forEach(e=>{e.__s=e.getAttribute('stroke');e.__f=e.getAttribute('fill');e.__w=+e.getAttribute('stroke-width')||0;});
+const L={}, LN={};
+const mk=(k,x,y,txt)=>{L[k]=label(svg,x,y,txt,()=>{sel=sel===k?null:k;paint();});};
+const ln=k=>{LN[k]=el(svg,'line',{stroke:LEAD,'stroke-width':1.5,'pointer-events':'none'});};
+['oo','oa','spicka','ostri','triska','ls'].forEach(ln);
+mk('oo',130,286,'obrobená plocha');mk('oa',720,40,'obráběná plocha');mk('spicka',150,150,'špička');
+mk('ostri',541,300,'hlavní ostří');mk('triska',560,40,'tříska');mk('ls',0,0,'λs');mk('vc',810,125,'řezný pohyb');
+const setL=(k,x1,y1,x2,y2)=>{LN[k].setAttribute('x1',f(x1));LN[k].setAttribute('y1',f(y1));LN[k].setAttribute('x2',f(x2));LN[k].setAttribute('y2',f(y2));};
+function paint(){Object.keys(H).forEach(k=>{const on=sel===k,e=H[k];
+    if(e.__s&&e.__s!=='none'&&e.tagName!=='polygon'){e.setAttribute('stroke',on?ACC:e.__s);e.setAttribute('stroke-width',on?e.__w+3:e.__w);}
+    if(e.tagName==='circle'||e.tagName==='polygon')e.setAttribute('fill',on?ACC:e.__f);});
+  chipH.setAttribute('fill',sel==='triska'?ACC:CHIP);
+  Object.keys(L).forEach(k=>L[k].classList.toggle('on',sel===k));
+  const t=sel?(sel==='triska'?INFO.triska[MODES[mode].k]:INFO[sel]):'Klikni na'+NB+'popisek ve'+NB+'schématu.';
+  info.textContent=nb(t);}
+function draw(){const M=MODES[mode], l=M.l, ey=TY+(XF-TX)*Math.tan(l*R);
+  btns.forEach((b,i)=>b.setAttribute('aria-pressed',i===mode));
+  layer.setAttribute('points',pts([[TX,40],[XF,40],[XF,ey],[TX,TY]]));
+  tool.setAttribute('points',pts([[TX,TY],[XF,ey],[XF,340],[TX+14,340]]));
+  H.oa.setAttribute('y2',f(ey));H.ostri.setAttribute('x2',XF);H.ostri.setAttribute('y2',f(ey));
+  // oblouk λs u špičky mezi vztažnou rovinou a ostřím
+  const r=150, ax=TX+r*Math.cos(l*R), ay=TY+r*Math.sin(l*R);
+  H.ls.setAttribute('d',l===0?'M'+(TX+r)+' '+(TY-1)+' L'+(TX+r)+' '+(TY+1):'M'+(TX+r)+' '+TY+' A'+r+' '+r+' 0 0 '+(l>0?1:0)+' '+f(ax)+' '+f(ay));
+  // tříska: z poloviny ostří nahoru, odklon podél ostří podle znaménka λs
+  const mx=(TX+XF)/2, my=(TY+ey)/2-16, s=Math.sign(l), dx=s*70, dy=-95, L0=Math.hypot(dx,dy), ux=dx/L0, uy=dy/L0, hx=mx+dx, hy=my+dy;
+  chipL.setAttribute('x1',f(mx));chipL.setAttribute('y1',f(my));chipL.setAttribute('x2',f(hx));chipL.setAttribute('y2',f(hy));
+  chipH.setAttribute('points',pts([[hx+ux*16,hy+uy*16],[hx-uy*9,hy+ux*9],[hx+uy*9,hy-ux*9]]));
+  // popisky a odkazové čáry
+  const lsx=TX+175, lsy=l>0?TY-62:TY+30;
+  L.ls.querySelector('rect').setAttribute('x',f(lsx));L.ls.querySelector('rect').setAttribute('y',f(lsy));
+  L.ls.querySelector('text').setAttribute('x',f(lsx+20));L.ls.querySelector('text').setAttribute('y',f(lsy+19));
+  setL('ls',lsx+20,l>0?lsy+28:lsy,TX+r*Math.cos(l/2*R),TY+r*Math.sin(l/2*R));
+  setL('oo',271,300,TX-2,300);setL('oa',720,54,XF+2,54);setL('spicka',221,164,TX-6,TY-5);
+  const ox=600;setL('ostri',ox,300,ox,TY+(ox-TX)*Math.tan(l*R)+4);
+  setL('triska',595,68,mx+dx*.6,my+dy*.6);
+  document.getElementById('lsT').textContent=M.name;document.getElementById('lsP').textContent=nb(M.t);
+  paint();}
+draw();
+})();
+/* ---------- statické obrázky rε ---------- */
+(function(){
+// stopy špičky na obrobené ploše: posuv 70, poloměr podle obrázku
+const re=(id,r)=>{const svg=document.getElementById(id), fz=70, y=50;let d='M10 140 L10 ';const h=r-Math.sqrt(r*r-(fz/2)**2);
+  let x=10;d+=f(y+h)+' ';
+  for(let i=0;i<6;i++){d+='A'+r+' '+r+' 0 0 0 '+f(x+fz)+' '+f(y+h)+' ';x+=fz;}
+  d+='L'+f(x)+' 140 Z';el(svg,'path',{d,fill:'#8a98a8'});
+  el(svg,'line',{x1:10,y1:y+h,x2:f(x),y2:f(y+h),stroke:'#4a5768','stroke-width':1.5,'stroke-dasharray':'6 5'});};
+re('re1',38);re('re2',110);
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

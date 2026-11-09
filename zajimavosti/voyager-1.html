@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voyager 1: jeden světelný den od Země | STT</title>
+<meta name="description" content="Voyager 1 je 18. 11. 2026 jako první objekt vyrobený člověkem jeden světelný den od Země. Živé počítadlo vzdálenosti, poloha sondy, napájení, palubní počítače a 3D pohled NASA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Sekce Technika kolem nás — světlé téma hlavní stránky */
+:root{
+  --bg:#fbf8f3; --card:#fff; --deep:#f6f1e8; --line:#e5ded2; --line2:#eee5d8;
+  --fg:#231d16; --muted:#6b6255; --dim:#8a8072; --acc:#b0561f;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+}
+html,body{margin:0;background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:24px;right:24px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(35,29,22,.08);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#5c5346;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:24px;left:24px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.back:hover{color:var(--acc)}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1080px;margin:0 auto}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:44px;line-height:1.15;margin:0 0 14px}
+h2{font-family:var(--f-disp);font-weight:700;font-size:28px;margin:56px 0 14px}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #e3c2ab}
+.link:hover{border-bottom-color:var(--acc)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 30px;box-shadow:0 1px 3px rgba(35,29,22,.06);margin-top:28px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-s{font-size:14.5px;color:var(--dim);margin:4px 0 0;line-height:1.6}
+.cnt{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:14px 0 16px}
+.cnt-i{background:var(--deep);border:1px solid var(--line2);border-radius:16px;padding:16px 18px}
+.cnt-i b{display:block;font-family:var(--f-disp);font-weight:700;font-size:30px;color:var(--fg);line-height:1.2;font-variant-numeric:tabular-nums}
+.cnt-i span{font-size:14px;color:var(--muted)}
+.cnt-i b small{font-size:18px;color:var(--muted);font-weight:600}
+.milestone{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);font-variant-numeric:tabular-nums}
+.milestone+.milestone{margin-top:4px;color:var(--fg)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0 0}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.fact b{display:block;font-family:var(--f-disp);font-weight:700;font-size:24px;color:var(--acc);line-height:1.2}
+.fact span{font-size:14px;color:var(--muted)}
+.fig{margin:6px 0 20px;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;max-width:820px}
+.fig img{display:block;width:100%;height:auto}
+.fig figcaption{padding:10px 16px 12px;font-size:14px;color:var(--muted)}
+.eyes{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.eyes iframe{display:block;width:100%;height:600px;border:0;background:#000}
+.eyes-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;font-size:14px;color:var(--muted)}
+.btn{padding:8px 14px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14px;background:var(--acc);color:#fff;border:1px solid var(--acc);flex:none}
+.btn:hover{background:#963f12}
+.src{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:14.5px;line-height:1.6;color:var(--dim)}
+.src a{color:var(--muted);border-bottom:1px solid var(--line)}
+.src a:hover{color:var(--acc)}
+</style>
+</head>
+<body data-first-seen="2026-11-09">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na&nbsp;Techniku kolem nás</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Technika kolem nás</div>
+  <h1>Voyager 1: jeden světelný den od&nbsp;Země</h1>
+  <p class="lead">Sonda Voyager 1 odstartovala 5.&nbsp;9.&nbsp;1977. Dne 18.&nbsp;11.&nbsp;2026 v&nbsp;11:16:07 středoevropského času je od&nbsp;Země tak daleko, že&nbsp;její signál letí rychlostí světla celých 24&nbsp;hodin. Je to první objekt vyrobený člověkem, který dosáhl vzdálenosti jednoho světelného dne.</p>
+
+  <section class="panel" aria-live="off">
+    <div class="panel-k">Právě teď</div>
+    <div class="cnt">
+      <div class="cnt-i"><b id="cEarth">—</b><span>km od&nbsp;Země</span></div>
+      <div class="cnt-i"><b id="cSun">—</b><span>km od&nbsp;Slunce</span></div>
+      <div class="cnt-i"><b id="cLight">—</b><span>letí signál ze&nbsp;sondy k&nbsp;Zemi</span></div>
+    </div>
+    <div class="milestone" id="cMile">—</div>
+    <div class="milestone" id="cYear">—</div>
+    <p class="panel-s">Hodnoty počítá stránka z&nbsp;modelu: sonda letí přímo od&nbsp;Slunce rychlostí 16,917&nbsp;km/s ve&nbsp;směru souhvězdí Hadonoše, Země obíhá kolem Slunce. Model je nastavený tak, aby&nbsp;vzdálenost od&nbsp;Země přesně odpovídala jednomu světelnému dni v&nbsp;okamžiku udaném NASA. Odpočet do&nbsp;světelného roku se počítá od&nbsp;Slunce a&nbsp;předpokládá stálou rychlost sondy. Přesné hodnoty ukazuje 3D pohled NASA níže.</p>
+  </section>
+
+  <div class="facts">
+    <div class="fact"><b>5.&nbsp;9.&nbsp;1977</b><span>start sondy</span></div>
+    <div class="fact"><b>173,14&nbsp;AU</b><span>= 1&nbsp;světelný den</span></div>
+    <div class="fact"><b>16,917&nbsp;km/s</b><span>rychlost vůči Slunci</span></div>
+    <div class="fact"><b>2 z&nbsp;10</b><span>vědeckých přístrojů stále pracují</span></div>
+  </div>
+
+  <h2>Kde je Voyager 1</h2>
+  <figure class="fig"><img src="img/voyager-poloha.svg" alt="Slunce, Země na oběžné dráze a Voyager 1 za heliopauzou, signál ze sondy letí k Zemi 24 hodin (vlastní schéma, měřítko neodpovídá)" width="600" height="260"><figcaption>Slunce, Země a&nbsp;Voyager 1 za&nbsp;heliopauzou, měřítko neodpovídá skutečnosti (vlastní schéma)</figcaption></figure>
+  <p class="t">Astronomická jednotka (AU) je střední vzdálenost Země od&nbsp;Slunce, 149&nbsp;597&nbsp;870,7&nbsp;km. Světlo ji urazí za&nbsp;8&nbsp;minut a&nbsp;19&nbsp;sekund. Jeden světelný den je 25,902&nbsp;miliardy km, tedy 173,14&nbsp;AU. Voyager 1 je od&nbsp;Země zhruba 173× dál než Slunce.</p>
+  <p class="t">Sonda prolétla kolem Jupiteru a&nbsp;Saturnu. Od&nbsp;té doby se vzdaluje od&nbsp;Slunce po&nbsp;téměř přímé dráze. V&nbsp;roce 2012 prošla heliopauzou — hranicí, kde končí vliv slunečního větru — a&nbsp;letí mezihvězdným prostorem. Na&nbsp;jeden světelný den se dostala za&nbsp;49&nbsp;let, 2&nbsp;měsíce a&nbsp;11&nbsp;dní.</p>
+  <p class="t">Vzdálenost od&nbsp;Slunce roste rovnoměrně. Vzdálenost od&nbsp;Země během roku kolísá, protože Země obíhá kolem Slunce a&nbsp;je k&nbsp;sondě jednou blíž, jindy dál. Podle výpočtu na&nbsp;této stránce se několik měsíců v&nbsp;roce vzdálenost od&nbsp;Země dokonce zmenšuje. Pohyb sondy však převáží a&nbsp;pod&nbsp;jeden světelný den se už nevrátí.</p>
+  <p class="t">Dvojče Voyager 2 letí jiným směrem a&nbsp;pomaleji. Jednoho světelného dne by dosáhlo v&nbsp;listopadu 2035.</p>
+
+  <h2>Spojení se&nbsp;Zemí</h2>
+  <p class="t">Rádiový signál se šíří rychlostí světla. Příkaz ze&nbsp;Země letí k&nbsp;sondě 24&nbsp;hodin a&nbsp;odpověď stejně dlouho zpátky. Ověření jednoho příkazu tak trvá dva dny.</p>
+
+  <h2>Napájení</h2>
+  <p class="t">Sondu napájí radioizotopový termoelektrický generátor: rozpad plutonia uvolňuje teplo a&nbsp;termočlánky ho mění na&nbsp;elektřinu. Výkon s&nbsp;rozpadem paliva klesá, každá sonda ztrácí asi 4&nbsp;W za&nbsp;rok.</p>
+  <p class="t">Každý Voyager nesl 10 sad vědeckých přístrojů. Při plánovaném natočení sondy 27.&nbsp;2.&nbsp;2026 klesl výkon nečekaně níž. NASA proto 17.&nbsp;4.&nbsp;2026 vypnula přístroj pro nízkoenergetické nabité částice (LECP). Na&nbsp;Voyageru 1 dál pracují dva přístroje: magnetometr a&nbsp;detektor plazmových vln. Vypnutí má prodloužit provoz zhruba o&nbsp;rok. Na&nbsp;další úsporu NASA připravila přepojení napájení nazvané „Big Bang“. Zkoušku plánovala nejdřív na&nbsp;Voyageru 2, který má víc výkonu a&nbsp;je blíž Zemi.</p>
+
+  <h2>Palubní počítače</h2>
+  <p class="t">Sondu řídí tři počítače. Řídicí počítač (CCS) vykonává příkazy a&nbsp;hlídá poruchy. Počítač orientace (AACS) natáčí sondu a&nbsp;anténu k&nbsp;Zemi. Datový počítač (FDS) sbírá data z&nbsp;přístrojů a&nbsp;připravuje je k&nbsp;odeslání. Každý je zdvojený, aby&nbsp;při poruše převzala práci záložní část.</p>
+  <p class="t">CCS a&nbsp;AACS mají po&nbsp;4&nbsp;kiloslovech paměti s&nbsp;18bitovým slovem. Procesory jsou sestavené z&nbsp;jednotlivých logických obvodů řady 7400. Program běží bez operačního systému. CCS zná 64 instrukcí a&nbsp;mezi nimi chybí násobení a&nbsp;dělení.</p>
+  <p class="t">V&nbsp;listopadu 2023 přestal Voyager 1 posílat čitelná data. Příčinou byl vadný paměťový čip v&nbsp;FDS. Opravit ho nešlo, a&nbsp;tak inženýři rozdělili postižený program na&nbsp;části a&nbsp;uložili je do&nbsp;volných míst zbylé paměti. Upravili odkazy mezi částmi, aby&nbsp;program dál fungoval. Sonda potvrdila opravu 20.&nbsp;4.&nbsp;2024.</p>
+
+  <h2>3D pohled NASA</h2>
+  <p class="t">Aplikace NASA Eyes on the Solar System ukazuje polohu sondy a&nbsp;její aktuální vzdálenost podle dat NASA. Pohledem se otáčí myší, kolečkem se přibližuje.</p>
+  <div class="eyes">
+    <iframe src="https://eyes.nasa.gov/apps/solar-system/#/sc_voyager_1?embed=true" title="NASA Eyes on the Solar System — Voyager 1" loading="lazy" allow="fullscreen"></iframe>
+    <div class="eyes-bar"><span>Zdroj: NASA/JPL-Caltech. Okno potřebuje výkonnější grafiku.</span><a class="btn" href="https://eyes.nasa.gov/apps/solar-system/#/sc_voyager_1" target="_blank" rel="noopener">Otevřít v&nbsp;nové kartě →</a></div>
+  </div>
+
+  <h2>Zdroje</h2>
+  <ol class="src">
+    <li><a href="https://science.nasa.gov/mission/voyager/where-are-voyager-1-and-voyager-2-now/" target="_blank" rel="noopener">NASA: Where Are Voyager 1 and Voyager 2 Now?</a> — okamžik jednoho světelného dne 18.&nbsp;11.&nbsp;2026 v&nbsp;2:16:07 PST, vzdálenost 25,902&nbsp;miliardy km.</li>
+    <li><a href="https://earthsky.org/space/voyager-1-1-light-day-from-earth-november-17-18-2026/" target="_blank" rel="noopener">EarthSky: Voyager 1 to reach 1 light-day from Earth</a> — start 5.&nbsp;9.&nbsp;1977, heliopauza 2012, 173,14&nbsp;AU, 49&nbsp;let, 2&nbsp;měsíce a&nbsp;11&nbsp;dní, Voyager 2 v&nbsp;listopadu 2035.</li>
+    <li><a href="https://www.sciencedaily.com/releases/2026/05/260504023835.htm" target="_blank" rel="noopener">ScienceDaily (NASA): NASA shuts down 49-year-old Voyager 1 instrument</a> — napájení z&nbsp;plutonia, ztráta asi 4&nbsp;W za&nbsp;rok, 10 sad přístrojů, pokles výkonu 27.&nbsp;2., vypnutí LECP 17.&nbsp;4.&nbsp;2026, dva zbývající přístroje, plán „Big Bang“ a&nbsp;zkouška na&nbsp;Voyageru 2.</li>
+    <li><a href="https://www.heavens-above.com/SolarEscape.aspx" target="_blank" rel="noopener">Heavens-Above: Spacecraft escaping the Solar System</a> — rychlost Voyageru 1 vůči Slunci 16,917&nbsp;km/s a&nbsp;Voyageru 2 15,255&nbsp;km/s, směr sondy (výchozí hodnoty pro počítadlo).</li>
+    <li><a href="https://theskylive.com/voyager1-info" target="_blank" rel="noopener">TheSkyLive: Voyager 1</a> — souřadnice sondy v&nbsp;souhvězdí Hadonoše a&nbsp;kontrolní vzdálenost od&nbsp;Země pro ověření počítadla.</li>
+    <li><a href="https://hackaday.com/2024/05/06/the-computers-of-voyager" target="_blank" rel="noopener">Hackaday: The Computers of Voyager</a> — tři počítače, zdvojení, 4&nbsp;kiloslova paměti, 18bitové slovo, obvody řady 7400, 64 instrukcí.</li>
+    <li><a href="https://www.jpl.nasa.gov/news/nasas-voyager-1-resumes-sending-engineering-updates-to-earth/" target="_blank" rel="noopener">NASA JPL: Voyager 1 Resumes Sending Engineering Updates to Earth</a> — vadný čip FDS, přesun programu po&nbsp;částech, potvrzení 20.&nbsp;4.&nbsp;2024.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Astronomical_unit" target="_blank" rel="noopener">Wikipedia: Astronomical unit</a> — definice 1&nbsp;AU a&nbsp;doba letu světla od&nbsp;Slunce k&nbsp;Zemi.</li>
+    <li><a href="https://en.wikipedia.org/wiki/Light-year" target="_blank" rel="noopener">Wikipedia: Light-year</a> — světelný rok jako dráha světla za&nbsp;juliánský rok (365,25&nbsp;dne).</li>
+  </ol>
+</div></main>
+
+<script>
+(function(){
+/* ---------- navigace ---------- */
+const P='../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v=' + Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- počítadlo vzdálenosti ---------- */
+const AU=149597870.7;          // km
+const C=299792.458;            // km/s
+const LD=C*86400;              // 1 světelný den v km
+const YR=365.25*86400;         // juliánský rok v s
+const LY=C*YR;                 // 1 světelný rok v km
+const V=16.917;                // km/s vůči Slunci (Heavens-Above)
+const T_LD=Date.UTC(2026,10,18,10,16,7); // 18. 11. 2026 2:16:07 PST (NASA)
+const RAD=Math.PI/180, EPS=23.4393*RAD;
+// směr sondy: RA 17h 14m 53s, Dec +12° 06' 34" (J2000, TheSkyLive) → ekliptikální souřadnice
+const ra=(17+14/60+53/3600)*15*RAD, de=(12+6/60+34/3600)*RAD;
+const ex=Math.cos(de)*Math.cos(ra), ey=Math.cos(de)*Math.sin(ra), ez=Math.sin(de);
+const U=[ex, ey*Math.cos(EPS)+ez*Math.sin(EPS), -ey*Math.sin(EPS)+ez*Math.cos(EPS)];
+// poloha Země (zjednodušené sluneční souřadnice)
+function earth(ms){
+  const d=ms/86400000+2440587.5-2451545.0;
+  const g=(357.528+0.9856003*d)*RAD, L=280.460+0.9856474*d;
+  const lam=(L+1.915*Math.sin(g)+0.020*Math.sin(2*g))*RAD;
+  const R=(1.00014-0.01671*Math.cos(g)-0.00014*Math.cos(2*g))*AU;
+  return [-R*Math.cos(lam),-R*Math.sin(lam),0];
+}
+let R_LD=LD;                   // vzdálenost od Slunce v okamžiku T_LD, dopočítá se
+const sun=ms=>R_LD+V*(ms-T_LD)/1000;
+function fromEarth(ms){const r=sun(ms),e=earth(ms);const x=U[0]*r-e[0],y=U[1]*r-e[1],z=U[2]*r-e[2];return Math.sqrt(x*x+y*y+z*z);}
+for(let k=0;k<20;k++)R_LD-=fromEarth(T_LD)-LD;
+
+const nf=new Intl.NumberFormat('cs-CZ',{maximumFractionDigits:0});
+const pad=n=>String(n).padStart(2,'0');
+const dur=s=>{s=Math.floor(s);const d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60);return (d?d+' d '+pad(h):h)+' h '+pad(m)+' min '+pad(s%60)+' s';};
+const elE=document.getElementById('cEarth'),elS=document.getElementById('cSun'),elL=document.getElementById('cLight'),elM=document.getElementById('cMile'),elY=document.getElementById('cYear');
+function tick(){
+  const now=Date.now(), dE=fromEarth(now);
+  elE.textContent=nf.format(dE);
+  elS.textContent=nf.format(sun(now));
+  elL.textContent=dur(dE/C);
+  const dt=(T_LD-now)/1000;
+  elM.textContent=dt>0
+    ? 'Do jednoho světelného dne zbývá '+dur(dt)
+    : 'Jeden světelný den od Země překročen 18. 11. 2026 v 11:16:07 SEČ';
+  const ry=(LY-sun(now))/V, y=Math.floor(ry/YR);
+  elY.textContent='Do jednoho světelného roku od Slunce zbývá '+nf.format(y)+' let '+dur(ry-y*YR);
+}
+tick(); setInterval(tick,200);
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

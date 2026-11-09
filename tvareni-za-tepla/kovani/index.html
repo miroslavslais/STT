@@ -92,7 +92,7 @@ const FALLBACK_CARDS = [
 class Component extends DCLogic {
   state = { structure: null };
   componentDidMount() {
-    fetch('../../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
+    fetch('../../site-structure.json?v=' + Date.now()).then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
   }
   icon(key, stroke) {
     const h = React.createElement;

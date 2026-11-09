@@ -58,7 +58,9 @@
       {
         "id": "obrabeni",
         "title": "Obrábění",
-        "status": "coming-soon"
+        "status": "ready",
+        "href": "obrabeni/index.html",
+        "badge": "Ve výstavbě"
       },
       {
         "id": "odlevani",
@@ -1281,6 +1283,386 @@
         "href": "navarovani-nastriky.html",
         "badge": "1 animace · 1 interaktivní",
         "status": "ready"
+      }
+    ]
+  },
+  "obrabeni": {
+    "h1": "Obrábění",
+    "cards": [
+      {
+        "id": "zaklady",
+        "title": "Základy obrábění",
+        "desc": "Princip a rozdělení metod, geometrie břitu, tvorba třísky, řezné podmínky, nástrojové materiály a opotřebení.",
+        "href": "zaklady/index.html",
+        "badge": "8 kapitol",
+        "status": "ready"
+      },
+      {
+        "id": "soustruzeni",
+        "title": "Soustružení",
+        "desc": "Kinematika soustružení, nože a značení VBD, operace, strojní čas a soustruhy.",
+        "href": "soustruzeni/index.html",
+        "badge": "5 kapitol",
+        "status": "coming-soon"
+      },
+      {
+        "id": "frezovani",
+        "title": "Frézování",
+        "desc": "Sousledné a nesousledné frézování, typy fréz, operace, strojní čas a frézky.",
+        "href": "frezovani/index.html",
+        "badge": "5 kapitol",
+        "status": "coming-soon"
+      },
+      {
+        "id": "vrtani",
+        "title": "Vrtání a vyvrtávání",
+        "desc": "Vrtání, vyhrubování, vystružování, zahlubování a vyvrtávání, strojní čas a vrtačky.",
+        "href": "vrtani/index.html",
+        "badge": "4 kapitoly",
+        "status": "coming-soon"
+      },
+      {
+        "id": "brouseni",
+        "title": "Broušení",
+        "desc": "Úběr materiálu brusnými zrny, brusný kotouč a jeho značení, operace a brusky.",
+        "href": "brouseni/index.html",
+        "badge": "4 kapitoly",
+        "status": "coming-soon"
+      },
+      {
+        "id": "primocare",
+        "title": "Přímočaré obrábění",
+        "desc": "Hoblování, obrážení, protahování a protlačování.",
+        "href": "primocare/index.html",
+        "badge": "2 kapitoly",
+        "status": "coming-soon"
+      },
+      {
+        "id": "dokoncovaci",
+        "title": "Dokončovací technologie",
+        "desc": "Honování, superfinišování, lapování, leštění a dokončování tvářením.",
+        "href": "dokoncovaci/index.html",
+        "badge": "2 kapitoly",
+        "status": "coming-soon"
+      },
+      {
+        "id": "nekonvencni",
+        "title": "Nekonvenční technologie",
+        "desc": "Elektroerozivní a elektrochemické obrábění, paprskové metody, vodní paprsek a ultrazvuk.",
+        "href": "nekonvencni/index.html",
+        "badge": "5 kapitol",
+        "status": "coming-soon"
+      },
+      {
+        "id": "zavity",
+        "title": "Výroba závitů",
+        "desc": "Obrábění a tváření závitů.",
+        "href": "zavity/index.html",
+        "badge": "2 kapitoly",
+        "status": "coming-soon"
+      },
+      {
+        "id": "ozubeni",
+        "title": "Výroba ozubených kol",
+        "desc": "Dělicí a odvalovací metody a dokončování ozubení.",
+        "href": "ozubeni/index.html",
+        "badge": "3 kapitoly",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniZaklady": {
+    "h1": "Základy obrábění",
+    "cards": [
+      {
+        "title": "Princip obrábění a rozdělení metod",
+        "desc": "Řezný a posuvový pohyb, plochy na obrobku a přídavek, hrubování × dokončování a rozdělení metod.",
+        "href": "princip-rozdeleni.html",
+        "status": "ready",
+        "badge": "1 animace · 1 interaktivní"
+      },
+      {
+        "title": "Geometrie břitu",
+        "desc": "Čelo, hřbet, ostří a špička, úhly α, β, γ a δ, úhel sklonu ostří λs, poloměr špičky rε a jejich vliv na řezání.",
+        "href": "geometrie-britu.html",
+        "status": "ready",
+        "badge": "3 interaktivní"
+      },
+      {
+        "title": "Tvorba třísky",
+        "desc": "Rovina a úhel střihu, pásma plastické deformace, zrna v třísce, typy a tvary třísek, utvařeč, teplo a teplota ocelové třísky.",
+        "href": "tvorba-trisky.html",
+        "status": "ready",
+        "badge": "1 interaktivní"
+      },
+      {
+        "title": "Řezné podmínky a síly",
+        "desc": "Řezná rychlost, posuv a hloubka řezu, složky řezné síly, řezný výkon a obecný strojní čas.",
+        "href": "rezne-podminky.html",
+        "status": "ready",
+        "badge": "1 animace · 3 interaktivní"
+      },
+      {
+        "title": "Nástrojové materiály",
+        "desc": "Rychlořezná ocel, slinutý karbid, cermet, keramika, KNB, PKD a povlaky.",
+        "href": "nastrojove-materialy.html",
+        "status": "ready",
+        "badge": "2 interaktivní"
+      },
+      {
+        "title": "Opotřebení a trvanlivost nástroje",
+        "desc": "Formy opotřebení, kritéria otupení a Taylorův vztah.",
+        "href": "opotrebeni-trvanlivost.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Procesní kapaliny",
+        "desc": "Chlazení a mazání, druhy kapalin, minimální mazání a obrábění za sucha.",
+        "href": "procesni-kapaliny.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Obrobitelnost",
+        "desc": "Kritéria obrobitelnosti, vliv materiálu a skupiny materiálů ISO.",
+        "href": "obrobitelnost.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniSoustruzeni": {
+    "h1": "Soustružení",
+    "cards": [
+      {
+        "title": "Charakteristika soustružení",
+        "desc": "Kinematika soustružení, dosahovaná přesnost a upínání obrobku.",
+        "href": "charakteristika.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Soustružnické nože",
+        "desc": "Celistvé nože a nože s VBD, tvary nožů, upínání a značení VBD.",
+        "href": "noze.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Soustružnické operace",
+        "desc": "Podélné a čelní soustružení, zapichování, upichování, kužele a tvarové plochy.",
+        "href": "operace.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Výpočet strojního času",
+        "desc": "Vzorec pro podélné a čelní soustružení s řešeným příkladem.",
+        "href": "strojni-cas.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Soustruhy",
+        "desc": "Hrotový, revolverový a svislý soustruh, CNC soustruhy a soustružnická centra.",
+        "href": "stroje.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniFrezovani": {
+    "h1": "Frézování",
+    "cards": [
+      {
+        "title": "Charakteristika frézování",
+        "desc": "Sousledné × nesousledné, obvodové × čelní frézování a přerušovaný řez.",
+        "href": "charakteristika.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Typy fréz",
+        "desc": "Válcové, čelní, stopkové, kotoučové a tvarové frézy, frézovací hlavy s VBD.",
+        "href": "frezy.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Frézovací operace",
+        "desc": "Rovinné plochy, drážky, osazení, tvarové plochy a víceosé frézování.",
+        "href": "operace.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Výpočet strojního času",
+        "desc": "Posuv na zub a minutový posuv, náběh a přeběh, řešený příklad.",
+        "href": "strojni-cas.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Frézky",
+        "desc": "Konzolové, stolové a portálové frézky a obráběcí centra.",
+        "href": "stroje.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniVrtani": {
+    "h1": "Vrtání a vyvrtávání",
+    "cards": [
+      {
+        "title": "Vrtání",
+        "desc": "Geometrie šroubovitého vrtáku, vrtáky s VBD a hluboké vrtání.",
+        "href": "vrtani.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Vyhrubování, vystružování a zahlubování",
+        "desc": "Účel operací, nástroje a dosahovaná přesnost.",
+        "href": "vyhrubovani-vystruzovani.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Vyvrtávání",
+        "desc": "Vyvrtávací tyče a hlavy, vyvrtávačky.",
+        "href": "vyvrtavani.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Strojní čas a vrtačky",
+        "desc": "Výpočet strojního času s řešeným příkladem, stolní, sloupová a radiální vrtačka.",
+        "href": "strojni-cas-stroje.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniBrouseni": {
+    "h1": "Broušení",
+    "cards": [
+      {
+        "title": "Charakteristika broušení",
+        "desc": "Úběr materiálu brusnými zrny, teplo při broušení a samoostření kotouče.",
+        "href": "charakteristika.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Brusný nástroj",
+        "desc": "Ostřiva, pojiva, značení kotouče, tvary kotoučů a orovnávání.",
+        "href": "brusny-nastroj.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Operace broušení",
+        "desc": "Rovinné broušení, broušení do kulata, bezhroté a tvarové broušení, ostření nástrojů.",
+        "href": "operace.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Brusky a strojní čas",
+        "desc": "Typy brusek a výpočet strojního času s řešeným příkladem.",
+        "href": "stroje-strojni-cas.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniPrimocare": {
+    "h1": "Přímočaré obrábění",
+    "cards": [
+      {
+        "title": "Hoblování a obrážení",
+        "desc": "Pracovní a zpětný zdvih, nože a stroje.",
+        "href": "hoblovani-obrazeni.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Protahování a protlačování",
+        "desc": "Princip, části protahovacího trnu, vnitřní a vnější protahování a stroje.",
+        "href": "protahovani-protlacovani.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniDokoncovaci": {
+    "h1": "Dokončovací technologie",
+    "cards": [
+      {
+        "title": "Abrazivní dokončování",
+        "desc": "Honování, superfinišování, lapování a leštění — princip a použití.",
+        "href": "abrazivni.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Dokončování tvářením",
+        "desc": "Válečkování a hlazení — vyhlazení a zpevnění povrchu bez úběru třísky.",
+        "href": "tvarenim.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniNekonvencni": {
+    "h1": "Nekonvenční technologie",
+    "cards": [
+      {
+        "title": "Přehled a rozdělení",
+        "desc": "Rozdělení metod podle druhu energie a oblasti jejich použití.",
+        "href": "prehled.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Elektroerozivní obrábění",
+        "desc": "Výboj v dielektriku, hloubení a drátové řezání.",
+        "href": "elektroerozivni.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Elektrochemické a chemické obrábění",
+        "desc": "Anodické rozpouštění kovu, anodomechanické obrábění a leptání.",
+        "href": "elektrochemicke.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Paprskové metody",
+        "desc": "Laser, plazma a elektronový paprsek, souvislost se svařováním.",
+        "href": "paprskove.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Vodní paprsek a ultrazvuk",
+        "desc": "Čistý a abrazivní vodní paprsek, ultrazvukové obrábění.",
+        "href": "vodni-paprsek-ultrazvuk.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniZavity": {
+    "h1": "Výroba závitů",
+    "cards": [
+      {
+        "title": "Obrábění závitů",
+        "desc": "Závitník, závitové očko, soustružení, frézování a broušení závitů.",
+        "href": "obrabeni-zavitu.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Tváření závitů",
+        "desc": "Válcování závitů, tvářecí závitník a srovnání s obráběním.",
+        "href": "tvareni-zavitu.html",
+        "status": "coming-soon"
+      }
+    ]
+  },
+  "obrabeniOzubeni": {
+    "h1": "Výroba ozubených kol",
+    "cards": [
+      {
+        "title": "Dělicí metody",
+        "desc": "Kotoučová a prstová modulová fréza a dělicí přístroj.",
+        "href": "delici-metody.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Odvalovací metody",
+        "desc": "Odvalovací frézování, obrážení a protahování ozubení.",
+        "href": "odvalovaci-metody.html",
+        "status": "coming-soon"
+      },
+      {
+        "title": "Dokončování ozubení",
+        "desc": "Ševingování, broušení, honování a lapování ozubení.",
+        "href": "dokoncovani.html",
+        "status": "coming-soon"
       }
     ]
   }

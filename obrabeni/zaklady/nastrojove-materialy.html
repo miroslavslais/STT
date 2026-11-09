@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nástrojové materiály | STT</title>
+<meta name="description" content="Nástrojové materiály: požadavky na materiál břitu, rychlořezná ocel, slinuté karbidy, cermety, řezná keramika, KNB a PKD, tvrdost × houževnatost, teplotní odolnost a povlakování PVD a CVD.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma (záměrně jen tmavé — promítání ve výuce), akcent kapitoly Obrábění */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#93b5d3;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg);margin:0}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:16px;right:16px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:38px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #3f5568}
+.grid3{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.ct{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.card p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+.card ul{margin:12px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--muted)}
+.card ul a{color:var(--fg);border-bottom:1px solid #3f5568}
+.card ul a:hover{color:var(--acc)}
+.top-cut{border-top:4px solid #f2a65a}
+.top-feed{border-top:4px solid #6fc3a0}
+.top-res{border-top:4px solid var(--acc)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin:6px 0 18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{border-radius:14px;overflow:hidden}
+.svgbox svg{display:block;width:100%;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.step p+p{margin-top:4px}
+.step b{font-weight:600}
+.k-cut{color:#f2a65a}
+.k-feed{color:#6fc3a0}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15.5px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:900px}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:12px 20px;color:var(--muted);border-top:1px solid var(--line2)}
+td.k{color:var(--fg);font-weight:600}
+th+th,td+td{border-left:1px solid var(--line2)}
+.grid2{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.pict{display:block;width:100%;background:var(--deep);border-radius:12px;margin:0 0 14px}
+.eq{font-family:var(--f-disp);font-weight:700;font-size:20px;color:var(--fg);background:var(--deep);border:1px solid var(--line2);border-top:4px solid var(--acc);border-radius:14px;padding:14px 18px;margin:18px 0;text-align:center;max-width:820px;box-sizing:border-box}
+.sliders{display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;margin:0 0 14px}
+.sl{display:grid;grid-template-columns:150px 1fr 54px;align-items:center;gap:12px;font-size:15px;color:var(--fg)}
+.sl-t{font-weight:600}
+.sl-v{font-family:var(--f-disp);font-weight:700;color:var(--acc);text-align:right}
+.sl input{accent-color:var(--acc);width:100%}
+.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+.mt-t{font-size:14px;color:var(--dim);margin-bottom:6px}
+.bar{height:10px;background:var(--deep);border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.bar-f{height:100%;background:var(--acc);border-radius:999px;transition:width .15s}
+.tbl{max-width:none}
+td{min-width:120px}
+.tscale{display:grid;grid-template-columns:150px minmax(0,1fr);grid-auto-rows:40px;max-width:820px;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:6px 0 10px}
+.tc{display:flex;align-items:center;justify-content:center;font-family:var(--f-disp);font-weight:700;font-size:15px;color:#231d16}
+.tz{grid-column:2;padding:12px 22px;border-left:5px solid;display:flex;flex-direction:column;justify-content:center;gap:4px;font-size:15.5px;line-height:1.55;color:var(--muted);background:var(--card)}
+.tz b{color:var(--fg);font-weight:600}
+.tz+.tz{border-top:1px solid var(--line2)}
+h3{font-family:var(--f-disp);font-weight:700;font-size:21px;margin:34px 0 12px}
+.mbox{cursor:pointer}
+.mbox rect{fill:#2b3a4a;stroke:#4a6378;stroke-width:2}
+.mbox text{fill:var(--fg);font:600 17px var(--f-disp)}
+.mbox:hover rect{stroke:var(--acc)}
+.mbox.on rect{fill:#3a5068;stroke:var(--acc);stroke-width:4}
+.trows{display:flex;flex-direction:column;gap:10px}
+.trow{display:grid;grid-template-columns:170px 1fr 150px;align-items:center;gap:16px;padding:8px 12px;border-radius:12px;border:1px solid transparent;cursor:pointer}
+.trow:hover{border-color:var(--line)}
+.trow.on{border-color:var(--acc);background:var(--deep)}
+.tn{font-family:var(--f-disp);font-weight:700;font-size:16px}
+.tb{position:relative;height:18px;background:var(--deep);border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.tf{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#4a6378,#f2a65a)}
+.tr{position:absolute;top:0;bottom:0;background:#f2a65a;opacity:.45}
+.tv{font-family:var(--f-disp);font-weight:700;color:var(--acc)}
+.layers{display:flex;flex-direction:column;max-width:620px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.ly{display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:15px}
+.ly b{font-family:var(--f-disp);font-size:17px}
+</style>
+</head>
+<body data-first-seen="2026-11-09">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na Základy obrábění</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Základy obrábění</div>
+  <h1>Nástrojové materiály</h1>
+  <p class="lead">Břit nástroje pracuje při vysoké teplotě, je namáhán tlakem třísky a&nbsp;opotřebuje se třením o&nbsp;třísku i&nbsp;obrobek. Stránka popisuje požadavky na materiál břitu, jednotlivé nástrojové materiály a&nbsp;jejich povlakování.</p>
+
+  <h2>Požadavky na nástrojový materiál</h2>
+  <div class="grid4">
+    <div class="card top-res"><div class="ct">Tvrdost</div><p>Břit odolává opotřebení a&nbsp;plastické deformaci.</p></div>
+    <div class="card top-res"><div class="ct">Houževnatost</div><p>Břit odolává zlomení a&nbsp;vylamování.</p></div>
+    <div class="card top-res"><div class="ct">Chemická stálost</div><p>Břit odolává oxidaci a&nbsp;difuzi prvků mezi nástrojem a&nbsp;obrobkem.</p></div>
+    <div class="card top-res"><div class="ct">Teplotní odolnost</div><p>Břit si zachovává tvrdost za vysoké teploty a&nbsp;odolává náhlým změnám teploty (teplotním šokům).</p></div>
+  </div>
+  <p class="t" style="margin-top:18px">Žádný materiál nesplňuje všechny požadavky najednou. Tvrdší materiál je zpravidla křehčí. Volba materiálu závisí na technologii, materiálu obrobku a&nbsp;hospodárnosti.</p>
+
+  <h2>Tvrdost × houževnatost</h2>
+  <p class="t">Tvrdý materiál snese vyšší řeznou rychlost, protože si za vyšší teploty zachovává tvrdost a&nbsp;odolává opotřebení. Houževnatý materiál snese větší posuv a&nbsp;hloubku řezu, protože odolá vyšší síle a&nbsp;rázům bez vylomení břitu.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Postavení nástrojových materiálů</div>
+        <div class="panel-s" style="margin-bottom:0">Kvalitativní srovnání, bez měřítka. Klikni na materiál.</div>
+      </div>
+    </div>
+    <div class="svgbox"><svg id="svgM" viewBox="0 0 1000 480" role="img" aria-label="Diagram tvrdosti a houževnatosti nástrojových materiálů"></svg></div>
+    <p class="info" id="infoM"></p>
+  </div>
+
+  <h2>Druhy nástrojových materiálů</h2>
+
+  <h3>Rychlořezná ocel (HSS)</h3>
+  <div class="grid2">
+    <div class="card"><p>Vysoce legovaná ocel. Hlavní legující prvky jsou W, Mo, V, Co a&nbsp;Cr. Označení udává obsah wolframu, molybdenu, vanadu a&nbsp;kobaltu v&nbsp;procentech: HS&nbsp;2-9-1-8 obsahuje 2&nbsp;% W, 9&nbsp;% Mo, 1&nbsp;% V a&nbsp;8&nbsp;% Co. Chrom v&nbsp;označení uveden není.</p></div>
+    <div class="card"><div class="ct">Vlastnosti</div><ul><li>velká houževnatost</li><li>velká pevnost v&nbsp;ohybu</li><li>jednoduchá výroba</li><li>tvrdost pod 70&nbsp;HRC</li><li>tepelná odolnost do 600&nbsp;°C</li></ul></div>
+  </div>
+
+  <h3>Slinuté karbidy (SK)</h3>
+  <div class="grid2">
+    <div class="card"><p>Slinutý karbid (tvrdokov) se vyrábí spékáním prášků výchozích surovin (<a class="link" href="../../praskova-metalurgie/index.html">Prášková metalurgie</a>). Tvrdost zajišťuje karbid wolframu WC, pojivem je kobalt Co. Některé druhy obsahují také TiC a&nbsp;TaC. Pro zvýšení otěruvzdornosti se povlakují.</p>
+      <p style="margin-top:10px">Ze&nbsp;slinutého karbidu se vyrábějí hlavně vyměnitelné břitové destičky. Jejich tvary a&nbsp;upínání popisuje kapitola <a class="link" href="../soustruzeni/index.html">Soustružení</a>.</p></div>
+    <div class="card"><div class="ct">Vlastnosti</div><ul><li>velká teplotní odolnost (do 1&nbsp;000&nbsp;°C)</li><li>velká otěruvzdornost</li><li>velká pevnost v&nbsp;tlaku</li><li>schopnost tlumit vibrace</li></ul></div>
+  </div>
+
+  <h3>Cermety</h3>
+  <div class="grid2">
+    <div class="card"><p>Slinutý materiál na bázi TiC, pojivem je nikl Ni. Místo TiC lze použít TiN. Název vznikl spojením slov ceramic a&nbsp;metal.</p></div>
+    <div class="card"><div class="ct">Vlastnosti a&nbsp;použití</div><ul><li>lepší odolnost proti opotřebení než SK</li><li>nižší houževnatost než SK</li><li>vyšší řezné rychlosti</li><li>dokončovací operace ocelí</li></ul></div>
+  </div>
+
+  <h3>Řezná keramika</h3>
+  <div class="grid2">
+    <div class="card"><p>Keramika je chemicky stálá a&nbsp;tvrdost si zachovává i&nbsp;za vysoké teploty. Je křehká, proto snáší jen malý posuv a&nbsp;hloubku řezu. Používá se k&nbsp;obrábění litin a&nbsp;odlitků.</p></div>
+    <div class="card"><div class="ct">Vlastnosti</div><ul><li>velká tvrdost</li><li>použitelnost do 1&nbsp;200&nbsp;°C</li><li>velká otěruvzdornost</li><li>velká pevnost v&nbsp;tlaku</li><li>velká chemická stálost</li></ul></div>
+  </div>
+
+  <h3>Kubický nitrid boru (KNB)</h3>
+  <div class="grid2">
+    <div class="card"><p>Druhý nejtvrdší materiál po diamantu. Tvrdost si zachovává až do 1&nbsp;200&nbsp;°C. Na rozdíl od diamantu nereaguje se železem, proto se jím obrábějí kalené oceli a&nbsp;litiny.</p></div>
+    <div class="card"><div class="ct">Použití</div><ul><li>dokončovací operace</li><li>kalené oceli</li><li>litiny</li></ul></div>
+  </div>
+
+  <h3>Polykrystalický diamant (PKD)</h3>
+  <div class="grid2">
+    <div class="card"><p>Tvrdostí se blíží přírodnímu diamantu. Vyrábí se spékáním zrn syntetického diamantu s&nbsp;kobaltovým pojivem za vysokého tlaku a&nbsp;teploty na podložku ze&nbsp;slinutého karbidu. Je tvrdý, ale velmi křehký.</p>
+      <p style="margin-top:10px">Diamant je uhlík. Za vysoké teploty uhlík z&nbsp;břitu difunduje do železa v&nbsp;obrobku a&nbsp;břit se rychle opotřebí. PKD se proto na oceli a&nbsp;litiny nepoužívá.</p></div>
+    <div class="card"><div class="ct">Použití</div><ul><li>hliník a&nbsp;jeho slitiny</li><li>slitiny mědi</li><li>kompozity</li><li>nekovové materiály</li></ul></div>
+  </div>
+
+  <h2>Teplotní odolnost</h2>
+  <p class="t">Teplotní odolnost je teplota, do které si materiál zachovává tvrdost potřebnou k&nbsp;řezání. Teplota v&nbsp;místě řezu roste s&nbsp;řeznou rychlostí, proto materiál s&nbsp;vyšší teplotní odolností dovoluje vyšší řeznou rychlost.</p>
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Do jaké teploty si materiál drží tvrdost</div>
+        <div class="panel-s" style="margin-bottom:0">Klikni na materiál.</div>
+      </div>
+    </div>
+    <div class="trows" id="tRows"></div>
+    <p class="info" id="infoT"></p>
+  </div>
+
+  <h2>Povlakování</h2>
+  <p class="t">Povlak je tenká tvrdá vrstva nanesená na břit, nejčastěji na slinutý karbid. Podklad zajišťuje houževnatost, povlak odolnost proti opotřebení a&nbsp;teplotě. Povlakovaný nástroj snese vyšší řeznou rychlost než nepovlakovaný. Povlaky se nanášejí fyzikálním (PVD) nebo chemickým (CVD) napařováním.</p>
+  <div class="grid2">
+    <div class="card top-feed">
+      <svg class="pict" viewBox="0 0 400 280" role="img" aria-label="Schéma komory PVD: terč z kovu, proud par k otáčejícím se destičkám, přívod plynu">
+        <rect x="40" y="20" width="320" height="210" rx="12" fill="#1b2330" stroke="#4a5768" stroke-width="3"/>
+        <rect x="62" y="50" width="20" height="150" fill="#8296a8"/>
+        <path d="M62 60 L82 70 M62 80 L82 90 M62 100 L82 110 M62 120 L82 130 M62 140 L82 150 M62 160 L82 170 M62 180 L82 190" stroke="#4a5768" stroke-width="2"/>
+        <g fill="#93b5d3" stroke="#93b5d3" stroke-width="3">
+          <line x1="88" y1="70" x2="128" y2="70"/><polygon points="140,70 128,63 128,77"/>
+          <line x1="88" y1="105" x2="128" y2="105"/><polygon points="140,105 128,98 128,112"/>
+          <line x1="88" y1="140" x2="128" y2="140"/><polygon points="140,140 128,133 128,147"/>
+          <line x1="88" y1="175" x2="128" y2="175"/><polygon points="140,175 128,168 128,182"/>
+        </g>
+        <g stroke="#8296a8" stroke-width="1.5" stroke-dasharray="10 4 2 4"><line x1="200" y1="36" x2="200" y2="214"/><line x1="300" y1="36" x2="300" y2="214"/></g>
+        <g fill="#d4b85a" stroke="#3a3018" stroke-width="2">
+          <rect x="189" y="59" width="22" height="22"/><rect x="189" y="94" width="22" height="22"/><rect x="189" y="129" width="22" height="22"/><rect x="189" y="164" width="22" height="22"/>
+          <rect x="289" y="59" width="22" height="22"/><rect x="289" y="94" width="22" height="22"/><rect x="289" y="129" width="22" height="22"/><rect x="289" y="164" width="22" height="22"/>
+        </g>
+        <g fill="none" stroke="#f2a65a" stroke-width="3"><path d="M178 204 A22 8 0 1 0 222 204"/><path d="M278 204 A22 8 0 1 0 322 204"/></g>
+        <g fill="#f2a65a"><polygon points="222,204 214,198 228,196"/><polygon points="322,204 314,198 328,196"/></g>
+        <path d="M0 252 H90 V230" fill="none" stroke="#6fc3a0" stroke-width="8"/>
+        <g fill="#6fc3a0"><circle cx="84" cy="220" r="2.5"/><circle cx="96" cy="216" r="2.5"/><circle cx="90" cy="210" r="2.5"/><circle cx="102" cy="208" r="2.5"/></g>
+      </svg>
+      <div class="ct">PVD — fyzikální napařování</div>
+      <p>Probíhá ve&nbsp;vysokém vakuu, přibližně 1/100&nbsp;000&nbsp;atm, za teploty přibližně 500&nbsp;°C. Kov povlaku, například titan, se z&nbsp;terče převádí do stavu páry. Do komory se přivádí reaktivní plyn, například dusík. Kov s&nbsp;ním reaguje a&nbsp;na povrchu nástroje vzniká tenký, tvrdý a&nbsp;pevně přilnavý povlak, například nitrid titanu TiN. Jednotlivé metody PVD se liší především způsobem, jakým se kov převádí do páry.</p>
+    </div>
+    <div class="card top-cut">
+      <svg class="pict" viewBox="0 0 400 280" role="img" aria-label="Schéma komory CVD: vyhřívaná komora, přívod plynu středovou trubkou k destičkám, odsávání">
+        <rect x="40" y="20" width="320" height="210" rx="12" fill="#1b2330" stroke="#4a5768" stroke-width="3"/>
+        <rect x="74" y="34" width="252" height="184" rx="60" fill="#3a2420"/>
+        <g fill="none" stroke="#e06a5a" stroke-width="3"><polyline points="56,60 48,72 56,84 48,96 56,108 48,120 56,132 48,144 56,156 48,168 56,180"/><polyline points="344,60 352,72 344,84 352,96 344,108 352,120 344,132 352,144 344,156 352,168 344,180"/></g>
+        <path d="M0 262 H200 V48" fill="none" stroke="#6fc3a0" stroke-width="8"/>
+        <g fill="#6fc3a0" stroke="#6fc3a0" stroke-width="3">
+          <line x1="194" y1="70" x2="166" y2="70"/><polygon points="156,70 166,63 166,77"/><line x1="206" y1="70" x2="234" y2="70"/><polygon points="244,70 234,63 234,77"/>
+          <line x1="194" y1="105" x2="166" y2="105"/><polygon points="156,105 166,98 166,112"/><line x1="206" y1="105" x2="234" y2="105"/><polygon points="244,105 234,98 234,112"/>
+          <line x1="194" y1="140" x2="166" y2="140"/><polygon points="156,140 166,133 166,147"/><line x1="206" y1="140" x2="234" y2="140"/><polygon points="244,140 234,133 234,147"/>
+          <line x1="194" y1="175" x2="166" y2="175"/><polygon points="156,175 166,168 166,182"/><line x1="206" y1="175" x2="234" y2="175"/><polygon points="244,175 234,168 234,182"/>
+        </g>
+        <g fill="#d4b85a" stroke="#3a3018" stroke-width="2">
+          <rect x="120" y="59" width="22" height="22"/><rect x="120" y="94" width="22" height="22"/><rect x="120" y="129" width="22" height="22"/><rect x="120" y="164" width="22" height="22"/>
+          <rect x="258" y="59" width="22" height="22"/><rect x="258" y="94" width="22" height="22"/><rect x="258" y="129" width="22" height="22"/><rect x="258" y="164" width="22" height="22"/>
+        </g>
+        <path d="M250 230 V262 H330" fill="none" stroke="#c08a50" stroke-width="8"/>
+        <circle cx="350" cy="262" r="16" fill="#4a5768" stroke="#c08a50" stroke-width="3"/><polygon points="342,270 358,270 350,254" fill="#eaf2fa"/>
+      </svg>
+      <div class="ct">CVD — chemické napařování</div>
+      <p>Probíhá za teploty přibližně 1&nbsp;000&nbsp;°C a&nbsp;tlaku přibližně 1/20&nbsp;atm. Plynné sloučeniny se přivádějí k&nbsp;ohřátému nástroji, reagují u&nbsp;jeho povrchu a&nbsp;tvrdé látky se na něm chemicky vylučují. Vedlejší produkty reakce se odsávají. Povlak reaguje i&nbsp;s&nbsp;podkladem, proto má vyšší přilnavost. Postup vyžaduje náročné vybavení, které udrží parametry reakce. Ostré hrany nástrojů povlakovat nelze a&nbsp;v&nbsp;povlaku vznikají tahová napětí.</p>
+    </div>
+  </div>
+
+  <h3>Princip na úrovni částic</h3>
+  <div class="grid2">
+    <div class="card">
+      <svg class="pict" viewBox="0 0 400 200" role="img" aria-label="PVD: atomy kovu dopadají přímo na podklad">
+        <g stroke="#5b8bc0" stroke-width="1.5" stroke-dasharray="4 4"><line x1="100" y1="6" x2="100" y2="32"/><line x1="160" y1="40" x2="160" y2="72"/><line x1="230" y1="16" x2="230" y2="46"/><line x1="300" y1="54" x2="300" y2="86"/><line x1="130" y1="70" x2="130" y2="100"/></g>
+        <g fill="#5b8bc0"><circle cx="100" cy="42" r="9"/><circle cx="160" cy="82" r="9"/><circle cx="230" cy="56" r="9"/><circle cx="300" cy="96" r="9"/><circle cx="130" cy="110" r="9"/>
+          <circle cx="76" cy="141" r="9"/><circle cx="102" cy="141" r="9"/><circle cx="154" cy="141" r="9"/><circle cx="206" cy="141" r="9"/><circle cx="232" cy="141" r="9"/><circle cx="284" cy="141" r="9"/><circle cx="310" cy="141" r="9"/></g>
+        <rect x="50" y="150" width="300" height="40" fill="#3a4553" stroke="#5d6a79" stroke-width="2"/>
+      </svg>
+      <div class="ct">PVD</div><p>Atomy kovu letí od zdroje přímočaře a&nbsp;usazují se na podkladu. Povlak roste vrstvením dopadajících atomů a&nbsp;jejich sloučenin s&nbsp;reaktivním plynem.</p>
+    </div>
+    <div class="card">
+      <svg class="pict" viewBox="0 0 400 200" role="img" aria-label="CVD: molekuly plynu reagují na povrchu podkladu, vedlejší produkty odcházejí">
+        <g>
+          <g fill="#6fc3a0"><circle cx="76" cy="36" r="5"/><circle cx="104" cy="36" r="5"/><circle cx="76" cy="64" r="5"/><circle cx="104" cy="64" r="5"/></g><circle cx="90" cy="50" r="9" fill="#eaf2fa"/>
+          <g fill="#6fc3a0"><circle cx="236" cy="26" r="5"/><circle cx="264" cy="26" r="5"/><circle cx="236" cy="54" r="5"/><circle cx="264" cy="54" r="5"/></g><circle cx="250" cy="40" r="9" fill="#eaf2fa"/>
+          <g fill="#6fc3a0"><circle cx="306" cy="86" r="5"/><circle cx="334" cy="86" r="5"/><circle cx="306" cy="114" r="5"/><circle cx="334" cy="114" r="5"/></g><circle cx="320" cy="100" r="9" fill="#eaf2fa"/>
+        </g>
+        <g fill="#9b6fc3"><circle cx="150" cy="70" r="9"/><circle cx="190" cy="100" r="9"/></g>
+        <g fill="#6fc3a0"><circle cx="160" cy="112" r="5"/><circle cx="170" cy="112" r="5"/><circle cx="216" cy="70" r="5"/><circle cx="226" cy="70" r="5"/></g>
+        <g stroke="#6fc3a0" stroke-width="2"><line x1="165" y1="104" x2="165" y2="86"/><line x1="221" y1="62" x2="221" y2="44"/></g>
+        <g fill="#6fc3a0"><polygon points="165,80 160,88 170,88"/><polygon points="221,38 216,46 226,46"/></g>
+        <g><circle cx="76" cy="141" r="9" fill="#9b6fc3"/><circle cx="102" cy="141" r="9" fill="#eaf2fa"/><circle cx="128" cy="141" r="9" fill="#9b6fc3"/><circle cx="206" cy="141" r="9" fill="#eaf2fa"/><circle cx="232" cy="141" r="9" fill="#9b6fc3"/><circle cx="258" cy="141" r="9" fill="#eaf2fa"/><circle cx="284" cy="141" r="9" fill="#9b6fc3"/><circle cx="310" cy="141" r="9" fill="#9b6fc3"/></g>
+        <rect x="50" y="150" width="300" height="40" fill="#3a4553" stroke="#5d6a79" stroke-width="2"/>
+      </svg>
+      <div class="ct">CVD</div><p>Molekuly plynných sloučenin se u&nbsp;horkého povrchu rozkládají a&nbsp;reagují. Tvrdá látka zůstává na podkladu, vedlejší produkty reakce odcházejí s&nbsp;plynem.</p>
+    </div>
+  </div>
+
+  <h3>Pokrytí tvaru nástroje</h3>
+  <div class="card">
+    <svg class="pict" viewBox="0 0 800 220" role="img" aria-label="Vlevo PVD pokrývá jen plochy přivrácené ke zdroji, vpravo CVD celý povrch">
+      <g transform="translate(-400,0)">
+      <g stroke="#4f86c6" stroke-width="1.5" stroke-dasharray="6 6"><line x1="490" y1="10" x2="490" y2="150"/><line x1="510" y1="10" x2="510" y2="150"/><line x1="530" y1="10" x2="530" y2="80"/><line x1="560" y1="10" x2="560" y2="80"/><line x1="590" y1="10" x2="590" y2="80"/><line x1="620" y1="10" x2="620" y2="80"/><line x1="650" y1="10" x2="650" y2="80"/><line x1="670" y1="10" x2="670" y2="80"/><line x1="690" y1="10" x2="690" y2="150"/><line x1="710" y1="10" x2="710" y2="150"/></g>
+      <polygon points="520,90 680,90 680,120 610,120 610,160 720,160 720,190 480,190 480,160 590,160 590,120 520,120" fill="#8296a8"/>
+      <g fill="#4f86c6"><rect x="520" y="82" width="160" height="8"/><rect x="480" y="152" width="40" height="8"/><rect x="680" y="152" width="40" height="8"/></g>
+      </g>
+      <g transform="translate(400,0)">
+      <polygon points="120,90 280,90 280,120 210,120 210,160 320,160 320,190 80,190 80,160 190,160 190,120 120,120" fill="#8296a8" stroke="#4f86c6" stroke-width="14" stroke-linejoin="round"/>
+      </g>
+    </svg>
+    <p>Vlevo PVD: částice letí od zdroje přímočaře, svislé čáry ukazují jejich směr. Povlak vzniká jen na plochách přivrácených ke&nbsp;zdroji, plochy ve&nbsp;stínu zůstávají nepokryté. Nástroje se proto v&nbsp;komoře PVD otáčejí. Vpravo CVD: plyn obtéká celý nástroj a&nbsp;povlak vzniká rovnoměrně na všech plochách.</p>
+  </div>
+
+  <h3>PVD × CVD</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Vlastnost</th><th>PVD</th><th>CVD</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Teplota</td><td>přibližně 500&nbsp;°C</td><td>přibližně 1&nbsp;000&nbsp;°C</td></tr>
+      <tr><td class="k">Tlak</td><td>vysoké vakuum, přibližně 1/100&nbsp;000&nbsp;atm</td><td>přibližně 1/20&nbsp;atm</td></tr>
+      <tr><td class="k">Tloušťka povlaku</td><td>tenčí</td><td>silnější, 6 až 10&nbsp;µm</td></tr>
+      <tr><td class="k">Ostří</td><td>zůstává ostré</td><td>ostré hrany povlakovat nelze</td></tr>
+      <tr><td class="k">Houževnatost</td><td>vyšší</td><td>nižší</td></tr>
+      <tr><td class="k">Odolnost proti opotřebení</td><td>nižší</td><td>vyšší</td></tr>
+      <tr><td class="k">Teplotní odolnost</td><td>nižší</td><td>vyšší</td></tr>
+      <tr><td class="k">Přilnavost</td><td>pevná</td><td>vyšší, povlak chemicky reaguje s&nbsp;podkladem</td></tr>
+      <tr><td class="k">Pokrytí tvaru</td><td>plochy přivrácené ke&nbsp;zdroji</td><td>rovnoměrně celý povrch</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Použití</h3>
+  <div class="grid2">
+    <div class="card top-feed"><div class="ct">PVD</div><ul>
+      <li>vyšší produktivita a&nbsp;ochrana nástrojů proti opotřebení</li>
+      <li>delší životnost nástrojů pro stříhání, tváření a&nbsp;obrábění</li>
+      <li>ochrana proti abrazi, oxidaci, korozi a&nbsp;adhezi</li>
+      <li>nízká teplota povlakování — nástroj se tepelně neovlivní, lze povlakovat i&nbsp;rychlořeznou ocel</li>
+    </ul></div>
+    <div class="card top-cut"><div class="ct">CVD</div><ul>
+      <li>nejvyšší ochrana proti opotřebení u&nbsp;nástrojů pro hluboké tažení, tváření za studena a&nbsp;ohýbání</li>
+      <li>velmi pevná přilnavost při velmi vysoké tvrdosti povlaku</li>
+      <li>povlak pro slinuté karbidy, nástrojové a&nbsp;rychlořezné oceli jen s&nbsp;následným kalením a&nbsp;popouštěním</li>
+    </ul></div>
+  </div>
+
+  <h3>CVD a&nbsp;materiál nástroje</h3>
+  <div class="grid2">
+    <div class="card"><div class="ct">Nástrojové a&nbsp;rychlořezné oceli</div><p>Vysoká teplota povlakování vyžaduje po nanesení povlaku CVD nové kalení a&nbsp;popouštění. Povlakovat lze jen oceli, které lze kalit ve&nbsp;vakuu a&nbsp;jejichž austenitizační teplota je vyšší než 1&nbsp;000&nbsp;°C, například chromovou ledeburitickou ocel 1.2379 nebo rychlořeznou ocel 1.3343.</p>
+      <p style="margin-top:10px">Při povlakování a&nbsp;následném tepelném zpracování se mění rozměry nástroje. Tvrdý povlak už nelze obrobit. Výrobce nástroje se proto s&nbsp;povlakovnou předem dohodne na korekci rozměrů, včetně nárůstu o&nbsp;tloušťku povlaku.</p></div>
+    <div class="card"><div class="ct">Slinuté karbidy</div><p>Slinutý karbid se po povlakování nekalí a&nbsp;jeho rozměry se při povlakování nemění. Pro CVD je proto velmi vhodný.</p>
+      <p style="margin-top:10px">Slinutý karbid nahrazuje nástrojovou ocel tam, kde ocel nemá dostatečnou pevnost v&nbsp;tlaku, tepelnou stálost nebo modul pružnosti.</p></div>
+  </div>
+
+  <h3>Materiály povlaků</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Povlak</th><th>Vlastnosti a&nbsp;funkce</th></tr></thead>
+    <tbody>
+      <tr><td class="k">TiC</td><td>Chrání hřbet proti opotřebení a&nbsp;dovoluje vyšší řezné rychlosti než nepovlakovaný nástroj.</td></tr>
+      <tr><td class="k">TiN</td><td>Velká tvrdost. Vyšší tepelná vodivost než TiC, lépe snáší vyšší teploty a&nbsp;teplotní šoky.</td></tr>
+      <tr><td class="k">TiCN</td><td>Velká tvrdost a&nbsp;dobré kluzné vlastnosti. Používá se hlavně pro hrubování.</td></tr>
+      <tr><td class="k">Al<sub>2</sub>O<sub>3</sub></td><td>Odolává odírání a&nbsp;oxidaci. Při vysokých teplotách a&nbsp;řezných rychlostech je odolnější než TiC. Má horší přilnavost k&nbsp;podkladu.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Vícevrstvý povlak</h3>
+  <p class="t">Vlastnosti jednotlivých povlaků se doplňují, proto se nanášejí ve&nbsp;více vrstvách. Spodní vrstvy zajišťují přilnavost k&nbsp;podkladu, horní vrstvy jsou tvrdé, otěruvzdorné a&nbsp;odolávají oxidaci za vysoké teploty.</p>
+  <div class="layers">
+    <div class="ly" style="background:#d4b85a;color:#231d16;height:40px"><b>TiN</b><span>vnější vrstva</span></div>
+    <div class="ly" style="background:#8fb3cf;color:#231d16;height:52px"><b>Al<sub>2</sub>O<sub>3</sub></b><span>ochrana proti oxidaci a&nbsp;teplu</span></div>
+    <div class="ly" style="background:#6f7c8b;color:#eaf2fa;height:60px"><b>TiCN</b><span>vrstva u&nbsp;podkladu</span></div>
+    <div class="ly" style="background:#3a4553;color:#eaf2fa;height:96px"><b>slinutý karbid</b><span>podklad</span></div>
+  </div>
+  <p class="t" style="margin-top:12px;font-size:14.5px;color:var(--dim)">Schéma pořadí vrstev, tloušťky nejsou v&nbsp;měřítku.</p>
+
+  <p class="t" style="margin-top:40px;font-size:14px;color:var(--dim)">Zdroje: teplotní odolnost KNB — <a class="link" href="https://www.technickytydenik.cz/rubriky/obrabeci-stroje-a-jejich-prislusenstvi/opracovani-tvrdych-materialu-geometricky-urcenym-britem_57853.html" target="_blank" rel="noopener">Technický týdeník</a>; výroba a&nbsp;použití PKD — <a class="link" href="https://www.mmspektrum.com/clanek/diamant-jako-rezny-material" target="_blank" rel="noopener">MM Průmyslové spektrum</a>; teplotní odolnost PKD — <a class="link" href="https://honwaygroup.com/en/pcd-and-pcbn-turning-tools-material-selection-guide/" target="_blank" rel="noopener">Honway</a>; princip a&nbsp;parametry PVD a&nbsp;CVD — Sandvik Coromant; povlaky — <a class="link" href="https://core.ac.uk/download/17306442.pdf" target="_blank" rel="noopener">L.&nbsp;Čížek, Studium CVD povlaků používaných pro řezné nástroje, VŠB-TU Ostrava</a>.</p>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#93b5d3';
+const nb=s=>s.replace(/(^|[\s(„])([aikosuvzAIKOSUVZ]|[vzkVZK]e) /g,'$1$2'+NB);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const key=(g,fn)=>{g.addEventListener('click',fn);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v='+Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- DIAGRAM — tvrdost × houževnatost ---------- */
+(function(){
+const svg=document.getElementById('svgM'), info=document.getElementById('infoM');
+const M=[
+  {k:'pkd',n:'PKD',x:212,y:52,w:150,h:46,t:'Polykrystalický diamant je nejtvrdší a nejméně houževnatý. Dovoluje nejvyšší řezné rychlosti, ale jen při malém posuvu a hloubce řezu. Nehodí se pro oceli a litiny.'},
+  {k:'knb',n:'KNB',x:246,y:102,w:150,h:42,t:'Kubický nitrid boru je druhý nejtvrdší. Používá se pro dokončovací operace kalených ocelí a litin.'},
+  {k:'ker',n:'Keramika',x:282,y:148,w:150,h:42,t:'Řezná keramika je tvrdá a chemicky stálá, ale křehká. Snese vysoké řezné rychlosti, malý posuv a hloubku řezu.'},
+  {k:'cer',n:'Cermet',x:348,y:194,w:150,h:42,t:'Cermet odolává opotřebení lépe než slinutý karbid, je ale méně houževnatý. Používá se pro dokončování ocelí vyššími řeznými rychlostmi.'},
+  {k:'sk',n:'Slinutý karbid',x:426,y:240,w:280,h:124,t:'Slinutý karbid pokrývá široké pole tvrdosti i houževnatosti. Druhy se liší složením, velikostí zrn a povlakem. Je nejpoužívanějším nástrojovým materiálem.'},
+  {k:'hss',n:'HSS',x:712,y:330,w:148,h:62,t:'Rychlořezná ocel je nejhouževnatější a nejméně tvrdá. Snese velký posuv a rázy, řezná rychlost je nízká.'}];
+let sel=null;
+// osy
+el(svg,'line',{x1:200,y1:400,x2:200,y2:28,stroke:'#eaf2fa','stroke-width':2});
+el(svg,'polygon',{points:'200,18 193,32 207,32',fill:'#eaf2fa'});
+el(svg,'line',{x1:200,y1:400,x2:912,y2:400,stroke:'#eaf2fa','stroke-width':2});
+el(svg,'polygon',{points:'922,400 908,393 908,407',fill:'#eaf2fa'});
+const tx=(x,y,s,a)=>{const e=el(svg,'text',Object.assign({x,y,fill:'#aebfcf','font-size':15,'font-family':'IBM Plex Sans, sans-serif','text-anchor':'middle'},a||{}));e.textContent=s;return e;};
+tx(172,215,'Tvrdost',{transform:'rotate(-90 172 215)'});
+tx(560,428,'Houževnatost');
+// vnější šipky: řezná rychlost a posuv s hloubkou řezu
+el(svg,'polygon',{points:'78,400 78,60 62,60 96,20 130,60 114,60 114,400',fill:'#2a1d1d',stroke:'#c0707a','stroke-width':2});
+tx(96,230,'Řezná rychlost',{transform:'rotate(-90 96 230)',fill:'#eaf2fa'});
+tx(96,390,'−',{fill:'#eaf2fa'});tx(96,82,'+',{fill:'#eaf2fa'});
+el(svg,'polygon',{points:'200,444 880,444 880,430 920,458 880,486 880,472 200,472',fill:'#2a1d1d',stroke:'#c0707a','stroke-width':2,transform:'translate(0,-8)'});
+tx(560,456,'Posuv, hloubka řezu',{fill:'#eaf2fa'});
+tx(230,456,'−',{fill:'#eaf2fa'});tx(860,456,'+',{fill:'#eaf2fa'});
+const G={};
+M.forEach(m=>{const g=el(svg,'g',{class:'mbox',tabindex:0,role:'button'});
+  g.__r=el(g,'rect',{x:m.x,y:m.y,width:m.w,height:m.h,rx:10});
+  const t=el(g,'text',{x:m.x+m.w/2,y:m.y+m.h/2+6,'text-anchor':'middle'});t.textContent=m.n;
+  key(g,()=>{sel=sel===m.k?null:m.k;paint();});G[m.k]=g;});
+function paint(){Object.keys(G).forEach(k=>G[k].classList.toggle('on',sel===k));
+  const m=M.find(q=>q.k===sel);info.textContent=m?nb(m.t):'Klikni na'+NB+'materiál v'+NB+'diagramu.';}
+paint();
+})();
+
+/* ---------- TEPLOTNÍ ODOLNOST ---------- */
+(function(){
+const box=document.getElementById('tRows'), info=document.getElementById('infoT'), MAX=1300;
+const T=[
+  {k:'hss',n:'Rychlořezná ocel',a:600,b:600,v:'600 °C',t:'Rychlořezná ocel má nejnižší teplotní odolnost. Nad touto teplotou měkne a břit se rychle opotřebí, proto pracuje s nízkými řeznými rychlostmi.'},
+  {k:'pkd',n:'PKD',a:700,b:800,v:'700 až 800 °C',t:'Diamant je nejtvrdší, ale za vyšší teploty ztrácí stálost. Teplotní odolnost PKD je nižší než u slinutého karbidu. Při obrábění hliníku a neželezných kovů je teplota v místě řezu nízká.'},
+  {k:'sk',n:'Slinutý karbid',a:1000,b:1000,v:'1 000 °C',t:'Slinutý karbid si zachovává tvrdost do výrazně vyšší teploty než rychlořezná ocel, proto dovoluje vyšší řezné rychlosti.'},
+  {k:'ker',n:'Řezná keramika',a:1200,b:1200,v:'1 200 °C',t:'Keramika je použitelná do vysokých teplot a je chemicky stálá. Vysokou řeznou rychlost omezuje jen její křehkost.'},
+  {k:'knb',n:'KNB',a:1200,b:1200,v:'1 200 °C',t:'Kubický nitrid boru si zachovává tvrdost až do této teploty a nereaguje se železem. Proto obrábí kalené oceli i za vysokých teplot v místě řezu.'}];
+let sel=null;const R={};
+T.forEach(m=>{const row=document.createElement('div');row.className='trow';row.tabIndex=0;row.setAttribute('role','button');
+  row.innerHTML='<span class="tn">'+m.n+'</span><span class="tb"><span class="tf" style="width:'+(100*m.a/MAX).toFixed(1)+'%"></span>'+(m.b>m.a?'<span class="tr" style="left:'+(100*m.a/MAX).toFixed(1)+'%;width:'+(100*(m.b-m.a)/MAX).toFixed(1)+'%"></span>':'')+'</span><span class="tv">'+m.v+'</span>';
+  key(row,()=>{sel=sel===m.k?null:m.k;paint();});box.appendChild(row);R[m.k]=row;});
+function paint(){Object.keys(R).forEach(k=>R[k].classList.toggle('on',sel===k));
+  const m=T.find(q=>q.k===sel);info.textContent=m?nb(m.t):'Klikni na'+NB+'materiál.';}
+paint();
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

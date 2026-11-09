@@ -80,7 +80,7 @@ const CARDS = [{"title":"Odporové svařování","desc":"Proud procházející s
 class Component extends DCLogic {
   state = { structure: null };
   componentDidMount() {
-    fetch('../../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
+    fetch('../../site-structure.json?v=' + Date.now()).then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
   }
   renderVals() {
     const s = this.state.structure;
@@ -117,7 +117,7 @@ class Component extends DCLogic {
   const cdm = Component.prototype.componentDidMount;
   Component.prototype.componentDidMount = function () {
     if (cdm) cdm.call(this);
-    fetch(P + 'site-structure.json').then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
+    fetch(P + 'site-structure.json?v=' + Date.now()).then(r => r.json()).then(s => this.setState({ __nav: s.nav })).catch(() => {});
   };
 })();
 </script>

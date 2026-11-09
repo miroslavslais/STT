@@ -85,7 +85,7 @@ const FALLBACK_NAV = [
 class Component extends DCLogic {
   state = { structure: null };
   componentDidMount() {
-    fetch('../../site-structure.json').then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
+    fetch('../../site-structure.json?v=' + Date.now()).then(r => r.json()).then(structure => this.setState({ structure })).catch(() => {});
   }
   renderVals() {
     const s = this.state.structure;

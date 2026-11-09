@@ -4,6 +4,10 @@
       "title": "Koroze",
       "href": "koroze/index.html"
     },
+    "obrabeni": {
+      "title": "Obrábění",
+      "href": "obrabeni/index.html"
+    },
     "odlevani": {
       "title": "Odlévání",
       "href": "odlevani/index.html"
@@ -39,6 +43,17 @@
     "video": "Video"
   },
   "polozky": [
+    {
+      "id": "voyager-1",
+      "typ": "zajimavost",
+      "titulek": "Voyager 1: jeden světelný den od Země",
+      "perex": "Sonda z roku 1977 je 18. 11. 2026 tak daleko, že její signál letí k Zemi 24 hodin. Na stránce je živé počítadlo vzdálenosti a 3D pohled NASA.",
+      "kapitoly": [],
+      "stranka": "zajimavosti/voyager-1.html",
+      "obrazek": "zajimavosti/img/voyager-poloha.svg",
+      "obrazekPopis": "Slunce, Země a Voyager 1 za heliopauzou (vlastní schéma)",
+      "pridano": "2026-11-09"
+    },
     {
       "id": "plechovka",
       "typ": "zajimavost",
