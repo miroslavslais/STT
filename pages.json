@@ -405,15 +405,15 @@
   "obrabeni/zaklady/nastrojove-materialy": {
     "badge": true,
     "category": "obrabeni",
-    "content_hash": "92b8756873ef8c34ab030faa7fdc380533c38c69e65bf4bb6bf7663f51cfdff0",
+    "content_hash": "837085b41198a047ba91ec774cb2a458b8a85c1da23312fe7af5802f069d956a",
     "file": "obrabeni/zaklady/nastrojove-materialy.html",
     "first_seen": "2026-11-09",
     "hash_version": 2,
-    "last_changed": "2026-11-09",
+    "last_changed": "2026-11-11",
     "locked": false,
     "note": "Klikací diagram tvrdosti a houževnatosti, rychlořezná ocel, slinuté karbidy, cermety, keramika, KNB a PKD, teplotní odolnost a povlakování PVD a CVD se schématy komor, principu a pokrytí tvaru.",
     "title": "Nástrojové materiály",
-    "written_hash": "7ebb363499ae57e4ffcac3f7269646a2ea5c8b4f3cc09c6a258aaa07d7446682"
+    "written_hash": "924df4db4f9d6a20856bb0d06fc85d11195da50aba8b477a89a7449be68e20c7"
   },
   "obrabeni/zaklady/princip-rozdeleni": {
     "badge": true,
@@ -1874,15 +1874,15 @@
   "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/tuhy-roztok-vs-eutektikum": {
     "badge": true,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "9759f0041276652f73cf18a7794688621cebd6a7ef9db3ee59221447a09cf705",
+    "content_hash": "55663437b061d481913269d1a0f9e1482de78bc472d585ee7a5d901de5de3213",
     "file": "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/tuhy-roztok-vs-eutektikum.html",
     "first_seen": "2026-09-20",
     "hash_version": 2,
-    "last_changed": "2026-11-09",
+    "last_changed": "2026-11-11",
     "locked": false,
     "note": "Mikrostruktura a mřížka jednoho zrna vedle sebe, čtyři soustavy, diagram a odečet fází.",
     "title": "Kdy vznikne tuhý roztok a kdy už ne",
-    "written_hash": "2dbb6400a7a3a1dcb940be67c09166cc75108b35d39fa4e63ef83c70466b52b1"
+    "written_hash": "45eeba405a9005718f70bcd386186d5324c8ca140dd70e523a42e2579428d655"
   },
   "vnitrni-stavba-kovu-a-tz/tepelne-zpracovani/ara-diagram-anizotermicky-rozpad-austenitu": {
     "badge": true,
