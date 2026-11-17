@@ -392,28 +392,54 @@
   "obrabeni/zaklady/index": {
     "badge": true,
     "category": "obrabeni",
-    "content_hash": "a99ca598af281f75def974791754236b8c93a2c9473be931a41eff4ffb49602d",
+    "content_hash": "0633647efe278564d7b1f747aeb1a2ec0e2ea578159bd5b519b7a0a7df9e4bd0",
     "file": "obrabeni/zaklady/index.html",
     "first_seen": "2026-11-09",
     "hash_version": 2,
-    "last_changed": "2026-11-09",
+    "last_changed": "2026-11-17",
     "locked": false,
     "note": "Zpřístupněna kapitola Geometrie břitu.",
     "title": "Základy obrábění",
-    "written_hash": "82935f4ffee71d1c8ecd77b933fb3da1e9f09a9d52b4156d61f87a59657ae417"
+    "written_hash": "845c83b71c03235a643b45b4137fe5299b11fb2a9f1d447537af37aea2b64dbc"
   },
   "obrabeni/zaklady/nastrojove-materialy": {
     "badge": true,
     "category": "obrabeni",
-    "content_hash": "837085b41198a047ba91ec774cb2a458b8a85c1da23312fe7af5802f069d956a",
+    "content_hash": "2acc37a377a64800a2528250af906231cb4538a2e0066d0fe8fd9ac6ec6d6082",
     "file": "obrabeni/zaklady/nastrojove-materialy.html",
     "first_seen": "2026-11-09",
     "hash_version": 2,
-    "last_changed": "2026-11-11",
+    "last_changed": "2026-11-17",
     "locked": false,
     "note": "Klikací diagram tvrdosti a houževnatosti, rychlořezná ocel, slinuté karbidy, cermety, keramika, KNB a PKD, teplotní odolnost a povlakování PVD a CVD se schématy komor, principu a pokrytí tvaru.",
     "title": "Nástrojové materiály",
-    "written_hash": "924df4db4f9d6a20856bb0d06fc85d11195da50aba8b477a89a7449be68e20c7"
+    "written_hash": "6256dd4ac478da99e237a8ef02faec3ab539b399035224b640a17b791946f5cc"
+  },
+  "obrabeni/zaklady/obrobitelnost": {
+    "badge": true,
+    "category": "obrabeni",
+    "content_hash": "f756a5fc747c6eeb38a23ded8277111c32ad210f6b06a48986c8ca12884ac2af",
+    "file": "obrabeni/zaklady/obrobitelnost.html",
+    "first_seen": "2026-11-17",
+    "hash_version": 2,
+    "last_changed": "2026-11-17",
+    "locked": false,
+    "note": "Kritéria, index a třídy obrobitelnosti, vliv složení a struktury materiálu a klikací skupiny materiálů ISO P, M, K, N, S, H.",
+    "title": "Obrobitelnost",
+    "written_hash": "73bc6d18a07ac9219a759cc26a417ffa59d6f649063ae4198a6c9f89d63d51e2"
+  },
+  "obrabeni/zaklady/opotrebeni-trvanlivost": {
+    "badge": true,
+    "category": "obrabeni",
+    "content_hash": "7035d16304cb466157d8b138b43a42cd5361601676db26389de97d87ed50a2e9",
+    "file": "obrabeni/zaklady/opotrebeni-trvanlivost.html",
+    "first_seen": "2026-11-17",
+    "hash_version": 2,
+    "last_changed": "2026-11-17",
+    "locked": false,
+    "note": "Mechanismy opotřebení, klikací řez opotřebeným břitem s kótami VB a KT, kritéria otupení, průběh opotřebení a interaktivní Taylorův vztah.",
+    "title": "Opotřebení a trvanlivost nástroje",
+    "written_hash": "f902e4bbb486aadb92539aa1e1a32a80be9603b5853ea8b36befce355149763e"
   },
   "obrabeni/zaklady/princip-rozdeleni": {
     "badge": true,
@@ -428,18 +454,31 @@
     "title": "Princip obrábění a rozdělení metod",
     "written_hash": "d40a224e2a2b3728a92c91ec7797fb9de51ae89931ebadc6c358ba9ff77c55fe"
   },
+  "obrabeni/zaklady/procesni-kapaliny": {
+    "badge": true,
+    "category": "obrabeni",
+    "content_hash": "ddc83ef430b6d9fc68d5077fcde87744768c9309afa18e31ba01fe6b47070b9c",
+    "file": "obrabeni/zaklady/procesni-kapaliny.html",
+    "first_seen": "2026-11-17",
+    "hash_version": 2,
+    "last_changed": "2026-11-17",
+    "locked": false,
+    "note": "Funkce a druhy kapalin, animace zaplavení, vnitřního přívodu, minimálního mazání a obrábění za sucha, údržba, zdraví a 3D model refraktometru s postupem měření.",
+    "title": "Procesní kapaliny",
+    "written_hash": "c244474b75bd33faf8a2872328f38338eecd5c16e5483fff066f17e8af72c8a9"
+  },
   "obrabeni/zaklady/rezne-podminky": {
     "badge": true,
     "category": "obrabeni",
-    "content_hash": "038e65281a8fb440d826dbfe63e5718f57196604c0c8f94cbf426bbab790bfe1",
+    "content_hash": "9b804e7e6494c1cf1bcab8325c980c6920f4a611e9ce63ef03e58988abd5b09e",
     "file": "obrabeni/zaklady/rezne-podminky.html",
     "first_seen": "2026-11-09",
     "hash_version": 2,
-    "last_changed": "2026-11-09",
+    "last_changed": "2026-11-17",
     "locked": false,
     "note": "Animace řezné rychlosti na různých průměrech, průřez třísky s posuvníky, klikací rozklad řezné síly, výkon, příkon, krouticí moment a řešený příklad strojního času krok za krokem.",
     "title": "Řezné podmínky a síly",
-    "written_hash": "79a80b24155684024c2afd8e1e93b3d8b166246ad956b126fee07bc464a6f752"
+    "written_hash": "f7509089ebdaf41b9cc8b4c10d3ccdb9f08c55ea0dcc67f7735f9d755ab2ebca"
   },
   "obrabeni/zaklady/tvorba-trisky": {
     "badge": true,

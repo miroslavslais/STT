@@ -1413,19 +1413,22 @@
         "title": "Opotřebení a trvanlivost nástroje",
         "desc": "Formy opotřebení, kritéria otupení a Taylorův vztah.",
         "href": "opotrebeni-trvanlivost.html",
-        "status": "coming-soon"
+        "status": "ready",
+        "badge": "2 interaktivní"
       },
       {
         "title": "Procesní kapaliny",
         "desc": "Chlazení a mazání, druhy kapalin, minimální mazání a obrábění za sucha.",
         "href": "procesni-kapaliny.html",
-        "status": "coming-soon"
+        "status": "ready",
+        "badge": "1 animace · 1 interaktivní · 3D model"
       },
       {
         "title": "Obrobitelnost",
         "desc": "Kritéria obrobitelnosti, vliv materiálu a skupiny materiálů ISO.",
         "href": "obrobitelnost.html",
-        "status": "coming-soon"
+        "status": "ready",
+        "badge": "1 interaktivní"
       }
     ]
   },

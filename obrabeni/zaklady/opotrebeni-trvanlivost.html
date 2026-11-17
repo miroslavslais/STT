@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Opotřebení a trvanlivost nástroje | STT</title>
+<meta name="description" content="Opotřebení a trvanlivost nástroje: mechanismy opotřebení (abraze, adheze, difuze, oxidace), opotřebení hřbetu VB a žlábek na čele KT, kritéria otupení podle ISO 3685, průběh opotřebení a Taylorův vztah.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma (záměrně jen tmavé — promítání ve výuce), akcent kapitoly Obrábění */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#93b5d3;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg);margin:0}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:16px;right:16px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:38px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+.link{color:var(--acc);border-bottom:1px solid #3f5568}
+.grid3{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid4{display:grid;gap:18px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.ct{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.card p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+.card ul{margin:12px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:var(--muted)}
+.card ul a{color:var(--fg);border-bottom:1px solid #3f5568}
+.card ul a:hover{color:var(--acc)}
+.top-cut{border-top:4px solid #f2a65a}
+.top-feed{border-top:4px solid #6fc3a0}
+.top-res{border-top:4px solid var(--acc)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin:6px 0 18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{border-radius:14px;overflow:hidden}
+.svgbox svg{display:block;width:100%;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.step p+p{margin-top:4px}
+.step b{font-weight:600}
+.k-cut{color:#f2a65a}
+.k-feed{color:#6fc3a0}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15.5px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:900px}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:12px 20px;color:var(--muted);border-top:1px solid var(--line2)}
+td.k{color:var(--fg);font-weight:600}
+th+th,td+td{border-left:1px solid var(--line2)}
+.grid2{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.pict{display:block;width:100%;background:var(--deep);border-radius:12px;margin:0 0 14px}
+.eq{font-family:var(--f-disp);font-weight:700;font-size:20px;color:var(--fg);background:var(--deep);border:1px solid var(--line2);border-top:4px solid var(--acc);border-radius:14px;padding:14px 18px;margin:18px 0;text-align:center;max-width:820px;box-sizing:border-box}
+.sliders{display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;margin:0 0 14px}
+.sl{display:grid;grid-template-columns:150px 1fr 54px;align-items:center;gap:12px;font-size:15px;color:var(--fg)}
+.sl-t{font-weight:600}
+.sl-v{font-family:var(--f-disp);font-weight:700;color:var(--acc);text-align:right}
+.sl input{accent-color:var(--acc);width:100%}
+.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+.mt-t{font-size:14px;color:var(--dim);margin-bottom:6px}
+.bar{height:10px;background:var(--deep);border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.bar-f{height:100%;background:var(--acc);border-radius:999px;transition:width .15s}
+.tbl{max-width:none}
+td{min-width:120px}
+.tscale{display:grid;grid-template-columns:150px minmax(0,1fr);grid-auto-rows:40px;max-width:820px;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:6px 0 10px}
+.tc{display:flex;align-items:center;justify-content:center;font-family:var(--f-disp);font-weight:700;font-size:15px;color:#231d16}
+.tz{grid-column:2;padding:12px 22px;border-left:5px solid;display:flex;flex-direction:column;justify-content:center;gap:4px;font-size:15.5px;line-height:1.55;color:var(--muted);background:var(--card)}
+.tz b{color:var(--fg);font-weight:600}
+.tz+.tz{border-top:1px solid var(--line2)}
+</style>
+</head>
+<body data-first-seen="2026-11-17">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na Základy obrábění</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Základy obrábění</div>
+  <h1>Opotřebení a&nbsp;trvanlivost nástroje</h1>
+  <p class="lead">Břit se při řezání postupně opotřebovává působením tlaku, tření a&nbsp;teploty. Stránka popisuje mechanismy opotřebení, opotřebení hřbetu a&nbsp;čela, kritéria otupení a&nbsp;závislost trvanlivosti břitu na řezné rychlosti.</p>
+
+  <h2>Mechanismy opotřebení</h2>
+  <div class="grid4">
+    <div class="card top-res"><div class="ct">Abraze</div><p>Tvrdé částice v&nbsp;materiálu obrobku obrušují břit. Odolnost proti abrazi závisí hlavně na tvrdosti břitu. Abraze se uplatňuje zejména při nízkých řezných rychlostech.</p></div>
+    <div class="card top-res"><div class="ct">Adheze</div><p>Mezi břitem a&nbsp;obráběným materiálem vznikají spoje, které se při dalším pohybu trhají a&nbsp;vytrhávají z&nbsp;břitu částice. Převládá při nižších teplotách a&nbsp;řezných rychlostech.</p></div>
+    <div class="card top-cut"><div class="ct">Difuze</div><p>Atomy přecházejí mezi materiálem břitu a&nbsp;obrobku a&nbsp;břit se chemicky rozpouští. Rozhoduje chemické složení obou materiálů a&nbsp;jejich vzájemná afinita, tvrdost má jen malý vliv. Probíhá v&nbsp;místě nejvyšší teploty na styku třísky s&nbsp;čelem.</p></div>
+    <div class="card top-cut"><div class="ct">Oxidace</div><p>Za vysoké teploty reaguje materiál břitu se vzdušným kyslíkem. Některé oxidy tříska snadno odnáší. Oxidace vytváří žlábky v&nbsp;místech, kudy k&nbsp;ostří proniká vzduch.</p></div>
+  </div>
+  <p class="t" style="margin-top:18px">Teplota v&nbsp;místě řezu roste s&nbsp;řeznou rychlostí (<a class="link" href="tvorba-trisky.html">Tvorba třísky</a>). Při nízké teplotě převládá abraze a&nbsp;adheze, při vysoké teplotě difuze a&nbsp;oxidace. Za vysoké teploty a&nbsp;tlaku se břit může také plasticky deformovat. Odolnost proti teplotě a&nbsp;chemickým vlivům rozhoduje o&nbsp;volbě nástrojového materiálu (<a class="link" href="nastrojove-materialy.html">Nástrojové materiály</a>).</p>
+
+  <h2>Opotřebení hřbetu a&nbsp;čela</h2>
+  <div class="grid2">
+    <div class="card top-feed"><div class="ct">Opotřebení hřbetu (VB)</div><p>Hřbet se tře o&nbsp;obrobenou plochu a&nbsp;vzniká na něm ploška opotřebení. Příčinou je hlavně abraze. Je to nejčastější forma opotřebení. S&nbsp;rostoucí ploškou roste tření, zhoršuje se jakost obrobené plochy a&nbsp;přesnost rozměru.</p></div>
+    <div class="card top-cut"><div class="ct">Žlábek na čele (KT)</div><p>Tříska klouže po čele a&nbsp;vymílá v&nbsp;něm žlábek (výmol). Vzniká difuzí a&nbsp;abrazí v&nbsp;místě nejvyšší teploty, v&nbsp;určité vzdálenosti od ostří. Velký žlábek mění geometrii břitu a&nbsp;oslabuje ho.</p></div>
+  </div>
+
+  <div class="panel" style="margin-top:22px">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Opotřebený břit v&nbsp;řezu</div>
+        <div class="panel-s" style="margin-bottom:0">Řez kolmo na ostří. Čárkovaně původní tvar břitu, plně opotřebený břit. Rozměry jsou zvětšené. Klikni na popisek ve&nbsp;schématu.</div>
+      </div>
+    </div>
+    <div class="svgbox"><svg id="svgW" viewBox="0 0 1000 440" role="img" aria-label="Řez opotřebeným břitem s kótami VB, KT, KB a KM"></svg></div>
+    <p class="info" id="infoW"></p>
+  </div>
+
+  <h2>Trvanlivost a&nbsp;kritérium otupení</h2>
+  <p class="t">Trvanlivost břitu T je doba řezání od nového nebo naostřeného břitu do jeho otupení. Otupení se posuzuje podle zvolené hodnoty opotřebení, kritéria otupení. Podle ISO&nbsp;3685 se pro hřbet používá:</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Kritérium</th><th>Hodnota</th><th>Použití</th></tr></thead>
+    <tbody>
+      <tr><td class="k">VB</td><td>0,3&nbsp;mm</td><td>rovnoměrné opotřebení hřbetu</td></tr>
+      <tr><td class="k">VB<sub>max</sub></td><td>0,6&nbsp;mm</td><td>nerovnoměrné opotřebení hřbetu</td></tr>
+      <tr><td class="k">KT</td><td>0,06 + 0,3&nbsp;·&nbsp;f&nbsp;[mm]</td><td>hloubka žlábku na čele, f je posuv v&nbsp;mm</td></tr>
+    </tbody>
+  </table></div>
+  <p class="t" style="margin-top:18px">Opotřebení hřbetu roste s&nbsp;časem řezání ve&nbsp;třech oblastech:</p>
+  <div class="grid2">
+    <div class="card"><svg class="pict" viewBox="0 0 480 260" role="img" aria-label="Křivka opotřebení hřbetu VB v závislosti na čase řezání se třemi oblastmi a kritériem otupení">
+      <g fill="#8296a8" font-family="IBM Plex Sans, sans-serif" font-size="14">
+        <text x="20" y="22">VB</text><text x="410" y="246">t</text>
+        <text x="62" y="214" text-anchor="middle">I</text><text x="220" y="214" text-anchor="middle">II</text><text x="360" y="214" text-anchor="middle">III</text>
+        <text x="346" y="246" text-anchor="middle">T</text>
+      </g>
+      <line x1="40" y1="225" x2="40" y2="20" stroke="#eaf2fa" stroke-width="2"/><polygon points="40,12 34,24 46,24" fill="#eaf2fa"/>
+      <line x1="40" y1="225" x2="440" y2="225" stroke="#eaf2fa" stroke-width="2"/><polygon points="450,225 438,219 438,231" fill="#eaf2fa"/>
+      <line x1="90" y1="40" x2="90" y2="225" stroke="#263040" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <line x1="320" y1="40" x2="320" y2="225" stroke="#263040" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <path d="M40 225 C52 185 70 170 90 165 L320 112 C350 104 372 80 392 40" fill="none" stroke="#f2a65a" stroke-width="4"/>
+      <line x1="40" y1="100" x2="440" y2="100" stroke="#6fc3a0" stroke-width="2" stroke-dasharray="8 5"/>
+      <line x1="346" y1="100" x2="346" y2="225" stroke="#6fc3a0" stroke-width="1.5" stroke-dasharray="3 4"/>
+    </svg>
+    <p>Zeleně kritérium otupení. Čas, za který křivka dosáhne kritéria, je trvanlivost T.</p></div>
+    <div class="card"><ul style="margin-top:0">
+      <li><b style="color:var(--fg)">I — záběh:</b> opotřebení roste rychle. Ostří se dotýká obrobku jen vrcholky nerovností a&nbsp;měrný tlak je vysoký.</li>
+      <li><b style="color:var(--fg)">II — rovnoměrné opotřebení:</b> opotřebení roste stálou rychlostí. Je to nejdelší oblast.</li>
+      <li><b style="color:var(--fg)">III — zrychlené opotřebení:</b> teplota v&nbsp;místě řezu dosáhne mezní hodnoty, tvrdost břitu klesá a&nbsp;opotřebení roste lavinovitě. Břit se musí vyměnit dřív, než do této oblasti vstoupí.</li>
+    </ul></div>
+  </div>
+
+  <h2>Taylorův vztah</h2>
+  <p class="t">Z&nbsp;řezných podmínek má na trvanlivost břitu největší vliv řezná rychlost. Vyšší řezná rychlost zvyšuje teplotu v&nbsp;místě řezu a&nbsp;opotřebení se zrychluje. Závislost popisuje Taylorův vztah:</p>
+  <div class="eq">T = C<sub>T</sub> / v<sub>c</sub><sup>m</sup> &nbsp;[min]</div>
+  <div class="grid2">
+    <div class="card"><div class="ct">Konstanta C<sub>T</sub></div><p>Závisí hlavně na materiálu obrobku a&nbsp;nástroje a&nbsp;na posuvu a&nbsp;hloubce řezu. Udává teoretickou trvanlivost při řezné rychlosti 1&nbsp;m/min. Dosahuje hodnot 10<sup>8</sup> až 10<sup>12</sup>.</p></div>
+    <div class="card"><div class="ct">Exponent m</div><p>Závisí hlavně na materiálu nástroje. Udává, jak citlivě trvanlivost reaguje na změnu řezné rychlosti. V&nbsp;logaritmických souřadnicích je závislost T&nbsp;=&nbsp;f(v<sub>c</sub>) přímka a&nbsp;m je její směrnice.</p></div>
+  </div>
+  <div class="tbl" style="margin-top:18px"><table>
+    <thead><tr><th>Materiál nástroje</th><th>Exponent m</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Rychlořezná ocel</td><td>5 až 8</td></tr>
+      <tr><td class="k">Slinutý karbid</td><td>2,5 až 5</td></tr>
+      <tr><td class="k">Řezná keramika</td><td>1,5 až 2,5</td></tr>
+    </tbody>
+  </table></div>
+  <p class="t" style="margin-top:18px">Pro dvě řezné rychlosti se stejným nástrojem a&nbsp;obrobkem se konstanta C<sub>T</sub> vykrátí:</p>
+  <div class="eq">T<sub>2</sub> / T<sub>1</sub> = (v<sub>c1</sub> / v<sub>c2</sub>)<sup>m</sup></div>
+  <p class="t">Velký exponent m znamená, že i&nbsp;malé zvýšení řezné rychlosti trvanlivost výrazně zkrátí. Rychlořezná ocel je proto na řeznou rychlost citlivější než slinutý karbid a&nbsp;keramika.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Jak zvýšení řezné rychlosti zkrátí trvanlivost</div>
+        <div class="panel-s" style="margin-bottom:0">Vyber materiál nástroje, nastav exponent m v&nbsp;rozsahu pro daný materiál a&nbsp;zvýšení řezné rychlosti. Graf má logaritmické osy, výchozí stav v<sub>c1</sub>, T<sub>1</sub> je 100&nbsp;%.</div>
+      </div>
+      <div class="btns" id="mBtns"></div>
+    </div>
+    <div class="sliders">
+      <label class="sl"><span class="sl-t">Exponent m</span><input type="range" id="sM" min="0" max="100" value="50"><span class="sl-v" id="vM"></span></label>
+      <label class="sl"><span class="sl-t">Řezná rychlost v<sub>c2</sub></span><input type="range" id="sV" min="100" max="200" value="120"><span class="sl-v" id="vV"></span></label>
+    </div>
+    <div class="svgbox"><svg id="svgT" viewBox="0 0 1000 400" role="img" aria-label="Graf trvanlivosti v závislosti na řezné rychlosti v logaritmických osách"></svg></div>
+    <div class="step"><div class="step-t" id="tRes"></div><p id="tTxt"></p></div>
+  </div>
+
+  <p class="t" style="margin-top:40px;font-size:14px;color:var(--dim)">Zdroje: mechanismy, formy a&nbsp;průběh opotřebení — <a class="link" href="https://core.ac.uk/download/8996669.pdf" target="_blank" rel="noopener">Sledování opotřebení inteligentních řezných nástrojů, VŠB-TU Ostrava</a> (podle K.&nbsp;Kocman, J.&nbsp;Prokop: Technologie obrábění); kritéria otupení — ISO&nbsp;3685; Taylorův vztah, C<sub>T</sub> a&nbsp;exponent m — <a class="link" href="https://adoc.pub/technologicke-aplikace-eznych-nastroj-ze-slinutych-karbid.html" target="_blank" rel="noopener">Technologické aplikace řezných nástrojů ze&nbsp;slinutých karbidů, FSI VUT</a> a&nbsp;<a class="link" href="https://dspace.tul.cz/server/api/core/bitstreams/3f5347ec-3121-40c3-a732-7b8c8bbe785f/content" target="_blank" rel="noopener">bakalářská práce, FS TU v&nbsp;Liberci</a>.</p>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#93b5d3';
+const nb=s=>s.replace(/(^|[\s(„])([aikosuvzAIKOSUVZ]|[vzkVZK]e) /g,'$1$2'+NB);
+const f=v=>(+v).toFixed(1);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const key=(g,fn)=>{g.addEventListener('click',fn);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+const pts=a=>a.map(q=>f(q[0])+','+f(q[1])).join(' ');
+const LEAD='#8296a8', TOOL='#d4b85a';
+const label=(p,x,y,txt,fn)=>{const parts=txt.split('_');const w=Math.round(txt.replace('_','').length*7.8+24);
+  const g=el(p,'g',{class:'lbl',tabindex:0,role:'button'});el(g,'rect',{x,y,width:w,height:28,rx:8});
+  const t=el(g,'text',{x:x+w/2,y:y+19,'text-anchor':'middle'});t.appendChild(document.createTextNode(parts[0]));
+  if(parts[1]){const s=el(t,'tspan',{'font-size':11,dy:4});s.textContent=parts[1];}
+  key(g,fn);g.__w=w;return g;};
+const leader=(p,x1,y1,x2,y2)=>el(p,'line',{x1:f(x1),y1:f(y1),x2:f(x2),y2:f(y2),stroke:LEAD,'stroke-width':1.5,'pointer-events':'none'});
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v='+Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- SCHÉMA — opotřebený břit ---------- */
+(function(){
+const svg=document.getElementById('svgW'), info=document.getElementById('infoW'), R=Math.PI/180;
+// špička původního břitu T, úhel čela G, úhel hřbetu A
+const TX=360, TY=300, G=8*R, A=10*R;
+const U=[Math.sin(G),-Math.cos(G)];         // směr čela od špičky nahoru
+const NI=[Math.cos(G),Math.sin(G)];         // normála čela do nástroje
+const V=[Math.cos(A),-Math.sin(A)];         // směr hřbetu od špičky doprava
+const NV=[-Math.sin(A),-Math.cos(A)];       // normála hřbetu do nástroje
+const on=s=>[TX+U[0]*s,TY+U[1]*s];
+const onV=s=>[TX+V[0]*s,TY+V[1]*s];
+const add=(p,n,k)=>[p[0]+n[0]*k,p[1]+n[1]*k];
+// opotřebení: VB podél hřbetu, žlábek KB od s1 do s2, hloubka KT, střed KM
+const VBp=110, S1=70, S2=190, KT=22, KM=(S1+S2)/2;
+const RAKE=300, FLANK=560;
+// nový obrys (čárkovaně)
+const rTop=on(RAKE), fEnd=onV(FLANK);
+// opotřebený obrys: ploška VB vodorovně, ostří se posune na čelo
+const pV=onV(VBp), d=TY-pV[1];               // výška, o kterou ostří ustoupilo
+const sE=d/Math.cos(G), pE=on(sE);           // nové ostří na čele
+const crater=[];for(let i=0;i<=24;i++){const s=S1+(S2-S1)*i/24, dep=KT*Math.sin(Math.PI*i/24);crater.push(add(on(s),NI,dep));}
+// obrobek a odebíraná vrstva
+el(svg,'rect',{x:0,y:TY,width:1000,height:140,fill:'#3a4553'});
+el(svg,'polygon',{points:pts([[0,TY-60],[TX+60*Math.tan(G),TY-60],[TX,TY],[0,TY]]),fill:'#3a4553','fill-opacity':.55});
+// nástroj
+el(svg,'polygon',{points:pts([pE].concat(crater,[on(S2),rTop,[960,rTop[1]],[960,fEnd[1]],fEnd,pV])),fill:TOOL,'fill-opacity':.9,stroke:'#3a3018','stroke-width':2});
+el(svg,'polyline',{points:pts([rTop,[TX,TY],fEnd]),fill:'none',stroke:'#eaf2fa','stroke-width':1.5,'stroke-dasharray':'6 5'});
+// zvýrazňované prvky
+const hFace=el(svg,'polyline',{points:pts([pE,...crater,on(S2),rTop]),fill:'none',stroke:'none','stroke-width':6});
+const hFlank=el(svg,'polyline',{points:pts([pV,fEnd]),fill:'none',stroke:'none','stroke-width':6});
+const land=el(svg,'line',{x1:f(pE[0]),y1:f(pE[1]),x2:f(pV[0]),y2:f(pV[1]),stroke:'#f2a65a','stroke-width':4});
+// kóty
+const dimG={};
+const dim=(k,a,b,n,off)=>{const g=el(svg,'g',{});const a2=add(a,n,off),b2=add(b,n,off);
+  el(g,'line',{x1:f(a[0]),y1:f(a[1]),x2:f(a2[0]+n[0]*6),y2:f(a2[1]+n[1]*6),stroke:'#eaf2fa','stroke-width':1});
+  el(g,'line',{x1:f(b[0]),y1:f(b[1]),x2:f(b2[0]+n[0]*6),y2:f(b2[1]+n[1]*6),stroke:'#eaf2fa','stroke-width':1});
+  g.__m=el(g,'line',{x1:f(a2[0]),y1:f(a2[1]),x2:f(b2[0]),y2:f(b2[1]),stroke:'#eaf2fa','stroke-width':2});
+  dimG[k]=g;return [(a2[0]+b2[0])/2,(a2[1]+b2[1])/2];};
+// VB podél hřbetu, odsazená do nástroje
+const mVB=dim('vb',[TX,TY],pV,NV,34);
+// KB a KM podél čela, odsazené mimo nástroj (proti NI)
+dim('kb',on(S1),on(S2),[-NI[0],-NI[1]],30);
+const mKM=dim('km',[TX,TY],on(KM),[-NI[0],-NI[1]],66);
+// KT kolmo k čelu v místě KM
+const kt0=on(KM), kt1=add(on(KM),NI,KT);
+dimG.kt=el(svg,'g',{});dimG.kt.__m=el(dimG.kt,'line',{x1:f(kt0[0]),y1:f(kt0[1]),x2:f(kt1[0]),y2:f(kt1[1]),stroke:'#eaf2fa','stroke-width':2});
+const INFO={
+  vb:'VB je šířka plošky opotřebení na hřbetu, měřená od původního ostří. Ostří se opotřebením hřbetu posouvá a rozměr obrobku se mění. VB je nejčastějším kritériem otupení.',
+  kt:'KT je hloubka žlábku na čele, měřená od původní plochy čela.',
+  kb:'KB je šířka žlábku na čele.',
+  km:'KM je vzdálenost středu žlábku od původního ostří. Žlábek nevzniká přímo u ostří, ale v místě nejvyšší teploty na styku s třískou.',
+  celo:'Po čele klouže tříska. Difuze a abraze v místě nejvyšší teploty na čele vymílají žlábek.',
+  hrbet:'Hřbet se tře o obrobenou plochu. Abrazí vzniká ploška opotřebení, na které hřbet ztrácí úhel hřbetu a tře se o obrobek celou plochou.'};
+let sel=null;const L={};
+const mk=(k,x,y,txt,ld)=>{L[k]=label(svg,x,y,txt,()=>{sel=sel===k?null:k;paint();});if(ld)leader(svg,...ld);};
+mk('vb',600,370,'VB',[600,384,mVB[0]+4,mVB[1]+6]);
+const pKB=add(on(S1+(S2-S1)*0.8),[-NI[0],-NI[1]],30);
+mk('kb',200,90,'KB',[240,104,pKB[0]-3,pKB[1]]);
+mk('km',150,190,'KM',[190,204,mKM[0]-4,mKM[1]]);
+mk('kt',560,60,'KT',[560,74,kt1[0]+3,kt1[1]-2]);
+mk('celo',230,20,'čelo',[290,34,on(262)[0]-3,on(262)[1]]);
+mk('hrbet',760,330,'hřbet',[800,330,onV(420)[0],onV(420)[1]+3]);
+function paint(){
+  Object.keys(dimG).forEach(k=>{dimG[k].__m.setAttribute('stroke',sel===k?ACC:'#eaf2fa');dimG[k].__m.setAttribute('stroke-width',sel===k?5:2);});
+  hFace.setAttribute('stroke',sel==='celo'?ACC:'none');hFlank.setAttribute('stroke',sel==='hrbet'?ACC:'none');
+  land.setAttribute('stroke',sel==='vb'?ACC:'#f2a65a');
+  Object.keys(L).forEach(k=>L[k].classList.toggle('on',sel===k));
+  info.textContent=sel?nb(INFO[sel]):'Klikni na'+NB+'popisek ve'+NB+'schématu.';}
+paint();
+})();
+
+/* ---------- INTERAKTIVNÍ — Taylorův vztah ---------- */
+(function(){
+const svg=document.getElementById('svgT');
+const MAT=[{n:'Rychlořezná ocel',a:5,b:8},{n:'Slinutý karbid',a:2.5,b:5},{n:'Řezná keramika',a:1.5,b:2.5}];
+let mi=1;
+const sM=document.getElementById('sM'), sV=document.getElementById('sV');
+const box=document.getElementById('mBtns');
+const B=MAT.map((m,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=m.n;b.onclick=()=>{mi=i;draw();};box.appendChild(b);return b;});
+// graf: x = vc/vc1 od 1 do 2 (log), y = T/T1 od 0,001 do 1 (log)
+const X0=120,X1=940,Y0=40,Y1=340;
+const gx=r=>X0+(X1-X0)*Math.log(r)/Math.log(2), gy=q=>Y0+(Y1-Y0)*(-Math.log10(q))/3;
+const tx=(x,y,s,a)=>{const e=el(svg,'text',Object.assign({x,y,fill:'#8296a8','font-size':14,'font-family':'IBM Plex Sans, sans-serif'},a||{}));e.textContent=s;return e;};
+[1,0.1,0.01,0.001].forEach(q=>{el(svg,'line',{x1:X0,y1:f(gy(q)),x2:X1,y2:f(gy(q)),stroke:'#263040','stroke-width':1});tx(X0-12,gy(q)+5,(q*100).toString().replace('.',',')+NB+'%',{'text-anchor':'end'});});
+[1,1.25,1.5,1.75,2].forEach(r=>{el(svg,'line',{x1:f(gx(r)),y1:Y0,x2:f(gx(r)),y2:Y1,stroke:'#263040','stroke-width':1});tx(gx(r),Y1+22,Math.round(r*100)+NB+'%',{'text-anchor':'middle'});});
+tx(X0,24,'T / T1');tx(X1,Y1+44,'vc2 / vc1',{'text-anchor':'end'});
+el(svg,'line',{x1:X0,y1:Y1,x2:X1,y2:Y1,stroke:'#eaf2fa','stroke-width':2});
+el(svg,'line',{x1:X0,y1:Y0,x2:X0,y2:Y1,stroke:'#eaf2fa','stroke-width':2});
+const band=el(svg,'polygon',{fill:'#93b5d3','fill-opacity':.12});
+const line=el(svg,'line',{stroke:'#f2a65a','stroke-width':4});
+const vl=el(svg,'line',{stroke:'#6fc3a0','stroke-width':1.5,'stroke-dasharray':'5 4'});
+const hl=el(svg,'line',{stroke:'#6fc3a0','stroke-width':1.5,'stroke-dasharray':'5 4'});
+const pt=el(svg,'circle',{r:8,fill:'#6fc3a0'});
+el(svg,'circle',{cx:X0,cy:f(gy(1)),r:7,fill:'#eaf2fa'});
+const fm=(v,d)=>v.toFixed(d).replace('.',',');
+function draw(){
+  const M=MAT[mi], m=M.a+(M.b-M.a)*(+sM.value)/100, r=(+sV.value)/100, q=Math.pow(1/r,m);
+  B.forEach((b,i)=>b.setAttribute('aria-pressed',i===mi));
+  document.getElementById('vM').textContent=fm(m,2);
+  document.getElementById('vV').textContent=Math.round(r*100)+NB+'%';
+  // pás pro rozsah m daného materiálu (do x = 2)
+  const lo=Math.pow(0.5,M.a), hi=Math.pow(0.5,M.b), cl=v=>Math.max(v,0.001);
+  band.setAttribute('points',pts([[gx(1),gy(1)],[gx(2),gy(cl(lo))],[gx(2),gy(cl(hi))]]));
+  line.setAttribute('x1',f(gx(1)));line.setAttribute('y1',f(gy(1)));line.setAttribute('x2',f(gx(2)));line.setAttribute('y2',f(gy(cl(Math.pow(0.5,m)))));
+  pt.setAttribute('cx',f(gx(r)));pt.setAttribute('cy',f(gy(q)));
+  vl.setAttribute('x1',f(gx(r)));vl.setAttribute('x2',f(gx(r)));vl.setAttribute('y1',f(gy(q)));vl.setAttribute('y2',Y1);
+  hl.setAttribute('x1',X0);hl.setAttribute('x2',f(gx(r)));hl.setAttribute('y1',f(gy(q)));hl.setAttribute('y2',f(gy(q)));
+  const pct=q*100, ps=pct>=10?fm(pct,0):pct>=1?fm(pct,1):fm(pct,2);
+  document.getElementById('tRes').textContent='T2 = '+ps+NB+'% z'+NB+'T1';
+  document.getElementById('tTxt').textContent=nb(M.n+', m = '+fm(m,2)+'. Zvýšení řezné rychlosti o '+Math.round(r*100-100)+NB+'% zkrátí trvanlivost na '+ps+NB+'% původní hodnoty.');}
+sM.oninput=draw;sV.oninput=draw;draw();
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>
