@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Válcování závitů | STT</title>
+<meta name="description" content="Válcování závitů: princip tváření závitu za studena, průměr polotovaru, průběh vláken a zpevnění povrchu, válcování plochými čelistmi, zapichovací a průchozí válcování kotouči a srovnání s řezáním závitů.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma (záměrně jen tmavé — promítání ve výuce), akcent kapitoly Obrábění */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#93b5d3;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg);margin:0}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:16px;right:16px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:38px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+p.t b{color:var(--fg);font-weight:600}
+.link{color:var(--acc);border-bottom:1px solid #3f5568}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin:6px 0 18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{border-radius:14px;overflow:hidden}
+.svgbox svg{display:block;width:100%;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15.5px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:1000px}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:12px 20px;color:var(--muted);border-top:1px solid var(--line2)}
+td.k{color:var(--fg);font-weight:600}
+th+th,td+td{border-left:1px solid var(--line2)}
+</style>
+</head>
+<body data-first-seen="2026-11-24">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na Výrobu závitů</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Výroba závitů</div>
+  <h1>Válcování závitů</h1>
+  <p class="lead">Při válcování se závit nevyřezává, ale vtlačuje do povrchu polotovaru tvářením za studena. Válcování proto nepatří mezi metody obrábění, je ale nejvýkonnějším způsobem výroby vnějších závitů. Stránka popisuje princip, vlastnosti válcovaného závitu, válcování plochými čelistmi a&nbsp;kotouči a&nbsp;srovnání s&nbsp;řezáním závitů.</p>
+
+  <h2>Princip</h2>
+  <p class="t">Nástroj s&nbsp;profilem závitu se vtlačuje do polotovaru, který se mezi nástroji odvaluje. Materiál z&nbsp;místa budoucích drážek se plasticky přetlačuje do zubů. Profil závitu vzniká <b>bez třísky</b>.</p>
+  <p class="t">Objem materiálu se nemění: materiál vytlačený z&nbsp;drážek vytvoří zuby nad původním povrchem. Polotovar má proto menší průměr, než je velký průměr závitu d — <b>přibližně střední průměr d₂</b>.</p>
+
+  <h2>Vlastnosti válcovaného závitu</h2>
+  <p class="t">Vlákna materiálu se nepřerušují, ale ohýbají podle profilu závitu. Povrch závitu se tvářením zpevní a&nbsp;vznikne v&nbsp;něm tlakové pnutí. Válcovaný závit má proto vyšší pevnost a&nbsp;odolnost proti únavě než závit řezaný. Povrch boků je hladký.</p>
+  <p class="t">Válcovat lze jen tvárné materiály. Kalené součásti se válcovat nedají. Vnitřní závit se tvářením vyrábí <a class="link" href="zavitniky-ocka.html">tvářecím závitníkem</a>.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Řezaný × válcovaný závit</div>
+        <div class="panel-s" style="margin-bottom:0">Osový řez zuby vnějšího závitu. Tenké čáry ukazují průběh vláken, modře zpevněná vrstva.</div>
+      </div>
+      <div class="btns" id="vBtns"></div>
+    </div>
+    <div class="svgbox"><svg id="svgV" viewBox="0 0 1000 280" role="img" aria-label="Průběh vláken v řezaném a válcovaném vnějším závitu"></svg></div>
+    <div class="step"><div class="step-t" id="vT"></div><p id="vP"></p></div>
+  </div>
+
+  <h2>Válcování plochými čelistmi</h2>
+  <p class="t">Dvě ploché čelisti mají na pracovních plochách drážky s&nbsp;profilem závitu, skloněné o&nbsp;úhel stoupání. Jedna čelist je pevná, druhá se pohybuje přímočaře. Polotovar se mezi nimi odvaluje — otáčí se a&nbsp;zároveň se posouvá poloviční rychlostí posuvné čelisti.</p>
+  <p class="t">Na začátku čelistí je náběh, profil se proto do polotovaru vtlačuje postupně. Za jeden zdvih posuvné čelisti vznikne hotový závit. Válcování plochými čelistmi se používá v&nbsp;hromadné výrobě šroubů.</p>
+
+  <div class="panel">
+    <div class="panel-k">Animace</div>
+    <div class="panel-t">Válcování závitu plochými čelistmi</div>
+    <div class="panel-s">Vlevo pohled ve&nbsp;směru osy polotovaru: horní čelist se posouvá, dolní stojí, polotovar se mezi nimi odvaluje. Vpravo osový řez polotovarem: profil postupně roste, čárkovaně průměr polotovaru.</div>
+    <div class="svgbox"><svg id="svgC" viewBox="0 0 1000 330" role="img" aria-label="Animace válcování závitu plochými čelistmi a postupného vzniku profilu"></svg></div>
+  </div>
+
+  <h2>Válcování kotouči</h2>
+  <p class="t">Kotouče (válce) mají na obvodu profil závitu a&nbsp;otáčejí se ve&nbsp;stejném smyslu, polotovar se mezi nimi otáčí opačně. Polotovar leží mezi dvojicí kotoučů na podpěrném pravítku, alespoň jeden kotouč se přisouvá. Podle tvaru kotoučů a&nbsp;pohybu polotovaru se rozlišují dva způsoby.</p>
+  <p class="t"><b>Zapichovací (zápichové) válcování:</b> kotouče mají na obvodu závit se stejným stoupáním, jaké má vzniknout. Přisouvají se kolmo k&nbsp;ose polotovaru a&nbsp;polotovar se podél osy prakticky neposouvá. Závit vznikne v&nbsp;délce dané šířkou kotoučů. Způsob je rychlý a&nbsp;používá se pro krátké závity.</p>
+  <p class="t"><b>Průchozí (průběžné) válcování:</b> používá se, když je závit delší než šířka kotoučů — pro dlouhé závity a&nbsp;závitové tyče. Kotouče nemají stoupání, na obvodu mají jen kroužky s&nbsp;profilem závitu. Po šířce mají náběh, kalibrační část a&nbsp;výběh. Osy obou kotoučů jsou nakloněné o úhel α na opačné strany a náklon vytvoří stoupání závitu. Polotovar se při válcování posouvá podél osy a&nbsp;prochází mezi kotouči.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Zapichovací × průchozí válcování</div>
+        <div class="panel-s" style="margin-bottom:0">Dvoukotoučové uspořádání. Červeně otáčení, modře přísuv a&nbsp;posuv, světle modře úhel náklonu α.</div>
+      </div>
+      <div class="btns" id="kBtns"></div>
+    </div>
+    <div class="svgbox"><svg id="svgK" viewBox="0 0 1000 320" role="img" aria-label="Schéma zapichovacího a průchozího válcování závitu dvěma kotouči"></svg></div>
+    <div class="step"><div class="step-t" id="kT"></div><p id="kP"></p></div>
+  </div>
+
+  <h2>Srovnání řezání × válcování</h2>
+  <div class="tbl"><table>
+    <thead><tr><th style="width:24%"></th><th>Řezání závitu</th><th>Válcování závitu</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Tříska</td><td>vzniká</td><td>nevzniká</td></tr>
+      <tr><td class="k">Vlákna materiálu</td><td>přerušená</td><td>nepřerušená, ohnutá podle profilu</td></tr>
+      <tr><td class="k">Pevnost a&nbsp;odolnost proti únavě</td><td>nižší</td><td>vyšší — zpevněný povrch a&nbsp;tlakové pnutí</td></tr>
+      <tr><td class="k">Jakost povrchu</td><td>nižší</td><td>vyšší, hladké boky</td></tr>
+      <tr><td class="k">Výkon</td><td>nižší</td><td>velmi vysoký</td></tr>
+      <tr><td class="k">Vhodné materiály</td><td>i tvrdé a&nbsp;křehké</td><td>jen tvárné, ne kalené</td></tr>
+      <tr><td class="k">Průměr polotovaru</td><td>přibližně velký průměr d</td><td>přibližně střední průměr d₂</td></tr>
+      <tr><td class="k">Výroba</td><td>kusová i&nbsp;sériová</td><td>sériová a&nbsp;hromadná</td></tr>
+    </tbody>
+  </table></div>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#93b5d3';
+const nb=s=>s.replace(/(^|[\s(„])([aikosuvzAIKOSUVZ]|[vzkVZK]e) /g,'$1$2'+NB);
+const f=v=>(+v).toFixed(1);
+const $=id=>document.getElementById(id);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const METAL='#5d6a79', DARK='#2a3442', EDGE='#c7d2dd', LEAD='#8296a8', DEEP='#0a0e15', DIE='#8c96a3', RED='#e0605a', BLUE='#5aa0e0';
+const R2D=Math.PI/180, TAU=2*Math.PI;
+const pts=a=>a.map(q=>f(q[0])+','+f(q[1])).join(' ');
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=$('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v='+Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+function makeBtns(box,items,state,prop,onChange){const list=items.map(([v,t])=>{const b=document.createElement('button');b.className='btn';b.textContent=t;box.appendChild(b);return [b,v];});
+  const paint=()=>list.forEach(([b,v])=>b.setAttribute('aria-pressed',v===state[prop]));
+  list.forEach(([b,v])=>b.onclick=()=>{state[prop]=v;paint();onChange();});paint();}
+function arcArrow(p,cx,cy,r,a0,a1,c){const s=Math.sign(a1-a0), ae=a1-s*12/r;
+  const X=a=>cx+r*Math.cos(a), Y=a=>cy+r*Math.sin(a);
+  el(p,'path',{d:'M'+f(X(a0))+' '+f(Y(a0))+' A'+r+' '+r+' 0 '+(Math.abs(ae-a0)>Math.PI?1:0)+' '+(s>0?1:0)+' '+f(X(ae))+' '+f(Y(ae)),fill:'none',stroke:c,'stroke-width':3,'stroke-linecap':'round'});
+  const tx=-Math.sin(ae)*s, ty=Math.cos(ae)*s, x=X(ae), y=Y(ae);
+  el(p,'polygon',{points:pts([[x+tx*12,y+ty*12],[x-ty*6,y+tx*6],[x+ty*6,y-tx*6]]),fill:c});}
+function arrow(p,x1,y1,x2,y2,c){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L;
+  el(p,'line',{x1:f(x1),y1:f(y1),x2:f(x2-ux*12),y2:f(y2-uy*12),stroke:c,'stroke-width':3.5,'stroke-linecap':'round'});
+  el(p,'polygon',{points:pts([[x2,y2],[x2-ux*14-uy*7,y2-uy*14+ux*7],[x2-ux*14+uy*7,y2-uy*14-ux*7]]),fill:c});}
+// trojúhelníkový profil: hodnota −1 (dno) až +1 (vrchol), rozteč pp, posun ph
+const tri=(x,pp,ph)=>{const u=(((x-ph)%pp)+pp)%pp/pp;return 1-4*Math.abs(u-0.5);};
+
+/* ---------- PRVEK 1 — vlákna ---------- */
+(function(){
+const svg=$('svgV');
+const TX={rez:['Řezaný závit','Profil vznikl odebráním materiálu. Vlákna končí na bocích a vrcholu závitu — jsou přerušená. Povrch není zpevněný.'],
+  val:['Válcovaný závit','Profil vznikl přetlačením materiálu. Vlákna se ohýbají podle profilu a nejsou přerušená. Pod povrchem boků a dna je zpevněná vrstva s tlakovým pnutím.']};
+const st={m:'rez'};
+// profil a vlákna stejně jako u tvářecího závitníku (stránka Řezání závitníky a očky), zrcadleno svisle pro vnější závit: materiál dole, zuby nahoru
+const YB0=110, YT1=230, PP=150, X0=275, X1=725;
+const tooth=x=>{const u=((x-X0)%PP+PP)%PP, c=u-PP/2, half=PP/2-14; // výška zubu v bodě x (0 až 1)
+  const a=Math.abs(c); if(a<14)return 1; if(a>half)return 0; return (half-a)/(half-14);};
+function draw(){
+  svg.innerHTML='';const v=st.m==='val';
+  const root=el(svg,'g',{transform:'translate(0 280) scale(1 -1)'});
+  let prof='M'+X0+' 40';
+  for(let x=X0;x<=X1;x+=2){const t=tooth(x);prof+=' L'+x+' '+f(YB0+(YT1-YB0)*t);}
+  prof+=' L'+X1+' 40 Z';
+  const cp=el(el(root,'defs',{}),'clipPath',{id:'cpV'});el(cp,'path',{d:prof});
+  el(root,'path',{d:prof,fill:METAL});
+  const g=el(root,'g',{'clip-path':'url(#cpV)'});
+  if(v){ // zpevněná vrstva pod povrchem profilu
+    let s='';for(let x=X0;x<=X1;x+=2)s+=(s?' L':'M')+x+' '+f(YB0+(YT1-YB0)*tooth(x)-9);
+    el(g,'path',{d:s,fill:'none',stroke:ACC,'stroke-width':26,opacity:.32});}
+  for(let y0=52;y0<=YT1;y0+=10){
+    if(!v){el(g,'line',{x1:X0,y1:y0,x2:X1,y2:y0,stroke:'#aebfcf','stroke-width':1.3,opacity:.75});continue;}
+    let d='';const w=Math.pow(Math.max(0,(y0-40)/(YB0-40)),1.6);
+    for(let x=X0;x<=X1;x+=3){const y=y0+(YT1-YB0)*tooth(x)*Math.min(1,w)*0.92;d+=(d?' L':'M')+x+' '+f(y);}
+    el(g,'path',{d,fill:'none',stroke:'#aebfcf','stroke-width':1.3,opacity:.75});}
+  el(root,'path',{d:prof.replace(/ L\d+ 40 Z$/,''),fill:'none',stroke:EDGE,'stroke-width':2});
+  $('vT').textContent=TX[st.m][0];$('vP').textContent=nb(TX[st.m][1]);}
+makeBtns($('vBtns'),[['rez','Řezaný závit'],['val','Válcovaný závit']],st,'m',draw);
+draw();
+})();
+
+/* ---------- PRVEK 2 — ploché čelisti (animace) ---------- */
+(function(){
+const svg=$('svgC');
+// pohled ve směru osy
+const CY=165, R0=62, A=9, XS=440, XE=150;      // osa polotovaru, poloměr polotovaru, výška profilu, začátek a konec odvalení
+const YU=CY-R0, YL=CY+R0;                        // pracovní plochy čelistí
+// osový řez
+const SX0=600, SX1=960, AX=165, PP=34;
+let t=0,last=null;
+const T=6, HOLD=1.4;
+function draw(){
+  svg.innerHTML='';
+  const s=Math.min(1,t/T), k=Math.min(1,s/0.7);          // náběh čelistí: profil roste v první části dráhy
+  const xc=XS+(XE-XS)*s;                                  // střed polotovaru (posouvá se poloviční rychlostí)
+  const shift=2*(XE-XS)*s;                                // posuv horní čelisti
+  const rot=(xc-XS)/R0;                                   // odvalení: horní strana jde s čelistí doleva (proti směru hodin, úhel v obrazovce klesá)
+  // čelisti s drážkami profilu (zuby na pracovní ploše)
+  const cpd=el(el(svg,'defs',{}),'clipPath',{id:'cpC'});el(cpd,'rect',{x:30,y:0,width:520,height:330});
+  const g=el(svg,'g',{'clip-path':'url(#cpC)'});
+  // drážky čelistí vedou ve směru pohybu čelisti (kolmo k ose šroubu); v pohledu ve směru osy jsou to podélné čáry u pracovní plochy
+  const die=(x0,len,y,up)=>{el(g,'rect',{x:f(x0),y:up?y-48:y,width:len,height:48,fill:DIE,stroke:'#c7d2dd','stroke-width':1.2});
+    for(let j=1;j<=3;j++){const yy=up?y-4*j:y+4*j;el(g,'line',{x1:f(x0+2),y1:yy,x2:f(x0+len-2),y2:yy,stroke:'#6e7884','stroke-width':1.2});}};
+  // polotovar: vnější kružnice roste (vrcholy), přerušovaná vnitřní klesá (dna)
+  el(g,'circle',{cx:f(xc),cy:CY,r:f(R0+A*k),fill:METAL,stroke:'#4a5768','stroke-width':1.5});
+  el(g,'circle',{cx:f(xc),cy:CY,r:R0,fill:'none',stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'5 5'});
+  el(g,'circle',{cx:f(xc),cy:CY,r:f(R0-A*k),fill:'none',stroke:'#3a4553','stroke-width':1.2});
+  el(g,'circle',{cx:f(xc+0.6*R0*Math.cos(rot-Math.PI/2)),cy:f(CY+0.6*R0*Math.sin(rot-Math.PI/2)),r:5,fill:'#f2a65a'});
+  // čelisti až po polotovaru: zuby polotovaru zapadají do drážek čelistí
+  die(60+shift+120,620,YU,true);
+  die(60,480,YL,false);
+  arrow(g,330,YU-64,250,YU-64,BLUE);
+  // osový řez polotovarem: profil roste z průměru polotovaru
+  el(svg,'line',{x1:SX0-15,y1:AX,x2:SX1+15,y2:AX,stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'18 5 3 5'});
+  let top='',bot='';
+  for(let x=SX0;x<=SX1;x+=2){top+=(top?' L':'M')+x+' '+f(AX-R0-A*1.6*k*tri(x,PP,SX0));bot+=' L'+x+' '+f(AX+R0+A*1.6*k*tri(x,PP,SX0+PP/2));}
+  const botPts=bot.trim().split(' L').filter(Boolean).reverse().join(' L');
+  el(svg,'path',{d:top+' L'+botPts+' Z',fill:METAL,stroke:EDGE,'stroke-width':1.5});
+  el(svg,'line',{x1:SX0,y1:AX-R0,x2:SX1,y2:AX-R0,stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'6 5'});
+  el(svg,'line',{x1:SX0,y1:AX+R0,x2:SX1,y2:AX+R0,stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'6 5'});}
+function tick(ts){if(last!==null){t+=Math.min(0.05,(ts-last)/1000);if(t>T+HOLD)t=0;}last=ts;draw();requestAnimationFrame(tick);}
+if(reduce){t=T;draw();}else requestAnimationFrame(tick);
+})();
+
+/* ---------- PRVEK 3 — kotouče ---------- */
+(function(){
+const svg=$('svgK');
+const D={zap:{n:'Zapichovací válcování',p:'Vlevo pohled ve směru osy polotovaru: kotouče se otáčejí ve stejném smyslu a přisouvají se kolmo k ose polotovaru, polotovar se otáčí opačně. Vpravo pohled ve směru spojnice os kotoučů: osa kotouče je rovnoběžná s osou polotovaru a kotouč má na obvodu závit se stoupáním. Polotovar se podél osy prakticky neposouvá. Používá se pro krátké závity.'},
+  pru:{n:'Průchozí válcování',p:'Vlevo pohled ve směru osy polotovaru: otáčení a přísuv jsou stejné jako u zapichovacího válcování, nakloněné osy se projeví posunutím válců do hloubky — levého dolů, pravého nahoru. Vpravo pohled ve směru spojnice os kotoučů: osy obou kotoučů jsou nakloněné o úhel α na opačné strany a kříží se (úhel je ve schématu zvětšený), zadní kotouč je za polotovarem. Kotouče nemají stoupání a na obvodu mají kroužky s profilem závitu. Náklon vytváří stoupání závitu a polotovar se posouvá podél osy.'}};
+const st={m:'zap'};
+function draw(){
+  svg.innerHTML='';const pru=st.m==='pru';
+  /* vlevo: pohled ve směru osy polotovaru */
+  const CX=270, CY=170, RW=34, RR=70;
+  el(svg,'rect',{x:CX-RW,y:CY+RW,width:2*RW,height:14,fill:'#3a4553'});            // podpěrné pravítko
+  [[CX-RW-RR,CY],[CX+RW+RR,CY]].forEach(([x,y],i)=>{
+    // průchozí: osy válců jsou nakloněné opačně — levý válec se do hloubky odklání dolů, pravý nahoru
+    if(pru){const s=i?-1:1;for(let k=3;k>=1;k--)el(svg,'circle',{cx:x,cy:y+s*k*9,r:RR,fill:DIE,stroke:'#c7d2dd','stroke-width':1.2,opacity:.25+0.1*(3-k)});}
+    el(svg,'circle',{cx:x,cy:y,r:RR,fill:DIE,stroke:'#c7d2dd','stroke-width':1.5});
+    el(svg,'circle',{cx:x,cy:y,r:RR-10,fill:'none',stroke:'#aab3be','stroke-width':1.2});
+    el(svg,'circle',{cx:x,cy:y,r:8,fill:'#5d6a79'});
+    arcArrow(svg,x,y,RR+12,-40*R2D,-150*R2D,RED);
+    const dx=i?-1:1;arrow(svg,x-dx*(RR+60),y,x-dx*(RR+14),y,BLUE);});
+  el(svg,'circle',{cx:CX,cy:CY,r:RW,fill:METAL,stroke:'#4a5768','stroke-width':1.5});
+  arcArrow(svg,CX,CY,RW+12,30*R2D,150*R2D,RED);
+  /* vpravo: pohled ve směru spojnice os kotoučů */
+  const AX=165, X0=520, X1=980, R=26, KX=760, KW=170, KH=190, AL=pru?14:0;
+  // pořadí kreslení: zadní kotouč, polotovar, přední kotouč
+  if(pru){ // zadní kotouč za polotovarem, osa nakloněná o úhel α na opačnou stranu než u předního (osy se kříží)
+    const gb=el(svg,'g',{transform:'rotate('+AL+' '+KX+' '+AX+')',opacity:.35});
+    el(gb,'rect',{x:KX-KW/2,y:AX-KH/2,width:KW,height:KH,rx:10,fill:DIE,stroke:'#c7d2dd','stroke-width':1.5});
+    for(let x=KX-KW/2+10;x<KX+KW/2-6;x+=13)el(gb,'line',{x1:x,y1:AX-KH/2,x2:x,y2:AX+KH/2,stroke:'#6e7884','stroke-width':2});}
+  el(svg,'rect',{x:X0,y:AX-R,width:X1-X0,height:2*R,fill:METAL});
+  if(pru){ // vyválcovaný závit za kotouči (polotovar jede doleva)
+    const cp=el(el(svg,'defs',{}),'clipPath',{id:'cpK'});el(cp,'rect',{x:X0,y:AX-R,width:KX-X0,height:2*R});
+    const g=el(svg,'g',{'clip-path':'url(#cpK)'});
+    for(let x=X0;x<KX+20;x+=14)el(g,'line',{x1:x,y1:AX-R,x2:x+7,y2:AX+R,stroke:DEEP,'stroke-width':4});}
+  el(svg,'line',{x1:X0-10,y1:AX,x2:X1,y2:AX,stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'18 5 3 5'});
+  const gk=el(svg,'g',{transform:'rotate('+(-AL)+' '+KX+' '+AX+')'});
+  el(gk,'rect',{x:KX-KW/2,y:AX-KH/2,width:KW,height:KH,rx:10,fill:DIE,stroke:'#c7d2dd','stroke-width':1.5,opacity:.96});
+  // drážky: u zapichovacího šroubovice (šikmé), u průchozího kroužky kolmé k ose kotouče
+  for(let x=KX-KW/2+10;x<KX+KW/2-6;x+=13){
+    if(pru)el(gk,'line',{x1:x,y1:AX-KH/2,x2:x,y2:AX+KH/2,stroke:'#6e7884','stroke-width':2});
+    else el(gk,'line',{x1:x,y1:AX-KH/2,x2:Math.min(x+8,KX+KW/2-2),y2:AX+KH/2,stroke:'#6e7884','stroke-width':2});}
+  el(gk,'line',{x1:KX-KW/2-50,y1:AX,x2:KX+KW/2+50,y2:AX,stroke:EDGE,'stroke-width':1.2,'stroke-dasharray':'12 4 2 4'});
+  if(pru){
+    // úhel α mezi osou kotouče a osou polotovaru
+    const RA=150, a=AL*R2D;
+    el(svg,'path',{d:'M'+(KX+RA)+' '+AX+' A'+RA+' '+RA+' 0 0 0 '+f(KX+RA*Math.cos(a))+' '+f(AX-RA*Math.sin(a)),fill:'none',stroke:ACC,'stroke-width':2.5});
+    arrow(svg,960,AX+R+40,860,AX+R+40,BLUE);}
+  $('kT').textContent=D[st.m].n;$('kP').textContent=nb(D[st.m].p);}
+makeBtns($('kBtns'),[['zap','Zapichovací'],['pru','Průchozí']],st,'m',draw);
+draw();
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

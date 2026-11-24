@@ -452,6 +452,16 @@
           </div>
         </a>
 
+        <a href="rovnovazne-diagramy/rd-prakticky.html" style="position:relative;display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06)">
+          <div style="width:56px;height:56px;border-radius:14px;background:oklch(0.9 0.05 300);display:flex;align-items:center;justify-content:center">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2.5" stroke="oklch(0.55 0.16 300)" stroke-width="1.8"></rect><path d="M7.5 9l1.5 1.5 3-3M7.5 15.5l1.5 1.5 3-3" stroke="oklch(0.55 0.16 300)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14 9h3M14 15.5h3" stroke="oklch(0.55 0.16 300)" stroke-width="1.6" stroke-linecap="round"></path></svg>
+          </div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif;font-weight:600;font-size:19px;color:#231d16;margin-bottom:6px">{{ cardText.testRd.title }}</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#8a8072">{{ cardText.testRd.desc }}</div>
+          </div>
+        </a>
+
       </div>
     </div>
   </sc-if>
@@ -746,6 +756,7 @@ class Component extends DCLogic {
       uplnaRozpustnost: cardById['uplna-rozpustnost'] || empty, eutekticka: cardById.eutekticka || empty,
       eutektoidni: cardById.eutektoidni || empty, mikrostruktura: cardById.mikrostruktura || empty,
       tuhyRoztok: cardById['tuhy-roztok-vs-eutektikum'] || empty,
+      testRd: cardById['rd-prakticky'] || empty,
     };
     return {
       navItems,

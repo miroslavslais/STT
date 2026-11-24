@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Výroba závitů | STT</title>
-<meta name="description" content="Výroba závitů: obrábění a tváření závitů.">
+<meta name="description" content="Výroba závitů: geometrie a druhy závitů, závitníky a očka, soustružení, frézování, broušení, válcování a kontrola závitů.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <script src="../../support.js"></script>
 </head>
@@ -45,10 +45,10 @@
       Zpět na Obrábění
     </a>
     <h1 style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:38px;line-height:1.15;color:#231d16;margin:0 0 12px">Výroba závitů</h1>
-    <p style="font-size:17px;line-height:1.6;color:#6b6255;max-width:620px;margin:0;text-wrap:pretty">Obrábění a&nbsp;tváření závitů.</p>
+    <p style="font-size:17px;line-height:1.6;color:#6b6255;max-width:620px;margin:0;text-wrap:pretty">Geometrie a&nbsp;druhy závitů, závitníky a&nbsp;očka, soustružení, frézování, broušení, válcování a&nbsp;kontrola závitů.</p>
   </div>
   <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
-    <sc-for list="{{ cards }}" as="c" hint-placeholder-count="2">
+    <sc-for list="{{ cards }}" as="c" hint-placeholder-count="6">
       <sc-if value="{{ c.ready }}" hint-placeholder-val="{{ true }}">
         <a href="{{ c.href }}" style="display:flex;flex-direction:column;gap:16px;background:#fff;border-radius:20px;padding:26px;border:1px solid #e5ded2;box-shadow:0 1px 3px rgba(35,29,22,0.06);cursor:pointer;transition:box-shadow 0.15s,transform 0.15s" style-hover="box-shadow:0 8px 24px rgba(35,29,22,0.1);transform:translateY(-2px)">
           <div style="align-self:flex-start;padding:5px 10px;border-radius:999px;background:#e1e8ee;font-size:11px;font-weight:600;color:#4a6378;letter-spacing:0.04em;text-transform:uppercase">{{ c.badge }}</div>
@@ -76,7 +76,7 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const CARDS = [{"title": "Obrábění závitů", "desc": "Závitník, závitové očko, soustružení, frézování a\u00a0broušení závitů.", "href": "obrabeni-zavitu.html", "status": "coming-soon"}, {"title": "Tváření závitů", "desc": "Válcování závitů, tvářecí závitník a\u00a0srovnání s\u00a0obráběním.", "href": "tvareni-zavitu.html", "status": "coming-soon"}];
+const CARDS = [{"title": "Závit — geometrie a\u00a0druhy", "desc": "Průměry, rozteč a\u00a0stoupání, úhel profilu, vícechodé a\u00a0levé závity, druhy profilů a\u00a0značení.", "href": "geometrie-druhy.html", "status": "ready", "badge": "1 animace · 3 interaktivní"}, {"title": "Řezání závitníky a\u00a0očky", "desc": "Ruční a\u00a0strojní závitníky, tvářecí závitník, závitová očka a\u00a0průměr předvrtání.", "href": "zavitniky-ocka.html", "status": "ready", "badge": "1 animace · 5 interaktivní"}, {"title": "Soustružení závitů", "desc": "Princip a\u00a0vodicí šroub, závitové VBD a\u00a0jejich sklon, způsoby přísuvu a\u00a0počet záběrů.", "href": "soustruzeni.html", "status": "ready", "badge": "1 animace · 3 interaktivní"}, {"title": "Frézování a\u00a0broušení závitů", "desc": "Interpolace po šroubovici, vícezubá a\u00a0cirkulární závitová fréza, sousledné a\u00a0nesousledné frézování, okružní frézování, broušení jednoprofilovým kotoučem.", "href": "frezovani-brouseni.html", "status": "ready", "badge": "2 animace · 1 interaktivní"}, {"title": "Válcování závitů", "desc": "Válcování plochými čelistmi a\u00a0kotouči, průběh vláken a\u00a0srovnání s\u00a0řezaným závitem.", "href": "valcovani.html", "status": "ready", "badge": "1 animace · 2 interaktivní"}, {"title": "Kontrola závitů", "desc": "Tolerance 6H a\u00a06g, mezní závitové kalibry, závitové měrky, třídrátková metoda a\u00a0závitový mikrometr.", "href": "kontrola.html", "status": "ready", "badge": "1 animace · 3 interaktivní"}];
 class Component extends DCLogic {
   state = { structure: null };
   componentDidMount() {

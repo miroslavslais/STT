@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" role="img" aria-label="Schéma zvýšení teploty páry z lehkovodního SMR: reaktor, mezilehlý výměník IHX, vícestupňová komprese poháněná elektřinou z bloku, průmyslový odběr">
+  <defs>
+    <marker id="h" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="context-stroke"/>
+    </marker>
+  </defs>
+  <rect width="600" height="240" fill="#f6f1e8"/>
+  <g font-family="IBM Plex Sans, system-ui, sans-serif" font-size="12.5" fill="#5c5346" text-anchor="middle">
+    <!-- 1 · reaktor -->
+    <rect x="24" y="64" width="84" height="112" rx="38" fill="#e8d6b0" stroke="#a78d5e" stroke-width="1.5"/>
+    <rect x="48" y="110" width="36" height="46" rx="3" fill="#d9772a" opacity="0.85"/>
+    <text x="66" y="200">Reaktor</text>
+    <text x="66" y="216" fill="#8a8072" font-size="11.5">lehkovodní SMR</text>
+    <!-- 2 · mezilehlý výměník -->
+    <rect x="164" y="84" width="72" height="72" rx="6" fill="#ffffff" stroke="#7d8288" stroke-width="1.5"/>
+    <path d="M176 120 l8 -18 l8 36 l8 -36 l8 36 l8 -36 l8 18" fill="none" stroke="#7fb3d4" stroke-width="2" stroke-linejoin="round"/>
+    <text x="200" y="200">Výměník IHX</text>
+    <!-- 3 · vícestupňová komprese -->
+    <path d="M296 72 L404 98 L404 142 L296 168 z" fill="#b4b8bd" stroke="#5c5346" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M323 78.5 V161.5 M350 85 V155 M377 91.5 V148.5" stroke="#7d8288" stroke-width="1.2"/>
+    <line x1="350" y1="50" x2="350" y2="85" stroke="#5c5346" stroke-width="2"/>
+    <circle cx="350" cy="36" r="14" fill="#ffffff" stroke="#5c5346" stroke-width="1.5"/>
+    <text x="350" y="40.5" font-weight="600">M</text>
+    <text x="372" y="40.5" text-anchor="start" fill="#8a8072" font-size="11.5">elektřina z&#160;bloku</text>
+    <text x="350" y="200">Vícestupňová komprese</text>
+    <!-- 4 · průmyslový odběr -->
+    <path d="M484 156 V104 l24 -14 v14 l24 -14 v14 l24 -14 V156 z" fill="#ffffff" stroke="#7d8288" stroke-width="1.5" stroke-linejoin="round"/>
+    <text x="530" y="200">Průmyslový odběr</text>
+    <!-- proudy páry -->
+    <line x1="108" y1="120" x2="162" y2="120" stroke="#7fb3d4" stroke-width="3" marker-end="url(#h)"/>
+    <line x1="236" y1="120" x2="294" y2="120" stroke="#7fb3d4" stroke-width="3" marker-end="url(#h)"/>
+    <line x1="404" y1="120" x2="482" y2="120" stroke="#d9772a" stroke-width="3" marker-end="url(#h)"/>
+    <text x="135" y="104" font-size="11.5">283&#160;°C</text>
+    <text x="135" y="145" font-size="11.5" fill="#8a8072">3,28&#160;MPa</text>
+    <text x="443" y="104" font-size="11.5">500&#160;°C</text>
+    <text x="443" y="145" font-size="11.5" fill="#8a8072">10,5&#160;MPa</text>
+  </g>
+</svg>

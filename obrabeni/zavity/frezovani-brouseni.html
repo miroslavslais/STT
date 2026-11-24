@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Frézování a broušení závitů | STT</title>
+<meta name="description" content="Frézování a broušení závitů: interpolace po šroubovici, vícezubá a cirkulární závitová fréza, postup frézování, sousledné a nesousledné frézování, výhody frézování závitů a broušení jednoprofilovým kotoučem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma (záměrně jen tmavé — promítání ve výuce), akcent kapitoly Obrábění */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#93b5d3;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg);margin:0}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:16px;right:16px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:38px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+p.t b{color:var(--fg);font-weight:600}
+.link{color:var(--acc);border-bottom:1px solid #3f5568}
+ul.t{margin:0 0 14px;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:16.5px;line-height:1.6;color:var(--muted);max-width:820px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin:6px 0 18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.svgbox{border-radius:14px;overflow:hidden}
+.svgbox svg{display:block;width:100%;background:var(--deep)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.step p+p{margin-top:4px}
+ol.proc{margin:0;padding-left:24px;display:flex;flex-direction:column;gap:4px;font-size:15.5px;line-height:1.6;color:var(--dim)}
+ol.proc li.on{color:var(--fg);font-weight:600}
+.hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:32px}
+.partner{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-top:2px}
+.partner-k{font-family:var(--f-disp);font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.partner-l{display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 16px}
+.partner-l:hover{border-color:var(--acc)}
+.partner-l svg,.partner-l img{display:block;width:170px;height:auto}
+.pcard{display:flex;align-items:center;gap:24px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 24px;margin-top:40px;max-width:820px}
+.pcard p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+</style>
+</head>
+<body data-first-seen="2026-11-24">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na Výrobu závitů</a>
+
+<main class="page"><div class="wrap">
+  <div class="hdr"><div>
+    <div class="eyebrow">Výroba závitů</div>
+    <h1>Frézování a&nbsp;broušení závitů</h1>
+  </div>
+  <div class="partner"><div class="partner-k">Odborný partner</div><a class="partner-l" href="https://cuttingtools.ceratizit.com/cz/cs.html" target="_blank" rel="noopener" aria-label="CERATIZIT — řezné nástroje" title="CERATIZIT — řezné nástroje"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.5 77.96" aria-hidden="true"><polygon fill="#e42613" points="60.15 31.52 86.85 77.75 89.77 77.75 63.14 31.63 63.08 31.52 60.15 31.52"/><polygon fill="#e42613" points="55.35 31.52 82.04 77.75 84.96 77.75 58.34 31.63 58.27 31.52 55.35 31.52"/><polygon fill="#e42613" points="50.52 31.52 77.21 77.75 80.13 77.75 53.51 31.63 53.44 31.52 50.52 31.52"/><polygon fill="#e42613" points="65.06 65 72.4 77.75 75.33 77.75 66.5 62.5 65.06 65"/><polygon fill="#e42613" points="62.64 69.19 67.54 77.64 67.6 77.75 70.49 77.75 64.11 66.65 62.64 69.19"/><polygon fill="#e42613" points="60.25 73.37 62.7 77.63 62.76 77.75 65.69 77.75 61.7 70.84 60.25 73.37"/><polygon fill="#e42613" points="57.71 77.75 60.86 77.75 59.28 74.99 57.71 77.75"/><polygon fill="#5e5e5d" points="0 77.75 53.29 77.75 59.68 66.7 59.87 66.36 25.54 66.36 16.05 49.94 0 77.75"/><polygon fill="#5e5e5d" points="44.9 0 18.3 46.02 18.24 46.13 24.83 57.51 42 27.77 60.95 27.77 44.9 0"/><path fill="#e42613" d="M351.5,31.93v4.63h-5V58.09h-5.12V36.56h-5V31.93Zm-34.17,0h5.18V58.09h-5.18ZM302.67,58.09H286.11V53.58L296.56,36.8h-9.7V31.93h15.57V36.1L291.8,53.23h10.87ZM266.83,31.93H272V58.09h-5.18Zm-14.23,0v4.63h-5V58.09h-5.11V36.56h-5V31.93ZM208.87,52.59l-2,5.5h-5.35l10.23-26.16h4.42l10.11,26.16h-5.53l-2.09-5.5ZM217,47.73l-3.14-8.39-3.2,8.39ZM177.23,58.09h-5.17V31.93h6.27a27.63,27.63,0,0,1,4.48.24,9.62,9.62,0,0,1,2.5.63,8.31,8.31,0,0,1,2.91,12.44,7.63,7.63,0,0,1-4.6,2.67l6.57,10.18H184l-6.8-12.15Zm0-13.43h1.16a8.44,8.44,0,0,0,4.77-1.15,3.77,3.77,0,0,0,1.63-3.24,3.48,3.48,0,0,0-1.39-3.07,7,7,0,0,0-4.25-1h-1.92ZM155.94,58.09H141.7V31.93h14.24v4.63h-9.18v5.91h9.18V47h-9.18v6.42h9.18Zm-29.49-18.4h-6.28a7.59,7.59,0,0,0-2.67-2.26,8.48,8.48,0,0,0-6.57-.17A8.17,8.17,0,0,0,108.38,39a8.38,8.38,0,0,0-1.8,2.72,8.66,8.66,0,0,0-.65,3.19,8.21,8.21,0,0,0,2.33,6,7.68,7.68,0,0,0,5.7,2.43,8.59,8.59,0,0,0,3.49-.69,5.87,5.87,0,0,0,2.49-2.08h6.34a13.56,13.56,0,0,1-4.94,6,13.89,13.89,0,0,1-12.79.87A13.19,13.19,0,0,1,104,54.1a12.46,12.46,0,0,1-2.56-4.23,14.33,14.33,0,0,1-.87-5,12.89,12.89,0,0,1,1-5.15,13.6,13.6,0,0,1,3.07-4.46A13.38,13.38,0,0,1,114,31.41a13.47,13.47,0,0,1,7.44,2,14.91,14.91,0,0,1,5,6.26"/><path fill="#5e5e5d" d="M195.42,69.83a3.76,3.76,0,0,0-.84-.94,3.44,3.44,0,0,0-2.19-.76,3.91,3.91,0,1,0,2.26,7.11,3,3,0,0,0,1.17-1.73h-4.25V71.67h6.91a6.78,6.78,0,0,1-.51,2.86A6.08,6.08,0,0,1,192.4,78,5.93,5.93,0,1,1,198,69.83Z"/><path fill="#5e5e5d" d="M206.1,66.33h3.45a5.77,5.77,0,0,1,3.41.72,4,4,0,0,1,.84,5.23,3,3,0,0,1-1.89,1.24l2.55,4.22h-2.41L209,72.44h.45a3.55,3.55,0,0,0,2-.42,2.13,2.13,0,0,0,.73-1.67,2,2,0,0,0-.85-1.65,3.06,3.06,0,0,0-1.62-.35H208.4v9.39h-2.3Z"/><path fill="#5e5e5d" d="M223.7,72a3.7,3.7,0,1,0,3.7-3.91A3.75,3.75,0,0,0,223.7,72Zm-2.3.09a6,6,0,1,1,6,5.83,5.87,5.87,0,0,1-6-5.83Z"/><path fill="#5e5e5d" d="M243.37,66.33v7a3.4,3.4,0,0,0,.32,1.72,1.67,1.67,0,0,0,1.54.87,1.65,1.65,0,0,0,1.53-.82,3.37,3.37,0,0,0,.32-1.77v-7h2.3v7c0,1.69-.32,2.71-1.2,3.51a4.1,4.1,0,0,1-2.93,1.1,4.26,4.26,0,0,1-3-1.1,4.16,4.16,0,0,1-1.2-3.51v-7Z"/><path fill="#5e5e5d" d="M259.92,71.8h1.36a3,3,0,0,0,1.49-.29,1.55,1.55,0,0,0,.76-1.45,1.49,1.49,0,0,0-.79-1.42,3.18,3.18,0,0,0-1.56-.29h-1.26Zm1.16-5.47c1.93,0,2.7.27,3.36.78A3.78,3.78,0,0,1,265.73,70a3.86,3.86,0,0,1-1.2,2.89,4.42,4.42,0,0,1-3.21.9h-1.4v3.92h-2.3V66.33Z"/><rect fill="#5e5e5d" x="274.24" y="70.93" width="77.2" height="2.55"/><polygon fill="#5e5e5d" points="177.85 70.92 102.4 70.92 103.88 73.47 177.85 73.47 177.85 70.92"/></svg></a></div></div>
+  <p class="lead">Na CNC frézkách a&nbsp;obráběcích centrech se závity frézují závitovými frézami, které obíhají po šroubovici. Přesné a&nbsp;kalené závity se brousí. Stránka popisuje princip frézování závitů, vícezubou a&nbsp;cirkulární závitovou frézu, sousledné a&nbsp;nesousledné frézování, výhody frézování závitů, okružní frézování a&nbsp;broušení závitů.</p>
+
+  <h2>Princip frézování závitu</h2>
+  <p class="t">Závitová fréza má profil závitu, ale nemá stoupání — její zuby leží v&nbsp;rovinách kolmých k&nbsp;ose frézy. Fréza se otáčí kolem své osy, to je řezný pohyb. Současně obíhá kolem osy závitu a&nbsp;během jednoho oběhu se posune ve&nbsp;směru osy o&nbsp;<b>stoupání Ph</b>.</p>
+  <p class="t">Střed frézy se tak pohybuje po šroubovici. Tento pohyb vytváří řídicí systém stroje — <b>interpolace po šroubovici</b>. Závity lze proto frézovat jen na CNC frézce nebo obráběcím centru s&nbsp;touto funkcí. Pravý i&nbsp;levý závit vyrobí tatáž fréza, liší se jen směr oběhu a&nbsp;směr posuvu.</p>
+  <p class="t">Na konvenčních frézkách na závity se dlouhé závity frézují kotoučovou frézou a&nbsp;krátké závity hřebenovou frézou.</p>
+
+  <h2>Vícezubá a&nbsp;cirkulární závitová fréza</h2>
+  <p class="t"><b>Vícezubá závitová fréza</b> má profily závitu po celé délce řezné části. Celý závit vyfrézuje jedním oběhem, při kterém se posune o&nbsp;jedno stoupání.</p>
+  <p class="t"><b>Cirkulární závitová fréza</b> má krátkou řeznou část. Obíhá po šroubovici opakovaně, dokud nedosáhne konečné hloubky závitu. Má-li fréza jen jeden zub s&nbsp;profilem závitu, mluví se o&nbsp;<b>frézování jednohrotým nástrojem</b>.</p>
+  <p class="t">Fréza se do stěny nezapichuje kolmo, ale najíždí na dráhu závitu plynule po oblouku — po čtvrtkružnici (90°) nebo po půlkružnici (180°). Zub tak vniká do materiálu postupně a&nbsp;na boku závitu nezůstane stopa po najetí. I&nbsp;během najetí musí fréza zůstat na šroubovici, proto se zároveň posune ve&nbsp;směru osy: při čtvrtkružnici o&nbsp;1/4 stoupání, při půlkružnici o&nbsp;1/2 stoupání. Stejným způsobem fréza na konci z&nbsp;řezu vyjíždí. Animace ukazuje najetí a&nbsp;vyjetí po půlkružnici.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Frézování vnitřního pravého závitu</div>
+        <div class="panel-s" style="margin-bottom:0">Vlevo pohled shora: díra, čárkovaně velký průměr závitu, tmavě vyfrézovaná drážka. Vpravo osový řez dírou. Úhel a&nbsp;rozměry nejsou v&nbsp;měřítku.</div>
+      </div>
+      <div class="btns" id="fBtns"></div>
+    </div>
+    <div class="svgbox"><svg id="svgF" viewBox="0 0 1000 380" role="img" aria-label="Animace frézování vnitřního závitu vícezubou a cirkulární závitovou frézou v pohledu shora a v osovém řezu"></svg></div>
+    <div class="step"><div class="step-t" id="fT"></div><ol class="proc" id="fSteps"></ol></div>
+  </div>
+
+  <h2>Sousledné × nesousledné frézování</h2>
+  <p class="t">Vřeteno se v&nbsp;obou případech otáčí ve&nbsp;směru hodinových ručiček (při pohledu shora). Pro pravý vnitřní závit rozhoduje o&nbsp;způsobu frézování směr posuvu ve&nbsp;směru osy a&nbsp;s&nbsp;ním směr oběhu frézy.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Pravý vnitřní závit</div>
+        <div class="panel-s" style="margin-bottom:0">Vlevo pohled shora: červeně otáčení frézy, modře oběh, oranžově průřez třísky odebrané jedním zubem. Vpravo směr posuvu v&nbsp;osovém řezu.</div>
+      </div>
+      <div class="btns" id="sBtns"></div>
+    </div>
+    <div class="svgbox"><svg id="svgS" viewBox="0 0 1000 320" role="img" aria-label="Sousledné a nesousledné frézování pravého vnitřního závitu: směr otáčení, oběhu a posuvu a tloušťka třísky"></svg></div>
+    <div class="step"><div class="step-t" id="sT"></div><p id="sP"></p><p id="sH"></p></div>
+  </div>
+
+  <h2>Výhody frézování závitů</h2>
+  <ul class="t">
+    <li>Točivý moment je menší než při řezání a&nbsp;tváření závitů, reverzní chod vřetena není nutný.</li>
+    <li>Jedním nástrojem lze dosáhnout různých tolerancí závitu.</li>
+    <li>Jeden nástroj pro slepé i&nbsp;průchozí díry a&nbsp;pro pravý i&nbsp;levý závit.</li>
+    <li>Závit lze vyfrézovat až ke dnu díry.</li>
+    <li>Nízký řezný tlak — vhodné pro tenkostěnné obrobky.</li>
+    <li>Velmi dobrý povrch a&nbsp;rozměrová stálost, přesně opakovatelná hloubka závitu.</li>
+    <li>Krátká tříska, v&nbsp;hotovém závitu nezůstávají zbytky třísek.</li>
+  </ul>
+
+  <h2>Okružní frézování závitů</h2>
+  <p class="t">Nástrojem je frézovací hlava s&nbsp;noži na vnitřním obvodu. Hlava obklopuje obrobek a&nbsp;její osa je vůči ose obrobku výstředná, nože proto zasahují do obrobku jen v&nbsp;jednom místě obvodu. Osa hlavy je nakloněna o&nbsp;úhel stoupání.</p>
+  <p class="t">Hlava se otáčí velkou rychlostí — to je řezný pohyb. Obrobek se pomalu otáčí a&nbsp;hlava se za jednu jeho otáčku posune podél osy o&nbsp;<b>stoupání Ph</b>. Každý nůž je v&nbsp;záběru jen krátce a&nbsp;odebere krátkou třísku. Závit vznikne jedním průchodem. Okružním frézováním se vyrábějí dlouhé závity, například pohybové šrouby a&nbsp;šneky.</p>
+
+  <div class="panel">
+    <div class="panel-k">Animace</div>
+    <div class="panel-t">Okružní frézování vnějšího pravého závitu</div>
+    <div class="panel-s">Vlevo pohled ve&nbsp;směru osy obrobku: hlava s&nbsp;noži se rychle otáčí kolem výstředné osy, obrobek se otáčí pomalu. Vpravo pohled shora: hlava nakloněná o&nbsp;úhel stoupání se posouvá ke sklíčidlu. Úhel je ve&nbsp;schématu zvětšený.</div>
+    <div class="svgbox"><svg id="svgO" viewBox="0 0 1000 340" role="img" aria-label="Animace okružního frézování závitu: frézovací hlava s noži na vnitřním obvodu obíhá výstředně kolem pomalu se otáčejícího obrobku"></svg></div>
+  </div>
+
+  <h2>Broušení závitů</h2>
+  <p class="t">Broušením se dokončují závity s&nbsp;vysokými nároky na přesnost a&nbsp;jakost povrchu a&nbsp;závity kalených součástí. Brousí se kotoučem, jehož obvod má tvar profilu závitu. <b>Jednoprofilový kotouč</b> brousí jednu drážku závitu.</p>
+  <p class="t">Obrobek se pomalu otáčí a&nbsp;kotouč se za jednu jeho otáčku posune o&nbsp;stoupání — pohyby jsou stejné jako při <a class="link" href="soustruzeni.html">soustružení závitu</a>. Kotouč je nakloněn o&nbsp;úhel stoupání. Závit vzniká v&nbsp;několika záběrech. Profil kotouče se při broušení opotřebovává, proto se pravidelně orovnává — nejčastěji diamantovým orovnávačem, který obnoví tvar profilu na obvodu kotouče.</p>
+
+  <div class="panel">
+    <div class="panel-k">Schéma</div>
+    <div class="panel-t">Broušení jednoprofilovým kotoučem</div>
+    <div class="panel-s">Vlevo pohled shora na obrobek s&nbsp;pravým vnějším závitem: kotouč leží rovnoběžně s&nbsp;drážkou závitu, je nakloněn o&nbsp;úhel stoupání (úhel je ve&nbsp;schématu zvětšený). Vpravo osový řez: obvod kotouče je orovnaný do profilu závitu a&nbsp;brousí jednu drážku.</div>
+    <div class="svgbox"><svg id="svgB" viewBox="0 0 1000 320" role="img" aria-label="Jednoprofilový brusný kotouč nakloněný o úhel stoupání v záběru se závitem"></svg></div>
+  </div>
+
+  <div class="pcard"><a class="partner-l" href="https://cuttingtools.ceratizit.com/cz/cs.html" target="_blank" rel="noopener" aria-label="CERATIZIT — řezné nástroje" title="CERATIZIT — řezné nástroje"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351.5 77.96" aria-hidden="true"><polygon fill="#e42613" points="60.15 31.52 86.85 77.75 89.77 77.75 63.14 31.63 63.08 31.52 60.15 31.52"/><polygon fill="#e42613" points="55.35 31.52 82.04 77.75 84.96 77.75 58.34 31.63 58.27 31.52 55.35 31.52"/><polygon fill="#e42613" points="50.52 31.52 77.21 77.75 80.13 77.75 53.51 31.63 53.44 31.52 50.52 31.52"/><polygon fill="#e42613" points="65.06 65 72.4 77.75 75.33 77.75 66.5 62.5 65.06 65"/><polygon fill="#e42613" points="62.64 69.19 67.54 77.64 67.6 77.75 70.49 77.75 64.11 66.65 62.64 69.19"/><polygon fill="#e42613" points="60.25 73.37 62.7 77.63 62.76 77.75 65.69 77.75 61.7 70.84 60.25 73.37"/><polygon fill="#e42613" points="57.71 77.75 60.86 77.75 59.28 74.99 57.71 77.75"/><polygon fill="#5e5e5d" points="0 77.75 53.29 77.75 59.68 66.7 59.87 66.36 25.54 66.36 16.05 49.94 0 77.75"/><polygon fill="#5e5e5d" points="44.9 0 18.3 46.02 18.24 46.13 24.83 57.51 42 27.77 60.95 27.77 44.9 0"/><path fill="#e42613" d="M351.5,31.93v4.63h-5V58.09h-5.12V36.56h-5V31.93Zm-34.17,0h5.18V58.09h-5.18ZM302.67,58.09H286.11V53.58L296.56,36.8h-9.7V31.93h15.57V36.1L291.8,53.23h10.87ZM266.83,31.93H272V58.09h-5.18Zm-14.23,0v4.63h-5V58.09h-5.11V36.56h-5V31.93ZM208.87,52.59l-2,5.5h-5.35l10.23-26.16h4.42l10.11,26.16h-5.53l-2.09-5.5ZM217,47.73l-3.14-8.39-3.2,8.39ZM177.23,58.09h-5.17V31.93h6.27a27.63,27.63,0,0,1,4.48.24,9.62,9.62,0,0,1,2.5.63,8.31,8.31,0,0,1,2.91,12.44,7.63,7.63,0,0,1-4.6,2.67l6.57,10.18H184l-6.8-12.15Zm0-13.43h1.16a8.44,8.44,0,0,0,4.77-1.15,3.77,3.77,0,0,0,1.63-3.24,3.48,3.48,0,0,0-1.39-3.07,7,7,0,0,0-4.25-1h-1.92ZM155.94,58.09H141.7V31.93h14.24v4.63h-9.18v5.91h9.18V47h-9.18v6.42h9.18Zm-29.49-18.4h-6.28a7.59,7.59,0,0,0-2.67-2.26,8.48,8.48,0,0,0-6.57-.17A8.17,8.17,0,0,0,108.38,39a8.38,8.38,0,0,0-1.8,2.72,8.66,8.66,0,0,0-.65,3.19,8.21,8.21,0,0,0,2.33,6,7.68,7.68,0,0,0,5.7,2.43,8.59,8.59,0,0,0,3.49-.69,5.87,5.87,0,0,0,2.49-2.08h6.34a13.56,13.56,0,0,1-4.94,6,13.89,13.89,0,0,1-12.79.87A13.19,13.19,0,0,1,104,54.1a12.46,12.46,0,0,1-2.56-4.23,14.33,14.33,0,0,1-.87-5,12.89,12.89,0,0,1,1-5.15,13.6,13.6,0,0,1,3.07-4.46A13.38,13.38,0,0,1,114,31.41a13.47,13.47,0,0,1,7.44,2,14.91,14.91,0,0,1,5,6.26"/><path fill="#5e5e5d" d="M195.42,69.83a3.76,3.76,0,0,0-.84-.94,3.44,3.44,0,0,0-2.19-.76,3.91,3.91,0,1,0,2.26,7.11,3,3,0,0,0,1.17-1.73h-4.25V71.67h6.91a6.78,6.78,0,0,1-.51,2.86A6.08,6.08,0,0,1,192.4,78,5.93,5.93,0,1,1,198,69.83Z"/><path fill="#5e5e5d" d="M206.1,66.33h3.45a5.77,5.77,0,0,1,3.41.72,4,4,0,0,1,.84,5.23,3,3,0,0,1-1.89,1.24l2.55,4.22h-2.41L209,72.44h.45a3.55,3.55,0,0,0,2-.42,2.13,2.13,0,0,0,.73-1.67,2,2,0,0,0-.85-1.65,3.06,3.06,0,0,0-1.62-.35H208.4v9.39h-2.3Z"/><path fill="#5e5e5d" d="M223.7,72a3.7,3.7,0,1,0,3.7-3.91A3.75,3.75,0,0,0,223.7,72Zm-2.3.09a6,6,0,1,1,6,5.83,5.87,5.87,0,0,1-6-5.83Z"/><path fill="#5e5e5d" d="M243.37,66.33v7a3.4,3.4,0,0,0,.32,1.72,1.67,1.67,0,0,0,1.54.87,1.65,1.65,0,0,0,1.53-.82,3.37,3.37,0,0,0,.32-1.77v-7h2.3v7c0,1.69-.32,2.71-1.2,3.51a4.1,4.1,0,0,1-2.93,1.1,4.26,4.26,0,0,1-3-1.1,4.16,4.16,0,0,1-1.2-3.51v-7Z"/><path fill="#5e5e5d" d="M259.92,71.8h1.36a3,3,0,0,0,1.49-.29,1.55,1.55,0,0,0,.76-1.45,1.49,1.49,0,0,0-.79-1.42,3.18,3.18,0,0,0-1.56-.29h-1.26Zm1.16-5.47c1.93,0,2.7.27,3.36.78A3.78,3.78,0,0,1,265.73,70a3.86,3.86,0,0,1-1.2,2.89,4.42,4.42,0,0,1-3.21.9h-1.4v3.92h-2.3V66.33Z"/><rect fill="#5e5e5d" x="274.24" y="70.93" width="77.2" height="2.55"/><polygon fill="#5e5e5d" points="177.85 70.92 102.4 70.92 103.88 73.47 177.85 73.47 177.85 70.92"/></svg></a><p>Podklady k&nbsp;frézování závitů pocházejí od společnosti CERATIZIT, výrobce řezných nástrojů a&nbsp;slinutých karbidů.</p></div>
+  <p class="t" style="margin-top:24px;font-size:14px;color:var(--dim)">Zdroje: postup a&nbsp;výhody frézování závitů, sousledné a&nbsp;nesousledné frézování — CERATIZIT: Cirkulární frézování a&nbsp;frézování závitů, Metodický postup a&nbsp;Technické informace (katalog).</p>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ';
+const nb=s=>s.replace(/(^|[\s(„])([aikosuvzAIKOSUVZ]|[vzkVZK]e) /g,'$1$2'+NB);
+const f=v=>(+v).toFixed(1);
+const $=id=>document.getElementById(id);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const METAL='#5d6a79', DARK='#2a3442', EDGE='#c7d2dd', LEAD='#8296a8', DEEP='#0a0e15', TOOL='#d4b85a', TOOLD='#8c7a3e', CUT='#f2a65a', RED='#e0605a', BLUE='#5aa0e0';
+const R2D=Math.PI/180, TAU=2*Math.PI;
+const pts=a=>a.map(q=>f(q[0])+','+f(q[1])).join(' ');
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=$('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v='+Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+function makeBtns(box,items,state,prop,onChange){const list=items.map(([v,t])=>{const b=document.createElement('button');b.className='btn';b.textContent=t;box.appendChild(b);return [b,v];});
+  const paint=()=>list.forEach(([b,v])=>b.setAttribute('aria-pressed',v===state[prop]));
+  list.forEach(([b,v])=>b.onclick=()=>{state[prop]=v;paint();onChange();});paint();}
+// průřez frézy shora: kruh se čtyřmi drážkami, natočený o rot (kladně = po směru hodin)
+function cutter(p,cx,cy,r,rot){el(p,'circle',{cx:f(cx),cy:f(cy),r,fill:TOOL,stroke:TOOLD,'stroke-width':1.5});
+  for(let i=0;i<4;i++){const a=rot+i*Math.PI/2;el(p,'circle',{cx:f(cx+(r-2)*Math.cos(a)),cy:f(cy+(r-2)*Math.sin(a)),r:f(r*0.3),fill:'#3a4658'});}}
+// oblouková šipka (úhly v rad, obrazovkové souřadnice)
+function arcArrow(p,cx,cy,r,a0,a1,c,w){const s=Math.sign(a1-a0), ae=a1-s*12/r;
+  const X=a=>cx+r*Math.cos(a), Y=a=>cy+r*Math.sin(a);
+  el(p,'path',{d:'M'+f(X(a0))+' '+f(Y(a0))+' A'+r+' '+r+' 0 '+(Math.abs(ae-a0)>Math.PI?1:0)+' '+(s>0?1:0)+' '+f(X(ae))+' '+f(Y(ae)),fill:'none',stroke:c,'stroke-width':w||3,'stroke-linecap':'round'});
+  const tx=-Math.sin(ae)*s, ty=Math.cos(ae)*s, x=X(ae), y=Y(ae), L=12, W=6;
+  el(p,'polygon',{points:pts([[x+tx*L,y+ty*L],[x-ty*W,y+tx*W],[x+ty*W,y-tx*W]]),fill:c});}
+function arrow(p,x1,y1,x2,y2,c){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L;
+  el(p,'line',{x1,y1,x2:f(x2-ux*12),y2:f(y2-uy*12),stroke:c,'stroke-width':3.5,'stroke-linecap':'round'});
+  el(p,'polygon',{points:pts([[x2,y2],[x2-ux*14-uy*7,y2-uy*14+ux*7],[x2-ux*14+uy*7,y2-uy*14-ux*7]]),fill:c});}
+
+/* ---------- PRVEK 1 — frézování závitu (animace) ---------- */
+(function(){
+const svg=$('svgF');
+const TCX=220, TCY=190, RM=68, RJ=80, RT=50, RC=38, E=RJ-RT;  // malý a velký poloměr závitu, poloměr frézy, jádro frézy, poloměr oběhu
+const SCX=720, YT=60, YB=340, PP=30, ZA=YT-40;               // osový řez: osa díry, horní a dolní plocha, rozteč, poloha nad obrobkem
+const NT=9, NC=7;                                            // počet zubů vícezubé frézy, počet oběhů cirkulární frézy
+const M={
+ vic:{n:'Vícezubá závitová fréza', steps:['Polohování nad dírou','Najetí do počáteční polohy pro frézování závitu','Najetí na konturu po kružnici, posuv nahoru o 1/4 (1/2) stoupání','Oběh po šroubovici — posuv nahoru o jedno stoupání','Vyjetí z řezu do osy díry po kružnici, posuv nahoru o 1/4 (1/2) stoupání','Vyjetí do počáteční polohy'],
+  zS:YB-20+PP/2, dir:-1, turns:1, ccw:true},
+ cir:{n:'Cirkulární závitová fréza', steps:['Polohování nad dírou','Frézování po šroubovici až do konečné hloubky závitu','Vyjetí z řezu do osy díry po kružnici, posuv nahoru o 1/4 (1/2) stoupání','Vyjetí do počáteční polohy'],
+  zS:YT+14, dir:1, turns:NC, ccw:false}};
+const st={m:'vic'};
+let t=0, last=null;
+// časová osa jednoho cyklu: [krok v seznamu, trvání]
+function plan(){const m=M[st.m], orb=m.turns===1?3:1.5*m.turns;
+  return st.m==='vic'?[['pos',0,1],['down',1,1.2],['in',2,1],['orb',3,orb],['out',4,1],['up',5,1.2],['wait',5,1.5]]
+                     :[['pos',0,1],['down',1,1],['in',1,1],['orb',1,orb],['out',2,1],['up',3,1.2],['wait',3,1.5]];}
+function state(){
+  const m=M[st.m], pl=plan(), sg=m.ccw?-1:1;   // sg: znaménko úhlu oběhu v obrazovkových souřadnicích
+  let tt=t, k=0; while(k<pl.length-1&&tt>=pl[k][2]){tt-=pl[k][2];k++;}
+  const [ph,stepI,dur]=pl[k], s=Math.min(1,tt/dur);
+  const zO=m.zS+m.dir*PP/2;                    // spodní zub na začátku oběhu
+  const zEnd=zO+m.dir*PP*m.turns;              // spodní zub na konci oběhu
+  let dx=0,dy=0,z=ZA,phi=0,done=0;             // done: 0 před oběhem, 1 v oběhu, 2 po oběhu
+  if(ph==='pos'){z=ZA;}
+  else if(ph==='down'){z=ZA+(m.zS-ZA)*s;}
+  else if(ph==='in'){dx=E/2-E/2*Math.cos(Math.PI*s);dy=-sg*E/2*Math.sin(Math.PI*s);z=m.zS+m.dir*PP/2*s;}
+  else if(ph==='orb'){phi=TAU*m.turns*s;dx=E*Math.cos(phi);dy=sg*E*Math.sin(phi);z=zO+m.dir*PP*m.turns*s;done=1;}
+  else if(ph==='out'){dx=E/2+E/2*Math.cos(Math.PI*s);dy=sg*E/2*Math.sin(Math.PI*s);z=zEnd-PP/2*s;phi=TAU*m.turns;done=2;}
+  else if(ph==='up'){z=zEnd-PP/2+(ZA-zEnd+PP/2)*s;phi=TAU*m.turns;done=2;}
+  else {z=ZA;phi=TAU*m.turns;done=2;}
+  return {ph,stepI,dx,dy,z,phi,done,zO,sg,total:pl.reduce((a,q)=>a+q[2],0)};}
+function draw(){
+  svg.innerHTML='';const m=M[st.m], S=state();
+  /* pohled shora */
+  el(svg,'rect',{x:TCX-140,y:TCY-140,width:280,height:280,fill:METAL});
+  // vyfrézovaná drážka (mezikruží RM až RJ) v rozsahu dosavadního oběhu
+  const sw=S.done===0?0:Math.min(TAU,S.phi);
+  if(sw>0){const N=Math.max(4,Math.ceil(sw/0.05)),o=[],i=[];
+    for(let j=0;j<=N;j++){const a=S.sg*sw*j/N;o.push([TCX+RJ*Math.cos(a),TCY+RJ*Math.sin(a)]);i.push([TCX+RM*Math.cos(a),TCY+RM*Math.sin(a)]);}
+    el(svg,'polygon',{points:pts(o.concat(i.reverse())),fill:'#1c2430'});}
+  el(svg,'circle',{cx:TCX,cy:TCY,r:RM,fill:DEEP});
+  el(svg,'circle',{cx:TCX,cy:TCY,r:RJ,fill:'none',stroke:LEAD,'stroke-width':1.3,'stroke-dasharray':'6 5'});
+  el(svg,'circle',{cx:TCX,cy:TCY,r:E,fill:'none',stroke:'#4a5768','stroke-width':1,'stroke-dasharray':'2 4'});
+  cutter(svg,TCX+S.dx,TCY+S.dy,RT,t*2.5);
+  /* osový řez */
+  const xl=SCX-RM, xr=SCX+RM;
+  el(svg,'rect',{x:500,y:YT,width:xl-500,height:YB-YT,fill:METAL});
+  el(svg,'rect',{x:xr,y:YT,width:940-xr,height:YB-YT,fill:METAL});
+  // drážky ve stěnách: vpravo po průchodu úhlu 0, vlevo po průchodu úhlu π
+  const notch=(x,s,z)=>{if(z<YT+2||z>YB-2)return;el(svg,'polygon',{points:pts([[x,Math.max(YT,z-PP/2)],[x+s*(RJ-RM),z],[x,Math.min(YB,z+PP/2)]]),fill:DEEP});};
+  if(S.done>0){const crossR=Math.floor(S.phi/TAU+1e-9), crossL=Math.floor((S.phi+Math.PI)/TAU+1e-9);
+    if(st.m==='vic'){for(let k=0;k<NT;k++){notch(xr,1,S.zO-k*PP);if(crossL>=1)notch(xl,-1,S.zO-PP/2-k*PP);}}
+    else{for(let k=0;k<=Math.min(crossR,NC);k++)notch(xr,1,S.zO+k*PP);
+      for(let k=0;k<Math.min(crossL,NC);k++)notch(xl,-1,S.zO+(k+0.5)*PP);}}
+  el(svg,'line',{x1:SCX,y1:10,x2:SCX,y2:370,stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'18 5 3 5'});
+  // fréza v řezu (posun ve směru osy x = složka oběhu)
+  const cx=SCX+S.dx, z=S.z, g=el(svg,'g',{});
+  const tooth=(zz)=>{el(g,'polygon',{points:pts([[cx-RC,zz-PP/2],[cx-RT,zz],[cx-RC,zz+PP/2]]),fill:TOOL});
+    el(g,'polygon',{points:pts([[cx+RC,zz-PP/2],[cx+RT,zz],[cx+RC,zz+PP/2]]),fill:TOOL});};
+  if(st.m==='vic'){
+    el(g,'rect',{x:f(cx-RC),y:-20,width:2*RC,height:f(z+PP/2+20),fill:TOOLD});
+    for(let k=0;k<NT;k++)tooth(z-k*PP);
+    el(g,'rect',{x:f(cx-RC),y:f(z-(NT-1)*PP-PP/2),width:2*RC,height:f((NT-1)*PP+PP),fill:TOOL});
+  }else{
+    el(g,'rect',{x:f(cx-RC),y:-20,width:2*RC,height:f(z-PP/2-130+20),fill:TOOLD});
+    el(g,'rect',{x:f(cx-20),y:f(z-PP/2-130),width:40,height:130,fill:TOOLD});
+    el(g,'rect',{x:f(cx-RC),y:f(z-PP/2),width:2*RC,height:PP,fill:TOOL});
+    tooth(z);
+  }
+  // výstupy
+  $('fT').textContent=m.n;
+  $('fSteps').innerHTML=m.steps.map((s,i)=>'<li'+(i===S.stepI?' class="on"':'')+'>'+nb(s)+'</li>').join('');
+  return S.total;}
+function tick(ts){if(last!==null){t+=Math.min(0.05,(ts-last)/1000);}last=ts;const tot=draw();if(t>tot)t=0;requestAnimationFrame(tick);}
+makeBtns($('fBtns'),[['vic','Vícezubá fréza'],['cir','Cirkulární fréza']],st,'m',()=>{t=0;draw();});
+if(reduce){t=4.2;draw();}else requestAnimationFrame(tick);
+})();
+
+/* ---------- PRVEK 2 — sousledné × nesousledné ---------- */
+(function(){
+const svg=$('svgS');
+const D={sous:{n:'Sousledné frézování',up:true,p:'Vřeteno se otáčí ve směru hodinových ručiček, fréza se posouvá nahoru a obíhá proti směru hodinových ručiček (při pohledu shora).',h:'Tloušťka třísky při výjezdu zubu z řezu je vždy nulová (h = 0).'},
+  nesous:{n:'Nesousledné frézování',up:false,p:'Vřeteno se otáčí ve směru hodinových ručiček, fréza se posouvá dolů a obíhá rovněž ve směru hodinových ručiček (při pohledu shora).',h:'Tloušťka třísky při výjezdu zubu z řezu je maximální (h = max).'}};
+const st={m:'sous'};
+const CX=300, CY=160, RH=110, RT=62, E=RH-RT, DL=20;
+function draw(){
+  svg.innerHTML='';const d=D[st.m];
+  el(svg,'rect',{x:CX-150,y:CY-150,width:300,height:300,fill:METAL});
+  el(svg,'circle',{cx:CX,cy:CY,r:RH,fill:DEEP});
+  const tx=CX+E, ty=CY;
+  // průřez třísky: fréza minus poloha o krok zpět (back), jen na straně stěny díry
+  const back=d.up?DL:-DL;
+  // zobrazená tříska = fréza minus poloha o krok zpět, jen vpravo od osy frézy
+  const mask=el(el(svg,'defs',{}),'mask',{id:'mkS'});
+  el(mask,'rect',{x:tx,y:ty-RT-2,width:RT+4,height:2*RT+4,fill:'#fff'});
+  el(mask,'circle',{cx:tx,cy:ty+back,r:RT,fill:'#000'});
+  cutter(svg,tx,ty,RT,0.3);
+  el(svg,'circle',{cx:tx,cy:ty,r:RT,fill:CUT,opacity:.85,mask:'url(#mkS)'});
+  // otáčení frézy (ve směru hodin) a oběh
+  arcArrow(svg,tx,ty,RT+14,-150*R2D,-40*R2D,RED);
+  if(d.up)arcArrow(svg,CX,CY,RH+22,30*R2D,-30*R2D,BLUE,3.5);else arcArrow(svg,CX,CY,RH+22,-30*R2D,30*R2D,BLUE,3.5);
+  // osový řez se směrem posuvu
+  const SX=760;
+  el(svg,'rect',{x:600,y:40,width:SX-70-600,height:240,fill:METAL});
+  el(svg,'rect',{x:SX+70,y:40,width:920-SX-70,height:240,fill:METAL});
+  for(let z=60;z<270;z+=26){el(svg,'polygon',{points:pts([[SX-70,z-13],[SX-80,z],[SX-70,z+13]]),fill:DEEP});el(svg,'polygon',{points:pts([[SX+70,z],[SX+80,z+13],[SX+70,z+26]]),fill:DEEP});}
+  el(svg,'rect',{x:SX-22,y:20,width:44,height:200,fill:TOOLD});
+  el(svg,'rect',{x:SX-34,y:150,width:68,height:90,fill:TOOL});
+  if(d.up)arrow(svg,SX,215,SX,95,BLUE);else arrow(svg,SX,95,SX,215,BLUE);
+  $('sT').textContent=d.n;$('sP').textContent=nb(d.p);$('sH').textContent=nb(d.h);}
+makeBtns($('sBtns'),[['sous','Sousledné'],['nesous','Nesousledné']],st,'m',draw);
+draw();
+})();
+
+/* ---------- PRVEK 3 — okružní frézování (animace) ---------- */
+(function(){
+const svg=$('svgO');
+// pohled ve směru osy
+const EX=200, EY=170, R=60, RI=90, RO=125, EC=RI-R;     // obrobek, vnitřní a vnější poloměr hlavy, výstřednost
+// pohled shora
+const AX=170, XC0=400, XC1=440, X1=960, XE=740, XS=X1, XN=XS+30, PP=70;   // závit začíná na čele obrobku
+const PSI=Math.atan((PP/2)/(2*R));                        // sklon čar závitu ve schématu = sklon hlavy
+let tw=0, sp=0, last=null;                                // natočení obrobku a hlavy
+function draw(){
+  svg.innerHTML='';
+  /* pohled ve směru osy */
+  const hc=[EX,EY-EC], spin=sp;
+  el(svg,'circle',{cx:hc[0],cy:hc[1],r:RO,fill:'#3a4658',stroke:'#6b7b8e','stroke-width':1.5});
+  el(svg,'circle',{cx:hc[0],cy:hc[1],r:RI,fill:DEEP});
+  for(let i=0;i<6;i++){const a=spin+i*Math.PI/3, c=Math.cos(a), s=Math.sin(a), b=a-0.5;
+    // stopa za nožem naznačuje rychlé otáčení
+    el(svg,'path',{d:'M'+f(hc[0]+(RI-6)*Math.cos(b))+' '+f(hc[1]+(RI-6)*Math.sin(b))+' A'+(RI-6)+' '+(RI-6)+' 0 0 1 '+f(hc[0]+(RI-6)*c)+' '+f(hc[1]+(RI-6)*s),fill:'none',stroke:TOOL,'stroke-width':8,opacity:.3,'stroke-linecap':'round'});
+    el(svg,'polygon',{points:pts([[hc[0]+RI*c-7*s,hc[1]+RI*s+7*c],[hc[0]+(RI-14)*c,hc[1]+(RI-14)*s],[hc[0]+RI*c+7*s,hc[1]+RI*s-7*c]]),fill:TOOL});}
+  el(svg,'circle',{cx:EX,cy:EY,r:R,fill:METAL,stroke:'#4a5768','stroke-width':1.5});
+  el(svg,'circle',{cx:f(EX+0.7*R*Math.sin(tw)),cy:f(EY-0.7*R*Math.cos(tw)),r:5,fill:CUT});
+  arcArrow(svg,hc[0],hc[1],RO+14,-120*R2D,-60*R2D,RED);
+  /* pohled shora */
+  el(svg,'rect',{x:XC0,y:AX-110,width:XC1-XC0,height:220,rx:6,fill:DARK,stroke:'#4a5768','stroke-width':1.5});
+  el(svg,'rect',{x:XC1,y:AX-R,width:X1-XC1,height:2*R,fill:METAL});
+  const x=XN-PP*tw/TAU;                                   // poloha hlavy: o stoupání za otáčku obrobku
+  const cp=el(el(svg,'defs',{}),'clipPath',{id:'cpO'});el(cp,'rect',{x:f(Math.max(XE,x)),y:AX-R,width:f(Math.max(0,XS-Math.max(XE,x))),height:2*R});
+  const g=el(svg,'g',{'clip-path':'url(#cpO)'});
+  const s0=(((XN-PP*tw/TAU)-XE)%PP+PP)%PP;
+  for(let xc=XE-PP+s0;xc<XS+PP;xc+=PP)el(g,'line',{x1:f(xc-PP/4),y1:AX-R,x2:f(xc+PP/4),y2:AX+R,stroke:DEEP,'stroke-width':7});
+  el(svg,'line',{x1:XC1,y1:AX,x2:X1+10,y2:AX,stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'18 5 3 5'});
+  const hg=el(svg,'g',{transform:'rotate('+f(-PSI/R2D)+' '+f(x)+' '+AX+')'});
+  // výstřednost hlavy leží ve směru pohledu, shora je hlava souměrná kolem osy obrobku
+  el(hg,'rect',{x:f(x-17),y:AX-RO-5,width:34,height:2*RO+10,rx:4,fill:'#3a4658',opacity:.88,stroke:'#6b7b8e','stroke-width':1.5});
+  el(hg,'rect',{x:f(x-6),y:AX-R-8,width:12,height:2*R+16,fill:TOOL,opacity:.9});
+  if(x<=XE-30)tw=0;}
+// hlava se otáčí šestkrát rychleji než obrobek; obě rychlosti jsou nízké, aby se pohyb vykresloval plynule
+function tick(ts){if(last!==null){const dt=Math.min(0.05,(ts-last)/1000);tw+=dt*TAU*0.15;sp+=dt*TAU*0.9;}last=ts;draw();requestAnimationFrame(tick);}
+if(reduce){tw=TAU*4;draw();}else requestAnimationFrame(tick);
+})();
+
+/* ---------- SCHÉMA — broušení: pohled shora a osový řez ---------- */
+(function(){
+const svg=$('svgB');
+/* vlevo pohled shora */
+const AX=160, R=60, X0=60, X1=500, PP=36;
+const PSI=Math.atan((PP/2)/(2*R));            // sklon čar závitu ve schématu = sklon kotouče
+el(svg,'rect',{x:X0,y:AX-R,width:X1-X0,height:2*R,fill:METAL});
+const cp=el(el(svg,'defs',{}),'clipPath',{id:'cpB'});el(cp,'rect',{x:X0,y:AX-R,width:X1-X0,height:2*R});
+const g=el(svg,'g',{'clip-path':'url(#cpB)'});
+for(let x=X0-PP;x<X1+PP;x+=PP)el(g,'line',{x1:x,y1:AX-R,x2:x+PP/2,y2:AX+R,stroke:DEEP,'stroke-width':6});
+el(svg,'line',{x1:X0-20,y1:AX,x2:X1+20,y2:AX,stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'18 5 3 5'});
+const WX=X0+6*PP+PP/4;
+const wg=el(svg,'g',{transform:'rotate('+f(-PSI/R2D)+' '+WX+' '+AX+')'});
+el(wg,'rect',{x:WX-14,y:AX-140,width:28,height:280,rx:4,fill:'#9aa6b4',opacity:.85,stroke:'#c7d2dd','stroke-width':1.5});
+el(svg,'ellipse',{cx:X1,cy:AX,rx:12,ry:R,fill:'#6b7889',stroke:'#4a5768','stroke-width':1.2});
+arcArrow(svg,X1+34,AX,62,-40*R2D,40*R2D,RED);
+/* vpravo osový řez: profil závitu a kotouč orovnaný do profilu */
+const P2=90, H=P2*Math.sqrt(3)/2, h=5*H/8, C=P2/8, RF=P2/4, RUN=h*Math.tan(30*R2D);
+const YC=190, YR=YC+h, SX0=600, SX1=960;      // vrchol a dno závitu (materiál dole)
+const prof=[];for(let x=SX0-P2;x<SX1+P2;x+=P2)prof.push([x,YC],[x+C,YC],[x+C+RUN,YR],[x+C+RUN+RF,YR],[x+P2,YC]);
+const cp2=el(el(svg,'defs',{}),'clipPath',{id:'cpB2'});el(cp2,'rect',{x:SX0,y:0,width:SX1-SX0,height:320});
+const g2=el(svg,'g',{'clip-path':'url(#cpB2)'});
+el(g2,'polygon',{points:pts(prof.concat([[SX1+P2,300],[SX0-P2,300]])),fill:METAL});
+el(g2,'polyline',{points:pts(prof),fill:'none',stroke:EDGE,'stroke-width':2});
+// drážka pod kotoučem: střed dna v rozteči k = 2
+const gx=SX0+2*P2+C+RUN+RF/2;
+const ws=YC-8;                                 // spodek těla kotouče těsně nad vrcholy závitu
+el(g2,'polygon',{points:pts([[gx-P2*0.75,20],[gx+P2*0.75,20],[gx+P2*0.75,ws],[gx+RF/2+(YR-ws)*Math.tan(30*R2D),ws],[gx+RF/2,YR],[gx-RF/2,YR],[gx-RF/2-(YR-ws)*Math.tan(30*R2D),ws],[gx-P2*0.75,ws]]),fill:'#9aa6b4',stroke:'#c7d2dd','stroke-width':1.5});
+for(let k=0;k<14;k++)el(g2,'circle',{cx:f(gx-P2*0.65+(k%7)*P2*0.21),cy:f(50+Math.floor(k/7)*40+(k%2)*12),r:1.8,fill:'#5d6a79'});
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

@@ -514,7 +514,7 @@
         "id": "rovnovazne",
         "title": "Rovnovážné diagramy",
         "desc": "Binární diagramy slitin — úplná rozpustnost, eutektická a eutektoidní přeměna.",
-        "badge": "3 diagramy a 1 animace"
+        "badge": "6 diagramů a 1 animace"
       },
       {
         "id": "tepelne",
@@ -595,6 +595,12 @@
         "title": "Kdy vznikne tuhý roztok a kdy už ne",
         "desc": "Kdy se příměs vejde do mřížky a kdy vznikne eutektikum — čtyři soustavy: Cu–Ni, A–B, Sn–Pb a Al–Cu.",
         "href": "rovnovazne-diagramy/tuhy-roztok-vs-eutektikum.html"
+      },
+      {
+        "id": "rd-prakticky",
+        "title": "RD prakticky",
+        "desc": "Čtyři soustavy, sedm úloh v náhodném pořadí: odečet teplot a složení, strukturní popis, vyznačení křivek a křivka chladnutí.",
+        "href": "rovnovazne-diagramy/rd-prakticky.html"
       }
     ]
   },
@@ -1356,10 +1362,10 @@
       {
         "id": "zavity",
         "title": "Výroba závitů",
-        "desc": "Obrábění a tváření závitů.",
+        "desc": "Geometrie a druhy závitů, závitníky a očka, soustružení, frézování, broušení, válcování a kontrola závitů.",
         "href": "zavity/index.html",
-        "badge": "2 kapitoly",
-        "status": "coming-soon"
+        "badge": "6 kapitol",
+        "status": "ready"
       },
       {
         "id": "ozubeni",
@@ -1633,16 +1639,46 @@
     "h1": "Výroba závitů",
     "cards": [
       {
-        "title": "Obrábění závitů",
-        "desc": "Závitník, závitové očko, soustružení, frézování a broušení závitů.",
-        "href": "obrabeni-zavitu.html",
-        "status": "coming-soon"
+        "title": "Závit — geometrie a druhy",
+        "desc": "Průměry, rozteč a stoupání, úhel profilu, vícechodé a levé závity, druhy profilů a značení.",
+        "href": "geometrie-druhy.html",
+        "status": "ready",
+        "badge": "1 animace · 3 interaktivní"
       },
       {
-        "title": "Tváření závitů",
-        "desc": "Válcování závitů, tvářecí závitník a srovnání s obráběním.",
-        "href": "tvareni-zavitu.html",
-        "status": "coming-soon"
+        "title": "Řezání závitníky a očky",
+        "desc": "Ruční a strojní závitníky, tvářecí závitník, závitová očka a průměr předvrtání.",
+        "href": "zavitniky-ocka.html",
+        "status": "ready",
+        "badge": "1 animace · 5 interaktivní"
+      },
+      {
+        "title": "Soustružení závitů",
+        "desc": "Princip a vodicí šroub, závitové VBD a jejich sklon, způsoby přísuvu a počet záběrů.",
+        "href": "soustruzeni.html",
+        "status": "ready",
+        "badge": "1 animace · 3 interaktivní"
+      },
+      {
+        "title": "Frézování a broušení závitů",
+        "desc": "Interpolace po šroubovici, vícezubá a cirkulární závitová fréza, sousledné a nesousledné frézování, okružní frézování, broušení jednoprofilovým kotoučem.",
+        "href": "frezovani-brouseni.html",
+        "status": "ready",
+        "badge": "2 animace · 1 interaktivní"
+      },
+      {
+        "title": "Válcování závitů",
+        "desc": "Válcování plochými čelistmi a kotouči, průběh vláken a srovnání s řezaným závitem.",
+        "href": "valcovani.html",
+        "status": "ready",
+        "badge": "1 animace · 2 interaktivní"
+      },
+      {
+        "title": "Kontrola závitů",
+        "desc": "Tolerance 6H a 6g, mezní závitové kalibry, závitové měrky, třídrátková metoda a závitový mikrometr.",
+        "href": "kontrola.html",
+        "status": "ready",
+        "badge": "1 animace · 3 interaktivní"
       }
     ]
   },

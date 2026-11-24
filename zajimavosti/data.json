@@ -44,6 +44,31 @@
   },
   "polozky": [
     {
+      "id": "para-smr-komprese",
+      "typ": "clanek",
+      "titulek": "Vysokoteplotní pára z lehkovodních SMR",
+      "perex": "Lehkovodní malé modulární reaktory (SMR) dodávají páru o teplotě necelých 300 °C, průmysl ale potřebuje vyšší parametry. Článek popisuje koncept MASMRaK, který teplotu páry zvyšuje sekundárním stupněm mechanické komprese.",
+      "body": [
+        "Lehkovodní SMR (tlakovodní a varné) mají být v komerčním provozu zhruba do roku 2040. Reaktory IV. generace s párou o teplotě 500 °C a vyšší nejdříve kolem roku 2050.",
+        "Za reaktor se zařadí mechanická rekomprese páry (MVR). Turbokompresor stlačuje páru téměř adiabaticky — práce kompresoru přechází do entalpie páry, a s tlakem proto roste i teplota.",
+        "Skutečná komprese je polytropická. Tření a víření v kompresoru zvyšují entropii, výstupní teplota je vyšší než při izoentropické kompresi a k témuž zvýšení tlaku je potřeba více práce. Výpočty se dělají z parních tabulek nebo diagramu h-s.",
+        "NuScale VOYGR — modul 250 MWt (77 MWe) dává páru 283 °C / 3,28 MPa. Vícestupňová komprese poháněná elektřinou z bloku ji převede na páru 500 °C / 10,5 MPa, nejvýše 650 °C / 16,8 MPa.",
+        "Kompresory Ebara Elliott Flex-Op sdružují dvě až čtyři kompresorová tělesa kolem jedné vícepastorkové převodovky. Tělesa pracují sériově, paralelně nebo kombinovaně, každé při jiných otáčkách.",
+        "Integrovaný parogenerátor odděluje primární okruh od sekundární páry, mezilehlý výměník IHX odděluje sekundární okruh od páry pro odběratele.",
+        "NUWARD 400 (EDF) — 400 MWe (1 150 MWt), v kogeneraci 575 MWt tepla a současně 200 MWe. Teplo 150 °C z odběru turbíny, až 280 °C z odběru páry za parogenerátorem.",
+        "Jako příklad uplatnění uvádí autor Teplárnu Otrokovice, která dodává páru od 0,15 MPa / 230 °C po 3,6 MPa / 320 °C. Nejvhodnější jsou podle něj SMR o výkonu kolem 300 MWe."
+      ],
+      "obrazek": "zajimavosti/img/smr-komprese-pary.svg",
+      "obrazekPopis": "Reaktor · výměník IHX · komprese · odběr (vlastní schéma podle údajů NuScale VOYGR)",
+      "kapitoly": [],
+      "zdroj": {
+        "nazev": "MM Průmyslové spektrum",
+        "url": "https://www.mmspektrum.com/clanek/vysokoteplotni-para-z-lehkovodnich-smr",
+        "datum": "2026-11-11"
+      },
+      "pridano": "2026-11-24"
+    },
+    {
       "id": "voyager-1",
       "typ": "zajimavost",
       "titulek": "Voyager 1: jeden světelný den od Země",

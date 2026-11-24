@@ -301,15 +301,15 @@
   "obrabeni/index": {
     "badge": true,
     "category": "obrabeni",
-    "content_hash": "0bb6b6756f05f07501f8e6e6838d4940fdba942b0377dfeae3d2271cba825d15",
+    "content_hash": "022bcbe4b148186d109ab5fa433f39be91228b58e3249a4f616f0513e31d7cc3",
     "file": "obrabeni/index.html",
     "first_seen": "2026-11-09",
     "hash_version": 2,
-    "last_changed": "2026-11-09",
+    "last_changed": "2026-11-24",
     "locked": false,
     "note": "Rozcestník nové kapitoly s deseti skupinami od základů obrábění po výrobu závitů a ozubených kol.",
     "title": "Obrábění",
-    "written_hash": "d7f22ef44097db305b576f344b1bee382e903553c81ade673f16f92180248feb"
+    "written_hash": "5f81d759cbf773e336aaae897c1f958f70a60139f9509eaaaf41f1da51998f4d"
   },
   "obrabeni/nekonvencni/index": {
     "badge": true,
@@ -493,18 +493,96 @@
     "title": "Tvorba třísky",
     "written_hash": "cf766937e81ee5b1fd87dd2818d56ce5209028128a1ac69e4ffedc3a137a97b1"
   },
+  "obrabeni/zavity/frezovani-brouseni": {
+    "badge": true,
+    "category": "obrabeni",
+    "content_hash": "0d0a361d43566f61489c4ad8e77c27a3d3aa0f87e02fe6ab996da99e78fb7ba8",
+    "file": "obrabeni/zavity/frezovani-brouseni.html",
+    "first_seen": "2026-11-24",
+    "hash_version": 2,
+    "last_changed": "2026-11-24",
+    "locked": false,
+    "note": "Animace frézování vícezubou a cirkulární závitovou frézou, sousledné a nesousledné frézování, animace okružního frézování a broušení jednoprofilovým kotoučem.",
+    "title": "Frézování a broušení závitů",
+    "written_hash": "c1a2a7cb8974006f15533c491f503ac6e3872234978a072edd1c438d8cdbaa59"
+  },
+  "obrabeni/zavity/geometrie-druhy": {
+    "badge": true,
+    "category": "obrabeni",
+    "content_hash": "c429d8919c01c9870e5402449ac615230be1bf75547e5fc67ec9771aded20e2a",
+    "file": "obrabeni/zavity/geometrie-druhy.html",
+    "first_seen": "2026-11-24",
+    "hash_version": 2,
+    "last_changed": "2026-11-24",
+    "locked": false,
+    "note": "Rozvinutí šroubovice, klikací osový řez šroubem a maticí, animace vícechodého závitu, profily M, G, Tr, S, Rd a značení závitů.",
+    "title": "Závit — geometrie a druhy",
+    "written_hash": "6b01591b7bb1127e2070efc60b8fbf4b362c6ceaccfa38412230ed10bbfa1e1d"
+  },
   "obrabeni/zavity/index": {
     "badge": true,
     "category": "obrabeni",
-    "content_hash": "b47cf0c2f27b832b9f652d8a64bd79f616b993f4b656935aa9584be5f6e11d58",
+    "content_hash": "3b8a5f5cea1bd5f7718b2bfe69a1d975745ce7f2287739b9d5a383fc0d32bb82",
     "file": "obrabeni/zavity/index.html",
     "first_seen": "2026-11-09",
     "hash_version": 2,
-    "last_changed": "2026-11-09",
+    "last_changed": "2026-11-24",
     "locked": false,
     "note": "Rozcestník skupiny s kapitolami o obrábění a tváření závitů.",
     "title": "Výroba závitů",
-    "written_hash": "b4b34cdeb1f5dd1ffb1dcde1621ec83f24d675b474c5d93c52b142d9b4941b70"
+    "written_hash": "899925a3c680983bb49c85faaced4eaf0f65aa0747a32b320c5b4e3acf068681"
+  },
+  "obrabeni/zavity/kontrola": {
+    "badge": true,
+    "category": "obrabeni",
+    "content_hash": "8f76674b027b925b0d484a5fd44b531b80d8599cc504d76603ddbbd3ada46b02",
+    "file": "obrabeni/zavity/kontrola.html",
+    "first_seen": "2026-11-24",
+    "hash_version": 2,
+    "last_changed": "2026-11-24",
+    "locked": false,
+    "note": "Tolerance 6H a 6g, animace kontroly závitovým trnem, závitové měrky, interaktivní schéma třídrátkové metody a závitový mikrometr.",
+    "title": "Kontrola závitů",
+    "written_hash": "a7c8303d6523703c273b5b00cfc190d5e09061867c6a759a7dcf8e5a2351606e"
+  },
+  "obrabeni/zavity/soustruzeni": {
+    "badge": true,
+    "category": "obrabeni",
+    "content_hash": "395d06591ed84f928546712108d00da269353b11a7a91095b259a3c66797a9c5",
+    "file": "obrabeni/zavity/soustruzeni.html",
+    "first_seen": "2026-11-24",
+    "hash_version": 2,
+    "last_changed": "2026-11-24",
+    "locked": false,
+    "note": "Animace soustružení závitu, vodicí šroub, typy závitových VBD, sklon destičky a interaktivní přísuv po záběrech.",
+    "title": "Soustružení závitů",
+    "written_hash": "3a48a1c0d83fcdea023691f28f540a18b894729559ff424363c5ce15e192ff32"
+  },
+  "obrabeni/zavity/valcovani": {
+    "badge": true,
+    "category": "obrabeni",
+    "content_hash": "570f476d7443bc139a8f58120bdef5f717b44ae878919528266a138916fe8776",
+    "file": "obrabeni/zavity/valcovani.html",
+    "first_seen": "2026-11-24",
+    "hash_version": 2,
+    "last_changed": "2026-11-24",
+    "locked": false,
+    "note": "Princip a průměr polotovaru, průběh vláken řezaného a válcovaného závitu, animace válcování plochými čelistmi, válcování kotouči a srovnání s řezáním.",
+    "title": "Válcování závitů",
+    "written_hash": "de9689a83d0be3ff196a79135da2ec44750b1af7cfd24fd463fc8dd1699a2a11"
+  },
+  "obrabeni/zavity/zavitniky-ocka": {
+    "badge": true,
+    "category": "obrabeni",
+    "content_hash": "bd096bca76359ad2989df2b63c943ea3ff2933a098a5fff1c8f4af24c7671e23",
+    "file": "obrabeni/zavity/zavitniky-ocka.html",
+    "first_seen": "2026-11-24",
+    "hash_version": 2,
+    "last_changed": "2026-11-24",
+    "locked": false,
+    "note": "Klikací závitník, sada ručních závitníků, animace odvodu třísky, tvářecí závitník, předvrtání, závitové očko a vady při řezání závitů.",
+    "title": "Řezání závitníky a očky",
+    "written_hash": "955dc39c07ab8ed46ac7720db7b0ec914f712ba7e8a662928ead261f1cfcc30b"
   },
   "odlevani/forma/formovaci-smesi": {
     "badge": true,
@@ -1770,15 +1848,15 @@
   "vnitrni-stavba-kovu-a-tz/index": {
     "badge": false,
     "category": "vnitrni-stavba-kovu-a-tz",
-    "content_hash": "2f6f5f56981a104883bf939463b501ddba52793c8f05cb64a4ad74cefa840134",
+    "content_hash": "491280b5a01a3eb70f490db6444bc439eb30e5ff2cdfada20cd9f2b6a7ef6a5b",
     "file": "vnitrni-stavba-kovu-a-tz/index.html",
     "first_seen": "2026-08-09",
     "hash_version": 2,
-    "last_changed": "2026-11-09",
+    "last_changed": "2026-11-24",
     "locked": false,
     "note": "Zadání AI kvízu sjednoceno na metalografii a eutektoidní obsah uhlíku 0,765 %.",
     "title": "Vnitřní stavba kovů a TZ",
-    "written_hash": "2f6f5f56981a104883bf939463b501ddba52793c8f05cb64a4ad74cefa840134"
+    "written_hash": "491280b5a01a3eb70f490db6444bc439eb30e5ff2cdfada20cd9f2b6a7ef6a5b"
   },
   "vnitrni-stavba-kovu-a-tz/krystalove-mrizky/bodove-poruchy-mrizky": {
     "badge": false,
@@ -1870,6 +1948,19 @@
     "note": "",
     "title": "Eutektická a eutektoidní přeměna – mikrostruktura | STT",
     "written_hash": "edf2943340c61f1875b08dd933a06844b762d0326ae3490e009d076876fe66f8"
+  },
+  "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/rd-prakticky": {
+    "badge": true,
+    "category": "vnitrni-stavba-kovu-a-tz",
+    "content_hash": "562541316b0e128d9f364bb5f7b0b53f042c463918cb2460862d379eb25be896",
+    "file": "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/rd-prakticky.html",
+    "first_seen": "2026-11-24",
+    "hash_version": 2,
+    "last_changed": "2026-11-24",
+    "locked": false,
+    "note": "Soustavy Cu–Ag, Ag–Ge, Al–Si a Au–Si, sedm úloh v náhodném pořadí: odečet teplot a složení, strukturní popis přetahováním, vyznačení křivek a sestavení křivky chladnutí.",
+    "title": "RD prakticky",
+    "written_hash": "03c56caef2831c11a32063ed7c480c2e8f3befe2dedb5784dbbb02827543cd3c"
   },
   "vnitrni-stavba-kovu-a-tz/rovnovazne-diagramy/rovnovazny-diagram-eutekticka-premena": {
     "badge": false,
@@ -2030,15 +2121,15 @@
   "zajimavosti/index": {
     "badge": true,
     "category": "zajimavosti",
-    "content_hash": "a1d989ffd0c6d07a14b0567551f874bd11447b275a533e0c39e4d6dcf1b46dba",
+    "content_hash": "982f53edbef74c9189630c0d7d1abd7f7ba0bb06291cec9c2e30c6c70e098385",
     "file": "zajimavosti/index.html",
     "first_seen": "2026-11-05",
     "hash_version": 2,
-    "last_changed": "2026-11-09",
+    "last_changed": "2026-11-24",
     "locked": false,
     "note": "Nový výtah z článku Co je to svařování? (MM Průmyslové spektrum) s odkazy na stránky o metodách svařování.",
     "title": "Technika kolem nás",
-    "written_hash": "b74b3f378a4e967f3287f884b706afdc04da1d138bb3f73f227a1bf5dcca5174"
+    "written_hash": "926f3a5fb39200f7b24da051406216fac510532390a9a990ad51fa3c693f35c5"
   },
   "zajimavosti/jehla": {
     "badge": true,

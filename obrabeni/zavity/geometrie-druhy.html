@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Závit — geometrie a druhy | STT</title>
+<meta name="description" content="Geometrie závitu: šroubovice a úhel stoupání, velký, střední a malý průměr, rozteč a stoupání, počet chodů, pravý a levý závit, profily M, G, Tr, S a Rd a značení závitů.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Layout: jeden sloupec max 1180 px, tmavé téma (záměrně jen tmavé — promítání ve výuce), akcent kapitoly Obrábění */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#93b5d3;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg);margin:0}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:16px;right:16px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding:96px 48px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-disp);font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:38px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:56px 0 14px;text-wrap:balance}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0;max-width:820px}
+p.t{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 14px;max-width:820px}
+p.t b{color:var(--fg);font-weight:600}
+.grid3{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;min-width:0}
+.ct{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:0 0 8px}
+.card p{font-size:15.5px;line-height:1.65;color:var(--muted);margin:0}
+.code{font-family:var(--f-disp);font-weight:700;font-size:26px;color:var(--acc);margin:0 0 8px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 26px;margin:6px 0 18px}
+.panel-k{font-family:var(--f-disp);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+.panel-t{font-family:var(--f-disp);font-weight:700;font-size:20px}
+.panel-s{font-size:14px;color:var(--dim);margin:4px 0 14px}
+.head-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{padding:9px 16px;border-radius:999px;font-family:var(--f-disp);font-weight:600;font-size:14.5px;cursor:pointer;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn[aria-pressed="true"]{background:var(--acc);color:var(--card);border-color:var(--acc)}
+.sep{width:1px;background:var(--line);margin:0 6px}
+.svgbox{border-radius:14px;overflow:hidden}
+.svgbox svg{display:block;width:100%;background:var(--deep)}
+.ctrl{display:flex;align-items:center;gap:14px;margin-top:14px;font-size:15px;color:var(--muted)}
+.ctrl b{font-family:var(--f-disp);color:var(--fg)}
+.ctrl input[type=range]{width:360px;accent-color:var(--acc)}
+.step{background:var(--deep);border:1px solid var(--line2);border-radius:14px;padding:14px 18px;margin-top:14px}
+.step-t{font-family:var(--f-disp);font-weight:700;font-size:18px;color:var(--acc);margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.65;color:var(--fg);margin:0}
+.step p+p{margin-top:4px}
+.info{font-size:15.5px;line-height:1.65;color:var(--fg);margin:14px 0 0;min-height:26px}
+.note{font-size:14px;line-height:1.6;color:var(--dim);margin:10px 0 0}
+.formula{font-family:var(--f-disp);font-weight:700;font-size:24px;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 22px;margin:4px 0 16px;align-self:flex-start}
+.formula span{font-family:var(--f-body);font-weight:400;font-size:15px;color:var(--muted);margin-left:18px}
+.legend{display:flex;gap:18px;font-size:14.5px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:22px;height:4px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.lbl{cursor:pointer}
+.lbl rect{fill:var(--card);stroke:#4a5768;stroke-width:1.5}
+.lbl.on rect{stroke:var(--acc);stroke-width:2.5}
+.lbl text{fill:var(--fg);font:600 14px var(--f-body)}
+table{width:100%;border-collapse:collapse;background:var(--card);font-size:15.5px;line-height:1.55}
+.tbl{border:1px solid var(--line);border-radius:18px;overflow:hidden;max-width:1000px}
+th{background:var(--deep);font-family:var(--f-disp);font-size:16px;text-align:left;padding:12px 20px;color:var(--fg)}
+td{vertical-align:top;padding:12px 20px;color:var(--muted);border-top:1px solid var(--line2)}
+td.k{color:var(--fg);font-weight:600}
+th+th,td+td{border-left:1px solid var(--line2)}
+.src{font-size:14px;line-height:1.6;color:var(--dim);margin:40px 0 0;max-width:820px}
+</style>
+</head>
+<body data-first-seen="2026-11-24">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="index.html">← Zpět na Výrobu závitů</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Výroba závitů</div>
+  <h1>Závit — geometrie a&nbsp;druhy</h1>
+  <p class="lead">Závit vzniká pohybem profilu po šroubovici. Stránka popisuje šroubovici a&nbsp;úhel stoupání, základní rozměry závitu, počet chodů a&nbsp;smysl stoupání, druhy profilů a&nbsp;značení závitů.</p>
+
+  <h2>Šroubovice a&nbsp;vznik závitu</h2>
+  <p class="t">Bod, který se rovnoměrně otáčí kolem osy válce a&nbsp;současně se rovnoměrně posouvá ve&nbsp;směru osy, opisuje na povrchu válce <b>šroubovici</b>. Za jednu otáčku se bod posune o&nbsp;<b>stoupání Ph</b>.</p>
+  <p class="t">Profil závitu — trojúhelník, lichoběžník nebo oblý tvar — vytvoří závit, když se pohybuje po šroubovici. Při výrobě vzniká šroubovice složením otáčení obrobku nebo nástroje s&nbsp;posuvem ve&nbsp;směru osy.</p>
+  <p class="t">Po rozvinutí válce do roviny se jedna otáčka šroubovice změní v&nbsp;úsečku. Úsečka je přeponou pravoúhlého trojúhelníku, jehož odvěsny tvoří obvod válce a&nbsp;stoupání Ph. Úhel mezi přeponou a&nbsp;obvodem je <b>úhel stoupání ψ</b>. Při stejném průměru se s&nbsp;větším stoupáním zvětšuje i&nbsp;úhel stoupání.</p>
+
+  <div class="panel">
+    <div class="panel-k">Interaktivní</div>
+    <div class="panel-t">Rozvinutí šroubovice</div>
+    <div class="panel-s">Vlevo válec se šroubovicí, vpravo jedna otáčka rozvinutá do roviny. Posuvníkem měň stoupání. Klikni na popisek ve&nbsp;schématu.</div>
+    <div class="svgbox"><svg id="svgS" viewBox="0 0 1000 450" role="img" aria-label="Šroubovice na válci a její rozvinutí do pravoúhlého trojúhelníku s úhlem stoupání"></svg></div>
+    <div class="ctrl"><b>Stoupání Ph</b><span>menší</span><input type="range" id="phSl" min="100" max="260" step="1" value="170" aria-label="Stoupání Ph"><span>větší</span></div>
+    <p class="info" id="infoS"></p>
+  </div>
+
+  <h2>Základní rozměry</h2>
+  <p class="t"><b>Vnější závit</b> je na šroubu, <b>vnitřní závit</b> v&nbsp;matici nebo v&nbsp;díře. Rozměry závitu se určují v&nbsp;osovém řezu — v&nbsp;rovině, která prochází osou závitu.</p>
+  <p class="t">Rozměry vnějšího závitu se značí malými písmeny d, d₂, d₁, rozměry vnitřního závitu velkými písmeny D, D₂, D₁. Šroub a&nbsp;matice téhož závitu mají stejné jmenovité rozměry.</p>
+  <p class="t"><b>Rozteč P</b> je vzdálenost sousedních profilů. <b>Stoupání Ph</b> je posunutí po šroubovici za jednu otáčku. U&nbsp;jednochodého závitu jsou rozteč a&nbsp;stoupání stejné, proto se v&nbsp;praxi obojí často nazývá stoupání.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Rozměry závitu v&nbsp;osovém řezu</div>
+        <div class="panel-s" style="margin-bottom:0">Přepni mezi šroubem a&nbsp;maticí. Klikni na popisek ve&nbsp;schématu.</div>
+      </div>
+      <div class="btns" id="rBtns"></div>
+    </div>
+    <div class="svgbox"><svg id="svgR" viewBox="0 0 1000 470" role="img" aria-label="Osový řez závitem s velkým, středním a malým průměrem, roztečí, úhlem profilu, vrcholem, dnem a bokem"></svg></div>
+    <p class="info" id="infoR"></p>
+    <p class="note">Schéma ukazuje základní profil metrického závitu. U&nbsp;skutečného šroubu je dno závitu zaoblené a&nbsp;leží o&nbsp;něco níž.</p>
+  </div>
+
+  <h2>Počet chodů a&nbsp;smysl stoupání</h2>
+  <p class="t"><b>Jednochodý závit</b> tvoří jedna šroubovice. <b>Vícechodý závit</b> tvoří několik šroubovic se stejnou roztečí, vzájemně posunutých o&nbsp;rozteč P. Stoupání je násobkem rozteče:</p>
+  <div class="formula">Ph = n · P<span>n — počet chodů</span></div>
+  <p class="t">Za jednu otáčku se matice posune o&nbsp;stoupání Ph. Vícechodý závit proto posune matici za otáčku dál než jednochodý závit se stejnou roztečí a&nbsp;stejnou hloubkou profilu.</p>
+  <p class="t"><b>Pravý závit</b> se zašroubovává otáčením ve&nbsp;směru hodinových ručiček, <b>levý závit</b> proti směru. Pravý závit je běžný a&nbsp;ve&nbsp;značce se neuvádí. Levý závit se používá tam, kde by se pravý závit při provozu povoloval, a&nbsp;značí se LH.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Animace</div>
+        <div class="panel-t">Matice na jednochodém a&nbsp;vícechodém závitu</div>
+        <div class="panel-s" style="margin-bottom:0">Šroub stojí, matice se otáčí a&nbsp;posouvá. Rozteč P je ve všech případech stejná. Klikni na popisek ve&nbsp;schématu.</div>
+      </div>
+      <div class="btns"><div class="btns" id="nBtns"></div><div class="sep"></div><div class="btns" id="hBtns"></div></div>
+    </div>
+    <div class="svgbox"><svg id="svgC" viewBox="0 0 1000 400" role="img" aria-label="Animace matice na šroubu s jedním, dvěma nebo třemi chody"></svg></div>
+    <div class="legend" id="legC"></div>
+    <div class="ctrl">Otáčky matice od začátku průjezdu: <b id="turnC">0</b></div>
+    <p class="info" id="infoC"></p>
+  </div>
+
+  <h2>Druhy profilů</h2>
+  <p class="t">Tvar profilu se volí podle účelu závitu. <b>Spojovací závity</b> spojují součásti rozebíratelným spojem. <b>Pohybové závity</b> převádějí otáčivý pohyb na přímočarý.</p>
+
+  <div class="panel">
+    <div class="head-row">
+      <div>
+        <div class="panel-k">Interaktivní</div>
+        <div class="panel-t">Profily závitů</div>
+        <div class="panel-s" style="margin-bottom:0">Osový řez vnějším závitem. Modře je vyznačen úhel profilu.</div>
+      </div>
+      <div class="btns" id="fBtns"></div>
+    </div>
+    <div class="svgbox"><svg id="svgF" viewBox="0 0 1000 300" role="img" aria-label="Osový řez profilem vybraného druhu závitu s vyznačeným úhlem profilu"></svg></div>
+    <div class="step"><div class="step-t" id="fT"></div><p id="fA"></p><p id="fU"></p><p id="fD" style="color:var(--muted)"></p></div>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Značka</th><th>Název</th><th>Úhel profilu</th><th>Použití</th></tr></thead>
+    <tbody id="fTbl"></tbody>
+  </table></div>
+
+  <h2>Značení závitů</h2>
+  <p class="t">Značka závitu začíná písmenem druhu profilu. Za ním následuje velký průměr, u&nbsp;trubkového závitu údaj v&nbsp;palcích. Rozteč, stoupání a&nbsp;levý smysl se doplňují podle druhu závitu.</p>
+  <div class="grid3">
+    <div class="card"><div class="code">M10</div><p>Metrický závit, velký průměr 10&nbsp;mm, hrubá rozteč. U&nbsp;hrubé rozteče se rozteč ve&nbsp;značce neuvádí.</p></div>
+    <div class="card"><div class="code">M10 × 1</div><p>Metrický závit, velký průměr 10&nbsp;mm, jemná rozteč 1&nbsp;mm. U&nbsp;jemné rozteče se rozteč ve&nbsp;značce uvádí vždy.</p></div>
+    <div class="card"><div class="code">Tr 20 × 8 (P4)</div><p>Lichoběžníkový závit, velký průměr 20&nbsp;mm, stoupání 8&nbsp;mm, rozteč 4&nbsp;mm. Stoupání je dvojnásobkem rozteče — závit je dvouchodý.</p></div>
+    <div class="card"><div class="code">M10 LH</div><p>Metrický závit s&nbsp;hrubou roztečí, levý. Pravý závit se ve&nbsp;značce neuvádí.</p></div>
+    <div class="card"><div class="code">G ½</div><p>Trubkový válcový závit pro trubku jmenovité světlosti ½&nbsp;palce.</p></div>
+  </div>
+
+  <p class="src">Zdroje: názvosloví závitů — ČSN ISO 5408 Závity — Slovník; základní profil metrického závitu — ČSN ISO 68-1; trubkový závit G — ČSN EN ISO 228-1; úhly profilů a&nbsp;značení — J.&nbsp;Leinveber, P.&nbsp;Vávra: Strojnické tabulky.</p>
+</div></main>
+
+<script>
+(function(){
+const NS='http://www.w3.org/2000/svg', NB=' ', ACC='#93b5d3';
+const nb=s=>s.replace(/(^|[\s(„])([aikosuvzAIKOSUVZ]|[vzkVZK]e) /g,'$1$2'+NB);
+const f=v=>(+v).toFixed(1);
+const $=id=>document.getElementById(id);
+const el=(p,tag,a)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const lw=t=>Math.round(t.length*7.8+24);
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const key=(g,fn)=>{g.addEventListener('click',fn);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();}});};
+const METAL='#5d6a79', DARK='#2a3442', EDGE='#c7d2dd', LEAD='#8296a8', DIM='#aebfcf', CUT='#f2a65a', FEED='#6fc3a0', VIO='#c99be0';
+const R2D=Math.PI/180;
+
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=$('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v='+Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- společné kreslení ---------- */
+// zvýrazňovaný obrys
+const hi=(e,w)=>{e.__b=e.getAttribute('stroke');e.__w=w;return e;};
+function setHi(list,on){(list||[]).forEach(e=>{
+  if(e.__fill){e.setAttribute('fill',on?ACC:e.__fb);return;}
+  e.setAttribute('stroke',on?ACC:e.__b);e.setAttribute('stroke-width',on?e.__w+2:e.__w);});}
+const hiFill=e=>{e.__fill=true;e.__fb=e.getAttribute('fill');return e;};
+function head(p,x,y,dx,dy,c){const L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L,s=11,w=5.5;
+  return hiFill(el(p,'polygon',{points:[[x,y],[x-ux*s-uy*w,y-uy*s+ux*w],[x-ux*s+uy*w,y-uy*s-ux*w]].map(q=>f(q[0])+','+f(q[1])).join(' '),fill:c}));}
+// kóta se šipkami na obou koncích
+function dimLine(p,x1,y1,x2,y2,c){const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L;
+  const ln=hi(el(p,'line',{x1:f(x1+ux*10),y1:f(y1+uy*10),x2:f(x2-ux*10),y2:f(y2-uy*10),stroke:c,'stroke-width':2}),2);
+  return [ln,head(p,x2,y2,dx,dy,c),head(p,x1,y1,-dx,-dy,c)];}
+const ext=(p,x1,y1,x2,y2)=>hi(el(p,'line',{x1:f(x1),y1:f(y1),x2:f(x2),y2:f(y2),stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'4 4'}),1.2);
+const leader=(p,x1,y1,x2,y2)=>el(p,'line',{x1:f(x1),y1:f(y1),x2:f(x2),y2:f(y2),stroke:LEAD,'stroke-width':1.5,'pointer-events':'none'});
+function label(p,x,y,txt,fn){const w=lw(txt);const g=el(p,'g',{class:'lbl',tabindex:0,role:'button'});
+  el(g,'rect',{x:f(x),y:f(y),width:w,height:28,rx:8});const t=el(g,'text',{x:f(x+w/2),y:f(y+19),'text-anchor':'middle'});t.textContent=txt;key(g,fn);return g;}
+// výběr popisku: S = {H:{klíč:[prvky]}, L:{klíč:g}, sel, info, txt(klíč)}
+function pick(S,k){S.sel=(S.sel===k)?null:k;paintSel(S);}
+function paintSel(S){for(const k in S.H){const on=k===S.sel;setHi(S.H[k],on);if(S.L[k])S.L[k].classList.toggle('on',on);}
+  S.info.textContent=S.sel?nb(S.txt(S.sel)):nb(S.hint);}
+function makeBtns(box,items,state,prop,onChange){const list=items.map(([v,t])=>{const b=document.createElement('button');b.className='btn';b.textContent=t;box.appendChild(b);return [b,v];});
+  const paint=()=>list.forEach(([b,v])=>b.setAttribute('aria-pressed',v===state[prop]));
+  list.forEach(([b,v])=>b.onclick=()=>{state[prop]=v;paint();onChange();});paint();}
+
+/* ---------- PRVEK 1 — rozvinutí šroubovice ---------- */
+(function(){
+const svg=$('svgS'), sl=$('phSl');
+const CX=200, RC=50, RY=12, YB=370, YT=70, RX=360, CIRC=2*Math.PI*RC;
+const TXT={
+  helix:'Šroubovice — dráha bodu, který se rovnoměrně otáčí kolem osy válce a současně se rovnoměrně posouvá ve směru osy. Zvýrazněna je jedna otáčka; v rozvinutí odpovídá přeponě trojúhelníku.',
+  ph:'Stoupání Ph — posunutí bodu ve směru osy za jednu otáčku. Na válci i v rozvinutí je to stejná vzdálenost.',
+  obvod:'Obvod válce — délka jedné otáčky po obvodu. Po rozvinutí tvoří vodorovnou odvěsnu trojúhelníku.',
+  psi:'Úhel stoupání ψ — úhel mezi rozvinutou šroubovicí a obvodem válce. Při stejném průměru roste se stoupáním.'};
+const S={H:{},L:{},sel:null,info:$('infoS'),txt:k=>TXT[k],hint:'Klikni na popisek ve schématu.'};
+function draw(){
+  svg.innerHTML='';const Ph=+sl.value;const H={helix:[],ph:[],obvod:[],psi:[]};S.H=H;S.L={};
+  // válec
+  el(svg,'rect',{x:CX-RC,y:YT,width:2*RC,height:YB-YT,fill:DARK});
+  el(svg,'ellipse',{cx:CX,cy:YT,rx:RC,ry:RY,fill:'#364252',stroke:'#4a5768','stroke-width':1.5});
+  el(svg,'path',{d:'M'+(CX-RC)+' '+YB+' A'+RC+' '+RY+' 0 0 0 '+(CX+RC)+' '+YB,fill:'none',stroke:'#4a5768','stroke-width':1.5});
+  el(svg,'line',{x1:CX-RC,y1:YT,x2:CX-RC,y2:YB,stroke:'#4a5768','stroke-width':1.5});
+  el(svg,'line',{x1:CX+RC,y1:YT,x2:CX+RC,y2:YB,stroke:'#4a5768','stroke-width':1.5});
+  // šroubovice: přední část plně, zadní čárkovaně; první otáčka zvýrazněná
+  const TMAX=2*Math.PI*(YB-YT)/Ph, st=0.04;let seg=[],front=null,first=null;
+  const flush=()=>{if(seg.length<2)return;const one=first;
+    const e=el(svg,'polyline',{points:seg.map(q=>f(q[0])+','+f(q[1])).join(' '),fill:'none',stroke:one?CUT:'#8a98a8','stroke-width':one?(front?4:2):(front?2.5:1.5),'stroke-dasharray':front?'none':'5 5',opacity:front?1:.6});
+    if(one&&front)H.helix.push(hi(e,4));};
+  for(let t=0;t<=TMAX;t+=st){const fr=Math.cos(t)>=0, on=t<=2*Math.PI+1e-9;
+    const p=[CX+RC*Math.sin(t), YB-Ph*t/(2*Math.PI)+RY*Math.cos(t)];
+    if(fr!==front||on!==first){if(seg.length){const last=seg[seg.length-1];flush();seg=[last];}else seg=[];front=fr;first=on;}
+    seg.push(p);}
+  flush();
+  // kóta Ph na válci
+  const y0=YB+RY, y1=YB+RY-Ph;
+  H.ph.push(ext(svg,CX,y0,283,y0),ext(svg,CX,y1,283,y1),...dimLine(svg,275,y0,275,y1,DIM));
+  // rozvinutí
+  el(svg,'rect',{x:RX,y:f(YB-Ph),width:f(CIRC),height:Ph,fill:'#141b25',stroke:'#4a5768','stroke-width':1.5});
+  H.helix.push(hi(el(svg,'line',{x1:RX,y1:YB,x2:f(RX+CIRC),y2:f(YB-Ph),stroke:CUT,'stroke-width':4,'stroke-linecap':'round'}),4));
+  const ps=Math.atan(Ph/CIRC), RA=60;
+  H.psi.push(hi(el(svg,'path',{d:'M'+(RX+RA)+' '+YB+' A'+RA+' '+RA+' 0 0 0 '+f(RX+RA*Math.cos(ps))+' '+f(YB-RA*Math.sin(ps)),fill:'none',stroke:DIM,'stroke-width':2.5}),2.5));
+  const XE=RX+CIRC;
+  H.ph.push(ext(svg,XE,YB,708,YB),ext(svg,XE,YB-Ph,708,YB-Ph),...dimLine(svg,700,YB,700,YB-Ph,DIM));
+  H.obvod.push(ext(svg,RX,YB,RX,406),ext(svg,XE,YB,XE,406),...dimLine(svg,RX,398,XE,398,DIM));
+  // popisky
+  const yk=YB-0.75*Ph;leader(svg,122,yk,CX-RC,yk);
+  S.L.helix=label(svg,20,yk-14,'šroubovice',()=>pick(S,'helix'));
+  S.L.ph=label(svg,712,YB-Ph/2-14,'stoupání Ph',()=>pick(S,'ph'));
+  S.L.obvod=label(svg,RX+CIRC/2-lw('obvod válce')/2,408,'obvod válce',()=>pick(S,'obvod'));
+  leader(svg,520,350,RX+RA*Math.cos(ps/2),YB-RA*Math.sin(ps/2));
+  S.L.psi=label(svg,520,336,'úhel stoupání ψ',()=>pick(S,'psi'));
+  paintSel(S);}
+sl.addEventListener('input',draw);draw();
+})();
+
+/* ---------- PRVEK 2 — rozměry v osovém řezu ---------- */
+(function(){
+const svg=$('svgR');
+const PP=64, H=PP*Math.sqrt(3)/2, AX=240, R=150, X0=120, XE=X0+7*PP;
+const yC=AX-R, yD2=yC+3*H/8, yR=yC+5*H/8;            // horní strana: vrchol, střední průměr, dno
+const C=PP/8, RUN=(5*H/8)*Math.tan(30*R2D), RF=PP/4;  // ploška vrcholu, vodorovný průmět boku, ploška dna
+const st={m:'sroub'};
+const TX={
+  sroub:{d:'Velký průměr d — průměr válce, který se dotýká vrcholů vnějšího závitu. U metrického závitu je to jmenovitý průměr uvedený ve značce.',
+    d2:'Střední průměr d₂ — průměr válce, na kterém je šířka zubu stejná jako šířka mezery. Podle středního průměru se posuzuje přesnost závitu.',
+    d1:'Malý průměr d₁ — průměr válce, který se dotýká dna vnějšího závitu. Určuje nejmenší průřez šroubu.',
+    vrchol:'Vrchol závitu — část profilu nejdále od dna. U vnějšího závitu leží na velkém průměru d.',
+    dno:'Dno závitu — u vnějšího závitu leží na malém průměru d₁.'},
+  matice:{d:'Velký průměr D — u vnitřního závitu leží na dně závitu. Jmenovitě je stejný jako velký průměr d šroubu.',
+    d2:'Střední průměr D₂ — průměr válce, na kterém je šířka zubu stejná jako šířka mezery. Jmenovitě je stejný jako d₂ šroubu.',
+    d1:'Malý průměr D₁ — u vnitřního závitu leží na vrcholech závitu. Na přibližně tento průměr se předvrtává díra pro vnitřní závit.',
+    vrchol:'Vrchol závitu — část profilu nejdále od dna. U vnitřního závitu leží na malém průměru D₁.',
+    dno:'Dno závitu — u vnitřního závitu leží na velkém průměru D.'},
+  both:{p:'Rozteč P — vzdálenost dvou sousedních stejnolehlých bodů profilu, měřená rovnoběžně s osou.',
+    bok:'Bok závitu — plocha profilu mezi vrcholem a dnem. Boky šroubu a matice se dotýkají a přenášejí sílu.',
+    uhel:'Úhel profilu — úhel, který svírají boky profilu v osovém řezu. U metrického závitu je 60°.'}};
+const S={H:{},L:{},sel:null,info:$('infoR'),hint:'Klikni na popisek ve schématu.',txt:k=>(TX[st.m][k]||TX.both[k])};
+// horní profil (y roste dolů); dolní strana je posunutá o P/2
+function prof(xs,top){const pts=[];for(let x=xs;x<XE+PP;x+=PP){
+  const a=[[x,0],[x+C,0],[x+C+RUN,1],[x+C+RUN+RF,1],[x+PP,0]];
+  a.forEach(q=>pts.push([q[0], top?(q[1]?yR:yC):(q[1]?2*AX-yR:2*AX-yC)]));}
+  return pts;}
+const toD=pts=>pts.map((q,i)=>(i?'L':'M')+f(q[0])+' '+f(q[1])).join(' ');
+function draw(){
+  svg.innerHTML='';const H2={d:[],d2:[],d1:[],p:[],uhel:[],vrchol:[],dno:[],bok:[]};S.H=H2;S.L={};
+  const cp=el(el(svg,'defs',{}),'clipPath',{id:'cpR'});el(cp,'rect',{x:X0,y:0,width:XE-X0,height:470});
+  const g=el(svg,'g',{'clip-path':'url(#cpR)'});
+  const top=prof(X0-PP,true), bot=prof(X0-PP-PP/2,false);
+  if(st.m==='sroub'){
+    el(g,'path',{d:toD(top)+' L'+f(XE+2*PP)+' '+AX+' '+toD(bot.slice().reverse()).replace('M','L')+' L'+f(X0-2*PP)+' '+AX+' Z',fill:METAL});
+  }else{
+    el(g,'path',{d:'M'+(X0-2*PP)+' 50 '+toD(top).replace('M','L')+' L'+f(XE+2*PP)+' 50 Z',fill:METAL});
+    el(g,'path',{d:'M'+(X0-2*PP)+' 430 '+toD(bot).replace('M','L')+' L'+f(XE+2*PP)+' 430 Z',fill:METAL});
+  }
+  el(g,'path',{d:toD(top),fill:'none',stroke:EDGE,'stroke-width':2});
+  el(g,'path',{d:toD(bot),fill:'none',stroke:EDGE,'stroke-width':2});
+  el(svg,'line',{x1:X0-20,y1:AX,x2:XE+20,y2:AX,stroke:LEAD,'stroke-width':1.2,'stroke-dasharray':'18 5 3 5'});
+  // průměry
+  [['d',640,yC],['d2',720,yD2],['d1',800,yR]].forEach(([k,x,y])=>{
+    H2[k].push(ext(svg,XE+4,y,x+8,y),ext(svg,XE+4,2*AX-y,x+8,2*AX-y),...dimLine(svg,x,y,x,2*AX-y,DIM));
+    const t=(st.m==='sroub'?'d':'D')+({d:'',d2:'₂',d1:'₁'}[k]);
+    S.L[k]=label(svg,x+8,AX-14,t,()=>pick(S,k));});
+  // prvky profilu na horní straně (rozteč k od X0)
+  const xs=k=>X0+k*PP;
+  const seg=(x1,y,x2)=>hi(el(svg,'line',{x1:f(x1),y1:f(y),x2:f(x2),y2:f(y),stroke:'none','stroke-width':4,'stroke-linecap':'round'}),4);
+  // šroub: vrchol = ploška na d (rozteč 1), dno = ploška na d1 (rozteč 3)
+  // matice: vrchol = ploška na D1 (rozteč 0), dno = ploška na D (rozteč 3)
+  const isS=st.m==='sroub';
+  const V=isS?[xs(1),yC,xs(1)+C]:[xs(0)+C+RUN,yR,xs(0)+C+RUN+RF];
+  const N=isS?[xs(3)+C+RUN,yR,xs(3)+C+RUN+RF]:[xs(4),yC,xs(4)+C];
+  H2.vrchol.push(seg(V[0],V[1],V[2]));H2.dno.push(seg(N[0],N[1],N[2]));
+  H2.bok.push(hi(el(svg,'line',{x1:xs(2)+C,y1:yC,x2:xs(2)+C+RUN,y2:yR,stroke:'none','stroke-width':4,'stroke-linecap':'round'}),4));
+  // úhel profilu v drážce k=5 (vrchol ostrého trojúhelníku)
+  const gx=xs(5)+C+RUN+RF/2, gy=yC+7*H/8, RA=34, a=30*R2D;
+  el(svg,'line',{x1:f(gx),y1:f(gy),x2:f(gx-RA*Math.sin(a)),y2:f(gy-RA*Math.cos(a)),stroke:DIM,'stroke-width':1.2,'stroke-dasharray':'3 3'});
+  el(svg,'line',{x1:f(gx),y1:f(gy),x2:f(gx+RA*Math.sin(a)),y2:f(gy-RA*Math.cos(a)),stroke:DIM,'stroke-width':1.2,'stroke-dasharray':'3 3'});
+  H2.uhel.push(hi(el(svg,'path',{d:'M'+f(gx-RA*Math.sin(a))+' '+f(gy-RA*Math.cos(a))+' A'+RA+' '+RA+' 0 0 1 '+f(gx+RA*Math.sin(a))+' '+f(gy-RA*Math.cos(a)),fill:'none',stroke:DIM,'stroke-width':2}),2));
+  // rozteč dole mezi vrcholy dolní strany
+  const bx=k=>X0-PP/2+k*PP+C/2, yb=2*AX-yC;
+  H2.p.push(ext(svg,bx(4),yb+4,bx(4),428),ext(svg,bx(5),yb+4,bx(5),428),...dimLine(svg,bx(4),420,bx(5),420,DIM));
+  S.L.p=label(svg,(bx(4)+bx(5))/2-lw('P')/2,430,'P',()=>pick(S,'p'));
+  // popisky nahoře
+  const b2=[xs(2)+C+RUN/2,(yC+yR)/2];
+  const vx=(V[0]+V[2])/2, vy=V[1], dx=(N[0]+N[2])/2, dy=N[1];
+  leader(svg,vx,42,vx,vy);S.L.vrchol=label(svg,vx-lw('vrchol')/2,14,'vrchol',()=>pick(S,'vrchol'));
+  leader(svg,b2[0],42,b2[0],b2[1]);S.L.bok=label(svg,b2[0]-lw('bok')/2,14,'bok',()=>pick(S,'bok'));
+  leader(svg,dx,42,dx,dy);S.L.dno=label(svg,dx-lw('dno')/2,14,'dno',()=>pick(S,'dno'));
+  leader(svg,gx,42,gx,gy-RA);S.L.uhel=label(svg,gx-lw('úhel profilu')/2,14,'úhel profilu',()=>pick(S,'uhel'));
+  paintSel(S);}
+makeBtns($('rBtns'),[['sroub','Vnější závit (šroub)'],['matice','Vnitřní závit (matice)']],st,'m',draw);
+draw();
+})();
+
+/* ---------- PRVEK 3 — počet chodů (animace) ---------- */
+(function(){
+const svg=$('svgC'), turnEl=$('turnC');
+const X0=100, X1=760, AX=230, R=90, PP=40, NW=120, NX0=120, NX1=X1-NW;
+const COL=[CUT,FEED,VIO];
+const st={n:1,h:1};
+const TXT={p:'Rozteč P — vzdálenost sousedních vrcholů závitu. Při změně počtu chodů zůstává stejná.',
+  ph:'Stoupání Ph — vzdálenost sousedních vrcholů téhož chodu (stejné barvy). O tuto vzdálenost se matice posune za jednu otáčku.',
+  mat:'Matice se otáčí kolem nepohyblivého šroubu a za každou otáčku se posune o stoupání Ph.',
+  pohled:'Pohled ve směru osy zprava. Značka ukazuje směr otáčení matice. Pravá matice se k pozorovateli přibližuje otáčením proti směru hodinových ručiček, levá po směru.'};
+const S={H:{},L:{},sel:null,info:$('infoC'),txt:k=>TXT[k],hint:'Klikni na popisek ve schématu.'};
+let nut,mark,th=0,last=null,base=0;
+function draw(){
+  svg.innerHTML='';const Ph=st.n*PP, s=st.h;S.H={p:[],ph:[],mat:[],pohled:[]};S.L={};
+  const cp=el(el(svg,'defs',{}),'clipPath',{id:'cpC'});el(cp,'rect',{x:X0,y:AX-R,width:X1-X0,height:2*R});
+  el(svg,'rect',{x:X0,y:AX-R,width:X1-X0,height:2*R,fill:METAL});
+  const g=el(svg,'g',{'clip-path':'url(#cpC)'});
+  for(let i=-8;i<=20;i++){const x=X0+i*PP;
+    el(g,'line',{x1:x,y1:AX-R,x2:f(x+s*Ph/2),y2:AX+R,stroke:COL[((i%st.n)+st.n)%st.n],'stroke-width':3.5});}
+  el(svg,'rect',{x:X0,y:AX-R,width:X1-X0,height:2*R,fill:'none',stroke:'#4a5768','stroke-width':1.5});
+  // kóty P a Ph od vrcholu i = 1
+  const xa=X0+PP;
+  S.H.p.push(ext(svg,xa,AX-R-2,xa,54),ext(svg,xa+PP,AX-R-2,xa+PP,92),...dimLine(svg,xa,100,xa+PP,100,DIM));
+  S.H.ph.push(ext(svg,xa+Ph,AX-R-2,xa+Ph,54),...dimLine(svg,xa,62,xa+Ph,62,DIM));
+  S.L.p=label(svg,xa-8-lw('P'),86,'P',()=>pick(S,'p'));
+  S.L.ph=label(svg,xa-8-lw('Ph'),48,'Ph',()=>pick(S,'ph'));
+  // matice
+  nut=el(svg,'g',{});
+  S.H.mat.push(hi(el(nut,'rect',{x:0,y:AX-R-24,width:NW,height:2*R+48,rx:6,fill:'#1c2430',opacity:.94,stroke:'#6b7b8e','stroke-width':2}),2));
+  S.L.mat=label(nut,NW/2-lw('matice')/2,AX+R+32,'matice',()=>pick(S,'mat'));
+  // pohled zprava
+  const EX=890, EY=210;
+  S.H.pohled.push(hi(el(svg,'circle',{cx:EX,cy:EY,r:62,fill:'#1c2430',stroke:'#6b7b8e','stroke-width':2}),2));
+  el(svg,'circle',{cx:EX,cy:EY,r:34,fill:METAL});
+  mark=el(svg,'line',{x1:EX,y1:EY,x2:EX,y2:EY-58,stroke:CUT,'stroke-width':4,'stroke-linecap':'round'});
+  S.L.pohled=label(svg,EX-lw('pohled zprava')/2,292,'pohled zprava',()=>pick(S,'pohled'));
+  $('legC').innerHTML=COL.slice(0,st.n).map((c,i)=>'<span><i style="background:'+c+'"></i>'+(i+1)+'.'+NB+'chod</span>').join('');
+  th=0;base=0;place();paintSel(S);}
+function place(){const Ph=st.n*PP, span=NX1-NX0, d=Ph*th/(2*Math.PI);
+  if(d-base>span){base+=span;th=2*Math.PI*base/Ph;}
+  const x=NX0+(d-base);nut.setAttribute('transform','translate('+f(x)+' 0)');
+  const ang=-st.h*th; // pravá: proti směru hodin (při pohledu zprava)
+  mark.setAttribute('transform','rotate('+f(ang/R2D)+' 890 210)');
+  turnEl.textContent=Math.floor((d-base)/Ph+1e-6);}
+function tick(ts){if(last!==null)th+=(ts-last)/1000*Math.PI;last=ts;place();requestAnimationFrame(tick);}
+makeBtns($('nBtns'),[[1,'1 chod'],[2,'2 chody'],[3,'3 chody']],st,'n',draw);
+makeBtns($('hBtns'),[[1,'Pravý'],[-1,'Levý']],st,'h',draw);
+draw();
+if(!reduce)requestAnimationFrame(tick);
+})();
+
+/* ---------- PRVEK 4 — profily závitů ---------- */
+(function(){
+const svg=$('svgF');
+const PP=150, X0=200, X1=800, YC=80, YB=270;
+const tan=d=>Math.tan(d*R2D);
+const D=[
+ {k:'M',n:'Metrický',a:'60°',u:'spojovací',
+  t:'Nejpoužívanější spojovací závit. Rozměry jsou v milimetrech. Vyrábí se s hrubou nebo s jemnou roztečí.',
+  type:'poly',half:30,shape(){const H=PP*Math.sqrt(3)/2,h=5*H/8,c=PP/8,r=h*tan(30);return {pts:[[0,0],[c,0],[c+r,h],[c+r+PP/4,h],[PP,0]],gx:c+r+PP/8,gd:7*H/8,ra:60};}},
+ {k:'G',n:'Trubkový válcový',a:'55°',u:'spojovací — trubky a armatury',
+  t:'Vrchol i dno jsou zaoblené. Údaj ve značce je v palcích a odpovídá jmenovité světlosti trubky, ne průměru závitu. Závit sám netěsní, spoj se těsní těsněním.',
+  type:'round',half:27.5,shape(){return round(27.5,PP*0.640327,60);}},
+ {k:'Tr',n:'Lichoběžníkový rovnoramenný',a:'30°',u:'pohybový',
+  t:'Oba boky jsou skloněné stejně a závit přenáší sílu v obou směrech. Používá se u pohybových šroubů, které převádějí otáčení na přímočarý pohyb.',
+  type:'poly',half:15,shape(){const h=PP/2,r=h*tan(15),c=(PP-2*r)/2;return {pts:[[0,0],[c,0],[c+r,h],[2*c+r,h],[PP,0]],gx:c+r+c/2,gd:h+(c/2)/tan(15),ra:140};}},
+ {k:'S',n:'Lichoběžníkový nerovnoramenný',a:'3° a 30°',u:'pohybový — velká síla v jednom směru',
+  t:'Úhly boků se měří od roviny kolmé k ose. Bok se sklonem 3° přenáší sílu, bok se sklonem 30° je opěrný. Velkou sílu přenáší závit jen v jednom směru.',
+  type:'saw',shape(){const h=0.75*PP,r3=h*tan(3),r30=h*tan(30),c=0.264*PP,rf=PP-c-r3-r30;return {pts:[[0,0],[c,0],[c+r3,h],[c+r3+rf,h],[PP,0]],c,r3,rf,h};}},
+ {k:'Rd',n:'Oblý',a:'30°',u:'spojovací i pohybový při znečištění a hrubém zacházení',
+  t:'Vrchol i dno tvoří velké oblouky. Profil je odolný proti poškození a nečistoty se v něm usazují méně než v ostrém profilu.',
+  type:'round',half:15,shape(){return round(15,PP/2,145);}}];
+// zaoblený profil: oblouky tečné k bokům, stejné zkrácení e u vrcholu i dna
+function round(halfDeg,h,ra){const a=halfDeg*R2D,Hs=(PP/2)/Math.tan(a),e=(Hs-h)/2;
+  const r=e*Math.sin(a)/(1-Math.sin(a)),dd=r/Math.sin(a),yT=dd*Math.cos(a)*Math.cos(a),xT=yT*Math.tan(a);
+  return {round:true,a,Hs,e,r,yT,xT,gx:PP/2,gd:Hs,ra};}   // gd: vrchol ostrého trojúhelníku dna od vrcholu ostrého trojúhelníku hlavy
+const st={i:0};
+function draw(){
+  svg.innerHTML='';const p=D[st.i], sh=p.shape();
+  const cp=el(el(svg,'defs',{}),'clipPath',{id:'cpF'});el(cp,'rect',{x:X0,y:0,width:X1-X0,height:300});
+  const g=el(svg,'g',{'clip-path':'url(#cpF)'});
+  let d='';
+  if(sh.round){const yc=YC-sh.e, yr=yc+sh.Hs;
+    for(let x=X0-2*PP;x<X1+PP;x+=PP){
+      d+=(d?' L':'M')+f(x+sh.xT)+' '+f(yc+sh.yT)+' L'+f(x+PP/2-sh.xT)+' '+f(yr-sh.yT)
+        +' A'+f(sh.r)+' '+f(sh.r)+' 0 0 0 '+f(x+PP/2+sh.xT)+' '+f(yr-sh.yT)
+        +' L'+f(x+PP-sh.xT)+' '+f(yc+sh.yT)+' A'+f(sh.r)+' '+f(sh.r)+' 0 0 1 '+f(x+PP+sh.xT)+' '+f(yc+sh.yT);}
+  }else{
+    for(let x=X0-2*PP;x<X1+PP;x+=PP)sh.pts.forEach((q,j)=>{if(j===0&&d)return;d+=(d?' L':'M')+f(x+q[0])+' '+f(YC+q[1]);});
+  }
+  el(g,'path',{d:d+' L'+f(X1+2*PP)+' '+YB+' L'+f(X0-2*PP)+' '+YB+' Z',fill:METAL});
+  el(g,'path',{d,fill:'none',stroke:EDGE,'stroke-width':2});
+  const xs=X0+PP; // vyznačená drážka ve druhé rozteči
+  if(p.type==='saw'){
+    const Lx=xs+sh.c+sh.r3, Rx=Lx+sh.rf, yr=YC+sh.h, RA=70;
+    [[Lx,-3,0],[Rx,30,1]].forEach(([x,deg,sw])=>{
+      el(svg,'line',{x1:f(x),y1:f(yr),x2:f(x),y2:f(yr-RA-14),stroke:DIM,'stroke-width':1.2,'stroke-dasharray':'4 4'});
+      el(svg,'path',{d:'M'+f(x)+' '+f(yr-RA)+' A'+RA+' '+RA+' 0 0 '+sw+' '+f(x+RA*Math.sin(deg*R2D))+' '+f(yr-RA*Math.cos(deg*R2D)),fill:'none',stroke:ACC,'stroke-width':3});});
+  }else{
+    const a=p.half*R2D, gx=xs+sh.gx, gy=sh.round?YC-sh.e+sh.gd:YC+sh.gd, RA=sh.ra;
+    const L=[gx-RA*Math.sin(a),gy-RA*Math.cos(a)], Rr=[gx+RA*Math.sin(a),gy-RA*Math.cos(a)];
+    el(svg,'line',{x1:f(gx),y1:f(gy),x2:f(L[0]),y2:f(L[1]),stroke:DIM,'stroke-width':1.2,'stroke-dasharray':'4 4'});
+    el(svg,'line',{x1:f(gx),y1:f(gy),x2:f(Rr[0]),y2:f(Rr[1]),stroke:DIM,'stroke-width':1.2,'stroke-dasharray':'4 4'});
+    el(svg,'path',{d:'M'+f(L[0])+' '+f(L[1])+' A'+RA+' '+RA+' 0 0 1 '+f(Rr[0])+' '+f(Rr[1]),fill:'none',stroke:ACC,'stroke-width':3});
+  }
+  $('fT').textContent=p.k+' — '+p.n;
+  $('fA').textContent=nb('Úhel profilu: '+p.a);
+  $('fU').textContent=nb('Použití: '+p.u);
+  $('fD').textContent=nb(p.t);}
+const box=$('fBtns');
+const B=D.map((p,i)=>{const b=document.createElement('button');b.className='btn';b.textContent=p.k;b.onclick=()=>{st.i=i;paint();};box.appendChild(b);return b;});
+function paint(){B.forEach((b,i)=>b.setAttribute('aria-pressed',i===st.i));draw();}
+$('fTbl').innerHTML=D.map(p=>'<tr><td class="k">'+p.k+'</td><td>'+nb(p.n)+'</td><td>'+nb(p.a)+'</td><td>'+nb(p.u)+'</td></tr>').join('');
+paint();
+})();
+})();
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>

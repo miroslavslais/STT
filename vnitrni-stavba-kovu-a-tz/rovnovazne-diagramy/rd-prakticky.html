@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RD prakticky | STT</title>
+<meta name="description" content="Procvičení binárních rovnovážných diagramů Cu–Ag, Ag–Ge, Al–Si a Au–Si: odečet teplot a složení, strukturní popis, vyznačení křivek a křivka chladnutí.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23fbf8f3'/%3E%3Ctext x='12' y='17' font-family='Georgia,serif' font-size='12' font-weight='700' fill='%23b0561f' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="4c272434-8fc9-49a9-9a2c-b3e710506cae"></script>
+<style>
+/* Tmavé téma kapitoly Rovnovážné diagramy (záměrně jen tmavé — promítání ve výuce). Jen PC 1280–1920 px. */
+:root{
+  --bg:#080b12; --card:#0d121a; --deep:#0a0e15; --line:#263040; --line2:#232c39;
+  --fg:#eaf2fa; --muted:#aebfcf; --dim:#8296a8; --acc:#d67bff; --acc-bg:#24162e;
+  --curve:#7fb4e6; --sel:#f4c542; --ok:#6fcf8e; --bad:#ff7a7a;
+  --f-disp:'Quicksand',system-ui,sans-serif; --f-body:'IBM Plex Sans',system-ui,sans-serif; --f-mono:'IBM Plex Mono',monospace;
+  color-scheme:dark;
+}
+html,body{margin:0;background:var(--bg);color:var(--fg)}
+body{font-family:var(--f-body)}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--acc)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.nav{position:fixed;top:16px;right:16px;z-index:20;width:220px;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.3);overflow:hidden;max-height:48px;transition:max-height .22s ease}
+.nav:hover,.nav:focus-within{max-height:600px}
+.nav-btn{height:48px;display:flex;align-items:center;justify-content:center;gap:5px;flex-direction:column;cursor:pointer}
+.nav-btn span{width:20px;height:2px;background:#a9bccd;border-radius:1px}
+.nav-list{display:flex;flex-direction:column;border-top:1px solid var(--line2)}
+.nav-list a{padding:12px 18px;font-family:var(--f-disp);font-weight:600;font-size:14px}
+.nav-list a:hover{background:var(--bg)}
+.back{position:fixed;top:16px;left:16px;z-index:20;display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-family:var(--f-disp);font-size:14px;font-weight:600}
+.page{padding:96px 16px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column}
+.eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h1{font-family:var(--f-disp);font-weight:700;font-size:38px;line-height:1.15;margin:0 0 12px}
+h2{font-family:var(--f-disp);font-weight:700;font-size:26px;margin:44px 0 14px}
+.lead{font-size:17px;line-height:1.6;color:var(--muted);margin:0;max-width:860px}
+.picks{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.pick{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;text-align:left;color:var(--fg);font-family:var(--f-body)}
+.pick:hover{border-color:var(--acc)}
+.pick.on{border-color:var(--acc);background:var(--acc-bg)}
+.pick-t{font-family:var(--f-disp);font-weight:700;font-size:20px;margin-bottom:6px}
+.pick-s{font-size:13.5px;line-height:1.5;color:var(--dim)}
+.test{margin-top:28px;border:1px solid var(--line);background:var(--card);border-radius:20px;padding:22px}
+.test-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.test-name{font-family:var(--f-disp);font-weight:700;font-size:22px}
+.pills{display:flex;gap:8px}
+.pill{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--deep);color:var(--muted);font-family:var(--f-disp);font-weight:700;font-size:15px;cursor:pointer}
+.pill.cur{border-color:var(--acc);color:var(--fg)}
+.pill.ok{background:#173323;border-color:var(--ok);color:var(--ok)}
+.pill.bad{background:#3a1a1d;border-color:var(--bad);color:var(--bad)}
+.qhead{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.qnum{flex:none;font-family:var(--f-mono);font-size:13px;color:var(--acc);padding-top:4px;letter-spacing:.1em}
+.qtext{font-size:18px;line-height:1.55;font-weight:500}
+.qhint{font-size:14.5px;line-height:1.55;color:var(--dim);margin-top:6px}
+.row{display:flex;gap:24px;align-items:flex-start}
+.rd{flex:none}
+.ans{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px}
+svg text{font-family:var(--f-body)}
+.fld{display:flex;align-items:center;gap:10px;font-size:15.5px;color:var(--muted)}
+.fld label{min-width:120px}
+.inp{width:110px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--deep);color:var(--fg);font-family:var(--f-mono);font-size:16px}
+.inp.wide{width:150px;font-family:var(--f-body)}
+.inp.ok{border-color:var(--ok)}
+.inp.bad{border-color:var(--bad)}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.btn{padding:10px 18px;border-radius:999px;font-family:var(--f-disp);font-weight:700;font-size:15px;cursor:pointer;background:var(--deep);color:var(--fg);border:1px solid var(--line)}
+.btn:hover{border-color:var(--acc)}
+.btn.main{background:var(--acc);color:#1a0d22;border-color:var(--acc)}
+.btn:disabled{opacity:.4;cursor:default}
+.small{padding:7px 13px;font-size:13.5px}
+.fb{border-radius:14px;padding:14px 16px;font-size:15.5px;line-height:1.6}
+.fb.ok{background:#12261b;border:1px solid #2d5a3e}
+.fb.bad{background:#2a1416;border:1px solid #5e2c31}
+.fb b{font-family:var(--f-disp)}
+.pool{display:flex;flex-wrap:wrap;gap:10px;padding:14px;border:1px dashed var(--line);border-radius:14px;min-height:46px}
+.chip{padding:8px 14px;border-radius:10px;background:var(--acc-bg);border:1px solid var(--acc);color:var(--fg);font-family:var(--f-mono);font-size:16px;cursor:grab;user-select:none;touch-action:none}
+.chip.sel{background:var(--acc);color:#1a0d22}
+.piece{width:64px;height:46px;border-radius:10px;background:var(--deep);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;cursor:grab;user-select:none;touch-action:none}
+.piece:hover{border-color:var(--acc)}
+.ghost{position:fixed;z-index:100;pointer-events:none;opacity:.85}
+.slider{display:block;width:516px;margin:2px 0 0 64px;accent-color:var(--sel)}
+.lbl{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.result{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
+.result-t{font-family:var(--f-disp);font-weight:700;font-size:24px;margin-bottom:12px}
+.result table{border-collapse:collapse;width:100%;font-size:15px}
+.result td{padding:9px 12px;border-bottom:1px solid var(--line2);vertical-align:top;line-height:1.5}
+.result td:first-child{width:34px;font-family:var(--f-mono);color:var(--dim)}
+.result td.s{width:90px;font-weight:600}
+.zones{display:flex;flex-direction:column;gap:8px}
+.zrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.znum{width:28px;height:28px;border-radius:50%;border:1.6px solid var(--acc);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13.5px;flex:none}
+.znum.ok{border-color:var(--ok)}.znum.bad{border-color:var(--bad)}
+.zslot{min-width:62px;height:34px;padding:0 10px;box-sizing:border-box;border-radius:9px;border:1.5px dashed var(--acc);background:var(--deep);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:16px;cursor:pointer}
+.zslot.full{border-style:solid;background:var(--acc-bg)}
+.zplus{color:var(--dim);font-size:16px}
+.zcor{margin-left:10px;font-family:var(--f-mono);font-size:15px;color:var(--ok)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;color:var(--dim)}
+.legend i{display:inline-block;width:22px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+</style>
+</head>
+<body data-first-seen="2026-11-24">
+<nav class="nav" aria-label="Kapitoly">
+  <div class="nav-btn" tabindex="0" aria-label="Menu"><span></span><span></span><span></span></div>
+  <div class="nav-list" id="navList"></div>
+</nav>
+<a class="back" href="../index.html">← Zpět na&nbsp;Vnitřní stavbu kovů a&nbsp;TZ</a>
+
+<main class="page"><div class="wrap">
+  <div class="eyebrow">Rovnovážné diagramy</div>
+  <h1>RD prakticky</h1>
+  <p class="lead">Sedm úloh nad jedním binárním diagramem v&nbsp;náhodném pořadí. Teploty a&nbsp;složení se odečítají z&nbsp;mřížky diagramu, odhad v&nbsp;rozumné toleranci se uzná. Každou úlohu zkontroluješ samostatně, na&nbsp;konci se zobrazí celkové vyhodnocení.</p>
+
+  <h2>Výběr diagramu</h2>
+  <div class="picks" id="picks"></div>
+
+  <section class="test" id="test" hidden>
+    <div class="test-top">
+      <div class="test-name" id="testName"></div>
+      <div class="pills" id="pills"></div>
+      <button class="btn small" id="btnNew" type="button">Nové zadání</button>
+    </div>
+    <div id="qBox"></div>
+    <div id="result"></div>
+  </section>
+</div></main>
+
+<script>
+/* ---------- navigace ---------- */
+const P='../../';
+const NAV=[['Domů','index.html'],['Vnitřní stavba kovů a TZ','vnitrni-stavba-kovu-a-tz/index.html?view=home'],['Koroze','koroze/index.html'],['Tváření','tvareni-za-tepla/index.html'],['Prášková metalurgie','praskova-metalurgie/index.html'],['Značení ocelí','znaceni-oceli/index.html'],['Odlévání','odlevani/index.html'],['Zpracování polymerů','zpracovani-polymeru/index.html'],['Svařování','svarovani/index.html'],['O projektu','o-projektu.html'],['Novinky','novinky.html']];
+const navList=document.getElementById('navList');
+const fillNav=list=>{navList.innerHTML='';list.forEach(([t,h])=>{const a=document.createElement('a');a.href=P+h;a.textContent=t;navList.appendChild(a);});};
+fillNav(NAV);
+try{fetch(P+'site-structure.json?v='+Date.now()).then(r=>r.json()).then(s=>{if(s&&s.nav)fillNav(s.nav.map(i=>[i.title,i.href]));}).catch(()=>{});}catch(e){}
+
+/* ---------- monotónní kubická interpolace (PCHIP) ---------- */
+function pchip(xs,ys){
+  const n=xs.length,h=[],d=[],m=new Array(n);
+  for(let k=0;k<n-1;k++){h[k]=xs[k+1]-xs[k];d[k]=(ys[k+1]-ys[k])/h[k];}
+  if(n===2){m[0]=m[1]=d[0];}
+  else{
+    for(let k=1;k<n-1;k++){
+      if(d[k-1]*d[k]<=0)m[k]=0;
+      else{const w1=2*h[k]+h[k-1],w2=h[k]+2*h[k-1];m[k]=(w1+w2)/(w1/d[k-1]+w2/d[k]);}
+    }
+    const edge=(h0,h1,d0,d1)=>{let v=((2*h0+h1)*d0-h0*d1)/(h0+h1);if(Math.sign(v)!==Math.sign(d0))v=0;else if(Math.sign(d0)!==Math.sign(d1)&&Math.abs(v)>Math.abs(3*d0))v=3*d0;return v;};
+    m[0]=edge(h[0],h[1],d[0],d[1]);
+    m[n-1]=edge(h[n-2],h[n-3],d[n-2],d[n-3]);
+  }
+  return x=>{
+    let k=0;while(k<n-2&&x>xs[k+1])k++;
+    const t=(x-xs[k])/h[k],t2=t*t,t3=t2*t;
+    return (2*t3-3*t2+1)*ys[k]+(t3-2*t2+t)*h[k]*m[k]+(-2*t3+3*t2)*ys[k+1]+(t3-t2)*h[k]*m[k+1];
+  };
+}
+function bisect(f,a,b,target){
+  let fa=f(a)-target;if(Math.abs(fa)<1e-9)return a;
+  for(let i=0;i<60;i++){const c=(a+b)/2,fc=f(c)-target;if(fa*fc<=0)b=c;else{a=c;fa=fc;}}
+  return (a+b)/2;
+}
+/* Úsek křivky: k='xT' (teplota jako funkce složení) nebo k='Tx' (složení jako funkce teploty) */
+function prepSeg(s){
+  const pts=s.p.slice();
+  if(s.k==='xT'){
+    pts.sort((a,b)=>a[0]-b[0]);
+    s.f=pchip(pts.map(p=>p[0]),pts.map(p=>p[1]));
+    s.x0=pts[0][0];s.x1=pts[pts.length-1][0];
+    const ts=pts.map(p=>p[1]);s.t0=Math.min(...ts);s.t1=Math.max(...ts);
+    s.Tat=x=>(x>=s.x0-1e-9&&x<=s.x1+1e-9)?s.f(x):null;
+    s.Xat=T=>(s.flat||T<s.t0-1e-9||T>s.t1+1e-9)?null:bisect(s.f,s.x0,s.x1,T);
+  }else{
+    pts.sort((a,b)=>a[1]-b[1]);
+    s.g=pchip(pts.map(p=>p[1]),pts.map(p=>p[0]));
+    s.t0=pts[0][1];s.t1=pts[pts.length-1][1];
+    const xs=pts.map(p=>p[0]);s.x0=Math.min(...xs);s.x1=Math.max(...xs);
+    s.Xat=T=>(T>=s.t0-1e-9&&T<=s.t1+1e-9)?s.g(T):null;
+    s.Tat=x=>(x<s.x0-1e-9||x>s.x1+1e-9)?null:bisect(s.g,s.t0,s.t1,x);
+  }
+  s.samples=[];
+  for(let i=0;i<=160;i++){
+    if(s.k==='xT'){const x=s.x0+(s.x1-s.x0)*i/160;s.samples.push([x,s.f(x)]);}
+    else{const T=s.t0+(s.t1-s.t0)*i/160;s.samples.push([s.g(T),T]);}
+  }
+}
+
+/* ---------- soustavy (data shodná s diagramy v testu) ---------- */
+const NAMES={cu:'Cu',med:'Cu',ag:'Ag',stribro:'Ag',ge:'Ge',germanium:'Ge',al:'Al',hlinik:'Al',aluminium:'Al',si:'Si',kremik:'Si',au:'Au',zlato:'Au'};
+const DIAGS=[
+{id:'cuag',sys:'Cu–Ag',sub:'Eutektikum, omezená rozpustnost obou složek',
+ x:[0,100],t:[200,1100],xMaj:20,xMin:10,tMaj:200,tMin:100,xLabel:'Složení (hm. % Ag)',L:'Cu',R:'Ag',u:'% Ag',tolT:25,tolC:5,
+ segs:[
+  {id:'liqL',k:'xT',r:'liquidus',p:[[0,1085],[20,1000],[40,915],[60,835],[71.9,779]]},
+  {id:'liqR',k:'xT',r:'liquidus',p:[[71.9,779],[80,830],[90,890],[100,962]]},
+  {id:'solA',k:'Tx',r:'solidus',p:[[0,1085],[3,1000],[6,880],[7.9,779]]},
+  {id:'solB',k:'xT',r:'solidus',p:[[91.2,779],[100,962]]},
+  {id:'eut',k:'xT',r:'eutektikum',flat:true,p:[[7.9,779],[91.2,779]]},
+  {id:'svA',k:'Tx',r:'solvus',p:[[7.9,779],[6.3,700],[4.6,600],[3.0,500],[1.5,400],[0.3,320],[0.1,200]]},
+  {id:'svB',k:'Tx',r:'solvus',p:[[91.2,779],[93.6,700],[95.8,600],[97.6,500],[99.0,400],[99.9,270],[99.95,200]]}],
+ vl:[7.9,71.9,91.2],
+ zones:[{s:['Tav'],m:[40,1000]},{s:['Tav','α'],m:[25,870]},{s:['Tav','β'],m:[88,835]},{s:['α'],m:[12,360],a:[1.2,420]},{s:['α','βII'],m:[16,470],a:[6.5,560]},{s:['α','E'],m:[40,600]},{s:['E'],m:[62,450],a:[71.9,520]},{s:['β','E'],m:[82,650]},{s:['β','αII'],m:[84,480],a:[93.5,560]},{s:['β'],m:[86,330],a:[99.3,420]}],
+ chips:['Tav','α','β','E','αII','βII'],bad:['γ','Cu','Ag'],
+ cool:[{t:'slitiny se\u00a070\u00a0%\u00a0Cu',c:30},{t:'slitiny s\u00a096\u00a0%\u00a0Cu',c:4},{t:'čisté mědi',c:0}],
+ qs:d=>[
+  {type:'click',role:'solidus',text:'Vyznač solidus.'},
+  {type:'num',text:'Jaká je teplota eutektické reakce?',f:[{l:'Teplota',u:'°C',v:d.TE,tol:d.tolT}]},
+  {type:'struct',text:'Doplň strukturní popis diagramu.'},
+  {type:'melt',text:'Jaké jsou teploty tavení čistých kovů? Ke\u00a0každé teplotě napiš i\u00a0kov (značku nebo název).',c:[{e:'Cu',T:d.Tpure(0)},{e:'Ag',T:d.Tpure(100)}]},
+  {type:'range',text:'V jakém rozmezí leží koncentrace podeutektických slitin?',a:7.9,b:71.9},
+  {type:'cool'},
+  {type:'multi',text:'Zapiš složení všech slitin, které začínají krystalizovat při teplotě 850\u00a0°C.',v:d.xsAt('liquidus',850)}]},
+{id:'agge',sys:'Ag–Ge',sub:'Eutektikum, rozpustnost jen na straně Ag',
+ x:[0,100],t:[0,1000],xMaj:20,xMin:10,tMaj:200,tMin:100,xLabel:'Složení (at. % Ge)',L:'Ag',R:'Ge',u:'at. % Ge',tolT:25,tolC:5,
+ segs:[
+  {id:'liqL',k:'xT',r:'liquidus',p:[[0,962],[5,895],[10,830],[17,745],[24.4,651]]},
+  {id:'liqR',k:'xT',r:'liquidus',p:[[24.4,651],[30,720],[40,780],[50,810],[60,830],[70,850],[80,875],[90,905],[100,938]]},
+  {id:'solA',k:'Tx',r:'solidus',p:[[0,962],[2,880],[5,770],[9.6,651]]},
+  {id:'eut',k:'xT',r:'eutektikum',flat:true,p:[[9.6,651],[100,651]]},
+  {id:'svA',k:'Tx',r:'solvus',p:[[9.6,651],[8.2,550],[6.5,450],[5,350],[3.4,250],[1.5,120],[0,0]]}],
+ vl:[9.6,24.4],
+ zones:[{s:['Tav'],m:[62,920]},{s:['Tav','α'],m:[13,735]},{s:['Tav','Ge'],m:[60,740]},{s:['α'],m:[14,180],a:[1.5,250]},{s:['α','GeII'],m:[14,330],a:[7.5,400]},{s:['α','E'],m:[17,520]},{s:['E'],m:[34,560],a:[24.4,500]},{s:['Ge','E'],m:[62,400]}],
+ chips:['Tav','α','Ge','E','GeII'],bad:['β','βII','Ag'],
+ cool:[{t:'slitiny se\u00a040\u00a0at.\u00a0%\u00a0Ge',c:40},{t:'slitiny s\u00a095\u00a0at.\u00a0%\u00a0Ag',c:5},{t:'čistého stříbra',c:0}],
+ qs:d=>[
+  {type:'click',role:'solvus',text:'Vyznač křivky změn rozpustnosti.'},
+  {type:'num',text:'Jaká je teplota eutektické reakce?',f:[{l:'Teplota',u:'°C',v:d.TE,tol:d.tolT}]},
+  {type:'struct',text:'Doplň strukturní popis diagramu.'},
+  {type:'num',text:'Při jaké nejnižší teplotě jsou všechny podeutektické slitiny zcela roztavené?',f:[{l:'Teplota',u:'°C',v:d.liqT(9.6),tol:d.tolT}]},
+  {type:'range',text:'V jakém rozmezí leží koncentrace podeutektických slitin?',a:9.6,b:24.4},
+  {type:'cool'},
+  {type:'multi',text:'Zapiš složení všech slitin, u\u00a0kterých končí krystalizace při teplotě 750\u00a0°C.',v:d.xsAt('solidus',750)}]},
+{id:'alsi',sys:'Al–Si',sub:'Eutektikum, siluminy',
+ x:[0,100],t:[300,1500],xMaj:20,xMin:10,tMaj:200,tMin:100,xLabel:'Složení (hm. % Si)',L:'Al',R:'Si',u:'% Si',tolT:30,tolC:5,
+ segs:[
+  {id:'liqL',k:'xT',r:'liquidus',p:[[0,660],[5,632],[10,595],[12.6,577]]},
+  {id:'liqR',k:'xT',r:'liquidus',p:[[12.6,577],[15,620],[20,697],[25,767],[30,830],[40,940],[50,1035],[60,1115],[70,1190],[80,1265],[90,1340],[100,1414]]},
+  {id:'solA',k:'Tx',r:'solidus',p:[[0,660],[0.527,640],[0.919,620],[1.272,600],[1.65,577]]},
+  {id:'eut',k:'xT',r:'eutektikum',flat:true,p:[[1.65,577],[100,577]]},
+  {id:'svA',k:'Tx',r:'solvus',p:[[1.65,577],[1.3,550],[0.8,500],[0.45,450],[0.25,400],[0.05,300]]}],
+ vl:[1.65,12.6],
+ zones:[{s:['Tav'],m:[55,1300]},{s:['Tav','α'],m:[16,760],a:[6,603]},{s:['Tav','Si'],m:[50,800]},{s:['α'],m:[18,350],a:[0.2,420]},{s:['α','SiII'],m:[18,440],a:[1.1,500]},{s:['α','E'],m:[7,530]},{s:['E'],m:[28,505],a:[12.6,450]},{s:['Si','E'],m:[60,440]}],
+ chips:['Tav','α','Si','E','SiII'],bad:['β','βII','Al'],
+ cool:[{t:'slitiny s\u00a095\u00a0%\u00a0Al',c:5},{t:'slitiny s\u00a050\u00a0%\u00a0Si',c:50},{t:'slitiny s\u00a080\u00a0%\u00a0Al',c:20}],
+ qs:d=>[
+  {type:'click',role:'liquidus',text:'Vyznač likvidus.'},
+  {type:'num',text:'Při jaké teplotě a\u00a0jaké koncentraci probíhá eutektická reakce?',f:[{l:'Teplota',u:'°C',v:d.TE,tol:d.tolT},{l:'Koncentrace',u:'% Si',v:12.6,tol:d.tolC}]},
+  {type:'struct',text:'Doplň strukturní popis diagramu.'},
+  {type:'melt',text:'Jaké jsou teploty tavení čistých složek? Ke\u00a0každé teplotě napiš i\u00a0složku (značku nebo název).',c:[{e:'Al',T:d.Tpure(0)},{e:'Si',T:d.Tpure(100)}]},
+  {type:'range',text:'V jakém rozmezí leží koncentrace nadeutektických slitin?',a:12.6,b:100},
+  {type:'cool'},
+  {type:'multi',text:'Zapiš složení všech slitin, které začínají krystalizovat při teplotě 1000\u00a0°C.',v:d.xsAt('liquidus',1000)}]},
+{id:'ausi',sys:'Au–Si',sub:'Eutektikum bez rozpustnosti v\u00a0tuhém stavu',
+ x:[0,100],t:[200,1500],xMaj:20,xMin:10,tMaj:200,tMin:100,xLabel:'Složení (hm. % Si)',L:'Au',R:'Si',u:'% Si',tolT:30,tolC:5,
+ segs:[
+  {id:'liqL',k:'Tx',r:'liquidus',p:[[0,1064],[0.74,980],[1.56,830],[2.2,620],[2.85,363]]},
+  {id:'liqR',k:'xT',r:'liquidus',p:[[2.85,363],[4,600],[5.8,800],[8.7,1000],[17.6,1200],[36.3,1330],[60,1385],[100,1414]]},
+  {id:'eut',k:'xT',r:'eutektikum',flat:true,p:[[0,363],[100,363]]}],
+ vl:[2.85],
+ zones:[{s:['Tav'],m:[40,1450]},{s:['Tav','Au'],m:[10,700],a:[1,700]},{s:['Tav','Si'],m:[45,850]},{s:['Au','E'],m:[12,240],a:[1.2,255]},{s:['E'],m:[22,310],a:[2.85,290]},{s:['Si','E'],m:[55,280]}],
+ chips:['Tav','Au','Si','E'],bad:['α','β','αII'],
+ cool:[{t:'slitiny se\u00a060\u00a0%\u00a0Si',c:60},{t:'slitiny s\u00a080\u00a0%\u00a0Au',c:20},{t:'čistého křemíku',c:100}],
+ qs:d=>[
+  {type:'click',role:'liquidus',text:'Vyznač likvidus.'},
+  {type:'num',text:'Jaká je teplota eutektické reakce?',f:[{l:'Teplota',u:'°C',v:d.TE,tol:d.tolT}]},
+  {type:'struct',text:'Doplň strukturní popis diagramu.'},
+  {type:'melt',text:'Jaké jsou teploty tavení čistých složek? Ke\u00a0každé teplotě napiš i\u00a0složku (značku nebo název).',c:[{e:'Au',T:d.Tpure(0)},{e:'Si',T:d.Tpure(100)}]},
+  {type:'range',text:'V jakém rozmezí leží koncentrace nadeutektických slitin?',a:2.85,b:100},
+  {type:'cool'},
+  {type:'multi',text:'Zapiš složení všech slitin, které začínají krystalizovat při teplotě 1300\u00a0°C.',v:d.xsAt('liquidus',1300)}]}
+];
+
+DIAGS.forEach(d=>{
+  d.segs.forEach(prepSeg);
+  const eut=d.segs.find(s=>s.flat);d.TE=eut.p[0][1];d.eut=eut;
+  d.liqT=x=>{for(const s of d.segs)if(s.r==='liquidus'){const T=s.Tat(x);if(T!==null)return T;}return null;};
+  d.Tpure=x=>d.liqT(x);
+  d.xsAt=(role,T)=>{const out=[];d.segs.forEach(s=>{if(s.r!==role||s.flat)return;const x=s.Xat(T);if(x!==null&&!out.some(o=>Math.abs(o-x)<0.3))out.push(x);});return out.sort((a,b)=>a-b);};
+  /* Průběh chladnutí: teploty průsečíků a pořadí úseků (S = strmý pokles, L = pozvolný pokles, F = prodleva) */
+  d.events=c=>{
+    const pure=c<=d.x[0]+0.25||c>=d.x[1]-0.25;
+    if(pure){const Tm=d.liqT(c<=d.x[0]+0.25?d.x[0]:d.x[1]);return {lines:[Tm],seq:['S','F','S'],sig:'pure'};}
+    const TL=d.liqT(c);let TS=null,Tsv=null;
+    d.segs.forEach(s=>{if(s.r==='solidus'&&!s.flat&&c>s.x0&&c<s.x1){const T=s.Tat(c);if(T!==null)TS=T;}});
+    d.segs.forEach(s=>{if(s.r==='solvus'&&c>s.x0&&c<s.x1){const T=s.Tat(c);if(T!==null&&T>d.t[0])Tsv=T;}});
+    if(TS!==null){
+      const lines=[TL,TS],seq=['S','L','S'];
+      if(Tsv!==null){lines.push(Tsv);seq.push('S');}
+      return {lines,seq,sig:'ss'+(Tsv!==null?'+sv':'')};
+    }
+    return {lines:[TL,d.TE],seq:['S','L','F','S'],sig:'eut'};
+  };
+});
+
+/* ---------- pomocné funkce ---------- */
+const $=id=>document.getElementById(id);
+const NS='http://www.w3.org/2000/svg';
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const num=s=>{if(s==null)return NaN;const t=String(s).replace(',', '.').replace(/[^0-9.\-]/g,'');return t===''?NaN:parseFloat(t);};
+const cz=v=>String(v).replace('.',',');
+/* Hodnoty přímo z dat diagramu se vypíšou přesně, odečtené (dopočtené) se zaokrouhlí. */
+const exact=v=>Math.abs(v*100-Math.round(v*100))<1e-6;
+const fT=v=>cz(exact(v)?Math.round(v*100)/100:Math.round(v/5)*5)+'\u00a0°C';
+const fC=(v,u)=>cz(exact(v)?Math.round(v*100)/100:Math.round(v*2)/2)+'\u00a0'+u.replace(' ','\u00a0');
+const norm=s=>String(s||'').trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+/* ---------- geometrie diagramu ---------- */
+const G={W:600,H:470,L:64,R:580,T:24,B:410};
+let D=null;
+const X=c=>G.L+(c-D.x[0])/(D.x[1]-D.x[0])*(G.R-G.L);
+const Y=T=>G.B-(T-D.t[0])/(D.t[1]-D.t[0])*(G.B-G.T);
+const pathOf=s=>s.samples.map((p,i)=>(i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)).join(' ');
+
+function axesSVG(){
+  let o='';
+  for(let c=D.x[0];c<=D.x[1]+1e-9;c+=D.xMin)o+=`<line x1="${X(c)}" y1="${G.T}" x2="${X(c)}" y2="${G.B}" stroke="rgba(150,180,210,${(c%D.xMaj===0)?0.16:0.08})"/>`;
+  for(let T=D.t[0];T<=D.t[1]+1e-9;T+=D.tMin)o+=`<line x1="${G.L}" y1="${Y(T)}" x2="${G.R}" y2="${Y(T)}" stroke="rgba(150,180,210,${(T%D.tMaj===0)?0.16:0.08})"/>`;
+  o+=`<rect x="${G.L}" y="${G.T}" width="${G.R-G.L}" height="${G.B-G.T}" fill="none" stroke="rgba(150,180,210,0.45)" stroke-width="1.3"/>`;
+  for(let c=D.x[0];c<=D.x[1]+1e-9;c+=D.xMaj)o+=`<text x="${X(c)}" y="${G.B+20}" text-anchor="middle" font-size="13" fill="#aebfcf">${c}</text>`;
+  for(let T=D.t[0];T<=D.t[1]+1e-9;T+=D.tMaj)o+=`<text x="${G.L-8}" y="${Y(T)+4.5}" text-anchor="end" font-size="13" fill="#aebfcf">${T}</text>`;
+  o+=`<text x="${(G.L+G.R)/2}" y="${G.B+42}" text-anchor="middle" font-size="14" fill="#eaf2fa">${D.xLabel}</text>`;
+  o+=`<text x="${G.L}" y="${G.B+42}" text-anchor="middle" font-size="14" fill="#8296a8">(${D.L})</text>`;
+  o+=`<text x="${G.R}" y="${G.B+42}" text-anchor="middle" font-size="14" fill="#8296a8">(${D.R})</text>`;
+  o+=`<text transform="translate(18 ${(G.T+G.B)/2}) rotate(-90)" text-anchor="middle" font-size="14" fill="#eaf2fa">Teplota (°C)</text>`;
+  return o;
+}
+
+/* ---------- stav testu ---------- */
+let S=null;
+function startTest(d){
+  D=d;
+  const qs=shuffle(d.qs(d)).map(q=>{
+    q=Object.assign({},q);
+    if(q.type==='cool'){q.preset=d.cool[Math.floor(Math.random()*d.cool.length)];}
+    return q;
+  });
+  S={qs,cur:0,a:qs.map(q=>({done:false,ok:false,sel:{},slots:{},zs:{},pieces:[],c:null,proj:null,vals:{},rows:q.type==='multi'?1:0}))};
+  $('test').hidden=false;
+  $('testName').textContent='Soustava '+d.sys;
+  $('result').innerHTML='';
+  document.querySelectorAll('.pick').forEach(b=>b.classList.toggle('on',b.dataset.id===d.id));
+  render();
+  $('test').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderPills(){
+  $('pills').innerHTML='';
+  S.qs.forEach((q,i)=>{
+    const b=document.createElement('button');b.type='button';b.className='pill'+(i===S.cur?' cur':'')+(S.a[i].done?(S.a[i].ok?' ok':' bad'):'');
+    b.textContent=i+1;b.onclick=()=>{S.cur=i;render();};$('pills').appendChild(b);
+  });
+}
+
+function render(){
+  renderPills();
+  const q=S.qs[S.cur],A=S.a[S.cur];
+  const box=$('qBox');box.innerHTML='';
+  const head=document.createElement('div');head.className='qhead';
+  let text=q.text,hint='';
+  if(q.type==='click')hint='Klikáním označ jednotlivé části křivek. Opětovné kliknutí označení zruší.';
+  if(q.type==='struct')hint='Oblasti diagramu jsou očíslované. Přetáhni označení struktur z\u00a0nabídky do řádku s\u00a0číslem oblasti — kde jsou v\u00a0oblasti dvě struktury, doplň obě. Tav = tavenina, E = eutektikum, index II = sekundární vyloučení z\u00a0tuhého roztoku. Některá označení do diagramu nepatří.';
+  if(q.type==='range')hint='Zadej v '+D.u.replace(' ',' ')+'.';
+  if(q.type==='multi')hint='Každou slitinu zapiš do samostatného pole, složení v\u00a0'+D.u.replace(' ',' ')+'. Počet slitin není předem daný.';
+  if(q.type==='cool'){text='Sestav křivku chladnutí '+q.preset.t+'.';hint='Nejdřív táhlem pod diagramem nastav složení slitiny a\u00a0klikni na „Promítnout“. Potom přetahuj úseky čar do diagramu teplota–čas a\u00a0skládej křivku shora dolů. Šikmý úsek vždy končí na nejbližší promítnuté teplotě.';}
+  head.innerHTML=`<div class="qnum">${S.cur+1}/${S.qs.length}</div><div><div class="qtext">${esc(text)}</div>${hint?`<div class="qhint">${esc(hint)}</div>`:''}</div>`;
+  box.appendChild(head);
+
+  const row=document.createElement('div');row.className='row';box.appendChild(row);
+  const left=document.createElement('div');left.className='rd';row.appendChild(left);
+  const right=document.createElement('div');right.className='ans';row.appendChild(right);
+
+  const svg=document.createElementNS(NS,'svg');
+  svg.setAttribute('viewBox',`0 0 ${G.W} ${G.H}`);svg.setAttribute('width',G.W);svg.setAttribute('height',G.H);svg.id='rd';
+  left.appendChild(svg);
+  drawRD(svg,q,A);
+
+  if(q.type==='click')ansClick(right,q,A);
+  else if(q.type==='num')ansNum(right,q,A);
+  else if(q.type==='struct')ansStruct(right,q,A);
+  else if(q.type==='melt')ansMelt(right,q,A);
+  else if(q.type==='range')ansRange(right,q,A);
+  else if(q.type==='multi')ansMulti(right,q,A);
+  else if(q.type==='cool')ansCool(left,right,q,A);
+  renderResult();
+}
+
+/* Solidus tvoří křivky solidu i eutektická přímka. */
+const reqSet=q=>new Set(D.segs.filter(s=>s.r===q.role||(q.role==='solidus'&&s.flat)).map(s=>s.id));
+
+/* ---------- vykreslení rovnovážného diagramu podle typu úlohy ---------- */
+function drawRD(svg,q,A){
+  let o=axesSVG();
+  const req=q.type==='click'?reqSet(q):null;
+  D.segs.forEach(s=>{
+    let col='var(--curve)',w=2.6,dash='';
+    if(q.type==='click'){
+      const on=!!A.sel[s.id];
+      if(on)col='var(--sel)',w=3.6;
+      if(A.done){
+        if(req.has(s.id)&&on)col='var(--ok)',w=3.6;
+        else if(req.has(s.id)&&!on)col='var(--ok)',w=3.2,dash=' stroke-dasharray="7 5"';
+        else if(on)col='var(--bad)',w=3.6;
+      }
+    }
+    o+=`<path d="${pathOf(s)}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linecap="round"${dash}/>`;
+  });
+  if(q.type==='click'&&!A.done){
+    o+=`<path id="hov" d="" fill="none" stroke="var(--sel)" stroke-width="7" stroke-linecap="round" opacity="0.35" pointer-events="none"/>`;
+    o+=`<rect id="hit" x="${G.L-8}" y="${G.T-8}" width="${G.R-G.L+16}" height="${G.B-G.T+16}" fill="transparent"/>`;
+  }
+  if(q.type==='struct'){
+    D.vl.forEach(c=>{o+=`<line x1="${X(c)}" y1="${Y(D.TE)}" x2="${X(c)}" y2="${G.B}" stroke="var(--curve)" stroke-width="1.6" stroke-dasharray="6 4"/>`;});
+    D.zones.forEach((z,i)=>{
+      const cx=X(z.m[0]),cy=Y(z.m[1]);
+      let col='var(--acc)';
+      if(A.done)col=zoneOk(z,A.zs[i])?'var(--ok)':'var(--bad)';
+      if(z.a)o+=`<line x1="${X(z.a[0])}" y1="${Y(z.a[1])}" x2="${cx}" y2="${cy}" stroke="${col}" stroke-width="1.3"/><circle cx="${X(z.a[0])}" cy="${Y(z.a[1])}" r="3" fill="${col}"/>`;
+      o+=`<circle cx="${cx}" cy="${cy}" r="10" fill="#0d121a" stroke="${col}" stroke-width="1.8"/><text x="${cx}" y="${cy+4.5}" text-anchor="middle" font-size="13" font-weight="600" fill="#eaf2fa">${i+1}</text>`;
+    });
+  }
+  if(q.type==='cool'){
+    const c=A.c==null?(D.x[0]+D.x[1])/2:A.c;
+    o+=`<line x1="${X(c)}" y1="${G.T}" x2="${X(c)}" y2="${G.B}" stroke="var(--sel)" stroke-width="1.6" stroke-dasharray="5 4"/>`;
+    if(A.proj){
+      A.proj.lines.forEach(T=>{o+=`<line x1="${X(A.proj.c)}" y1="${Y(T)}" x2="${G.W}" y2="${Y(T)}" stroke="var(--sel)" stroke-width="1.2" stroke-dasharray="3 4" opacity="0.8"/><circle cx="${X(A.proj.c)}" cy="${Y(T)}" r="4" fill="var(--sel)"/>`;});
+    }
+  }
+  svg.innerHTML=o;
+  if(q.type==='click'&&!A.done){
+    /* Vybere se vždy jen nejbližší křivka k ukazateli (do 12 px), takže se části u spojů navzájem nepřekrývají. */
+    const hit=svg.querySelector('#hit'),hov=svg.querySelector('#hov');
+    const nearest=ev=>{
+      const pt=svg.createSVGPoint();pt.x=ev.clientX;pt.y=ev.clientY;const m=pt.matrixTransform(svg.getScreenCTM().inverse());
+      let best=null,bd=12;
+      D.segs.forEach(s=>s.samples.forEach(p=>{const d=Math.hypot(X(p[0])-m.x,Y(p[1])-m.y);if(d<bd){bd=d;best=s;}}));
+      return best;
+    };
+    hit.addEventListener('mousemove',ev=>{const s=nearest(ev);hov.setAttribute('d',s?pathOf(s):'');hit.style.cursor=s?'pointer':'default';});
+    hit.addEventListener('mouseleave',()=>hov.setAttribute('d',''));
+    hit.addEventListener('click',ev=>{const s=nearest(ev);if(!s)return;A.sel[s.id]=!A.sel[s.id];drawRD(svg,q,A);const s2=svg.querySelector('#hov');if(s2)s2.setAttribute('d',pathOf(s));});
+  }
+}
+
+/* ---------- společné prvky odpovědí ---------- */
+function checkBar(right,q,A,checkFn){
+  const fb=document.createElement('div');right.appendChild(fb);
+  const btns=document.createElement('div');btns.className='btns';right.appendChild(btns);
+  const bc=document.createElement('button');bc.type='button';bc.className='btn main';bc.textContent='Zkontrolovat';
+  const bn=document.createElement('button');bn.type='button';bn.className='btn';bn.textContent=S.cur<S.qs.length-1?'Další úloha →':'Na první úlohu';
+  bn.onclick=()=>{S.cur=nextIndex();render();};
+  bc.disabled=A.done;
+  bc.onclick=()=>{const r=checkFn();A.done=true;A.ok=r.ok;A.msg=r.msg;render();};
+  btns.appendChild(bc);btns.appendChild(bn);
+  if(A.done){fb.className='fb '+(A.ok?'ok':'bad');fb.innerHTML=`<b>${A.ok?'Správně.':'Špatně.'}</b> ${A.msg}`;}
+}
+function nextIndex(){
+  for(let k=1;k<=S.qs.length;k++){const i=(S.cur+k)%S.qs.length;if(!S.a[i].done)return i;}
+  return (S.cur+1)%S.qs.length;
+}
+function field(right,label,unit,key,A,cls){
+  const d=document.createElement('div');d.className='fld';
+  d.innerHTML=`<label>${esc(label)}</label><input class="inp ${cls||''}" type="text" inputmode="decimal" autocomplete="off"><span>${esc(unit||'')}</span>`;
+  const inp=d.querySelector('input');inp.value=A.vals[key]||'';inp.disabled=A.done;
+  inp.addEventListener('input',()=>{A.vals[key]=inp.value;});
+  right.appendChild(d);return inp;
+}
+
+/* 1 — vyznačení křivek */
+function ansClick(right,q,A){
+  const lg=document.createElement('div');lg.className='legend';
+  lg.innerHTML=A.done?'<span><i style="background:var(--ok)"></i>správně označeno</span><span><i style="background:repeating-linear-gradient(90deg,var(--ok) 0 7px,transparent 7px 12px)"></i>chybí</span><span><i style="background:var(--bad)"></i>navíc</span>':'<span><i style="background:var(--sel)"></i>označeno</span>';
+  right.appendChild(lg);
+  checkBar(right,q,A,()=>{
+    const req=reqSet(q);
+    const sel=Object.keys(A.sel).filter(k=>A.sel[k]);
+    const miss=[...req].filter(id=>!A.sel[id]).length,extra=sel.filter(id=>!req.has(id)).length;
+    const ok=!miss&&!extra;
+    const cnt=n=>n+'\u00a0'+(n===1?'část':n<5?'části':'částí');
+    const RN={liquidus:'likvidu',solidus:'solidu',solvus:'křivce změny rozpustnosti',eutektikum:'eutektické přímce'};
+    const exRoles=[...new Set(sel.filter(id=>!req.has(id)).map(id=>RN[D.segs.find(s=>s.id===id).r]))];
+    let msg='Označené části tvoří celou křivku.';
+    if(!ok){
+      const parts=[];
+      if(miss)parts.push(`chybí ${cnt(miss)} (v\u00a0diagramu zeleně přerušovaně)`);
+      if(extra)parts.push(`navíc ${extra===1?'je označena':'jsou označeny'} ${cnt(extra)}, ${extra===1?'která patří':'které patří'} k\u00a0${exRoles.join(' a\u00a0')} (červeně)`);
+      msg=parts.join('; ').replace(/^./,c=>c.toUpperCase())+'.';
+    }
+    if(q.role==='solidus'&&!A.sel.eut)msg+=' Solidus tvoří i\u00a0eutektická přímka — pod ní je slitina zcela tuhá.';
+    if(q.role==='solvus'&&req.size===1)msg+=' Křivka změny rozpustnosti je jen jedna — druhá složka v\u00a0tuhém stavu nerozpouští nic.';
+    return {ok,msg};
+  });
+}
+
+/* 2 — číselná odpověď */
+function ansNum(right,q,A){
+  const inps=q.f.map((f,i)=>field(right,f.l,f.u,'n'+i,A));
+  checkBar(right,q,A,()=>{
+    let ok=true;const parts=[];
+    q.f.forEach((f,i)=>{const v=num(A.vals['n'+i]);const g=Math.abs(v-f.v)<=f.tol;ok=ok&&g;parts.push(f.l+' ≈ '+(f.u==='°C'?fT(f.v):fC(f.v,f.u)));});
+    return {ok,msg:'Správná hodnota: '+parts.join(', ')+'. Tolerance odečtu je ±'+q.f.map(f=>f.u==='°C'?f.tol+' °C':f.tol+' %').join(' a ±')+'.'};
+  });
+  if(A.done)inps.forEach((inp,i)=>{const f=q.f[i];inp.classList.add(Math.abs(num(A.vals['n'+i])-f.v)<=f.tol?'ok':'bad');});
+}
+
+/* 3 — strukturní popis (tažení) */
+let pickedChip=null;
+const labHTML=t=>t.endsWith('II')?esc(t.slice(0,-2))+'<sub>II</sub>':esc(t);
+const zoneOk=(z,v)=>{v=(v||[]).filter(Boolean);return v.length===z.s.length&&z.s.every(x=>v.includes(x));};
+function ansStruct(right,q,A){
+  if(!A.pool)A.pool=shuffle(D.chips.concat(D.bad));
+  const l=document.createElement('div');l.className='lbl';l.textContent='Nabídka struktur';right.appendChild(l);
+  const pool=document.createElement('div');pool.className='pool';right.appendChild(pool);
+  A.pool.forEach(lbl=>{
+    const c=document.createElement('div');c.className='chip'+(pickedChip===lbl?' sel':'');c.innerHTML=labHTML(lbl);
+    if(!A.done)makeDraggable(c,lbl,(target)=>{
+      const g=target&&target.closest('[data-zs]');
+      if(g){const [zi,k]=g.dataset.zs.split('-').map(Number);(A.zs[zi]=A.zs[zi]||[])[k]=lbl;pickedChip=null;render();return true;}
+      return false;
+    },()=>{pickedChip=pickedChip===lbl?null:lbl;render();});
+    else c.style.opacity='0.5';
+    pool.appendChild(c);
+  });
+  const tbl=document.createElement('div');tbl.className='zones';right.appendChild(tbl);
+  D.zones.forEach((z,i)=>{
+    const r=document.createElement('div');r.className='zrow';
+    const v=A.zs[i]||[];
+    const st=A.done?(zoneOk(z,v)?' ok':' bad'):'';
+    let h=`<span class="znum${st}">${i+1}</span>`;
+    z.s.forEach((_,k)=>{h+=(k?'<span class="zplus">+</span>':'')+`<span class="zslot${v[k]?' full':''}" data-zs="${i}-${k}">${v[k]?labHTML(v[k]):''}</span>`;});
+    if(A.done&&!zoneOk(z,v))h+=`<span class="zcor">${z.s.map(labHTML).join(' + ')}</span>`;
+    r.innerHTML=h;tbl.appendChild(r);
+  });
+  if(!A.done)tbl.querySelectorAll('[data-zs]').forEach(e=>e.addEventListener('click',()=>{
+    const [zi,k]=e.dataset.zs.split('-').map(Number);A.zs[zi]=A.zs[zi]||[];
+    if(pickedChip){A.zs[zi][k]=pickedChip;pickedChip=null;}else A.zs[zi][k]=null;render();
+  }));
+  const n=document.createElement('div');n.className='qhint';n.textContent='Kliknutím na vyplněné políčko ho vyprázdníš. Označení lze použít opakovaně.';right.appendChild(n);
+  checkBar(right,q,A,()=>{
+    const wrong=D.zones.filter((z,i)=>!zoneOk(z,A.zs[i])).length;
+    return {ok:!wrong,msg:wrong?`Chybně ${wrong===1?'je popsána':'jsou popsány'} ${wrong} z ${D.zones.length} oblastí. Správný popis je u nich vypsán zeleně.`:'Všechny oblasti jsou popsané správně.'};
+  });
+}
+
+/* 4 — teploty tavení čistých složek */
+function ansMelt(right,q,A){
+  const rows=[];
+  q.c.forEach((_,i)=>{
+    const d=document.createElement('div');d.className='fld';
+    d.innerHTML=`<label>${i+1}. složka</label><input class="inp wide" type="text" autocomplete="off" placeholder="značka nebo název"><input class="inp" type="text" inputmode="decimal" autocomplete="off"><span>°C</span>`;
+    const [e,t]=d.querySelectorAll('input');e.value=A.vals['e'+i]||'';t.value=A.vals['t'+i]||'';e.disabled=t.disabled=A.done;
+    e.addEventListener('input',()=>{A.vals['e'+i]=e.value;});t.addEventListener('input',()=>{A.vals['t'+i]=t.value;});
+    right.appendChild(d);rows.push([e,t]);
+  });
+  checkBar(right,q,A,()=>{
+    const left=q.c.slice();let good=0;
+    q.c.forEach((_,i)=>{
+      const el=NAMES[norm(A.vals['e'+i])],T=num(A.vals['t'+i]);
+      const k=left.findIndex(c=>c.e===el&&Math.abs(T-c.T)<=D.tolT);
+      if(k>=0){left.splice(k,1);good++;}
+    });
+    return {ok:good===q.c.length,msg:'Správně: '+q.c.map(c=>c.e+' ≈ '+fT(c.T)).join(', ')+'. Tolerance teploty je ±'+D.tolT+' °C.'};
+  });
+}
+
+/* 5 — rozmezí koncentrací */
+function ansRange(right,q,A){
+  const a=field(right,'od',D.u,'a',A),b=field(right,'do',D.u,'b',A);
+  checkBar(right,q,A,()=>{
+    const va=num(A.vals.a),vb=num(A.vals.b);
+    const lo=Math.min(va,vb),hi=Math.max(va,vb);
+    const ok=Math.abs(lo-q.a)<=D.tolC&&Math.abs(hi-q.b)<=D.tolC;
+    const hiTxt=q.b>=D.x[1]?'téměř 100 '+D.u.replace(' ',' '):fC(q.b,D.u);
+    let msg=`Správně: od ${fC(q.a,D.u)} do ${hiTxt}. Tolerance odečtu je ±${D.tolC} %.`;
+    if(q.a>D.x[0]&&q.b<D.x[1])msg+=` Slitiny pod ${fC(q.a,D.u)} eutektikum neobsahují — tuhnou jako tuhý roztok, proto mezi podeutektické nepatří.`;
+    return {ok,msg};
+  });
+}
+
+/* 7 — více slitin */
+function ansMulti(right,q,A){
+  for(let i=0;i<A.rows;i++)field(right,(i+1)+'. slitina',D.u,'m'+i,A);
+  if(!A.done){
+    const b=document.createElement('div');b.className='btns';
+    const add=document.createElement('button');add.type='button';add.className='btn small';add.textContent='+ další slitina';
+    add.onclick=()=>{A.rows++;render();};
+    const rem=document.createElement('button');rem.type='button';rem.className='btn small';rem.textContent='− odebrat poslední';rem.disabled=A.rows<2;
+    rem.onclick=()=>{delete A.vals['m'+(A.rows-1)];A.rows--;render();};
+    b.appendChild(add);b.appendChild(rem);right.appendChild(b);
+  }
+  checkBar(right,q,A,()=>{
+    const vals=[];for(let i=0;i<A.rows;i++){const v=num(A.vals['m'+i]);if(!isNaN(v))vals.push(v);}
+    const left=q.v.slice();let good=0;
+    vals.forEach(v=>{const k=left.findIndex(e=>Math.abs(e-v)<=D.tolC);if(k>=0){left.splice(k,1);good++;}});
+    const ok=good===q.v.length&&vals.length===q.v.length;
+    const n=q.v.length;
+    return {ok,msg:`${n===1?'Podmínce vyhovuje jediná slitina':'Podmínce vyhovují '+(['','','dvě','tři','čtyři'][n]||n)+' slitiny'}: ${q.v.map(v=>fC(v,D.u)).join(' a\u00a0')}. Tolerance odečtu je ±${D.tolC} %.`};
+  });
+}
+
+/* 6 — křivka chladnutí */
+const TT={W:420,L:24,R:404};
+const PIECE_SVG={
+  S:'<svg width="40" height="32" viewBox="0 0 40 32"><path d="M10 3 L30 29" stroke="#eaf2fa" stroke-width="3" stroke-linecap="round"/></svg>',
+  L:'<svg width="40" height="32" viewBox="0 0 40 32"><path d="M3 9 L37 23" stroke="#eaf2fa" stroke-width="3" stroke-linecap="round"/></svg>',
+  F:'<svg width="40" height="32" viewBox="0 0 40 32"><path d="M4 16 L36 16" stroke="#eaf2fa" stroke-width="3" stroke-linecap="round"/></svg>'
+};
+function ansCool(left,right,q,A){
+  if(A.c==null)A.c=(D.x[0]+D.x[1])/2;
+  const sl=document.createElement('input');sl.type='range';sl.className='slider';sl.min=D.x[0];sl.max=D.x[1];sl.step=0.5;sl.value=A.c;sl.disabled=A.done;
+  sl.setAttribute('aria-label','Složení slitiny');
+  sl.addEventListener('input',()=>{A.c=+sl.value;if(A.proj){A.proj=null;A.pieces=[];render();}else drawRD($('rd'),q,A);});
+  left.appendChild(sl);
+  const pb=document.createElement('div');pb.className='btns';pb.style.marginLeft='64px';
+  const bp=document.createElement('button');bp.type='button';bp.className='btn small';bp.textContent='Promítnout';bp.disabled=A.done;
+  bp.onclick=()=>{const ev=D.events(A.c);A.proj={c:A.c,lines:ev.lines.slice().sort((a,b)=>b-a),ev};A.pieces=[];render();};
+  pb.appendChild(bp);left.appendChild(pb);
+
+  const svg=document.createElementNS(NS,'svg');
+  svg.setAttribute('viewBox',`0 0 ${TT.W} ${G.H}`);svg.setAttribute('width',TT.W);svg.setAttribute('height',G.H);svg.id='tt';
+  right.appendChild(svg);
+  drawTT(svg,A);
+
+  const l=document.createElement('div');l.className='lbl';l.textContent='Úseky křivky';right.appendChild(l);
+  const pool=document.createElement('div');pool.className='pool';pool.style.width=(TT.W-28)+'px';right.appendChild(pool);
+  ['S','L','F'].forEach(k=>{
+    const p=document.createElement('div');p.className='piece';p.innerHTML=PIECE_SVG[k];
+    if(!A.done&&A.proj)makeDraggable(p,k,(target)=>{if(target&&target.closest('#tt')){addPiece(A,k);return true;}return false;},null);
+    else p.style.opacity=A.done?'0.4':'0.4';
+    pool.appendChild(p);
+  });
+  if(!A.done){
+    const b=document.createElement('div');b.className='btns';
+    const u=document.createElement('button');u.type='button';u.className='btn small';u.textContent='Vrátit poslední úsek';u.disabled=!A.pieces.length;
+    u.onclick=()=>{A.pieces.pop();render();};
+    const c=document.createElement('button');c.type='button';c.className='btn small';c.textContent='Smazat křivku';c.disabled=!A.pieces.length;
+    c.onclick=()=>{A.pieces=[];render();};
+    b.appendChild(u);b.appendChild(c);right.appendChild(b);
+  }
+  if(!A.proj&&!A.done){const n=document.createElement('div');n.className='qhint';n.textContent='Úseky se odemknou po promítnutí složení.';right.appendChild(n);}
+  if(A.note){const n=document.createElement('div');n.className='qhint';n.style.color='var(--sel)';n.textContent=A.note;right.appendChild(n);A.note=null;}
+
+  checkBar(right,q,A,()=>{
+    const tgt=D.events(q.preset.c);
+    const cOk=A.proj&&Math.abs(A.proj.c-q.preset.c)<=D.tolC&&A.proj.ev.sig===tgt.sig;
+    const sOk=A.proj&&A.pieces.join('')===A.proj.ev.seq.join('');
+    const names={S:'strmý pokles',L:'pozvolný pokles',F:'prodleva'};
+    let msg='';
+    if(!A.proj)msg='Složení nebylo promítnuto. ';
+    else if(!cOk)msg=`Nastavené složení neodpovídá zadané slitině (${fC(q.preset.c,D.u)} na ose diagramu). `;
+    msg+='Správný sled úseků: '+tgt.seq.map(k=>names[k]).join(' → ')+'.';
+    if(tgt.sig==='pure')msg+=' Čistá složka krystalizuje při jediné teplotě, proto je na křivce prodleva.';
+    else if(tgt.sig==='eut')msg+=' Mezi likvidem a\u00a0eutektickou teplotou krystalizují primární krystaly a\u00a0uvolněné krystalizační teplo pokles zpomalí. Zbylá tavenina ztuhne jako eutektikum při stálé teplotě.';
+    else msg+=' Slitina tuhne v\u00a0intervalu mezi likvidem a\u00a0solidem jako tuhý roztok, eutektikum nevzniká.'+(tgt.sig.indexOf('sv')>=0?' Pod křivkou změny rozpustnosti se z\u00a0tuhého roztoku vylučuje druhá fáze.':'');
+    return {ok:!!(cOk&&sOk),msg};
+  });
+  if(A.done){
+    const tgt=D.events(q.preset.c);
+    const n=document.createElement('div');n.className='legend';n.innerHTML='<span><i style="background:var(--sel)"></i>tvoje křivka</span><span><i style="background:var(--ok)"></i>správná křivka</span>';
+    right.insertBefore(n,right.querySelector('.fb'));
+    drawTT(svg,A,tgt);
+  }
+}
+function addPiece(A,k){
+  const pts=curvePts(A.pieces.concat([k]),A.proj.lines);
+  if(!pts){A.note='Křivka už je na spodním okraji diagramu, další šikmý úsek nemá kam pokračovat.';render();return;}
+  A.pieces.push(k);render();
+}
+/* body křivky v souřadnicích (čas v pixelech, teplota) */
+function curvePts(pieces,lines){
+  let T=D.t[1],t=0;const pts=[[0,T]];
+  for(const k of pieces){
+    if(k==='F'){t+=46;pts.push([t,T]);continue;}
+    if(T<=D.t[0]+0.5)return null;
+    const nxt=lines.find(L=>L<T-0.5);const T2=nxt==null?D.t[0]:nxt;
+    const dy=Y(T2)-Y(T);t+=k==='S'?dy*0.32:dy*1.5;T=T2;pts.push([t,T]);
+  }
+  return pts;
+}
+function drawTT(svg,A,tgt){
+  let o=`<rect x="${TT.L}" y="${G.T}" width="${TT.R-TT.L}" height="${G.B-G.T}" fill="none" stroke="rgba(150,180,210,0.45)" stroke-width="1.3"/>`;
+  o+=`<text x="${(TT.L+TT.R)/2}" y="${G.B+22}" text-anchor="middle" font-size="14" fill="#eaf2fa">čas →</text>`;
+  o+=`<text transform="translate(14 ${(G.T+G.B)/2}) rotate(-90)" text-anchor="middle" font-size="14" fill="#eaf2fa">teplota</text>`;
+  if(A.proj)A.proj.lines.forEach(T=>{o+=`<line x1="0" y1="${Y(T)}" x2="${TT.R}" y2="${Y(T)}" stroke="var(--sel)" stroke-width="1.2" stroke-dasharray="3 4" opacity="0.8"/>`;});
+  const poly=(pieces,lines,col,w,dash)=>{
+    const pts=curvePts(pieces,lines);if(!pts||pts.length<2)return '';
+    const tmax=Math.max(pts[pts.length-1][0],1),sc=Math.min(1,(TT.R-TT.L-16)/tmax);
+    return `<polyline points="${pts.map(p=>(TT.L+8+p[0]*sc).toFixed(1)+','+Y(p[1]).toFixed(1)).join(' ')}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"${dash||''}/>`;
+  };
+  if(tgt){
+    const tl=tgt.lines.slice().sort((a,b)=>b-a);
+    o+=poly(tgt.seq,tl,'var(--ok)',3,' stroke-dasharray="7 5"');
+  }
+  if(A.proj)o+=poly(A.pieces,A.proj.lines,'var(--sel)',3.4);
+  if(A.proj&&!A.pieces.length&&!A.done)o+=`<text x="${(TT.L+TT.R)/2}" y="${(G.T+G.B)/2}" text-anchor="middle" font-size="14" fill="#8296a8">Sem přetahuj úseky křivky</text>`;
+  svg.innerHTML=o;
+}
+
+/* ---------- přetahování (myš i dotyk) a výběr kliknutím ---------- */
+function makeDraggable(el,payload,onDrop,onClick){
+  el.addEventListener('pointerdown',e=>{
+    e.preventDefault();
+    const sx=e.clientX,sy=e.clientY;let ghost=null,moved=false;
+    const move=ev=>{
+      if(!moved&&Math.hypot(ev.clientX-sx,ev.clientY-sy)>4){moved=true;ghost=el.cloneNode(true);ghost.classList.add('ghost');document.body.appendChild(ghost);}
+      if(ghost){ghost.style.left=(ev.clientX-ghost.offsetWidth/2)+'px';ghost.style.top=(ev.clientY-ghost.offsetHeight/2)+'px';}
+    };
+    const up=ev=>{
+      document.removeEventListener('pointermove',move);document.removeEventListener('pointerup',up);
+      if(ghost){ghost.remove();const t=document.elementFromPoint(ev.clientX,ev.clientY);onDrop(t);}
+      else if(onClick)onClick();
+    };
+    document.addEventListener('pointermove',move);document.addEventListener('pointerup',up);
+  });
+}
+
+/* ---------- vyhodnocení ---------- */
+const TYPE_NAME={click:'Vyznačení křivky',num:'Odečet hodnoty',struct:'Strukturní popis',melt:'Teploty tavení',range:'Rozmezí koncentrací',cool:'Křivka chladnutí',multi:'Slitiny při dané teplotě'};
+function renderResult(){
+  const r=$('result');
+  if(!S.a.every(a=>a.done)){r.innerHTML='';return;}
+  const ok=S.a.filter(a=>a.ok).length;
+  let h=`<div class="result"><div class="result-t">Vyhodnocení: ${ok} z\u00a0${S.qs.length} úloh správně</div><table>`;
+  S.qs.forEach((q,i)=>{h+=`<tr><td>${i+1}</td><td class="s" style="color:${S.a[i].ok?'var(--ok)':'var(--bad)'}">${S.a[i].ok?'správně':'špatně'}</td><td>${TYPE_NAME[q.type]} — ${S.a[i].msg}</td></tr>`;});
+  h+='</table><div class="btns" style="margin-top:16px"><button type="button" class="btn main" id="btnAgain">Nové zadání se stejným diagramem</button></div></div>';
+  r.innerHTML=h;
+  $('btnAgain').onclick=()=>startTest(D);
+}
+
+/* ---------- výběr diagramu ---------- */
+DIAGS.forEach(d=>{
+  const b=document.createElement('button');b.type='button';b.className='pick';b.dataset.id=d.id;
+  b.innerHTML=`<div class="pick-t">${d.sys}</div><div class="pick-s">${d.sub}</div>`;
+  b.onclick=()=>startTest(d);$('picks').appendChild(b);
+});
+(()=>{const b=document.createElement('button');b.type='button';b.className='pick';
+  b.innerHTML='<div class="pick-t">Náhodně</div><div class="pick-s">Diagram vybere stránka</div>';
+  b.onclick=()=>startTest(DIAGS[Math.floor(Math.random()*DIAGS.length)]);$('picks').appendChild(b);})();
+$('btnNew').onclick=()=>startTest(D);
+</script>
+<!-- stt-novinka:start -->
+<style>
+.stt-novinka{display:inline-block;margin-left:.5em;padding:.15em .55em;
+border-radius:999px;font-size:.62em;font-weight:700;letter-spacing:.04em;
+text-transform:uppercase;vertical-align:middle;background:#e8590c;color:#fff;
+font-family:inherit;line-height:1.6}
+</style>
+<script>
+(function(){
+  var d = document.body && document.body.dataset.firstSeen;
+  if (!d) return;
+  var seen = new Date(d + "T00:00:00");
+  if (isNaN(seen)) return;
+  if (Date.now() - seen.getTime() >= 30 * 864e5) return;
+  var run = function(){
+    var h = document.querySelector("h1");
+    if (!h || h.querySelector(".stt-novinka")) return;
+    var s = document.createElement("span");
+    s.className = "stt-novinka";
+    s.textContent = "Novinka";
+    h.appendChild(s);
+  };
+  if (document.readyState === "loading")
+    document.addEventListener("DOMContentLoaded", run);
+  else run();
+})();
+</script>
+<!-- stt-novinka:end -->
+</body>
+</html>
